@@ -26,6 +26,8 @@ Esta app está de tu parte. La hizo un excocinero que sabe lo que es doblar turn
 
 🚧 En desarrollo (v1). Las decisiones del proyecto están en [docs/ADR.md](docs/ADR.md).
 
+Para levantar el proyecto en local: [docs/dev-setup.md](docs/dev-setup.md).
+
 ## Stack
 
 - **Backend:** Java / Spring Boot

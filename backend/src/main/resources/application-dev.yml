@@ -1,0 +1,6 @@
+# Local development: PostgreSQL 16 from the docker-compose.yml at the repo root.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tedeben
+    username: tedeben
+    password: tedeben
