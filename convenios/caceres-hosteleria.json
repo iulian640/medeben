@@ -1,0 +1,299 @@
+{
+  "$comment": "Convenio Colectivo provincial de Hostelería de Cáceres 2021-2025. Los IMPORTES vigentes son las TABLAS SALARIALES DEFINITIVAS DE 2025, transcritas VISUALMENTE de la imagen del PDF oficial del DOE nº59 (26-03-2026), que publica el Acta de la Comisión Negociadora de 20-02-2026 (revisión salarial 2025 del +0,9% por IPC, retroactiva a 01-01-2025). El ARTICULADO (condiciones no salariales) procede del texto original del convenio publicado en DOE nº33 (17-02-2022). A julio de 2026 el convenio está denunciado (venció el 31-12-2025) pero SIGUE VIGENTE por ultraactividad (Art. 4) hasta nuevo acuerdo; las tablas definitivas de 2025 son la referencia salarial actual (no hay tabla de 2026). PARTICULARIDADES de Cáceres frente a Cádiz: (1) el salario base es ÚNICO por grupo profesional (1/2/3), sin diferenciar categoría de establecimiento (esa diferenciación se eliminó a 31-12-2023 por adaptación al ALEH); (2) el complemento por IT es del 100% desde el PRIMER día para TODAS las contingencias (dato oro, muy generoso); (3) la nocturnidad general es un recargo del 50% (más alto que en muchos convenios); (4) régimen disciplinario y periodo de prueba NO se regulan aquí: se remiten al ALEH estatal.",
+  "id": "caceres-hosteleria",
+  "nombre": "Convenio provincial de Hostelería de Cáceres 2021-2025 (tablas definitivas 2025 vigentes por ultraactividad)",
+  "codigoRegcon": "10000155011982",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Extremadura", "provincias": ["Cáceres"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "DOE (Diario Oficial de Extremadura)",
+    "numero": 59,
+    "fecha": "2026-03-26",
+    "documento": "Resolución de 17-03-2026 de la Dirección General de Trabajo, que publica el Acta de la Comisión Negociadora de 20-02-2026 (tablas salariales DEFINITIVAS de la anualidad 2025). Código convenio 10000155011982. Anuncio 2026060635. El ARTICULADO base procede del DOE nº33 de 17-02-2022 (Resolución de 02-02-2022, anuncio 2022060412), que publicó el texto del convenio 2021-2025.",
+    "url": "https://doe.juntaex.es/pdfs/doe/2026/590o/26060635.pdf",
+    "urlTextoArticulado": "https://doe.juntaex.es/pdfs/doe/2022/330o/22060412.pdf"
+  },
+  "vigencia": { "desde": "2021-01-01", "hasta": "2025-12-31", "nota": "Art. 4: vigencia 01-01-2021 a 31-12-2025, quedando automáticamente denunciado al vencer sin necesidad de preaviso. ULTRAACTIVIDAD expresa: 'El presente convenio mantendrá su vigencia hasta la consecución de un nuevo acuerdo'. A julio-2026 sigue aplicándose íntegro con las tablas definitivas de 2025." },
+  "partesFirmantes": { "patronal": "Federación Empresarial Cacereña (FEC) y Federación Empresarial Placentina (FEP)", "sindicatos": ["UGT", "CCOO", "CSIF"] },
+
+  "jornadaAnual": {
+    "horas": 1786,
+    "horasNota": "Exactamente 1.786 horas y 27 minutos al año (Art. 24).",
+    "semanal": 40,
+    "descansoEntreJornadasHoras": 12,
+    "nota": "Art. 24: máximo 40 h/semana de trabajo efectivo de promedio en cómputo anual (= 1.786 h 27 min/año). Máximo 9 h diarias de trabajo efectivo salvo acuerdo. Entre final de jornada e inicio de la siguiente, mínimo 12 horas. Distribución irregular posible por acuerdo empresa-representantes. Descanso en jornada continua >6 h: 15 min (computa como trabajo efectivo). Descanso semanal: 2 días, de los cuales 1,5 ininterrumpidos; el medio día restante a convenir o se abona. Menores de 18: máx 8 h/día."
+  },
+
+  "pagasExtraordinarias": {
+    "total": 15,
+    "$comment": "Art. 11. 12 mensualidades + 3 pagas extra = 15 pagas.",
+    "gratificaciones": {
+      "numero": 2,
+      "cuales": "'Verano' (se abona el 30 de junio) y 'Navidad' (se abona el 30 de diciembre).",
+      "base": "Una mensualidad de salario base MÁS antigüedad, cada una."
+    },
+    "pagaBeneficios": {
+      "numero": 1,
+      "base": "Igual al salario base de cada categoría profesional, SIN pluses ni complementos.",
+      "abono": "En marzo del año siguiente."
+    },
+    "prorrateo": "Quien ingrese o cese durante el año percibe la parte proporcional al tiempo trabajado.",
+    "articulo": "Art. 11"
+  },
+
+  "estructuraProfesional": {
+    "$comment": "Anexo I (DOE 2022). Tras la adaptación al V ALEH, las 5 categorías profesionales antiguas se redujeron a 3 GRUPOS PROFESIONALES, y las 6 áreas funcionales se mantienen como clasificación de puestos, pero el SALARIO BASE es único por grupo (1/2/3) para todas las áreas. La clasificación de CATEGORÍAS DE ESTABLECIMIENTO (Anexo II) quedó extinguida el 31-12-2023.",
+    "gruposProfesionales": {
+      "1": "Jefaturas y titulados de mando: Jefe/a de Recepción, 2º Jefe/a Recepción, Jefe/a Comercial, Jefe/a Administración, Primer/a Conserje, Jefe/a Cocina, 2º Jefe/a Cocina, Jefe/a Catering, Jefe/a Restaurante o Sala, 2º Jefe/a Restaurante o Sala, Jefe/a Operaciones Catering, Gerente de Centro, Gobernante/a o Encargado/a general, Subgobernante/a, Jefe/a Servicios Catering, Encargado/a mantenimiento, Responsable de servicio.",
+      "2": "Cualificados: Recepcionista, Conserje, Administrativo/a, Relaciones Públicas, Comercial, Técnico/a PRL, Ayudante recepción/conserjería, Telefonista, Ayudante administrativo, Jefe/a Partida, Cocinero/a, Repostero/a, Encargado/a economato, Ayudante cocina, Jefe/a Sector, Camarero/a, Barman/Barwoman, Sumiller/a, Jefe/a sala catering, Supervisor/a, Escanciador/a, Preparador/montador catering, Conductor/a equipo catering, Camarero/a pisos, Encargado/a sección, Especialista mantenimiento, Técnico/a servicio (fisioterapeuta, dietista...), Especialista servicio.",
+      "3": "Auxiliares/ayudantes: Auxiliar recepción y conserjería, Auxiliar cocina/economato, Ayudante/a camarero/a, Repartidor/a de comidas y bebidas, Ayudante equipo catering, Monitor/a colectividades, Asistente colectividades/preparación/restauración moderna, Auxiliar pisos y limpieza, Auxiliar mantenimiento y servicios auxiliares, Auxiliar servicio (atención al cliente, piscina o balneario)."
+    },
+    "areasFuncionales": "Seis: 1ª Recepción-Conserjería, RRPP, Administración y Gestión; 2ª Cocina y Economato; 3ª Restaurante, Sala, Bar y similares, Colectividades y Pista para Catering; 4ª Pisos y Limpieza; 5ª Servicios de Mantenimiento y Auxiliares; 6ª Servicios Complementarios.",
+    "articulo": "Anexo I y Disposición Transitoria Primera"
+  },
+
+  "salariosBaseMensuales": {
+    "$comment": "€ brutos/mes por GRUPO PROFESIONAL. IMPORTANTE: a diferencia de otros convenios, NO hay diferenciación por categoría de establecimiento (A/B/C); el salario base es ÚNICO por grupo y común a las 6 áreas funcionales. Tabla DEFINITIVA 2025 leída en imagen del DOE nº59 (26-03-2026), tras revisión IPC +0,9% retroactiva a 01-01-2025. Es la última tabla publicada y la vigente en julio-2026 (no existe tabla de 2026: convenio en ultraactividad).",
+    "2025": {
+      "1": 1077.59,
+      "2": 1054.50,
+      "3": 1013.07
+    },
+    "articulo": "Anexo III / Acta 20-02-2026",
+    "notaHistorica": "El texto original (DOE 2022, Anexo III) traía tablas de 2021-2023 aún diferenciadas por categoría de establecimiento; esa diferenciación se eliminó gradualmente hasta extinguirse el 31-12-2023. Desde 2024 el salario base es único por grupo."
+  },
+
+  "antiguedad": {
+    "$comment": "Art. 34. Aumentos periódicos por tiempo de servicio en la empresa, computados desde la fecha de ingreso. Porcentajes sobre el salario base (el convenio no fija una base económica separada distinta del salario).",
+    "articulo": "Art. 34",
+    "escala": { "3años": 3, "6años": 8, "9años": 16, "14años": 26, "20años": 40 },
+    "baseCalculo": "salario_base",
+    "baseCalculoNota": "El Art. 34 expresa la antigüedad en porcentajes ('3%', '8%', '16%', '26%', '40%') sin nombrar expresamente la magnitud base. Por defecto en hostelería se aplica sobre el salario base de convenio. DUDA para UGT: confirmar si la base es el salario base del grupo o incluye algún otro concepto."
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 24. DOS mecanismos distintos según cómo se contrate al trabajador.",
+    "articulo": "Art. 24",
+    "recargoGeneral": {
+      "tipo": "porcentaje",
+      "porcentaje": 50,
+      "sobre": "precio_hora_trabajada_sin_complementos_ni_pluses",
+      "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+      "aplicaA": "Trabajadores/as NO contratados específicamente para horario nocturno, por las horas efectivamente trabajadas entre las 22:00 y las 06:00."
+    },
+    "plusTrabajoNocturno": {
+      "tipo": "importe_mensual",
+      "importe2025": 54.48,
+      "unidad": "€/mes",
+      "aplicaA": "Personas contratadas ESPECÍFICAMENTE para prestar servicios en horario nocturno que realicen al menos el 51% de su jornada entre las 22:00 y las 06:00. Estos perciben el plus mensual EN LUGAR del recargo del 50%.",
+      "nota": "Importe definitivo 2025 fijado en el Acta de 20-02-2026 (era 50 € en 2022 y 51 € en 2023)."
+    }
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "El convenio NO fija precio ni recargo propio de horas extraordinarias ni tope específico distinto del legal.",
+    "articulo": "No regulado en el convenio (remisión general Art. 22 al V ALEH y ET).",
+    "regulado": false,
+    "nota": "pendiente — el convenio provincial no cuantifica la hora extra. Se estará al ALEH estatal y al ET (art. 35: la hora extra se abona como mínimo igual a la ordinaria, o se compensa con descanso; máximo 80 h/año). DUDA para UGT: confirmar criterio de abono/compensación aplicable en el sector en Cáceres."
+  },
+
+  "complementoIT": {
+    "$comment": "DATO ORO. Art. 20. Complemento por baja médica MUY generoso: la empresa completa la prestación de la Seguridad Social DESDE EL PRIMER DÍA hasta el 100% de la mensualidad ordinaria, SIN distinguir entre enfermedad común y accidente de trabajo (aplica a todas las contingencias).",
+    "articulo": "Art. 20",
+    "todasLasContingencias": {
+      "complementoHasta": "100% de la cantidad que percibiría el trabajador en una mensualidad ordinaria",
+      "desdeDia": 1,
+      "distingueContingencia": false,
+      "nota": "'Las empresas completarán las prestaciones de la Seguridad Social, desde el primer día, hasta alcanzar el 100% de la cantidad que habría de percibir el trabajador en una mensualidad ordinaria.' No se fija límite temporal expreso; se entiende mientras dure la situación de IT dentro de los límites legales. DUDA para UGT: confirmar si hay tope de días o si cubre toda la duración de la IT."
+    },
+    "reconocimientoMedico": "Reconocimiento médico anual a cargo de la empresa cuando lo soliciten los trabajadores; el tiempo invertido corre a cargo de la empresa (Art. 20)."
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 19.A. Bloque de vacaciones. El convenio SÍ especifica que son 30 días NATURALES (a diferencia de Cádiz). NO regula expresamente cómo se retribuyen ni el fraccionamiento; en lo no previsto remite al art. 38 ET.",
+    "articulo": "Art. 19.A (festivos dentro de vacaciones: Art. 19.A; desacuerdos: art. 38 ET)",
+    "dias": 30,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "El Art. 19.A dice literalmente 'Vacaciones anuales de 30 días naturales'. Dato claro, no inferido.",
+    "diasExtraAntiguedad": "no_previsto",
+    "diasExtraAntiguedadNota": "El convenio no suma días de vacaciones por antigüedad.",
+    "retribucion": {
+      "base": "pendiente",
+      "nota": "El Art. 19.A NO especifica la base de retribución de las vacaciones (ni salario base solo, ni promedio con complementos). En defecto de pacto se aplica el art. 38 ET y la jurisprudencia (retribución equivalente a la remuneración ordinaria media, incluyendo complementos habituales). OJO: el Plus Único Extrasalarial (Art. 14) NO se abona en vacaciones. DUDA para UGT: criterio de cálculo de la paga de vacaciones en el sector."
+    },
+    "periodoDisfrute": {
+      "regla": "Se fija por acuerdo entre empresario y representantes de los trabajadores.",
+      "temporadaAltaBloqueada": "no_especificado",
+      "nota": "El convenio no fija meses concretos ni bloquea expresamente la temporada alta; remite al acuerdo empresa-representación y, en desacuerdo, al art. 38 ET."
+    },
+    "preaviso": "Cada trabajador debe conocer el inicio de sus vacaciones con una antelación mínima de 2 meses (Art. 19.A).",
+    "fraccionamiento": {
+      "permitido": "no_especificado",
+      "nota": "El convenio no regula expresamente el fraccionamiento ni un mínimo de días seguidos; se estará al acuerdo empresa-trabajador y al art. 38 ET."
+    },
+    "festivosDentroVacaciones": "Los días festivos abonables y no recuperables podrán, de común acuerdo, acumularse a las vacaciones o disfrutarse como descanso continuado en periodo distinto; en su defecto se abonarán dentro del mes inmediatamente siguiente (Art. 19.A).",
+    "bajaDuranteVacaciones_IT": "El convenio no lo regula expresamente; se aplica el art. 38.3 ET (si caes en IT no pierdes las vacaciones, se disfrutan después dentro de los plazos legales).",
+    "noDisfrutadasAlCese": "Las vacaciones devengadas y no disfrutadas al cese se abonan en el finiquito (regla legal general — enlaza con la calculadora de finiquito)."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 19.C (licencias). Todas se cuentan como trabajo efectivo, previo aviso y justificación. OJO: convenio firmado en enero-2022, ANTERIOR al RD-ley 5/2023, por lo que NO recoge el permiso de 5 días por hospitalización/accidente grave ni el de fuerza mayor familiar de 4 días de la reforma; en esos casos rige directamente el ET vigente (que mejora al convenio). Se marca la mejora/desfase respecto al ET.",
+    "articulo": "Art. 19.C",
+    "nacimientoHijo": { "dias": 2, "diasConDesplazamiento": 4, "tipo": "naturales", "articulo": "Art. 19.C.A", "nota": "Permiso retribuido por nacimiento de hijos (adicional a los permisos de nacimiento y cuidado del menor -antes maternidad/paternidad- del ET)." },
+    "matrimonio": { "dias": 15, "tipo": "naturales", "articulo": "Art. 19.C.B", "mejoraET": "No lo mejora: coincide con los 15 días naturales del art. 37.3.a ET. No menciona pareja de hecho." },
+    "fallecimientoAccidenteEnfermedadGraveHospitalizacion": { "dias": 2, "diasConDesplazamiento": 4, "tipo": "no_especificado", "articulo": "Art. 19.C.C", "causa": "Fallecimiento, accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario, de parientes hasta el 2º grado de consanguinidad o afinidad.", "mejoraET": "DESFASADO respecto al ET vigente: el art. 37.3.b ET (redacción RD-ley 5/2023) da 5 días para accidente/enfermedad grave/hospitalización. El convenio (2 días) NO puede empeorar la ley; se aplican los 5 días del ET. DUDA para UGT: pendiente de actualizar en la próxima negociación." },
+    "asuntosPropios": { "dias": 2, "tipo": "anuales", "articulo": "Art. 19.C.D", "condiciones": "Preaviso de 72 horas. NO se pueden disfrutar en épocas de especial afluencia (Semana Santa, Navidad, Carnavales o Ferias)." },
+    "trasladoDomicilio": { "dias": 1, "articulo": "Art. 19.C.E" },
+    "deberInexcusable": { "dias": "tiempo indispensable", "articulo": "Art. 19.C.F", "causa": "Cumplimiento de deber inexcusable de carácter público y personal, incluido el sufragio activo. Si supera el 20% de las horas laborables en 3 meses, la empresa puede pasar al trabajador a excedencia (art. 46.1 ET). Se descuenta la indemnización percibida por el cargo." },
+    "funcionesSindicales": { "articulo": "Art. 19.C.G", "detalle": "Para funciones sindicales o de representación del personal en los términos legales o convencionales." },
+    "examenesPrenatales": { "dias": "tiempo indispensable", "articulo": "Art. 19.C.H", "causa": "Exámenes prenatales y técnicas de preparación al parto que deban realizarse dentro de la jornada." },
+    "bautizoComunionHijos": { "dias": 1, "diasFueraProvincia": 2, "articulo": "Art. 19.C.I", "causa": "Bautizo o comunión de hijos; 1 día si el acto se celebra en la localidad de residencia, 2 días si fuera de la provincia.", "mejoraET": "Mejora propia del convenio (el ET no contempla este permiso)." },
+    "matrimonioFamiliar": { "dias": "1, 2 ó 3", "articulo": "Art. 19.C.J", "causa": "Matrimonio de hijo, hermano o padre (consanguinidad o afinidad): 1 día si en la ciudad de residencia, 2 si en otra localidad de la provincia, 3 si fuera de la provincia.", "mejoraET": "Mejora propia del convenio." },
+    "lactancia": { "articulo": "Art. 19.B", "duracion": "Hasta que el lactante cumple 9 meses (ampliable a 12 con reducción proporcional de salario si ambos progenitores lo ejercen igual).", "opciones": ["1 hora de ausencia (divisible en dos fracciones)", "reducción de media hora de jornada", "acumulación en jornadas completas por acuerdo con la empresa"], "nota": "Derecho individual, no transferible al otro progenitor. Preaviso de 15 días para reincorporarse a la jornada ordinaria." },
+    "definicionDesplazamiento": "A efectos de estos permisos, hay desplazamiento cuando el hecho causante se produce fuera de la provincia del centro de trabajo O a más de 100 km del centro (cualquiera de los dos supuestos).",
+    "notaGeneral": "En lo no previsto se estará al ET (Art. 22 remite al V ALEH, Ley de Conciliación y ET). NOTA IMPORTANTE: donde el ET vigente (tras RD-ley 5/2023) reconoce más días que el convenio (p. ej. hospitalización/accidente grave: 5 días ET vs 2 días convenio; permiso de fuerza mayor familiar de 4 días/año que el convenio no recoge), PREVALECE EL ET por ser más favorable."
+  },
+
+  "excedencias": {
+    "$comment": "Art. 19.B. El convenio remite genéricamente al art. 46 ET para todas las excedencias, salvo la excedencia por violencia de género (Art. 35), que sí detalla.",
+    "articulo": "Art. 19.B (general) y Art. 35 (violencia de género)",
+    "general": "Para todas las excedencias se estará a lo dispuesto en el art. 46 del Estatuto de los Trabajadores (voluntaria, forzosa, cuidado de hijos/familiares).",
+    "violenciaDeGenero": "Derecho a excedencia; el periodo computa a efectos de antigüedad; derecho a cursos de formación profesional; reincorporación en las mismas condiciones existentes al suspenderse el contrato (Art. 35)."
+  },
+
+  "periodoPrueba": {
+    "$comment": "Art. 16. El convenio NO fija duraciones propias: remite íntegramente al ALEH estatal vigente.",
+    "articulo": "Art. 16",
+    "regulado": false,
+    "remitidoA": "Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería (ALEH) vigente en cada momento.",
+    "nota": "Consultar el ALEH para la duración por grupo/categoría. Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. Art. 33. El convenio provincial NO tipifica faltas ni sanciones: remite expresamente al ALEH estatal, que sí regula faltas leves/graves/muy graves y sanciones. Se completa con las referencias legales generales verificadas (art. 58 ET).",
+    "articulo": "Art. 33 (y Art. 37, que reserva el régimen disciplinario al ámbito estatal)",
+    "regulado": false,
+    "remitidoA": "Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería (ALEH), que tipifica faltas leves/graves/muy graves y sanciones, y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver ALEH",
+    "faltasGraves": "pendiente — ver ALEH",
+    "faltasMuyGraves": "pendiente — ver ALEH",
+    "sanciones": "pendiente — ver ALEH (amonestación, suspensión de empleo y sueldo por nº de días, inhabilitación para ascenso, despido solo en muy graves).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede imponer sanciones que consistan en la reducción de la duración de las vacaciones u otra minoración de los derechos al descanso, ni en multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad, que no es sanción. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos. Sin ello la sanción es impugnable.",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    }
+  },
+
+  "representacionSindical": {
+    "$comment": "Art. 10 (Materia sindical) + Art. 25 (Cuota sindical). El convenio MEJORA el crédito horario legal. El resto de garantías/fuero y el sistema de elección se rigen por el ET (arts. 62-68) y la LOLS.",
+    "articulo": "Art. 10 y Art. 25",
+    "creditoHorario": {
+      "horasMensuales": 18,
+      "quien": "Delegados/as de Personal y miembros de los Comités de Empresa en empresas de hasta 100 trabajadores.",
+      "mejoraET": "SÍ. El art. 68.e ET fija el mínimo en 15 h/mes para centros de hasta 100 trabajadores; el convenio concede 18 h/mes, mejorándolo. Debe procurarse que el ejercicio no perjudique a la empresa.",
+      "nota": "Para tramos superiores (101-250: 20 h; 251-500: 30 h; 501-750: 35 h; +751: 40 h) el convenio no dice nada específico; se aplica el ET."
+    },
+    "asamblea": "Se autoriza la celebración de asambleas facilitando local adecuado; duración máxima 2 horas, no más de una al mes, preaviso mínimo de 72 horas; si coincide con servicios excepcionales (bodas, comuniones), sábados, domingos o festivos, se pospone a las 24 h siguientes (Art. 10).",
+    "cuotaSindical": "A requerimiento del trabajador, la empresa descuenta en nómina la cuota sindical y la transfiere al sindicato indicado; detracción por periodos de un año salvo indicación en contrario (Art. 25).",
+    "intervencionTurnos": "Los Delegados de Personal intervienen en la elaboración de turnos (Art. 10, norma Tercera).",
+    "readmisionDespidoSindical": "Las empresas que hubieran despedido a un trabajador por razones políticas o sindicales lo readmitirán, previa prueba de la circunstancia (Art. 9.c).",
+    "quienRepresentaYeleccion": "pendiente — no detallado en el convenio; se rige por el ET (arts. 62-68: delegados de personal en empresas 6-49, comité de empresa desde 50) y la LOLS.",
+    "garantiasYfuero": "pendiente — no detallado en el convenio; se rige por el art. 68 ET (expediente contradictorio previo a sanción grave, prioridad de permanencia, protección frente a despido/sanción por actividad representativa durante el mandato y el año siguiente)."
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 17, 18. El convenio remite en gran medida al ALEH y al ET; el dato propio relevante es el tope de temporalidad y la conversión en indefinidos.",
+    "articulo": "Art. 17 (formativos) y Art. 18 (temporales)",
+    "contratosFormativos": "Se estará al art. 11 ET, RD 32/2021 y ALEH vigente (Art. 17).",
+    "eventualPorProduccion": "Duración máxima 12 meses, con indemnización de 12 días por año trabajado, proporcional al tiempo (Art. 18).",
+    "conversionIndefinidos": "Las empresas deben convertir en indefinidos al menos el 65% de los contratos temporales, salvo empresas de un solo trabajador o que ya alcancen el 65% de plantilla indefinida (Art. 18).",
+    "fijoDiscontinuo": "El convenio no detalla el régimen de llamamiento del fijo-discontinuo (sí lo menciona en el Art. 15 al exigir 'dos temporadas cumplidas' para ciertas ayudas). Se rige por el art. 16 ET y el ALEH. DUDA para UGT: orden de llamamiento y preavisos del fijo-discontinuo en el sector."
+  },
+
+  "movilidadYtraslados": {
+    "$comment": "Arts. 29-32.",
+    "movilidadFuncional": "Se estará al ALEH estatal vigente (Art. 29).",
+    "movilidadGeografica": "Desplazamientos por razones técnicas, organizativas o de producción; la empresa abona salarios más gastos de viaje y dietas. Desplazamiento >12 meses en 3 años = traslado (Art. 30).",
+    "traslados": "El trabajador puede optar por no aceptar el traslado o extinguir el contrato con indemnización de 25 días de salario/año, máx. 15 mensualidades (Art. 31).",
+    "modificacionSustancial": "Arts. 41, 47 y 47 bis ET. Si el trabajador resulta perjudicado en jornada, horario o turnos, puede rescindir con indemnización de 25 días/año, máx. 15 meses (Art. 32)."
+  },
+
+  "formacion": {
+    "$comment": "Remisión general al ALEH.",
+    "articulo": "Art. 37 (materias reservadas al ámbito estatal)",
+    "gestion": "La formación profesional en el ámbito estatal es materia reservada al ALEH (Art. 37).",
+    "creditoHorasFormacion": "no_previsto — el convenio no fija un crédito de horas de formación específico.",
+    "permisosExamenes": "El convenio no fija un permiso genérico por exámenes académicos (solo exámenes prenatales en Art. 19.C.H). Se estará al art. 23 ET (permiso para exámenes de estudios oficiales)."
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Art. 3 (principios de igualdad y no discriminación) + Art. 35 (violencia de género). El convenio establece el compromiso; los planes de igualdad y protocolos concretos se rigen por la legislación (LO 3/2007, LO 1/2004).",
+    "articulo": "Art. 3 y Art. 35",
+    "principioIgualdad": "Las partes garantizan la igualdad de oportunidades entre hombres y mujeres y la no discriminación por raza, religión u otra condición, con especial atención en acceso al empleo, estabilidad, igualdad salarial en trabajos de igual valor, formación/promoción y ambiente laboral exento de acoso sexual (Art. 3).",
+    "violenciaDeGenero": {
+      "reduccionJornada": "La víctima de violencia de género o terrorismo tiene derecho a reducir su jornada, determinando ella la reducción y el horario que más le convenga.",
+      "cambioCentro": "Derecho preferente a ocupar otro puesto de igual grupo o categoría en otro centro de la empresa; traslado inicial de 6 meses con reserva del puesto anterior, tras los cuales elige entre volver o continuar.",
+      "excedencia": "Derecho a excedencia con cómputo de antigüedad, formación profesional y reincorporación en las mismas condiciones."
+    },
+    "planesIgualdad": "No cuantificado en el convenio; se rige por la LO 3/2007 (obligatorio negociar plan de igualdad en empresas de 50+ personas)."
+  },
+
+  "otrasCondicionesEconomicasNoSalariales": {
+    "$comment": "Complementos y percepciones no salariales del articulado, con su artículo. Importes definitivos 2025 tomados del Acta de 20-02-2026.",
+    "plusUnicoExtrasalarial": {
+      "articulo": "Art. 14",
+      "importe2025": 162.56,
+      "unidad": "€/mes",
+      "cotizable": true,
+      "nota": "Sustituye y engloba ropa de trabajo, acumulación de trabajo, festividad del patrón, utensilios de cocina, comida, quebranto de moneda y desgaste de útiles. Se abona SOLO en periodo de actividad laboral (NO en vacaciones ni en bajas). Proporcional a la jornada en contratos parciales. Cotizable en su totalidad. OJO reclamaciones: es un plus frecuentemente olvidado en nómina."
+    },
+    "ropaTrabajo": {
+      "articulo": "Art. 13",
+      "detalle": "La empresa está OBLIGADA a proporcionar uniformes y ropa de trabajo que no sea de uso común. Si exige un calzado especial (color/estilo distinto al habitual), lo paga la empresa. No hay plus de compensación: se entrega en especie (y adicionalmente el Plus Único del Art. 14 compensa el desgaste)."
+    },
+    "percepcionesNoSalariales": {
+      "articulo": "Art. 15",
+      "porMatrimonio2025": 185.65,
+      "porAdquisicionVivienda2025": 290.50,
+      "unidad": "€ (pago único)",
+      "requisito": "Mínimo 2 años en la empresa (o 2 temporadas cumplidas para fijos-discontinuos); en vivienda, previa presentación del contrato de compraventa.",
+      "nota": "Importes definitivos 2025 del Acta de 20-02-2026."
+    },
+    "seguroAccidentes": {
+      "articulo": "Art. 12",
+      "cobertura": "Muerte por accidente laboral o invalidez permanente absoluta.",
+      "capital2025": 23721.34,
+      "unidad": "€",
+      "nota": "Seguro colectivo obligatorio para todas las empresas; alta/baja automática con la incorporación/finiquito en nómina."
+    },
+    "jubilacionAnticipada": {
+      "articulo": "Art. 21",
+      "importe2025_63años": 2474.41,
+      "importe2025_64años": 1238.33,
+      "unidad": "€ (pago único)",
+      "requisito": "Incentivo al rejuvenecimiento de plantillas; requiere mínimo 12 años de antigüedad y acuerdo previo empresa-trabajador. Importes definitivos 2025 del Acta de 20-02-2026."
+    },
+    "finiquitos": {
+      "articulo": "Art. 28",
+      "detalle": "Las propuestas de finiquito deben visarse por una de las dos Federaciones Empresariales firmantes (control anti-competencia desleal), adjuntando copia del contrato y de la última nómina."
+    }
+  },
+
+  "estado": "verificado",
+  "estadoNota": "Tablas salariales DEFINITIVAS de 2025 verificadas en IMAGEN del DOE nº59 (26-03-2026) a 185 dpi, celda a celda: salario base único por grupo (G1 1.077,59 €; G2 1.054,50 €; G3 1.013,07 €), plus nocturno 54,48 €, plus extrasalarial 162,56 €, matrimonio 185,65 €, vivienda 290,50 €, jubilación 63 años 2.474,41 € y 64 años 1.238,33 €. Condiciones no salariales extraídas del ARTICULADO completo (Arts. 1-38 + anexos) del texto oficial del DOE nº33 (17-02-2022). Régimen disciplinario, periodo de prueba, movilidad funcional, contratos formativos y formación NO los regula el convenio: se remiten al ALEH estatal (Arts. 16, 17, 29, 33, 37).",
+  "pendienteCondiciones": [
+    "vacaciones.retribucion: el Art. 19.A no especifica la base de cálculo de la paga de vacaciones (base vs promedio con complementos). Duda para UGT.",
+    "antiguedad.baseCalculo: el Art. 34 da porcentajes sin nombrar la magnitud base (se asume salario base). Duda para UGT.",
+    "complementoIT: el Art. 20 no fija tope de días del complemento del 100%. Duda para UGT: ¿cubre toda la duración legal de la IT?",
+    "permisosRetribuidos: el convenio (enero-2022) no recoge las mejoras del RD-ley 5/2023 (hospitalización/accidente grave 5 días; fuerza mayor familiar 4 días/año). Prevalece el ET por ser más favorable; pendiente de actualizar en negociación.",
+    "horasExtraordinarias: no reguladas en el convenio → ALEH/ET. Duda para UGT.",
+    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio provincial → tomar del ALEH estatal.",
+    "periodoPrueba: duraciones NO reguladas en el convenio → tomar del ALEH estatal.",
+    "contratacion.fijoDiscontinuo: orden de llamamiento y preavisos no detallados → art. 16 ET y ALEH.",
+    "representacionSindical.quienRepresentaYeleccion y garantiasYfuero: no detallados → ET arts. 62-68 y LOLS."
+  ],
+  "verificadoContra": "PDF oficial DOE nº59 (26-03-2026), páginas 11286-11291: Resolución + Acta de 20-02-2026 con tablas DEFINITIVAS de 2025. Todas las páginas de la tabla y de los conceptos económicos (plus extrasalarial, matrimonio, vivienda, jubilación, plus nocturno, salario base por grupo) leídas en IMAGEN a 185 dpi celda a celda. Articulado (condiciones no salariales) verificado contra el texto oficial del PDF DOE nº33 (17-02-2022), páginas 8309-8340, Arts. 1-38 y Anexos I-III (extracción de texto del PDF oficial, no re-mecanografiado). Confirmado que el articulado NO contiene régimen disciplinario ni periodo de prueba propios (Arts. 16, 33 y 37 remiten al ALEH).",
+  "fechaVerificacion": "2026-07-08"
+}
