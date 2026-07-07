@@ -1,0 +1,49 @@
+{
+  "$comment": "Convenio ESTATAL de restauración colectiva (comedores escolares, hospitales, residencias, empresas). Marco nacional uniforme, pero las TABLAS SALARIALES y algunos complementos van por provincia en los anexos del propio BOE (~50 provincias). Verificado visualmente: marco + provincia de muestra (Cáceres). Resto de provincias pendientes (carga incremental).",
+  "id": "estatal-restauracion-colectiva",
+  "nombre": "Convenio colectivo estatal de restauración colectiva",
+  "codigoRegcon": "99100165012016",
+  "ambitoTerritorial": { "tipo": "estatal", "cobertura": "toda España" },
+  "ambitoFuncional": "restauracion-colectiva",
+  "ambitoFuncionalDescripcion": "Comedores de colegios, hospitales, residencias, empresas y colectividades. Convenio único estatal, pero con tablas salariales por provincia en sus anexos.",
+  "fuente": {
+    "boletin": "BOE",
+    "numero": 148,
+    "fecha": "2025-06-20",
+    "documento": "BOE-A-2025-12598",
+    "url": "https://www.boe.es/boe/dias/2025/06/20/pdfs/BOE-A-2025-12598.pdf"
+  },
+  "vigencia": { "desde": "2025-01-01", "hasta": "2025-12-31", "nota": "Suscrito 30-12-2024, publicado 20-06-2025. Confirmar prórroga/ultraactividad para 2026." },
+  "marcoNacional": {
+    "jornadaAnual": { "horas": 1800, "diariaMax": "9 h (excepcionalmente 10)" },
+    "nocturnidadPct": 25,
+    "nota": "Nocturnidad 25% sobre salario base (visto en anexos provinciales). Estructura de clasificación por grupos profesionales y áreas funcionales común. Los importes y algunos complementos (nº y meses de pagas extra, antigüedad) se fijan por provincia."
+  },
+  "tablasPorProvincia": {
+    "$comment": "Un bloque por provincia. Verificados los que tengan estado 'verificado'. El resto, pendiente.",
+    "Caceres": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82201",
+      "salarioBase2025": {
+        "$comment": "Salario base mensual €. Categorías agrupadas tal cual el convenio.",
+        "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gobernante o Encargado general / Responsable de servicio": 1044.00,
+        "2º jefe de cocina / 2º jefe de restaurante o sala / Gerente de centro / Recepcionista / Administrativo / Técnico / Encargado de economato / Supervisor de colectividades / Encargado de sección / Técnico de servicio": 1005.30,
+        "Cocinero / Camarero / Especialista de mantenimiento y servicios auxiliares": 996.31,
+        "Ayudante administrativo / de cocina / de economato / de camarero": 996.31,
+        "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento / Monitor de colectividades": 996.31
+      },
+      "complementos": {
+        "pagasExtra": { "cantidad": 3, "meses": ["julio", "diciembre", "enero (paga de octubre)"], "base": "salario base + antigüedad" },
+        "seguroVida2025": 19298.58,
+        "nacimientoHijo2025": 102.39,
+        "kilometraje": "0,19 €/km descontando 2 km por recorrido",
+        "premioJubilacion": "4 mensualidades",
+        "antiguedadConsolidada": { "3años": 3, "6años": 8, "9años": 16, "14años": 26, "19años": 38, "24años": 45, "27años": 55, "30años": 60, "$comment": "% sobre salario, solo personal antiguo con antigüedad consolidada a 31-12-2012" }
+      }
+    }
+  },
+  "provinciasPendientes": "~50 provincias con tablas en los anexos del BOE (Lugo, Barcelona, Madrid, etc.). Carga incremental por población. Mientras tanto, modo configurable a mano.",
+  "estado": "verificado_marco_y_muestra",
+  "verificadoContra": "PDF oficial BOE-A-2025-12598 renderizado a imagen y leído visualmente (marco nacional + provincia de Cáceres).",
+  "fechaVerificacion": "2026-07-07"
+}
