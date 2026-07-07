@@ -1,0 +1,497 @@
+{
+  "$comment": "Convenio Colectivo del Sector de Hostelería de la Ciudad Autónoma de MELILLA 2025-2028. Transcrito VISUALMENTE del PDF oficial del BOME nº 6291 (viernes 11 de julio de 2025), artículo 717, Resolución de 26 de junio de 2025 del Área de Trabajo e Inmigración de la Delegación del Gobierno en Melilla. Código de convenio 52000455011989, suscrito el 3-abr-2025 y subsanado por Acta de 12-jun-2025. A julio de 2026 es la publicación MÁS RECIENTE y vigente (regla D32); no hay revisión posterior de tablas (los artículos de hostelería/turismo publicados en 2026 son subvenciones de formación, no tablas salariales). PARTICULARIDADES de Melilla: (1) el convenio se estructura por 6 AREAS FUNCIONALES x 3 GRUPOS PROFESIONALES, no por categorías de establecimiento como Cádiz; (2) los incrementos anuales NO son uniformes: varían por área funcional y por año (ver cada tabla); (3) el salario lleva un PLUS DE RESIDENCIA del 25% propio de Melilla más un PLUS DE BONIFICACIÓN de Melilla; (4) la antigüedad quedó CONSOLIDADA como 'complemento de permanencia' y los nuevos ingresos NO la devengan; (5) mucho articulado (periodo de prueba, régimen disciplinario, excedencias, ascensos) remite al ALEH estatal.",
+  "id": "melilla-hosteleria",
+  "nombre": "Convenio Colectivo del Sector de Hostelería de la Ciudad Autónoma de Melilla 2025-2028",
+  "codigoRegcon": "52000455011989",
+  "ambitoTerritorial": { "tipo": "ciudad_autonoma", "comunidad": "Ciudad Autónoma de Melilla", "provincias": ["Melilla"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOME (Boletín Oficial de la Ciudad Autónoma de Melilla)",
+    "numero": 6291,
+    "fecha": "2025-07-11",
+    "documento": "Artículo 717. Resolución de fecha 26 de junio de 2025 del Área de Trabajo e Inmigración de la Delegación del Gobierno en Melilla, por la que se registra y publica el Convenio Colectivo del Sector de Hostelería. Código de convenio 52000455011989. Suscrito el 3-abr-2025 y subsanado por Acta de 12-jun-2025. Págs. 2421-2433 (BOME-A-2025-717).",
+    "url": "https://bomemelilla.es/bome/descargar/BOME-A-2025-717.pdf"
+  },
+  "vigencia": { "desde": "2025-01-01", "hasta": "2028-12-31", "nota": "Entra en vigor con su publicación en el BOME y hasta el 31-dic-2028 (Art. 2.d y Art. 5). Denuncia con 30 días de antelación al fin de vigencia. Si se prorroga por no haberse denunciado, se aplica una subida del 1,5% a las tablas (Art. 5). Finalizada la vigencia se aplica el art. 86 ET (ultraactividad)." },
+  "partesFirmantes": { "patronal": "Asociación de Hostelería de Melilla", "sindicatos": ["CC.OO. (Comisiones Obreras de Melilla)", "FeSMC-UGT (Federación de Servicios, Movilidad y Consumo de UGT de Melilla)"] },
+
+  "jornadaAnual": {
+    "horas": 1800,
+    "semanal": "pendiente",
+    "articulo": "Art. 17",
+    "nota": "Jornada máxima anual de 1.800 horas de trabajo efectivo (Art. 17). El convenio NO fija una jornada semanal en horas; quien tuviera pactada una jornada anual efectiva inferior la mantiene a título individual. Los excesos de jornada se regularizan en cómputo anual.",
+    "distribucionIrregular": "Las empresas pueden aplicar la distribución irregular de la jornada en los términos del art. 34.2 ET (Art. 17). No se pacta un porcentaje propio.",
+    "descansoSemanal": { "articulo": "Art. 18", "dias": 1.5, "nota": "Descanso semanal mínimo de 1,5 días (un día y medio) ininterrumpidos, en turnos rotativos; por acuerdo mutuo trabajador-empresa puede ser de 2 días. Los días asignados deben respetarse salvo necesidades especiales del servicio con acuerdo y conocimiento de la representación sindical." }
+  },
+
+  "pagasExtraordinarias": {
+    "total": 15,
+    "articulo": "Art. 29",
+    "detalle": "12 mensualidades + 3 gratificaciones extraordinarias (Junio, Septiembre y Navidad), cada una por importe de 30 días de salario base más el complemento de permanencia. Se abonan, respectivamente, el 15 de junio, en la primera quincena de septiembre y el 21 de diciembre.",
+    "prorrateo": "Empresario y trabajador pueden acordar el prorrateo de las tres pagas en las 12 mensualidades.",
+    "nota": "En las tablas del Anexo II cada paga aparece prorrateada por mes en la columna 'P. EXTRA' (tres columnas iguales = las tres pagas); ese importe mensual equivale al salario base dividido entre 12."
+  },
+
+  "areasFuncionales": {
+    "$comment": "Anexo II. El convenio clasifica al personal en 6 AREAS FUNCIONALES (siguiendo el ALEH estatal). Dentro de cada área hay 3 GRUPOS PROFESIONALES (Primero, Segundo, Tercero). El detalle de qué categoría concreta cae en cada grupo/área NO figura en el convenio provincial y se toma del ALEH.",
+    "primera": "Recepción-Conserjería, Relaciones Públicas, Administración y Gestión",
+    "segunda": "Cocina y Economato",
+    "tercera": "Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering",
+    "cuarta": "Pisos y Limpieza",
+    "quinta": "Servicios de mantenimiento y servicios auxiliares",
+    "sexta": "Servicios complementarios"
+  },
+
+  "gruposProfesionales": {
+    "$comment": "El convenio provincial usa 3 grupos profesionales (Primero, Segundo, Tercero) dentro de cada área funcional, pero NO enumera qué categorías concretas integran cada grupo. Esa correspondencia se toma del ALEH estatal (regla de derecho supletorio, Art. 6). Marcado pendiente para no inventar.",
+    "primero": "pendiente — ver ALEH (grupo profesional superior de cada área)",
+    "segundo": "pendiente — ver ALEH (grupo profesional intermedio de cada área)",
+    "tercero": "pendiente — ver ALEH (grupo profesional inferior de cada área; en varias áreas su retribución es el S.M.I.)"
+  },
+
+  "tablasSalariales": {
+    "$comment": "Anexo II. € brutos/mes. Estructura por AREA FUNCIONAL y GRUPO PROFESIONAL. Columnas del boletín: 'SALARIO B.' (salario base), 'RESIDENCIA' (Plus de Residencia 25% de Melilla, Art. 24), tres columnas 'P. EXTRA' (las 3 pagas prorrateadas por mes, iguales entre sí), 'P. TRANSPO' (Plus de Transporte, Art. 27) y 'RP. BONIF.' (Plus/Reparto de Bonificación de Melilla, referido al 'Bome 4994' = BOME nº 4994 de 25-ene-2013, Art. 24 — importe no cuantificado en euros en la tabla, condicionado a que la empresa reciba la bonificación). 'S.M.I.' significa que ese grupo se retribuye al Salario Mínimo Interprofesional legal vigente (el boletín deja RESIDENCIA y P. TRANSPORTE a 0,00 € en esos casos — ver duda para UGT). LOS INCREMENTOS ANUALES VARÍAN POR ÁREA: cada tabla indica su % entre paréntesis.",
+    "incrementosPorArea": {
+      "primera": { "2026": "1,5%", "2027": "1,5%", "2028": "0,5%" },
+      "segunda": { "2026": "3%", "2027": "3%", "2028": "1%" },
+      "tercera": { "2026": "3%", "2027": "3%", "2028": "1%" },
+      "cuarta": { "2026": "1,5%", "2027": "1,5%", "2028": "0,5%" },
+      "quinta": { "2026": "1,5%", "2027": "1,5%", "2028": "0,5%" },
+      "sexta": { "2026": "1,5%", "2027": "1,5%", "2028": "0,5%" }
+    },
+    "primera": {
+      "descripcion": "Recepción-Conserjería, Relaciones Públicas, Administración y Gestión",
+      "2025": {
+        "grupoPrimero": { "salarioBase": 1161.60, "residencia": 290.40, "pagaExtraMensual": 96.80, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1102.02, "residencia": 275.50, "pagaExtraMensual": 91.83, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": 1088.58, "residencia": 272.15, "pagaExtraMensual": 90.72, "transporte": 78.21, "bonificacion": "BOME 4994" }
+      },
+      "2026": {
+        "grupoPrimero": { "salarioBase": 1179.02, "residencia": 294.76, "pagaExtraMensual": 98.25, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1118.55, "residencia": 279.64, "pagaExtraMensual": 93.21, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": 1104.91, "residencia": 276.23, "pagaExtraMensual": 92.08, "transporte": 78.21, "bonificacion": "BOME 4994" }
+      },
+      "2027": {
+        "grupoPrimero": { "salarioBase": 1196.71, "residencia": 299.18, "pagaExtraMensual": 99.73, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1135.33, "residencia": 283.83, "pagaExtraMensual": 94.61, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": 1121.49, "residencia": 280.37, "pagaExtraMensual": 93.46, "transporte": 78.21, "bonificacion": "BOME 4994" }
+      },
+      "2028": {
+        "grupoPrimero": { "salarioBase": 1202.69, "residencia": 300.67, "pagaExtraMensual": 100.22, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1141.00, "residencia": 285.25, "pagaExtraMensual": 95.08, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": 1127.09, "residencia": 281.77, "pagaExtraMensual": 93.92, "transporte": 78.21, "bonificacion": "BOME 4994" }
+      }
+    },
+    "segunda": {
+      "descripcion": "Cocina y Economato",
+      "2025": {
+        "grupoPrimero": { "salarioBase": 979.23, "residencia": 244.81, "pagaExtraMensual": 81.60, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 929.02, "residencia": 232.26, "pagaExtraMensual": 77.42, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2026": {
+        "grupoPrimero": { "salarioBase": 1008.61, "residencia": 252.15, "pagaExtraMensual": 84.05, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 956.89, "residencia": 239.22, "pagaExtraMensual": 79.74, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2027": {
+        "grupoPrimero": { "salarioBase": 1038.87, "residencia": 259.72, "pagaExtraMensual": 86.57, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 985.60, "residencia": 246.40, "pagaExtraMensual": 82.13, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2028": {
+        "grupoPrimero": { "salarioBase": 1049.26, "residencia": 262.31, "pagaExtraMensual": 87.44, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 995.46, "residencia": 248.86, "pagaExtraMensual": 82.95, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      }
+    },
+    "tercera": {
+      "descripcion": "Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering",
+      "2025": {
+        "grupoPrimero": { "salarioBase": 979.23, "residencia": 244.81, "pagaExtraMensual": 81.60, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 929.02, "residencia": 232.26, "pagaExtraMensual": 77.42, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": 917.70, "residencia": 229.42, "pagaExtraMensual": 76.47, "transporte": 78.21, "bonificacion": "BOME 4994" }
+      },
+      "2026": {
+        "grupoPrimero": { "salarioBase": 1008.61, "residencia": 252.15, "pagaExtraMensual": 84.05, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 956.89, "residencia": 239.22, "pagaExtraMensual": 79.74, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": 945.23, "residencia": 236.31, "pagaExtraMensual": 78.77, "transporte": 78.21, "bonificacion": "BOME 4994" }
+      },
+      "2027": {
+        "grupoPrimero": { "salarioBase": 1038.87, "residencia": 259.72, "pagaExtraMensual": 86.57, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 985.60, "residencia": 246.40, "pagaExtraMensual": 82.13, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": 973.58, "residencia": 243.40, "pagaExtraMensual": 81.13, "transporte": 78.21, "bonificacion": "BOME 4994" }
+      },
+      "2028": {
+        "grupoPrimero": { "salarioBase": 1049.26, "residencia": 262.31, "pagaExtraMensual": 87.44, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 995.46, "residencia": 248.86, "pagaExtraMensual": 82.95, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": 983.32, "residencia": 245.83, "pagaExtraMensual": 81.94, "transporte": 78.21, "bonificacion": "BOME 4994" }
+      }
+    },
+    "cuarta": {
+      "descripcion": "Pisos y Limpieza",
+      "2025": {
+        "grupoPrimero": { "salarioBase": 1102.02, "residencia": 275.50, "pagaExtraMensual": 91.83, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1088.58, "residencia": 272.15, "pagaExtraMensual": 90.72, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2026": {
+        "grupoPrimero": { "salarioBase": 1118.55, "residencia": 279.64, "pagaExtraMensual": 93.21, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1104.91, "residencia": 276.23, "pagaExtraMensual": 92.08, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2027": {
+        "grupoPrimero": { "salarioBase": 1135.33, "residencia": 283.83, "pagaExtraMensual": 94.61, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1121.49, "residencia": 280.37, "pagaExtraMensual": 93.46, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2028": {
+        "grupoPrimero": { "salarioBase": 1141.00, "residencia": 285.25, "pagaExtraMensual": 95.08, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1127.09, "residencia": 281.77, "pagaExtraMensual": 93.92, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      }
+    },
+    "quinta": {
+      "descripcion": "Servicios de mantenimiento y servicios auxiliares",
+      "2025": {
+        "grupoPrimero": { "salarioBase": 1102.02, "residencia": 275.50, "pagaExtraMensual": 91.83, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1088.58, "residencia": 272.15, "pagaExtraMensual": 90.72, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2026": {
+        "grupoPrimero": { "salarioBase": 1118.55, "residencia": 279.64, "pagaExtraMensual": 93.21, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1104.91, "residencia": 276.23, "pagaExtraMensual": 92.08, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2027": {
+        "grupoPrimero": { "salarioBase": 1135.33, "residencia": 283.83, "pagaExtraMensual": 94.61, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1121.49, "residencia": 280.37, "pagaExtraMensual": 93.46, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2028": {
+        "grupoPrimero": { "salarioBase": 1141.00, "residencia": 285.25, "pagaExtraMensual": 95.08, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1127.09, "residencia": 281.77, "pagaExtraMensual": 93.92, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      }
+    },
+    "sexta": {
+      "descripcion": "Servicios complementarios",
+      "2025": {
+        "grupoPrimero": { "salarioBase": 1102.02, "residencia": 275.50, "pagaExtraMensual": 91.83, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1088.58, "residencia": 272.15, "pagaExtraMensual": 90.72, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2026": {
+        "grupoPrimero": { "salarioBase": 1118.55, "residencia": 279.64, "pagaExtraMensual": 93.21, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1104.91, "residencia": 276.23, "pagaExtraMensual": 92.08, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2027": {
+        "grupoPrimero": { "salarioBase": 1135.33, "residencia": 283.83, "pagaExtraMensual": 94.61, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1121.49, "residencia": 280.37, "pagaExtraMensual": 93.46, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      },
+      "2028": {
+        "grupoPrimero": { "salarioBase": 1141.00, "residencia": 285.25, "pagaExtraMensual": 95.08, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoSegundo": { "salarioBase": 1127.09, "residencia": 281.77, "pagaExtraMensual": 93.92, "transporte": 78.21, "bonificacion": "BOME 4994" },
+        "grupoTercero": { "salarioBase": "S.M.I.", "residencia": 0.00, "pagaExtraMensual": "S.M.I.", "transporte": 0.00, "bonificacion": "BOME 4994" }
+      }
+    }
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 31. Trabajo nocturno = el realizado entre las 22:00 y las 06:00 h. El tratamiento retributivo DEPENDE DEL SUBSECTOR y NO es homogéneo. En hoteles/hospedaje es un % sobre salario; en el resto de sectores mezcla un importe fijo en el primer tramo y un % en el segundo.",
+    "articulo": "Art. 31 (base legal art. 36.2 ET)",
+    "definicionPeriodoNocturno": { "desde": "22:00", "hasta": "06:00" },
+    "hotelesYhospedaje": {
+      "tipo": "porcentaje",
+      "porcentaje": 15,
+      "sobre": "salario",
+      "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+      "nota": "El personal que trabaje de noche entre las 22:00 y las 06:00 percibe un incremento del 15% de su salario."
+    },
+    "restoSectores": {
+      "tramo1": { "desde": "22:00", "hasta": "01:00", "importe": 10.00, "unidad": "€/mes", "nota": "Incremento fijo de 10 € al mes." },
+      "tramo2": { "desde": "01:00", "hasta": "06:00", "tipo": "porcentaje", "porcentaje": 35, "sobre": "salario", "nota": "Incremento del 35% del salario en las horas o fracción comprendidas en este tramo." }
+    },
+    "condicionMasBeneficiosa": "Se respeta cualquier condición más beneficiosa que la persona ya viniera disfrutando.",
+    "formulaValorHora": "Salario bruto anual del trabajador (excluido el plus de bonificación de Melilla) / 1.800 horas (Art. 31 y Art. 36)."
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "El convenio NO fija un precio ni un recargo propio para las horas extraordinarias. Solo define cómo calcular el valor de la hora ordinaria (Art. 36).",
+    "articulo": "Art. 36 (salario hora ordinaria) — sin regulación específica de la hora extra en el convenio",
+    "regulado": false,
+    "valorHoraOrdinaria": "Salario Anual / jornada máxima anual pactada (1.800 h) (Art. 36).",
+    "remitidoA": "ALEH y Estatuto de los Trabajadores (art. 35 ET) para el régimen y compensación de las horas extraordinarias.",
+    "nota": "pendiente — el convenio de Melilla no cuantifica el recargo de la hora extra."
+  },
+
+  "fiestasTrabajadas": {
+    "$comment": "Art. 19. El convenio regula las 'fiestas abonables y no recuperables' pero NO fija un recargo porcentual concreto por trabajarlas (a diferencia de Cádiz, 150%). Da tres formas de compensación por mutuo acuerdo.",
+    "articulo": "Art. 19",
+    "recargoPorcentaje": "pendiente — no se fija un porcentaje en el convenio",
+    "opcionesCompensacion": [
+      "Disfrutarse como descanso continuado, en periodo distinto al de vacaciones.",
+      "Acumularse al periodo anual de vacaciones.",
+      "En caso de finalización de contrato o despido, los días abonables no recuperables no disfrutados se abonan con la liquidación."
+    ],
+    "nota": "En enero se pacta con los trabajadores/representantes el disfrute. Si no se pacta por escrito, el trabajador tiene derecho a disfrutarla en el propio día de fiesta (Art. 19)."
+  },
+
+  "antiguedad": {
+    "$comment": "Art. 25. DATO IMPORTANTE: la antigüedad quedó CONGELADA. Las cantidades que se percibían por antigüedad antes del convenio se consolidan como 'complemento de permanencia' (dato que se usa como base de las pagas extra, Art. 29). Los NUEVOS INGRESOS desde la entrada en vigor NO devengan complemento de permanencia ni antigüedad.",
+    "articulo": "Art. 25",
+    "sistema": "Antigüedad consolidada como 'complemento de permanencia'; sin escala ni nuevos devengos.",
+    "nuevosIngresos": "no_devengan",
+    "escala": "no_previsto",
+    "nota": "Quien ya percibía antigüedad la mantiene consolidada como complemento de permanencia. El personal contratado tras la entrada en vigor del convenio no tiene complemento de permanencia."
+  },
+
+  "pluses": {
+    "$comment": "Pluses del convenio, cada uno con su artículo. Los importes de residencia y transporte por grupo/año están en 'tablasSalariales'.",
+    "plusResidencia": { "articulo": "Art. 24", "tipo": "porcentaje", "porcentaje": 25, "sobre": "salario_base", "nota": "Plus de Residencia del 25% estipulado para Melilla; incrementa el salario base vigente. Importe por grupo/año en las tablas (columna RESIDENCIA)." },
+    "plusBonificacionMelilla": { "articulo": "Art. 24", "referencia": "BOME nº 4994 de 25-ene-2013, art. 8 del Acuerdo de Reparto de Bonificación", "importeEuros": "pendiente — no cuantificado en el convenio; se remite al BOME 4994", "condicion": "Ligado a la bonificación en cuotas patronales de Seguridad Social que recibe la empresa. Cuando la empresa NO pueda bonificarse el 50% de las cuotas por un trabajador, no le repercute el plus de bonificación a ese trabajador.", "nota": "En las tablas aparece como columna 'RP. BONIF.' con la referencia 'Bome 4994', sin cuantía en euros." },
+    "plusTransporte": { "articulo": "Art. 27", "importe": 78.21, "unidad": "€/mes (12 mensualidades)", "nota": "A favor de algunas categorías. Se percibe proporcional a los días de alta en la empresa durante el mes. Importe 78,21 €/mes constante en todos los grupos y años que lo tienen (columna P. TRANSPO); los grupos retribuidos a S.M.I. figuran con 0,00 €." },
+    "quebrantoMoneda": { "articulo": "Art. 28", "importe": 63.60, "unidad": "€/mes", "nota": "Para trabajadores que hagan inventario de sus recaudaciones y asuman el riesgo de pérdida por diferencias en contra en el arqueo. Importe fijo, no se indica revisión anual en el articulado." },
+    "manutencion": { "articulo": "Art. 30", "tipo": "en_especie", "importeEuros": "no_aplica", "nota": "El personal de establecimientos donde se sirvan comidas tiene derecho, con cargo a la empresa y en turnos superiores a 5 horas continuas, a la manutención de una comida y bebida (sin alcohol). Es prestación en especie, no un importe en euros." }
+  },
+
+  "ropaTrabajo": {
+    "$comment": "Art. 26. La empresa facilita la ropa/calzado o abona su valor en metálico. El importe NO está cuantificado en el convenio: lo fijan la Dirección y la RLPT en cada caso.",
+    "articulo": "Art. 26",
+    "regla": "Cuando la empresa exija una modalidad de ropa y calzado, tiene la obligación de facilitarla a su cargo. Puede sustituir esa obligación por la entrega anual en metálico del valor que se señale (prorrateable por meses).",
+    "importe": "pendiente — a determinar por la Dirección junto con los Representantes Legales en cada caso (Art. 26).",
+    "naturaleza": "Las percepciones por ropa tienen carácter de suplidos (art. 26.2 ET)."
+  },
+
+  "dietasYKilometraje": {
+    "$comment": "El convenio NO regula dietas de comida/cena/pernocta ni €/km por desplazamiento como conceptos autónomos. Solo la manutención en especie (Art. 30).",
+    "articulo": "no regulado en el convenio",
+    "importe": "pendiente — ver ALEH/ET; el convenio no fija dietas ni kilometraje."
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 20 (+ Art. 19 para fiestas dentro de vacaciones). El convenio SÍ especifica que son 30 días NATURALES. NO regula expresamente cómo se retribuyen (si a salario base o por promedio) — dato que se remite al ET/ALEH. Duda para UGT.",
+    "articulo": "Art. 20",
+    "dias": 30,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "El Art. 20 dice literalmente 'treinta días naturales por año de servicio'.",
+    "diasExtraAntiguedad": "no_previsto",
+    "diasExtraAntiguedadNota": "El convenio no suma días de vacaciones por antigüedad.",
+    "retribucion": {
+      "base": "pendiente",
+      "nota": "El Art. 20 NO indica el módulo de retribución de las vacaciones (ni salario base ni promedio con complementos). Se estará al ET y, en su caso, al ALEH. Duda para UGT: ¿se pagan solo a salario base o incluyendo nocturnidad/festivos?"
+    },
+    "periodoDisfrute": {
+      "regla": "Se establece de mutuo acuerdo empresa-trabajadores mediante un calendario vacacional fijado en los dos primeros meses del año (o en los de apertura del establecimiento), expuesto en el tablón de anuncios.",
+      "cierreEmpresa": "Puede acordarse un mes de cierre de la empresa para el disfrute de vacaciones de todo el personal (a indicar también en los dos primeros meses del año).",
+      "temporadaAltaBloqueada": "no_especificado"
+    },
+    "fijacion": "De mutuo acuerdo con los representantes de los trabajadores (o con ellos mismos en su defecto) y la empresa (Art. 20).",
+    "preaviso": "pendiente — el convenio no fija un preaviso individual en días; el calendario se publica en los dos primeros meses del año.",
+    "fraccionamiento": {
+      "permitido": true,
+      "maxPeriodos": 2,
+      "regla": "Un solo periodo o dos periodos distintos, ninguno de los cuales puede sobrepasar el 60% ni ser inferior al 40% del total de días. En caso de desacuerdo se disfruta en un solo periodo.",
+      "nota": "Quien no haya completado un año de servicio en la fecha de disfrute disfruta en un solo periodo la parte proporcional al tiempo trabajado."
+    },
+    "inicioTrasDescanso": "El disfrute de las vacaciones comienza a partir del descanso semanal (Art. 20).",
+    "bajaDuranteVacaciones_IT": "pendiente — el convenio no lo regula expresamente; se aplica el art. 38.3 ET (si caes en IT no pierdes las vacaciones).",
+    "festivosDentroVacaciones": "Las fiestas abonables y no recuperables pueden acumularse al periodo anual de vacaciones (Art. 19.b).",
+    "noCompensableEnDinero": "pendiente en el convenio; rige la regla legal general (las vacaciones no disfrutadas al cese se abonan en el finiquito — enlaza con la calculadora de finiquito)."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 21. Licencias con derecho a percibir el salario base de grupo más los complementos personales. Incluye 3 días de asuntos propios. El convenio recoge la redacción del art. 37.3b ET dada por el RD-ley 5/2023 para el permiso por accidente/enfermedad grave.",
+    "articulo": "Art. 21",
+    "matrimonioOparejaHecho": { "dias": 15, "tipo": "naturales", "articulo": "Art. 21.1", "preaviso": "15 días", "nota": "15 días naturales por matrimonio o inscripción en el registro como pareja de hecho. No mejora el ET (15 días)." },
+    "accidenteEnfermedadGraveHospitalizacion": { "dias": 5, "tipo": "pendiente", "articulo": "Art. 21.2", "causa": "Accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario del cónyuge, pareja de hecho inscrita o parientes hasta el 2º grado de consanguinidad o afinidad; extensible (redacción art. 37.3b ET dada por RD-ley 5/2023) al familiar consanguíneo de la pareja de hecho y a cualquier conviviente en el mismo domicilio que requiera cuidado efectivo.", "mejoraET": "Mejora el ET: el convenio da 5 días donde el ET reconoce 5 días (equipara la redacción vigente)." },
+    "fallecimiento": { "dias": 3, "diasConDesplazamiento": 4, "tipo": "naturales", "articulo": "Art. 21.2", "causa": "Fallecimiento de parientes hasta 2º grado de consanguinidad o afinidad, incluyendo parejas de hecho acreditadas. 4 días si el motivo obliga a desplazamiento a la península.", "mejoraET": "El ET general reconoce 2 días (4 con desplazamiento); el convenio da 3 (4 con desplazamiento a península), mejorando el caso sin desplazamiento." },
+    "trasladoDomicilio": { "dias": 1, "articulo": "Art. 21.3", "nota": "Un día por traslado del domicilio habitual." },
+    "examenes": { "dias": "horas precisas", "articulo": "Art. 21.4", "causa": "Horas precisas para asegurar la concurrencia a exámenes finales cuando el personal curse estudios de carácter oficial o académico, con justificación administrativa." },
+    "examenesPrenatales": { "articulo": "Art. 21.5", "derecho": "Tiempo indispensable para exámenes prenatales y técnicas de preparación al parto que no puedan realizarse fuera de la jornada." },
+    "asuntosPropios": { "dias": 3, "articulo": "Art. 21.6", "preaviso": "3 días salvo urgencias", "nota": "3 días de asuntos propios al año, no acumulables a descansos semanales ni a vacaciones; máximo 1 día en el mismo mes." },
+    "permisosNoRetribuidos": { "articulo": "Art. 21.7", "reproduccionAsistida": "Tiempo imprescindible para trabajadoras en tratamiento de técnicas de reproducción asistida, con justificación y aviso dentro de los primeros 15 días del mes anterior al tratamiento. SIN derecho a compensación económica." },
+    "lactancia": "pendiente — el convenio no regula un permiso de lactancia propio; rige el art. 37.4 ET.",
+    "notaGeneral": "En lo no previsto se estará al ET (Art. 6, derecho supletorio)."
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 22. El dato 'oro' de baja médica y uno de los mejores del sector: en la PRIMERA baja del año por enfermedad común la empresa complementa desde el PRIMER DÍA hasta el 100% de la base reguladora. Distingue accidente de trabajo/enfermedad profesional (siempre desde el día 1) de enfermedad común (solo la 1ª baja del año, con excepciones que también van desde el día 1).",
+    "articulo": "Art. 22",
+    "accidenteTrabajoYenfermedadProfesional": {
+      "complementoHasta": 100,
+      "sobre": "base_reguladora_mes_anterior",
+      "desdeDia": 1,
+      "hastaMeses": 12,
+      "nota": "La empresa abona las diferencias entre la prestación por IT y la base reguladora del mes anterior a la baja, desde el primer día y hasta un máximo de 12 meses."
+    },
+    "enfermedadComun": {
+      "complementoHasta": 100,
+      "sobre": "base_reguladora",
+      "desdeDia": 1,
+      "exclusiones": "conceptos de naturaleza variable y plus de transporte",
+      "limitacion": "Solo la PRIMERA baja por IT del año.",
+      "nota": "La primera baja por IT del año se complementa desde el primer día hasta el 100% de la base reguladora, excluyendo los conceptos de naturaleza variable y el plus de transporte."
+    },
+    "excepcionesSiempreDesdeDia1": {
+      "enfermedadesOncologicas": "Durante toda la situación de IT se complementa desde el primer día hasta el 100% de la base reguladora (excluidos conceptos variables y plus de transporte).",
+      "ingresoHospitalarioOquirurgico": "La primera baja originada por ingreso hospitalario o intervención quirúrgica que requiera reposo domiciliario (excepto cirugía estética voluntaria) se complementa desde el primer día hasta el 100% de la base reguladora (excluidos conceptos variables y plus de transporte)."
+    },
+    "condicion": "Los complementos solo se abonan mientras esté vigente la relación laboral (Art. 22.3)."
+  },
+
+  "periodoPrueba": {
+    "$comment": "Art. 12. El convenio NO regula duraciones propias: remite íntegramente al ALEH.",
+    "articulo": "Art. 12",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería).",
+    "nota": "Consultar el ALEH para la duración por grupo/categoría. Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "excedencias": {
+    "$comment": "El convenio NO incluye artículo de excedencias. Se rige por el ET (arts. 46) y el ALEH.",
+    "articulo": "no regulado en el convenio",
+    "regulado": false,
+    "remitidoA": "Estatuto de los Trabajadores (art. 46) y ALEH.",
+    "nota": "pendiente — tipos (voluntaria, forzosa, cuidado de hijos/familiares), duración y reingreso según ET/ALEH."
+  },
+
+  "ascensos": {
+    "$comment": "El convenio remite la promoción profesional al principio de igualdad (Art. 40.3) pero no fija un sistema propio de ascensos ni cobertura de vacantes (salvo la conversión de fijos-discontinuos a fijos ordinarios, Art. 15).",
+    "articulo": "Art. 40.3 (igualdad en la promoción); Art. 15 (conversión fijo-discontinuo)",
+    "criterios": "pendiente — ver ALEH. El convenio solo establece acción positiva a favor del sexo menos representado en la promoción.",
+    "conversionFijoDiscontinuo": "Los fijos-discontinuos pueden solicitar la conversión voluntaria a puestos vacantes de carácter fijo ordinario; la empresa debe informarles y a la RLPT de esas vacantes (Art. 15, art. 16.7 ET)."
+  },
+
+  "polivalencia": {
+    "$comment": "El convenio no regula expresamente la retribución por funciones de categoría superior. Rige la regla legal (art. 39 ET) y el ALEH.",
+    "articulo": "no regulado en el convenio",
+    "regla": "pendiente — ver art. 39 ET y ALEH (movilidad funcional; si realizas funciones de grupo superior, derecho a la retribución superior)."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El articulado del convenio (Art. 1-40) NO incluye capítulo de régimen disciplinario: no tipifica faltas leves/graves/muy graves ni sus sanciones. Verificado leyendo el articulado completo (tras el Art. 40 pasa a la Cláusula Adicional Final, Anexo I 'Cláusula de descuelgue' y Anexo II 'Tablas salariales'). Por tanto el régimen disciplinario se rige por el ALEH estatal (derecho supletorio, Art. 6.b) y el ET.",
+    "articulo": "No regulado en el convenio provincial (Art. 6 remite al ALEH y al ET).",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería), que sí tipifica faltas leves/graves/muy graves y sanciones, y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver ALEH",
+    "faltasGraves": "pendiente — ver ALEH",
+    "faltasMuyGraves": "pendiente — ver ALEH",
+    "sanciones": "pendiente — ver ALEH (amonestación, suspensión de empleo y sueldo por nº de días, inhabilitación para ascenso, despido solo en muy graves).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede imponer sanciones que consistan en la reducción de la duración de las vacaciones u otra minoración de los derechos al descanso, ni en multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad, que no es sanción. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos. Sin ello la sanción es impugnable. El convenio refuerza que el Comité/Delegados serán informados de las sanciones por faltas graves y muy graves, en particular despidos (Art. 32).",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    }
+  },
+
+  "representacionSindical": {
+    "$comment": "Arts. 32-35. El convenio MEJORA el crédito horario legal (27 h/mes frente a 15 h del ET). El sistema de elección y las garantías/fuero no se detallan en el convenio y se rigen por el ET (arts. 62-68) y la LOLS.",
+    "creditoHorario": {
+      "articulo": "Art. 32",
+      "horasMensuales": 27,
+      "ambito": "Miembros del Comité de Empresa o Delegados de Personal en empresas de menos de 250 trabajadores.",
+      "usos": "Asistencia a congresos/asambleas/reuniones de las centrales sindicales, participación en seminarios y cursos formativos, y actos de gestión por encargo de los órganos sindicales.",
+      "acumulable": "Sí: se puede pactar en cada empresa la acumulación de horas de varios representantes en uno o varios, sin rebasar el máximo total, pudiendo quedar relevados del trabajo sin perjuicio de su remuneración (Art. 32.d).",
+      "excesoNegociacion": "Durante la negociación de convenios de hostelería los representantes disponen de las horas necesarias aunque excedan del crédito; ese tiempo se considera cumplimiento de deber inexcusable y se abona íntegro.",
+      "mejoraET": "SÍ. El art. 68.e ET fija el mínimo en 15 h/mes para centros de hasta 100 trabajadores; el convenio concede 27 h/mes (empresas <250), mejorándolo."
+    },
+    "funcionesComite": "Ser informados de sanciones por faltas graves y muy graves (en particular despidos), vigilar la seguridad e higiene, colaborar en la productividad y ser informados mensualmente por escrito de las horas extraordinarias (Art. 32).",
+    "derechoAsamblea": "Las empresas facilitan el derecho de asamblea en sus locales cuando lo soliciten el Comité, los Delegados o la mayoría simple de la plantilla, avisando con antelación (Art. 33).",
+    "seccionSindical": "En empresas de al menos 10 trabajadores con afiliación mínima acreditada del 10% a un sindicato, se reconoce a éste como interlocutor. Libertad de sindicación; prohibido condicionar el empleo a la afiliación o despedir/perjudicar por ella (Art. 34).",
+    "publicidadConvenio": "La empresa debe tener el convenio expuesto en lugar visible del centro y permitir que los representantes expongan hojas que lo desarrollen (Art. 35).",
+    "quienRepresentaYeleccion": "pendiente — no detallado en el convenio; se rige por el ET (arts. 62-68: delegados de personal en empresas 6-49, comité de empresa desde 50) y la LOLS.",
+    "garantiasYfuero": "pendiente — no detallado en el convenio; se rige por el art. 68 ET (expediente contradictorio previo a sanción grave, prioridad de permanencia, protección frente a despido/sanción por actividad representativa durante el mandato y el año siguiente)."
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 13-16. Destaca el contrato fijo-discontinuo (clave en hostelería de temporada) y el preaviso de cese voluntario.",
+    "articulo": "Art. 13 (preaviso), Art. 14 (eventual por producción), Art. 15 (fijo-discontinuo), Art. 16 (tiempo parcial)",
+    "ceseVoluntarioPreaviso": {
+      "articulo": "Art. 13",
+      "general": "15 días naturales",
+      "grupos1y2": "1 mes (grupos profesionales primero y segundo)",
+      "nota": "El incumplimiento permite a la empresa detraer de la liquidación el salario de un día por cada día de retraso en el preaviso."
+    },
+    "preavisoFinContratoEmpresa": "En contratos de duración determinada superiores a 12 meses, la empresa preavisa el fin con al menos 15 días naturales; si no, abona un día de salario por cada día incumplido, con un máximo de 15 días de salario (Art. 13).",
+    "eventualPorProduccion": { "articulo": "Art. 14", "duracionMaxima": "12 meses", "nota": "Contrato por circunstancias de la producción; máximo 1 año, prorrogable una única vez sin superar el máximo. Incluye oscilaciones derivadas de las vacaciones anuales." },
+    "fijoDiscontinuo": {
+      "articulo": "Art. 15",
+      "objeto": "Trabajos de naturaleza estacional o de temporada, o de prestación intermitente con periodos ciertos, determinados o indeterminados.",
+      "formalizacion": "Por escrito, reflejando duración estimada, jornada y distribución horaria (art. 16.2 ET).",
+      "llamamiento": "Con antelación mínima de 7 días naturales, por burofax, correo certificado con acuse de recibo u otro medio con garantías, al domicilio comunicado por la persona trabajadora.",
+      "ordenLlamamiento": "Se llama a quien ya ocupara el mismo puesto para la misma actividad en el periodo anterior; si no responde o lo hace negativamente, a quien tenga más tiempo de servicio y experiencia en puestos equivalentes; en última instancia, a quien tenga más antigüedad.",
+      "censo": "La empresa informa a la RLPT de la previsión de llamamientos y facilita un censo de fijos-discontinuos (nombre, DNI, puesto/especialidad, antigüedad, centro y nº de orden).",
+      "conversionAfijoOrdinario": "La empresa informa de las vacantes fijas ordinarias para que puedan solicitar la conversión voluntaria (art. 16.7 ET)."
+    },
+    "tiempoParcial": "Las retribuciones se aplican proporcionalmente a la jornada efectiva del personal a tiempo parcial (Art. 16).",
+    "topeTemporalidad": "pendiente — el convenio no fija un porcentaje máximo de temporalidad propio."
+  },
+
+  "formacion": {
+    "$comment": "Art. 37. Se remite al ALEH y al Acuerdo de Formación Continua. Se crea una Comisión de Formación.",
+    "articulo": "Art. 37",
+    "gestion": "Se constituye una Comisión de Formación en el plazo máximo de 3 meses desde la publicación del convenio, integrada por la Asociación de Empresarios de Hostelería de Melilla y los sindicatos representativos, para orientar la formación hacia la capacitación, especialización y actualización profesional.",
+    "creditoHorasFormacion": "no_previsto — el convenio no fija un crédito de horas de formación individual específico.",
+    "permisosExamenes": "Horas precisas para exámenes finales de estudios oficiales o académicos (Art. 21.4).",
+    "riesgosLaborales": "Las empresas están obligadas a informar en materia de riesgos laborales a todos sus trabajadores (Art. 37)."
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Arts. 38-40 + Cláusula Adicional Final. El convenio establece el principio de igualdad y no tolerancia del acoso, remitiendo en lo esencial a la legislación (LO 3/2007).",
+    "articulo": "Arts. 38, 39 y 40; Cláusula Adicional Final",
+    "principioIgualdad": "No discriminación por sexo, raza, religión o cualquier otra condición en el acceso al empleo, formación, promoción, retribución, condiciones de trabajo, despido y afiliación sindical (Arts. 38-40).",
+    "accionPositiva": "Medidas de acción positiva a favor del sexo menos representado en promoción y formación profesional (Art. 40.3 y 40.4).",
+    "acosoSexualYdiscriminatorio": "No se tolera el acoso por razón de sexo ni el acoso sexual (comportamientos que atenten contra la dignidad y creen un entorno intimidatorio, hostil, degradante, humillante u ofensivo) (Art. 40.8).",
+    "planesIgualdad": "pendiente — el convenio no cuantifica obligaciones propias de plan de igualdad; rige la LO 3/2007 (obligatorio en empresas de 50+ personas).",
+    "violenciaDeGenero": "pendiente — el convenio no fija mejoras cuantitativas propias; rige la legislación vigente (LO 1/2004).",
+    "lenguajeNoSexista": "La Cláusula Adicional Final pide interpretar el uso del masculino genérico en forma no sexista."
+  },
+
+  "comisionParitaria": {
+    "$comment": "Arts. 7-11. Órgano de interpretación y vigilancia del convenio, con función arbitral en la cláusula de descuelgue.",
+    "articulo": "Arts. 7 a 11",
+    "composicion": "6 miembros titulares y 3 suplentes, de forma paritaria entre sindicatos firmantes (CC.OO. y UGT) y la organización empresarial, más un Presidente y un Secretario.",
+    "domicilio": "Sede social de la Confederación de Empresarios de Melilla, Plaza Primero de Mayo, 1, bajo derecha, Melilla.",
+    "funciones": "Interpretar el convenio, vigilar su cumplimiento, resolver conflictos colectivos (con carácter previo y obligatorio a la vía administrativa/judicial), y arbitrar la cláusula de descuelgue.",
+    "plazos": "Reuniones ordinarias trimestrales (convocatoria mín. 15 días naturales) y extraordinarias (mín. 5 días); resolución en máx. 15 días naturales (72 h en casos de urgencia).",
+    "acuerdos": "Se adoptan por unanimidad de los asistentes."
+  },
+
+  "clausulaDescuelgueSalarial": {
+    "$comment": "Anexo I. Permite a empresas con déficit o pérdidas continuadas no aplicar los incrementos salariales pactados (inaplicación del régimen salarial).",
+    "articulo": "Anexo I (arts. 82.3 y 85.2c ET)",
+    "requisito": "Acreditar objetiva y fehacientemente déficit o pérdidas continuadas mantenidas en los ejercicios inmediatamente anteriores (nivel insuficiente de producción/ventas, balances y cuentas de resultados de los últimos 2 años; en discrepancia, informes de auditores).",
+    "procedimiento": "La empresa presenta propuesta motivada con documentación (balance, cuenta de resultados, informe de auditores) ante la Comisión Paritaria, que actúa como árbitro; su decisión (laudo arbitral por mayoría simple) es de obligado cumplimiento, impugnable conforme a los procedimientos de los convenios colectivos.",
+    "alcance": "Solo afecta al campo salarial; el resto del convenio sigue obligando a la empresa. Se pueden arbitrar fórmulas para que el descuelgue no afecte a los salarios más bajos y para recuperar los salarios perdidos cuando mejore la situación.",
+    "confidencialidad": "Los miembros de la Comisión Paritaria guardan sigilo profesional sobre la información recibida."
+  },
+
+  "condicionesMasBeneficiosas": {
+    "articulo": "Arts. 3 y 4",
+    "detalle": "Las empresas respetan las condiciones más beneficiosas que ya tuvieran establecidas con sus trabajadores (Art. 3). Las condiciones del convenio, en su conjunto, pueden ser compensadas y absorbidas por otras superiores fijadas por disposición legal, contrato individual o concesión voluntaria (Art. 4)."
+  },
+
+  "otrasCondicionesEconomicasNoSalariales": {
+    "$comment": "El convenio NO incluye seguro colectivo de vida/accidentes, auxilio por viudedad, premios de natalidad/nupcialidad/jubilación ni indemnización por extinción por edad. Estos conceptos (presentes en otros convenios como Cádiz) NO están regulados en Melilla.",
+    "seguroColectivo": "no_previsto en el convenio",
+    "auxilioViudedad": "no_previsto en el convenio",
+    "premios": "no_previsto en el convenio (natalidad, nupcialidad, jubilación)",
+    "indemnizacionExtincionEdad": "no_previsto en el convenio",
+    "nota": "Para estos conceptos rige, en su caso, el ALEH estatal (derecho supletorio, Art. 6)."
+  },
+
+  "estado": "condiciones_no_salariales_verificadas",
+  "verificadoContra": "Lectura celda a celda de las IMÁGENES (PNG, 185 dpi) de las 13 páginas del PDF oficial BOME-A-2025-717 (BOME nº 6291, 11-jul-2025), págs. 2421-2433. Verificado en imagen: articulado completo Art. 1-40, Cláusula Adicional Final, Anexo I (descuelgue) y Anexo II (tablas salariales de las 6 áreas funcionales x 3 grupos x 4 años). NO verificado por no figurar en el convenio: correspondencia categoría→grupo profesional (remite al ALEH), régimen disciplinario, excedencias, periodo de prueba, horas extra, retribución de vacaciones e importe en euros del plus de bonificación de Melilla.",
+  "fechaVerificacion": "2026-07-08",
+  "dudasParaUGT": [
+    "Retribución de las vacaciones (Art. 20): el convenio no indica si se pagan solo a salario base o por promedio con complementos (nocturnidad, etc.). ¿Criterio aplicado en Melilla?",
+    "Tablas del Anexo II: para los grupos retribuidos a 'S.M.I.' el boletín deja el Plus de Residencia (25%) y el Plus de Transporte a 0,00 €. ¿Se abona realmente el 25% de residencia sobre el S.M.I. o queda absorbido? Parece perjudicial y conviene confirmar.",
+    "Plus de Bonificación de Melilla (Art. 24 / 'Bome 4994'): no está cuantificado en euros en la tabla. ¿Cuál es el importe vigente y cómo se acredita que la empresa recibe la bonificación del 50% en cuotas patronales?",
+    "Antigüedad congelada (Art. 25): confirmar que los nuevos ingresos realmente no devengan ningún complemento de permanencia y cómo afecta a las pagas extra (que se calculan sobre salario base + complemento de permanencia).",
+    "Quebranto de moneda (Art. 28, 63,60 €/mes): el importe no aparece en las tablas anuales; ¿se revaloriza con los incrementos del convenio o queda fijo?"
+  ]
+}
