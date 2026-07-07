@@ -166,6 +166,12 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 - Principio: el trabajador cansado no va a bucear en menús. El valor aparece solo, pegado a la acción que ya hace (fichar). Las vistas de resumen ("te deben X€ este mes") son agregados de esto, no la fuente.
 - **Aviso de tope legal en caliente (Iulian 2026-07-07):** la app lleva la cuenta de horas extra acumuladas en el año; cuando al fichar vayas a superar el tope, te avisa. El tope es **80 h/año O lo que fije el convenio de cada zona** (el 80 es el mínimo del ET; cada convenio puede tener el suyo) → campo `topeHorasExtraAnual` por convenio.
 
+### D24 — Estrategia de datos de convenios: JSON en Git → seed → PostgreSQL (2026-07-07)
+- **Dos capas.** (1) Ficheros `convenios/*.json` en el repo = fuente de verdad, versionada, con la fuente oficial de cada cifra; mantenimiento comunitario vía PR. (2) PostgreSQL = capa de consulta en runtime. Al desplegar, un proceso *seed* carga los JSON en la BD. La app consulta la BD, nunca los ficheros.
+- **Por qué:** si los datos vivieran solo en la BD se perdería la trazabilidad (¿de qué boletín salió?) y la revisión pública. Con Git, cada número tiene fuente e historial. La BD se regenera desde los JSON.
+- **Esquema flexible (clave, lo destapó Madrid-hostelería):** los convenios NO tienen estructura uniforme (hospedaje = nivel×grupo; hostelería = establecimiento×área×inicial/garantizado). El esquema no puede ser una columna por campo. Modelo: convenio → conceptos salariales tipados (clave-valor con dimensiones), no tablas rígidas. Evaluar JSONB en Postgres para la parte variable + columnas fijas para lo común (id, ámbito, vigencia, jornada anual, tope horas extra).
+- Cobertura objetivo: ~150 convenios (≈50 provincias × 3 subsectores). Carga incremental por población; modo configurable a mano como respaldo mientras un convenio no esté transcrito.
+
 ### D23 — Aviso por condiciones climáticas / calor extremo (idea de Iulian 2026-07-07)
 - La app cruza la ubicación/jornada del usuario con una **API del tiempo**; si hay calor extremo (p. ej. 38°) o alerta AEMET, avisa al trabajador de sus derechos: puede no ser exigible ir/seguir trabajando.
 - Base legal real: **RD-ley 4/2023** (modifica el RD 486/1997) obliga a adaptar o suspender el trabajo con alertas meteorológicas adversas (calor/frío), especialmente en exteriores/terrazas. Algunos convenios fijan umbrales propios de temperatura.
