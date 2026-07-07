@@ -1,10 +1,18 @@
 {
-  "$comment": "Tablas 2025 VERIFICADAS visualmente contra el PDF oficial del BOP de Alicante (nº33, 18-02-2025, anuncio 971/2025). Este convenio es de los más completos: fija en euros la hora extra, la nocturnidad y la compensación de festivos. Pendiente del TEXTO del convenio (otra publicación): jornada anual, tramo horario de nocturnidad, y mapeo categoría→nivel.",
+  "$comment": "Tabla 2026 (VIGENTE en 2026, regla D32) VERIFICADA visualmente contra el PDF oficial del BOP de Alicante nº29, 12-02-2026, anuncio 819/2026 (RESOLUCIÓN tablas salariales año 2026, Dir. Territorial de Trabajo y Labora, 5-02-2026; código convenio 03000425011982). Es el último año del calendario pactado (3% 2024, 3% 2025, 2% 2026). Se preservan las tablas 2025 (BOP nº33, 18-02-2025, anuncio 971/2025) como histórico. Pendiente del TEXTO del convenio (otra publicación, 2023-2026): jornada anual, tramo horario de nocturnidad, mapeo categoría→nivel, y todo el bloque de condiciones no salariales (permisos, complemento IT, disciplinario, sindical, vacaciones).",
   "id": "alicante-hosteleria",
   "nombre": "Convenio colectivo del sector de Hostelería de la provincia de Alicante",
+  "codigoRegcon": "03000425011982",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Comunidad Valenciana", "provincias": ["Alicante"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {
+    "boletin": "BOP Alicante",
+    "numero": 29,
+    "fecha": "2026-02-12",
+    "documento": "Anuncio 819/2026 — Resolución tablas salariales año 2026",
+    "url": "https://www.dip-alicante.es/bop2/pdftotal/2026/02/12_29/2026_000819.pdf"
+  },
+  "fuenteTablas2025": {
     "boletin": "BOP Alicante",
     "numero": 33,
     "fecha": "2025-02-18",
@@ -12,8 +20,67 @@
     "url": "https://www.dip-alicante.es/bop2/pdftotal/2025/02/18_33/2025_000971.pdf"
   },
   "vigencia": { "desde": "2023-01-01", "hasta": "2026-12-31" },
+  "anioAplicable": 2026,
   "categoriasEstablecimiento": { "A": "grupo A (superior)", "B": "grupo B", "C": "grupo C", "nota": "Grupos de establecimientos A/B/C; detalle en el texto del convenio." },
+  "salariosBaseMensuales2026": {
+    "$comment": "Tabla de retribuciones del 1 de enero al 31 de diciembre de 2026. VIGENTE. Verificada en imagen (BOP nº29, pág. 3).",
+    "1": { "A": 1727.77, "B": 1644.83, "C": 1499.70 },
+    "2": { "A": 1616.63, "B": 1532.98, "C": 1428.16 },
+    "3": { "A": 1500.23, "B": 1460.94, "C": 1397.16 },
+    "4": { "A": 1461.45, "B": 1388.30, "C": 1314.25 },
+    "5": { "A": 1350.68, "B": 1308.03, "C": 1277.42 },
+    "6": { "A": 1270.29, "B": 1269.73, "C": 1268.81 }
+  },
+  "contratosFormacion2026": { "año1": 980.30, "año2": 1095.20, "nota": "Art. 13. Se aplicará como mínimo el SMI." },
+  "horasExtraordinarias2026": {
+    "$comment": "Art. 24. Precio POR HORA (€). Verificada en imagen (BOP nº29, pág. 3). Tope 80 h/año salvo mejora.",
+    "1": { "A": 17.47, "B": 16.66, "C": 15.24 },
+    "2": { "A": 16.39, "B": 15.60, "C": 14.56 },
+    "3": { "A": 15.26, "B": 14.85, "C": 14.24 },
+    "4": { "A": 14.85, "B": 14.16, "C": 13.44 },
+    "5": { "A": 13.79, "B": 13.37, "C": 13.07 },
+    "6": { "A": 13.01, "B": 13.01, "C": 12.99 }
+  },
+  "compensacionFiestas2026": {
+    "$comment": "Art. 26. € por día de fiesta trabajada. Verificada en imagen (BOP nº29, pág. 3).",
+    "1": { "A": 124.00, "B": 117.78, "C": 107.04 },
+    "2": { "A": 115.92, "B": 109.67, "C": 101.84 },
+    "3": { "A": 107.47, "B": 104.38, "C": 99.64 },
+    "4": { "A": 104.66, "B": 99.16, "C": 93.57 },
+    "5": { "A": 96.60, "B": 93.29, "C": 90.89 },
+    "6": { "A": 90.78, "B": 90.59, "C": 90.25 }
+  },
+  "nocturnidad2026": {
+    "$comment": "Art. 34. Valor del plus POR HORA trabajada (€). Verificada en imagen (BOP nº29, pág. 4). El tramo horario que cuenta como nocturno está en el texto del convenio (pendiente).",
+    "porHora": {
+      "1": { "A": 1.45, "B": 1.38, "C": 1.24 },
+      "2": { "A": 1.36, "B": 1.30, "C": 1.18 },
+      "3": { "A": 1.24, "B": 1.21, "C": 1.15 },
+      "4": { "A": 1.21, "B": 1.14, "C": 1.10 },
+      "5": { "A": 1.12, "B": 1.08, "C": 1.06 },
+      "6": { "A": 1.06, "B": 1.06, "C": 1.06 }
+    }
+  },
+  "pluses2026": {
+    "$comment": "Verificados en imagen (BOP nº29, pág. 4).",
+    "plusResponsabilidadComedoresEscolares": { "importe": 61.09, "articulo": "Art. 36", "nota": "Sólo empresas prestadoras de servicios a comedores escolares." },
+    "gratificacionExtraordinariaOctubre": { "importe": 1235.82, "articulo": "Art. 38 letra b" },
+    "ropaTrabajo": {
+      "articulo": "Art. 46",
+      "esmoquin": 27.05,
+      "mostradorSalaSinChaquetaYCocina": 19.93,
+      "restoPersonal": 11.76
+    },
+    "calzado": {
+      "articulo": "Art. 46",
+      "zapatosCueroOSimilar": 6.26,
+      "zapatillasTelaOSimilar": 3.15
+    },
+    "ayudaEconomicaMatrimonio": { "importe": 261.54, "articulo": "Art. 48" },
+    "manutencion": { "importe": 24.07, "articulo": "Art. 43" }
+  },
   "salariosBaseMensuales2025": {
+    "$comment": "HISTÓRICO 2025 (BOP nº33, 18-02-2025, anuncio 971/2025). Sustituida por la tabla 2026 a efectos de aplicación.",
     "1": { "A": 1693.89, "B": 1612.58, "C": 1470.29 },
     "2": { "A": 1584.93, "B": 1502.92, "C": 1400.16 },
     "3": { "A": 1470.81, "B": 1432.29, "C": 1369.76 },
@@ -23,7 +90,7 @@
   },
   "contratosFormacion2025": { "año1": 961.08, "año2": 1073.73, "nota": "Mínimo SMI (Art. 13)." },
   "horasExtraordinarias2025": {
-    "$comment": "Art. 24. Precio POR HORA (€) — este convenio SÍ fija precio de hora extra (a diferencia de Madrid). Tope 80 h/año salvo mejora.",
+    "$comment": "HISTÓRICO. Art. 24. Precio POR HORA (€). Tope 80 h/año salvo mejora.",
     "1": { "A": 17.13, "B": 16.33, "C": 14.94 },
     "2": { "A": 16.07, "B": 15.29, "C": 14.27 },
     "3": { "A": 14.96, "B": 14.56, "C": 13.96 },
@@ -32,7 +99,7 @@
     "6": { "A": 12.75, "B": 12.75, "C": 12.74 }
   },
   "nocturnidad2025": {
-    "$comment": "Art. 34. Valor del plus POR HORA trabajada (€). El tramo horario que cuenta como nocturno está en el texto del convenio (pendiente).",
+    "$comment": "HISTÓRICO. Art. 34. Valor del plus POR HORA trabajada (€).",
     "porHora": {
       "1": { "A": 1.42, "B": 1.35, "C": 1.22 },
       "2": { "A": 1.33, "B": 1.27, "C": 1.16 },
@@ -43,7 +110,7 @@
     }
   },
   "compensacionFiestas2025": {
-    "$comment": "Art. 26. € por día de fiesta trabajada.",
+    "$comment": "HISTÓRICO. Art. 26. € por día de fiesta trabajada.",
     "1": { "A": 121.57, "B": 115.47, "C": 104.94 },
     "2": { "A": 113.65, "B": 107.52, "C": 99.84 },
     "3": { "A": 105.36, "B": 102.33, "C": 97.69 },
@@ -52,13 +119,14 @@
     "6": { "A": 89.00, "B": 88.81, "C": 88.48 }
   },
   "pluses2025": {
+    "$comment": "HISTÓRICO.",
     "plusResponsabilidadComedoresEscolares": 59.89,
     "gratificacionExtraordinariaOctubre": 1211.59,
     "ropaTrabajoEsmoquin": 26.52,
     "nota": "La gratificación de octubre (Art. 38b) sugiere posibles 3 pagas — confirmar nº total de pagas en el texto. Ropa de trabajo tiene más tramos (sin chaqueta/cocina, resto) en el PDF."
   },
   "jornadaAnual": { "horas": null, "nota": "≈40 h/semana; horas anuales exactas en el texto del convenio (pendiente)." },
-  "estado": "tablas_2025_verificadas",
-  "verificadoContra": "PDF oficial BOP Alicante nº33 (18-02-2025) renderizado a imagen y leído visualmente. Tablas 2025 (salarios, horas extra, nocturnidad, fiestas, pluses) verificadas.",
-  "fechaVerificacion": "2026-07-07"
+  "estado": "tablas_2026_verificadas",
+  "verificadoContra": "PDF oficial BOP Alicante nº29 (12-02-2026, anuncio 819/2026) renderizado a imagen (fitz, dpi 185) y leído celda a celda. Tablas 2026 (salarios base, contratos formación, horas extra, fiestas, nocturnidad, pluses: responsabilidad, gratificación octubre, ropa, calzado, ayuda matrimonio, manutención) verificadas. Tablas 2025 (BOP nº33, 18-02-2025) preservadas como histórico.",
+  "fechaVerificacion": "2026-07-08"
 }
