@@ -1,0 +1,339 @@
+{
+  "$comment": "Convenio Colectivo del Sector de Hostelería y Alojamientos Turísticos de la provincia de Valladolid 2018-2026. Transcrito VISUALMENTE del PDF oficial del BOP de Valladolid nº2021/247 (martes 28-12-2021), firmado con el SELLO DE LA DIPUTACION PROVINCIAL DE VALLADOLID. Convenio de 9 años (2018-2026) publicado de una vez con el Anexo III conteniendo tablas de todos los años. Rasgo clave: EQUIPARACIÓN salarial progresiva — durante 2018-2021 no hubo subida; desde 2022 el Grupo I sube 1,6%/año y los Grupos II y III convergen hasta que en 2026 hay UNA ÚNICA TABLA para todo el sector (por eso 2025 tiene 3 columnas Grupo I/II/III y 2026 una sola). A julio de 2026 es la publicación vigente y su tabla 2026 es la aplicable. Se incorpora también la CORRECCIÓN oficial posterior: BOP nº2025/132 (lunes 14-07-2025), que (a) corrige el Anexo II de manutención (el año 2026 pasa de 700€ a 600€) y (b) añade un nuevo Anexo V (protocolo LGTBI, RD 1026/2024). A diferencia de Cádiz, este convenio SÍ regula íntegramente el régimen disciplinario (arts. 37-44, reproducción del ALEH).",
+  "id": "valladolid-hosteleria",
+  "nombre": "Convenio Colectivo del Sector de Hostelería y Alojamientos Turísticos de la provincia de Valladolid 2018-2026",
+  "codigoRegcon": "47000235011982",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla y León", "provincias": ["Valladolid"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP Valladolid",
+    "numero": "2021/247",
+    "fecha": "2021-12-28",
+    "documento": "Resolución de la Oficina Territorial de Trabajo (Delegación Territorial de la Junta de Castilla y León en Valladolid), Resolución de 14-12-2021, por la que se dispone el registro, depósito y publicación del Convenio Colectivo del Sector de Hostelería y Alojamientos Turísticos de la provincia de Valladolid. Código de convenio 47000235011982.",
+    "url": "https://www.ccoo-servicios.es/archivos/BOPVA-hosteleria-Valladolid-2018-2026.pdf",
+    "notaUrl": "PDF oficial del BOP nº2021/247 (firmado con Sello de la Diputación Provincial de Valladolid, 27-12-2021). El original está también accesible en la sede electrónica del BOP (bop.sede.diputaciondevalladolid.es); código de verificación del documento: R6ewLP6gqvbARyxGR9cZeNFxqSM=.",
+    "correccionPosterior": {
+      "boletin": "BOP Valladolid",
+      "numero": "2025/132",
+      "fecha": "2025-07-14",
+      "documento": "Resolución de la Oficina Territorial de Trabajo por la que se publica el acuerdo de modificación y corrección del convenio (Comisión Negociadora, acta de 25-06-2025). Código 47000235011982.",
+      "url": "https://bop.sede.diputaciondevalladolid.es/boletines/2025/julio/14/BOPVA-A-2025-02399.pdf",
+      "contenido": "NO modifica las tablas salariales (Anexo III). (1) Corrige errores del Anexo II (plus de manutención): el importe anual de 2026 pasa de 700€ a 600€. (2) Introduce un nuevo Anexo V con las medidas planificadas para la igualdad y no discriminación de las personas LGTBI (RD 1026/2024). El acta hace constar que el régimen disciplinario queda reservado a la negociación estatal (art. 10.7 del VI ALEH)."
+    }
+  },
+  "vigencia": { "desde": "2018-01-01", "hasta": "2026-12-31", "nota": "Art. 3: duración de 9 años. Extinguido el plazo se entiende denunciado automáticamente, pero mantiene sus efectos hasta la firma de un nuevo convenio, aplicándose las tablas de 2026 SIN actualización (ultraactividad pactada del articulado y de las tablas)." },
+  "partesFirmantes": { "patronal": ["APEHVA (Asociación Provincial de Empresarios de Hostelería de Valladolid)", "Asociación Provincial de Empresarios de Alojamientos Turísticos de Valladolid (Asociación de Hoteles de Valladolid)"], "sindicatos": ["CCOO", "UGT"] },
+
+  "jornadaAnual": {
+    "horas": 1782,
+    "semanal": 40,
+    "articulo": "Art. 4",
+    "nota": "Art. 4: 40 h/semana, cómputo máximo 1.782 h/año de trabajo efectivo. Flexibilización durante 4 semanas al año (máx. 9 h/día, 45 h/semana, respetando el tope anual de 1.782 h), reflejada en calendario laboral. Empresas de más de 10 trabajadores pueden acogerse a la distribución irregular del art. 34 y ss. ET previa negociación.",
+    "descansoSemanal": "Dos días ininterrumpidos. Obligatorio conceder un domingo al mes libre salvo acuerdo (Art. 4.4-4.5).",
+    "mediaJornadaEmpresasPequenas": "Empresas de menos de 10 trabajadores pueden requerir durante un semestre continuado trabajar media jornada (4 h) en lugar de los 2 días de descanso, con descanso continuado de 36 h y compensación de 25 €/día de media jornada trabajada; el otro semestre la elección corresponde a la persona trabajadora (Art. 4.5)."
+  },
+
+  "fiestasAbonables": {
+    "$comment": "Art. 5. Las fiestas del calendario pueden disfrutarse el mismo día, acumularse a vacaciones/otras fechas con días compensatorios, o descansarse en la misma semana. Propuesta de la empresa con 15 días de antelación; justificante obligatorio.",
+    "articulo": "Art. 5",
+    "compensacionAcumulacion": { "de2a3festivos": "1 día", "de4a5": "2 días", "de6a8": "3 días", "de9a11": "4 días", "de12a14": "5 días" },
+    "nota": "Las fiestas abonables que caigan en días de descanso semanal no se dan por disfrutadas. Se respetan condiciones más beneficiosas."
+  },
+
+  "pagasExtraordinarias": {
+    "total": 14,
+    "articulo": "Art. 10",
+    "$comment": "OJO: 14 pagas (12 mensualidades + 2 gratificaciones), NO 15 como afirman varias webs no oficiales. Art. 10: dos gratificaciones extraordinarias al año, equivalentes cada una a una mensualidad de salario base más antigüedad, abonadas el 15 de diciembre y el 15 de julio."
+  },
+
+  "estructuraSalarial": {
+    "$comment": "El convenio organiza al personal en TRES ÁREAS FUNCIONALES (Primera: Recepción, Conserjería, Relaciones Públicas, Administración y Gestión; Segunda: Cocina y Economato; Tercera: Restaurante, Bar y Similares) — más un Área Cuarta creada por Disp. Transitoria 3ª para Auxiliar de Pisos y Limpiezas. Dentro de cada área hay GRUPOS PROFESIONALES I, II y III, y cada categoría tiene un NIVEL SALARIAL (N.S. I a V, más V-A). Las columnas GRUPO I/II/III de las tablas de 2018-2025 son los tres antiguos tramos de categorías de establecimiento que se van equiparando; en 2026 quedan en una única tabla.",
+    "articulo": "Arts. 8, 9, 27, 49",
+    "equiparacion": "Art. 9: durante 2018-2021 no se actualizaron las tablas (se aplicaron las de 2017). Desde 2022: Grupo I +1,6%/año; Grupos II y III suben lo necesario para equipararse al Grupo I en 2026 (tabla única). El antiguo Grupo IV se integró en el Grupo III en 2023.",
+    "camarerasPiso": "Art. 9 y 19: el plus de intensidad (291,18 €) se integró en el salario base de las Camareras/os de pisos desde el 01-01-2022, con subida lineal del 2,84%/año para el Grupo I, equiparándose en 2026 al nivel salarial IV.",
+    "promocionEconomica": "Art. 8: cinco años consecutivos y efectivos como ayudante o auxiliar en la misma empresa ⇒ se pasa automáticamente a percibir la retribución del nivel salarial inmediatamente superior (aunque se sigan haciendo las mismas funciones). Auxiliar de Pisos con 3 años ⇒ pasa a Camarero/a de Pisos.",
+    "nivelIngresoSinExperiencia": "Art. 49: nivel de ingreso 'V-A' para personal sin experiencia y sin certificación de cualificación; permanencia máxima de 12 meses; retribución la del 'Nivel Salarial V-A' de las tablas (existe desde 2026, tras la homologación de categorías)."
+  },
+
+  "categoriasPorAreaYnivel2026": {
+    "$comment": "Anexo III, tabla única 2026. Asignación de categorías a cada nivel salarial (N.S.) dentro de cada área funcional (verificado en imagen, pág. 64 del BOP).",
+    "areaPrimera_Recepcion_Conserjeria_Admin": {
+      "NS_I": "Jefe/a de Recepción de Administración o Comercial, Primer/ra Conserje",
+      "NS_II": "2º Jefe/a de Recepción",
+      "NS_III": "Comercial, Relaciones Públicas, Técnico de Prevención de Riesgos",
+      "NS_IV": "Administrativo/a, Conserje, Telefonista, Recepcionista",
+      "NS_V": "Ayudante de Recepción-Conserjería o Administrativo, Auxiliar de Recepción o de Conserjería",
+      "NS_V_A": "Personal de ingreso sin experiencia"
+    },
+    "areaSegunda_Cocina_Economato": {
+      "NS_I": "Jefe/a de Cocina",
+      "NS_II": "Segundo/a Jefe/a de Cocina, Jefe/a de Partida",
+      "NS_III": "Jefe/a de Partida",
+      "NS_IV": "Cocinero/a, Repostero/a, Encargado/a de Economato",
+      "NS_V": "Ayudante de Economato, Ayudante de Cocina, Auxiliar de Cocina",
+      "NS_V_A": "Personal de ingreso sin experiencia"
+    },
+    "areaTercera_Restaurante_Bar": {
+      "NS_I": "Jefe/a de Restaurante o Sala, Gerente de Centro",
+      "NS_II": "Segundo/a Jefe/a de Restaurante o Sala",
+      "NS_III": "Jefe/a de Sector",
+      "NS_IV": "Camarero/a, Barman, Sumiller",
+      "NS_V": "Ayudante de Camarero/a, Asistente/a de Restauración Moderna, Riders",
+      "NS_V_A": "Personal de ingreso sin experiencia"
+    }
+  },
+
+  "salariosBaseMensuales2026": {
+    "$comment": "Anexo III. TABLA ÚNICA de 2026 (culmina la equiparación): mismos importes para las tres áreas funcionales y para lo que antes eran Grupos I/II/III. € brutos. Verificado en IMAGEN (BOP pág. 64) celda a celda. 'anual' = importe bruto anual de la tabla del convenio.",
+    "NS_I": { "mensual": 1416.06, "anual": 19824.84 },
+    "NS_II": { "mensual": 1322.96, "anual": 18521.44 },
+    "NS_III": { "mensual": 1276.03, "anual": 17864.42 },
+    "NS_IV": { "mensual": 1206.26, "anual": 16887.64 },
+    "NS_V": { "mensual": 1112.96, "anual": 15581.44 },
+    "NS_V_A": { "mensual": 1079.58, "anual": 15114.12, "nota": "Personal de ingreso sin experiencia (Art. 49), máx. 12 meses." }
+  },
+
+  "salariosBaseMensuales2025": {
+    "$comment": "Anexo III. Tabla de 2025, TODAVÍA con tres columnas de equiparación (Grupo I, II, III). Mismos importes en las tres áreas funcionales (verificado en imagen, BOP pág. 62). € brutos mensual / anual. En 2026 estas tres columnas convergen en la tabla única de arriba.",
+    "NS_I": { "grupoI": { "mensual": 1393.76, "anual": 19512.64 }, "grupoII": { "mensual": 1374.86, "anual": 19248.86 }, "grupoIII": { "mensual": 1363.44, "anual": 19088.16 } },
+    "NS_II": { "grupoI": { "mensual": 1302.13, "anual": 18229.82 }, "grupoII": { "mensual": 1280.18, "anual": 17922.52 }, "grupoIII": { "mensual": 1271.77, "anual": 17804.78 } },
+    "NS_III": { "grupoI": { "mensual": 1255.93, "anual": 17583.02 }, "grupoII": { "mensual": 1237.07, "anual": 17318.98 }, "grupoIII": { "mensual": 1225.46, "anual": 17156.44 } },
+    "NS_IV": { "grupoI": { "mensual": 1187.26, "anual": 16621.64 }, "grupoII": { "mensual": 1173.08, "anual": 16423.12 }, "grupoIII": { "mensual": 1161.86, "anual": 16266.04 } },
+    "NS_V": { "grupoI": { "mensual": 1095.43, "anual": 15336.02 }, "grupoII": { "mensual": 1081.48, "anual": 15140.72 }, "grupoIII": { "mensual": 1081.48, "anual": 15140.72 } }
+  },
+
+  "antiguedad": {
+    "$comment": "Art. 11. El concepto de antigüedad quedó CONGELADO a 31-12-1996. Dos regímenes según fecha de ingreso.",
+    "articulo": "Art. 11",
+    "ingresoAntesDe1997": { "escala": { "3años": 3, "6años": 8, "9años": 16 }, "base": "salario base", "tope": "16%", "nota": "Solo para quienes ingresaron antes del 01-01-1997." },
+    "ingresoDesde1997": { "plusVinculacion": 3, "base": "salario base del convenio vigente en cada momento", "desde": "5º año de permanencia", "nota": "Plus de vinculación del 3%, inalterable en el tiempo; sustituye a la antigüedad." }
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 12. Recargo porcentual (no €/hora). Obligadas a pagarlo las empresas cuyo personal trabaje la mayor parte de la jornada entre las 22:00 y las 6:00, salvo salario pactado ya como nocturno por su naturaleza.",
+    "articulo": "Art. 12",
+    "tipo": "porcentaje",
+    "porcentaje": 25,
+    "sobre": "salario_base",
+    "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+    "complementoTurnoNochePermanente": { "importe": 50.70, "unidad": "€/mes", "nota": "Para quien desarrolle su actividad permanente y completamente en turno de noche. No se devenga durante las vacaciones." }
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "Art. 13. Recargo porcentual sobre la hora ordinaria. Se acuerda reducir su realización al máximo.",
+    "articulo": "Art. 13",
+    "tipo": "porcentaje",
+    "porcentaje": 40,
+    "sobre": "hora_ordinaria",
+    "formula": "Hora extraordinaria = [(Salario base anual + Antigüedad) / Jornada anual] x 1,40"
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 6. Dato clave: son 31 días NATURALES (uno más que el mínimo legal de 30), sin distinción de antigüedad. El convenio SÍ especifica que son naturales (a diferencia de Cádiz).",
+    "articulo": "Art. 6",
+    "dias": 31,
+    "tipoDias": "naturales",
+    "diasExtraAntiguedad": "no_previsto",
+    "diasExtraAntiguedadNota": "Art. 6.1: 'sin distinción de antigüedad'. No se suman días por años.",
+    "retribucion": {
+      "base": "pendiente",
+      "nota": "El Art. 6 no detalla expresamente la fórmula de retribución de las vacaciones (salario base vs. promedio con complementos). Por defecto se aplica la doctrina general (promedio de la retribución ordinaria). Duda para UGT: ¿se retribuyen a salario real/promedio o solo base?"
+    },
+    "periodoDisfrute": {
+      "regla": "16 de los días se conceden, a petición de la persona trabajadora, entre el 1 de junio y el 30 de septiembre (Art. 6.1).",
+      "temporadaAltaBloqueada": "Las empresas pueden excluir como periodo vacacional el que coincida con su periodo de mayor actividad (Art. 6.1).",
+      "cierreEmpresa": "Si la empresa cierra el establecimiento por vacaciones, la persona trabajadora disfruta en ese periodo, garantizándose 15 días en época estival (Art. 6.5)."
+    },
+    "fijacion": "Cuadro de vacaciones confeccionado de común acuerdo con la plantilla o sus representantes dentro del primer trimestre del año (Art. 6.4).",
+    "inicioTrasDescanso": "El inicio de las vacaciones no coincidirá con los días de descanso, para que estos no sean absorbidos (Art. 6.1).",
+    "fraccionamiento": { "permitido": "no_especificado", "nota": "El Art. 6 no regula expresamente el fraccionamiento ni un mínimo de días seguidos (salvo la garantía de 15 días estivales en caso de cierre)." },
+    "bajaDuranteVacaciones_IT": "El disfrute de las vacaciones se INTERRUMPE en los supuestos de baja por maternidad y de IT derivada de accidente de trabajo, enfermedad o accidente no laboral (Art. 6.2); se disfrutan después.",
+    "noDisfrutadas": "Si no se disfrutan dentro del año natural de devengo, la empresa certifica por escrito antes del 31-dic los días pendientes, considerándolos como tales salvo causa imputable a la persona trabajadora (Art. 6.3). Las devengadas y no disfrutadas al cese se abonan en el finiquito (regla legal general).",
+    "proporcionalidad": "Con menos de un año en la empresa, se disfrutan los días que en prorrateo correspondan (Art. 6.1)."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 7. Salvo indicación de días naturales, los permisos se disfrutan en días LABORABLES (no computan los descansos del calendario). Extensibles a parejas de hecho con certificado de convivencia. En lo no previsto, ET.",
+    "articulo": "Art. 7",
+    "matrimonio": { "dias": 15, "tipo": "naturales", "articulo": "Art. 7.a" },
+    "fallecimientoAccidenteEnfermedadGraveHospitalizacion": { "dias": 3, "diasConDesplazamiento": 4, "tipo": "laborables", "articulo": "Art. 7.b", "causa": "Fallecimiento, accidente o enfermedad grave, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario, de parientes hasta el 2º grado de consanguinidad/afinidad. Disfrutable en días alternos mientras dure el hecho causante, previo acuerdo." },
+    "bautizoComunionHijo": { "dias": 1, "articulo": "Art. 7.c", "nota": "Con aviso previo de 8 días; se disfruta el día de la celebración." },
+    "trasladoDomicilio": { "dias": 2, "articulo": "Art. 7.d" },
+    "bodaFamiliares": { "dias": 1, "diasSiDesplazamientoMas60km": 3, "articulo": "Art. 7.e", "causa": "Boda de familiares hasta el 2º grado, en Valladolid y provincia." },
+    "libreDisposicion": { "dias": 4, "articulo": "Art. 7.f", "requisito": "Al menos 1 año de antigüedad. Preaviso de 7 días. No consecutivos salvo acuerdo. No computables como jornada efectiva." },
+    "maternidad": { "articulo": "Art. 7.g", "detalle": "Un mes de licencia antes de la fecha prevista del parto, a petición de la trabajadora; puede acumular las vacaciones al resto de la licencia." },
+    "lactancia": { "articulo": "Art. 7.h", "duracion": "Hijo/a menor de 9 meses", "opciones": ["1 hora de ausencia (inicio o final de jornada)", "dividida en dos fracciones", "acumulación en 23 días inmediatamente posteriores a la baja por maternidad"], "nota": "A voluntad de la persona trabajadora; disfrutable por madre o padre si ambos trabajan." },
+    "consultaMedica": { "articulo": "Art. 7.i", "detalle": "Asistencia a consulta médica propia y/o acompañamiento a hijos menores de 18 años: el tiempo indispensable, con justificante y preaviso de 24 h. Máximo 4 veces al año, siendo retribuidas las 2 primeras horas de cada una de esas 4 salidas." },
+    "notaGeneral": "Todos los permisos son extensibles a parejas de hecho con certificado de convivencia. En lo no previsto, Estatuto de los Trabajadores."
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 21. El dato 'oro' de baja médica, muy generoso en este convenio. Distingue tres situaciones. Se excluye siempre la manutención/plus compensatorio de la base del complemento.",
+    "articulo": "Art. 21",
+    "contingenciasProfesionalesYcomunesConHospitalizacion": {
+      "complementoPorcentaje": 100,
+      "sobre": "salario_total (excluida manutención)",
+      "desdeDia": 1,
+      "nota": "IT por contingencias profesionales (enfermedad profesional o accidente laboral) y por contingencias comunes que conlleven hospitalización y/o intervención quirúrgica: 100% del salario total desde el primer día; a partir del día 16, el 100% de la remuneración total. Requiere tener derecho a la prestación de IT."
+    },
+    "contingenciasComunesSinHospitalizacion": {
+      "primeraBajaDelAno": { "del1al15": 100, "desdeDia16": 75, "sobre": "salario_total (excluida manutención)", "nota": "En la primera baja iniciada dentro del año natural: 100% del salario total del 1º al 15º día incluido; a partir del día 16, complemento hasta el 75%." },
+      "segundaYsucesivas": { "desdeDia1": 75, "sobre": "salario_total (excluida manutención)", "nota": "En la segunda baja y sucesivas del año natural: 75% del salario total desde el primer día." }
+    },
+    "control": "La empresa puede enviar a comprobar la veracidad de la situación mediante un médico designado por la Comisión Paritaria.",
+    "maternidad": "Se estará a la legislación vigente."
+  },
+
+  "seguroAccidentes": {
+    "$comment": "Art. 20. Vigente desde 01-01-2022.",
+    "articulo": "Art. 20",
+    "coberturas": { "muertePorAccidenteTrabajo": 25000, "incapacidadPermanenteTotalYabsolutaPorAccidenteTrabajo": 25000 },
+    "unidad": "€"
+  },
+
+  "premios": {
+    "$comment": "Art. 22. Premios asistenciales.",
+    "articulo": "Art. 22",
+    "natalidad": { "importe": 60.38, "requisito": "Antigüedad mínima de 12 meses.", "unidad": "€" },
+    "nupcialidad": { "con18meses": 120.77, "con12meses": 112.74, "unidad": "€", "nota": "El de 12 meses exige que la persona continúe en la empresa." },
+    "jubilacion": { "detalle": "2 mensualidades del salario mensual con 10 años de antigüedad, +1 mensualidad por cada 5 años más, hasta un tope de 7 mensualidades. Igual cuantía en jubilación por incapacidad permanente a partir de los 50 años (sin límite de edad si deriva de contingencias profesionales)." },
+    "fallecimiento": { "importe": 268.49, "unidad": "€", "nota": "A los herederos o quienes justifiquen los gastos del sepelio (Art. 22.5)." }
+  },
+
+  "pluses": {
+    "$comment": "€ salvo indicación. Importes fijos del articulado (no varían por año salvo la manutención del Anexo II).",
+    "plusTransporte": { "importe": 0.71, "unidad": "€/día trabajado", "articulo": "Art. 16", "requisitos": "Previa petición; residencia a distancia mínima de 2 km del centro; que haya terminado o no haya empezado el turno de autobuses de su zona. Excluidos los de nuevo ingreso a partir de septiembre de 1982. Se respetan derechos adquiridos más beneficiosos." },
+    "plusAyudaDiscapacidad": { "importe": 48.93, "unidad": "€/mes por hijo/a", "articulo": "Art. 17", "nota": "Por hijo/a con discapacidad física, mental, intelectual o sensorial sin actividad retribuida; asimilados tutela/acogimiento." },
+    "plusIdiomas": { "importe": 20.28, "unidad": "€/mes", "articulo": "Art. 18", "nota": "Para quien la empresa requiera funciones con idiomas extranjeros y acredite los tres primeros cursos de la Escuela Oficial de Idiomas." },
+    "plusIntensidad": { "importe": 291.18, "unidad": "€ (histórico)", "articulo": "Art. 19", "nota": "Plus de las Camareras/os de pisos; INTEGRADO en el salario base desde el 01-01-2022, ya no se percibe por separado." },
+    "manutencion": {
+      "articulo": "Art. 14 + Anexo II (corregido por BOP 2025/132)",
+      "2018-2021": { "mes": 44.01, "ano": 528.12 },
+      "2022-2025": { "mes": 46.00, "ano": 552.00 },
+      "2026": { "mes": 50.00, "ano": 600.00, "nota": "Valor CORREGIDO por el acuerdo publicado en BOP nº2025/132 (14-07-2025). El PDF original de 2021 decía por error 700€/año; la corrección lo fija en 600€/año (=50€x12)." },
+      "nota": "Complemento en especie (manutención) del Art. 14; para establecimientos SIN comedor se sustituye por este plus compensatorio de idéntica cuantía (Anexo II). Verificado en imagen tanto el PDF de 2021 como la corrección de 2025."
+    }
+  },
+
+  "ropaTrabajo": {
+    "$comment": "Art. 15. La empresa da los uniformes/ropa de trabajo no de uso común o los compensa en metálico.",
+    "articulo": "Art. 15",
+    "detalle": "La empresa proporciona uniformes y ropa de trabajo que no sea de uso común, o su compensación en metálico. Prendas del uniforme no lavables en lavadora convencional: la empresa las limpia hasta 6 veces al año o las compensa en metálico. Calzado por cuenta de la empresa cuando exija uniforme, con al menos 12 meses de permanencia, renovable anualmente. Uniforme adecuado para trabajadoras embarazadas."
+  },
+
+  "periodoPrueba": {
+    "$comment": "El articulado del convenio no fija duraciones propias de periodo de prueba (solo lo menciona para excluirlo en subrogación: el subrogado no se somete a periodo de prueba, Anexo I.d).",
+    "articulo": "No regulado con duración propia (ver Anexo I para subrogación).",
+    "regulado": false,
+    "remitidoA": "ALEH estatal y Estatuto de los Trabajadores (art. 14 ET) para las duraciones por grupo/categoría.",
+    "nota": "Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "excedencias": {
+    "$comment": "Excedencia voluntaria en el Art. 32; excedencias por cuidado en el Art. 7 (Conciliación).",
+    "voluntaria": { "articulo": "Art. 32", "antiguedadMinima": "1 año", "duracion": "no menor de 4 meses ni mayor de 5 años", "reingreso": "Derecho PREFERENTE al reingreso en vacantes de igual o similar categoría (no reserva automática de puesto).", "concesion": "La empresa notifica la concesión dentro del mes siguiente a la solicitud." },
+    "cuidadoHijo": { "articulo": "Art. 7", "duracion": "no superior a 3 años por cada hijo (nacimiento, adopción o acogimiento)", "reservaPuesto": "1 año de reserva del puesto; después, reserva referida a puesto del mismo grupo o categoría equivalente. Familia numerosa: hasta 15 meses (general) o 18 meses (especial)." },
+    "cuidadoFamiliar": { "articulo": "Art. 7", "duracion": "no superior a 2 años para el cuidado de un familiar hasta 2º grado que no pueda valerse por sí mismo; alternativamente hasta 4 meses con posibilidad de reingreso automático (preaviso de 5 días laborables)." },
+    "computoAntiguedad": "El periodo de excedencia por cuidado es computable a efectos de antigüedad (Art. 7.5)."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. A DIFERENCIA de Cádiz, el convenio de Valladolid SÍ regula íntegramente el régimen disciplinario en los Arts. 37-44 (Capítulo IX), como reproducción del Acuerdo Laboral de ámbito Estatal (ALEH). NOTA: el acta de corrección de 25-06-2025 (BOP 2025/132) hace constar que, conforme al art. 10.7 del VI ALEH, el régimen disciplinario es materia reservada a la negociación estatal; aun así, el texto del convenio provincial mantiene los Arts. 37-44 vigentes.",
+    "articulo": "Arts. 37-44",
+    "regulado": true,
+    "graduacion": "Toda falta se califica como leve, grave o muy grave según importancia, trascendencia e intencionalidad (Art. 38).",
+    "faltasLeves": "Art. 40: 1 a 3 faltas de puntualidad <30 min en 30 días; no comunicar con celeridad la ausencia por IT; abandono <30 min sin causa; pequeños descuidos en géneros/material; no comunicar cambio de domicilio; discusiones sin público; llevar el uniforme descuidado; falta de aseo ocasional; faltar 1 día sin autorización (sin grave perjuicio); descuido/error/demora sin perturbación importante.",
+    "faltasGraves": "Art. 41: más de 3 impuntualidades en 30 días o una superior a 30 min; faltar 1-2 días en 30 días sin justificar; abandono >30 min entre 1 y 3 veces en 30 días; simulación de enfermedad para justificar retraso; incumplir órdenes; descuido importante en géneros; fichar por otro; discusiones ante el público; uso propio de artículos de la empresa; estar bajo efectos de alcohol/drogas; no atender al público con corrección; incumplir instrucciones de servicio o normas de seguridad/manipulación de alimentos; imprudencia; palabras irrespetuosas habituales; uso indebido de medios informáticos; reincidencia en faltas leves en un trimestre.",
+    "faltasMuyGraves": "Art. 42: 3+ faltas de asistencia sin justificar en 30 días, 10 en 6 meses o 20 en un año; fraude, deslealtad o abuso de confianza; destruir/inutilizar material; robo, hurto o malversación; violar secretos; malos tratos de palabra u obra o abuso de autoridad; disminución voluntaria y continuada del rendimiento; riñas frecuentes; simulación de enfermedad (trabajar durante la IT); daños por inobservancia de la seguridad; reincidencia en falta grave en 6 meses; ACOSO SEXUAL (ofensa física o verbal de carácter sexual; agravante si hay prevalimiento jerárquico); ACOSO MORAL o discriminatorio (racial, religioso, discapacidad, edad, orientación sexual, género).",
+    "sanciones": {
+      "leves": "Amonestación o suspensión de empleo y sueldo de hasta 2 días.",
+      "graves": "Suspensión de empleo y sueldo de 3 a 15 días.",
+      "muyGraves": "Suspensión de empleo y sueldo de 16 a 60 días, o despido disciplinario.",
+      "articulo": "Art. 43",
+      "acosoSexualYxenofobia": "El acoso sexual o la xenofobia se consideran falta MUY GRAVE cuya sanción, en todo caso, es el DESPIDO de la persona causante (Art. 42, apartado Acoso sexual y xenofobia).",
+      "notaMultaHaber": "Solo suspensión de empleo y sueldo (que es legal); NO existe multa de haber. Coincide con el art. 58.3 ET: prohibido sancionar reduciendo vacaciones/descansos o descontando dinero del sueldo como castigo."
+    },
+    "procedimiento": "Art. 39: notificación por comunicación ESCRITA con fecha y causas, con acuse de recibo. La representación legal/sindical debe ser informada de las sanciones por faltas graves y muy graves; audiencia previa al delegado sindical si la persona está afiliada.",
+    "prescripcion": "Art. 44: faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; en todo caso 6 meses desde su comisión. En faltas de reiteración (impuntualidad/ausencias en 30 días), el plazo cuenta desde la última falta.",
+    "revisable": "Toda sanción es revisable ante la jurisdicción competente (Art. 37), sin perjuicio de mediación/arbitraje."
+  },
+
+  "representacionSindical": {
+    "$comment": "Capítulo VIII (Arts. 33-36). El convenio MEJORA el crédito horario legal en empresas de más de 30 trabajadores. En lo no dispuesto, legislación vigente (ET arts. 62-68, LOLS).",
+    "articulo": "Arts. 33-36",
+    "creditoHorario": {
+      "delegadosGeneral": 16,
+      "empresasMas30Trabajadores": 18,
+      "unidad": "horas/mes",
+      "acumulable": "Sí: pactos o sistemas de acumulación de horas de los miembros del comité o delegados de la misma candidatura en uno o varios componentes (liberados), sin rebasar el máximo legal, comunicándolo previamente a la empresa (Art. 33.2).",
+      "mejoraET": "El art. 68.e ET fija 15 h/mes (≤100 trabajadores); el convenio da 16 h general y 18 h en empresas de más de 30 trabajadores."
+    },
+    "facultades": "Los delegados y comités conocen los modelos de contratos escritos y los documentos de terminación de la relación laboral, y son informados de todas las sanciones por faltas muy graves (Art. 34).",
+    "asambleas": "Convocatoria de asambleas para elecciones sindicales con 2 días de antelación (Art. 35); asambleas generales con 48 h de antelación (Art. 36).",
+    "finiquito": "Documento de liquidación/finiquito firmado por la empresa; la persona trabajadora tiene derecho a una copia 7 días antes de firmarlo para comprobarlo (Art. 36, apartado Cuarto).",
+    "cuotaSindical": "Recaudación de cotizaciones de personas afiliadas fuera de las horas de trabajo donde no se descuente en nómina (Art. 36).",
+    "quienRepresentaYgarantias": "pendiente — el convenio no detalla el sistema de elección ni las garantías/fuero (art. 68 ET); en lo no dispuesto se remite a la legislación vigente (ET arts. 62-68 y LOLS)."
+  },
+
+  "contratacion": {
+    "$comment": "Art. 29 (modalidades) + Art. 30 (ceses/preaviso) + Art. 49 (nivel de ingreso). El convenio no regula un contrato fijo-discontinuo sectorial detallado (sí lo menciona en subrogación de colectividades, Anexo I).",
+    "articulo": "Arts. 29, 30, 49",
+    "contratoFormacion": { "duracion": "mínimo 6 meses, máximo 3 años", "retribucion": "80% el 1er año, 90% el 2º, 100% el 3º, sobre el salario base del nivel VI del Anexo III (menores de 18: Anexo IV, nivel VI)", "nota": "Nunca inferior al SMI en proporción al tiempo de trabajo efectivo." },
+    "eventualPorProduccion": { "duracion": "máximo 12 meses dentro de un periodo de 18 meses", "indemnizacion": "12 días de salario por año trabajado si la extinción es a instancia del empresario (excluidos interinidad y formativos)." },
+    "tiempoParcial": "Por escrito con nº de horas y distribución. Horas complementarias solo si la jornada no es inferior a 10 h/semana en cómputo anual; tope 60% de las horas contratadas (30% en indefinidos a tiempo parcial).",
+    "ETT": "Las personas contratadas vía ETT perciben la totalidad de emolumentos de la categoría fijada en el convenio, sin discriminación respecto a la empresa usuaria.",
+    "nivelIngresoSinExperiencia": "Nivel V-A (Art. 49): personal sin experiencia ni certificación de cualificación; máximo 12 meses; retribución del nivel salarial V-A.",
+    "ceses": { "articulo": "Art. 30", "preavisoBajaVoluntaria": { "personalTecnico": "1 mes", "restoPersonal": "15 días" }, "incumplimientoTrabajador": "La empresa descuenta de la liquidación un día de salario por cada día de retraso en el aviso.", "preavisoFinContratoTemporal": "La empresa preavisa la finalización del contrato temporal con 15 días; su incumplimiento genera indemnización de un día de salario por cada día de retraso." }
+  },
+
+  "formacion": {
+    "$comment": "Art. 28 + Anexo V (formación LGTBI).",
+    "articulo": "Art. 28",
+    "creditoFormacion": "Cursos de perfeccionamiento de la actividad cuyo horario coincida con la jornada: la empresa asume el 50% de las horas dedicadas, con un límite de 20 horas al año, acreditando aprovechamiento y no más de una vez al año (salvo consentimiento). Si la persona cesa voluntariamente el año siguiente, la empresa puede descontar del finiquito el valor de las horas facilitadas.",
+    "formacionLGTBI": "Anexo V (RD 1026/2024): en 3 meses desde su publicación, las empresas integran en sus planes de formación módulos específicos sobre derechos de las personas LGTBI, dirigidos a toda la plantilla incluidos mandos y RRHH."
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Art. 45 + Art. 42 (acoso como falta muy grave) + Anexo V (nuevo, protocolo LGTBI del RD 1026/2024, añadido por BOP 2025/132).",
+    "articulo": "Art. 45, Art. 42 y Anexo V",
+    "planesIgualdad": "Compromiso de no discriminación (art. 14 CE) e igualdad de retribución para trabajos de igual valor (Art. 45). El texto desarrolla planes de igualdad y protocolo de acoso (art. 45, sección Planes de Igualdad).",
+    "acosoSexualYxenofobia": "Art. 42: falta MUY GRAVE. Procedimiento: denuncia escrita a la Dirección, apertura de expediente informativo con audiencia de las partes; sanción en todo caso el DESPIDO de la persona causante (agravante si hay prevalimiento jerárquico).",
+    "violenciaDeGenero": "Reducción/reordenación de jornada, adaptación de horario y trabajo a distancia para víctimas de violencia de género o de terrorismo, en los términos del art. 37.8 ET (Art. 7, sección Violencia de Género).",
+    "protocoloLGTBI": "Anexo V (BOP 2025/132): medidas planificadas para la igualdad y no discriminación de personas LGTBI (RD 1026/2024): igualdad de trato, acceso al empleo (currículos ciegos), clasificación/promoción objetiva, formación específica, entornos seguros (privacidad en baños/vestuarios; tratamiento de personas trans según nombre e identidad de género), permisos en igualdad y protocolo de actuación frente al acoso y la violencia contra personas LGTBI."
+  },
+
+  "otrasCondiciones": {
+    "$comment": "Complementos y cláusulas útiles para finiquito y reclamaciones.",
+    "pagoSalarios": { "articulo": "Art. 26", "detalle": "Dentro de los 5 primeros días del mes siguiente al devengo. Derecho a anticipos a cuenta del trabajo ya realizado, hasta el 90%." },
+    "jubilacionParcial": { "articulo": "Art. 23", "detalle": "Derecho a solicitarla (edad no inferior a 60 años), entre el 25% y el máximo legal; solicitud con 3 meses de antelación; la empresa responde en 30 días." },
+    "manipuladorAlimentos": { "articulo": "Art. 24", "detalle": "Formación en higiene alimentaria obligatoria; la empresa asume los gastos hasta 5,95 €." },
+    "vigilanciaSalud": { "articulo": "Art. 25", "detalle": "Reconocimientos médicos periódicos voluntarios (salvo excepciones legales)." },
+    "subrogacion": { "articulo": "Anexo I", "detalle": "Subrogación obligatoria del personal de niveles de convenio en cambios de contrata/concesión, en idénticas condiciones salariales y de antigüedad, sin periodo de prueba. Facultad de no subrogar a quien tenga menos de 3 meses de antigüedad en el centro (con certificado del comité). Subrogación total si es la única explotación del concesionario saliente." },
+    "desconexionDigital": { "articulo": "Art. 47", "detalle": "Compromiso de no llamar ni enviar mensajes profesionales fuera del horario, salvo fuerza mayor." },
+    "registroJornada": { "articulo": "Art. 47 bis", "detalle": "Derecho a obtener copia del registro de jornada, solicitándola con 5 días de antelación." },
+    "externalizacion": { "articulo": "Art. 48", "detalle": "Las empresas que subcontraten/externalicen servicios del sector aplican las mismas condiciones sociales y salariales del convenio, salvo convenio sectorial propio." },
+    "primaDemora": { "articulo": "Disposición Transitoria 4ª", "detalle": "Prima de demora extraordinaria de 600 € brutos no consolidables por la no actualización de tablas 2018-2021, proporcional a la permanencia; pago antes del 30-09-2023. Dato histórico (ya devengado)." },
+    "comisionParitaria": { "articulo": "Disposición Final 1ª", "detalle": "4 representantes patronales + 4 sindicales; interpretación, arbitraje, conciliación y vigilancia; dictamen en 7 días; discrepancias al SERLA (sistema de solución de conflictos de Castilla y León)." },
+    "clausulaDescuelgue": { "articulo": "Disposición Final 2ª", "detalle": "Inaplicación del régimen salarial y modificación sustancial de condiciones conforme a los arts. 41.4 y 82.3 ET, con comunicación a la Comisión Paritaria y, en su defecto, al SERLA." }
+  },
+
+  "estado": "verificado",
+  "estadoNota": "Tablas salariales 2025 (tres columnas de equiparación) y 2026 (tabla única) VERIFICADAS EN IMAGEN (185 dpi) celda a celda del BOP oficial nº2021/247, así como el Anexo II de manutención (PDF 2021 y su corrección de 2025). El articulado completo (Arts. 1-49, Disposiciones y Anexos I, II, IV) se ha leído del texto oficial del mismo PDF. Incorporada la corrección oficial posterior (BOP nº2025/132, 14-07-2025): Anexo II de manutención corregido (2026 = 600€/año) y nuevo Anexo V (protocolo LGTBI).",
+  "pendienteCondiciones": [
+    "vacaciones.retribucion: el Art. 6 no detalla si las vacaciones se pagan a salario base o a promedio con complementos. Duda para UGT.",
+    "vacaciones.fraccionamiento: no regulado expresamente (más allá de la garantía de 15 días estivales en caso de cierre).",
+    "periodoPrueba: el convenio no fija duraciones propias → ALEH estatal y art. 14 ET.",
+    "representacionSindical: sistema de elección y garantías/fuero (art. 68 ET) no detallados en el convenio → ET arts. 62-68 y LOLS.",
+    "regimenDisciplinario: aunque el convenio lo regula (Arts. 37-44), el acta de 2025 lo declara materia reservada a la negociación estatal (art. 10.7 VI ALEH); vigilar futura sustitución por el ALEH."
+  ],
+  "curiosidades": [
+    "Convenio de NUEVE años (2018-2026), el más largo del set. Durante 2018-2021 NO hubo subida salarial (se aplicaron tablas de 2017); la compensación fue una 'prima de demora' única de 600€.",
+    "EQUIPARACIÓN progresiva: hasta 2025 conviven tres columnas salariales (Grupo I/II/III, herencia de las antiguas categorías de establecimiento); en 2026 se funden en UNA sola tabla para todo el sector.",
+    "Complemento IT excepcionalmente generoso (Art. 21): 100% del salario desde el primer día en accidente laboral y en baja común con hospitalización; incluso en la 1ª baja común sin hospitalización, 100% del 1º al 15º día.",
+    "Vacaciones de 31 días naturales (uno más que el mínimo legal) y expresamente 'naturales' (evita la ambigüedad de otros convenios como Cádiz).",
+    "Acoso sexual y xenofobia: sanción tasada = DESPIDO en todo caso (Art. 42).",
+    "14 pagas (no 15, como afirman varias webs no oficiales)."
+  ],
+  "verificadoContra": "PDF oficial BOP Valladolid nº2021/247 (28-12-2021), firmado con Sello de la Diputación Provincial (código verificación R6ewLP6gqvbARyxGR9cZeNFxqSM=). Tablas 2025 (pág. 62) y 2026 (pág. 64) y Anexo II de manutención (pág. 54) verificadas EN IMAGEN a 185 dpi. Articulado (Arts. 1-49), Disposiciones Finales/Transitorias y Anexos I, II y IV leídos del texto oficial. Corrección oficial BOP Valladolid nº2025/132 (14-07-2025, documento BOPVA-A-2025-02399, código lMp9xHXDVOM2NhHTSch7eHAqb1A=) leída íntegra: Anexo II corregido (2026 a 600€/año) y nuevo Anexo V (protocolo LGTBI, RD 1026/2024).",
+  "fechaVerificacion": "2026-07-08"
+}
