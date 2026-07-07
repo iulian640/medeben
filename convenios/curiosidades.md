@@ -109,6 +109,16 @@ sabe que, si cierra a las 2 y entra a las 10, le deben recuperar ese tiempo.
 - **Fuente:** Directiva UE 2003/88/CE (art. 3), Estatuto de los Trabajadores (art. 34.3), Convenio de hostelería de Cataluña. (Pendiente confirmar el compensatorio con UGT.)
 - **Gancho:** "¿Cierras de madrugada y entras por la mañana? Si hay menos de 12 horas de por medio, la ley dice que te deben ese descanso. No es un favor: es tu derecho."
 
+## 11. En Valencia cobras en 15 pagas, no en 14
+
+Casi toda España reparte el sueldo en 14 pagas (12 meses + 2 extras). Pero el
+convenio de hostelería de **Valencia lo divide en 15 pagas al año** (3 extras:
+junio, navidad y marzo). No cobras más ni menos por ello, pero cambia cómo se
+calcula tu hora — y quien no lo sepa, calcula mal lo que le deben.
+
+- **Fuente:** XVII Convenio de Hostelería de la provincia de Valencia. BOP Valencia nº 26, 07-02-2023. (Pendiente verificar en el PDF oficial.)
+- **Gancho:** "¿Sabías que en Valencia el sueldo de hostelería se cobra en 15 pagas y no en 14? Detalle pequeño, cuentas distintas."
+
 ---
 
 _Añadir más conforme se transcriben convenios._
