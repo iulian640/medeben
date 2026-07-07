@@ -1,0 +1,39 @@
+{
+  "$comment": "MARCO de fuentes secundarias que citan el BOP oficial — NO verificado aún en imagen contra el boletín. Las cifras de tablas salariales deben transcribirse del PDF oficial (BOP Valencia nº26, 07-02-2023) antes de darse por buenas. Los datos de marco (jornada, nocturnidad, nº pagas) están bien corroborados pero pendientes de confirmación visual.",
+  "id": "valencia-hosteleria",
+  "nombre": "XVII Convenio colectivo de Hostelería de la provincia de Valencia",
+  "codigoRegcon": "46001285011982",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Comunidad Valenciana", "provincias": ["Valencia"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP Valencia",
+    "numero": 26,
+    "fecha": "2023-02-07",
+    "documento": "CSV BOPV-2023/01380",
+    "url": "https://bop.dival.es/"
+  },
+  "vigencia": { "desde": "2022-01-01", "hasta": "2025-12-31", "nota": "En ultraactividad; tablas 2025 aplicables en 2026 mientras se negocia el nuevo. Confirmar." },
+  "jornadaAnual": { "horas": 1794, "horasSemanales": 40, "verificado": false },
+  "pagasExtraordinarias": {
+    "cantidad": 3,
+    "fechas": ["30 de junio", "20 de diciembre", "marzo (entre 1-ene y 15-mar del año siguiente)"],
+    "base": "30 días de percepción mínima garantizada o salario base + antigüedad",
+    "verificado": false
+  },
+  "peculiaridad": "SALARIO EN 15 PAGAS AL AÑO (no 14). Rareza del convenio de Valencia.",
+  "nocturnidad": {
+    "tramos": [ { "desde": "00:30", "hasta": "06:00", "recargoPct": 20, "sobre": "salario base diario" } ],
+    "verificado": false
+  },
+  "tablasSalariales": {
+    "$comment": "Rango conocido 1.100,46 € - 1.415,47 €/mes según categoría (fuente secundaria). PENDIENTE transcripción del PDF oficial del BOP con verificación visual fila a fila.",
+    "estado": "pendiente_pdf_oficial"
+  },
+  "horasExtraordinarias": {
+    "regla": "Aplica ET (mínimo valor hora ordinaria) salvo que el convenio fije otro. Tope 80 h/año salvo mejora del convenio. Confirmar en el texto oficial.",
+    "valorHoraOrdinaria": "(salarioMensual * 15 + plusesAnuales) / 1794  ← OJO: 15 pagas en Valencia"
+  },
+  "estado": "marco_sin_verificar_imagen",
+  "verificadoContra": "Fuentes secundarias que citan BOP Valencia nº26 (07-02-2023). Pendiente descargar y leer el PDF oficial para verificar todo, especialmente tablas salariales.",
+  "fechaVerificacion": null
+}
