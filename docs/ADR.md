@@ -195,6 +195,12 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
   - **Jornada partida:** algunos convenios la compensan.
 - Campos por convenio: `descansoEntreJornadasHoras`, `vacacionesDias`, reglas de jornada partida.
 
+### D34 — Cada dato con su fuente al nivel de artículo (Iulian 2026-07-07)
+- Cuando la app le dé un dato al trabajador, debe decir DE DÓNDE sale: "según el **art. X** del Convenio de [zona/subsector]". No basta con citar el convenio: hay que citar el artículo/anexo concreto.
+- Por qué: es una app de derechos; cada afirmación tiene que ser verificable por el propio trabajador (y por un abogado). Refuerza la confianza y el manifiesto (D18: "no me creas, compruébalo").
+- Modelo de datos: cada dato relevante del JSON lleva su referencia (`articulo`, `anexo`, y la `fuente` con boletín/fecha ya existente). Ej.: nocturnidad → `"articulo": "Art. 27"`; tabla salarial → anexo y fecha del boletín. La app muestra esa cita junto al dato.
+- Aplicar retroactivamente: revisar los JSON ya hechos para que cada dato tenga su artículo. Los agentes deben anotar el artículo de cada dato que transcriben.
+
 ### D33 — Capturar TODAS las condiciones importantes, no solo salarios (Iulian 2026-07-07)
 - Hueco detectado: los JSON capturaban tablas salariales + jornada + nocturnidad + pagas, pero NO sistemáticamente las condiciones no salariales, que son igual de importantes para informar bien al trabajador. Ampliar el modelo de cada convenio para capturar:
   - **`vacacionesDias`** — días de vacaciones (varían: 30, 31...).
