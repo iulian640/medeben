@@ -1,0 +1,2052 @@
+{
+  "$comment": "Convenio Colectivo Provincial de Hosteleria de Jaen (2023-2025). Estructura salarial POR NIVEL (1,35 a 1,70), no por grupo x categoria. El nivel que corresponde a cada categoria depende del TIPO y CATEGORIA del establecimiento (Anexo VII): hoteles por estrellas, restaurantes por tenedores, etc. Todos los datos verificados leyendo la IMAGEN del BOP oficial celda a celda. 2026 sin tabla publicada: pendiente (Art. 5, negociacion desde octubre 2025; ultraactividad Art. 8).",
+  "id": "jaen-hosteleria",
+  "nombre": "Convenio Colectivo Provincial de Hosteleria de Jaen",
+  "codigoRegcon": "23000425011983",
+  "ambitoTerritorial": "Provincia de Jaen (Andalucia)",
+  "ambitoFuncional": "Empresas y personas trabajadoras del sector de Hosteleria: las incluidas en el ambito del ALEH (Acuerdo Laboral de ambito Estatal para el sector de Hosteleria), incluidas viviendas con fines turisticos y apartamentos turisticos (Art. 2).",
+  "fuente": {
+    "boletin": "BOP Jaen",
+    "numero": 157,
+    "fecha": "2024-08-12",
+    "documento": "Convenio Colectivo de Hosteleria de la provincia de Jaen (articulado). Edicto 2024/3699. Expediente 23/01/0109/2024. Codigo convenio 23000425011983. Paginas 12385-12424. CVE BOP-2024-3699.",
+    "url": "https://bop.dipujaen.es",
+    "fuenteAnexos": {
+      "boletin": "BOP Jaen",
+      "numero": 203,
+      "fecha": "2024-10-16",
+      "documento": "Acta de la Comision Negociadora: publicacion de los Anexos I a VII. Edicto 2024/4685. Paginas 15388-15405. CVE BOP-2024-4685. Anexo I-II: tablas 2024; Anexo III: tablas 2025; Anexo IV: modelo descanso semanal; Anexo V: modelo finalizacion relacion laboral; Anexo VI: modelo comunicacion contratacion por enfermedad comun/accidente no laboral; Anexo VII: asignacion de nivel a cada categoria.",
+      "url": "https://bop.dipujaen.es"
+    }
+  },
+  "vigencia": {
+    "desde": "2023-01-01",
+    "hasta": "2025-12-31",
+    "nota": "Vigencia 2023-2025 (Art. 5). Denuncia automatica a la finalizacion; la negociacion del nuevo convenio comienza en octubre de 2025. Ultraactividad: hasta nuevo convenio se mantiene en vigor lo pactado; con caracter supletorio se aplica el ALEH (Art. 8)."
+  },
+  "partesFirmantes": {
+    "patronal": [
+      "HOSTURJAEN (Asociacion Provincial de Empresarios de Hosteleria de Jaen)",
+      "TURJAEN (Asociacion de Empresas de Alojamientos Turisticos)"
+    ],
+    "sindicatos": [
+      "CCOO",
+      "UGT"
+    ],
+    "nota": "Acta de la Mesa de Negociacion de 05/09/2024. Presidente: Manuel Jesus Colmenero Lopez. Por los trabajadores: Juan Carlos Sanchez Molero (CCOO), Jose Antonio Frejo Bolado (CCOO), Javier Fernando Lacarra Rodriguez (UGT), Teresa del Arco Cruz (UGT), Jesus Duenas Ortega (UGT). Por los empresarios: Ramon Calatayud Lerma (Hosturjaen), Esperanza Macarena Calatayud Chamorro (Hosturjaen), Luis Carlos Martinez Torrero (Turjaen)."
+  },
+  "jornadaAnual": {
+    "horas": 1764,
+    "semanal": 40,
+    "diariaMaxima": 8,
+    "articulo": "Art. 12",
+    "nota": "Jornada laboral anual de 1.764 horas, 40 horas semanales, maximo 8 horas diarias. Descanso minimo de 12 horas entre jornadas. Descanso semanal de 2 dias (Art. 14). Descanso durante la jornada: 30 min si jornada continuada >6h; 15 min en jornadas menores (Art. 15). Bolsa de horas de distribucion irregular: hasta 200 horas/ano (Art. 12).",
+    "bolsaHoras": {
+      "horas": 200,
+      "nota": "Distribucion irregular de hasta 200 horas anuales (Art. 12)."
+    },
+    "descansoEntreJornadas": 12,
+    "descansoSemanalDias": 2
+  },
+  "pagasExtraordinarias": {
+    "total": 14,
+    "articulo": "Art. 43",
+    "$comment": "14 pagas: 12 mensualidades + 2 pagas extraordinarias (verano, abono antes del 16 de julio; y Navidad, abono antes del 22 de diciembre). Cada paga extra se compone de salario base + antiguedad + plus de vinculacion. El salario base mensual de tabla se percibe 14 veces al ano."
+  },
+  "salariosBaseMensuales": {
+    "$comment": "Salario base en euros/mes por NIVEL (1,35-1,70), jornada 1.764 h. Se abona x14 pagas. 2023: tablas revisadas sobre 31/12/2022; 2024: +7,5%; 2025: +3% (Art. 40). Verificado en pag. 12424 (BOP 157) y Anexos I-III (BOP 203). 2026: sin tabla publicada -> pendiente.",
+    "articulo": "Art. 40 + Anexos I, II, III",
+    "unidad": "euros/mes (x14 pagas)",
+    "porNivel": {
+      "1.35": {
+        "2023": 1037.12,
+        "2024": 1114.9,
+        "2025": 1148.35
+      },
+      "1.40": {
+        "2023": 1098.82,
+        "2024": 1181.23,
+        "2025": 1216.67
+      },
+      "1.45": {
+        "2023": 1153.66,
+        "2024": 1240.18,
+        "2025": 1277.39
+      },
+      "1.50": {
+        "2023": 1230.67,
+        "2024": 1322.97,
+        "2025": 1362.66
+      },
+      "1.55": {
+        "2023": 1283.89,
+        "2024": 1380.18,
+        "2025": 1421.59
+      },
+      "1.60": {
+        "2023": 1335.49,
+        "2024": 1435.65,
+        "2025": 1478.72
+      },
+      "1.65": {
+        "2023": 1361.47,
+        "2024": 1463.58,
+        "2025": 1507.49
+      },
+      "1.70": {
+        "2023": 1379.94,
+        "2024": 1483.44,
+        "2025": 1527.94
+      }
+    },
+    "2026": "pendiente",
+    "2026Nota": "Sin tabla salarial 2026 publicada. La negociacion del nuevo convenio comienza en octubre de 2025 (Art. 5). En ultraactividad se mantiene la tabla 2025 hasta nuevo acuerdo, sin garantia de subida. Regla D32: se usa la ultima publicacion con tabla (2025)."
+  },
+  "serviciosExtraordinarios": {
+    "$comment": "Precio del 'servicio extra' (extra suelto/refuerzo puntual) en euros por servicio, por NIVEL. Verificado en pag. 12424 y Anexos I-III.",
+    "articulo": "Anexos I-III + pag. 12424",
+    "unidad": "euros/servicio",
+    "porNivel": {
+      "1.35": {
+        "2023": 10.86,
+        "2024": 11.67,
+        "2025": 12.02
+      },
+      "1.40": {
+        "2023": 11.79,
+        "2024": 12.67,
+        "2025": 13.05
+      },
+      "1.45": {
+        "2023": 12.68,
+        "2024": 13.63,
+        "2025": 14.04
+      },
+      "1.50": {
+        "2023": 13.58,
+        "2024": 14.6,
+        "2025": 15.04
+      },
+      "1.55": {
+        "2023": 14.5,
+        "2024": 15.59,
+        "2025": 16.06
+      },
+      "1.60": {
+        "2023": 15.43,
+        "2024": 16.59,
+        "2025": 17.08
+      },
+      "1.65": {
+        "2023": 16.33,
+        "2024": 17.55,
+        "2025": 18.08
+      },
+      "1.70": {
+        "2023": 17.22,
+        "2024": 18.51,
+        "2025": 19.07
+      }
+    },
+    "2026": "pendiente"
+  },
+  "salarioMinimoConvenio": {
+    "$comment": "Nivel mas bajo (1,35) = salario base mensual minimo del convenio.",
+    "nivelMinimo": "1.35",
+    "importe2025": 1148.35,
+    "importe2024": 1114.9,
+    "importe2023": 1037.12,
+    "unidad": "euros/mes (x14)",
+    "nota": "Debe respetarse siempre el SMI legal si resultara superior."
+  },
+  "contratoFormacion": {
+    "$comment": "Contratos formativos (formacion en alternancia y para la obtencion de practica profesional).",
+    "articulo": "Art. 24",
+    "regulado": "parcial",
+    "nota": "El Art. 24 regula los contratos formativos remitiendo a la legislacion vigente (tras la reforma laboral 2021: contrato de formacion en alternancia y contrato formativo para la obtencion de practica profesional). No se fija un porcentaje salarial propio distinto del legal en el articulado. Retribucion segun nivel asignado a la categoria. Duda para UGT: confirmar porcentajes aplicables."
+  },
+  "nocturnidad": {
+    "$comment": "Recargo porcentual sobre salario base, no euros/hora.",
+    "tipo": "porcentaje",
+    "porcentaje": 28,
+    "sobre": "salario_base",
+    "articulo": "Art. 46",
+    "tramoHorario": {
+      "desde": "00:00",
+      "hasta": "06:00"
+    },
+    "nota": "Plus de nocturnidad del 28% sobre el salario base, para el trabajo realizado entre las 00:00 y las 06:00 horas (Art. 46). Confirmado tambien en el cuadro de complementos de la pag. 12424 (28%).",
+    "formulaValorHora": "(salario_base_mensual x 14) / 1764 x 0,28 por cada hora nocturna"
+  },
+  "horasExtraordinarias": {
+    "$comment": "Compensacion preferente por descanso.",
+    "articulo": "Art. 42",
+    "compensacion": "descanso",
+    "nota": "Las horas extraordinarias se compensan preferentemente por tiempo de descanso equivalente en lugar de abono economico (Art. 42). Numero maximo segun ET."
+  },
+  "fiestasTrabajadas": {
+    "$comment": "El articulado no fija un plus especifico en euros por festivo trabajado.",
+    "articulo": "no especificado en el articulado",
+    "regulado": false,
+    "nota": "El convenio no establece un importe/recargo especifico por festivo trabajado distinto del regimen general (descanso compensatorio o abono segun ET/ALEH). Duda para UGT."
+  },
+  "antiguedad": {
+    "$comment": "Complemento de antiguedad CONGELADO.",
+    "articulo": "Art. 41",
+    "estado": "congelada",
+    "fechaCongelacion": "1998-12-31",
+    "nota": "El complemento de antiguedad quedo congelado a 31/12/1998: se mantiene 'ad personam' el importe consolidado por quien ya lo tuviera a esa fecha, pero las nuevas contrataciones NO devengan antiguedad. No hay escala de nuevos trienios/quinquenios (Art. 41)."
+  },
+  "pluses": {
+    "$comment": "Complementos y pluses por ano. Verificados en pag. 12424 y Anexos I-III.",
+    "articulo": "Arts. 44-51 + pag. 12424",
+    "plusTransporte": {
+      "articulo": "Art. 45",
+      "2023": 5.0,
+      "2024": 5.5,
+      "2025": 5.5,
+      "unidad": "euros/dia efectivo de trabajo",
+      "nota": "No se abona al personal alojado por la empresa."
+    },
+    "plusManutencion": {
+      "articulo": "Art. 47",
+      "2023": 19.83,
+      "2024": 21.32,
+      "2025": 21.96,
+      "unidad": "euros/mes"
+    },
+    "plusAbsentismo": {
+      "articulo": "Art. 44",
+      "2023": 24.0,
+      "2024": 25.8,
+      "2025": 26.57,
+      "unidad": "euros/mes"
+    },
+    "plusPoliticasSociales": {
+      "articulo": "Art. 48",
+      "2023": 20.4,
+      "2024": 22.54,
+      "2025": 22.54,
+      "unidad": "euros/mes",
+      "nota": "Incluye credito de 5 horas/mes para politicas sociales (Art. 48)."
+    },
+    "plusVinculacion": {
+      "articulo": "Art. 51",
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 33.0,
+      "unidad": "euros/mes",
+      "nota": "Se percibe por trabajadores menores de 63 anos con 20 o mas anos de antiguedad. Forma parte del calculo de vacaciones y pagas extra."
+    },
+    "premioMatrimonio": {
+      "articulo": "Art. 49",
+      "importe": 225.0,
+      "unidad": "euros (pago unico)"
+    },
+    "premioNacimiento": {
+      "articulo": "Art. 50",
+      "importe": 135.0,
+      "unidad": "euros (pago unico por hijo/a)",
+      "nota": "Figura como 'Maternidad' 135 EUR en el cuadro de la pag. 12424."
+    },
+    "indemnizacionJubilacion": {
+      "articulo": "Art. 51",
+      "importe": 4000.0,
+      "unidad": "euros (pago unico)",
+      "nota": "Para quien se jubile con 63 o mas anos y 20 o mas anos de antiguedad en la empresa (Art. 51)."
+    }
+  },
+  "vacaciones": {
+    "$comment": "Bloque completo de vacaciones.",
+    "articulo": "Art. 16 (dias naturales/laborables: Disp. Adic. 3a)",
+    "dias": 30,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "El Art. 16 fija 30 dias naturales. La Disposicion Adicional 3a aclara el computo de 'dias' naturales/laborables cuando proceda.",
+    "diasExtraAntiguedad": "no_previsto",
+    "diasExtraAntiguedadNota": "El convenio no suma dias de vacaciones por antiguedad.",
+    "retribucion": {
+      "base": "salario_base + antiguedad_consolidada + plus_vinculacion",
+      "nota": "Las vacaciones se retribuyen a salario base mas antiguedad (ad personam) mas plus de vinculacion (Art. 16)."
+    },
+    "periodoDisfrute": {
+      "regla": "Al menos 15 dias entre julio, agosto y septiembre.",
+      "preaviso": "El calendario/turnos se fijan con 3 meses de antelacion.",
+      "nota": "Art. 16."
+    },
+    "fraccionamiento": "Fraccionables en un maximo de 2 periodos.",
+    "compensacionEconomica": "No compensables en metalico salvo fin de contrato con vacaciones no disfrutadas.",
+    "nota": "Art. 16."
+  },
+  "permisosRetribuidos": {
+    "$comment": "Licencias retribuidas del Art. 35 (apartados A-N).",
+    "articulo": "Art. 35",
+    "permisos": [
+      {
+        "motivo": "Matrimonio o constitucion de pareja de hecho inscrita en registro",
+        "dias": 15,
+        "tipoDias": "naturales",
+        "apartado": "A"
+      },
+      {
+        "motivo": "Nacimiento o adopcion de hijo/a",
+        "dias": 2,
+        "diasSiDesplazamientoFueraProvincia": 4,
+        "apartado": "B"
+      },
+      {
+        "motivo": "Accidente/enfermedad graves, hospitalizacion o intervencion quirurgica sin hospitalizacion con reposo domiciliario de conyuge/pareja/parientes hasta 2o grado o conviviente",
+        "dias": 5,
+        "apartado": "C"
+      },
+      {
+        "motivo": "Fallecimiento de conyuge, pareja de hecho o parientes hasta 2o grado",
+        "dias": 2,
+        "diasExtraSiDesplazamiento": 2,
+        "apartado": "D"
+      },
+      {
+        "motivo": "Traslado de domicilio habitual",
+        "dias": 1,
+        "apartado": "E"
+      },
+      {
+        "motivo": "Asuntos propios",
+        "horas": 16,
+        "tipoHoras": "laborables/ano (proporcional a jornada parcial)",
+        "preavisoDias": 7,
+        "apartado": "F",
+        "nota": "No acumulables a vacaciones ni a festivos, no recuperables, sin necesidad de justificacion, sin coincidir con otros del mismo centro."
+      },
+      {
+        "motivo": "Matrimonio/pareja de hecho de hijo/a, padre/madre o hermano/a",
+        "dias": 1,
+        "diasSiFueraProvincia": 2,
+        "apartado": "G"
+      },
+      {
+        "motivo": "Asistencia a consulta medica propia",
+        "dias": "tiempo indispensable",
+        "apartado": "H",
+        "nota": "Con posterior justificacion."
+      },
+      {
+        "motivo": "Funciones sindicales o de representacion del personal",
+        "dias": "segun legal/convencional",
+        "apartado": "I"
+      },
+      {
+        "motivo": "Lactancia (cuidado del lactante hasta 9 meses)",
+        "horas": 1,
+        "apartado": "J",
+        "nota": "Divisible en 2 fracciones; sustituible por reduccion de media hora o acumulacion en jornadas completas; derecho individual de cada progenitor."
+      },
+      {
+        "motivo": "Lactancia ampliada: ambos progenitores mismo regimen",
+        "apartado": "K",
+        "nota": "Extension hasta que el lactante cumpla 12 meses, con reduccion proporcional de salario desde el 9o mes."
+      },
+      {
+        "motivo": "Hospitalizacion de hijos menores de edad",
+        "apartado": "L",
+        "nota": "Los dias de hospitalizacion; el exceso sobre la licencia se recupera; si no puede recuperarse, ese exceso es no retribuido."
+      },
+      {
+        "motivo": "Deber inexcusable de caracter publico y personal",
+        "dias": "tiempo indispensable",
+        "apartado": "M"
+      },
+      {
+        "motivo": "Acompanamiento de familiar hasta 2o grado a consulta/especialidad medica",
+        "horas": 20,
+        "tipoHoras": "anuales retribuidas",
+        "apartado": "N",
+        "nota": "Con justificacion y aviso con antelacion suficiente."
+      }
+    ],
+    "nota": "Para B, C, D y K el disfrute puede ser continuado o fraccionado mientras subsista el hecho causante."
+  },
+  "complementoIT": {
+    "$comment": "Dato 'oro' de baja medica. La empresa complementa la prestacion de la Seguridad Social.",
+    "articulo": "Art. 52",
+    "accidenteTrabajoYenfermedadProfesional": {
+      "complementoHasta": 100,
+      "base": "salario base + demas complementos y pluses EXCEPTO plus de transporte",
+      "desdeDia": 1,
+      "nota": "En AT y enfermedad profesional, la empresa complementa desde el primer dia hasta el 100% del importe salarial (salario base + complementos/pluses), excluido el plus de transporte."
+    },
+    "enfermedadComun": {
+      "complementoHasta": 100,
+      "base": "salario base de convenio",
+      "requisitoAntiguedad": "minimo 60 dias de servicio",
+      "duracionMaximaMeses": 12,
+      "bajasCubiertasPorAno": 2,
+      "condicion": "solo si el trabajador NO es sustituido",
+      "desde3aBaja": "sin complemento",
+      "nota": "En enfermedad comun o accidente no laboral: complemento hasta el 100% del salario base de convenio, para trabajadores con al menos 60 dias de servicio, durante un maximo de 12 meses, en las DOS primeras bajas dentro de un mismo ano y siempre que la empresa no sustituya al trabajador. A partir de la 3a baja en el ano no hay complemento. La sustitucion se comunica segun modelo del Anexo VI. El complemento se extingue con la extincion de la relacion laboral."
+    }
+  },
+  "seguroAccidentes": {
+    "$comment": "Seguro colectivo por accidente de trabajo (Art. 53).",
+    "articulo": "Art. 53",
+    "invalidezPermanenteTotal": 10500,
+    "invalidezPermanenteAbsoluta": 15000,
+    "granInvalidez": 30000,
+    "muerte": 24000,
+    "unidad": "euros",
+    "nota": "Capitales garantizados por accidente de trabajo declarado. La muerte se abona a los derechohabientes."
+  },
+  "ropaTrabajo": {
+    "articulo": "Art. 54",
+    "regla": "La empresa facilita uniformes/ropa de trabajo (no de uso comun) o una compensacion economica.",
+    "prendasAnuales": 2,
+    "nota": "2 prendas al ano cuando proceda la entrega de uniforme."
+  },
+  "periodoPrueba": {
+    "$comment": "El articulado no fija duraciones propias de periodo de prueba.",
+    "articulo": "no regulado en el convenio provincial",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ambito Estatal para el sector de la Hosteleria) y Estatuto de los Trabajadores",
+    "nota": "Consultar el ALEH para la duracion del periodo de prueba por grupo/categoria. Duda para UGT."
+  },
+  "excedencias": {
+    "$comment": "Excedencias del Art. 36.",
+    "articulo": "Art. 36",
+    "tipos": [
+      "voluntaria",
+      "forzosa por cargo publico o electivo sindical",
+      "por nacimiento/adopcion/acogimiento",
+      "por cuidado de familiar",
+      "por pacto entre partes"
+    ],
+    "voluntaria": {
+      "antiguedadMinima": "1 ano",
+      "duracionMinima": "4 meses",
+      "duracionMaxima": "5 anos",
+      "prorrogas": "hasta 2, sin superar 5 anos en total",
+      "plazoParaNuevaExcedencia": "4 anos desde la conclusion de la anterior",
+      "solicitud": "por escrito con 15 dias de antelacion; el empresario la concede por escrito en 15 dias",
+      "reincorporacion": "preferente, solicitando con 30 dias de antelacion a vacante igual o similar; si no la hay, mantiene expectativa de derecho",
+      "computaAntiguedad": false,
+      "nota": "Usar la excedencia para competencia en otra empresa del sector es sancionable conforme al ALEH."
+    },
+    "porCuidado": {
+      "hijo": "hasta 3 anos por cada hijo (nacimiento/adopcion/acogimiento)",
+      "familiar": "hasta 2 anos, familiar hasta 2o grado que no pueda valerse por si mismo",
+      "computaAntiguedad": true,
+      "reservaPuesto": "1er ano el mismo puesto; despues, puesto del mismo grupo/categoria equivalente",
+      "familiaNumerosa": "reserva hasta 15 meses (categoria general) o 18 meses (categoria especial)"
+    }
+  },
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El convenio provincial NO tipifica faltas ni sanciones: remite al ALEH.",
+    "articulo": "Art. 59",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ambito Estatal para el sector de la Hosteleria), que tipifica faltas leves/graves/muy graves y sanciones, y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente - ver ALEH",
+    "faltasGraves": "pendiente - ver ALEH",
+    "faltasMuyGraves": "pendiente - ver ALEH",
+    "sanciones": "pendiente - ver ALEH (amonestacion, suspension de empleo y sueldo, inhabilitacion para ascenso, despido en muy graves).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "Art. 58.3 ET: la empresa no puede imponer sanciones que consistan en reduccion de vacaciones/descanso ni en multa de haber (descontar dinero del salario).",
+      "prescripcion": "Segun ET/ALEH: faltas leves 10 dias, graves 20 dias, muy graves 60 dias desde que la empresa tuvo conocimiento, y en todo caso 6 meses desde su comision."
+    }
+  },
+  "representacionSindical": {
+    "$comment": "El convenio mejora el credito horario legal y regula credito sectorial para comisiones.",
+    "articulo": "Arts. 58, 61, 64, 65, 66, 68",
+    "creditoHorario": {
+      "horasMensuales": 30,
+      "quien": "Delegados/as de personal y miembros del comite de empresa (Art. 64).",
+      "acumulable": "Si, hasta un maximo del 60% (Art. 65).",
+      "comisionesEjecutivas": "60 horas/mes para miembros de comisiones ejecutivas (Art. 64).",
+      "delegadosPrevencion": "30 horas/mes de credito sindical para los delegados de prevencion del sector (Art. 58); se pierden si coinciden con las 60h de una comision ejecutiva.",
+      "mejoraET": "Si. El Art. 68.e ET fija minimos por tramos de plantilla; el convenio concede 30 h/mes."
+    },
+    "asamblea": "Derecho de reunion/asamblea segun Art. 61.",
+    "cuotaSindical": "A peticion del trabajador afiliado, la empresa descuenta y transfiere la cuota sindical; obligatorio en empresas de 6 o mas trabajadores (Art. 66).",
+    "externalizacion": "Regulada en el Art. 68."
+  },
+  "contratacion": {
+    "$comment": "Modalidades y reglas de contratacion en el articulado.",
+    "articulo": "Arts. 21, 23, 24, 27, 29, 30",
+    "tiempoParcial": "Regulado en el Art. 21.",
+    "fijosDiscontinuos": "Regulado en el Art. 23.",
+    "formativos": "Regulado en el Art. 24 (remision a legislacion vigente).",
+    "serviciosExtraordinarios": "Extras/refuerzos puntuales retribuidos segun tabla de 'servicios extras' por nivel (Art. 27).",
+    "preaviso": "Preaviso de cese/finalizacion regulado en el Art. 29.",
+    "finalizacion": "Acreditacion de finalizacion de la relacion laboral segun modelo del Anexo V (Art. 30)."
+  },
+  "formacion": {
+    "$comment": "Derecho a formacion anual.",
+    "articulo": "Art. 34",
+    "horasAnuales": 20,
+    "nota": "20 horas anuales de formacion en la empresa o en entidad externa acreditada de libre eleccion del trabajador. Si se realiza fuera de la empresa, esta facilita los criterios de la Comision Sectorial de Formacion. Existe ademas una Comision Sectorial de Formacion (Art. 33)."
+  },
+  "igualdadYAcoso": {
+    "$comment": "Igualdad y prevencion del acoso.",
+    "articulo": "Art. 55",
+    "planIgualdad": "Obligatorio en empresas de mas de 50 personas (LO 3/2007); auditoria retributiva segun RD 902/2020.",
+    "acoso": "Se transcribe el art. 48 LO 3/2007 (medidas frente al acoso sexual y por razon de sexo). Medidas de integracion de personas LGTBIQ+.",
+    "remitidoA": "ALEH y LO 3/2007, de 22 de marzo.",
+    "conciliacion": {
+      "articulo": "Art. 56 + Art. 57",
+      "suspensionNacimiento": "16 semanas por nacimiento (6 obligatorias e ininterrumpidas tras el parto) para cada progenitor (Art. 56).",
+      "riesgoEmbarazoLactancia": "Suspension por riesgo durante embarazo y lactancia natural (hasta 9 meses del menor) (Art. 57.1).",
+      "reconocimientoMedico": "Reconocimiento medico anual voluntario a cargo de la empresa (Art. 57.2)."
+    }
+  },
+  "asignacionNivelPorCategoria": {
+    "$comment": "Anexo VII (BOP 203, pags. 15395-15405). Nivel salarial asignado a cada categoria segun el TIPO de establecimiento y su categoria (estrellas hoteles, tenedores restaurantes, etc.). '-'/null = categoria no aplicable en ese tipo/categoria de establecimiento. Verificado celda a celda en la imagen del BOP.",
+    "articulo": "Anexo VII",
+    "hoteles": {
+      "columnas": [
+        "5*y4*",
+        "3*",
+        "2*",
+        "1*"
+      ],
+      "areaPrimera_Recepcion_Admin": [
+        {
+          "categoria": "Jefe/a de Recepcion",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.7,
+            "3*": 1.7,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a de Recepcion",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.65,
+            "3*": 1.6,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Recepcionista",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.6,
+            "3*": 1.55,
+            "2*": 1.5,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Telefonista",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.5,
+            "3*": 1.45,
+            "2*": 1.4,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Primer/a Conserje",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.65,
+            "3*": 1.6,
+            "2*": 1.55,
+            "1*": 1.5
+          }
+        },
+        {
+          "categoria": "Conserje",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.55,
+            "3*": 1.5,
+            "2*": 1.45,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Conserjeria y Recepcion",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.5,
+            "3*": 1.45,
+            "2*": 1.45,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Auxiliar de Conserjeria y Recepcion",
+          "grupo": "III",
+          "niveles": {
+            "5*y4*": 1.35,
+            "3*": 1.35,
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        },
+        {
+          "categoria": "Relaciones Publicas",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.6,
+            "3*": 1.55,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Jefe/a de Administracion",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.7,
+            "3*": 1.7,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.6,
+            "3*": 1.55,
+            "2*": 1.5,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Administrativo",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.5,
+            "3*": 1.45,
+            "2*": 1.45,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Jefe/a Comercial",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.7,
+            "3*": 1.7,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Comercial",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.6,
+            "3*": 1.55,
+            "2*": null,
+            "1*": null
+          }
+        }
+      ],
+      "areaSegunda_Cocina_Economato": [
+        {
+          "categoria": "Jefe/a de Cocina",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.7,
+            "3*": 1.6,
+            "2*": 1.6,
+            "1*": 1.55
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a de Cocina",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.65,
+            "3*": 1.6,
+            "2*": 1.55,
+            "1*": 1.5
+          }
+        },
+        {
+          "categoria": "Jefe/a de Partida",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.6,
+            "3*": 1.55,
+            "2*": 1.5,
+            "1*": 1.45
+          }
+        },
+        {
+          "categoria": "Cocinero/a",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.55,
+            "3*": 1.5,
+            "2*": 1.45,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Repostero/a",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.55,
+            "3*": 1.5,
+            "2*": 1.45,
+            "1*": 1.45
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Cocina",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.5,
+            "3*": 1.45,
+            "2*": 1.4,
+            "1*": 1.35
+          }
+        },
+        {
+          "categoria": "Auxiliar de Cocina",
+          "grupo": "III",
+          "niveles": {
+            "5*y4*": 1.4,
+            "3*": 1.35,
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        },
+        {
+          "categoria": "Encargado/a de Economato",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.55,
+            "3*": 1.5,
+            "2*": 1.5,
+            "1*": 1.45
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Economato",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.5,
+            "3*": 1.45,
+            "2*": 1.45,
+            "1*": 1.45
+          }
+        }
+      ],
+      "areaTercera_RestauranteYBar": [
+        {
+          "categoria": "Jefe/a de Restaurante, Bar y Similar",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.7,
+            "3*": 1.7,
+            "2*": 1.6,
+            "1*": 1.55
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a de Restaurante, Bar y Similar",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.65,
+            "3*": 1.6,
+            "2*": 1.55,
+            "1*": 1.5
+          }
+        },
+        {
+          "categoria": "Jefe/a de Sector",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.6,
+            "3*": 1.55,
+            "2*": 1.55,
+            "1*": 1.5
+          }
+        },
+        {
+          "categoria": "Camarero/a",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.55,
+            "3*": 1.5,
+            "2*": 1.45,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Barman",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.6,
+            "3*": 1.55,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Sumiller",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.55,
+            "3*": 1.5,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Camarero/a",
+          "grupo": "III",
+          "niveles": {
+            "5*y4*": 1.45,
+            "3*": 1.4,
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        }
+      ],
+      "areaCuarta_PisosYLimpieza": [
+        {
+          "categoria": "Encargado/a General",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.65,
+            "3*": 1.6,
+            "2*": 1.5,
+            "1*": 1.5
+          }
+        },
+        {
+          "categoria": "Camarero/a de pisos (habitaciones)",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.45,
+            "3*": 1.45,
+            "2*": 1.45,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Auxiliar de pisos y limpieza",
+          "grupo": "III",
+          "niveles": {
+            "5*y4*": 1.35,
+            "3*": 1.35,
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        },
+        {
+          "categoria": "Encargado/a de Seccion",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.55,
+            "3*": 1.45,
+            "2*": 1.45,
+            "1*": 1.45
+          }
+        }
+      ],
+      "areaQuinta_Mantenimiento": [
+        {
+          "categoria": "Encargado/a de Mantenimiento",
+          "grupo": "I",
+          "niveles": {
+            "5*y4*": 1.65,
+            "3*": null,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Encargado/a de Seccion",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.6,
+            "3*": null,
+            "2*": null,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Especialista de Mantenimiento y Servicios",
+          "grupo": "II",
+          "niveles": {
+            "5*y4*": 1.4,
+            "3*": 1.35,
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        },
+        {
+          "categoria": "Auxiliar de Mantenimiento y Servicios",
+          "grupo": "III",
+          "niveles": {
+            "5*y4*": 1.35,
+            "3*": 1.35,
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        }
+      ]
+    },
+    "restaurantes": {
+      "columnas": [
+        "5T/lujo",
+        "4T/1a",
+        "3T/2a",
+        "2T/3a",
+        "1T/4a"
+      ],
+      "areaPrimera_Recepcion_Admin": [
+        {
+          "categoria": "Telefonista",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.45,
+            "4T/1a": 1.45,
+            "3T/2a": 1.4,
+            "2T/3a": null,
+            "1T/4a": null
+          }
+        },
+        {
+          "categoria": "Auxiliar de Conserjeria y Recepcion",
+          "grupo": "III",
+          "niveles": {
+            "5T/lujo": 1.4,
+            "4T/1a": 1.4,
+            "3T/2a": 1.35,
+            "2T/3a": 1.35,
+            "1T/4a": 1.35
+          }
+        },
+        {
+          "categoria": "Relaciones Publicas",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.6,
+            "4T/1a": 1.55,
+            "3T/2a": null,
+            "2T/3a": null,
+            "1T/4a": null
+          }
+        },
+        {
+          "categoria": "Jefe/a de Administracion",
+          "grupo": "I",
+          "niveles": {
+            "5T/lujo": 1.65,
+            "4T/1a": null,
+            "3T/2a": null,
+            "2T/3a": null,
+            "1T/4a": null
+          }
+        },
+        {
+          "categoria": "Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.6,
+            "4T/1a": 1.55,
+            "3T/2a": 1.5,
+            "2T/3a": 1.4,
+            "1T/4a": 1.4
+          }
+        },
+        {
+          "categoria": "Ayudante/a Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.5,
+            "4T/1a": 1.45,
+            "3T/2a": 1.4,
+            "2T/3a": 1.4,
+            "1T/4a": 1.35
+          }
+        },
+        {
+          "categoria": "Comercial",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.6,
+            "4T/1a": 1.55,
+            "3T/2a": null,
+            "2T/3a": null,
+            "1T/4a": null
+          }
+        }
+      ],
+      "areaSegunda_Cocina_Economato": [
+        {
+          "categoria": "Jefe/a de Cocina",
+          "grupo": "I",
+          "niveles": {
+            "5T/lujo": 1.7,
+            "4T/1a": 1.65,
+            "3T/2a": 1.6,
+            "2T/3a": 1.55,
+            "1T/4a": 1.55
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a de Cocina",
+          "grupo": "I",
+          "niveles": {
+            "5T/lujo": 1.65,
+            "4T/1a": 1.6,
+            "3T/2a": 1.55,
+            "2T/3a": 1.5,
+            "1T/4a": 1.5
+          }
+        },
+        {
+          "categoria": "Jefe/a de Partida",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.6,
+            "4T/1a": 1.6,
+            "3T/2a": 1.55,
+            "2T/3a": 1.5,
+            "1T/4a": 1.5
+          }
+        },
+        {
+          "categoria": "Cocinero/a",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.6,
+            "4T/1a": 1.55,
+            "3T/2a": 1.5,
+            "2T/3a": 1.5,
+            "1T/4a": 1.5
+          }
+        },
+        {
+          "categoria": "Repostero/a",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.55,
+            "4T/1a": 1.5,
+            "3T/2a": 1.45,
+            "2T/3a": 1.45,
+            "1T/4a": null
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Cocina",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.5,
+            "4T/1a": 1.5,
+            "3T/2a": 1.5,
+            "2T/3a": 1.45,
+            "1T/4a": 1.45
+          }
+        },
+        {
+          "categoria": "Encargado/a de Economato",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.5,
+            "4T/1a": 1.45,
+            "3T/2a": 1.45,
+            "2T/3a": null,
+            "1T/4a": null
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Economato",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.45,
+            "4T/1a": 1.45,
+            "3T/2a": null,
+            "2T/3a": null,
+            "1T/4a": null
+          }
+        }
+      ],
+      "areaTercera_RestauranteYBar": [
+        {
+          "categoria": "Jefe/a de Restaurante, Bar y similar",
+          "grupo": "I",
+          "niveles": {
+            "5T/lujo": 1.7,
+            "4T/1a": 1.7,
+            "3T/2a": 1.6,
+            "2T/3a": 1.55,
+            "1T/4a": 1.55
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a",
+          "grupo": "I",
+          "niveles": {
+            "5T/lujo": 1.65,
+            "4T/1a": 1.65,
+            "3T/2a": 1.55,
+            "2T/3a": 1.5,
+            "1T/4a": null
+          }
+        },
+        {
+          "categoria": "Jefe/a de Sector",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.6,
+            "4T/1a": 1.6,
+            "3T/2a": null,
+            "2T/3a": null,
+            "1T/4a": null
+          }
+        },
+        {
+          "categoria": "Camarero/a",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.5,
+            "4T/1a": 1.45,
+            "3T/2a": 1.4,
+            "2T/3a": 1.4,
+            "1T/4a": 1.4
+          }
+        },
+        {
+          "categoria": "Sumiller",
+          "grupo": "II",
+          "niveles": {
+            "5T/lujo": 1.5,
+            "4T/1a": 1.5,
+            "3T/2a": null,
+            "2T/3a": null,
+            "1T/4a": null
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Camarero/a",
+          "grupo": "III",
+          "niveles": {
+            "5T/lujo": 1.4,
+            "4T/1a": 1.4,
+            "3T/2a": 1.35,
+            "2T/3a": 1.35,
+            "1T/4a": 1.35
+          }
+        },
+        {
+          "categoria": "Riders",
+          "grupo": "IV",
+          "niveles": {
+            "5T/lujo": 1.35,
+            "4T/1a": 1.35,
+            "3T/2a": 1.35,
+            "2T/3a": 1.35,
+            "1T/4a": 1.35
+          }
+        }
+      ],
+      "areaCuarta_PisosYLimpieza": [
+        {
+          "categoria": "Encargado/a de Seccion",
+          "grupo": "I",
+          "niveles": {
+            "5T/lujo": 1.45,
+            "4T/1a": 1.45,
+            "3T/2a": 1.4,
+            "2T/3a": 1.4,
+            "1T/4a": 1.4
+          }
+        },
+        {
+          "categoria": "Auxiliar de pisos y limpieza",
+          "grupo": "III",
+          "niveles": {
+            "5T/lujo": 1.35,
+            "4T/1a": 1.35,
+            "3T/2a": 1.35,
+            "2T/3a": 1.35,
+            "1T/4a": 1.35
+          }
+        }
+      ],
+      "areaQuinta_Mantenimiento": [
+        {
+          "categoria": "Auxiliar de Mantenimiento y servicios",
+          "grupo": "III",
+          "niveles": {
+            "5T/lujo": 1.35,
+            "4T/1a": 1.35,
+            "3T/2a": 1.35,
+            "2T/3a": 1.35,
+            "1T/4a": 1.35
+          }
+        }
+      ]
+    },
+    "catering": {
+      "$comment": "Catering: nivel unico por categoria (sin variacion por categoria de establecimiento).",
+      "categorias": [
+        {
+          "categoria": "Jefe/a de Catering",
+          "grupo": "I",
+          "nivel": 1.65
+        },
+        {
+          "categoria": "Jefe/a de Operaciones",
+          "grupo": "I",
+          "nivel": 1.65
+        },
+        {
+          "categoria": "Jefe/a de Sala",
+          "grupo": "I",
+          "nivel": 1.6
+        },
+        {
+          "categoria": "Supervisor/a",
+          "grupo": "II",
+          "nivel": 1.55
+        },
+        {
+          "categoria": "Jefe/a de Equipo",
+          "grupo": "II",
+          "nivel": 1.5
+        },
+        {
+          "categoria": "Conductor/a de Equipo",
+          "grupo": "II",
+          "nivel": 1.45
+        },
+        {
+          "categoria": "Preparador/a Montador",
+          "grupo": "II",
+          "nivel": 1.45
+        },
+        {
+          "categoria": "Ayudante/a de Equipo",
+          "grupo": "III",
+          "nivel": 1.4
+        },
+        {
+          "categoria": "Auxiliar de Preparacion/Montaje",
+          "grupo": "III",
+          "nivel": 1.35
+        },
+        {
+          "categoria": "Jefe/a de Servicios y Mantenimiento",
+          "grupo": "I",
+          "nivel": 1.6
+        },
+        {
+          "categoria": "Especialista de Mantenimiento y Servicios Tecnicos",
+          "grupo": "II",
+          "nivel": 1.55
+        },
+        {
+          "categoria": "Auxiliar de Mantenimiento y Servicios",
+          "grupo": "II",
+          "nivel": 1.35
+        }
+      ]
+    },
+    "cafeterias": {
+      "columnas": [
+        "3T-Especial",
+        "2T-1a",
+        "1T-2a"
+      ],
+      "areaPrimera_Recepcion_Admin": [
+        {
+          "categoria": "Telefonista",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.35,
+            "2T-1a": 1.35,
+            "1T-2a": 1.35
+          }
+        },
+        {
+          "categoria": "Relaciones publicas",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.55,
+            "2T-1a": null,
+            "1T-2a": null
+          }
+        },
+        {
+          "categoria": "Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.55,
+            "2T-1a": 1.5,
+            "1T-2a": 1.45
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.5,
+            "2T-1a": 1.45,
+            "1T-2a": 1.4
+          }
+        },
+        {
+          "categoria": "Comercial",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.55,
+            "2T-1a": null,
+            "1T-2a": null
+          }
+        }
+      ],
+      "areaSegunda_Cocina": [
+        {
+          "categoria": "Cocinero/a",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.6,
+            "2T-1a": 1.55,
+            "1T-2a": 1.5
+          }
+        },
+        {
+          "categoria": "Repostero/a",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.6,
+            "2T-1a": 1.55,
+            "1T-2a": 1.5
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Cocina",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.55,
+            "2T-1a": 1.5,
+            "1T-2a": 1.45
+          }
+        },
+        {
+          "categoria": "Auxiliar de Cocina",
+          "grupo": "III",
+          "niveles": {
+            "3T-Especial": 1.35,
+            "2T-1a": 1.35,
+            "1T-2a": 1.35
+          }
+        }
+      ],
+      "areaTercera_BarYSimilar": [
+        {
+          "categoria": "Jefe/a de Cafeteria, Bar, similar",
+          "grupo": "I",
+          "niveles": {
+            "3T-Especial": 1.65,
+            "2T-1a": 1.65,
+            "1T-2a": 1.6
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a",
+          "grupo": "I",
+          "niveles": {
+            "3T-Especial": 1.6,
+            "2T-1a": 1.6,
+            "1T-2a": 1.55
+          }
+        },
+        {
+          "categoria": "Camarero/a",
+          "grupo": "II",
+          "niveles": {
+            "3T-Especial": 1.55,
+            "2T-1a": 1.5,
+            "1T-2a": 1.45
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Camarero/a",
+          "grupo": "III",
+          "niveles": {
+            "3T-Especial": 1.5,
+            "2T-1a": 1.45,
+            "1T-2a": 1.4
+          }
+        }
+      ],
+      "areaCuarta_PisosYLimpieza": [
+        {
+          "categoria": "Auxiliar de pisos y limpieza",
+          "grupo": "III",
+          "niveles": {
+            "3T-Especial": 1.35,
+            "2T-1a": 1.35,
+            "1T-2a": 1.35
+          }
+        }
+      ],
+      "areaQuinta_Mantenimiento": [
+        {
+          "categoria": "Auxiliares de Mantenimiento y Servicios",
+          "grupo": "III",
+          "niveles": {
+            "3T-Especial": 1.35,
+            "2T-1a": 1.35,
+            "1T-2a": 1.35
+          }
+        }
+      ]
+    },
+    "pensiones1y2estrellas": {
+      "columnas": [
+        "2*",
+        "1*"
+      ],
+      "areaPrimera_Recepcion_Admin": [
+        {
+          "categoria": "Recepcionista",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.5,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Primer/a Conserje",
+          "grupo": "I",
+          "niveles": {
+            "2*": 1.45,
+            "1*": 1.45
+          }
+        },
+        {
+          "categoria": "Conserje",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.4,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Auxiliar de Conserjeria y Recepcion",
+          "grupo": "III",
+          "niveles": {
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        },
+        {
+          "categoria": "Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.45,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Ayudante Administrativo",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.4,
+            "1*": 1.35
+          }
+        }
+      ],
+      "areaSegunda_Cocina": [
+        {
+          "categoria": "Jefe/a de cocina",
+          "grupo": "I",
+          "niveles": {
+            "2*": 1.5,
+            "1*": 1.5
+          }
+        },
+        {
+          "categoria": "Jefe/a de Partida",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.5,
+            "1*": 1.5
+          }
+        },
+        {
+          "categoria": "Cocinero/a",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.45,
+            "1*": 1.45
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Cocina",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.4,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Auxiliar de Cocina",
+          "grupo": "III",
+          "niveles": {
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        }
+      ],
+      "areaTercera_RestauranteBar": [
+        {
+          "categoria": "Jefe/a de Restaurante, Bar y similar",
+          "grupo": "I",
+          "niveles": {
+            "2*": 1.55,
+            "1*": 1.5
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a",
+          "grupo": "I",
+          "niveles": {
+            "2*": 1.5,
+            "1*": null
+          }
+        },
+        {
+          "categoria": "Camarero/a",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.45,
+            "1*": 1.45
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Camarero/a",
+          "grupo": "III",
+          "niveles": {
+            "2*": 1.4,
+            "1*": 1.4
+          }
+        }
+      ],
+      "areaCuarta_PisosYLimpieza": [
+        {
+          "categoria": "Encargado/a General",
+          "grupo": "I",
+          "niveles": {
+            "2*": 1.4,
+            "1*": 1.4
+          }
+        },
+        {
+          "categoria": "Camarero/a de pisos",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        },
+        {
+          "categoria": "Auxiliar de pisos y limpieza",
+          "grupo": "III",
+          "niveles": {
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        }
+      ],
+      "areaQuinta_Mantenimiento": [
+        {
+          "categoria": "Especialista de Mantenimiento y servicios",
+          "grupo": "II",
+          "niveles": {
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        },
+        {
+          "categoria": "Auxiliar de Mantenimiento y servicios",
+          "grupo": "III",
+          "niveles": {
+            "2*": 1.35,
+            "1*": 1.35
+          }
+        }
+      ]
+    },
+    "otrosEstablecimientos": {
+      "columnas": [
+        "Especial",
+        "Resto"
+      ],
+      "areaPrimera_Recepcion_Admin": [
+        {
+          "categoria": "Telefonista",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.35,
+            "Resto": 1.35
+          }
+        },
+        {
+          "categoria": "Auxiliar de Conserjeria y Recepcion",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.4,
+            "Resto": 1.35
+          }
+        },
+        {
+          "categoria": "Relaciones Publicas",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.5,
+            "Resto": null
+          }
+        },
+        {
+          "categoria": "Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55,
+            "Resto": 1.45
+          }
+        },
+        {
+          "categoria": "Ayudante/a Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.45,
+            "Resto": 1.4
+          }
+        }
+      ],
+      "areaSegunda_Cocina_Economato": [
+        {
+          "categoria": "Jefe/a de Cocina",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.65,
+            "Resto": 1.5
+          }
+        },
+        {
+          "categoria": "Cocinero/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.6,
+            "Resto": 1.45
+          }
+        },
+        {
+          "categoria": "Repostero/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.6,
+            "Resto": 1.45
+          }
+        },
+        {
+          "categoria": "Ayudante de Cocina",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.5,
+            "Resto": 1.4
+          }
+        },
+        {
+          "categoria": "Auxiliar de Cocina",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.35,
+            "Resto": 1.35
+          }
+        },
+        {
+          "categoria": "Encargado/a de Economato",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.4,
+            "Resto": null
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Economato",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.35,
+            "Resto": null
+          }
+        }
+      ],
+      "areaTercera_RestauranteYBar": [
+        {
+          "categoria": "Jefe/a de restaurante, Bar y similar",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.65,
+            "Resto": 1.45
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.6,
+            "Resto": 1.4
+          }
+        },
+        {
+          "categoria": "Camarero/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55,
+            "Resto": 1.4
+          }
+        },
+        {
+          "categoria": "Barman",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.65,
+            "Resto": null
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Camarero/a",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.4,
+            "Resto": 1.35
+          }
+        }
+      ],
+      "areaCuarta_PisosYLimpieza": [
+        {
+          "categoria": "Auxiliar de pisos y limpieza",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.35,
+            "Resto": 1.35
+          }
+        }
+      ],
+      "areaQuinta_Mantenimiento": [
+        {
+          "categoria": "Encargado/a de Mantenimiento",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.35,
+            "Resto": 1.35
+          }
+        },
+        {
+          "categoria": "Auxiliar de Mantenimiento y Servicios",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.35,
+            "Resto": 1.35
+          }
+        }
+      ]
+    },
+    "salasFiestaDiscotecas": {
+      "$comment": "Salas de fiesta, Salones de te, Discotecas, Tablaos flamencos y Salones de baile. Nivel unico (Especial).",
+      "columnas": [
+        "Especial"
+      ],
+      "areaPrimera_Recepcion_Admin": [
+        {
+          "categoria": "Auxiliar de Conserjeria y Recepcion",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.4
+          }
+        },
+        {
+          "categoria": "Relaciones Publicas",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55
+          }
+        },
+        {
+          "categoria": "Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55
+          }
+        },
+        {
+          "categoria": "Ayudante/a Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.5
+          }
+        },
+        {
+          "categoria": "Comercial",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.4
+          }
+        }
+      ],
+      "areaSegunda_Cocina": [
+        {
+          "categoria": "Ayudante/a de Cocina",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.4
+          }
+        }
+      ],
+      "areaTercera_RestauranteYBar": [
+        {
+          "categoria": "Jefe/a de Restaurante, Bar y similar",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.65
+          }
+        },
+        {
+          "categoria": "Segundo/a Jefe/a",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.6
+          }
+        },
+        {
+          "categoria": "Camarero/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55
+          }
+        },
+        {
+          "categoria": "Barman",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.6
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Camarero/a",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.5
+          }
+        }
+      ],
+      "areaCuarta_PisosYLimpieza": [
+        {
+          "categoria": "Encargado/a General",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.4
+          }
+        },
+        {
+          "categoria": "Auxiliar de Pisos y Limpieza",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.35
+          }
+        }
+      ],
+      "areaQuinta_Mantenimiento": [
+        {
+          "categoria": "Encargado/a de Mantenimiento",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.4
+          }
+        },
+        {
+          "categoria": "Especialista Mantenimiento y Servicios",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.35
+          }
+        }
+      ]
+    },
+    "casinosBingos": {
+      "$comment": "Casinos, Bingos, Salones Recreativos. Nivel unico (Especial).",
+      "columnas": [
+        "Especial"
+      ],
+      "areaPrimera_Recepcion_Admin": [
+        {
+          "categoria": "Telefonista",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.4
+          }
+        },
+        {
+          "categoria": "Conserje",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Conserje y Recepcion",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.45
+          }
+        },
+        {
+          "categoria": "Auxiliar de Conserjeria y Recepcion",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.4
+          }
+        },
+        {
+          "categoria": "Relaciones publicas",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55
+          }
+        },
+        {
+          "categoria": "Jefe/a de Administracion",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.65
+          }
+        },
+        {
+          "categoria": "Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.5
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Administrativo/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.45
+          }
+        },
+        {
+          "categoria": "Comercial",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.5
+          }
+        }
+      ],
+      "areaSegunda_Cocina": [
+        {
+          "categoria": "Cocinero/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Cocinero/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.45
+          }
+        },
+        {
+          "categoria": "Auxiliar de Cocina",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.35
+          }
+        }
+      ],
+      "areaTercera_SalaBar": [
+        {
+          "categoria": "Jefe/a de sala, Bar y similar",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.6
+          }
+        },
+        {
+          "categoria": "Camarero/a",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.55
+          }
+        },
+        {
+          "categoria": "Ayudante/a de Camarero/a",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.5
+          }
+        }
+      ],
+      "areaCuarta_PisosYLimpieza": [
+        {
+          "categoria": "Encargado/a General",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.4
+          }
+        },
+        {
+          "categoria": "Auxiliar de Limpieza",
+          "grupo": "III",
+          "niveles": {
+            "Especial": 1.35
+          }
+        }
+      ],
+      "areaQuinta_Mantenimiento": [
+        {
+          "categoria": "Encargado/a de Mantenimiento",
+          "grupo": "I",
+          "niveles": {
+            "Especial": 1.4
+          }
+        },
+        {
+          "categoria": "Especialista de Mantenimiento y Servicios",
+          "grupo": "II",
+          "niveles": {
+            "Especial": 1.35
+          }
+        }
+      ]
+    }
+  },
+  "otrasCondicionesEconomicasNoSalariales": {
+    "comisionSectorialFormacion": "Art. 33-34: mapa de cualificaciones, formacion dual, certificados de profesionalidad.",
+    "observatorioSectorial": "Disposicion Adicional 1a.",
+    "fondoSalarialVoluntario": "Disposicion Adicional 2a (Art. 51 bis).",
+    "polivalenciaFuncional": "Art. 18.c: la realizacion de funciones de categoria superior consolida el nivel superior tras 4 meses continuados o 6 alternos.",
+    "delegadoMedioAmbiente": "Art. 58 bis: figura de nueva creacion unida al delegado de prevencion."
+  },
+  "estado": "completo_verificado_imagen",
+  "estadoNota": "Articulado (Arts. 1-59 + Disp. Adicionales) y Anexos I-VII transcritos leyendo la IMAGEN del BOP oficial celda a celda. Tablas salariales 2023/2024/2025 por nivel, Anexo VII completo (8 tipos de establecimiento), permisos, complemento IT, excedencias, representacion sindical, etc. verificados. 2026 pendiente (sin tabla publicada; ultraactividad Art. 8). Regimen disciplinario (Art. 59) y periodo de prueba se remiten al ALEH.",
+  "verificadoContra": "PDF oficial BOP Jaen n.157 (12/08/2024, articulado, CVE BOP-2024-3699, pags. 12385-12424) y BOP Jaen n.203 (16/10/2024, Anexos I-VII, CVE BOP-2024-4685, pags. 15388-15405). Renderizado a PNG a 185 dpi y leido a partir de la imagen (no del texto extraido) para evitar desalineacion de columnas.",
+  "fechaVerificacion": "2026-07-08",
+  "pendienteCondiciones": [
+    "2026: sin tabla salarial publicada. Negociacion desde octubre 2025 (Art. 5); en ultraactividad rige la tabla 2025 (Art. 8). Regla D32: usar ultima publicacion con tabla (2025).",
+    "regimenDisciplinario (Art. 59): faltas y sanciones NO tipificadas en el convenio provincial -> tomar del ALEH estatal.",
+    "periodoPrueba: duraciones NO reguladas en el convenio -> tomar del ALEH estatal. Duda para UGT.",
+    "contratoFormacion: el convenio no fija porcentajes salariales propios; retribucion por nivel de la categoria. Duda para UGT sobre porcentajes aplicables.",
+    "fiestasTrabajadas: sin plus/recargo especifico en euros en el articulado. Duda para UGT.",
+    "antiguedad: congelada a 31/12/1998; las nuevas contrataciones no devengan. Solo 'ad personam' para quien ya la tuviera."
+  ]
+}
