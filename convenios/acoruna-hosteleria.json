@@ -24,7 +24,19 @@
   },
   "incrementos": { "2022": "4%", "2023": "3.75%", "2024": "4%", "clausulaIPC": "Se o IPC acumulado 2022-2024 supera o 11,75%, actualízanse as táboas co 50% da diferenza (efectos 01-01-2025). NON se activou." },
   "jornadaAnual": { "horas": 1792, "articulo": 14, "nota": "40 h/semana de promedio de traballo efectivo." },
-  "vacaciones": { "diasNaturales": 30, "articulo": 13 },
+  "vacaciones": {
+    "articulo": 13,
+    "diasNaturales": 30,
+    "diasLaborablesONaturales": "naturales",
+    "diasExtraPorAntiguedad": "no (o convenio non recoñece días adicionais por antigüidade)",
+    "retribucion": "pendiente. O art.13 non detalla a base de cálculo das vacacións; o convenio non especifica se se aboan só co salario base ou co promedio de complementos (nocturnidade, festivos...). A falta de regra propia, remítese ao ALEH / réxime xeral (salario garantido).",
+    "fraccionamiento": "Poden gozarse en bloque ou fraccionadas en períodos mínimos de 7 días cada un (art.13).",
+    "periodoDisfrute": "Non se fixan meses concretos de bloqueo no art.13; o período ou períodos fíxanse de mutuo acordo entre empresa e traballador. Pódese pactar coa representación un sistema de asignación colectiva de vacacións.",
+    "fijacionYPreaviso": "De mutuo acordo empresa-traballador; calquera parte pode requerir a presenza dos representantes. O calendario (quendas de vacacións) debe quedar fixado antes do 31 de decembro do ano anterior (art.15); as persoas que as disfruten en xaneiro ou febreiro, fixaranse dous meses antes do seu disfrute. En caso de desacordo, a xurisdición competente fixa a data e a súa decisión é irrecorrible (art.13).",
+    "bajaDuranteVacaciones": "Os períodos de enfermidade ou accidente de traballo NON se teñen en conta para deducir o período de vacacións (art.24), é dicir, non consumen vacacións.",
+    "festivosDentroDeVacaciones": "Con independencia das vacacións, as persoas traballadoras gozan dos días non laborais legalmente establecidos (art.13).",
+    "noDisfrutadasAlCesar": "pendiente (o convenio non o regula expresamente; por regra xeral abóanse no finiquito conforme ao ET)."
+  },
   "pagas": {
     "numero": 15,
     "extraordinarias": 3,
@@ -56,7 +68,131 @@
   },
   "manutencionAloxamento2024": { "manutencion": 61.75, "aloxamento": 17.48, "articulo": 6, "nota": "€/mes; só se o traballador tiña recoñecido o dereito e non fai uso del." },
   "plusFormacion": { "articulo": 35, "importe": 20, "periodicidad": "por 15 pagas", "nota": "Plus Compensatorio de Formación de 20 € (por 15 pagas) para empresas que non impartan a formación prevista no art. 35." },
-  "seguros": { "accidentes": { "articulo": 26 }, "vida": { "articulo": 27 }, "nota": "Pólizas obrigatorias; contías concretas no texto (pendiente de detallar)." },
+  "seguros": {
+    "accidentes": { "articulo": 26, "importe": 24000, "moneda": "EUR", "cobertura": "Morte ou invalidez permanente (total, absoluta ou grande invalidez) durante a prestación do traballo ou 'in itinere'." },
+    "vida": { "articulo": 27, "importe": 12000, "moneda": "EUR", "cobertura": "Falecemento do traballador por calquera circunstancia salvo suicidio. As empresas dispoñen de 4 meses desde a publicación do convenio para subscribila." },
+    "nota": "Contías concretas verificadas no texto do convenio (arts. 26 e 27)."
+  },
+  "permisosRetribuidos": {
+    "articulo": 22,
+    "preaviso": "Sen aviso previo para os apartados 2, 3, 7 e 8; para o resto, preaviso mínimo de 7 días por parte do traballador, con xustificación.",
+    "licencias": [
+      { "causa": "Matrimonio do traballador", "dias": 16 },
+      { "causa": "Enfermidade grave, hospitalización, accidente, intervención cirúrxica ou morte do cónxuxe, pais, fillos ou familiares ata 2º grao de consanguinidade ou afinidade", "dias": 4 },
+      { "causa": "Nacemento de filla ou fillo, adopción ou acollemento", "dias": 4 },
+      { "causa": "Voda de fillos, irmáns, bautizos e primeiras comuñóns", "dias": 1, "diasFora": 3, "nota": "1 día se é dentro da provincia, 3 días se é fóra." },
+      { "causa": "Traslado de enderezo habitual", "dias": 1 },
+      { "causa": "Libre disposición (non acumulable a vacacións)", "dias": 2 },
+      { "causa": "Asistencia médica de especialista da Seguridade Social que coincida coa xornada (con prescrición do médico de cabeceira)", "dias": "o tempo necesario, con xustificación" },
+      { "causa": "Acompañar a fillos/as menores de 12 anos ao consultorio (Seguridade Social ou centro privado)", "dias": "o tempo indispensable, máximo 12 horas anuais, con xustificante médico" },
+      { "causa": "Exames prenatais e técnicas de preparación ao parto (traballadoras embarazadas)", "dias": "o tempo preciso, xustificando a imposibilidade de asistir fóra do horario" },
+      { "causa": "Lactancia de fillo menor de 9 meses", "dias": "1 hora de ausencia diaria (divisible en 2 fraccións) ou redución de xornada nunha hora; acumulable en 15 días naturais. Disfrutable indistintamente por pai ou nai se ambos traballan." }
+    ],
+    "mejoraSobreET": "Matrimonio 16 días (mellora os 15 do ET). Fallecemento/enfermidade grave de familiar 4 días. Lactancia acumulable en 15 días. Libre disposición: 2 días propios do convenio.",
+    "nota": "Ademais, art.21: nos casos de maternidade/adopción/acollemento, os períodos de descanso do art.48.4 ET increméntanse en 2 semanas a cargo da empresa, cun mínimo de 2 anos de antigüidade e só para un dos proxenitores."
+  },
+  "complementoIT": {
+    "articulo": 24,
+    "enfermedadComunAccidenteNoLaboral": {
+      "primeraBaja": "100% do salario desde o primeiro día de baixa.",
+      "bajaSuperior10Dias": "100% do salario desde o primeiro día.",
+      "segundaYSucesivasBajas": "Se son inferiores a 11 días, non se aboan os 3 primeiros días; a partir do 4º día, 100% do salario.",
+      "duracionMaxima": "12 meses."
+    },
+    "accidenteTrabajo": {
+      "complemento": "100% do salario desde o primeiro día durante 12 meses."
+    },
+    "nota": "É o dato 'oro': o convenio mellora a prestación legal de IT elevándoa ao 100% do salario (con matices na 2ª e sucesivas baixas por enfermidade común). Ademais, os períodos de enfermidade ou accidente non se deducen das vacacións (art.24)."
+  },
+  "regimenDisciplinario": {
+    "enConvenio": "NON regulado no convenio (non existe artigo de faltas e sancións). Remítese ao Acordo Laboral Estatal da Hostalería (ALEH) por adscrición xeral do art.36, que integra o ALEH en todas as materias que este regula.",
+    "referenciaALEH": true,
+    "faltasYSancionesConvenio": "pendiente (as escalas concretas de faltas leves/graves/moi graves e as sancións por nivel están no ALEH, non neste convenio provincial; verificar contra o texto do ALEH vixente).",
+    "baseLegalGeneral": {
+      "prohibicionSancionEconomica": "VERIFICADO — art.58.3 ET: o empresario NON pode impoñer sancións que consistan na redución da duración das vacacións, doutro descanso, ou en multa de haber (desconto no soldo como castigo). Distinto: descontar o tempo NON traballado por chegar tarde non é sanción.",
+      "procedimiento": "art.58 ET: as faltas graves e moi graves requiren comunicación por escrito ao traballador facendo constar data e feitos. Sen ese requisito, a sanción é impugnable.",
+      "prescripcion": "VERIFICADO — faltas leves 10 días, graves 20 días, moi graves 60 días; en todo caso máximo 6 meses desde que se cometeron.",
+      "revisionJudicial": "Toda sanción é revisable ante o Xulgado do Social."
+    },
+    "notaConvenio": "O convenio só menciona o disciplinario en negativo no art.37 (desconexión dixital): non se pode adoptar medida disciplinaria nin despedimento por non atender comunicacións fóra do horario laboral."
+  },
+  "representacionSindical": {
+    "articulo": 29,
+    "enConvenio": {
+      "garantiasCandidatos": "As garantías sindicais do art.68 ET para membros do comité de empresa e delegados de persoal esténdense aos candidatos a eses postos durante os 6 meses seguintes ás eleccións.",
+      "seccionesSindicais": "Recoñécense seccións sindicais nas empresas de máis de 50 persoas traballadoras, e os delegados das seccións sindicais teñen os mesmos dereitos e garantías que os membros do comité de empresa.",
+      "asambleas": "Dereito a celebrar asemblea ordinaria unha vez ao mes, fóra da xornada laboral e cunha duración dunha hora, nas empresas que dispoñan de espazo, sen interromper os servizos.",
+      "acumulacionHoras": "As horas sindicais mensuais retribuídas recoñecidas legalmente poden acumularse nun ou varios representantes (liberados), sen rebasar o máximo total, con acordo da sección sindical comunicado á Dirección e sen grave alteración do réxime laboral.",
+      "excedenciaSindical": "art.23.g: dereito a excedencia para quen exerza funcións sindicais de ámbito provincial ou superior mentres dure o mandato."
+    },
+    "baseLegalGeneral": {
+      "creditoHorario": "art.68.e ET (o convenio non fixa un propio, remítese ao legal): 15 h/mes ata 100 traballadores, 20 h (101-250), 30 h (251-500), 35 h (501-750), 40 h (+751).",
+      "quienRepresenta": "Delegados de persoal (empresas 6-49: 1 se 6-30, 3 se 31-49) ou comité de empresa (50+); delegado sindical de sección en +250.",
+      "fuero": "art.68 ET: expediente contradictorio antes de sanción grave, prioridade de permanencia, non poden ser despedidos nin sancionados pola súa actividade representativa durante o mandato e o ano seguinte, libertade de expresión e non discriminación."
+    },
+    "notaRemision": "Nos demais dereitos estarase ao disposto no ALEH, ET, Lei Orgánica de Liberdade Sindical e normas complementarias (art.29)."
+  },
+  "periodoPrueba": {
+    "articulo": 18,
+    "regulacion": "NON regulado no convenio; aplícase o disposto no Acordo Laboral Estatal da Hostalería (ALEH).",
+    "referenciaALEH": true,
+    "duracionPorGrupo": "pendiente (as duracións por grupo/categoría están no ALEH; verificar contra o seu texto)."
+  },
+  "excedencias": {
+    "articulo": 23,
+    "voluntaria": {
+      "requisito": "Antigüidade mínima de 1 ano na empresa (non aplicable a contratos de duración determinada).",
+      "duracion": "Mínima 4 meses, máxima 5 anos; concédese en proporción ao tempo de antigüidade (1 ano de antigüidade → máximo 4 meses).",
+      "reingreso": "Debe notificarse á empresa con 3 meses de antelación á fin do prazo. Durante o primeiro ano hai reserva do posto; despois, reserva a un posto do mesmo grupo profesional ou categoría equivalente.",
+      "perdidaDerecho": "Perde o dereito de reingreso quen preste servizos por conta propia ou allea noutra empresa do sector durante a excedencia.",
+      "nuevaExcedencia": "Para outra excedencia voluntaria débese cubrir un novo período de polo menos 4 anos de servizos efectivos.",
+      "computo": "O tempo de excedencia computa a efectos de antigüidade; sen dereito a retribución. Concédese no prazo dun mes desde a petición."
+    },
+    "cuidadoHijos": "Ata 3 anos por coidado de cada fillo (natureza, adopción ou acollemento), desde o nacemento ou resolución.",
+    "cuidadoFamiliares": "Ata 2 anos por coidado dun familiar ata 2º grao que non poida valerse por si mesmo e non desempeñe actividade retribuída.",
+    "sindical": "Excedencia para quen exerza funcións sindicais de ámbito provincial ou superior mentres dure o mandato (art.23.g)."
+  },
+  "ropaTrabajo": {
+    "articulo": 30,
+    "regulacion": "Nas empresas onde se esixe uniformidade, facilitarán un mínimo de 2 uniformes anuais (inverno e verán) e aboarán unha cantidade en concepto de limpeza e mantemento. Se non é obrigatorio o uniforme, facilitarase roupa de traballo axeitada.",
+    "importeLimpieza": "pendiente (o convenio non fixa a contía do plus de limpeza/mantemento)."
+  },
+  "preavisoCese": {
+    "articulo": 28,
+    "mandos": "30 días (xefe de recepción, xefe de administración, encargado de economato e adega, encargado de traballo, xefe de cociña, 1º conserxe de día, encargado xeral ou gobernanta, xefes de restaurante ou sala, cafés-bares, bares americanos, salas de festa).",
+    "restoPersonal": "20 días.",
+    "incumplimiento": "A falta de preaviso desconta do finiquito tantos días de salario como días deixe de preavisar."
+  },
+  "contratacion": {
+    "articulo": 17,
+    "formacion": "Remítese ao ALEH; retribución do 85% do salario de convenio do posto durante toda a duración do contrato.",
+    "circunstanciasProduccion": "Duración máxima de 12 meses nun período de 18 meses.",
+    "fijoDiscontinuo": {
+      "llamamiento": "Período mínimo de chamamento de 5 meses (salvo condición máis beneficiosa); preaviso mínimo de 10 días de antelación.",
+      "orden": "Deber de informar á RLPT (ou á Comisión Mixta de non existir) e elaborar un censo de fixos-descontinuos por empresa.",
+      "consolidacion": "Se o tempo medio traballado en 2 anos supera 5 meses, consolídase o 50% do incremento (sen contar anos Xacobeos).",
+      "tempoParcial": "Xornada diaria mínima 4 h, semanal mínima 20 h."
+    },
+    "porcentajeFijos": "Art.19: obrigatorio un 65% de persoas traballadoras fixas nas empresas abertas ao público un ano.",
+    "nota": "Fixo-descontinuo é clave en hostalería: dereito a ser chamado cada temporada por orde. Detalle adicional nas Disposicións Adicionais 3ª, 4ª e 5ª (fixos-descontinuos extras e comedores escolares)."
+  },
+  "excesoJornadaBancoHoras": {
+    "articulo": 15,
+    "bancoHoras": "Banco de horas trimestral dun máximo de 42 horas, distribuíbles de forma irregular, con preaviso de 5 días ao traballador.",
+    "descansoSemanal": "Mínimo día e medio ininterrompido (xornada continua) ou 2 días (xornada partida); 2 días ininterrompidos para menores de idade.",
+    "desconexionDigital": "art.37: dereito a non responder comunicacións fóra do horario; prohibido sancionar por iso."
+  },
+  "reconocimientosMedicos": {
+    "articulo": 31,
+    "regulacion": "Revisión médica anual o máis completa posible (análises, exploración radiolóxica, auditiva e visual); entrégase copia dos resultados ao traballador."
+  },
+  "jubilacion": { "articulo": 25, "regulacion": "De acordo coa lexislación vixente (sen mellora específica no convenio)." },
+  "formacion": {
+    "articulo": 35,
+    "regulacion": "Remítese ao ALEH. Plus Compensatorio de Formación de 20 € por 15 pagas (natureza salarial) para as empresas que non acrediten participación na formación sectorial (ver campo plusFormacion).",
+    "permisosEstudios": "pendiente (o convenio non regula permisos específicos para exames/estudos alén dos xerais do ET; a materia formativa remítese ao ALEH)."
+  },
+  "externalizacion": { "articulo": 38, "regulacion": "Desde 01-04-2023, á categoría de camareira de pisos aplícaselle o art.42.6 do ET (responsabilidade en contratas/subcontratas)." },
   "categoriasEstablecimiento": {
     "seccion1_hoteis": ["5 estrelas", "4 estrelas", "3 estrelas", "2 estrelas", "1 estrela"],
     "seccion2_pensions_posadas": ["3 estrelas", "2 estrelas", "1 estrela"],
@@ -427,10 +563,12 @@
     }
   },
   "estado": "tablas_2024_verificadas",
-  "verificadoContra": "PDF oficial BOP A Coruña nº241 (22-12-2022, anuncio 2022/8018) renderizado a imaxe (185 dpi) e lido visualmente celda a celda, cotexado co texto extraído (coincidentes). Táboas 2024 de todas as seccións (1-8 + catering + barras americanas), xornada, nocturnidade, horas extra, servizos extraordinarios, pagas, manutención/aloxamento e plus formación verificados. Vixencia das táboas 2024 confirmada coas actas paritarias posteriores (BOP 60/2025 e BOP 231/2025).",
-  "fechaVerificacion": "2026-07-07",
+  "verificadoContra": "PDF oficial BOP A Coruña nº241 (22-12-2022, anuncio 2022/8018) renderizado a imaxe (185 dpi) e lido visualmente celda a celda, cotexado co texto extraído (coincidentes). Táboas 2024 de todas as seccións (1-8 + catering + barras americanas), xornada, nocturnidade, horas extra, servizos extraordinarios, pagas, manutención/aloxamento e plus formación verificados. Vixencia das táboas 2024 confirmada coas actas paritarias posteriores (BOP 60/2025 e BOP 231/2025). Condicións non salariais (vacacións, permisos, IT/baixa, excedencias, representación sindical, período de proba, contratación, seguros, roupa, preaviso, formación) engadidas 2026-07-08 lendo o articulado (arts. 13-39) do mesmo PDF; cada dato leva o seu artigo. Réxime disciplinario e período de proba NON se regulan no convenio (remitidos ao ALEH, art.36/art.18).",
+  "fechaVerificacion": "2026-07-08",
   "pendiente": [
-    "Contías concretas das pólizas de seguro de accidentes (art.26) e vida (art.27).",
+    "Base de cálculo da retribución de vacacións (art.13 non a detalla): confirmar se é salario garantido só ou promedio con complementos.",
+    "Escala de faltas e sancións e duración do período de proba: remitidos ao ALEH (arts.36 e 18); verificar contra o texto vixente do ALEH.",
+    "Contía do plus de limpeza/mantemento da roupa de traballo (art.30 non a fixa).",
     "Confirmar mapeo función→nivel se a app usa niveis numéricos (aquí a estrutura oficial é sección×área funcional×grupo×función×categoría de establecemento, non nivel numérico)."
   ]
 }
