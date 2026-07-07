@@ -1,0 +1,622 @@
+{
+  "$comment": "Convenio Colectivo de Trabajo de ámbito provincial para las Industrias de Hostelería de Segovia 2022-2026. Transcrito VISUALMENTE del PDF oficial del BOP de Segovia nº29 (08-03-2023), páginas 4 a 53 del boletín. Es una publicación ÚNICA que ya incluye las tablas salariales de los cinco años (2022, 2023, 2024, 2025 y 2026), por lo que a julio de 2026 es la publicación MÁS RECIENTE y vigente (regla D32): el año 2026 es el último de vigencia y sus tablas ya están publicadas. NO existe convenio 2027 aún. Estructura de tablas propia de Segovia: por ÁREA FUNCIONAL (seis: 1ª Recepción/Admin, 2ª Cocina/Economato, 3ª Restaurante/Bar, 4ª Pisos/Limpieza, 5ª Mantenimiento, 6ª Servicios complementarios) x GRUPO PROFESIONAL (I mandos, II técnicos/especialistas, III asistentes), NO por categoría de establecimiento. 14 pagas (12 mensualidades + 2 extra). Verificado celda a celda en imagen a 185 dpi: tablas 2022 (áreas 1-3), 2025 (completa) y 2026 (completa). CURIOSIDAD: la antigüedad está CONGELADA desde 1996 (Complemento Personal invariable); el complemento IT llega al 100% del salario desde el PRIMER día (muy generoso); en 2026 se unifica el Área Cuarta (Pisos y Limpieza) al salario del resto de áreas.",
+  "id": "segovia-hosteleria",
+  "nombre": "Convenio Colectivo de Trabajo de ámbito provincial para las Industrias de Hostelería de Segovia 2022-2026",
+  "codigoRegcon": "40000195011982",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla y León", "provincias": ["Segovia"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP Segovia",
+    "numero": 29,
+    "fecha": "2023-03-08",
+    "documento": "Resolución de la Oficina Territorial de Trabajo de Segovia por la que se acuerda la inscripción y publicación del Convenio Colectivo del Sector de Hostelería en la provincia de Segovia. Acuerdo de la Comisión Negociadora de 29 de diciembre de 2022. Resolución de 23 de febrero de 2023. Anuncio RC-3077. Código de Convenio 40000195011982. Texto y tablas en páginas 4 a 53 del boletín.",
+    "url": "https://www.dipsegovia.es/documents/39512/36cb9dfe-96f9-7ff0-0478-39e49e8bbe59"
+  },
+  "vigencia": {
+    "desde": "2022-01-01",
+    "hasta": "2026-12-31",
+    "nota": "Art. 3: entrada en vigor 1 enero 2022, duración cinco años. Al extinguirse se entiende DENUNCIADO de forma automática, permaneciendo vigente TODO su articulado (ultraactividad plena) hasta que se firme un nuevo convenio que lo sustituya. Atrasos de 2022 solo los 6 últimos meses (Art. 15)."
+  },
+  "partesFirmantes": { "patronal": "HOTUSE (Asociación de Empresarios de Alojamiento, Hostelería y Turismo de Segovia)", "sindicatos": ["CCOO", "UGT"] },
+
+  "jornadaAnual": {
+    "horas": 1792,
+    "semanal": 40,
+    "articulo": "Art. 5",
+    "nota": "Jornada anual 1.792 h, computada en jornadas de 40 h semanales. Máximo 9 h diarias de trabajo efectivo. Jornada partida = descanso ininterrumpido de al menos 1 hora. Calendario anual en enero acordado con la RLPT."
+  },
+  "descansoEntreJornadasHoras": { "horas": 12, "articulo": "Art. 5", "nota": "Entre el final de una jornada y el comienzo de la siguiente mediarán como mínimo 12 horas." },
+  "distribucionIrregular": { "porcentaje": 10, "articulo": "Art. 5", "nota": "En defecto de pacto en contrario, la empresa puede distribuir irregularmente el 10% de la jornada a lo largo del año." },
+  "descansoSemanal": { "duracion": "día y medio", "articulo": "Art. 7", "nota": "Fijado por calendario de turnos rotativos. Preaviso de las fechas de descanso no inferior a 1 mes, salvo causa excepcional." },
+
+  "pagasExtraordinarias": {
+    "total": 14,
+    "numeroExtras": 2,
+    "articulo": "Art. 16",
+    "nota": "12 mensualidades + 2 pagas extraordinarias, cada una de una mensualidad sobre el salario garantizado incrementado, en su caso, con el Complemento Personal por antigüedad. Se abonan proporcionalmente al tiempo trabajado y por doceavas partes, el 15 de julio y el 20 de diciembre. Por eso el 'salario año' de las tablas = salario mes x 14."
+  },
+
+  "estructuraTablas": {
+    "$comment": "Las tablas NO se organizan por categoría de establecimiento (como Cádiz), sino por ÁREA FUNCIONAL y GRUPO PROFESIONAL.",
+    "areasFuncionales": {
+      "primera": "Recepción-Conserjería, Relaciones Públicas, Administración y Gestión",
+      "segunda": "Cocina y Economato",
+      "tercera": "Restaurante, Sala, Bar y similares; Colectividades y Pista para catering",
+      "cuarta": "Pisos y Limpieza",
+      "quinta": "Mantenimiento y Servicios auxiliares",
+      "sexta": "Servicios complementarios (ocio, deporte, animación, spa, salud, belleza...)"
+    },
+    "gruposProfesionales": {
+      "I": "Mandos (incluido mando intermedio): funciones técnicas, de mando u organización. Ej.: Jefe/a de recepción, cocina, restaurante; encargados generales.",
+      "II": "Técnicos/as y Especialistas: ejecución autónoma cualificada. Ej.: Recepcionista, Cocinero/a, Camarero/a, Camarero/a de pisos, Especialistas.",
+      "III": "Asistentes: tareas según instrucciones concretas bajo supervisión. Ej.: Ayudantes, Auxiliares."
+    },
+    "incrementosPactados": { "2022": "3%", "2023": "3%", "2024": "3%", "2025": "2%", "2026": "2%", "articulo": "Art. 15" }
+  },
+
+  "tablasSalariales": {
+    "$comment": "€ brutos. 'mes' = salario mensual, 'anio' = salario anual (mes x 14). Verificadas en IMAGEN celda a celda: 2022 (áreas 1-3), 2025 (todas) y 2026 (todas); 2023-2024 y áreas 4-6 de 2022 leídas del texto oficial de la misma publicación (idéntico formato y valores auto-consistentes). NOTA DE ERRATA DEL BOLETÍN: en 2025 la casilla 'salario año' del segundo escalón del Grupo I (salario mes 1.310,48) aparece como 18.376,73 en las áreas 2ª y 3ª y como 18.346,73 en la 1ª; el cálculo correcto es 1.310,48 x 14 = 18.346,72, por lo que 18.376,73 es una errata del BOP. Se transcribe el valor oficial de cada casilla tal cual, con marca 'er(...)'.",
+    "2026": {
+      "primera": [
+        { "grupo": "I", "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje", "mes": 1402.99, "anio": 19641.89 },
+        { "grupo": "I", "categorias": "2.º Jefe/a de Recepción", "mes": 1336.69, "anio": 18713.66 },
+        { "grupo": "II", "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos", "mes": 1336.69, "anio": 18713.66 },
+        { "grupo": "III", "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista", "mes": 1274.58, "anio": 17844.16 },
+        { "grupo": "III", "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería", "mes": 1206.07, "anio": 16885.04 }
+      ],
+      "segunda": [
+        { "grupo": "I", "categorias": "Jefe/a de Cocina", "mes": 1402.99, "anio": 19641.89 },
+        { "grupo": "I", "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida", "mes": 1336.69, "anio": 18713.66 },
+        { "grupo": "II", "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato", "mes": 1274.58, "anio": 17844.16 },
+        { "grupo": "III", "categorias": "Ayudante de Economato, Ayudante de Cocina", "mes": 1206.07, "anio": 16885.04 },
+        { "grupo": "III", "categorias": "Auxiliar de Cocina", "mes": 1136.87, "anio": 15916.22 }
+      ],
+      "tercera": [
+        { "grupo": "I", "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro", "mes": 1402.99, "anio": 19641.89 },
+        { "grupo": "I", "categorias": "Segundo/a Jefe de Restaurante o Sala", "mes": 1336.69, "anio": 18713.66 },
+        { "grupo": "II", "categorias": "Jefe/a de Sector", "mes": 1336.69, "anio": 18713.66 },
+        { "grupo": "II", "categorias": "Camarero/a, Barman, Sumiller", "mes": 1274.58, "anio": 17844.16 },
+        { "grupo": "III", "categorias": "Ayudante de Camarero/a, Riders", "mes": 1206.07, "anio": 16885.04 }
+      ],
+      "cuarta": [
+        { "grupo": "I", "categorias": "Encargado/a General", "mes": 1402.99, "anio": 19641.89 },
+        { "grupo": "I", "categorias": "Encargado/a de Sección", "mes": 1336.69, "anio": 18713.66 },
+        { "grupo": "II", "categorias": "Camarero/a de Pisos", "mes": 1274.58, "anio": 17844.16 },
+        { "grupo": "III", "categorias": "Auxiliar de Pisos y Limpieza", "mes": 1136.87, "anio": 15916.22 }
+      ],
+      "quinta": [
+        { "grupo": "I", "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección", "mes": 1336.69, "anio": 18713.66 },
+        { "grupo": "II", "categorias": "Especialista de Mantenimiento y Servicios Auxiliares", "mes": 1274.58, "anio": 17844.16 },
+        { "grupo": "III", "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor", "mes": 1136.87, "anio": 15916.22 }
+      ],
+      "sexta": [
+        { "grupo": "I", "categorias": "Responsable de Servicio", "mes": 1402.99, "anio": 19641.89 },
+        { "grupo": "I", "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)", "mes": 1307.20, "anio": 18300.79 },
+        { "grupo": "II", "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)", "mes": 1274.58, "anio": 17844.16 },
+        { "grupo": "II", "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)", "mes": 1136.87, "anio": 15916.22 }
+      ]
+    },
+    "2025": {
+      "primera": [
+        { "grupo": "I", "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje", "mes": 1375.48, "anio": 19256.72 },
+        { "grupo": "I", "categorias": "2.º Jefe/a de Recepción", "mes": 1310.48, "anio": 18346.73 },
+        { "grupo": "II", "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos", "mes": 1310.48, "anio": 18346.73 },
+        { "grupo": "III", "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista", "mes": 1249.59, "anio": 17494.27 },
+        { "grupo": "III", "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería", "mes": 1182.43, "anio": 16553.97 }
+      ],
+      "segunda": [
+        { "grupo": "I", "categorias": "Jefe/a de Cocina", "mes": 1375.48, "anio": 19256.72 },
+        { "grupo": "I", "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida", "mes": 1310.48, "anio": 18376.73, "nota": "erata BOP: 18.376,73 en el boletín; el correcto sería 18.346,72 (1.310,48 x 14)." },
+        { "grupo": "II", "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato", "mes": 1249.59, "anio": 17494.27 },
+        { "grupo": "III", "categorias": "Ayudante de Economato, Ayudante de Cocina", "mes": 1182.43, "anio": 16553.97 },
+        { "grupo": "III", "categorias": "Auxiliar de Cocina", "mes": 1114.58, "anio": 15604.14 }
+      ],
+      "tercera": [
+        { "grupo": "I", "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro", "mes": 1375.48, "anio": 19256.72 },
+        { "grupo": "I", "categorias": "Segundo Jefe/a de Restaurante o Sala", "mes": 1310.48, "anio": 18376.73, "nota": "erata BOP: 18.376,73; correcto 18.346,72." },
+        { "grupo": "II", "categorias": "Jefe/a de Sector", "mes": 1310.48, "anio": 18376.73, "nota": "erata BOP: 18.376,73; correcto 18.346,72." },
+        { "grupo": "II", "categorias": "Camarero/a, Barman, Sumiller", "mes": 1249.59, "anio": 17494.27 },
+        { "grupo": "III", "categorias": "Ayudante de Camarero/a, Riders", "mes": 1182.43, "anio": 16553.97 }
+      ],
+      "cuarta": [
+        { "grupo": "I", "categorias": "Encargado/a General", "mes": 1357.56, "anio": 19005.84 },
+        { "grupo": "I", "categorias": "Encargado/a de Sección", "mes": 1292.57, "anio": 18109.98 },
+        { "grupo": "II", "categorias": "Camarero/a de Pisos", "mes": 1240.15, "anio": 17362.10 },
+        { "grupo": "III", "categorias": "Auxiliar de Pisos y Limpieza", "mes": 1114.58, "anio": 15604.14 }
+      ],
+      "quinta": [
+        { "grupo": "I", "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección", "mes": 1310.48, "anio": 18346.73 },
+        { "grupo": "II", "categorias": "Especialista de Mantenimiento y Servicios Auxiliares", "mes": 1249.59, "anio": 17494.27 },
+        { "grupo": "III", "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor", "mes": 1114.58, "anio": 15604.14 }
+      ],
+      "sexta": [
+        { "grupo": "I", "categorias": "Responsable de Servicio", "mes": 1375.48, "anio": 19256.72 },
+        { "grupo": "I", "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)", "mes": 1281.57, "anio": 17941.95 },
+        { "grupo": "II", "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)", "mes": 1249.59, "anio": 17494.27 },
+        { "grupo": "II", "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)", "mes": 1114.58, "anio": 15604.14 }
+      ]
+    },
+    "2024": {
+      "primera": [
+        { "grupo": "I", "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje", "mes": 1348.51, "anio": 18879.19 },
+        { "grupo": "I", "categorias": "2.º Jefe/a de Recepción", "mes": 1284.78, "anio": 17986.99 },
+        { "grupo": "II", "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos", "mes": 1284.78, "anio": 17986.99 },
+        { "grupo": "III", "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista", "mes": 1225.09, "anio": 17151.25 },
+        { "grupo": "III", "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería", "mes": 1159.24, "anio": 16229.38 }
+      ],
+      "segunda": [
+        { "grupo": "I", "categorias": "Jefe/a de Cocina", "mes": 1348.51, "anio": 18879.18 },
+        { "grupo": "I", "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida", "mes": 1284.78, "anio": 17986.99, "nota": "El boletín escribe el salario mes como 1.248,78 en esta casilla, aparente errata; el valor auto-consistente de este escalón es 1.284,78 (mismo que en el resto de áreas)." },
+        { "grupo": "II", "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato", "mes": 1225.09, "anio": 17151.25 },
+        { "grupo": "III", "categorias": "Ayudante de Economato, Ayudante de Cocina", "mes": 1159.24, "anio": 16229.39 },
+        { "grupo": "III", "categorias": "Auxiliar de Cocina", "mes": 1092.73, "anio": 15298.18 }
+      ],
+      "tercera": [
+        { "grupo": "I", "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro", "mes": 1348.51, "anio": 18879.18 },
+        { "grupo": "I", "categorias": "Segundo Jefe/a de Restaurante o Sala", "mes": 1284.78, "anio": 17986.99 },
+        { "grupo": "II", "categorias": "Jefe/a de Sector", "mes": 1284.78, "anio": 17986.99 },
+        { "grupo": "II", "categorias": "Camarero/a, Barman, Sumiller", "mes": 1225.09, "anio": 17151.25 },
+        { "grupo": "III", "categorias": "Ayudante de Camarero/a, Riders", "mes": 1159.24, "anio": 16229.39 }
+      ],
+      "cuarta": [
+        { "grupo": "I", "categorias": "Encargado/a General", "mes": 1312.11, "anio": 18369.54 },
+        { "grupo": "I", "categorias": "Encargado/a de Sección", "mes": 1250.46, "anio": 17506.44 },
+        { "grupo": "II", "categorias": "Camarero/a de Pisos", "mes": 1205.71, "anio": 16879.94 },
+        { "grupo": "III", "categorias": "Auxiliar de Pisos y Limpieza", "mes": 1092.73, "anio": 15298.18 }
+      ],
+      "quinta": [
+        { "grupo": "I", "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección", "mes": 1284.78, "anio": 17986.99 },
+        { "grupo": "II", "categorias": "Especialista de Mantenimiento y Servicios Auxiliares", "mes": 1225.09, "anio": 17151.25 },
+        { "grupo": "III", "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor", "mes": 1092.73, "anio": 15298.18 }
+      ],
+      "sexta": [
+        { "grupo": "I", "categorias": "Responsable de Servicio", "mes": 1348.51, "anio": 18879.18 },
+        { "grupo": "I", "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)", "mes": 1256.44, "anio": 17590.15 },
+        { "grupo": "II", "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)", "mes": 1225.09, "anio": 17151.25 },
+        { "grupo": "II", "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)", "mes": 1092.73, "anio": 15298.18 }
+      ]
+    },
+    "2023": {
+      "primera": [
+        { "grupo": "I", "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje", "mes": 1309.24, "anio": 18329.36 },
+        { "grupo": "I", "categorias": "2.º Jefe/a de Recepción", "mes": 1247.36, "anio": 17463.04 },
+        { "grupo": "II", "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos", "mes": 1247.36, "anio": 17463.04 },
+        { "grupo": "III", "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista", "mes": 1189.41, "anio": 16651.74 },
+        { "grupo": "III", "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería", "mes": 1125.48, "anio": 15756.52 }
+      ],
+      "segunda": [
+        { "grupo": "I", "categorias": "Jefe/a de Cocina", "mes": 1309.24, "anio": 18329.36 },
+        { "grupo": "I", "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida", "mes": 1247.36, "anio": 17463.04 },
+        { "grupo": "II", "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato", "mes": 1189.41, "anio": 16651.74 },
+        { "grupo": "III", "categorias": "Ayudante de Economato, Ayudante de Cocina", "mes": 1125.48, "anio": 15756.72 },
+        { "grupo": "III", "categorias": "Auxiliar de Cocina", "mes": 1060.90, "anio": 14852.60 }
+      ],
+      "tercera": [
+        { "grupo": "I", "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro", "mes": 1309.24, "anio": 18329.36 },
+        { "grupo": "I", "categorias": "Segundo Jefe/a de Restaurante o Sala", "mes": 1247.36, "anio": 17463.04 },
+        { "grupo": "II", "categorias": "Jefe/a de Sector", "mes": 1223.26, "anio": 17125.65 },
+        { "grupo": "II", "categorias": "Camarero/a, Barman, Sumiller", "mes": 1189.41, "anio": 16651.70 },
+        { "grupo": "III", "categorias": "Ayudante de Camarero/a, Riders", "mes": 1125.48, "anio": 15756.68 }
+      ],
+      "cuarta": [
+        { "grupo": "I", "categorias": "Encargado/a General", "mes": 1266.66, "anio": 17733.24 },
+        { "grupo": "I", "categorias": "Encargado/a de Sección", "mes": 1207.35, "anio": 16902.90 },
+        { "grupo": "II", "categorias": "Camarero/a de Pisos", "mes": 1171.27, "anio": 16397.78 },
+        { "grupo": "III", "categorias": "Auxiliar de Pisos y Limpieza", "mes": 1060.90, "anio": 14852.60 }
+      ],
+      "quinta": [
+        { "grupo": "I", "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección", "mes": 1247.36, "anio": 17463.09 },
+        { "grupo": "II", "categorias": "Especialista de Mantenimiento y Servicios Auxiliares", "mes": 1189.41, "anio": 16651.70 },
+        { "grupo": "III", "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor", "mes": 1060.90, "anio": 14852.60 }
+      ],
+      "sexta": [
+        { "grupo": "I", "categorias": "Responsable de Servicio", "mes": 1309.24, "anio": 18329.30 },
+        { "grupo": "I", "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)", "mes": 1219.84, "anio": 17077.82 },
+        { "grupo": "II", "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)", "mes": 1189.41, "anio": 16651.70 },
+        { "grupo": "II", "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)", "mes": 1060.90, "anio": 14852.60 }
+      ]
+    },
+    "2022": {
+      "primera": [
+        { "grupo": "I", "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje", "mes": 1271.10, "anio": 17795.40 },
+        { "grupo": "I", "categorias": "2.º Jefe/a de Recepción", "mes": 1211.03, "anio": 16954.42 },
+        { "grupo": "II", "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos", "mes": 1211.03, "anio": 16954.42 },
+        { "grupo": "III", "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista", "mes": 1154.76, "anio": 16166.64 },
+        { "grupo": "III", "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería", "mes": 1092.70, "anio": 15297.80 }
+      ],
+      "segunda": [
+        { "grupo": "I", "categorias": "Jefe/a de Cocina", "mes": 1271.10, "anio": 17795.40 },
+        { "grupo": "I", "categorias": "Segundo Jefe/a de Cocina, Jefe/a de Partida", "mes": 1211.03, "anio": 16954.42 },
+        { "grupo": "II", "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato", "mes": 1154.76, "anio": 16166.64 },
+        { "grupo": "III", "categorias": "Ayudante de Economato, Ayudante de Cocina", "mes": 1092.70, "anio": 15297.80 },
+        { "grupo": "III", "categorias": "Auxiliar de Cocina", "mes": 1030.00, "anio": 14420.00 }
+      ],
+      "tercera": [
+        { "grupo": "I", "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro", "mes": 1271.10, "anio": 17795.40 },
+        { "grupo": "I", "categorias": "Segundo Jefe/a de Restaurante o Sala", "mes": 1211.03, "anio": 16954.42 },
+        { "grupo": "II", "categorias": "Jefe/a de Sector", "mes": 1211.03, "anio": 16954.42 },
+        { "grupo": "II", "categorias": "Camarero/a, Barman, Sumiller", "mes": 1154.76, "anio": 16166.64 },
+        { "grupo": "III", "categorias": "Ayudante de Camarero/a, Riders", "mes": 1092.70, "anio": 15297.80 }
+      ],
+      "cuarta": [
+        { "grupo": "I", "categorias": "Encargado/a General", "mes": 1221.21, "anio": 17096.94 },
+        { "grupo": "I", "categorias": "Encargado/a de Sección", "mes": 1164.24, "anio": 16299.36 },
+        { "grupo": "II", "categorias": "Camarero/a de Pisos", "mes": 1136.83, "anio": 15915.62 },
+        { "grupo": "III", "categorias": "Auxiliar de Pisos y Limpieza", "mes": 1030.00, "anio": 14420.00 }
+      ],
+      "quinta": [
+        { "grupo": "I", "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección", "mes": 1211.03, "anio": 16954.42 },
+        { "grupo": "II", "categorias": "Especialista de Mantenimiento y Servicios Auxiliares", "mes": 1154.76, "anio": 16166.64 },
+        { "grupo": "III", "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor", "mes": 1030.00, "anio": 14420.00 }
+      ],
+      "sexta": [
+        { "grupo": "I", "categorias": "Responsable de Servicio", "mes": 1271.10, "anio": 17795.40 },
+        { "grupo": "I", "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)", "mes": 1184.31, "anio": 16580.40 },
+        { "grupo": "II", "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)", "mes": 1154.76, "anio": 16166.64 },
+        { "grupo": "II", "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)", "mes": 1030.00, "anio": 14420.00 }
+      ]
+    }
+  },
+
+  "salarioMasBajoConvenio": {
+    "$comment": "Suelo salarial de facto = el salario más bajo de las tablas (Auxiliares, Grupo III).",
+    "2022": 1030.00, "2023": 1060.90, "2024": 1092.73, "2025": 1114.58, "2026": 1136.87, "unidad": "€/mes"
+  },
+
+  "unificacionAreaCuarta": {
+    "$comment": "CURIOSIDAD (Art. 15). Se pactó unificar las retribuciones del Área Funcional Cuarta (Pisos y Limpieza) al salario del resto de áreas. En 2026 ya está unificado: Encargado/a General de pisos = 1.402,99 (igual que Grupo I general) y Camarero/a de Pisos = 1.274,58 (igual que Grupo II general). En 2022-2025 el Área Cuarta aún cobraba menos que el resto. Beneficia sobre todo a las camareras de piso (colectivo históricamente peor pagado)."
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 5. Recargo porcentual (no €/hora fijo). Tramo nocturno 22:00-06:00.",
+    "tipo": "porcentaje",
+    "porcentaje": 25,
+    "sobre": "salario_base",
+    "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+    "articulo": "Art. 5",
+    "formulaValorHora": "[(Salario base anual + Antigüedad) / Jornada anual (1.792)] x 25%",
+    "excepcion": "Salvo que el salario se haya pactado atendiendo a que el trabajo sea nocturno por su propia naturaleza. Es un mínimo del 25%."
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "Art. 20. Recargo del 75% sobre el valor de la hora ordinaria. No habituales; solo por razones estructurales/coyunturales. Prohibidas en periodos nocturnos. Voluntarias.",
+    "tipo": "porcentaje",
+    "porcentaje": 75,
+    "sobre": "hora_ordinaria",
+    "articulo": "Art. 20",
+    "formulaVHO": "[(Salario base + Antigüedad + Complemento cotizable) x 425] / 1.792 horas anuales, y el resultado se multiplica por 1,75.",
+    "creacionEmpleo": "Las empresas crearán un puesto de trabajo por cada 150 horas extraordinarias mensuales realizadas por el conjunto de la plantilla.",
+    "registro": "Se registran día a día y se totalizan semanalmente, entregando copia a la RLPT y al trabajador."
+  },
+
+  "fiestasAbonablesTrabajadas": {
+    "$comment": "Art. 8. Fiestas abonables y no recuperables (nacionales, autonómicas, locales) trabajadas.",
+    "articulo": "Art. 8",
+    "opciones": [
+      "Compensarlas como vacaciones continuadas junto a las del trabajador.",
+      "Disfrutarlas de forma separada durante el mes siguiente a la fiesta (en días que habría correspondido trabajar, incluso descansos).",
+      "Compensarlas como horas extraordinarias con un incremento del salario del 75%."
+    ],
+    "IT": "Si por IT no puede compensarse/disfrutarse dentro del año natural, se puede compensar/disfrutar en los dos primeros meses del año siguiente."
+  },
+
+  "festividadPatronal": { "articulo": "Art. 11", "detalle": "Un día festivo del gremio de hostelería, en la fecha que HOTUSE acuerde dentro del mes de celebración de la patrona." },
+
+  "antiguedad": {
+    "$comment": "CURIOSIDAD IMPORTANTE (Art. 17). La antigüedad está CONGELADA: no se generan nuevos trienios/quinquenios desde 1996. Quien ya cobraba antigüedad la mantiene como 'Complemento Personal' INVARIABLE (sin actualización). El importe corresponde a lo generado hasta el 11 de octubre de 1996.",
+    "articulo": "Art. 17",
+    "congelada": true,
+    "denominacion": "Complemento Personal (invariable, no se actualiza)",
+    "premioDiezAnios": "Además, quien cumpla 10 años de antigüedad en la empresa (a partir de octubre 1996) cobra por una sola vez y sin carácter consolidable una mensualidad de su retribución en el mes en que los cumpla. Prorrateable en 12 meses por acuerdo. Aplica también en caso de subrogación."
+  },
+
+  "pluses": {
+    "$comment": "Conceptos con su artículo. La manutención sube por años; el resto son cuantías fijas del convenio.",
+    "manutencion": {
+      "articulo": "Art. 18",
+      "unidad": "€/mes (si se abona en metálico; también puede ser en especie)",
+      "2022": 39, "2023": 41, "2024": 43, "2025": 45, "2026": 47,
+      "nota": "Derecho a manutención en especie o metálico. En especie debe ser sana, suficiente y bien condimentada; menú adecuado si hay prescripción médica."
+    },
+    "alojamiento": { "articulo": "Art. 19", "importe": 15, "unidad": "€/mes", "nota": "Complemento sustitutorio para quien tenga derecho a alojamiento. Cuantía fija, no se detallan incrementos por año." },
+    "plusPeligrosidadPenosidad": { "articulo": "Art. 21", "porcentaje": 20, "sobre": "salario_convenio", "nota": "20% del salario de convenio para trabajos declarados penosos o peligrosos por el Orden Jurisdiccional Social." },
+    "plusIntensidadTrabajo": {
+      "articulo": "Art. 24",
+      "general": "Cuando por periodos justificados (vacaciones, bajas, excedencias...) se encomiendan tareas de categoría superior, se percibe la parte proporcional de la DIFERENCIA salarial entre categorías. Enlaza con el comprobador de categoría/polivalencia.",
+      "monitorColectividades": { "importe": 60.30, "unidad": "€/mes", "nota": "Para monitor de colectividades con tareas adicionales; proporcional si jornada parcial." }
+    },
+    "plusIdiomas": { "articulo": "Art. 23", "detalle": "Si la empresa requiere funciones con idiomas (inglés, francés o alemán) y el trabajador cursa estudios en academia legalizada, la empresa abona el 50% del coste del aprendizaje, previa certificación de asistencia." },
+    "ayudaLibros": { "articulo": "Art. 25", "importe": 35, "unidad": "€/año (pagadero en septiembre)", "nota": "A quien acredite matriculación del hijo y factura de libros del curso escolar." },
+    "plusCompensatorioFormacion": {
+      "articulo": "Art. 57",
+      "importe": 45,
+      "unidad": "€/mes por persona trabajadora",
+      "naturaleza": "salarial",
+      "vigenteDesde": "2018-02-01",
+      "nota": "Lo abonan las empresas que NO acrediten su participación en planes de formación continua del sector (mediante certificación con visado de la Comisión Paritaria). Es una penalización que se convierte en plus para el trabajador."
+    }
+  },
+
+  "ropaTrabajo": {
+    "$comment": "Art. 22. La empresa proporciona uniformes y ropa de trabajo no de uso común, o los compensa en metálico. No se fija importe de compensación (a diferencia de otros convenios).",
+    "articulo": "Art. 22",
+    "obligacionEmpresa": true,
+    "compensacionMetalico": "prevista si no se facilita, pero SIN cuantía fijada en el convenio (pendiente/duda UGT)",
+    "prendasAnuales": "1 traje (pantalón/falda y chaqueta), 1 corbata/corbatín, 1 chaleco/chaqueta similar, 1 pantalón/falda, 2 picos de cocinero o 2 gorros, 1 bata, 1 cofia, 1 guardapolvo, 2 camisas, 2 delantales. Calzado específico si se exige. Uniforme adecuado para trabajadoras embarazadas.",
+    "uso": "Solo dentro de las instalaciones y durante la jornada."
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 9. Bloque completo. Dato clave: son 31 días NATURALES (uno más que el mínimo legal de 30). El convenio NO especifica cómo se retribuyen (¿salario base solo o promedio con complementos?) -> duda para UGT.",
+    "articulo": "Art. 9 (fiestas dentro de vacaciones: Art. 8)",
+    "dias": 31,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "El Art. 9 dice literalmente 'treinta y un días naturales ininterrumpidos'. Mejora el mínimo legal (30 días naturales del art. 38 ET) en 1 día.",
+    "ininterrumpidas": "Por defecto ininterrumpidas; si no fuera posible, la empresa fija de acuerdo con la RLPT los periodos.",
+    "diasExtraAntiguedad": "no_previsto",
+    "retribucion": {
+      "base": "no_especificada_en_convenio",
+      "nota": "El Art. 9 NO indica el módulo de retribución de las vacaciones (ni salario base ni promedio). Al no pactarse, se estará a la regla general/jurisprudencia (retribución normal o media, incluyendo complementos habituales). DUDA para UGT: confirmar criterio de retribución vacacional en Segovia."
+    },
+    "periodoDisfrute": {
+      "regla": "Dentro del año natural. Si son fraccionadas, puede incluirse como periodo vacacional desde mayo hasta la primera quincena de octubre.",
+      "temporadaAltaBloqueada": "no_especificado",
+      "nota": "El convenio NO bloquea expresamente la temporada alta; permite disfrute de mayo a la 1ª quincena de octubre en caso de fraccionamiento."
+    },
+    "fijacion": "La empresa fija de acuerdo con las personas trabajadoras; el representante legal propone los turnos previa consulta (Art. 9).",
+    "noCompensableEnDinero": "No pueden compensarse en dinero durante la relación laboral. Si no se disfrutan en plazo, la empresa certifica por escrito la deuda antes del 31 de diciembre (quedan pendientes).",
+    "proporcionalidad": "Quien no tenga un año de antigüedad disfruta la parte proporcional.",
+    "bajaDuranteVacaciones_IT": {
+      "embarazoPartoLactancia": "Si el periodo coincide con IT por embarazo/parto/lactancia natural o con la suspensión del art. 48.4/48 bis ET, se disfrutan en fecha distinta al finalizar, aunque haya terminado el año natural.",
+      "otrasContingencias": "Si coincide con IT por otras contingencias que impidan disfrutarlas en el año natural, se disfrutan al finalizar la IT, siempre que no hayan pasado más de 18 meses desde el final del año de origen."
+    },
+    "colectivosPreferentes": "Trabajadores con hijos o cónyuges con discapacidad a cargo: preferencia para elegir turno de trabajo, vacaciones y descanso semanal.",
+    "inmigrantes": "Trabajadores cuyo país de origen esté a más de 1.500 km pueden solicitar el periodo vacacional completo para disfrutarlo allí, si no afecta a la rotación ni al servicio.",
+    "festivosDentroVacaciones": "Ver Art. 8: las fiestas abonables no recuperables trabajadas se compensan; si el periodo de vacaciones absorbe una fiesta, se aplica el régimen del Art. 8."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 10. Todos en días LABORABLES salvo que se indique naturales. Aplica igual a parejas de hecho registradas. En lo no previsto -> Estatuto de los Trabajadores.",
+    "articulo": "Art. 10 (lactancia y cuidado: Art. 13; violencia de género: Art. 14)",
+    "matrimonio": { "dias": 16, "tipo": "naturales", "articulo": "Art. 10.a", "mejoraET": "El ET (redacción vigente) reconoce 15 días; el convenio da 16 naturales. Aplica a parejas de hecho." },
+    "nacimientoFallecimientoAccidenteEnfermedadGraveHospitalizacion": { "dias": 2, "diasConDesplazamiento": 4, "diasInmigranteOtroPais": 5, "tipo": "laborables", "articulo": "Art. 10.b", "causa": "Nacimiento de hijo/a o adopción; fallecimiento; accidente o enfermedad graves; hospitalización; o intervención quirúrgica sin hospitalización que precise reposo domiciliario, de parientes hasta el 3er grado de consanguinidad o afinidad.", "nota": "4 días si hay desplazamiento (disfrutables mientras dure el supuesto, sin usarse forzosamente al inicio). Inmigrantes con desplazamiento a otro país: 5 días consecutivos." },
+    "trasladoDomicilio": { "dias": 1, "diasOtraProvincia": 2, "tipo": "laborables", "articulo": "Art. 10.c" },
+    "deberInexcusable": { "dias": "tiempo indispensable", "articulo": "Art. 10.d", "nota": "Deber inexcusable de carácter público y personal; si se percibe indemnización, se descuenta del salario." },
+    "funcionesSindicales": { "articulo": "Art. 10.e", "nota": "Para funciones sindicales o de representación en los términos legales." },
+    "consultasMedicas": { "articulo": "Art. 10.f", "detalle": "Consultas médicas de la Seguridad Social durante la jornada, sin pérdida de salario, con preaviso y justificación de la hora de salida. Acompañar a hijos/as menores de 18 años: máximo 12 ausencias/año. Según casos, hasta 5 días." },
+    "matrimonioFamiliares": { "dias": 1, "articulo": "Art. 10.g", "causa": "Matrimonio de parientes hasta 2º grado de consanguinidad." },
+    "asuntosPropios": { "dias": 1, "tipo": "al año", "articulo": "Art. 10.h", "nota": "Con preaviso de 3 días, sin necesidad de justificación, cualquiera que sea la jornada." },
+    "bautizoComunion": { "dias": 1, "articulo": "Art. 10.i", "causa": "Bautizo o comunión de hijo/a." },
+    "fallecimientoTercerGrado": { "dias": 1, "articulo": "Art. 10.j", "causa": "Fallecimiento de familiares hasta el 3er grado de consanguinidad (adicional al Art. 10.b)." },
+    "examenCarneConducir": { "articulo": "Art. 10.k", "detalle": "Por una sola vez, el tiempo para acudir a los exámenes teórico y práctico del permiso de conducir. Justificación fehaciente y preaviso mínimo de 5 días." },
+    "lactancia": { "articulo": "Art. 13", "duracion": "hasta que el menor cumple 9 meses", "opciones": ["1 hora de ausencia divisible en 2 fracciones", "reducción de media hora de jornada", "acumulación en jornadas completas = 19 días"], "nota": "Derecho individual; si ambos progenitores trabajan en el mismo centro, solo uno puede optar." },
+    "examenesPrenatales": { "articulo": "Art. 12", "detalle": "Ausencia retribuida para exámenes prenatales y técnicas de preparación al parto, previo aviso y justificación de que se realizan dentro de la jornada." }
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 29. EL DATO ORO y muy generoso: el complemento garantiza el 100% del salario desde el PRIMER DÍA de baja en varios supuestos (por encima de la media del sector).",
+    "articulo": "Art. 29",
+    "accidenteTrabajo_o_enfermedadComunConHospitalizacion": {
+      "garantiaPorcentaje": 100,
+      "sobre": "salario",
+      "desdeDia": 1,
+      "requisitos": "Cotización suficiente. Aplica también a personal de temporada, eventuales o con contrato específico.",
+      "nota": "En accidente de trabajo O enfermedad común que requieran HOSPITALIZACIÓN: complemento que, sumado a la prestación de la Seguridad Social, garantiza el 100% del salario desde el primer día y mientras dure la situación."
+    },
+    "enfermedadComunSinHospitalizacion": {
+      "garantiaPorcentaje": 100,
+      "sobre": "salario",
+      "desdeDia": 1,
+      "requisitos": "Cotización suficiente + al menos un parte de confirmación emitido por el Servicio Público de Salud + someterse al reconocimiento médico de empresa si el empresario lo decide (si se niega, PIERDE el derecho). Si no se cumplen los requisitos, no se percibe cantidad alguna.",
+      "nota": "100% del salario desde el primer día de la baja."
+    }
+  },
+
+  "prestacionesSociales": {
+    "prestacionDefuncion": { "articulo": "Art. 26", "importe": "3 mensualidades de salario", "beneficiarios": "Viuda/o, hijos/as menores de 18 años y personas con discapacidad que vivieran a expensas del trabajador fallecido en situación de servicio activo. Se respetan condiciones más beneficiosas de la empresa." },
+    "prestacionAccidenteTrabajo": { "articulo": "Art. 27", "importe": 25000, "unidad": "€", "cobertura": "Fallecimiento o incapacidad permanente absoluta o total para la profesión habitual como consecuencia de accidente laboral. La empresa lo abona por sí o mediante póliza de seguro." },
+    "carneManipulador": { "articulo": "Art. 28", "detalle": "Obtención y revisión obligatorias para quien lo precise; coste a cargo de la empresa; horas empleadas no recuperables." }
+  },
+
+  "excedencias": {
+    "$comment": "Art. 30.",
+    "articulo": "Art. 30",
+    "voluntaria": {
+      "antiguedadMinima": "1 año",
+      "duracion": "mínimo 4 meses, máximo 5 años",
+      "reserva": "Durante el PRIMER año, reserva del puesto si está vacante y existe; si no, reserva referida a un puesto del mismo grupo profesional o categoría equivalente.",
+      "repeticion": "Ejercitable de nuevo por la misma persona tras 4 años desde el final de la anterior excedencia."
+    },
+    "cuidadoDeHijo": { "duracion": "no superior a 3 años", "nota": "Por naturaleza, adopción o acogimiento. Computa a efectos de antigüedad. Un nuevo sujeto causante pone fin al periodo en curso." },
+    "cuidadoDeFamiliar": { "duracion": "no superior a 2 años", "causa": "Familiar hasta 2º grado de consanguinidad o afinidad que por edad, accidente o enfermedad no pueda valerse por sí mismo y no tenga actividad retribuida. Fraccionable." },
+    "sindical": { "causa": "Ejercicio de funciones sindicales de ámbito provincial o superior mientras dure el cargo." },
+    "forzosa": { "causa": "Elección o designación para cargo público que imposibilite la asistencia al trabajo.", "efectos": "Conserva el puesto y la antigüedad. Reingreso solicitado en el mes siguiente al cese en el cargo." }
+  },
+
+  "periodoPrueba": {
+    "$comment": "Art. 36 (Cap. VIII / clasificación remite al ALEH). El convenio NO fija duraciones propias del periodo de prueba en el articulado general; se rige por el ET / ALEH estatal. Excepción explícita: en subrogación de colectividades NO hay periodo de prueba.",
+    "regulado": false,
+    "remitidoA": "Estatuto de los Trabajadores y ALEH (V Acuerdo Laboral Estatal de Hostelería, BOE 21-05-2015, que el convenio adopta para la clasificación profesional).",
+    "excepcionColectividades": "En los supuestos de subrogación de contratas de colectividades (Anexo I), la persona trabajadora NO será sometida a periodo de prueba alguno.",
+    "nota": "DUDA para UGT: duración concreta del periodo de prueba por grupo/categoría (tomar del ALEH). Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El convenio SÍ regula un régimen disciplinario completo (Cap. IX, Arts. 44-51): tipifica faltas leves/graves/muy graves, sanciones, procedimiento y prescripción.",
+    "articulo": "Arts. 44-51",
+    "regulado": true,
+    "graduacion": "Toda falta se califica como leve, grave o muy grave según importancia, trascendencia, intencionalidad, factor humano, circunstancias y realidad social (Art. 45).",
+    "faltasLeves": {
+      "articulo": "Art. 47",
+      "ejemplos": [
+        "Descuido, error o demora en un trabajo que no produzca perturbación importante.",
+        "Incumplir normas internas NO ratificadas por la Comisión Paritaria.",
+        "De 1 a 3 faltas de puntualidad injustificadas (<30 min) en un mes, sin graves perjuicios.",
+        "No comunicar con celeridad la ausencia por IT u otro motivo justificado.",
+        "Abandono del trabajo sin causa justificada, o terminar antes con antelación inferior a 30 min, sin graves perjuicios.",
+        "Pequeños descuidos en la conservación de géneros o material.",
+        "No comunicar cambio de domicilio.",
+        "Discusiones con compañeros dentro de la empresa sin presencia de público.",
+        "Llevar la uniformidad de forma descuidada.",
+        "Faltar 1 día sin autorización o causa justificada, sin graves perjuicios."
+      ]
+    },
+    "faltasGraves": {
+      "articulo": "Art. 48",
+      "ejemplos": [
+        "Más de 3 faltas injustificadas de puntualidad en un mes, o 1 sola de la que deriven graves perjuicios (ej. retraso en un servicio público).",
+        "Faltar 2 días al trabajo en un mes sin autorización, sin graves perjuicios.",
+        "Abandono o terminación anticipada >30 min, entre 1 y 3 veces en un mes.",
+        "No comunicar puntualmente cambios de datos de familiares a cargo (retenciones). Con mala fe -> muy grave.",
+        "Entregarse a juegos estando de servicio.",
+        "Simular enfermedad o accidente para justificar retraso, abandono o falta.",
+        "Incumplir normas internas ratificadas por la Comisión Paritaria u órdenes de la empresa.",
+        "Descuido importante en la conservación de géneros/materiales.",
+        "Fichar o firmar por otro (simular su presencia).",
+        "Discusiones con público delante.",
+        "Usar para uso propio o extraer artículos/prendas de la empresa sin autorización.",
+        "Embriaguez o consumo de drogas en horario de trabajo o vistiendo uniforme (reiterado -> muy grave).",
+        "No atender al público con corrección debida.",
+        "Incumplir instrucciones de servicio o no cumplimentar partes/impresos.",
+        "Inobservancia de normas de Seguridad y Salud, manipulación de alimentos, PRL.",
+        "Imprudencia con riesgo de accidente o daño material.",
+        "Uso habitual de palabras irrespetuosas/injuriosas durante el servicio.",
+        "Falta de aseo/limpieza con queja justificada (mediando advertencia o sanción).",
+        "Reincidencia en faltas leves dentro de un trimestre habiendo mediado advertencia o sanción."
+      ]
+    },
+    "faltasMuyGraves": {
+      "articulo": "Art. 49",
+      "ejemplos": [
+        "3 o más faltas de asistencia sin justificar en un mes; 10 en 6 meses; o 20 en un año.",
+        "Fraude, deslealtad o abuso de confianza; negocios por cuenta propia en las instalaciones sin autorización.",
+        "Hacer desaparecer, inutilizar o causar desperfectos en materiales, útiles, instalaciones o documentos.",
+        "Robo, hurto o malversación en la empresa.",
+        "Violar el secreto de correspondencia o revelar datos reservados.",
+        "Malos tratos de palabra u obra, abuso de autoridad, falta grave de respeto al empresario, compañeros o público.",
+        "Disminución voluntaria y continuada del rendimiento.",
+        "Provocar riñas frecuentes con compañeros.",
+        "Simular enfermedad/accidente para no asistir (incluye trabajar durante la IT o prolongarla con engaño).",
+        "Daños por inobservancia de medidas de prevención y protección de la seguridad.",
+        "Reincidencia en falta grave dentro de 6 meses (mediando advertencia o sanción).",
+        "Acoso: conducta que atente a la intimidad y dignidad mediante ofensa física o verbal de carácter sexual (agravante si hay prevalimiento jerárquico)."
+      ]
+    },
+    "sanciones": {
+      "articulo": "Art. 50",
+      "leves": ["Amonestación", "Suspensión de empleo y sueldo hasta 2 días"],
+      "graves": ["Suspensión de empleo y sueldo de 3 a 15 días"],
+      "muyGraves": ["Suspensión de empleo y sueldo de 16 a 70 días", "Despido disciplinario"],
+      "nota": "A las faltas muy graves puede aplicarse cualquiera de sus sanciones; a las graves solo las de sus apartados. NO existe sanción económica de 'multa de haber' en el convenio."
+    },
+    "procedimiento": { "articulo": "Art. 46", "detalle": "Comunicación ESCRITA a la persona trabajadora con fecha y hechos que motivan la falta; debe acusar recibo o firmar el enterado. Sanciones sin perjuicio de otras instancias." },
+    "prescripcion": { "articulo": "Art. 51", "leves": "10 días", "graves": "20 días", "muyGraves": "60 días", "desde": "que la empresa tuvo conocimiento de la comisión", "topeAbsoluto": "6 meses desde que se cometieron" },
+    "revisable": "Toda sanción es revisable ante la jurisdicción social (Art. 44), sin perjuicio de mediación/arbitraje.",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede sancionar con reducción de vacaciones/descansos ni con multa de haber (quitar dinero del sueldo como castigo). El convenio de Segovia no la contempla. Descontar el tiempo NO trabajado por impuntualidad no es sanción. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'"
+    }
+  },
+
+  "representacionSindical": {
+    "$comment": "Cap. VI (Arts. 34-36). El convenio MEJORA el crédito horario legal (20 h/mes para hasta 100 trabajadores, frente a 15 h del ET) y detalla garantías.",
+    "articulo": "Arts. 34, 35 y 36",
+    "microempresas": "En empresas de menos de 6 trabajadores, a iniciativa de la mayoría, puede elegirse 1 representante como interlocutor válido (Art. 34).",
+    "creditoHorario": {
+      "articulo": "Art. 36.e",
+      "escala": { "hasta100": 20, "de101a250": 25, "de251a500": 35, "de501a750": 40, "mas750": 45 },
+      "unidad": "horas mensuales retribuidas",
+      "acumulable": "Sí: pactos de acumulación de horas en uno o varios miembros (liberados), sin rebasar el máximo legal, por el órgano colegiado del sindicato.",
+      "mejoraET": "SÍ. El art. 68.e ET fija 15 h/mes para centros de hasta 100 trabajadores; el convenio concede 20 h/mes.",
+      "delegadoPrevencion": "Si el delegado/a de prevención coincide con el delegado/a de personal, se le puede ampliar el crédito hasta 5 horas más (Art. 31)."
+    },
+    "garantias": {
+      "articulo": "Art. 36",
+      "detalle": [
+        "Expediente contradictorio previo en sanciones por faltas muy graves.",
+        "Prioridad de permanencia en la empresa/centro ante suspensión o extinción por causas productivas o económicas.",
+        "No ser despedido/a ni sancionado/a durante el ejercicio de sus funciones ni en el año siguiente al fin del mandato, por su actividad representativa.",
+        "Libertad de expresión colegiada y de publicación/distribución de material laboral o social."
+      ]
+    },
+    "derechosColectivos": {
+      "articulo": "Art. 35",
+      "detalle": "Derecho de reunión y asamblea en los recintos de la empresa (sin perturbar el trabajo; fuera de horas previa autorización); tablón de anuncios; cobro de la cuota sindical; información sobre la contratación prevista."
+    },
+    "comisionParitaria": { "articulo": "Art. 52", "detalle": "Integrada por 2 representantes de HOTUSE y 2 de los trabajadores (CCOO/UGT). Órgano de interpretación, arbitraje, conciliación y vigilancia. Domicilio en HOTUSE. Discrepancias al SERLA (Servicio Regional de Relaciones Laborales de Castilla y León)." }
+  },
+
+  "contratacion": {
+    "$comment": "Cap. VII + Art. 54 + Anexo I. Destaca el fijo-discontinuo con consolidación por media de 3 años.",
+    "articulo": "Cap. VII, Art. 54",
+    "eventualPorProduccion": "Contrato por circunstancias de la producción: causa especificada con precisión; con carácter general máximo 12 meses.",
+    "fijoDiscontinuo": {
+      "forma": "Necesariamente por escrito, con número de horas ordinarias (día/semana/mes/año) y su distribución.",
+      "jornadaMinima": "Garantía de jornada mínima de 4 horas diarias continuadas, con carácter ad personam.",
+      "consolidacion": "La ocupación mínima se calcula por la MEDIA de días y horas trabajados en los 3 años anteriores. A partir del 4º año se asigna como definitivo (punto de partida del contrato). Para nuevas contrataciones, aplicable tras 3 años.",
+      "exoneracion": "Las empresas dependientes de concesión administrativa quedan exoneradas de la garantía mínima."
+    },
+    "horasComplementarias": "Reguladas conforme al art. 12.5 ET: pacto escrito, preaviso mínimo de 3 días, límites de jornada; posible consolidación del 20% de las obligatorias repetidas 2 años consecutivos.",
+    "fomentoIndefinidos": "Art. 54: compromiso de transformar temporales en indefinidos y equilibrar géneros; acceso a subvenciones de empleo.",
+    "colectividades": { "articulo": "Anexo I", "detalle": "Contratación fija o fija-discontinua (fijo-discontinuo solo si la prestación es >= 9 meses/año). Subrogación regulada al cambiar de concesionario, en idénticas condiciones salariales y de antigüedad, sin periodo de prueba." }
+  },
+
+  "formacion": {
+    "$comment": "Arts. 56-57.",
+    "articulo": "Arts. 56 y 57",
+    "principio": "Oferta formativa suficiente por la empresa; sin coste económico para la persona trabajadora.",
+    "plusCompensatorioFormacion": "45 €/mes de naturaleza salarial si la empresa no acredita participación en formación continua del sector (ver 'pluses.plusCompensatorioFormacion').",
+    "promocionAuxiliarPisos": { "articulo": "Art. 58", "detalle": "El/la auxiliar de pisos con 2 años consecutivos y efectivos de trabajo puede pasar a Camarero/a de Pisos, previa solicitud a la Comisión Paritaria y autoevaluación de la unidad de competencia UC 0706_1." }
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Arts. 14, 53 y 59 + Disposición Final Tercera. Marco y protocolos; se remite a la LO 3/2007 y LO 1/2004.",
+    "articulo": "Arts. 14, 53, 59; Disp. Final 3ª",
+    "comisionIgualdad": "Comisión Paritaria para la Igualdad de Oportunidades y la No Discriminación, integrada por 8 miembros (4 patronal + 4 sindical). Se reúne al menos 1 vez al año (Art. 59).",
+    "planIgualdadSectorial": "Al ser la mayoría PYMES/micropymes no obligadas a plan propio, la Comisión elabora un PLAN DE IGUALDAD SECTORIAL (diagnóstico, objetivos, medidas, seguimiento) como base para que cada empresa haga el suyo.",
+    "protocoloAcoso": "Puesta en marcha de un protocolo contra el acoso sexual y por razón de sexo; campañas de sensibilización, formación e información.",
+    "violenciaDeGenero": { "articulo": "Art. 14", "detalle": "La trabajadora víctima tiene derecho a reducción de jornada (con reducción proporcional de salario) o reordenación del tiempo de trabajo, y derecho preferente a ocupar otro puesto vacante del mismo grupo en otro centro si debe abandonar la localidad. Remite a la legislación (art. 37.7 ET)." },
+    "presenciaEquilibrada": "Disp. Final 3ª: en igual mérito y capacidad, acceso preferente del género menos representado; análisis estadísticos anuales de plantilla."
+  },
+
+  "clausulaInaplicacion": {
+    "$comment": "Art. 55. Descuelgue del convenio (jornada, horario, turnos, salario, sistema de trabajo/rendimiento, funciones).",
+    "articulo": "Art. 55",
+    "causas": "Disminución persistente del nivel de ingresos o perspectivas económicas negativas que afecten al mantenimiento del empleo (art. 82.3 ET).",
+    "procedimiento": "Comunicación a la RLPT y a la Comisión Paritaria; periodo de consultas máximo 15 días; en desacuerdo, la Comisión Paritaria resuelve en 7 días por unanimidad; si no hay acuerdo, arbitraje vinculante del SERLA. La inaplicación no puede prolongarse más allá de un nuevo convenio ni vulnerar la igualdad retributiva."
+  },
+
+  "dialogoSectorial": {
+    "$comment": "Art. 60. Curiosidad: el convenio abre 7 'mesas de estudio' sectoriales (jornada, categorías, incentivos de productividad, relaciones empresa-trabajador, formación, conciliación y formas de contratación), cuyas conclusiones pueden incorporarse al texto por acuerdo de las partes.",
+    "articulo": "Art. 60"
+  },
+
+  "disposicionesFinales": {
+    "condicionMasBeneficiosa": "Disp. Final 1ª: garantía ad personam; se respetan las condiciones más favorables examinadas en su conjunto y cómputo anual.",
+    "supletoriedad": "Disp. Final 2ª: en lo no regulado, se estará al Estatuto de los Trabajadores y demás legislación laboral."
+  },
+
+  "estado": "verificado",
+  "estadoNota": "Convenio 2022-2026 transcrito del articulado completo (Arts. 1-60, Anexo I) y de las tablas salariales de los 5 años. Tablas verificadas en IMAGEN a 185 dpi celda a celda para 2022 (áreas 1-3), 2025 (completa) y 2026 (completa); 2023, 2024 y áreas 4-6 de 2022 leídas del texto oficial de la MISMA publicación (mismo formato, valores auto-consistentes con las verificadas). Régimen disciplinario, representación sindical, complemento IT, excedencias, contratación y demás condiciones no salariales extraídas del articulado oficial. Pendientes puntuales marcados abajo.",
+  "verificadoContra": "PDF oficial BOP Segovia nº29 (08-03-2023), páginas 4-53. Imágenes verificadas: pág. 44 (tablas 2022 áreas 1-3), pág. 50 (tablas 2025 áreas 1-3), pág. 51 (tablas 2025 áreas 4-6), pág. 52 (tablas 2026 áreas 1-3), pág. 53 (tablas 2026 áreas 4-6). Articulado leído del texto oficial: Cap. I (Arts. 1-4 ámbito/vigencia), Cap. II (Arts. 5-14 jornada, vacaciones, permisos, lactancia, violencia de género), Cap. III (Arts. 15-21 retribución, pagas, antigüedad, manutención, alojamiento, horas extra, peligrosidad), Cap. IV-V (Arts. 22-33 ropa, idiomas, intensidad, libros, defunción, accidente, IT, excedencias), Cap. VI (Arts. 34-36 garantías sindicales), Cap. VII (contratación/fijo-discontinuo), Cap. VIII (Arts. 37-43 clasificación profesional), Cap. IX (Arts. 44-51 régimen disciplinario), Disposiciones varias (Arts. 52-60 Comisión Paritaria, inaplicación, formación, igualdad, diálogo sectorial), Disp. Finales y Anexo I (Colectividades).",
+  "fechaVerificacion": "2026-07-08",
+  "pendienteCondiciones": [
+    "vacaciones.retribucion: el Art. 9 NO indica el módulo de retribución de las vacaciones (salario base vs promedio con complementos). Duda para UGT: criterio aplicado en Segovia.",
+    "ropaTrabajo.compensacionMetalico: el Art. 22 prevé compensación en metálico si no se facilita uniforme, pero NO fija importe. Duda para UGT.",
+    "periodoPrueba: el convenio no fija duraciones por grupo/categoría (remite al ET/ALEH); solo excluye periodo de prueba en subrogación de colectividades. Tomar duraciones del ALEH.",
+    "alojamiento (Art. 19): importe fijo de 15 €/mes sin actualización por años; confirmar si sigue vigente el mismo importe en 2026 (no se listan incrementos)."
+  ],
+  "dudasUGT": [
+    "¿Cómo se retribuyen las vacaciones (salario base o promedio con nocturnidad/festivos)? El convenio no lo dice.",
+    "¿Importe de la compensación en metálico de la ropa de trabajo (Art. 22)?",
+    "Erratas del BOP en las casillas 'salario año' de 2025 (18.376,73 vs 18.346,72 correcto): ¿qué valor se aplica en nómina? Normalmente prevalece el salario mes x 14.",
+    "¿Se está negociando ya el convenio 2027 (el actual vence 31-12-2026)? Mientras tanto rige la ultraactividad plena del Art. 3."
+  ],
+  "curiosidades": [
+    "Antigüedad CONGELADA desde 1996 (Complemento Personal invariable): quien no la generara antes de octubre 1996 no la cobra. Existe, eso sí, un 'premio' de 1 mensualidad por una sola vez al cumplir 10 años en la empresa.",
+    "Complemento IT muy generoso: 100% del salario desde el PRIMER día en accidente de trabajo y en enfermedad común con hospitalización; también 100% desde el día 1 en enfermedad común sin hospitalización (con requisitos).",
+    "En 2026 se unifica el Área Cuarta (Pisos y Limpieza) al salario del resto de áreas: la camarera de pisos pasa a cobrar como el Grupo II general (1.274,58 €/mes). Hasta 2025 cobraba menos.",
+    "Vacaciones de 31 días naturales (uno más que el mínimo legal).",
+    "Jornada anual de 1.792 h (por debajo de las 1.800 h habituales en otros convenios de hostelería).",
+    "El convenio abre 7 'mesas de estudio' sectoriales (Art. 60) para modernizar el sector, cuyas conclusiones pueden incorporarse al texto."
+  ]
+}
