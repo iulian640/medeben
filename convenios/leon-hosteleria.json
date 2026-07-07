@@ -1,0 +1,505 @@
+{
+  "$comment": "Convenio Colectivo Provincial de Hostelería y Turismo de León, años 2023-2024-2025. Transcrito VISUALMENTE del PDF oficial del BOP de León nº 139 (viernes 21-07-2023, anuncio nº 31304), Resolución de la Oficina Territorial de Trabajo de la Delegación Territorial de León (Junta de Castilla y León). Código de convenio 24002505011979. A julio de 2026 SIGUE SIENDO la publicación MÁS RECIENTE con tablas para la provincia de León: el convenio venció el 31-12-2025 pero está en ultraactividad y se aplica ÍNTEGRAMENTE (Art. 3) desde el 01-01-2026 hasta que entre en vigor el nuevo, cuya negociación comenzó en enero de 2026 pero NO se ha publicado todavía en el BOP. Por tanto la tabla salarial VIGENTE es la de 2025. NO existe convenio ni tabla 2026 de León publicada (verificado julio 2026; las 'tablas 2026' que aparecen en buscadores son de Salamanca y Ourense, NO de León). Estructura salarial: 6 áreas funcionales x 3 categorías de establecimiento (Lujo y 1ª clase / Segunda clase / Tercera y sucesivas), asimiladas al VI ALEH. NO hay antigüedad viva (se congeló en 2016 como 'Plus Ad Personam'). Nocturnidad y horas extra son PORCENTAJES, no euros/hora.",
+  "id": "leon-hosteleria",
+  "nombre": "Convenio colectivo provincial de Hostelería y Turismo de León 2023-2025",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla y León", "provincias": ["León"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP León",
+    "numero": 139,
+    "fecha": "2023-07-21",
+    "documento": "Resolución de la Oficina Territorial de Trabajo de la Delegación Territorial de León (Junta de Castilla y León) por la que se dispone el registro y publicación del Convenio Colectivo Provincial de Hostelería y Turismo de León 2023-2025. Código de convenio 24002505011979. Anuncio nº 31304 (páginas 42-76 del BOP nº 139).",
+    "url": "https://www.dipuleon.es/bop"
+  },
+  "vigencia": {
+    "desde": "2023-01-01",
+    "hasta": "2025-12-31",
+    "nota": "Entró en vigor al día siguiente de su publicación (22-07-2023), con efectos económicos desde 01-01-2023 (Art. 3). ULTRAACTIVIDAD: se entiende denunciado automáticamente al vencer, y desde el 01-01-2026 y hasta que entre en vigor el nuevo se aplica el presente EN SU INTEGRIDAD (Art. 3). A julio de 2026 sigue siendo el convenio aplicable; la negociación del convenio 2026 empezó en la primera quincena de enero de 2026 pero no consta convenio ni tabla 2026 publicados en el BOP de León."
+  },
+  "partesFirmantes": {
+    "patronal": "Asociación Provincial de Hostelería de León (integrada en la Federación Leonesa de Empresarios, FELE)",
+    "sindicatos": ["CCOO", "UGT"]
+  },
+
+  "jornadaAnual": {
+    "horas": 1790,
+    "semanal": 40,
+    "articulo": "Art. 19",
+    "nota": "Duración máxima 1.790 horas de trabajo efectivas en cómputo anual; equivalencia semanal según art. 34.1 ET (40 h/semana de promedio en cómputo anual). Jornada partida = descanso ininterrumpido de al menos 2 horas. Derecho a adaptación de jornada por conciliación (art. 34.8 ET)."
+  },
+
+  "descansos": {
+    "articulo": "Arts. 21 y 22",
+    "descansoDiario": "Quien realice jornada de 6 h o más de forma continuada dispone de 30 minutos de descanso, RETRIBUIDO y computado como parte de la jornada laboral a todos los efectos (Art. 21). Mejora el art. 34.4 ET, que no lo considera tiempo de trabajo salvo pacto.",
+    "descansoSemanal": "Dos jornadas ininterrumpidas de descanso semanal (Art. 22). Mejora el mínimo legal de 1,5 días del art. 37.1 ET."
+  },
+
+  "pagasExtraordinarias": {
+    "total": 15,
+    "articulo": "Art. 11",
+    "$comment": "12 mensualidades + 3 gratificaciones extraordinarias de 30 días de salario garantizado + Plus Ad Personam cada una. NO son 2 pagas como el mínimo del ET: son 3.",
+    "detalle": {
+      "navidad": "30 días de salario garantizado + Plus Ad Personam. Fecha de devengo: 15 de diciembre.",
+      "julio": "30 días de salario garantizado + Plus Ad Personam. Fecha de devengo: 15 de julio.",
+      "septiembre": "30 días de salario garantizado + Plus Ad Personam. Fecha de devengo: 1 de octubre."
+    }
+  },
+
+  "estructuraSalarial": {
+    "$comment": "Anexo I. Las tablas se organizan por 6 ÁREAS FUNCIONALES (asimiladas al VI ALEH) y, dentro de cada categoría, por 3 CATEGORÍAS DE ESTABLECIMIENTO: 'Lujo y 1.ª clase', 'Segunda clase' y 'Tercera y sucesivas'. Cada categoría de convenio lleva además un Grupo profesional (1º/2º/3º) del VI ALEH. Importes en € brutos/mes. Incrementos pactados: 4% (2023), 3,5% (2024), 3,5% (2025) — Art. 9.",
+    "categoriasEstablecimiento": ["Lujo y 1.ª clase", "Segunda clase", "Tercera y sucesivas"],
+    "areasFuncionales": [
+      "Primera: Recepción, Conserjería, Administración",
+      "Segunda: Cocina y Economato",
+      "Tercera: Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering",
+      "Cuarta: Pisos y Limpieza",
+      "Quinta: Servicios de mantenimiento y servicios auxiliares",
+      "Sexta: Servicios Complementarios"
+    ]
+  },
+
+  "salariosBaseMensuales2025": {
+    "$comment": "Tablas salariales del AÑO 2025 (Anexo I), verificadas en IMAGEN celda a celda del BOP nº 139, páginas 71-76. Es la tabla VIGENTE a julio de 2026 (ultraactividad). Orden de columnas: [Lujo y 1.ª clase, Segunda clase, Tercera y sucesivas]. 'grupo' = grupo profesional VI ALEH cuando la tabla lo indica.",
+    "areaPrimera_RecepcionConserjeriaAdmin": {
+      "jefeRecepcion": { "grupo": "1º", "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1558.05 },
+      "segundoJefeRecepcion": { "grupo": "1º", "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "contableGeneralJefeAdministracion": { "grupo": "1º", "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1558.05 },
+      "jefeDePersonal": { "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1558.05 },
+      "primerConserjeDeDia": { "grupo": "1º", "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1558.05 },
+      "segundoConserjeDeDia": { "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "recepcionista": { "grupo": "2º", "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "cajero": { "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "conserjeDeNoche": { "grupo": "2º", "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "interventor": { "grupo": "2", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.78 },
+      "contable": { "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "oficialAdministrativo": { "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.78 },
+      "ayudanteRecepcion": { "grupo": "2º", "lujo1a": 1345.52, "segunda": 1266.42, "tercera": 1187.22 },
+      "ayudanteConserjeria": { "grupo": "2º", "lujo1a": 1345.52, "segunda": 1266.42, "tercera": 1187.22 },
+      "telefonista1a": { "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.78 },
+      "telefonista2a": { "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "auxiliarAdministrativo": { "grupo": "2º", "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "portero": { "grupo": "3º", "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "vigilanteDeNoche": { "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "ordenanzaDeSalon": { "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "botones": { "lujo1a": 1266.42, "segunda": 1226.80, "tercera": 1187.22 },
+      "mozoDeEquipajes": { "lujo1a": 1266.42, "segunda": 1226.80, "tercera": 1187.22 },
+      "aspiranteAdministracion": { "lujo1a": 1266.42, "segunda": 1226.80, "tercera": 1187.22 }
+    },
+    "areaSegunda_CocinaEconomato": {
+      "jefeCocina": { "grupo": "1º", "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1557.71 },
+      "segundoJefeCocina": { "grupo": "1º", "lujo1a": 1521.35, "segunda": 1381.46, "tercera": 1304.78 },
+      "jefePartida": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.78 },
+      "cocinero": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.78 },
+      "reposteroJefe": { "grupo": "2º", "lujo1a": 1521.35, "segunda": 1381.46, "tercera": 1304.78 },
+      "oficialRepostero": { "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.78 },
+      "encargadoEconomatoBodega": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.78 },
+      "bodeguero": { "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.78 },
+      "ayudanteCocinero": { "grupo": "2º", "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "ayudanteRepostero": { "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "cafetero": { "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.78 },
+      "ayudanteEconomatoCafeterias": { "grupo": "2º", "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "ayudanteEconomatoBodega": { "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "pinche": { "grupo": "3º", "lujo1a": 1266.42, "segunda": 1226.80, "tercera": 1187.22 },
+      "fregador": { "lujo1a": 1266.42, "segunda": 1226.80, "tercera": 1187.22 }
+    },
+    "areaTercera_RestauranteSalaBarColectividadesCatering": {
+      "jefeDeSala": { "grupo": "1º", "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1557.71 },
+      "primerJefeComedor": { "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1557.71 },
+      "primerEncargadoGeneralCafeteria": { "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1557.71 },
+      "segundoJefeComedor": { "grupo": "1º", "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "segundoEncargadoMostrador": { "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "jefeOperaciones": { "grupo": "1º", "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1557.71 },
+      "jefeSector": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.77 },
+      "camarero": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.77 },
+      "cajeroComedor": { "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.21 },
+      "primerBarmanBarwoman": { "grupo": "2º", "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1557.71, "nota": "Barras americanas." },
+      "segundoBarmanBarwoman": { "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "sumiller": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.78 },
+      "jefeSalaCatering": { "grupo": "2º", "lujo1a": 1854.90, "segunda": 1706.55, "tercera": 1557.71 },
+      "supervisorJefeEquipoCatering": { "grupo": "2º", "lujo1a": 1521.35, "segunda": 1381.47, "tercera": 1304.78 },
+      "ayudanteCamarero": { "grupo": "3º", "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "ayudanteDependiente": { "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "ayudantePreparacionCatering": { "grupo": "3º", "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 },
+      "montadorDeDiscos": { "grupo": "3º", "lujo1a": 1345.52, "segunda": 1266.43, "tercera": 1187.22 }
+    },
+    "areaCuarta_PisosLimpieza": {
+      "encargadaGeneralGobernantaPrimera": { "grupo": "1º", "lujo1a": 1521.35, "segunda": 1381.46, "tercera": 1304.78 },
+      "gobernantaSegunda": { "grupo": "1º", "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.90 },
+      "encargadaLenceriaLavadero": { "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.90 },
+      "lenceria": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.46, "tercera": 1304.90 },
+      "camareraDeHabitacion": { "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 },
+      "planchadora": { "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 },
+      "costureroLenceria": { "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 },
+      "lavandera": { "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 },
+      "limpiador": { "grupo": "3º", "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 },
+      "mozoDeLimpieza": { "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 }
+    },
+    "areaQuinta_MantenimientoServiciosAuxiliares": {
+      "encargadoTrabajosServicioTecnico": { "grupo": "1º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90 },
+      "oficialMecanicoCalefactor": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90 },
+      "oficialEbanista": { "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90 },
+      "oficialCarpintero": { "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90 },
+      "oficialJardinero": { "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90 },
+      "ayudanteMecanicoCalefactor": { "grupo": "3º", "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 },
+      "ayudanteJardinero": { "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 },
+      "ayudanteCarpinteroEbanista": { "lujo1a": 1266.43, "segunda": 1226.80, "tercera": 1187.22 }
+    },
+    "areaSexta_ServiciosComplementarios": {
+      "responsableServicio": { "grupo": "1º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90 },
+      "tecnicoServicio": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90, "nota": "Fisioterapeuta, Dietista y otros titulados en Ciencias de la Salud." },
+      "especialistaServicio": { "grupo": "2º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90, "nota": "Socorrista/especialista primeros auxilios, animador turístico o tiempo libre, monitor deportivo, pinchadiscos, masajista, quiromasajista, esteticista, especialista termal/balneario, hidroterapeuta, especialista atención al cliente." },
+      "auxiliarServicio": { "grupo": "3º", "lujo1a": 1458.20, "segunda": 1381.47, "tercera": 1304.90, "nota": "Auxiliar atención al cliente y auxiliar de piscina o balneario." }
+    }
+  },
+
+  "tablas2023y2024": {
+    "$comment": "El Anexo I del mismo BOP nº 139 también contiene las tablas de 2023 y 2024 (páginas 60-70). NO se transcriben aquí por estar superadas: la tabla aplicable en 2025 y 2026 (ultraactividad) es la de 2025. Incrementos: 4% (2023) y 3,5% (2024) sobre el año anterior (Art. 9).",
+    "estado": "no_transcritas_por_superadas"
+  },
+
+  "salarioMinimoAnualGarantizado": {
+    "$comment": "Art. 15. Salario bruto mínimo anual garantizado, en proporción al tiempo trabajado, salvo disposición de rango superior en contra (SMI).",
+    "articulo": "Art. 15",
+    "2023": 16623.96,
+    "2024": 17205.80,
+    "2025": 17808.00
+  },
+
+  "incrementoYrevisionSalarial": {
+    "$comment": "Art. 9. Incrementos pactados y cláusula de revisión.",
+    "articulo": "Art. 9",
+    "incrementos": { "2023": 4.0, "2024": 3.5, "2025": 3.5, "unidad": "%" },
+    "atrasos": "Los atrasos ocasionados se abonan en un plazo máximo de 3 meses desde la publicación del convenio.",
+    "clausulaRevision": "Si el IPC acumulado de 2023-2024-2025 supera el 11%, se incrementa la diferencia entre esa cantidad y el IPC de dichos años, con tope máximo del 1% para los tres años (el salario de esos años no podrá superar el 12%). La posible diferencia pasa a tablas con efectos 01-01-2026 y SIN carácter retroactivo.",
+    "revision2026": "En la negociación del convenio 2026 se reactivará la cláusula de revisión salarial pactada en el art. 9 del convenio 2008-2010, en los términos que se acuerden."
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 20 (in fine). NO es euros/hora: es un recargo porcentual del 25% sobre el salario base, para horas trabajadas entre las 22:00 y las 06:00.",
+    "articulo": "Art. 20",
+    "tipo": "porcentaje",
+    "porcentaje": 25,
+    "sobre": "salario_base",
+    "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+    "formula": "Salario base x 25%",
+    "nota": "Se prohíbe la realización de horas extraordinarias en el periodo nocturno (Art. 20.6)."
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "Art. 20. NO es euros/hora: recargo de al menos el 62% sobre el salario de la hora ordinaria (o compensación por descanso equivalente incrementado igual). Fórmula específica en el convenio.",
+    "articulo": "Art. 20",
+    "tipo": "porcentaje",
+    "porcentaje": 62,
+    "sobre": "hora_ordinaria",
+    "formula": "Precio hora extra = { [(Salario Base + Plus Ad Personam) x 15] + [(plus Asistencia mes + plus Manutención mes) x 11] } / 1790 (horas anuales), y el resultado x 1,62",
+    "topes": { "dia": 2, "mes": 15, "anio": 80 },
+    "voluntariedad": "La prestación de horas extraordinarias es voluntaria (Art. 20.4). Se registran día a día y se totalizan semanalmente, entregando copia al trabajador. Prohibidas en periodo nocturno.",
+    "compensacionDescanso": "Pueden compensarse por tiempos equivalentes de descanso retribuido incrementados al menos en el 62%."
+  },
+
+  "fiestasTrabajadas": {
+    "$comment": "Art. 25. Días festivos NO recuperables y trabajados: se acumulan y disfrutan entre mayo y septiembre (ambos inclusive) más 2 días adicionales o su parte proporcional según escala. Si no hay acuerdo, se disfrutan en los 15 días anteriores o posteriores al festivo.",
+    "articulo": "Art. 25",
+    "compensacionEnDescanso": true,
+    "escalaDescansoAdicional": {
+      "de2a3festivos": "1 día",
+      "de4a5festivos": "2 días",
+      "de6a8festivos": "3 días",
+      "de9a11festivos": "4 días",
+      "de12a14festivos": "5 días"
+    },
+    "nota": "El convenio compensa los festivos trabajados en DESCANSO (acumulado y disfrutado en temporada media/baja), no fija un recargo económico específico por festivo."
+  },
+
+  "antiguedad": {
+    "$comment": "Art. 13. NO existe antigüedad viva/nueva. La antigüedad devengada hasta la publicación del convenio de 30-03-2016 se convirtió en un complemento personal consolidado llamado 'Plus Ad Personam'.",
+    "articulo": "Art. 13",
+    "existeAntiguedadNueva": false,
+    "plusAdPersonam": {
+      "descripcion": "Las cantidades que se venían percibiendo por antigüedad + la parte proporcional de los tramos generados hasta el 30-03-2016 se consolidaron en el 'Plus Ad Personam'.",
+      "caracteristicas": "Desde esa fecha NO participa de los incrementos del convenio y NO es absorbible ni compensable.",
+      "nota": "Quien entrara a trabajar después de 2016 no tiene este plus; no se generan nuevos tramos de antigüedad."
+    }
+  },
+
+  "pluses": {
+    "$comment": "Importes verificados en imagen (Arts. 10 y 12). Se incrementan cada año según el % pactado.",
+    "plusAsistencia": {
+      "articulo": "Art. 10",
+      "2023": 4.64, "2024": 4.80, "2025": 4.97,
+      "unidad": "€/día de asistencia efectiva al trabajo",
+      "nota": "Se abona a todos los trabajadores, sea cual sea su actividad, por día de asistencia efectiva."
+    },
+    "manutencion": {
+      "articulo": "Art. 12",
+      "2023": 23.82, "2024": 24.65, "2025": 25.52,
+      "unidad": "€/mes (complemento salarial en especie o su equivalente)",
+      "nota": "Solo para quienes prestan servicios en establecimientos con comedor abierto al público. Derecho a recibir la manutención (comida digna y única para todos) durante los días de servicio, o su complemento mensual equivalente."
+    },
+    "ropaTrabajo": {
+      "articulo": "Art. 41",
+      "modelo": "en_especie",
+      "nota": "Las empresas están OBLIGADAS a proporcionar la ropa (uniforme completo) y las herramientas de trabajo. La conservación y limpieza de los uniformes corre a cargo de la empresa, EXCEPTO chaquetilla blanca, camisa y pantalón negro. No hay plus económico de compensación; es obligación en especie. Son de uso obligatorio exclusivamente las prendas que facilite la empresa."
+    }
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 23. Bloque muy detallado (apartados A a P) + permiso parental no retribuido. Varios mejoran el ET. En los apartados B, B bis, M y N se aplican escalas de ampliación por desplazamiento. En lo no previsto, ET.",
+    "articulo": "Art. 23",
+    "matrimonioOregistroParejaHecho": { "dias": 15, "tipo": "naturales", "articulo": "Art. 23.A" },
+    "accidenteEnfermedadGraveHospitalizacion": { "dias": 5, "tipo": "no_especificado", "articulo": "Art. 23.B", "causa": "Accidente o enfermedad grave, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario, de parientes por consanguinidad o afinidad hasta 2º grado (incluido el consanguíneo de la pareja de hecho) y cualquier conviviente en el mismo domicilio que requiera cuidado efectivo.", "disfruteAlterno": "Puede optarse a disfrutar los 5 días de forma alterna, preavisando con 24 h y aportando justificante de que persiste el ingreso hospitalario en cada día de permiso." },
+    "fallecimiento": { "dias": 3, "diasConDesplazamiento": "+2 (5 en total)", "articulo": "Art. 23.B bis", "causa": "Fallecimiento del cónyuge, pareja de hecho o parientes hasta 2º grado de consanguinidad o afinidad.", "mejoraET": "El convenio da 3 días (frente a los 4 del ET vigente para este supuesto tras RD-ley 5/2023, si bien establece ampliación por desplazamiento). Duda para UGT sobre la comparación exacta con el ET." },
+    "trasladoDomicilio": { "dias": 2, "articulo": "Art. 23.C" },
+    "deberInexcusable": { "dias": "tiempo indispensable", "articulo": "Art. 23.D", "causa": "Deber inexcusable de carácter público y personal, incluido el sufragio activo. Si supone imposibilidad de prestación en más del 20% de las horas en 3 meses, la empresa puede pasar al trabajador a excedencia (art. 46.1 ET)." },
+    "funcionesSindicales": { "articulo": "Art. 23.E", "nota": "Para funciones sindicales o de representación en los términos del convenio." },
+    "examenesPrenatalesYpreparacionParto": { "dias": "tiempo indispensable", "articulo": "Art. 23.F" },
+    "lactancia": { "articulo": "Art. 23.G", "duracion": "Hasta que el menor cumple 9 meses", "opciones": ["1 hora de ausencia (divisible en 2 fracciones)", "reducción de media hora de jornada", "acumulación en jornadas completas = 14 días laborables (si hay acuerdo con la empresa)"], "ampliacionMultiples": "Se incrementa proporcionalmente en parto/adopción/acogimiento múltiples.", "ampliacionA12meses": "Si ambos progenitores lo ejercen con igual duración y régimen, el periodo puede extenderse hasta que el lactante cumpla 12 meses, con reducción proporcional del salario desde los 9 meses." },
+    "hijoPrematuroUhospitalizado": { "articulo": "Art. 23.H", "derecho": "1 hora de ausencia y/o reducción de jornada de hasta 2 horas con disminución proporcional del salario." },
+    "reduccionJornadaGuardaLegal": { "articulo": "Art. 23.I", "detalle": "Menor de 12 años o persona con discapacidad a cargo, o familiar hasta 2º grado que no pueda valerse: reducción de jornada entre 1/8 y 1/2, con disminución proporcional del salario. Cuidado de menor a cargo por cáncer/enfermedad grave: reducción de al menos 1/2 hasta los 23 años (26 si discapacidad ≥65%)." },
+    "violenciaGeneroOterrorismo": { "articulo": "Art. 23.K", "detalle": "Reducción de jornada, reordenación del tiempo de trabajo, adaptación de horario o trabajo a distancia para hacer efectiva la protección o el derecho a la asistencia social integral." },
+    "fuerzaMayorFamiliar": { "dias": "equivalente a 4 días al año retribuidos", "articulo": "Art. 23.L", "causa": "Ausencia por fuerza mayor por motivos familiares urgentes (enfermedad o accidente de familiares o convivientes que hagan indispensable la presencia inmediata). Recoge el art. 37.9 ET." },
+    "bodaComunionBautizoDeFamiliares": { "dias": 1, "articulo": "Art. 23.M", "causa": "Boda de hijos, padres, hermanos y hermanos políticos; primera comunión y bautizo de hijos o nietos, o acto similar según la religión." },
+    "examenesFormacion": { "dias": "tiempo necesario, retribuidos los 10 primeros días del año", "articulo": "Art. 23.N", "causa": "Exámenes en centro de formación académica, profesional y social. Los días que excedan de 10 al año NO se retribuyen." },
+    "escalaAmpliacionPorDesplazamiento": {
+      "aplicaA": ["Art. 23.B", "Art. 23.B bis", "Art. 23.M", "Art. 23.N"],
+      "fueraLocalidadDentroProvincia": "+1 día",
+      "provinciasLimitrofes": "+2 días",
+      "restoDeEspana": "+3 días"
+    },
+    "asuntosPropios": { "dias": 1, "articulo": "Art. 23.O", "nota": "Un día al año para asuntos personales, previa solicitud con mínimo 7 días de antelación." },
+    "acudirAlMedico": { "articulo": "Art. 23.P", "dias": "el tiempo necesario" },
+    "permisoParentalNoRetribuido": { "articulo": "Art. 23 (permiso parental)", "duracion": "Hasta 8 semanas (continuas o discontinuas), a tiempo completo o parcial, para cuidado de hijo/menor acogido por más de 1 año, hasta que cumpla 8 años. Derecho individual no transferible; preaviso 10 días.", "retribuido": false }
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 35 ('Enfermedad'). Es el dato 'oro' de baja médica, pero CONDICIONADO: solo se genera el complemento si las funciones del trabajador de baja las asumen sus compañeros (no si la empresa contrata a un interino). NO distingue por porcentaje sino por si hay o no sustitución.",
+    "articulo": "Art. 35",
+    "regulado": true,
+    "condicionado": true,
+    "supuestoCompanerosAsumenFunciones": {
+      "requisitoAntiguedad": "mínimo 6 meses en la empresa",
+      "complementoHasta": 100,
+      "sobre": "base_de_cotizacion_del_mes_anterior_a_la_baja",
+      "duracionMaxima": "12 meses",
+      "desdeDia": 1,
+      "aplicaA": "accidente (laboral o no) y enfermedad común o profesional",
+      "nota": "La empresa está obligada a complementar la prestación de IT de la Seguridad Social hasta alcanzar el 100% de la base de cotización del mes anterior a la baja, durante un máximo de 12 meses, SIEMPRE QUE las funciones del trabajador las desempeñen sus compañeros."
+    },
+    "supuestoEmpresaContrataInterino": {
+      "requisitoAntiguedad": "más de 10 años de servicio",
+      "complementoHasta": 100,
+      "sobre": "base_de_cotizacion_del_mes_anterior_a_la_baja",
+      "desdeDia": 8,
+      "duracionMaxima": "1 mes",
+      "nota": "Si la empresa sustituye al trabajador de baja con un interino, solo está obligada a pagar el complemento cuando el trabajador lleve más de 10 años a su servicio, a partir del 8º día de baja y solo durante un mes."
+    },
+    "dudaUGT": "El complemento del Art. 35 queda supeditado a que 'los compañeros asuman las funciones' del trabajador de baja, requisito difícil de acreditar en la práctica y potencialmente restrictivo. Conviene contrastar con UGT cómo se interpreta y reclama."
+  },
+
+  "seguroColectivo": {
+    "$comment": "Disposición Adicional Tercera ('Póliza de accidentes'). Cubre SOLO muerte o invalidez derivadas de ACCIDENTE DE TRABAJO (no enfermedad común ni accidente no laboral). Importes verificados en imagen (página 58).",
+    "articulo": "Disposición Adicional Tercera",
+    "contingencia": "muerte, invalidez permanente absoluta o gran invalidez derivadas de accidente de trabajo",
+    "capitales": {
+      "2023": { "fallecimiento": 45000.00, "incapacidadPermanenteAbsoluta": 50000.00, "granInvalidez": 55000.00 },
+      "2024": { "fallecimiento": 46575.00, "incapacidadPermanenteAbsoluta": 51750.00, "granInvalidez": 56925.00 },
+      "2025": { "fallecimiento": 48205.12, "incapacidadPermanenteAbsoluta": 53561.25, "granInvalidez": 58917.37 }
+    }
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 4, 5, 7, 8. Destaca el contrato fijo-discontinuo (clave en hostelería de temporada). Contratación siempre por escrito. Alta en SS desde el primer día.",
+    "articulo": "Arts. 4-8",
+    "contratosFormativos": {
+      "articulo": "Art. 5.A",
+      "formacionEnAlternancia": "Se rige por el ALEH y subsidiariamente por el ET. Retribución no inferior al 80% (1er año) ni al 90% (2º año) de la fijada en convenio para el grupo/nivel de las funciones, ni al SMI en proporción al tiempo efectivo.",
+      "formativoPracticaProfesional": "Se rige por el ALEH y subsidiariamente por el ET. Retribución no inferior a la del convenio para categorías con tareas iguales, ni a la mínima del contrato de formación en alternancia, ni al SMI."
+    },
+    "circunstanciasProduccion": { "articulo": "Art. 5.B", "duracionMaxima": "12 meses (prorrogable una vez sin superar el máximo)", "ocasionalPrevisible": "Máximo 90 días en el año natural, no continuados, situaciones identificadas en el contrato.", "indemnizacionFin": "12 días de salario por año de servicio." },
+    "sustitucion": { "articulo": "Art. 5.B.2", "nota": "Para sustituir a persona con derecho a reserva de puesto; puede iniciarse antes de la ausencia." },
+    "fijoDiscontinuo": {
+      "articulo": "Art. 5.C",
+      "objeto": "Trabajos de naturaleza estacional o de temporada, o de prestación intermitente con periodos de ejecución ciertos o inciertos; también contratas/subcontratas previsibles de la actividad ordinaria.",
+      "formaLlamamiento": "Por escrito o medio que deje constancia, con las condiciones de incorporación y con 15 días de antelación.",
+      "cesePreaviso": "7 días. El incumplimiento del preaviso (empresa o trabajador) conlleva abono o descuento del salario de los días de preaviso incumplidos.",
+      "calendarioPrevision": "La empresa traslada a la RLPT, al inicio de cada año natural, un calendario con las previsiones de llamamiento (anual o semestral) y los datos de altas efectivas.",
+      "inactividadEntreSubcontratas": "Plazo máximo de inactividad entre subcontratas: 3 meses.",
+      "tiempoParcial": "Posible celebrarlo a tiempo parcial.",
+      "antiguedad": "Se calcula teniendo en cuenta TODA la duración de la relación laboral, no solo el tiempo de servicios efectivamente prestados (salvo condiciones que exijan otro trato).",
+      "conversionAfijoOrdinario": "La empresa informa de vacantes fijas ordinarias para que puedan solicitar la conversión voluntaria.",
+      "prioridadFormacion": "Colectivo prioritario para el acceso a formación durante los periodos de inactividad."
+    },
+    "conversionTemporalesEnIndefinidos": { "articulo": "Art. 6", "remitidoA": "legislación vigente" },
+    "preferenciaTrabajosDiscontinuos": { "articulo": "Art. 7", "nota": "Quien realice trabajos discontinuos tiene preferencia para cubrir vacantes frente a personas que no hayan trabajado en la empresa." }
+  },
+
+  "periodoPrueba": {
+    "$comment": "El convenio NO fija duraciones propias de periodo de prueba. El ingreso y la clasificación profesional se remiten al ALEH y a la legislación vigente (Arts. 8, 17 y Disposición Adicional Primera).",
+    "articulo": "No regulado específicamente (remisión al ALEH)",
+    "regulado": false,
+    "remitidoA": "VI ALEH y legislación vigente.",
+    "nota": "Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "excedencias": {
+    "$comment": "Art. 34.",
+    "articulo": "Art. 34",
+    "voluntaria": {
+      "antiguedadMinima": "1 año",
+      "duracion": "no menor a 4 meses ni mayor a 5 años",
+      "reingreso": "Baja definitiva si no solicita el reingreso con al menos 30 días de antelación al vencimiento. Reserva de puesto durante el primer año; transcurrido, solo derecho preferente al reingreso en vacantes de igual o similar categoría.",
+      "repeticion": "Ejercitable de nuevo por la misma persona tras 4 años desde el final de la anterior excedencia."
+    },
+    "especiales": { "causa": "Nombramiento para cargos políticos o sindicales que impidan las tareas habituales.", "efectos": "Reserva de plaza hasta que concluya la situación." },
+    "cuidadoHijos": { "duracion": "no superior a 3 años desde el nacimiento/resolución, por cada hijo (naturaleza, adopción, guarda o acogimiento)." },
+    "cuidadoFamiliar": { "duracion": "no superior a 2 años", "causa": "Cuidado de familiar hasta 2º grado que por edad, accidente, enfermedad o discapacidad no pueda valerse y no desempeñe actividad retribuida." }
+  },
+
+  "ascensos": {
+    "$comment": "Art. 17 remite al ALEH. La Disposición Adicional Segunda añade una promoción automática concreta para ayudantes de camarero.",
+    "articulo": "Art. 17 y Disposición Adicional Segunda",
+    "reglaGeneral": "Se está a lo dispuesto en el ALEH y la legislación vigente.",
+    "promocionAutomaticaAyudanteCamarero": "Transcurridos 24 meses en la empresa o grupo de empresas con la categoría de ayudante de camarero, se pasa AUTOMÁTICAMENTE a la categoría superior (camarero), siempre que el número de ayudantes sea igual o superior al de camareros; la empresa decide a quién asciende. (Enlaza con el comprobador de categoría.)"
+  },
+
+  "trabajosCategoriaSuperiorEInferior": {
+    "$comment": "Arts. 32 y 33. La polivalencia / trabajos de categoría superior o inferior se remiten al ALEH.",
+    "articulo": "Arts. 32 y 33",
+    "regulado": false,
+    "remitidoA": "VI ALEH y legislación vigente.",
+    "nota": "El detalle de cuándo cobrar el nivel superior por hacer funciones de categoría superior está en el ALEH (art. 39 ET como suelo legal)."
+  },
+
+  "premioVinculacion": {
+    "$comment": "Art. 14. Premio por antigüedad prolongada en la misma empresa, en forma de vacaciones retribuidas adicionales o su abono en la liquidación final.",
+    "articulo": "Art. 14",
+    "requisito": "Mínimo 15 años consecutivos en la misma empresa y causar baja por cualquier causa EXCEPTO despido procedente.",
+    "beneficio": "2 meses de vacaciones retribuidas (según el salario que corresponda + Plus Ad Personam) + 1 mes más por cada 5 años que excedan de los 15.",
+    "abonoSiNoSeDisfruta": "Si por cualquier motivo no se disfruta antes del cese, se abona junto a la liquidación final."
+  },
+
+  "formacion": {
+    "$comment": "Art. 18.",
+    "articulo": "Art. 18",
+    "detalle": "Los trabajadores, de mutuo acuerdo con la empresa, pueden asistir a cursos de Organismos públicos o Escuelas Profesionales para perfeccionar los conocimientos de su categoría. El tiempo de duración del curso tiene la consideración de trabajo retribuido.",
+    "permisoExamenes": "Ver permisos: exámenes de formación, tiempo necesario, retribuidos los 10 primeros días del año (Art. 23.N)."
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Arts. 26-31. El convenio establece los principios pero remite los planes de igualdad, acoso y su transparencia al ALEH y a la legislación vigente.",
+    "articulo": "Arts. 26-31",
+    "principioIgualdad": "Compromiso de igualdad de retribuciones por trabajos de igual valor y no discriminación (art. 14 CE) — Art. 26.",
+    "noDiscriminacion": "Garantía de no discriminación por sexo, raza, edad, origen, nacionalidad, etnia, orientación sexual, discapacidad o enfermedad — Art. 27.",
+    "planesIgualdad": "Se está a lo dispuesto en el ALEH y la legislación vigente — Arts. 28, 29, 30.",
+    "acosoSexualYporRazonDeSexo": "Se está a lo dispuesto en el ALEH y la legislación vigente — Art. 31."
+  },
+
+  "seguridadYsaludLaboral": {
+    "$comment": "Art. 40.",
+    "articulo": "Art. 40",
+    "reconocimientoMedico": "Derecho a un examen médico anual a cargo de la empresa.",
+    "evaluacionRiesgos": "Las empresas deben tener realizada, actualizada y documentada la Evaluación de Riesgos y un Plan de Prevención (LPRL 31/1995).",
+    "delegadosPrevencion": "Designados por y entre los representantes del personal, con las garantías del art. 37 LPRL.",
+    "comisionSeguridadYSalud": "En 3 meses desde la firma se constituye una comisión paritaria de Seguridad y Salud (4 representantes de la patronal + 4 de UGT y CCOO)."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El Capítulo 8 (Art. 36) del convenio NO tipifica faltas ni sanciones: TODOS sus apartados (faltas y sanciones, graduación, procedimiento sancionador, faltas leves/graves/muy graves, clases de sanciones y prescripción) remiten expresamente al ALEH. Verificado en imagen (páginas 53-54).",
+    "articulo": "Art. 36",
+    "regulado": false,
+    "remitidoA": "VI ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería), que tipifica faltas leves/graves/muy graves, graduación, procedimiento sancionador, clases de sanciones y prescripción; y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver VI ALEH",
+    "faltasGraves": "pendiente — ver VI ALEH",
+    "faltasMuyGraves": "pendiente — ver VI ALEH",
+    "sanciones": "pendiente — ver VI ALEH (amonestación, suspensión de empleo y sueldo por nº de días, inhabilitación para ascenso, despido solo en muy graves).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede imponer sanciones que consistan en la reducción de la duración de las vacaciones u otra minoración de los derechos al descanso, ni en multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad, que no es sanción. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos. Sin ello la sanción es impugnable.",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    }
+  },
+
+  "representacionSindical": {
+    "$comment": "Capítulo 9 (Arts. 37 y 38). El convenio MEJORA el crédito horario legal para delegados de personal y comités de hasta 9 miembros.",
+    "articulo": "Arts. 37 y 38",
+    "creditoHorario": {
+      "horasMensuales": 24,
+      "quien": "Delegados/as de Personal y Comités de Empresa de hasta 9 miembros.",
+      "restoComites": "Según el ET (Real Decreto Legislativo 2/2015), con un mínimo de 24 horas mensuales.",
+      "acumulable": "Sí: pueden acumularse mensualmente en uno o varios miembros, a requerimiento del sindicato.",
+      "mejoraET": "SÍ. El art. 68.e ET fija el mínimo en 15 h/mes para centros de hasta 100 trabajadores; el convenio concede 24 h/mes."
+    },
+    "comiteDeEmpresa": "Órgano unitario de representación. Recibe información económica y financiera de la empresa e interviene previamente en expedientes de crisis, sanciones por faltas muy graves, movilidad de personal y contratación de personal nuevo (Art. 37). Local de reuniones facilitado por la empresa.",
+    "seccionesSindicales": "Derecho a sindicarse libremente; prohibición de condicionar el empleo o perjudicar por afiliación/actividad sindical. En centros sin comité o con plantilla mínima de 50, los tablones pueden usarlos las secciones con mín. 10% de afiliación, reconociéndose un Delegado sindical con las mismas garantías que los miembros del comité (Art. 38).",
+    "quienRepresentaYeleccion": "pendiente — el convenio no detalla el sistema de elección; se rige por el ET (arts. 62-68: delegados de personal en empresas 6-49, comité de empresa desde 50) y la LOLS.",
+    "garantiasYfuero": "pendiente — no detallado en el convenio; se rige por el art. 68 ET (expediente contradictorio previo a sanción grave, prioridad de permanencia, protección frente a despido/sanción por actividad representativa durante el mandato y el año siguiente)."
+  },
+
+  "comisionParitaria": {
+    "$comment": "Capítulo 11 (Art. 42). Comisión Mixta de Interpretación y control, paritaria (4 + 4).",
+    "articulo": "Art. 42",
+    "composicion": "4 representantes de las organizaciones sindicales firmantes (UGT y CCOO) + 4 de la parte empresarial.",
+    "plazos": "Asuntos ordinarios: resolver en 15 días; extraordinarios: 5 días.",
+    "solucionExtrajudicial": "Los conflictos se someten, con carácter previo a la demanda judicial, al SERLA (Servicio Regional de Relaciones Laborales de Castilla y León). El arbitraje es de carácter voluntario."
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 24. Dato clave: son 31 días NATURALES (el propio artículo habla de 'los treinta y un días naturales de vacaciones'), uno más que el mínimo legal de 30 del ET.",
+    "articulo": "Art. 24 (festivos dentro de vacaciones: Art. 24 in fine; IT durante vacaciones: Art. 24 + art. 38.3 ET)",
+    "dias": 31,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "Confirmado en imagen: el Art. 24 se refiere expresamente a 'los treinta y un días naturales de vacaciones'. Mejora en 1 día el mínimo legal de 30 días naturales del art. 38 ET.",
+    "diasExtraAntiguedad": "no_previsto_como_regla_general",
+    "diasExtraAntiguedadNota": "El Art. 24 no suma días de vacaciones por antigüedad de forma ordinaria. Existe aparte el 'premio de vinculación' del Art. 14 (2 meses de vacaciones retribuidas a los 15 años + 1 mes por cada 5 años más), pero es un premio de fidelidad ligado al cese, no un incremento anual.",
+    "retribucion": {
+      "base": "no_especificada_en_el_convenio",
+      "nota": "El Art. 24 no detalla la fórmula de retribución de las vacaciones (no dice 'salario base' ni 'promedio'). Por defecto se aplica la doctrina del art. 7 del Convenio 132 OIT / jurisprudencia (retribución normal o media, incluyendo complementos habituales). Duda para UGT: aclarar el módulo retributivo aplicable en León."
+    },
+    "fijacion": "El periodo de disfrute se fija de común acuerdo entre empresa y trabajador. En caso de desacuerdo, lo fija la jurisdicción competente (Art. 24).",
+    "calendario": "El calendario de vacaciones se fija en cada empresa; el trabajador conoce las fechas con al menos 2 meses de antelación al comienzo del disfrute (Art. 24).",
+    "periodoDisfrute": {
+      "temporadaAltaBloqueada": "no_especificado",
+      "nota": "El convenio no fija meses concretos ni bloquea expresamente la temporada alta; remite al acuerdo empresa-trabajador."
+    },
+    "fraccionamiento": {
+      "permitido": "no_especificado",
+      "nota": "El Art. 24 no regula expresamente el fraccionamiento ni un mínimo de días seguidos."
+    },
+    "bajaDuranteVacaciones_IT": {
+      "embarazoPartoLactancia": "Si el periodo de vacaciones coincide con una IT por embarazo, parto o lactancia natural, o con la suspensión del contrato del art. 48.4/5/7 ET, se disfrutan en fecha distinta al finalizar la suspensión, aunque haya terminado el año natural (Art. 24).",
+      "otrasContingencias": "Si coincide con una IT por otras contingencias que impidan disfrutarlas total o parcialmente en el año natural, se disfrutan una vez finalizada la IT, siempre que no hayan pasado más de 18 meses desde el final del año en que se originaron (Art. 24)."
+    },
+    "festivosDentroVacaciones": "Si dentro de los 31 días naturales de vacaciones coincide algún festivo, se computa aparte (Art. 24).",
+    "noCompensableEnDinero": "No previsto expresamente en el convenio; rige la regla legal general (las vacaciones devengadas y no disfrutadas al cese se abonan en el finiquito — enlaza con la calculadora de finiquito)."
+  },
+
+  "otrasCondicionesEconomicasNoSalariales": {
+    "$comment": "Complementos y garantías útiles para finiquito y reclamaciones.",
+    "premioVinculacion": { "articulo": "Art. 14", "remite": "Ver bloque 'premioVinculacion' (2 meses de vacaciones retribuidas a los 15 años + 1 mes por cada 5 años más)." },
+    "seguroAccidenteTrabajo": { "articulo": "Disposición Adicional Tercera", "remite": "Ver 'seguroColectivo' (capitales por muerte/IPA/gran invalidez de accidente de trabajo)." },
+    "finiquito": { "articulo": "Art. 39.5", "detalle": "Al extinguir el contrato, el empresario acompaña una propuesta del documento de liquidación de las cantidades adeudadas. El trabajador puede solicitar la presencia de un representante legal en la firma del recibo del finiquito, haciéndose constar en el mismo. La liquidación de salarios de fijos-discontinuos al concluir cada periodo de actividad sigue las mismas garantías." },
+    "examenMedicoAnual": { "articulo": "Art. 40", "detalle": "Reconocimiento médico anual a cargo de la empresa." }
+  },
+
+  "estado": "verificado",
+  "estadoNota": "Convenio único vigente en León a julio de 2026 (2023-2025, en ultraactividad; no hay convenio ni tabla 2026 publicados). Tablas salariales del año 2025 (tabla aplicable) verificadas en IMAGEN celda a celda (BOP nº 139, páginas 71-76, 185 dpi), las 6 áreas funcionales x 3 categorías de establecimiento. Articulado completo (Arts. 1-42 + Disposiciones Adicionales) leído de la imagen del PDF oficial. Régimen disciplinario, ascensos, planes de igualdad/acoso, periodo de prueba y trabajos de categoría superior/inferior NO los regula el convenio: se remiten al VI ALEH.",
+  "pendienteCondiciones": [
+    "NO existe convenio ni tabla salarial 2026 de León publicada en el BOP a julio de 2026 (negociación iniciada en enero 2026). La tabla 2025 sigue vigente por ultraactividad. Vigilar el BOP de León para la nueva publicación.",
+    "regimenDisciplinario: faltas, graduación, procedimiento, sanciones y prescripción NO regulados en el convenio provincial → tomar del VI ALEH.",
+    "periodoPrueba: duraciones NO reguladas en el convenio → tomar del VI ALEH.",
+    "ascensos y trabajos de categoría superior/inferior (polivalencia): salvo la promoción automática de ayudante de camarero (Disp. Ad. 2ª), se remiten al VI ALEH.",
+    "planesIgualdad y acoso (Arts. 28-31): remitidos al VI ALEH.",
+    "representacionSindical.quienRepresentaYeleccion y garantiasYfuero: no detallados → base legal ET arts. 62-68 y LOLS.",
+    "vacaciones.retribucion: el Art. 24 no fija el módulo retributivo (salario base vs promedio con complementos). Duda para UGT.",
+    "complementoIT (Art. 35): el complemento hasta el 100% de la base de cotización está CONDICIONADO a que las funciones del trabajador de baja las asuman sus compañeros; con interino solo aplica a partir de 10 años de antigüedad, desde el día 8 y durante 1 mes. Contrastar interpretación práctica con UGT."
+  ],
+  "dudasUGT": [
+    "¿Se ha publicado ya en el BOP de León el convenio o la tabla salarial de 2026? ¿Con qué incremento y qué atrasos?",
+    "Art. 24 (vacaciones): ¿cuál es el módulo retributivo de las vacaciones en la práctica leonesa (salario base solo o promedio con complementos: nocturnidad, plus asistencia, manutención)?",
+    "Art. 35 (complemento IT): ¿cómo se acredita e interpreta el requisito de que 'los compañeros asuman las funciones'? ¿Es exigible en la práctica el complemento hasta el 100% de la base de cotización?",
+    "Art. 23.B bis (fallecimiento): comparativa exacta con el ET vigente tras el RD-ley 5/2023 (¿mejora o iguala el convenio los días de fallecimiento sin desplazamiento?)."
+  ],
+  "verificadoContra": "PDF oficial del BOP de León nº 139 (viernes 21-07-2023), anuncio nº 31304, páginas 42-76. Renderizado a PNG a 185 dpi y leído celda a celda. Articulado (Arts. 1-42 y Disposiciones Adicionales 1ª-3ª) leído de la imagen: Art. 3 (vigencia/ultraactividad), Art. 5 (modalidades y fijo-discontinuo), Arts. 9-13 (retribuciones: incremento, plus asistencia, gratificaciones, manutención, plus ad personam), Art. 14 (premio vinculación), Art. 15 (salario mínimo anual), Art. 19 (jornada 1790 h), Art. 20 (horas extra 62% y nocturnidad 25%), Arts. 21-22 (descansos), Art. 23 (permisos A-P), Art. 24 (vacaciones 31 naturales), Art. 25 (festivos trabajados), Art. 34 (excedencias), Art. 35 (complemento IT/enfermedad), Art. 36 (disciplinario → ALEH), Arts. 37-38 (representación, crédito 24 h/mes), Art. 40 (seguridad y salud), Art. 41 (ropa de trabajo), Art. 42 (comisión paritaria/SERLA), Disp. Ad. 2ª (promoción ayudante camarero) y 3ª (póliza accidentes). Tablas del año 2025 (Anexo I) verificadas en imagen. Fuente del PDF: copia oficial del BOP de León (dipuleon.es/bop).",
+  "fechaVerificacion": "2026-07-08"
+}
