@@ -36,6 +36,13 @@ reales. Objetivo: confirmar cómo interpretar/aplicar bien los datos en la app.
   **garantizado**. ¿Cuál es el salario real que cobra el trabajador y cuál se usa
   para calcular horas extra y nocturnidad?
 
+## 5b. Cafeterías, "tazas" y porcentaje de servicio
+- Confirmar el sistema de "tazas" (1/2/3) para clasificar cafeterías.
+- En las tablas de cafeterías con servicio de sala, los importes son "sueldo
+  inicial" y en varias categorías el de 2 tazas es MAYOR que el de 3 tazas.
+  ¿Es porque encima va el porcentaje de servicio y las de 3 tazas generan más?
+  ¿Cómo se calcula el salario TOTAL real (inicial + % servicio)?
+
 ## 6. Ultraactividad
 - El convenio de Hostelería de Madrid 2023-2025 expiró el 31-12-2025. ¿Las
   tablas de 2025 siguen vigentes en 2026 por ultraactividad? ¿Hasta cuándo?

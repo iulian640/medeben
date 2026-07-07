@@ -56,6 +56,19 @@ sigue vigente hoy en las tablas salariales.
 - **Fuente:** Convenio Hostelería de Madrid, tablas de la sección cuarta (cafeterías). BOCM nº 82, 06-04-2024 (BOCM-20240406-2).
 - **Gancho:** "Los hoteles tienen estrellas. Las cafeterías de Madrid tienen... tazas. Y sí, cobras distinto en una de 1 taza que en una de 3."
 
+## 6. Cobras MENOS de sueldo fijo en una cafetería de 3 tazas que en una de 2
+
+En las cafeterías de Madrid, varias categorías tienen un **sueldo inicial más
+bajo en las de 3 tazas** (las grandes) que en las de 2 tazas. Ejemplo (dato
+oficial, verificado): un Auxiliar tiene 285,07 € en 3 tazas pero 293,74 € en 2
+tazas. La explicación MÁS PROBABLE (pendiente de confirmar con UGT): el sueldo
+inicial es solo el fijo, y encima va el **porcentaje de servicio**; las cafeterías
+grandes generan más servicio, así que el fijo se pone más bajo porque se completa
+por el otro lado. Lección segura: **el "sueldo inicial" NO es lo que cobras.**
+
+- **Fuente:** Convenio Hostelería de Madrid, sección cuarta (cafeterías con servicio de mostrador y sala), nota 2. BOCM nº 82, 06-04-2024 (BOCM-20240406-2).
+- **Gancho:** "Mira tu nómina: si solo ves el 'sueldo base', no estás viendo lo que de verdad te corresponde. En las cafeterías de Madrid, el local grande hasta paga menos de fijo... porque el resto va aparte."
+
 ---
 
 _Añadir más conforme se transcriben convenios._
