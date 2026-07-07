@@ -195,6 +195,12 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
   - **Jornada partida:** algunos convenios la compensan.
 - Campos por convenio: `descansoEntreJornadasHoras`, `vacacionesDias`, reglas de jornada partida.
 
+### D36 — Los donantes pueden pedir funciones + extender a otras profesiones (Iulian 2026-07-08)
+- **Donantes solicitan funciones:** en la sección de donaciones (D16), quien apoya el proyecto puede **proponer/solicitar features**. No es "pagar por desbloquear" (eso rompe D1); es dar voz en el roadmap a quien sostiene el proyecto. Transparente, tipo lista de deseos votada.
+- **Extender a OTRAS PROFESIONES:** toda la arquitectura (convenios como JSON con su ESQUEMA, calculadora "te deben X€", condiciones, feed de curiosidades, denuncias) es **agnóstica del sector** — hostelería es solo la primera vertical. Los mismos problemas (horas extra no pagadas, convenios que nadie entiende, bajas mal cobradas) existen en comercio, limpieza, construcción, transporte, sanidad privada, teleoperadoras... El modelo se replica: mismo esquema, otro conjunto de convenios. Visión: de "app del trabajador de hostelería" a "app del trabajador" a secas.
+- Consecuencia sobre el nombre (ya en D28): si se abre a todas las profesiones, "TeDeben" sigue valiendo (el mensaje "te deben X€" es universal), pero reforzar que no es solo hostelería.
+- Estado: visión. v1 sigue siendo hostelería. Pero diseñar el modelo de datos ya pensando en `sector` como dimensión (no hardcodear "hostelería").
+
 ### D35 — Tags clicables de explicación en cada concepto (Iulian 2026-07-07)
 - Al registrar su situación, el usuario ve una opción de **enlace/representación sindical** con un **tag clicable "¿qué es esto?"** que le explica en cristiano qué es, cómo se llega y qué le protege (art. 68 ET, crédito horario, fuero...).
 - Generalizar el patrón: **cada concepto de la app lleva su tag clicable de explicación** en lenguaje llano — nocturnidad, complemento de baja, multa de haber (ilegal), polivalencia, prescripción de faltas, fijo-discontinuo... La app es educativa: no suelta un tecnicismo sin ofrecer explicarlo. Encaja con D18 (transparencia) y D27 (contenido que engancha).
