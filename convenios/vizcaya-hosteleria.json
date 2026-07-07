@@ -1,0 +1,77 @@
+{
+  "$comment": "Tablas salariales AÑO 2026 VERIFICADAS visualmente contra el PDF oficial del Boletín Oficial de Bizkaia (BOB nº38, 25-02-2026, cve BOB-2026a038-(III-29)), renderizado a imagen y leído celda a celda. Marco (jornada anual, pagas, nocturnidad, vigencia) verificado contra el TEXTO del convenio publicado en el BOB nº81, 30-04-2025 (cve BOB-2025a081-(III-74)). Este es el VII Convenio, vigencia hasta 2027; las tablas 2026 son la revisión más reciente a julio-2026 (incremento +3,5% = IPC 2025 3% + 0,5% diferencial).",
+  "id": "vizcaya-hosteleria",
+  "nombre": "Convenio colectivo del sector de Hostelería de Bizkaia",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "País Vasco", "provincias": ["Bizkaia"] },
+  "ambitoFuncional": "hosteleria",
+  "codigoConvenio": "48001205011981",
+  "fuente": {
+    "boletin": "BOB (Boletín Oficial de Bizkaia)",
+    "numero": 38,
+    "fecha": "2026-02-25",
+    "documento": "Resolución 12-02-2026: tablas salariales año 2026 (cve BOB-2026a038-(III-29))",
+    "url": "https://www.bizkaia.eus/lehendakaritza/Bao_bob/2026/02/25/III-29_cas.pdf"
+  },
+  "fuenteTexto": {
+    "$comment": "Texto íntegro del convenio (jornada, pagas, nocturnidad, vigencia). Las cifras salariales viven en la revisión anual (campo 'fuente').",
+    "boletin": "BOB (Boletín Oficial de Bizkaia)",
+    "numero": 81,
+    "fecha": "2025-04-30",
+    "documento": "VII Convenio Colectivo de Hostelería de Bizkaia (cve BOB-2025a081-(III-74))",
+    "url": "https://www.bizkaia.eus/lehendakaritza/Bao_bob/2025/04/30/III-74_cas.pdf"
+  },
+  "vigencia": { "desde": "2021-01-01", "hasta": "2027-12-31", "nota": "VII Convenio. Sustituye al anterior (finalizó 31-12-2020, prorrogado hasta 30-06-2021). Duración hasta 31-12-2027. Las tablas de este fichero son las del año 2026." },
+  "calificaciones": {
+    "$comment": "El convenio clasifica por 'Calificación' (nivel), no por grupo de establecimiento. Seis niveles: PRIMERA a QUINTA + ESPECIAL. TERCERA equivale a camarero/a y cocinero/a. El mapeo categoría profesional → calificación está en el texto del convenio (no transcrito aquí).",
+    "PRIMERA": "Calificación primera",
+    "SEGUNDA": "Calificación segunda",
+    "TERCERA": "Calificación tercera (camarero/a, cocinero/a)",
+    "CUARTA": "Calificación cuarta",
+    "QUINTA": "Calificación quinta",
+    "ESPECIAL": "Calificación especial"
+  },
+  "tablasSalariales2026": {
+    "$comment": "Columnas literales del Anexo I (BOB 38/2026). 'salarioBase' + 'complementos' = 'garantizado' (bruto mensual en 15 pagas). 'complementos' YA INCLUYE el plus de nocturnidad de 44 h/mes (Art. 22) más el antiguo Plus Convenio. 'horaExtra' y 'heFestiva' son precio POR HORA (€) — festivas = 150%, normales = 100%. 'plusHoraNocturna' es el valor plus POR HORA nocturna (€). 'plusFormacion' es importe fijo. 'garantiaMinima' es la garantía mínima del Art. 7 (columna aparte, no indexada al salario base; recalculada cada año).",
+    "PRIMERA":  { "salarioBase": 725.06, "complementos": 1195.40, "garantizado": 1920.46, "horaExtra": 33.00, "heFestiva": 41.25, "plusFormacion": 30.13, "plusHoraNocturna": 1.25, "garantiaMinima": 63.15 },
+    "SEGUNDA":  { "salarioBase": 683.47, "complementos": 1140.32, "garantizado": 1823.79, "horaExtra": 31.34, "heFestiva": 39.17, "plusFormacion": 30.13, "plusHoraNocturna": 1.17, "garantiaMinima": 59.97 },
+    "TERCERA":  { "salarioBase": 647.57, "complementos": 1047.17, "garantizado": 1694.74, "horaExtra": 29.12, "heFestiva": 36.40, "plusFormacion": 30.13, "plusHoraNocturna": 1.11, "garantiaMinima": 55.73 },
+    "CUARTA":   { "salarioBase": 647.57, "complementos": 952.99,  "garantizado": 1600.56, "horaExtra": 27.50, "heFestiva": 34.38, "plusFormacion": 30.13, "plusHoraNocturna": 1.11, "garantiaMinima": 52.63 },
+    "QUINTA":   { "salarioBase": 647.57, "complementos": 843.33,  "garantizado": 1490.90, "horaExtra": 25.62, "heFestiva": 32.02, "plusFormacion": 30.13, "plusHoraNocturna": 1.11, "garantiaMinima": 49.02 },
+    "ESPECIAL": { "salarioBase": 647.57, "complementos": 550.10,  "garantizado": 1197.67, "horaExtra": 20.58, "heFestiva": 25.72, "plusFormacion": 30.13, "plusHoraNocturna": 1.11, "garantiaMinima": 39.38 }
+  },
+  "salarioMensualGarantizado2026": {
+    "$comment": "Atajo: bruto mensual garantizado (base + complementos) por nivel, en 15 pagas. Es la cifra de referencia del salario.",
+    "PRIMERA": 1920.46, "SEGUNDA": 1823.79, "TERCERA": 1694.74, "CUARTA": 1600.56, "QUINTA": 1490.90, "ESPECIAL": 1197.67
+  },
+  "horasExtraordinarias2026": {
+    "$comment": "Art. 11. Precio POR HORA (€). El convenio fija el importe: 'horaExtra' para horas normales, 'heFestiva' para las trabajadas durante el descanso semanal (150%).",
+    "porHoraNormal":  { "PRIMERA": 33.00, "SEGUNDA": 31.34, "TERCERA": 29.12, "CUARTA": 27.50, "QUINTA": 25.62, "ESPECIAL": 20.58 },
+    "porHoraFestiva": { "PRIMERA": 41.25, "SEGUNDA": 39.17, "TERCERA": 36.40, "CUARTA": 34.38, "QUINTA": 32.02, "ESPECIAL": 25.72 }
+  },
+  "nocturnidad": {
+    "$comment": "Art. 22. Valor del plus POR HORA nocturna (€), fijado en la tabla. La columna 'complementos' ya incorpora el plus de nocturnidad correspondiente a 44 h/mes. Las horas nocturnas que superen esas 44 h/mes se abonan aparte según estos módulos. El tramo horario exacto que cuenta como 'período nocturno' no se detalla en el articulado transcrito (pendiente de confirmar; por defecto ET: 22:00–06:00).",
+    "porHora": { "PRIMERA": 1.25, "SEGUNDA": 1.17, "TERCERA": 1.11, "CUARTA": 1.11, "QUINTA": 1.11, "ESPECIAL": 1.11 },
+    "horasIncluidasEnComplementos": 44
+  },
+  "pagas": {
+    "numero": 15,
+    "$comment": "Art. 23. 12 mensualidades ordinarias + 3 gratificaciones extraordinarias (abril, julio y diciembre). Cada extra se liquida sobre el Salario Garantizado más la antigüedad.",
+    "extraordinarias": ["abril", "julio", "diciembre"]
+  },
+  "jornadaAnual": { "horas": 1746, "nota": "Art. 8. Jornada máxima en cómputo anual de 1.746 horas para todos los años de vigencia. Máximo 9 horas diarias." },
+  "vacaciones": { "diasNaturales": 30, "nota": "Art. 12. 30 días naturales, preferentemente junio–septiembre." },
+  "plusFormacion2026": { "importe": 30.13, "nota": "Importe fijo igual en todos los niveles. Supuestos de aplicación y excepciones en el Art. 20 del convenio (no transcrito)." },
+  "garantiaMinima2026": {
+    "$comment": "Art. 7. Columna aparte de la tabla; garantiza un incremento salarial mínimo respecto a la tabla a 31-12-2020. No está indexada al salario base, por eso varía mucho entre años (2025: 249,25 para PRIMERA; 2026: 63,15).",
+    "PRIMERA": 63.15, "SEGUNDA": 59.97, "TERCERA": 55.73, "CUARTA": 52.63, "QUINTA": 49.02, "ESPECIAL": 39.38
+  },
+  "pendiente": [
+    "Mapeo categoría profesional (camarero/a, cocinero/a, ayudante, etc.) → calificación PRIMERA..ESPECIAL (está en el texto del convenio, sin transcribir).",
+    "Tramo horario exacto del período nocturno (Art. 22 no lo explicita en lo transcrito).",
+    "Escala de antigüedad (porcentajes/trienios) — no verificada celda a celda.",
+    "Tablas 2027 (aún no publicadas a julio-2026)."
+  ],
+  "estado": "tablas_2026_verificadas",
+  "verificadoContra": "PDF oficial BOB nº38 (25-02-2026, cve BOB-2026a038-(III-29)) renderizado a imagen y leído visualmente celda a celda: tabla salarial 2026 completa (base, complementos, garantizado, hora extra, H.E. festiva, plus formación, plus hora nocturna, garantía mínima) para los 6 niveles. Marco (jornada 1.746 h, 15 pagas, nocturnidad Art. 22, vigencia hasta 2027) verificado contra el texto del convenio en BOB nº81 (30-04-2025, cve BOB-2025a081-(III-74)).",
+  "fechaVerificacion": "2026-07-07"
+}
