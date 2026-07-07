@@ -55,10 +55,22 @@ Cada uno con su artículo:
 - [ ] **`periodoPrueba`**: duración por grupo/categoría (clave: durante el periodo de prueba te pueden echar sin indemnización).
 - [ ] **`excedencias`**: tipos (voluntaria, forzosa, cuidado de hijos/familiares), duración y derecho de reingreso.
 - [ ] **`polivalencia` / categoría**: si haces funciones de categoría superior, ¿te pagan el nivel superior? ¿desde cuándo? (fraude típico: te tienen de ayudante haciendo de cocinero). Enlaza con el comprobador de categoría.
-- [ ] **`regimenDisciplinario`**: faltas leves/graves/muy graves y sanciones. Sirve para saber si una sanción o un despido es proporcionado/abusivo.
+- [ ] **`regimenDisciplinario`** (PRIORITARIO — Iulian): bloque completo, es donde más se abusa del trabajador:
+  - **Faltas leves / graves / muy graves**: qué tipo de conductas caen en cada nivel según el convenio (ej.: impuntualidad leve → leve; faltar sin avisar varios días → grave; hurto/agresión → muy grave). Listar ejemplos por nivel con su artículo.
+  - **Sanciones permitidas por nivel**: amonestación, suspensión de empleo y sueldo (nº días), inhabilitación para ascenso, despido (solo muy graves). La suspensión de empleo y sueldo SÍ es legal; NO confundir con quitar sueldo trabajando.
+  - **⚠️ PROHIBIDO — SANCIÓN ECONÓMICA / "MULTA DE HABER"** (VERIFICADO, **art. 58.3 ET**): la empresa NO puede sancionarte quitándote dinero del sueldo ni recortándote vacaciones o descansos. (Distinto: descontarte el tiempo que NO trabajaste por llegar tarde no es sanción, es que no se paga lo no trabajado — art. válido.) Feature app: "¿te han descontado del sueldo como castigo? Es ILEGAL."
+  - **Procedimiento** (art. 58 ET): faltas graves y muy graves requieren **comunicación por escrito** con fecha y hechos. Sin eso, la sanción es impugnable.
+  - **Prescripción** (verificado): faltas leves **10 días**, graves **20 días**, muy graves **60 días**; máximo **6 meses** desde que se cometió. Pasado el plazo, ya no te pueden sancionar por ello.
+  - **Toda sanción es revisable ante el Juzgado de lo Social.**
 - [ ] **`formacion`**: horas de formación, permisos para estudios/exámenes, plus de formación.
 - [ ] **`contratacion`**: tipos de contrato del sector (fijo-discontinuo es clave en hostelería: llamamiento por orden, derecho a ser llamado cada temporada).
 - [ ] **`igualdadYAcoso`**: protocolo de acoso, plan de igualdad, permisos por violencia de género (si el convenio los mejora).
+- [ ] **`representacionSindical`** (Iulian — enlace sindical): derechos de los representantes de los trabajadores. Base legal general (ET arts. 62-68, LOLS) + lo que el convenio MEJORE. Capturar:
+  - **Quién representa**: delegados de personal (empresas 6-49; 1 si 6-30, 3 si 31-49) o comité de empresa (50+). Delegado sindical de sección en +250.
+  - **Cómo se llega**: elecciones sindicales; cualquier trabajador puede presentarse en candidatura de un sindicato o como independiente/grupo de trabajadores.
+  - **Crédito horario** (VERIFICADO, art. 68.e ET): horas mensuales retribuidas para tareas de representación — **15 h** (≤100 trab.), 20 h (101-250), 30 h (251-500), 35 h (501-750), **40 h** (+751). Muchos convenios lo MEJORAN → capturar el del convenio. Acumulable en "liberados" si el convenio lo pacta.
+  - **Garantías / fuero** (art. 68 ET): expediente contradictorio antes de sanción grave; prioridad de permanencia ante despidos por causas económicas/técnicas; **NO pueden despedirte ni sancionarte por tu actividad representativa durante el mandato y el año siguiente**; libertad de expresión; no discriminación.
+  - **Beneficios para el trabajador y sus compañeros**: negocian el convenio, vigilan que se cumpla, reciben información de la empresa (cuentas, contratos, previsión de plantilla), canalizan quejas y denuncias colectivas, protegen frente a abusos. Feature app: explicar cómo montar una sección sindical / presentarse a elecciones y qué protege.
 
 ## 5. Metadatos de calidad
 - [ ] `estado`: verificado / parcial / pendiente (honesto)
