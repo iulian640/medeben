@@ -1,0 +1,83 @@
+{
+  "$comment": "Tablas 2025 DEFINITIVAS transcritas al milímetro del PDF oficial BOP Málaga nº70 (14-04-2026, CVE 20260414-01187-2026) — este es el documento ACTUAL (el BOP 90 de may-2025 traía 2025 provisionales, desfasado). Verificado leyendo imagen celda a celda. Pendiente: cafeterías (sección 4ª), secciones 5ª/6ª, y las tablas 2026 provisionales (págs 11-19).",
+  "id": "malaga-hosteleria",
+  "nombre": "Convenio colectivo del sector de Hostelería de la provincia de Málaga",
+  "codigoRegcon": "29000945011981",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Andalucía", "provincias": ["Málaga"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP Málaga",
+    "numero": 70,
+    "fecha": "2026-04-14",
+    "documento": "CVE 20260414-01187-2026 (edicto 1187/2026), tablas 2025 definitivas + 2026 provisionales",
+    "url": "http://www.convenios.ugtandalucia.es/gestion/ficheros/2026-04-14%207147%20Hosteleria%20Malaga%202026.pdf"
+  },
+  "vigencia": { "desde": "2025-01-01", "hasta": "2028-12-31" },
+  "seccion1y2_hotelesHostales_2025def": {
+    "$comment": "Sección 1ª (hoteles y apartamentos) y 2ª (hostales y pensiones). Salario MENSUAL 2025 definitiva. Columnas: 5*,4*,3*,2*Costa,1*Costa,2*Interior,1*Interior,Hostal3*,Hostal2*,Hostal1*,Fondas.",
+    "salarioMes": {
+      "I":   { "h5": 2097.33, "h4": 2003.37, "h3": 1940.76, "h2costa": 1815.51, "h1costa": 1725.89, "h2interior": 1578.17, "h1interior": 1530.62, "hostal3": 1351.05, "hostal2": 1341.93, "hostal1": 1341.93, "fondas": 1341.93 },
+      "II":  { "h5": 1940.76, "h4": 1846.87, "h3": 1784.26, "h2costa": 1658.96, "h1costa": 1551.37, "h2interior": 1575.73, "h1interior": 1455.95, "hostal3": 1280.87, "hostal2": 1265.50, "hostal1": 1265.50, "fondas": 1265.50 },
+      "III": { "h5": 1815.51, "h4": 1721.63, "h3": 1658.96, "h2costa": 1565.13, "h1costa": 1520.33, "h2interior": 1483.56, "h1interior": 1439.84, "hostal3": 1265.69, "hostal2": 1250.47, "hostal1": 1250.47, "fondas": 1250.47 },
+      "IV":  { "h5": 1690.28, "h4": 1596.39, "h3": 1533.80, "h2costa": 1502.55, "h1costa": 1489.35, "h2interior": 1421.66, "h1interior": 1409.13, "hostal3": 1204.71, "hostal2": 1201.65, "hostal1": 1201.65, "fondas": 1201.65 },
+      "V":   { "h5": 1596.39, "h4": 1533.80, "h3": 1502.55, "h2costa": 1471.25, "h1costa": 1458.31, "h2interior": 1390.72, "h1interior": 1378.53, "hostal3": 1204.71, "hostal2": 1201.65, "hostal1": 1201.65, "fondas": 1201.65 }
+    },
+    "salarioHora": {
+      "I":   { "h5": 16.31, "h4": 15.58, "h3": 15.09, "h2costa": 14.12, "h1costa": 13.42, "h2interior": 12.27, "h1interior": 11.90, "hostal3": 10.51, "hostal2": 10.44, "hostal1": 10.44, "fondas": 10.44 },
+      "II":  { "h5": 15.09, "h4": 14.36, "h3": 13.88, "h2costa": 12.90, "h1costa": 12.07, "h2interior": 12.26, "h1interior": 11.32, "hostal3": 9.96, "hostal2": 9.84, "hostal1": 9.84, "fondas": 9.84 },
+      "III": { "h5": 14.12, "h4": 13.39, "h3": 12.90, "h2costa": 12.17, "h1costa": 11.82, "h2interior": 11.54, "h1interior": 11.20, "hostal3": 9.84, "hostal2": 9.73, "hostal1": 9.73, "fondas": 9.73 },
+      "IV":  { "h5": 13.15, "h4": 12.42, "h3": 11.93, "h2costa": 11.69, "h1costa": 11.58, "h2interior": 11.06, "h1interior": 10.96, "hostal3": 9.37, "hostal2": 9.35, "hostal1": 9.35, "fondas": 9.35 },
+      "V":   { "h5": 12.42, "h4": 11.93, "h3": 11.69, "h2costa": 11.44, "h1costa": 11.34, "h2interior": 10.82, "h1interior": 10.72, "hostal3": 9.37, "hostal2": 9.35, "hostal1": 9.35, "fondas": 9.35 }
+    },
+    "complementosMes": { "bolsaVacacionesAnual": 1557.90, "vestuario": 58.27, "plusAyudaFamiliar": 29.13, "manutencion": 58.27 },
+    "complementosHora": { "bolsaVacacionesAnual": 0.87, "vestuario": 0.39, "plusAyudaFamiliar": 0.19, "manutencion": 0.39 }
+  },
+  "seccion3_restaurantes_2025def": {
+    "$comment": "Sección 3ª restaurantes. Salario mensual, Inicial (i) y Garantizado (g), por categoría de establecimiento Lujo/Primera/Segunda/Tercera/Cuarta. El garantizado es el salario; celda vacía = no contemplado.",
+    "cocina": {
+      "Jefe de cocina":            { "lujo": {"i":483.63,"g":1623.07}, "primera": {"i":452.93,"g":1607.41}, "segunda": {"i":447.65,"g":1576.17}, "tercera": {"i":447.65,"g":1472.85}, "cuarta": {"i":447.65,"g":1472.85} },
+      "Segundo jefe de cocina":    { "lujo": {"i":466.74,"g":1576.17}, "primera": {"i":446.11,"g":1551.05}, "segunda": {"i":447.65,"g":1529.18}, "tercera": {"i":447.65,"g":1415.68}, "cuarta": {"i":447.65,"g":1415.68} },
+      "Jefe de partida":           { "lujo": {"i":447.65,"g":1529.18}, "primera": {"i":447.65,"g":1513.53}, "segunda": {"i":447.65,"g":1497.87}, "tercera": {"i":447.65,"g":1410.20}, "cuarta": {"i":447.65,"g":1410.20} },
+      "Cocinero":                  { "lujo": {"i":447.65,"g":1482.24}, "primera": {"i":447.65,"g":1466.52}, "segunda": {"i":447.65,"g":1450.97}, "tercera": {"i":447.65,"g":1394.53}, "cuarta": {"i":447.65,"g":1394.53} },
+      "Pizzero":                   { "lujo": {"i":447.65,"g":1482.24}, "primera": {"i":447.65,"g":1466.52}, "segunda": {"i":447.65,"g":1450.97}, "tercera": {"i":447.65,"g":1394.53}, "cuarta": {"i":447.65,"g":1394.53} },
+      "Ayudante cocinero":         { "lujo": {"i":447.65,"g":1466.52}, "primera": {"i":447.65,"g":1450.97}, "segunda": {"i":447.65,"g":1419.58}, "tercera": {"i":447.65,"g":1357.32}, "cuarta": {"i":447.65,"g":1357.32} },
+      "Repartidor":                { "lujo": {"i":447.65,"g":1466.52}, "primera": {"i":447.65,"g":1450.97}, "segunda": {"i":447.65,"g":1419.58}, "tercera": {"i":447.65,"g":1357.32}, "cuarta": {"i":447.65,"g":1357.32} },
+      "Repostero":                 { "lujo": {"i":447.65,"g":1576.17}, "primera": {"i":447.65,"g":1551.05}, "segunda": {"i":447.65,"g":1529.18} },
+      "Oficial repostero":         { "lujo": {"i":447.65,"g":1529.18}, "primera": {"i":447.65,"g":1513.53}, "segunda": {"i":447.65,"g":1497.87} },
+      "Ayudante repostero":        { "lujo": {"i":447.65,"g":1466.52}, "primera": {"i":447.65,"g":1450.97}, "segunda": {"i":447.65,"g":1419.58} },
+      "Cafetero":                  { "lujo": {"i":447.65,"g":1482.24}, "primera": {"i":447.65,"g":1466.52}, "segunda": {"i":447.65,"g":1450.97} },
+      "Ayudante cafetero":         { "lujo": {"i":447.65,"g":1466.52}, "primera": {"i":447.65,"g":1450.97}, "segunda": {"i":447.65,"g":1419.58} },
+      "Encargado economato y bodega": { "lujo": {"i":447.65,"g":1576.17}, "primera": {"i":447.65,"g":1551.05}, "segunda": {"i":447.65,"g":1529.18}, "tercera": {"i":447.65,"g":1410.20}, "cuarta": {"i":447.65,"g":1410.20} },
+      "Bodeguero":                 { "lujo": {"i":447.65,"g":1482.24}, "primera": {"i":447.65,"g":1466.52}, "segunda": {"i":447.65,"g":1450.97} },
+      "Ayudante economato y bodega": { "lujo": {"i":447.65,"g":1466.52}, "primera": {"i":447.65,"g":1450.97}, "segunda": {"i":447.65,"g":1419.58} },
+      "Marmitón":                  { "lujo": {"i":447.65,"g":1394.53}, "primera": {"i":447.65,"g":1394.53}, "segunda": {"i":447.65,"g":1394.53} },
+      "Pinche":                    { "lujo": {"i":447.65,"g":1394.53}, "primera": {"i":447.65,"g":1394.53}, "segunda": {"i":447.65,"g":1394.53}, "tercera": {"i":447.65,"g":1357.32}, "cuarta": {"i":447.65,"g":1357.32} },
+      "Fregadores":                { "lujo": {"i":447.65,"g":1394.53}, "primera": {"i":447.65,"g":1394.53}, "segunda": {"i":447.65,"g":1394.53}, "tercera": {"i":447.65,"g":1357.32}, "cuarta": {"i":447.65,"g":1357.32} },
+      "Personal platería":         { "lujo": {"i":447.65,"g":1466.52}, "primera": {"i":447.65,"g":1450.97}, "segunda": {"i":447.65,"g":1419.58}, "tercera": {"i":447.65,"g":1357.32}, "cuarta": {"i":447.65,"g":1357.32} },
+      "Panadería":                 { "lujo": {"i":447.65,"g":1529.18}, "primera": {"i":447.65,"g":1513.53}, "segunda": {"i":447.65,"g":1497.87} },
+      "Aprendiz mayor de 18 años": { "lujo": {"i":215.38,"g":1021.40}, "primera": {"i":215.38,"g":1021.40}, "segunda": {"i":215.38,"g":1021.40}, "tercera": {"i":215.38,"g":1021.40}, "cuarta": {"i":215.38,"g":1021.40} },
+      "Aprendiz menor de 18 años": { "lujo": {"i":215.38,"g":826.03}, "primera": {"i":215.38,"g":826.03}, "segunda": {"i":215.38,"g":826.03}, "tercera": {"i":215.38,"g":826.03}, "cuarta": {"i":215.38,"g":826.03} }
+    },
+    "comedor": {
+      "Jefe de comedor o maestro": { "lujo": {"i":32.80,"g":1623.08}, "primera": {"i":31.76,"g":1612.21}, "segunda": {"i":28.37,"g":1576.10}, "tercera": {"i":28.10,"g":1473.27}, "cuarta": {"i":24.97,"g":1473.27} },
+      "Segundo jefe comedor":      { "lujo": {"i":31.90,"g":1576.10}, "primera": {"i":27.78,"g":1551.06}, "segunda": {"i":24.97,"g":1529.07}, "tercera": {"i":20.89,"g":1410.21}, "cuarta": {"i":15.46,"g":1410.21} },
+      "Jefe de sector":            { "lujo": {"i":24.99,"g":1529.07}, "primera": {"i":24.97,"g":1513.53}, "segunda": {"i":24.97,"g":1497.90}, "tercera": {"i":20.89,"g":1410.21}, "cuarta": {"i":15.46,"g":1410.21} },
+      "Camarero":                  { "lujo": {"i":20.36,"g":1482.24}, "primera": {"i":20.36,"g":1466.73}, "segunda": {"i":20.36,"g":1435.20}, "tercera": {"i":17.61,"g":1378.87}, "cuarta": {"i":15.05,"g":1378.87} },
+      "Sumiller":                  { "lujo": {"i":20.36,"g":1529.07}, "primera": {"i":20.36,"g":1513.53}, "segunda": {"i":20.36,"g":1497.90} },
+      "Ayudante camarero":         { "lujo": {"i":18.04,"g":1450.89}, "primera": {"i":18.04,"g":1435.20}, "segunda": {"i":16.68,"g":1419.57}, "tercera": {"i":15.23,"g":1357.32}, "cuarta": {"i":13.95,"g":1357.32} },
+      "Aprendiz mayor de 18 años": { "lujo": {"i":16.11,"g":1021.40}, "primera": {"i":16.11,"g":1021.40}, "segunda": {"i":14.94,"g":1021.40}, "tercera": {"i":13.53,"g":1021.40}, "cuarta": {"i":12.40,"g":1021.40} },
+      "Aprendiz menor de 18 años": { "lujo": {"i":16.11,"g":826.03}, "primera": {"i":16.11,"g":826.03}, "segunda": {"i":14.94,"g":826.03}, "tercera": {"i":13.53,"g":826.03} }
+    }
+  },
+  "pendiente": [
+    "Sección 3ª 'Personal varios' (contable, telefonista, limpieza... — leído, transcribir)",
+    "Sección 4ª cafeterías (mostrador y sala)",
+    "Secciones 5ª/6ª",
+    "Conceptos generales 2025 def (salario mínimo sector, plus convenio sección 6, abolición porcentaje)",
+    "Nocturnidad, horas extra, jornada anual (del texto del convenio)",
+    "Tablas 2026 provisionales (págs 11-19 del PDF)"
+  ],
+  "estado": "seccion1a3_2025def_verificado",
+  "verificadoContra": "PDF oficial BOP Málaga nº70 (14-04-2026) renderizado a imagen, celda a celda. Sección 1ª/2ª (mes+hora) y sección 3ª restaurantes (cocina+comedor) 2025 definitivas verificadas.",
+  "fechaVerificacion": "2026-07-07"
+}
