@@ -16,9 +16,9 @@ tablas definitivas del año más reciente), nunca una provisional vieja.
 | `malaga-hosteleria` | BOP 70, 14-04-2026 (2025 def + 2026 prov) | ✅ Sí (documento correcto) | 🟡 Sección 1ª-3ª 2025 def (imagen) | Completar cafeterías, sec. 5/6, 2026 prov |
 | `cadiz-hosteleria` | BOP 153, 12-08-2025 (2025-2028) | ✅ Sí (multi-año) | ✅ Imagen, completo (agente + spot-check de Claude OK) | — (4 dudas de interpretación para UGT) |
 | `vizcaya-hosteleria` | BOB 38, 25-02-2026 (tablas 2026) + BOB 81, 30-04-2025 (texto) | ✅ Sí | 🟡 Imagen por agente (pendiente spot-check Claude) | Mapeo categoría→nivel; tramo nocturno |
-| `murcia-hosteleria` | (agente en curso) | — | 🟡 En progreso | — |
+| `murcia-hosteleria` | BORM 176, 30-07-2024 (tablas **2024**) + BORM 157, 2023 (texto) | ⚠️ 2024 es lo último publicado; 2025 pactado +3% pero SIN tabla oficial | 🟡 Imagen por agente (2024); 2025 no inventado | Spot-check Claude; vigilar tabla 2025 |
 | `acoruna-hosteleria` | (agente en curso) | — | 🟡 En progreso | — |
-| `laspalmas-hosteleria` | (agente en curso) | — | 🟡 En progreso | — |
+| `laspalmas-hosteleria` | BOP 79, 02-07-2025 (tablas 2025) + BOP 15, 2023 (texto) | ⚠️ 2025 sí; 2026 solo +4% pactado, SIN tabla oficial | 🟡 Imagen por agente (2025); 2026 no inventado | Spot-check Claude |
 
 **Leyenda verificación:** ✅ Imagen = leído celda a celda del PDF oficial. "spot-check Claude" = Claude reverificó una muestra de celdas contra la fuente. Los de agente sin spot-check quedan marcados hasta que Claude los revise.
 

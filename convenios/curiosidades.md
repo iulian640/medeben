@@ -140,6 +140,36 @@ cobras. Lección: mirar solo el "salario base" engaña; hay que mirar el total.
 - **Fuente:** VII Convenio de Hostelería de Bizkaia, arts. 7 y tablas. BOB nº 81 (30-04-2025) y nº 38 (25-02-2026).
 - **Gancho:** "Tu sueldo base lleva años congelado... pero cobras más cada año. El truco está en los complementos. Aprende a leer tu nómina de verdad."
 
+## 14. Un +15,8% de subida en un solo año
+
+En Murcia, el sector estuvo sin renovar convenio desde ~2018. Cuando por fin se
+firmó en 2023, recuperó de golpe el IPC atrasado: **+15,8% en un año** (más +3% en
+2024 y +3% en 2025). Lo que pasa cuando un convenio se queda congelado demasiado
+tiempo... y por qué conviene que se renueve a tiempo.
+
+- **Fuente:** Convenio de Hostelería de Murcia, Art. 14. BORM nº 157, 10-07-2023.
+- **Gancho:** "¿Sabes qué pasa cuando un convenio no se renueva en años? Que un día te suben el 15,8% de golpe. Pasó en Murcia en 2023."
+
+## 15. En Murcia las dos primeras horas de la noche no cuentan
+
+La nocturnidad "normal" es de 22:00 a 06:00. Pero en Murcia solo se paga el
+recargo del 25% **de 01:00 a 06:00** — de 22:00 a 01:00 no hay plus. En Las Palmas
+pasa parecido: el recargo empieza a las **24:00**, no a las 22:00. Cada convenio
+define su propia "noche".
+
+- **Fuente:** Murcia Art. 17 (BORM nº157, 10-07-2023); Las Palmas Art. 22 (BOP nº15, 03-02-2023).
+- **Gancho:** "¿A qué hora empieza a contar la 'noche' en tu nómina? En Murcia no es a las 22:00... es a la 1 de la madrugada. Revisa tu convenio."
+
+## 16. Todavía te pagan por casarte (en varios sitios)
+
+El "premio de nupcialidad" o gratificación por matrimonio sobrevive en varios
+convenios: Murcia paga **96,32 €** por casarte (2025), Cádiz da un premio de
+natalidad de **154 €** por hijo, y Madrid-hospedaje llega a **1.033 €** por boda.
+Reliquias de otra época que siguen siendo dinero real que reclamar.
+
+- **Fuente:** Murcia Art. 21 (BORM nº157); Cádiz Art. 31 (BOP nº153); Madrid hospedaje (BOCM nº121).
+- **Gancho:** "Tres convenios distintos, tres regalos por casarte o tener hijos que casi nadie reclama. ¿Está el tuyo entre ellos?"
+
 ---
 
 _Añadir más conforme se transcriben convenios._
