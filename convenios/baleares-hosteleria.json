@@ -1,0 +1,395 @@
+{
+  "$comment": "XVII Convenio Colectivo Sectorial de Hostelería de la Comunidad Autónoma de las Illes Balears (2025-2028). Transcrito VISUALMENTE del PDF oficial del BOIB nº104 (5-08-2025), Resolución de inscripción y publicación (código convenio 07000435011982, disposición 8723). Es un convenio autonómico uniprovincial de facto (afecta a Mallorca, Menorca, Ibiza y Formentera). Firmado el 8-07-2025 por la patronal (FEHM, FEHIF, CAEB Restauración, PIMEEF, PIME Menorca, ABONE) y UGT; CCOO y ASHOME rechazaron firmar. El texto YA incluye las tablas salariales de los TRES periodos anuales (1-abr a 31-mar de 2025-26, 2026-27 y 2027-28), por lo que a julio de 2026 esta es la fuente vigente y más reciente para salarios; la única revisión posterior es un Acta interpretativa de la Comisión Paritaria (BOIB 70, 4-06-2026) que se recoge en 'actaInterpretativa2026'. OJO: los periodos salariales van de ABRIL a MARZO, no por año natural. La antigüedad NO tiene escala activa: quedó congelada como condición 'ad personam' en 1984 (Disp. adic. primera + Anexo III). El régimen disciplinario NO está en este convenio: se remite al VI ALEH estatal (Disp. final primera). Verificado celda a celda en imagen: tablas de salario base (3 periodos), nocturnidad hospedaje y restauración, plus desplazamiento, herramientas, uniformes y Anexo III de antigüedad.",
+
+  "id": "baleares-hosteleria",
+  "nombre": "XVII Convenio colectivo sectorial de Hostelería de las Illes Balears 2025-2028",
+  "codigoRegcon": "07000435011982",
+  "ambitoTerritorial": { "tipo": "autonomico", "comunidad": "Illes Balears", "provincias": ["Illes Balears"], "nota": "Islas de Mallorca, Menorca, Ibiza y Formentera. Comunidad uniprovincial." },
+  "ambitoFuncional": "hosteleria",
+  "$comentarioFuncional": "Cubre hospedaje/alojamiento Y restauración-ocio-entretenimiento (bares, cafeterías, restaurantes, salas de fiestas, discotecas). Anexo II clasifica ambos subsectores. En lo no regulado se aplica el VI Acuerdo Laboral Estatal de Hostelería (ALEH VI, BOE nº59 de 10-03-2023, código 99010365011900).",
+
+  "fuente": {
+    "boletin": "BOIB (Butlletí Oficial de les Illes Balears)",
+    "numero": 104,
+    "fecha": "2025-08-05",
+    "documento": "Resolución de la consejera de Trabajo, Función Pública y Diálogo Social de inscripción, depósito y publicación del Convenio (disposición nº 8723, código convenio 07000435011982). Fascículo 226, Sección III, págs. 45157-45248.",
+    "url": "https://www.caib.es/eboibfront/pdf/es/2025/104/1197520"
+  },
+  "fuentesComplementarias": [
+    { "concepto": "Acta 1ª Comisión Paritaria (constitución 10-10-2025) y Reglamento", "boletin": "BOIB", "numero": 150, "fecha": "2025-11-13", "url": "https://www.caib.es/eboibfront/pdf/es/2025/150" },
+    { "concepto": "Acta 2ª Comisión Paritaria (28-10-2025): Reglamento de funcionamiento + aclaración Jefe/a de Bar (nivel I) y Segundo/a jefe/a de bar (nivel II)", "boletin": "BOIB", "numero": 154, "fecha": "2025-11-20", "url": "https://www.caib.es/eboibfront/pdf/es/2025/154/1206428" },
+    { "concepto": "Acta 3ª Comisión Paritaria (9-04-2026): criterios interpretativos (art. 33 fijos discontinuos; STS 1050/2025 sobre arts. 7.3, 8.6, 17 y 18)", "boletin": "BOIB", "numero": 70, "fecha": "2026-06-04", "url": "https://www.caib.es/eboibfront/pdf/es/2026/70/1221120" }
+  ],
+
+  "vigencia": { "desde": "2025-04-01", "hasta": "2028-03-31", "nota": "Entró en vigor al día siguiente de su publicación, pero los efectos retributivos son desde el 1-04-2025 (Art. 2 y Art. 23). Prórroga tácita de año en año salvo denuncia en enero de 2028 (Art. 2). Cláusula de revisión IPC: si el IPC del último año supera el 3,5%, revisión automática del exceso con tope de 1 punto sobre las tablas a 31-03-2028, con efectos 1-04-2028 y sin retroactividad (Art. 23)." },
+
+  "partesFirmantes": {
+    "patronal": ["FEHM", "FEHIF", "CAEB Restauración", "PIMEEF (Ibiza-Formentera)", "PIME Menorca", "ABONE"],
+    "sindicatos": ["UGT (FeSMC-UGT)"],
+    "nota": "CCOO y ASHOME (Federación Hotelera de Menorca) rechazaron la firma del Acta de Acuerdo."
+  },
+
+  "jornada": {
+    "anualHoras": 1776,
+    "semanalHoras": 40,
+    "articulo": "Art. 15",
+    "$comment": "1.776 h anuales de trabajo efectivo, 40 h/semana de promedio, máx. 9 h/día ordinarias salvo pacto. En jornadas continuadas >5 h, descanso de 15 min que cuenta como trabajo efectivo.",
+    "descansoEntreJornadas": { "generalHoras": 12, "reducibleAHoras": 10, "nota": "Reducible a 10 h por pacto con la RLT, solo para áreas funcionales 2ª (cocina/economato) y 3ª (restauración/sala/bar) del ALEH VI (Art. 15).", "articulo": "Art. 15" },
+    "descansoSemanal": { "dias": 2, "tipo": "naturales", "nota": "Dos días naturales; consecutivos en centros de +30 trabajadores (posible no consecutivo con pacto). Permuta con preaviso escrito de 48 h, a recuperar en las 2 semanas siguientes.", "articulo": "Art. 16" },
+    "calendario": { "nota": "Calendario laboral anual elaborado por la empresa en nov-dic. Además, calendario quincenal de turnos/horarios con antelación mínima de 10 días (Art. 15)." },
+    "distribucionIrregular": { "nota": "Posible otra distribución del tiempo diario por acuerdo empresa-RLT, respetando el descanso entre jornadas. La Disp. adic. duodécima compromete a renegociar la jornada si una ley reduce la jornada máxima legal por debajo de las 1.776 h." }
+  },
+
+  "vacaciones": {
+    "$comment": "Bloque completo (Art. 17 salvo indicación).",
+    "dias": 35,
+    "tipo": "naturales",
+    "articulo": "Art. 17",
+    "notaDias": "35 días naturales para todos; proporcional si no se ha completado un año de servicio. En cada periodo de 35 días naturales se entienden incluidos 5 descansos semanales (5 semanas de trabajo).",
+    "diasExtraPorAntiguedad": { "existe": false, "nota": "El convenio no añade días de vacaciones por antigüedad." },
+    "retribucion": { "nota": "Cuando la falta de disfrute se compensa económicamente, el módulo = salario base + complemento antigüedad ad personam (si lo hubiere) + prorrata de pagas + complemento fijo personal (si lo hubiere) + plus de nocturnidad SOLO para Salas de Fiestas y similares. NO se computa el plus de desplazamiento.", "articulo": "Art. 17" },
+    "periodoDisfrute": { "nota": "Debe disfrutarse antes de finalizar el primer trimestre del año natural siguiente. Fraccionable por acuerdo entre las partes. No hay bloqueo explícito de temporada alta en el texto, pero el calendario lo fija la empresa.", "articulo": "Art. 17" },
+    "fijacion": { "nota": "Calendario de vacaciones confeccionado por la empresa (previo informe de la RLT) en nov-dic del año anterior. Preaviso mínimo: 2 meses antes del disfrute.", "articulo": "Art. 17" },
+    "fraccionamiento": { "permitido": true, "nota": "Por acuerdo entre las partes. Las vacaciones no pueden iniciarse en un día de descanso semanal (se inician al día siguiente).", "articulo": "Art. 17" },
+    "bajaDuranteVacaciones": { "nota": "Se aplica el art. 38.3 ET: si la IT deriva de embarazo/parto/lactancia o suspensión por nacimiento (art. 48.4-7 ET), o cualquier otra IT, las vacaciones se interrumpen y se disfrutan después. Derecho reconocido.", "articulo": "Art. 17" },
+    "festivosDentroDeVacaciones": { "nota": "Los festivos que caigan dentro del periodo de vacaciones NO se entienden como disfrutados (se recuperan) — Art. 18.", "articulo": "Art. 18" },
+    "noDisfrutadasAlCesar": { "nota": "Se liquidan en el finiquito (enlaza con la calculadora de finiquito). El módulo de cálculo es el del Art. 17." },
+    "fijosDiscontinuos": { "nota": "El último párrafo del Art. 17 remitía a la Disposición Adicional Undécima, pero el Acta de la Paritaria de 9-04-2026 (BOIB 70) declaró SIN EFECTOS esa referencia a la DA 11ª (por STS 1050/2025). Ver 'actaInterpretativa2026'." }
+  },
+
+  "fiestas": {
+    "$comment": "Fiestas laborales retribuidas y no recuperables que se trabajen (Art. 18).",
+    "articulo": "Art. 18",
+    "opciones": "A elección/acuerdo empresa-trabajador: a) acumularlas a vacaciones; b) disfrute continuado en periodo distinto; c) disfrute acumulado al descanso semanal. Sin acuerdo, se acumulan a vacaciones.",
+    "compensacionEconomica": { "formula": "[ (salario base + antigüedad + complemento fijo personal + plus nocturnidad Salas de Fiestas + plus desplazamiento), referido a un mes ] / 30, incrementado en un 75%.", "recargoPorcentaje": 75, "nota": "Las fiestas se presumen trabajadas salvo prueba en contrario." },
+    "fijosDiscontinuos": { "nota": "El último párrafo remitía a la DA 11ª; declarado sin efectos por el Acta de 9-04-2026 (BOIB 70)." }
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 19, previo aviso y justificación.",
+    "articulo": "Art. 19",
+    "matrimonioOParejaHecho": { "dias": 15, "tipo": "naturales" },
+    "accidenteEnfermedadGraveHospitalizacionFamiliar": { "dias": 5, "nota": "Cónyuge/pareja de hecho o parientes hasta 2º grado (consanguinidad o afinidad), o conviviente que requiera cuidado efectivo. Ampliable +2 días laborables si hay complicaciones graves." },
+    "fallecimientoFamiliar": { "dias": 3, "tipo": "laborables", "nota": "Cónyuge/pareja de hecho o parientes hasta 2º grado. 5 días laborables si requiere desplazamiento fuera de la isla." },
+    "examenesPrenatalesYPreparacionParto": { "nota": "Tiempo indispensable, dentro de la jornada. También sesiones de información/preparación de adopción/acogimiento." },
+    "trasladoDomicilio": { "dias": 1 },
+    "matrimonioDeFamiliar": { "dias": 1, "tipo": "laborables", "nota": "Matrimonio de hijo/a, padre/madre, hermano/a o hermano/a político. 3 días laborables si requiere desplazamiento fuera de la isla." },
+    "examenes": { "nota": "Tiempo necesario para exámenes de título académico/profesional, incluido el examen del permiso de conducir. Cursos de alfabetización básica: hasta 3 h/semana (no en empresas <10 trabajadores ni en picos de trabajo)." },
+    "asuntosPropios": { "dias": 1, "unidad": "año", "nota": "1 día/año para asuntos propios; requiere 1 año de antigüedad y ocupación anual >= 6 meses. La empresa puede denegarlo del 1-jul al 31-ago. No acumulable a otros años." },
+    "consultaMedicoEspecialista": { "nota": "Hasta 12 horas/año (proporcional en fijos discontinuos/temporales) para especialistas por prescripción de la S.S., con volante del IBSALUT y preaviso de 10 días." },
+    "lactancia": { "nota": "Art. 21: 1 hora/día hasta los 9 meses del menor (fraccionable en 2, o media hora de reducción, o acumulable en jornadas completas con preaviso de 15 días). Extensible a 12 meses si ambos progenitores lo ejercen (con reducción proporcional de salario desde los 9 meses)." },
+    "funcionesRepresentacion": { "nota": "Según crédito horario del Art. 40 (ver representacionSindical)." },
+    "mejoraSobreET": "Matrimonio 15 días naturales, asuntos propios 1 día/año y 12 h/año para especialistas son mejoras/concreciones sobre el mínimo del ET."
+  },
+
+  "permisosNoRetribuidos": {
+    "articulo": "Art. 20",
+    "nota": "En los supuestos b) (enfermedad grave familiar) y e) (exámenes prenatales) del Art. 19, la persona puede ampliar el permiso hasta el doble, excluyendo días de desplazamiento, sin retribución. También por acuerdo en otros supuestos."
+  },
+
+  "excedencias": {
+    "articulo": "Art. 22",
+    "requisitoGeneral": "Fijos ordinarios y fijos discontinuos con al menos 1 año de antigüedad (salvo mayor exigencia).",
+    "tipos": {
+      "cuidadoHijos": "Hasta 4 años por cada hijo (naturaleza, adopción o acogimiento).",
+      "cuidadoFamiliar": "Hasta 2 años, familiar hasta 2º grado o pareja registrada que no pueda valerse por sí mismo.",
+      "estudios": "Entre 1 y 5 años; reutilizable si han pasado 4 años desde otra excedencia.",
+      "trasladoConyuge": "6 meses a 2 años, si el cónyuge/pareja es trasladado por trabajo fuera de la isla.",
+      "tratamientoMedico": "Hasta 1 año (toxicomanía/alcoholemia), una sola vez, acreditando seguimiento.",
+      "promocionProfesional": "Hasta 2 años para quien realiza funciones por debajo del nivel I, con 3 años de antigüedad y 36 meses de trabajo efectivo previo. Denegable en plantillas <25 o si los excedentes superan el 5% simultáneo."
+    },
+    "reincorporacion": "Comunicación por escrito con 1 mes de antelación al fin de la excedencia; su incumplimiento extingue el contrato."
+  },
+
+  "pagasExtraordinarias": {
+    "total": 14,
+    "numeroExtras": 2,
+    "articulo": "Art. 27",
+    "$comment": "12 mensualidades + 2 gratificaciones extraordinarias. Cada extra = 1 mensualidad de salario base + complemento antigüedad ad personam (si lo hubiere). Se abonan: una el 31 de julio (puede ir con la mensualidad de julio) y otra el 21 de diciembre. Prorrateo posible por acuerdo. El plus de desplazamiento NO se abona en las pagas. La IT no reduce el devengo de las pagas."
+  },
+
+  "categoriasEstablecimiento": {
+    "$comment": "Anexo II. Categorías A/B/C a efectos retributivos, con dos columnas: alojamiento y restauración/ocio.",
+    "A": {
+      "alojamiento": "Hotel 4 y 5 estrellas, Hotel Residencia 4*, Hotel Apartamentos 4*, Apartamento Extrahotelero lujo, Motel 4*, Hotel Rural",
+      "restauracionOcio": "Restaurante 4 y 5 tenedores, Salón de té, Bar Americano, Café Bar especial A y B"
+    },
+    "B": {
+      "alojamiento": "Hotel 3 y 2*, Hotel Residencia 3 y 2*, Hotel Apartamentos 3 y 2*, Apartamento Extrahotelero 1ª y 2ª, Hostal (Residencia) 3*, Motel 3 y 2*, Ciudad de vacaciones 3 y 2*, Pensión 3*, Establecimiento Turístico de Interior, Lavandería Hotelera centralizada",
+      "restauracionOcio": "Cafetería 2 y 3 tazas, Bar de 2ª y 1ª, Catering y Colectividades, Casino de 2ª y 3ª, Pizzería, Tablao Flamenco, Granja, Barbacoa, Restaurante 3 y 2 tenedores"
+    },
+    "C": {
+      "alojamiento": "Hotel 1*, Hotel Residencia 1*, Hotel Apartamentos 1*, Apartamento Extrahotelero 3ª, Residencia Apartamentos 1*, Hostal 2 y 1*, Motel 1*, Pensión 2 y 1*, Fonda/Casa de huéspedes, Ciudad de vacaciones 1*, Viviendas Turísticas Vacacionales, Agroturismo",
+      "restauracionOcio": "Restaurante 1 tenedor, Cafetería 1 taza, Bar de 3ª y 4ª, Taberna y Bodegón, Casa de comida, Taberna que sirve comidas, Heladería, Sala de Fiestas y Discoteca, Salón de baile"
+    }
+  },
+
+  "nivelesRetributivos": {
+    "$comment": "Anexo I. 6 niveles (I-VI). Ejemplos representativos por nivel (lista no exhaustiva). El camarero/a de sala/comedor/bar está en el NIVEL IV. Jefe/a de Bar = nivel I y Segundo/a jefe/a de bar = nivel II (aclarado por Acta Paritaria BOIB 154).",
+    "I": "Jefe/a de recepción, Jefe/a de cocina, Jefe/a de comedor/bar, Primer/a jefe/a de sala, Primer/a conserje, Contable general, Encargado/a general de pisos (gobernanta/e), Jefes/as de catering, Pinchadiscos",
+    "II": "Segundo/a jefe/a de cocina, Segundo/a jefe/a de comedor/bar, Segundo/a jefe/a de sala, Segundo/a jefe/a de recepción, Jefe/a de repostería, Interventor/a, Encargado/a de sección de pisos (subgobernanta/e), Jefe/a administrativo/a, Mayordomo/a de pisos",
+    "III": "Jefe/a de partida, Jefe/a de sector, Recepcionista, Cajero/a, Contable, Encargado/a de economato, Segundo/a conserje, Conserje de noche, Oficial administrativo/a 1ª, Dependiente/a de primera, Comercial",
+    "IV": "Cocinero/a, Camarero/a (bar/sala/comedor/sala de fiestas), Camarero/a de pisos, Cafetero/a, Planchista, Oficial/a repostero/a, Panadero/a, Animador/a, Dependiente/a 2ª, Oficios (electricista, fontanero/a, albañil, carpintero/a, pintor/a, conductor/a, jardinero/a), Oficial administrativo/a 2ª",
+    "V": "Ayudante/a de cocina, Ayudante/a de comedor o bar, Ayudante/a de sala o mostrador, Ayudante/a de repostería, Ayudante/a de recepción/conserjería, Auxiliar administrativo/a, Telefonista, Bodeguero/a, Facturista, Taquillero/a",
+    "VI": "Pinche, Fregador/a, Marmitón/a, Limpiador/a, Peón, Botones, Mozo/a de equipajes/habitaciones/almacén, Vigilante de noche, Portero/a, Guardarropa, Piscinero/a, Socorrista, Niñero/a, Ascensorista, ayudantes de oficios"
+  },
+
+  "salariosBaseMensuales": {
+    "$comment": "Art. 24 / Anexo I-II. € brutos/mes por NIVEL (I-VI) x CATEGORÍA de establecimiento (A/B/C). ATENCIÓN: los periodos van de ABRIL a MARZO, no por año natural. 'p2025_26' = 1-abr-2025 a 31-mar-2026, etc. Verificado celda a celda en imagen del BOIB 104 pág. 22.",
+    "p2025_26": {
+      "I":   { "A": 2221.08, "B": 2190.39, "C": 2155.16 },
+      "II":  { "A": 2059.29, "B": 2038.07, "C": 2004.27 },
+      "III": { "A": 1917.50, "B": 1886.28, "C": 1853.96 },
+      "IV":  { "A": 1781.32, "B": 1743.27, "C": 1725.12 },
+      "V":   { "A": 1650.63, "B": 1634.74, "C": 1626.23 },
+      "VI":  { "A": 1551.64, "B": 1551.64, "C": 1551.64 }
+    },
+    "p2026_27": {
+      "I":   { "A": 2309.92, "B": 2278.01, "C": 2241.36 },
+      "II":  { "A": 2141.66, "B": 2119.59, "C": 2084.44 },
+      "III": { "A": 1994.19, "B": 1961.73, "C": 1928.12 },
+      "IV":  { "A": 1852.57, "B": 1813.00, "C": 1794.13 },
+      "V":   { "A": 1716.66, "B": 1700.13, "C": 1691.28 },
+      "VI":  { "A": 1613.71, "B": 1613.71, "C": 1613.71 }
+    },
+    "p2027_28": {
+      "I":   { "A": 2390.77, "B": 2357.74, "C": 2319.81 },
+      "II":  { "A": 2216.62, "B": 2193.78, "C": 2157.39 },
+      "III": { "A": 2063.99, "B": 2030.39, "C": 1995.60 },
+      "IV":  { "A": 1917.41, "B": 1876.45, "C": 1856.92 },
+      "V":   { "A": 1776.74, "B": 1759.64, "C": 1750.48 },
+      "VI":  { "A": 1670.19, "B": 1670.19, "C": 1670.19 }
+    }
+  },
+
+  "situacionesEspecialesSalario": {
+    "articulo": "Art. 25",
+    "nota": "En empresas de hospedaje: Jefe/a de bares -> nivel I; Segundo/a jefe/a de bares -> nivel II; Oficial/a de mantenimiento con varios ayudantes -> nivel III. En cualquier empresa del convenio: conductores con permiso C/D/E -> nivel III."
+  },
+
+  "nocturnidad": {
+    "$comment": "DOS regímenes distintos. NO es un porcentaje ni un valor/hora uniforme: en hospedaje es un plus mensual fijo según horas nocturnas trabajadas; en restauración/ocio es otro régimen (DA 10ª). La nocturnidad NO computa para pagas, horas extra, fiestas ni vacaciones (salvo Salas de Fiestas en fiestas/vacaciones).",
+    "hospedaje": {
+      "articulo": "Art. 26",
+      "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+      "tipo": "plus_mensual_fijo_por_horas",
+      "masDe80hMes_eurMes":   { "p2025_26": 100.06, "p2026_27": 104.06, "p2027_28": 107.71 },
+      "de26a80hMes_eurMes":   { "p2025_26": 60.00,  "p2026_27": 62.40,  "p2027_28": 64.59 },
+      "horarioPermanente": "Plus = diferencia entre su salario base y el del nivel inmediatamente superior, sin superar el importe del tramo >80 h.",
+      "conserjeNoche": "No percibe plus; se incluye en el nivel III."
+    },
+    "restauracionOcio": {
+      "articulo": "Disp. adic. décima (DA 10ª)",
+      "restaurantesCafeteriasBares": {
+        "tramoHorario": { "desde": "00:00", "hasta": "07:00" },
+        "cuatroOMasHorasDiaPromedioMes_eurMes": { "p2025_26": 160.03, "p2026_27": 166.43, "p2027_28": 172.26 },
+        "de2a4HorasDiaPromedioMes_eurMes":       { "p2025_26": 80.02,  "p2026_27": 83.22,  "p2027_28": 86.13 },
+        "horasSueltas_eurHora":                  { "p2025_26": 2.63,   "p2026_27": 2.74,   "p2027_28": 2.83 }
+      },
+      "salasFiestasDiscotecasMusicaBaile": {
+        "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+        "plusEspecifico_eurMes": { "p2025_26": 49.42, "p2026_27": 51.39, "p2027_28": 53.19 }
+      }
+    }
+  },
+
+  "horasExtraordinarias": {
+    "estado": "pendiente",
+    "articulo": null,
+    "nota": "El convenio NO fija precio ni fórmula para la hora extraordinaria; solo indica (Art. 26) que el plus de nocturnidad no forma parte del módulo de cálculo de las horas extra. A falta de regulación convencional se aplica el ET (art. 35: la hora extra no puede pagarse por debajo del valor de la hora ordinaria) y, supletoriamente, el ALEH VI. DUDA PARA UGT: ¿precio o recargo pactado de la hora extra en Baleares?"
+  },
+
+  "antiguedad": {
+    "$comment": "NO existe una escala de antigüedad activa. La acumulación por antigüedad quedó SIN EFECTO el 30-04-1984 (Disp. adic. primera). Los importes ya adquiridos son condición 'ad personam' congelada (no absorbible, no compensable, no revalorizable). El Anexo III es una TABLA FIJA de tramos consolidados (importes históricos), no un derecho de nueva generación.",
+    "escalaActiva": false,
+    "articulo": "Disp. adic. primera + Anexo III",
+    "tablaConsolidadaAnexoIII": {
+      "$comment": "€/mes por nivel (I-VI) x categoría (A/B/C) y tramo consolidado: A=3 años, B=6, C=9, D=14, E=19, F=24. Verificado en imagen (BOIB 104 pág. 45). Solo aplicable a quien tuviera antigüedad consolidada pre-1984.",
+      "tramos": { "A": "3 años", "B": "6 años", "C": "9 años", "D": "14 años", "E": "19 años", "F": "24 años" },
+      "I":   { "A": {"A":12.08,"B":33.77,"C":64.58,"D":101.53,"E":145.86,"F":171.73}, "B": {"A":11.91,"B":33.32,"C":63.69,"D":100.07,"E":143.74,"F":169.21}, "C": {"A":11.71,"B":32.81,"C":62.65,"D":98.39,"E":141.29,"F":166.32} },
+      "II":  { "A": {"A":11.27,"B":31.63,"C":60.30,"D":94.57,"E":135.71,"F":159.70}, "B": {"A":11.15,"B":31.32,"C":59.68,"D":93.57,"E":134.23,"F":157.96}, "C": {"A":10.97,"B":30.82,"C":58.69,"D":91.96,"E":131.88,"F":155.17} },
+      "III": { "A": {"A":10.58,"B":29.78,"C":56.60,"D":88.56,"E":126.92,"F":149.29}, "B": {"A":10.41,"B":29.33,"C":55.69,"D":87.08,"E":124.75,"F":146.73}, "C": {"A":10.23,"B":28.85,"C":54.74,"D":85.54,"E":122.51,"F":144.07} },
+      "IV":  { "A": {"A":9.92,"B":28.01,"C":53.07,"D":82.82,"E":118.53,"F":139.35}, "B": {"A":9.70,"B":27.45,"C":51.95,"D":81.01,"E":115.88,"F":136.23}, "C": {"A":9.61,"B":27.19,"C":51.42,"D":80.15,"E":114.62,"F":137.74} },
+      "V":   { "A": {"A":9.37,"B":26.54,"C":50.14,"D":78.06,"E":111.56,"F":131.11}, "B": {"A":9.28,"B":26.32,"C":49.68,"D":77.31,"E":110.46,"F":129.81}, "C": {"A":9.24,"B":26.19,"C":49.42,"D":76.90,"E":109.87,"F":129.10} },
+      "VI":  { "ABC": {"A":8.83,"B":25.11,"C":47.24,"D":73.36,"E":104.68,"F":122.97} }
+    }
+  },
+
+  "pluses": {
+    "$comment": "€/mes salvo indicación. Periodos abril-marzo. Verificados en imagen (págs. 23-24).",
+    "plusDesplazamiento": {
+      "articulo": "Art. 28",
+      "eurMes": { "p2025_26": 135.90, "p2026_27": 141.34, "p2027_28": 146.29 },
+      "eurAño": { "p2025_26": 1630.83, "p2026_27": 1696.06, "p2027_28": 1755.43 },
+      "nota": "Resarce el desplazamiento residencia<->trabajo. NO se abona en situación de IT ni en las pagas extra. A tiempo parcial: íntegro si trabaja todos los días laborables, proporcional si no, siempre que la jornada diaria exceda de 4 h de promedio."
+    },
+    "herramientas": {
+      "articulo": "Art. 29",
+      "eurMes": { "p2025_26": 16.04, "p2026_27": 16.68, "p2027_28": 17.26 },
+      "nota": "Compensación por desgaste al personal de cocina que aporte sus útiles/herramientas cuando la empresa no los facilita."
+    },
+    "uniformesRopaTrabajo": {
+      "articulo": "Art. 30",
+      "nota": "La empresa proporciona uniformes/ropa de trabajo exigidos. Si no los entrega, compensa en metálico por mes de servicio.",
+      "compensacionPrendas_eurMes": {
+        "trajeChaquetaCompleto": { "p2025_26": 40.00, "p2026_27": 41.60, "p2027_28": 43.06 },
+        "restoPersonal":          { "p2025_26": 35.61, "p2026_27": 37.03, "p2027_28": 38.33 }
+      },
+      "compensacionCalzado_eurMes": {
+        "zapatosCueroOsimilar":   { "p2025_26": 9.98, "p2026_27": 10.38, "p2027_28": 10.74 },
+        "zapatillasTelaOsimilar": { "p2025_26": 6.09, "p2026_27": 6.34,  "p2027_28": 6.56 }
+      },
+      "duracionMinima": "Trajes 2 años; camisas/polos, chaquetillas, pantalones, gorros/picos, delantales, batas, zapatos y zapatillas: 1 año."
+    },
+    "manutencion": {
+      "articulo": "Art. 31",
+      "eurMes": { "p2025_26": 25.73, "p2026_27": 26.76, "p2027_28": 27.69 },
+      "eurAño": { "p2025_26": 308.71, "p2026_27": 321.06, "p2027_28": 332.30 },
+      "nota": "Valoración del coste medio de manutención cuando el centro elabora y sirve comidas al cliente. La empresa no puede deducir salvo la cotización a la S.S. Solo verificado por extracción de texto (no en imagen)."
+    },
+    "alojamiento": {
+      "articulo": "Art. 31",
+      "nota": "Se mantiene el derecho al alojamiento a quien viniera disfrutándolo, salvo pacto de extinción. Sin importe económico tabulado."
+    },
+    "dietasYKilometraje": {
+      "estado": "no_regulado",
+      "nota": "El convenio no fija dietas de comida/cena/pernocta ni €/km por desplazamiento en misión; solo el plus de desplazamiento (commuting) del Art. 28. DUDA PARA UGT: ¿dietas por desplazamiento en servicio?"
+    }
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 36. Dato 'oro'. La empresa complementa la prestación de la S.S. hasta el 100% de (salario base + antigüedad ad personam + plus nocturnidad Salas de Fiestas) del mes en curso.",
+    "articulo": "Art. 36",
+    "accidenteTrabajo": { "desdeDia": 1, "porcentaje": 100, "nota": "Complemento hasta el 100% desde el primer día de la baja." },
+    "enfermedadComunYAccidenteNoLaboral": { "desdeDia": 4, "porcentaje": 100, "nota": "Complemento hasta el 100% desde el 4º día de la baja. Además, la empresa abona los 3 primeros días de IT (1 solo proceso por cada 12 meses) en enfermedad común y accidente no laboral, salvo menstruación incapacitante secundaria (que se complementa como el resto)." },
+    "duracionMaxima": "Hasta un máximo de 12 meses desde el día de la baja. Cesa si hay alta médica antes o informe-propuesta de incapacidad permanente.",
+    "nota": "La negativa a los reconocimientos médicos que la empresa pueda ordenar suspende el complemento."
+  },
+
+  "segurosObligatorios": {
+    "seguroIncapacidadOFallecimientoPorEnfermedad": {
+      "articulo": "Art. 34",
+      "capital_eur": 9000,
+      "nota": "Por muerte o incapacidad permanente (total/absoluta/gran invalidez) derivada de ENFERMEDAD (sea o no profesional). Requiere antigüedad >= 15 años. Incompatible con el seguro de accidentes (Art. 35)."
+    },
+    "seguroAccidentes": {
+      "articulo": "Art. 35",
+      "capital_eur": 19000,
+      "nota": "Por muerte o incapacidad permanente (total/absoluta/gran invalidez) derivada de ACCIDENTE (sea o no laboral); basta estar de alta en la fecha del accidente. Incompatible con el Art. 34."
+    }
+  },
+
+  "compensacionExtincion": {
+    "$comment": "Art. 33. Compensación indemnizatoria por cese voluntario vinculado al acceso a la jubilación. Nº de mensualidades (de salario base + antigüedad ad personam + prorrata de pagas) según años de servicio y edad. Incompatible/no acumulable con el Art. 34.",
+    "articulo": "Art. 33",
+    "requisitos": "Cese voluntario con acceso a jubilación; preaviso escrito de 1 mes; edad máx. 67 años (prorrogable si no se ha cubierto la carencia).",
+    "tablaMensualidades": {
+      "$comment": "Filas = años de servicio en la empresa; columnas = edad de la persona trabajadora. Valor = nº de mensualidades.",
+      "columnasEdad": ["55-59", "60", "61", "62", "63", "64", "65", "66", "67"],
+      "15":      [10, 9, 7.5, 6, 5, 4, 3, 2, 1],
+      "20":      [11, 10, 8.5, 7, 6, 5, 4, 3, 2],
+      "25":      [12, 11, 9.5, 8, 7, 6, 5, 4, 3],
+      "30":      [13, 12, 10.5, 9, 8, 7, 6, 5, 4],
+      "35_oMas": [14, 13, 11.5, 10, 9, 8, 7, 6, 5]
+    },
+    "fijosDiscontinuos": "El cómputo de años se hace sobre la antigüedad TOTAL en la empresa (inicio a fin de la relación), según criterio interpretativo fijado por la Comisión Paritaria el 9-04-2026 (BOIB 70), no solo sobre los periodos efectivamente trabajados."
+  },
+
+  "jubilacionForzosa": {
+    "articulo": "Art. 33 bis",
+    "nota": "La empresa puede extinguir el contrato al cumplir la persona 68 años o más, si tiene derecho al 100% de la pensión contributiva y la empresa hace simultáneamente una contratación indefinida a tiempo completo (o convierte un temporal en indefinido)."
+  },
+
+  "periodoPrueba": {
+    "estado": "remitido_ALEH",
+    "articulo": "Art. 6.2",
+    "nota": "El convenio no fija duraciones propias: se aplica el capítulo tercero del ALEH VI (Acuerdo Laboral Estatal de Hostelería). DUDA PARA UGT / a completar desde el ALEH VI: duraciones del periodo de prueba por grupo profesional."
+  },
+
+  "contratacion": {
+    "articulo": "Arts. 6, 7, 8",
+    "presuncionIndefinido": "El contrato se presume indefinido; el temporal solo por circunstancias de la producción o sustitución.",
+    "topesTemporalidad": "En centros de +25 trabajadores, mínimo 75% de empleo fijo (ordinario o discontinuo); en centros de 11-25, mínimo 65%. Las ETT no pueden superar el 10% de la plantilla.",
+    "duracionMaximaEventual": "Contrato por circunstancias de la producción: 9 meses en 12 (general); hasta 12 meses en establecimientos de apertura permanente.",
+    "indemnizacionFinTemporal": "12 días de salario por año de servicio en los contratos por circunstancias de la producción (Art. 7).",
+    "fijosDiscontinuos": {
+      "articulo": "Art. 8 + DA 10ª",
+      "nota": "Clave en Baleares por la estacionalidad. Llamamiento por escrito con antelación mínima de 5 días naturales para el periodo garantizado (DA 10ª). Preferencia de conversión a fijo ordinario entre los fijos discontinuos de la misma especialidad. Garantías de ocupación anteriores a 1992 conservadas como condición ad personam (DA 6ª)."
+    }
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El XVII convenio NO contiene su propio cuadro de faltas y sanciones: se remite EXPRESAMENTE al capítulo octavo del VI ALEH estatal (Disp. final primera; y Art. 36 cita 'el régimen disciplinario previsto en el VI ALEH').",
+    "estado": "remitido_ALEH",
+    "articulo": "Disp. final primera + Art. 36",
+    "fuenteAplicable": "Capítulo 8 del VI Acuerdo Laboral Estatal de Hostelería (ALEH VI), BOE nº59 de 10-03-2023.",
+    "faltasYSanciones": "Se rigen por el ALEH VI (faltas leves/graves/muy graves y sanciones). A transcribir desde el convenio estatal — NO están en el convenio balear.",
+    "baseLegalET": {
+      "sancionEconomicaProhibida": "El empresario NO puede imponer sanciones que supongan minoración de vacaciones/descanso ni multa de haber (art. 58.3 ET). Descontar el tiempo NO trabajado por impuntualidad no es sanción.",
+      "procedimiento": "Faltas graves y muy graves requieren comunicación por escrito con fecha y hechos (art. 58 ET).",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días; máximo 6 meses desde su comisión.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    },
+    "dudaParaUGT": "Confirmar el cuadro concreto de faltas/sanciones del ALEH VI aplicable, ya que el convenio balear no lo reproduce."
+  },
+
+  "representacionSindical": {
+    "$comment": "Cap. VI (Arts. 39-44). El convenio MEJORA el crédito horario del ET.",
+    "creditoHorarioMensual": {
+      "articulo": "Art. 40",
+      "hasta50trab_horas": 20,
+      "de51a100trab_horas": 25,
+      "masDe100trab_horas": 30,
+      "mejoraSobreET": "SÍ. El ET (art. 68.e) da 15 h hasta 100 trabajadores; el convenio sube a 20 h (<=50) y 25 h (51-100). Acumulable semestralmente entre representantes (Art. 41), salvo fijos discontinuos con contrato interrumpido."
+    },
+    "delegadoSindical": { "articulo": "Art. 42", "nota": "En centros con: +50 trab. y afiliación >30%; +75 y >25%; +100 y >20%. Los delegados sindicales que no formen parte del comité tienen las mismas garantías legales y pueden acumular crédito. Secciones sindicales (LOLS art. 8); local propio en centros de +250 trabajadores." },
+    "accionSindical": { "articulo": "Art. 43", "nota": "Cargos electivos autonómicos/estatales de sindicatos firmantes: permisos no retribuidos, excedencia forzosa con reserva de puesto y cómputo de antigüedad, acceso a centros. Permisos retribuidos a negociadores del convenio." },
+    "cuotaSindical": { "articulo": "Art. 44", "nota": "La empresa descuenta la cuota sindical en nómina a petición escrita del afiliado." },
+    "informacionHorasExtra": { "articulo": "Art. 39", "nota": "La empresa informa mensualmente a la RLT de las horas extraordinarias realizadas." }
+  },
+
+  "igualdadYAcoso": {
+    "articulo": "Cap. VII (Art. 45) + Disp. adic. octava + Anexo VII",
+    "nota": "Capítulo específico de medidas para la igualdad y no discriminación de personas LGTBI (novedad del XVII convenio; RD 1026/2024). Protocolo de actuación frente al acoso y la violencia contra personas LGTBI (Anexo VII). Acoso sexual/por razón de sexo: se aplica supletoriamente el art. 51 (cap. 8) del ALEH VI (DA 8ª). Empresas de +50 trabajadores: plan de igualdad y medidas LGTBI."
+  },
+
+  "formacion": {
+    "articulo": "Art. 19 (h, i) + Art. 22 (excedencia por estudios)",
+    "nota": "Permiso retribuido por el tiempo necesario para exámenes de título académico/profesional y del permiso de conducir; hasta 3 h/semana para cursos de alfabetización básica (con límites). Excedencia por estudios de 1 a 5 años. No hay plus económico de formación tabulado."
+  },
+
+  "ascensosYPolivalencia": {
+    "estado": "remitido_ALEH",
+    "articulo": "Art. 11 (clasificación profesional, movilidad funcional y ascensos)",
+    "nota": "La clasificación profesional, la movilidad funcional y los ascensos se rigen por el Art. 11 del convenio y, supletoriamente, por el ALEH VI. Situaciones especiales de encuadramiento en Art. 25. A completar: reglas concretas de ascenso y de trabajo de categoría superior (polivalencia). DUDA PARA UGT: ¿cuándo el trabajo de nivel superior obliga a pagar el nivel superior y desde qué momento?"
+  },
+
+  "actaInterpretativa2026": {
+    "$comment": "Acta de la 3ª reunión de la Comisión Paritaria de 9-04-2026, publicada en BOIB 70 (4-06-2026). Modifica la aplicación de varios artículos; IMPRESCINDIBLE tenerla en cuenta.",
+    "fuente": { "boletin": "BOIB", "numero": 70, "fecha": "2026-06-04", "url": "https://www.caib.es/eboibfront/pdf/es/2026/70/1221120" },
+    "acuerdos": {
+      "art33_fijosDiscontinuos": "La compensación por extinción (Art. 33) de los fijos discontinuos se calcula sobre la antigüedad TOTAL en la empresa (de inicio a fin de la relación), no solo sobre los días efectivamente trabajados (a la luz de STSJ Illes Balears 45/2023 y 108/2025 y art. 16.6 ET).",
+      "STS_1050_2025": "Por la STS 1050/2025 de 12-11-2025 (fijos discontinuos, vacaciones y festivos): (i) el apartado 6 del Art. 8 queda SIN EFECTOS; (ii) el apartado 3 del Art. 7 queda SIN EFECTOS; (iii) en el Art. 17 (vacaciones) queda sin efectos la referencia a la Disp. adic. undécima del último párrafo; (iv) en el Art. 18 (festivos) queda sin efectos la referencia a la Disp. adic. undécima del último párrafo. Es decir: las vacaciones (35 días) y festivos de los fijos discontinuos se rigen por los Arts. 17 y 18 en sus propios términos, sin la limitación de la DA 11ª."
+    }
+  },
+
+  "estado": "verificado",
+  "verificadoContra": "PDF oficial del BOIB nº104 (5-08-2025), disposición 8723, 65 páginas, renderizado a imagen (185 dpi) y leído celda a celda en las tablas críticas: salario base de los 3 periodos (pág. 22), nocturnidad hospedaje (pág. 23), plus desplazamiento/herramientas/uniformes/calzado (pág. 24), nocturnidad restauración DA 10ª (pág. 38) y Anexo III de antigüedad (pág. 45). El articulado (jornada, vacaciones, fiestas, permisos, excedencias, pagas, IT, seguros, extinción, representación sindical, disposiciones) se transcribió de la extracción de texto del mismo PDF oficial (prosa, sin columnas). La tabla de manutención (Art. 31) solo se verificó por extracción de texto. Se cruzó la vigencia y la existencia de revisiones con el BOIB 150, 154 (2025) y 70 (2026), todos oficiales; el BOIB 70 aporta el Acta interpretativa 2026 recogida aquí. El régimen disciplinario y el periodo de prueba se remiten al ALEH VI y NO se han transcrito (no están en este convenio).",
+  "fechaVerificacion": "2026-07-08",
+
+  "dudasParaUGT": [
+    "Precio/recargo de la hora extraordinaria: el convenio no lo fija. ¿Se aplica el valor de la hora ordinaria (ET art. 35) o hay pacto sectorial?",
+    "Régimen disciplinario: confirmar el cuadro de faltas y sanciones del cap. 8 del ALEH VI que aplica en Baleares (no está en el convenio autonómico).",
+    "Periodo de prueba: duraciones por grupo profesional según cap. 3 del ALEH VI.",
+    "Dietas/kilometraje en desplazamiento en misión (distintos del plus de desplazamiento del Art. 28): ¿existen?",
+    "Trabajo de categoría/nivel superior (polivalencia): condiciones exactas de pago del nivel superior (Art. 11 + ALEH VI)."
+  ],
+
+  "curiosidades": [
+    { "dato": "Es el primer convenio del sector firmado tras décadas y afecta a unas 160.000 personas trabajadoras. CCOO y la patronal menorquina ASHOME NO firmaron el acuerdo.", "fuente": "Introducción del convenio + prensa (Periódico de Ibiza, 01-08-2025)" },
+    { "dato": "Los periodos salariales van de ABRIL a MARZO, no por año natural: un error común es aplicar la tabla '2026' desde enero cuando en realidad rige del 1-04-2026 al 31-03-2027.", "fuente": "Art. 24, BOIB 104 pág. 22" },
+    { "dato": "La antigüedad está CONGELADA desde 1984: no se generan nuevos trienios; solo pervive como importe fijo 'ad personam' para quien ya lo tenía (Anexo III).", "fuente": "Disp. adic. primera + Anexo III, BOIB 104" },
+    { "dato": "Novedad pionera: capítulo propio de igualdad y no discriminación LGTBI con protocolo de acoso específico (Anexo VII).", "fuente": "Cap. VII y Anexo VII, BOIB 104" },
+    { "dato": "El crédito horario sindical mejora el ET: 20 h/mes hasta 50 trabajadores (el ET da 15 h).", "fuente": "Art. 40, BOIB 104" }
+  ]
+}
