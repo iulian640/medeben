@@ -1,0 +1,451 @@
+{
+  "$comment": "Convenio Colectivo del Sector de la Hostelería de la provincia de GUADALAJARA (Castilla-La Mancha), vigencia 01/01/2025 a 31/12/2026. Dos fuentes oficiales del BOP de Guadalajara: (1) ARTICULADO completo, BOP nº 140 de 23-07-2025 (código convenio 19000155011981); (2) TABLAS SALARIALES definitivas 2025 + provisionales 2026, BOP nº 34 de 19-02-2026 (acta de revisión suscrita el 05-02-2026). A julio de 2026 es la publicación MÁS RECIENTE con tablas y es el convenio vigente. AVISO IMPORTANTE 1: las tablas de 2026 son PROVISIONALES (art. 27): si el IPC 2026 supera el 2%, se actualizan con la diferencia y pasan a definitivas, generando atrasos. AVISO IMPORTANTE 2 (desajuste de numeración): el acta de tablas (Feb 2026) cita 'Plus manutención (art. 24)', 'Compensación de ropa (art. 24)', 'Plus idiomas (art. 24)' y 'Gratificación extraordinaria de septiembre (art. 32)'; esas referencias son numeración de un convenio ANTERIOR. En el articulado vigente (BOP 140/2025) los pluses son el Art. 28, la nocturnidad el Art. 29 y las gratificaciones extraordinarias el Art. 30. Se citan los artículos del articulado vigente. AVISO 3: solo hay DOS categorías de establecimiento (A y B), no tres. La clasificación profesional es por 6 ÁREAS FUNCIONALES (Anexo II) que remiten a 5 NIVELES retributivos; camarero/a de sala = nivel 3, cocinero/a = nivel 3.",
+  "id": "guadalajara-hosteleria",
+  "nombre": "Convenio colectivo del sector de la Hostelería de la provincia de Guadalajara 2025-2026",
+  "codigoRegcon": "19000155011981",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla-La Mancha", "provincias": ["Guadalajara"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP Guadalajara",
+    "numero": 140,
+    "fecha": "2025-07-23",
+    "documento": "Convenio Colectivo del Sector de la Hostelería de la provincia de Guadalajara (código 19000155011981), vigencia 01/01/2025 a 31/12/2026. Resolución de la Delegación Provincial de la Consejería de Economía, Empresas y Empleo (JCCM), Guadalajara a 17-07-2025 (Delegada Provincial Susana Blas Esteban). Articulado completo (Arts. 1-48, Disposiciones Finales y Anexos I-IV). Cod. Verificación 966ca0aa0e08f02a429cec3997e773e68273ba2c.",
+    "url": "https://boletin.dguadalajara.es/boletin/pdf/pdf2025_2257.pdf",
+    "fuenteTablas": {
+      "boletin": "BOP Guadalajara",
+      "numero": 34,
+      "fecha": "2026-02-19",
+      "documento": "Tablas salariales DEFINITIVAS del año 2025 y PROVISIONALES del año 2026. Acta de revisión de la Comisión Negociadora suscrita el 05-02-2026 (CCOO y UGT y parte empresarial). Entrada en registro 09-02-2026. Cod. Verificación c9d4036cd1dd1e0745f95c9b9f4e4f682a556a5e.",
+      "url": "https://boletin.dguadalajara.es/boletin/pdf/pdf2026_462.pdf"
+    }
+  },
+  "vigencia": {
+    "desde": "2025-01-01",
+    "hasta": "2026-12-31",
+    "nota": "Art. 4: llegada la finalización queda automáticamente denunciado sin necesidad de previo requerimiento. Concluida la vigencia, este convenio y los sucesivos tendrán ULTRAACTIVIDAD PLENA de todo su conjunto en tanto no se negocie un nuevo convenio provincial del sector."
+  },
+  "partesFirmantes": {
+    "patronal": "Federación Provincial de Turismo y Hostelería (FPTH) de Guadalajara, integrada en CEOE-CEPYME Guadalajara",
+    "sindicatos": ["UGT (FeSMC-UGT Guadalajara)", "CCOO (CCOO-Servicios Guadalajara)"]
+  },
+
+  "jornadaAnual": {
+    "horas": 1784,
+    "semanal": 40,
+    "articulo": "Art. 12",
+    "nota": "Art. 12: para 2025-2026 jornada de 40 h semanales de trabajo efectivo, equivalente a 1.784 h anuales, con descanso semanal de día y medio (acumulable el medio día). Máx. hasta 10 h ordinarias/día durante 5 días, sin exceder 40 h en cómputo semanal y no más de 2 semanas consecutivas. Menores de 18: descanso semanal mínimo de 2 días ininterrumpidos. El disfrute de 32 días de vacaciones (Art. 15) ajusta la jornada anual para que nadie supere las 1.784 h."
+  },
+  "descansoEntreJornadasHoras": {
+    "valor": 12,
+    "articulo": "Art. 11",
+    "nota": "Art. 11: entre el final de una jornada y el comienzo de la siguiente, mínimo 12 horas de descanso; puede reducirse a 10 horas por acuerdo entre empresa y representantes de los trabajadores (art. 41.4 ET). Jornada ordinaria no superior a 9 h diarias ni inferior a 4 h."
+  },
+  "distribucionIrregular": {
+    "articulo": "Art. 12",
+    "detalle": "Distribución irregular por acuerdo empresa-RT (art. 34.2 ET). El exceso sobre 40 h/semana con tope de 50 h se compensa reduciendo jornada en momentos de menor actividad (mín. 6 h durante 5 días) o en jornadas libres completas. En empresas con calendario individual, BOLSA DE 40 HORAS AL AÑO que puede alterar la distribución prevista. Los excesos se compensan con días libres completos reflejados en el calendario laboral individual."
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 15. 32 días naturales (2 días naturales por encima del mínimo legal de 30). El convenio NO especifica la retribución del disfrute anual (salario base vs promedio con complementos); solo regula que al cese se liquidan a salario real. Duda para UGT.",
+    "articulo": "Art. 15 (festivos dentro de vacaciones: Art. 13 y Art. 15; IT durante vacaciones: remisión a art. 38.3 ET)",
+    "dias": 32,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "Art. 15: '32 días naturales' de forma expresa. Mejora en 2 días el mínimo legal del art. 38 ET (30 días naturales).",
+    "diasExtraAntiguedad": "no_previsto",
+    "diasExtraAntiguedadNota": "El convenio no suma días de vacaciones por antigüedad.",
+    "retribucion": {
+      "base": "pendiente",
+      "nota": "El Art. 15 NO especifica cómo se retribuye el disfrute anual de las vacaciones (si a salario base o por promedio con complementos como nocturnidad/festivos). Solo indica que, al causar BAJA DEFINITIVA en la empresa, las vacaciones no disfrutadas se liquidan 'con arreglo al salario real, integrando dicho salario los mismos conceptos que por motivo de vacaciones perciben los trabajadores en activo'. Duda para UGT: ¿retribución del disfrute anual a salario real/promedio o solo salario base?"
+    },
+    "periodoDisfrute": {
+      "regla": "Dentro de cada año natural.",
+      "temporadaAltaBloqueada": "si_parcial",
+      "nota": "Art. 15: las empresas pueden EXCLUIR del disfrute, en cada centro, 4 meses de mayor y acreditada actividad productiva (2 en el primer semestre y 2 en el segundo). Esos periodos se señalan en el calendario laboral anual, por meses completos (no divisibles en semanas/días/horas), consecutivos o alternos."
+    },
+    "fijacion": "La empresa presenta a la representación sindical la propuesta de calendario laboral (horarios y vacaciones anuales) antes del 15 de enero de cada año como fecha límite (Art. 15).",
+    "preaviso": "pendiente — el Art. 15 fija la presentación del calendario antes del 15 de enero, pero no un preaviso individual expreso de 2 meses. Duda para UGT.",
+    "fraccionamiento": {
+      "permitido": true,
+      "nota": "Art. 15: el periodo de disfrute comienza a continuación del descanso semanal. Puede acumularse a las vacaciones el disfrute de festivos abonables no recuperables no disfrutados en su fecha; en tal caso se consideran vacaciones los 32 primeros días. El convenio no fija número máximo de fracciones ni mínimo de días seguidos para las vacaciones ordinarias (sí regula el fraccionamiento de la licencia de matrimonio, Art. 16.a)."
+    },
+    "bajaDuranteVacaciones_IT": {
+      "derecho": "En lo no regulado se está a los apartados 4, 5 y 7 del art. 48 ET y al art. 38.3 ET (Art. 15).",
+      "nota": "El convenio remite expresamente al art. 38.3 ET: si el periodo de vacaciones coincide con IT (embarazo, parto, lactancia) u otras suspensiones del art. 48.4-7 ET, se disfrutan en fecha distinta aunque termine el año natural, dentro de los plazos del ET."
+    },
+    "festivosDentroVacaciones": "Si algún día de descanso semanal coincide con una fiesta abonable y no recuperable, tal fiesta se computa como tal, NO se considera festivo disfrutado ni se descuenta del total. La misma regla se aplica si el periodo de vacaciones incluye un festivo abonable y no recuperable (Art. 15, en relación con el Art. 13).",
+    "noCompensableEnDinero": "Las vacaciones no pueden compensarse en metálico salvo baja definitiva en la empresa; en ese caso se liquidan a salario real con los mismos conceptos que perciben los trabajadores en activo (Art. 15).",
+    "proporcionalidad": "no_especificado — el Art. 15 no detalla el prorrateo por servicios inferiores al año (se estaría al ET)."
+  },
+
+  "pagasExtraordinarias": {
+    "total": 15,
+    "articulo": "Art. 30",
+    "$comment": "Art. 30 (GRATIFICACIONES EXTRAORDINARIAS): 12 mensualidades + 3 pagas extraordinarias = 15 pagas. NOTA: el acta de tablas (Feb 2026) llama a la paga de septiembre 'gratificación extraordinaria de septiembre (art. 32)', pero en el articulado vigente es el Art. 30 (el art. 32 del articulado es la Comisión Paritaria Sectorial de Formación).",
+    "pagas": {
+      "verano": { "importe": "30 días de salario convenio", "abono": "30 de junio", "nota": "Para el cálculo se incorporan todos los pluses y la antigüedad en el momento de la percepción." },
+      "navidad": { "importe": "30 días de salario convenio", "abono": "20 de diciembre", "nota": "Para el cálculo se incorporan todos los pluses y la antigüedad en el momento de la percepción." },
+      "septiembre": { "importe": "Según tabla del Anexo III (columna 'Gratificación extraordinaria de septiembre'), incrementada cada año en el porcentaje pactado. Cuantía por nivel y categoría de establecimiento (ver 'salariosBaseMensuales' campo gratSeptiembre).", "abono": "septiembre" }
+    },
+    "prorrateo": "Se prorratean únicamente en el supuesto de no llevar un año en la empresa (Art. 30)."
+  },
+
+  "categoriasEstablecimiento": {
+    "$comment": "Anexo I. SOLO DOS categorías (columnas A y B), a diferencia de otros convenios con 3. Determinan la columna salarial aplicable.",
+    "A": "Superior. Hoteles de 5 y 4 estrellas; apartamentos turísticos y camping de lujo y 1ª; restaurantes de 5 y 4 tenedores; cafeterías de categoría especial; residencias de lujo; salas de fiestas, salones de baile, discotecas, tablaos flamencos, salas de té y similares; balnearios de lujo; tabernas de lujo; alojamientos rurales de lujo.",
+    "B": "Media/inferior. Hoteles/residencias/hostales/hoteles-apartamentos/moteles/pensiones de 3, 2 y 1 estrellas; fondas, casas de huéspedes y posadas; balnearios de 2 y 1 estrellas; alojamientos rurales de 3, 2 y 1 estrellas; restaurantes de 3, 2 y 1 tenedores; casas de comidas; cafés-bares, chocolaterías y heladerías; apartamentos turísticos y camping de 2ª y 3ª; cafeterías de 1ª y 2ª; comida rápida, pizzerías, hamburgueserías, creperías y similares; bares, cervecerías y similares; colectividades y centros de titularidad pública adjudicados por concurso."
+  },
+
+  "clasificacionProfesional": {
+    "$comment": "Anexo II. La clasificación es por 6 ÁREAS FUNCIONALES; cada categoría remite a un NIVEL retributivo (1 a 5) que, cruzado con la categoría de establecimiento (A/B), da el salario en 'salariosBaseMensuales'. El camarero/a de sala está en el ÁREA TERCERA con NIVEL 3; el cocinero/a en el ÁREA SEGUNDA con NIVEL 3.",
+    "areaPrimera_recepcionConserjeriaAdministracion": {
+      "nivel1": ["Jefe/a recepción", "2º Jefe/a recepción", "Jefe/a comercial", "Jefe/a administración", "Primer/a conserje"],
+      "nivel2": ["Técnico/a prevención de riesgos laborales"],
+      "nivel3": ["Recepcionista", "Conserje", "Administrativo/a", "Relaciones públicas", "Comercial"],
+      "nivel4": ["Auxiliar recepción y conserjería"],
+      "nivel5": ["Ayudante recepción y/o conserjería", "Telefonista", "Ayudante administrativo"]
+    },
+    "areaSegunda_cocina": {
+      "nivel1": ["Jefe/a cocina", "2º jefe/a cocina", "Jefe/a catering"],
+      "nivel2": ["Jefe/a partida", "Repostero/a"],
+      "nivel3": ["Cocinero/a", "Encargado/a economato"],
+      "nivel5": ["Ayudante cocina", "Ayudante economato", "Auxiliar cocina/economato"]
+    },
+    "areaTercera_restauranteSalaCateringBar": {
+      "nivel1": ["Jefe/a restaurante o sala", "2º Jefe/a restaurante o sala", "Jefe/a operaciones de catering", "Gerente de centro", "Jefe/a sector", "Jefe/a sala catering"],
+      "nivel3": ["Camarero/a", "Barman/Barwoman", "Sumiller/a", "Supervisor/a catering", "Supervisor/a colectividades", "Supervisor/a restauración moderna"],
+      "nivel4": ["Preparador/a montador/a catering", "Conductor/a equipo catering"],
+      "nivel5": ["Preparador/a restauración moderna", "Ayudante/a camarero", "Ayudante/a equipo catering", "Monitor/a o cuidador/a colectividades", "Asistente/a colectividades", "Asistente/a preparador/montador catering", "Asistente/a restauración moderna"]
+    },
+    "areaCuarta_pisosLimpieza": {
+      "nivel1": ["Gobernante/a o Encargado/a general"],
+      "nivel2": ["Subgobernante/a o Encargado/a sección"],
+      "nivel3": ["Camarero/a pisos"],
+      "nivel4": ["Auxiliar pisos y limpieza"]
+    },
+    "areaQuinta_mantenimientoServicios": {
+      "nivel1": ["Jefe/a servicios catering"],
+      "nivel2": ["Encargado/a mantenimiento y servicios auxiliares", "Encargado/a mantenimiento y servicios técnicos catering", "Encargado/a sección", "Especialista mantenimiento y servicios auxiliares"],
+      "nivel3": ["Especialista mantenimiento y servicios técnicos catering (flota o instalaciones y edificios)"],
+      "nivel5": ["Auxiliar mantenimiento y servicios auxiliares"]
+    },
+    "areaSexta_serviciosComplementarios": {
+      "nivel1": ["Responsable servicio", "Técnico/a servicio (fisioterapeuta, dietista y otros titulados en Ciencias de la Salud)"],
+      "nivel2": ["Especialista servicio (socorrista o especialista primeros auxilios, animador/a turístico o tiempo libre, monitor/a deportivo/a, pinchadiscos, masajista, quiromasajista, esteticista, especialista termal o balneario, hidroterapeuta y especialista atención al cliente)"],
+      "nivel4": ["Auxiliar servicio (auxiliar atención al cliente y auxiliar piscina o balneario)"]
+    }
+  },
+
+  "salariosBaseMensuales": {
+    "$comment": "Anexo III. € brutos/mes por NIVEL (1-5) y CATEGORÍA DE ESTABLECIMIENTO (A/B). Cada nivel incluye: salarioMensual (12 pagas), gratSeptiembre (paga extra de septiembre, Art. 30) y salarioAnual3Pagas (salario anual con las tres pagas extraordinarias). Verificado en imagen del BOP 34/2026 celda a celda. 2025 DEFINITIVA (+2% sobre 2024). 2026 PROVISIONAL (+2%, sujeta a revisión IPC 2026).",
+    "2025": {
+      "A": {
+        "1": { "salarioMensual": 1569.03, "gratSeptiembre": 532.70, "salarioAnual3Pagas": 22499.10 },
+        "2": { "salarioMensual": 1512.91, "gratSeptiembre": 528.83, "salarioAnual3Pagas": 21709.50 },
+        "3": { "salarioMensual": 1438.86, "gratSeptiembre": 523.72, "salarioAnual3Pagas": 20667.73 },
+        "4": { "salarioMensual": 1342.08, "gratSeptiembre": 517.05, "salarioAnual3Pagas": 19306.11 },
+        "5": { "salarioMensual": 1290.80, "gratSeptiembre": 513.51, "salarioAnual3Pagas": 18584.71 }
+      },
+      "B": {
+        "1": { "salarioMensual": 1512.91, "gratSeptiembre": 528.83, "salarioAnual3Pagas": 21709.50 },
+        "2": { "salarioMensual": 1438.86, "gratSeptiembre": 523.72, "salarioAnual3Pagas": 20667.73 },
+        "3": { "salarioMensual": 1380.85, "gratSeptiembre": 519.72, "salarioAnual3Pagas": 19851.64 },
+        "4": { "salarioMensual": 1286.22, "gratSeptiembre": 513.20, "salarioAnual3Pagas": 18520.23 },
+        "5": { "salarioMensual": 1232.77, "gratSeptiembre": 509.51, "salarioAnual3Pagas": 17768.27 }
+      }
+    },
+    "2026": {
+      "$comment": "PROVISIONALES (Art. 27). Si el IPC 2026 supera el 2%, se actualizan con la diferencia y pasan a definitivas (atrasos).",
+      "A": {
+        "1": { "salarioMensual": 1600.41, "gratSeptiembre": 543.35, "salarioAnual3Pagas": 22949.08 },
+        "2": { "salarioMensual": 1543.16, "gratSeptiembre": 539.41, "salarioAnual3Pagas": 22143.69 },
+        "3": { "salarioMensual": 1467.64, "gratSeptiembre": 534.20, "salarioAnual3Pagas": 21081.09 },
+        "4": { "salarioMensual": 1368.92, "gratSeptiembre": 527.39, "salarioAnual3Pagas": 19692.23 },
+        "5": { "salarioMensual": 1316.62, "gratSeptiembre": 523.78, "salarioAnual3Pagas": 18956.40 }
+      },
+      "B": {
+        "1": { "salarioMensual": 1543.16, "gratSeptiembre": 539.41, "salarioAnual3Pagas": 22143.69 },
+        "2": { "salarioMensual": 1467.64, "gratSeptiembre": 534.20, "salarioAnual3Pagas": 21081.09 },
+        "3": { "salarioMensual": 1408.47, "gratSeptiembre": 530.12, "salarioAnual3Pagas": 20248.67 },
+        "4": { "salarioMensual": 1311.94, "gratSeptiembre": 523.46, "salarioAnual3Pagas": 18890.63 },
+        "5": { "salarioMensual": 1257.42, "gratSeptiembre": 519.70, "salarioAnual3Pagas": 18123.64 }
+      }
+    }
+  },
+
+  "incrementoSalarial": {
+    "articulo": "Art. 27",
+    "2025": "2% sobre todos los conceptos económicos salariales y no salariales de 2024.",
+    "2026": "2% sobre todos los conceptos económicos salariales y no salariales.",
+    "clausulaIPC": "Para cada año (2025 y 2026): si el IPC general nacional del periodo 1-ene a 31-dic supera el 2%, se actualizan las tablas aplicando la diferencia entre el IPC y el 2% sobre las retribuciones vigentes a 31 de diciembre; la revisión genera atrasos y las tablas resultantes son las definitivas del año."
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 29 (Plus de Nocturnidad). NO es euros/hora fijo: es un recargo del 25% mediante fórmula, o compensación por descanso equivalente por acuerdo. NOTA: no confundir con el 'art. 24' que citan las tablas.",
+    "articulo": "Art. 29",
+    "tipo": "porcentaje",
+    "porcentaje": 25,
+    "sobre": "hora_ordinaria",
+    "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+    "formulaValorHora": "(Salario anual / Jornada anual) x 25% x Nº de horas nocturnas",
+    "excepcion": "No se aplica si el salario ya se ha establecido atendiendo a que el trabajo sea nocturno por su propia naturaleza.",
+    "alternativa": "Puede acordarse la compensación por periodos equivalentes de descanso en lugar del abono.",
+    "notaJornada": "El trabajador nocturno (parte no inferior a 3 h nocturnas de su jornada diaria, o previsión de un tercio de su jornada anual) no puede exceder de 8 h diarias de promedio en 15 días y no puede realizar horas extraordinarias."
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "Art. 14. El convenio SUPRIME las horas extraordinarias habituales. No fija un precio €/hora ni un recargo porcentual específico: solo estructurales, y compensables por descanso equivalente por acuerdo.",
+    "articulo": "Art. 14",
+    "tipo": "no_fijado",
+    "supresionHabituales": true,
+    "compensacion": "Por acuerdo entre empresa y trabajadores, las horas extraordinarias NO estructurales pueden compensarse por un tiempo equivalente de descanso.",
+    "tiposPermitidos": "Solo por reparación de siniestros/daños extraordinarios y urgentes o riesgo de pérdida de materias primas, y las estructurales (pedidos imprevistos, puntas de producción, ausencias imprevistas de cambio de turno) que no puedan cubrirse con otras modalidades de contratación.",
+    "registro": "Se registran día a día y se totalizan en el periodo de abono, entregando copia del resumen al trabajador (art. 35.5 ET).",
+    "precioEuroHora": "pendiente — el convenio no publica precio de la hora extraordinaria. Duda para UGT: ¿se abona al valor de la hora ordinaria, con recargo, o solo se compensa con descanso?"
+  },
+
+  "fiestasTrabajadas": {
+    "$comment": "Art. 13. 15 días festivos + fiesta patronal de Santa Marta. Compensación con recargo del 110%.",
+    "articulo": "Art. 13",
+    "recargoPorcentaje": 110,
+    "opciones": "Por acuerdo empresa-trabajador: (A) compensación económica = (salario anual / jornada anual) + 110% x horas trabajadas en festivo; o (B) compensación en horas libres = horas trabajadas + 110%, disfrutadas en días completos, acumulables a vacaciones o días libres. Los 15 días festivos trabajados pueden acumularse a las vacaciones o disfrutarse como descanso continuado en periodo distinto; en caso de acumulación se suma el descanso semanal. Seis de los festivos trabajados pueden disfrutarse acumuladamente en temporada alta.",
+    "fiestaPatronal": "Jornada festiva adicional para conmemorar la fiesta patronal de Santa Marta (patrona de la hostelería), disfrutable el propio día (si la empresa cierra) o el día que demande el trabajador con las limitaciones del Art. 13."
+  },
+
+  "antiguedad": {
+    "$comment": "Art. 26. CONGELADA: no se genera antigüedad desde 1/1/2015.",
+    "articulo": "Art. 26",
+    "generaComplemento": false,
+    "nota": "Desde el 1/1/2015 no se genera ningún complemento por antigüedad. La cantidad generada a esa fecha pasa a ser un complemento AD PERSONAM, no compensable ni absorbible."
+  },
+
+  "pluses": {
+    "$comment": "Art. 28 (Pluses). Importes del Anexo III (€/mes). NOTA: las tablas citan 'art. 24' para estos pluses; en el articulado vigente es el Art. 28.",
+    "articulo": "Art. 28",
+    "manutencion": {
+      "2025": 27.17, "2026": 27.72, "unidad": "€/mes (compensación en metálico)",
+      "nota": "Art. 28.I. Derecho a manutención con cargo a la empresa durante los días de servicio (2 platos, pan, bebida y postre en establecimientos con restaurante; plato combinado del día en cafeterías). NO se devenga en jornada a tiempo parcial ni en jornada partida con descanso de al menos 3 h entre jornadas. El trabajador puede optar por la sustitución en metálico según el importe del Anexo III."
+    },
+    "compensacionRopaTrabajo": {
+      "2025": 26.68, "2026": 27.22, "unidad": "€/mes (compensación en metálico)",
+      "nota": "Art. 28.III. La empresa está OBLIGADA a proporcionar la ropa de trabajo: mínimo 2 equipos anuales (pantalón, camisa y calzado) más los complementos del uniforme según categoría (cocinero: gorros, pañuelo y delantal; camareros: calcetines, pecherines y lazos/corbatas; camareras: medias y cofias). Si no se facilita, compensación en metálico según Anexo III."
+    },
+    "idiomas": {
+      "2025": 25.60, "2026": 26.11, "unidad": "€/mes",
+      "nota": "Art. 28.IV. Para categorías de las Áreas Primera o Tercera del Anexo II que acrediten niveles B1 y B2 (MCERL)."
+    },
+    "idiomasSegundoYSucesivos": {
+      "2025": 12.80, "2026": 13.05, "unidad": "€/mes",
+      "nota": "Art. 28.IV. Plus por segundo y sucesivos idiomas."
+    },
+    "desgasteHerramientas": {
+      "nota": "Art. 28.II. El desgaste de herramientas y útiles corre por cuenta de la empresa (no se abona plus al trabajador)."
+    },
+    "plusTransporte": "no_previsto — el convenio no establece plus de transporte.",
+    "plusNocturnidad": "Ver bloque 'nocturnidad' (Art. 29, 25% por fórmula)."
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 35 (Enfermedad y Accidente). Dato 'oro'. Complemento MUY generoso: 100% desde el primer día en AT/EP/maternidad y en la 1ª baja del año por enfermedad común. Distingue accidente/enfermedad profesional/maternidad de enfermedad común y accidente no laboral, y diferencia primera vs segunda baja del año natural.",
+    "articulo": "Art. 35",
+    "accidenteTrabajoEnfermedadProfesionalMaternidad": {
+      "complementoPorcentaje": 100,
+      "sobre": "base_reguladora_mes_anterior",
+      "desdeDia": 1,
+      "nota": "IT derivada de accidente de trabajo, enfermedad profesional y maternidad: complemento hasta el 100% de la base reguladora del mes anterior a la baja, desde el primer día y mientras dure la relación laboral."
+    },
+    "enfermedadComunYAccidenteNoLaboral": {
+      "primeraBajaDelAño": {
+        "complementoPorcentaje": 100,
+        "sobre": "base_reguladora_mes_anterior",
+        "desdeDia": 1,
+        "hastaDias": 180,
+        "nota": "Durante la PRIMERA baja del año natural: hasta el 100% de la base reguladora del mes anterior, durante los 180 primeros días."
+      },
+      "segundaBajaDelAño": {
+        "tramo1": { "complementoPorcentaje": 80, "diasDesde": 1, "diasHasta": 15, "sobre": "base_reguladora_mes_anterior" },
+        "tramo2": { "complementoPorcentaje": 100, "diasDesde": 16, "diasHasta": 180, "sobre": "base_reguladora_mes_anterior" },
+        "nota": "Durante la SEGUNDA baja del año natural: 80% de la base reguladora los 15 primeros días y 100% desde el día 16, durante los 180 primeros días."
+      }
+    },
+    "formaPago": "Los complementos de los TRES PRIMEROS días de la primera y segunda baja por enfermedad común y accidente no laboral se abonan en la última nómina de diciembre.",
+    "verificacionSalud": "Art. 20.4 ET: la empresa puede verificar el estado de salud alegado mediante reconocimiento a cargo de personal médico; la negativa del trabajador puede suspender los derechos económicos a cargo del empresario."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 16 (Licencias). En lo no previsto se está a los arts. 37.8 y 37.5 ET. La pareja de hecho se equipara al cónyuge (acreditación administrativa).",
+    "articulo": "Art. 16 (maternidad/prenatales: Arts. 18, 19, 20 y 21)",
+    "matrimonioOparejaHecho": { "dias": 15, "tipo": "naturales", "articulo": "Art. 16.a", "nota": "15 días naturales por matrimonio o pareja de hecho. Inicio el primer día laboral siguiente al hecho causante. Si las vacaciones anuales se fraccionan en 2 o más periodos, el trabajador que lo solicite disfruta los 15 días en fecha distinta acumulados a un periodo vacacional." },
+    "accidenteEnfermedadGraveHospitalizacion": { "dias": 5, "tipo": "no_especificado", "articulo": "Art. 16.b", "causa": "Accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario del cónyuge, pareja de hecho o parientes hasta el 2º grado por consanguinidad o afinidad (incluido el consanguíneo de la pareja de hecho) y cualquier conviviente que requiera cuidado efectivo.", "aEleccion": "Días continuados o alternos mientras dure el hecho causante, con justificación.", "extranjero": "Si la causa ocurre en el extranjero, licencia NO retribuida de hasta 6 días, justificando causa y desplazamiento." },
+    "fallecimiento": { "dias": 2, "diasConDesplazamiento": 4, "tipo": "no_especificado", "articulo": "Art. 16.b bis", "causa": "Fallecimiento del cónyuge, pareja de hecho o parientes hasta el 2º grado por consanguinidad o afinidad. +2 días si necesita desplazamiento." },
+    "trasladoDomicilio": { "dias": 1, "articulo": "Art. 16.c" },
+    "deberInexcusable": { "dias": "tiempo indispensable", "articulo": "Art. 16.d", "causa": "Cumplimiento de deber inexcusable de carácter público y personal (incluido sufragio activo y renovación del permiso de trabajo/residencia del trabajador, cónyuge, ascendientes o descendientes directos). Si el deber impide la prestación en más del 20% de las horas laborables en 3 meses, la empresa puede pasar al trabajador a excedencia forzosa (art. 46.1 ET). Si se percibe indemnización por el cargo, se descuenta del salario." },
+    "matrimonioFamiliares": { "dias": 1, "articulo": "Art. 16.e", "causa": "1 día por matrimonio de hijos, hermanos, padres, nietos y abuelos del trabajador; y 1 día por matrimonio de padres y hermanos del cónyuge." },
+    "consultaMedicaPropia": { "articulo": "Art. 16.f", "detalle": "Tiempo necesario para asistencia a consulta médica, previa petición y justificación, sin descuento de salario ni recuperación del tiempo." },
+    "funcionesSindicales": { "articulo": "Art. 16.g", "detalle": "Para funciones sindicales o de representación del personal en los términos legales o convencionales." },
+    "examenesPrenatales": { "articulo": "Art. 16.h (y Art. 18)", "detalle": "Tiempo indispensable para exámenes prenatales y técnicas de preparación al parto (y técnicas de fecundación asistida) que deban realizarse dentro de la jornada." },
+    "consultaMedicaHijosMenores16": { "articulo": "Art. 16.i", "detalle": "Permiso retribuido por el tiempo necesario para acudir a consulta médica de menores de 16 años cuando ambos progenitores trabajen por cuenta ajena; si ambos son de la misma empresa, solo cuando el turno de uno coincida con la consulta. Si el especialista está fuera de la provincia, comprende el tiempo necesario (no computa como trabajo efectivo)." },
+    "imposibilidadAccesoCentro": { "dias": "hasta 4", "articulo": "Art. 16.j", "causa": "Imposibilidad de acceder al centro o transitar por las vías por limitaciones/prohibiciones de las autoridades o riesgo grave e inminente (catástrofe o fenómeno meteorológico adverso). Transcurridos los 4 días se prolonga hasta que desaparezcan las circunstancias (art. 47.6 ET)." },
+    "actosPreparatoriosDonacion": { "articulo": "Art. 16.k", "detalle": "Tiempo indispensable para actos preparatorios de donación de órganos o tejidos dentro de la jornada." },
+    "fuerzaMayorFamiliar": { "dias": "hasta 4 al año", "articulo": "Art. 16.l", "causa": "Ausencia por fuerza mayor por motivos familiares urgentes (enfermedad o accidente de familiares o convivientes que hagan indispensable la presencia inmediata). Retribuidas hasta el equivalente a 4 días laborables al año (art. 37.9 ET)." },
+    "lactancia": { "articulo": "Art. 21", "duracion": "Hasta que el hijo cumple 9 meses.", "opciones": ["1 hora de ausencia (divisible en 2 fracciones)", "media hora de reducción de jornada", "acumulación en jornadas completas de 14 días laborables"], "nota": "Derecho de madre o padre indistintamente si ambos trabajan." },
+    "nacimientoHijoPrematuro": { "articulo": "Art. 19", "detalle": "Nacimiento de hijos prematuros u hospitalizados tras el parto: 1 hora de ausencia y derecho a reducir la jornada hasta un máximo de 2 horas, con reducción proporcional del salario." },
+    "notaGeneral": "Art. 16: en lo no regulado se está a los arts. 37.8 y 37.5 ET. Se equipara la pareja de hecho al cónyuge previa acreditación administrativa. El Art. 16 no especifica de forma expresa el carácter laborable/natural de todos los permisos (salvo matrimonio, que es naturales). Duda para UGT sobre el cómputo (laborables/naturales) de los permisos b), b bis) y c)."
+  },
+
+  "excedencias": {
+    "$comment": "Arts. 22 (excedencias) y 23 (excedencia forzosa).",
+    "articulo": "Arts. 22 y 23",
+    "cuidadoHijos": {
+      "articulo": "Art. 22.a",
+      "detalle": "Se está al art. 46.3 ET, con la MEJORA de que la reserva del puesto de trabajo se mantiene durante TODA la duración de la excedencia (no solo el primer año)."
+    },
+    "cuidadoFamiliares": {
+      "articulo": "Art. 22.b",
+      "duracion": "no superior a 2 años",
+      "detalle": "Para atender al cuidado de un familiar hasta el 2º grado de consanguinidad o afinidad que por edad, accidente, discapacidad o enfermedad no pueda valerse y no desempeñe actividad retribuida. Computable a efectos de antigüedad y con derecho a reserva del puesto."
+    },
+    "voluntaria": {
+      "articulo": "Art. 22.c",
+      "antiguedadMinima": "1 año",
+      "duracion": "no menor a 4 meses ni mayor a 5 años",
+      "repeticion": "Ejercitable de nuevo por el mismo trabajador tras 4 años desde el final de la anterior.",
+      "reserva": "Reserva del puesto de trabajo durante los primeros 24 meses de la excedencia."
+    },
+    "especialCuidadoFamiliar1erGrado": {
+      "articulo": "Art. 22.d",
+      "duracion": "máximo 3 meses",
+      "detalle": "Excedencia especial por accidente o enfermedad grave que precise reposo, cuidados y tratamiento domiciliario de familiares de PRIMER grado de consanguinidad o afinidad, con reserva de puesto. Reincorporación anticipada posible si la evolución es favorable, solicitándolo con 10 días de antelación."
+    },
+    "forzosa": {
+      "articulo": "Art. 23",
+      "causa": "Designación o elección para cargo público o función sindical que imposibilite la asistencia al trabajo.",
+      "efectos": "Conserva el puesto y el cómputo de antigüedad.",
+      "reingreso": "Debe solicitarse dentro del mes siguiente al cese en el cargo, con reincorporación inmediata.",
+      "reincorporacionAutomatica": "El personal en excedencia forzosa (maternidad/cuidado de familiares, motivos sindicales o cargo público) tiene derecho a incorporarse automáticamente, respetando categoría y salario, si lo solicita por escrito con 1 mes de antelación al fin de la excedencia (Art. 22)."
+    }
+  },
+
+  "polivalencia": {
+    "$comment": "Art. 25. Trabajos de superior o inferior grupo profesional.",
+    "articulo": "Art. 25",
+    "superiorGrupo": "Solo en casos excepcionales por razones técnicas u organizativas justificadas y por el tiempo imprescindible (no como ocupación habitual). El trabajador percibe la DIFERENCIA entre su salario base y el salario base de referencia del puesto ocupado.",
+    "inferiorGrupo": "Solo por necesidades imprevisibles o perentorias y por el tiempo imprescindible. El trabajador MANTIENE la retribución de origen."
+  },
+
+  "periodoPrueba": {
+    "$comment": "El articulado NO regula duraciones propias del periodo de prueba: no aparece en el índice ni en el texto. Se remite al ALEH estatal vía art. 5 (prelación normativa).",
+    "articulo": "No regulado en el convenio provincial (Art. 5 remite al ALEH y al ET).",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería) vigente en cada momento.",
+    "nota": "Consultar el ALEH para la duración por grupo/categoría. Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El articulado del convenio (Arts. 1-48) NO tipifica faltas leves/graves/muy graves ni sanciones. Solo hay un apartado 'Séptimo. Régimen disciplinario' dentro de las medidas LGTBI, que se limita a decir que la aplicación del régimen disciplinario quedará informada por los principios de igualdad y no discriminación de las personas LGTBI. Por tanto, la tipificación de faltas y sanciones se rige por el ALEH estatal y el ET.",
+    "articulo": "No tipificado en el convenio provincial (Art. 5 remite al ALEH y al ET).",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería), que sí regula la tipificación de faltas leves/graves/muy graves y las sanciones, y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver ALEH",
+    "faltasGraves": "pendiente — ver ALEH",
+    "faltasMuyGraves": "pendiente — ver ALEH",
+    "sanciones": "pendiente — ver ALEH (amonestación, suspensión de empleo y sueldo por nº de días, inhabilitación para ascenso, despido solo en muy graves).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede imponer sanciones que consistan en la reducción de la duración de las vacaciones u otra minoración de los derechos al descanso, ni en multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad, que no es sanción. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos. Sin ello la sanción es impugnable.",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    }
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 33 (extras y fijos-discontinuos) y 34 (ETT). El fijo-discontinuo es clave en hostelería de temporada.",
+    "articulo": "Art. 33 (y Art. 34 para ETT)",
+    "fijoDiscontinuo": {
+      "baseLegal": "Art. 16 del ET.",
+      "llamamiento": "Por cualquier medio que deje constancia (preferiblemente email facilitado por el trabajador, llamada telefónica o WhatsApp), con antelación mínima de 2 días naturales.",
+      "ordenLlamamiento": "1º) persona con más experiencia en el servicio en la empresa para el mismo puesto; 2º) persona con más antigüedad en la empresa.",
+      "duracion": "Mínima 4 meses, máxima 10 meses en cómputo anual.",
+      "declinarLlamamiento": "El trabajador puede declinar hasta 2 veces si acredita que está trabajando y de alta en Seguridad Social, sin que se considere baja voluntaria.",
+      "retrasoLlamamiento": "La empresa puede retrasar el llamamiento un máximo de 10 días comunicándolo por escrito con fecha cierta de reincorporación.",
+      "vacantes": "La empresa notifica a la RLT y a los fijos-discontinuos las vacantes a cubrir; se cubren por riguroso orden de antigüedad, con opción preferente sobre contrataciones externas.",
+      "presuncionNoLlamado": "Se presume no efectuado el llamamiento cuando transcurran 10 días naturales desde la fecha de las actividades para las que se contrata, o cuando la empresa comunique fehacientemente la decisión de extinguir el contrato.",
+      "perdidaCondicion": "El fijo-discontinuo llamado que no se incorpore pierde la condición de fijo-discontinuo (asimilado a baja voluntaria).",
+      "garantiaOcupacion": "Garantía mínima de ocupación de 4 meses al año para bodas, bautizos y comuniones de temporada (salvo que las características/temporada supongan más jornadas). Computa tiempo efectivo y descansos computables (descanso semanal, entre jornadas, vacaciones, fiestas, permisos retribuidos y suspensiones legales)."
+    },
+    "trabajadoresExtra": {
+      "detalle": "Servicios extraordinarios de hostelería (banquetes, cócteles, celebraciones sociales de breve duración e irregular) que no puedan prestar los trabajadores fijos de la empresa. Duración máxima 8 h de trabajo efectivo (sin computar la comida/cena). Funciones propias de la categoría incluyendo puesta a punto (vajilla, mantelería, cristalería, cubertería y desbrase). Ropa de trabajo (camisa y chaqueta/chaleco negro, pantalón, calcetines y zapato negro, lazo blanco o negro) por cuenta del trabajador salvo uniforme distinto que exija la empresa. Retribución en proporción a la duración conforme al convenio."
+    },
+    "ett": "Art. 34: la cesión temporal solo a través de ETT autorizadas (art. 43 ET); duración según ET o legislación vigente.",
+    "manipuladorAlimentos": "Art. 44: las empresas asumen los gastos de renovación del carnet de manipulador de alimentos (formación en higiene y manipulación, Reglamento CE 852/2004)."
+  },
+
+  "formacion": {
+    "$comment": "Art. 32 (Comisión Paritaria Sectorial de Formación). NOTA: el art. 32 del articulado es Formación; no confundir con la 'gratificación de septiembre (art. 32)' de las tablas, que en el articulado es el Art. 30.",
+    "articulo": "Art. 32",
+    "gestion": "Comisión Paritaria Sectorial de Formación (6 representantes sindicales + 6 empresariales) que promueve la formación continua, establece criterios de planes de formación y analiza necesidades del sector.",
+    "creditoHorasFormacion": "Para acciones formativas presenciales, el 50% de las horas necesarias será dentro de la jornada laboral (o se deducen de ella), con un MÁXIMO de 30 horas al año a cargo de la empresa. Durante esas horas el trabajador cobra como si trabajara en hora ordinaria.",
+    "condiciones": "La empresa puede denegar la asistencia mediante resolución motivada por razones técnicas, organizativas o de producción (recurrible ante la Comisión Paritaria Sectorial de Formación).",
+    "permisosExamenes": "Ver Art. 16.d/h (deberes públicos, exámenes prenatales) — el convenio no fija un permiso específico de exámenes académicos en el Art. 16.",
+    "ayudaEstudios": "no_previsto — el convenio no establece plus/ayuda de estudios."
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Art. 47 (Igualdad efectiva) + Disposiciones/medidas LGTBI. Novedad de este convenio: incorporación de un Plan/Protocolo LGTBI (destacado por UGT-CLM al firmarlo).",
+    "articulo": "Art. 47 y apartado de Medidas LGTBI (tras Disposiciones Finales)",
+    "planesIgualdad": "Se compromete el derecho de igualdad de trato y oportunidades (LO 3/2007). En las materias no reguladas se está a los arts. 46 a 51 del V Acuerdo Laboral Estatal de Hostelería (ALEH V).",
+    "acosoSexualYporRazonDeSexo": "Las partes se comprometen a cumplir los protocolos de actuación en materia de igualdad y no discriminación acordados en el art. 45 del ALEH V.",
+    "medidasLGTBI": "Marco sectorial para dar efectividad a la Ley 4/2023 (igualdad real y efectiva de personas trans y garantía de derechos LGTBI) y al RD 1026/2024. En empresas de MÁS DE 50 personas trabajadoras, las medidas planificadas LGTBI son OBLIGATORIAS (art. 15.1 Ley 4/2023); en empresas de 50 o menos, la negociación es voluntaria. Incluye un 'Protocolo de actuación frente al acoso y la violencia contra las personas LGTBI' con declaración de principios (tolerancia cero), procedimiento de denuncia (ante dirección o RLT), garantías (agilidad, confidencialidad, protección de la víctima frente a represalias, prohibición de represalias, restitución de la víctima) y modelo de denuncia.",
+    "violenciaDeGenero": "El convenio remite a la legislación vigente; no cuantifica mejoras propias.",
+    "mejoraET": "El convenio remite en lo esencial a la legislación (LO 3/2007, Ley 4/2023, ALEH V) e incorpora expresamente el marco LGTBI."
+  },
+
+  "representacionSindical": {
+    "$comment": "El convenio NO detalla el crédito horario ni las garantías/fuero de los representantes con carácter general (más allá de los Delegados de Prevención). Se rige por el ET (arts. 62-68) y la LOLS. Solo regula específicamente los Delegados de Prevención (Art. 40).",
+    "articulo": "Art. 40 (Delegados de Prevención); resto por ET/LOLS",
+    "creditoHorario": {
+      "horasMensuales": "pendiente — no fijado en el convenio con carácter general; se aplica la escala legal del art. 68.e ET (15 h/mes hasta 100 trabajadores, etc.).",
+      "delegadosPrevencion": "El tiempo de los Delegados de Prevención para sus funciones se imputa al crédito de horas mensuales retribuidas del art. 68.e ET, salvo el ejercicio de funciones de los arts. 36.2.a) y c) y 37.1 y 2 LPRL, que se considera tiempo efectivo de trabajo (Art. 40)."
+    },
+    "delegadosPrevencion": {
+      "articulo": "Art. 40",
+      "designacion": "Designados por y entre los representantes del personal (o, si no ostentan esa condición, acreditando formación mínima de 40 h en la materia).",
+      "escala": "50-100 trabajadores: 2; 101-500: 3; 501-1000: 4; 1001-2000: 5; 2001-3000: 6; 3001-4000: 7; +4001: 8 Delegados de Prevención."
+    },
+    "comiteSeguridadYSalud": "Art. 41: formado por los Delegados de Prevención y el empresario/representantes en número igual.",
+    "quienRepresentaYeleccion": "pendiente — no detallado en el convenio; se rige por el ET (arts. 62-68: delegados de personal en empresas 6-49, comité de empresa desde 50) y la LOLS.",
+    "garantiasYfuero": "pendiente — no detallado en el convenio; se rige por el art. 68 ET (expediente contradictorio previo a sanción grave, prioridad de permanencia, protección frente a despido/sanción por actividad representativa durante el mandato y el año siguiente)."
+  },
+
+  "otrasCondicionesEconomicasNoSalariales": {
+    "$comment": "Complementos y prestaciones sociales del articulado (Arts. 35-38), útiles para finiquito y reclamaciones.",
+    "seguroMuerteEInvalidez": {
+      "articulo": "Art. 36",
+      "importe": { "2025": 34611.61, "2026": 35303.84, "unidad": "€ (indemnización a tanto alzado)" },
+      "coberturas": "Indemnización a tanto alzado según Anexo III en supuestos de muerte, invalidez permanente absoluta o gran invalidez del trabajador derivada de accidente de trabajo o enfermedad profesional (causa iniciada tras la publicación del convenio; en otros casos rigen las cuantías del convenio anterior). También indemnización por no adaptación del puesto que extinga la relación (art. 49.1.n ET). La empresa facilita nº de póliza y entidad aseguradora."
+    },
+    "auxilioPorDefuncion": {
+      "articulo": "Art. 37",
+      "detalle": "En caso de fallecimiento por cualquier causa de un trabajador, sus herederos legales perciben una mensualidad del salario convenio más antigüedad, con arreglo a la categoría profesional del fallecido."
+    },
+    "ayudaPorJubilacion": {
+      "articulo": "Art. 38",
+      "detalle": "I. Jubilación a los 64 años (100% de los derechos pasivos con contratación simultánea de desempleados, según legislación vigente). II. Jubilación parcial para quienes reúnan los requisitos legales."
+    }
+  },
+
+  "estado": "verificado",
+  "estadoNota": "Tablas 2025 (definitivas) y 2026 (provisionales) verificadas en IMAGEN del BOP 34/2026 celda a celda. Condiciones no salariales verificadas leyendo en IMAGEN el articulado completo (Arts. 1-48 + Disposiciones + Anexos I-IV) del BOP 140/2025. Régimen disciplinario y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal.",
+  "pendienteCondiciones": [
+    "salariosBaseMensuales.2026: PROVISIONALES (Art. 27). Sujetas a revisión si el IPC 2026 > 2% (pasarían a definitivas con atrasos).",
+    "vacaciones.retribucion: el Art. 15 no especifica cómo se retribuye el disfrute anual (salario base vs promedio con complementos); solo el finiquito a salario real. Duda para UGT.",
+    "vacaciones.preaviso: el convenio fija calendario antes del 15 de enero pero no un preaviso individual de 2 meses. Duda para UGT.",
+    "permisosRetribuidos: el Art. 16 no aclara el carácter laborable/natural de varios permisos (salvo matrimonio, naturales). Duda para UGT.",
+    "horasExtraordinarias.precioEuroHora: el convenio no publica precio de la hora extra; suprime las habituales y prevé compensación por descanso. Duda para UGT.",
+    "regimenDisciplinario: faltas y sanciones NO tipificadas en el convenio → tomar del ALEH estatal.",
+    "periodoPrueba: duraciones por grupo/categoría NO reguladas en el convenio → tomar del ALEH estatal.",
+    "representacionSindical (crédito horario general, quién representa, garantías/fuero): no detallado en el convenio → base legal ET arts. 62-68 y LOLS.",
+    "DESAJUSTE DE NUMERACIÓN: el acta de tablas (Feb 2026) cita 'art. 24' para pluses y 'art. 32' para la paga de septiembre; en el articulado vigente (BOP 140/2025) son el Art. 28 (pluses) y el Art. 30 (gratificaciones). Se han usado los artículos del articulado vigente. Duda para UGT: confirmar la correspondencia."
+  ],
+  "verificadoContra": "Dos PDF oficiales del BOP de Guadalajara leídos en IMAGEN (fitz, 185 dpi): (1) BOP nº 140 de 23-07-2025 (articulado completo, 42 páginas) — Arts. 4 (vigencia/ultraactividad), 11-12 (jornada 1784 h, descanso 12 h, bolsa 40 h), 13 (fiestas 110%), 14 (horas extra), 15 (vacaciones 32 días naturales), 16 y 18-21 (licencias, lactancia), 22-23 (excedencias), 25 (polivalencia), 26 (antigüedad congelada), 27 (salario, +2% + IPC), 28 (pluses), 29 (nocturnidad 25%), 30 (3 pagas extra), 32 (formación), 33-34 (fijos-discontinuos, extras, ETT), 35 (complemento IT), 36-38 (seguro/auxilio/jubilación), 40-41 (delegados/comité PRL), 44 (manipulador), 47 (igualdad) + medidas LGTBI, Anexo I (categorías A/B), Anexo II (áreas funcionales y niveles), Anexo IV (grados de parentesco). (2) BOP nº 34 de 19-02-2026 (tablas definitivas 2025 + provisionales 2026, 4 páginas) — Anexo III verificado celda a celda.",
+  "fechaVerificacion": "2026-07-08"
+}
