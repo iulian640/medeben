@@ -69,15 +69,252 @@
       "Aprendiz menor de 18 años": { "lujo": {"i":16.11,"g":826.03}, "primera": {"i":16.11,"g":826.03}, "segunda": {"i":14.94,"g":826.03}, "tercera": {"i":13.53,"g":826.03} }
     }
   },
+  "seccion3_personalVarios_2025def": {
+    "$comment": "Sección 3ª restaurantes, 'Personal varios' (oficinas, limpieza, mantenimiento). Salario mensual, Inicial (i) y Garantizado (g), por categoría de establecimiento Lujo/Primera/Segunda/Tercera/Cuarta. Celda vacía = no contemplado. Pág. 5 del PDF. i=null cuando la casilla del inicial está en blanco.",
+    "personal": {
+      "Contable general":        { "lujo": {"i":483.65,"g":1623.07}, "primera": {"i":452.93,"g":1607.76}, "segunda": {"i":447.65,"g":1576.18} },
+      "Oficial contabilidad":    { "lujo": {"i":452.93,"g":1529.18}, "primera": {"i":447.65,"g":1513.56}, "segunda": {"i":447.65,"g":1497.87} },
+      "Cajero comedor":          { "lujo": {"i":452.93,"g":1482.24}, "primera": {"i":447.65,"g":1466.50}, "segunda": {"i":447.65,"g":1450.98} },
+      "Interventor":             { "lujo": {"i":452.93,"g":1576.18}, "primera": {"i":447.65,"g":1550.97}, "segunda": {"i":447.65,"g":1529.18} },
+      "Telefonista 1.º":         { "lujo": {"i":452.93,"g":1529.18}, "primera": {"i":447.65,"g":1513.56}, "segunda": {"i":447.65,"g":1497.87} },
+      "Telefonista 2.º":         { "lujo": {"i":452.93,"g":1450.98}, "primera": {"i":447.65,"g":1435.27}, "segunda": {"i":447.65,"g":1419.61} },
+      "Auxiliar oficinas":       { "lujo": {"i":452.93,"g":1450.98}, "primera": {"i":447.65,"g":1435.27}, "segunda": {"i":447.65,"g":1419.61} },
+      "Portero servicios":       { "lujo": {"i":452.93,"g":1450.98}, "primera": {"i":447.65,"g":1435.27}, "segunda": {"i":447.65,"g":1419.61} },
+      "Encargada lencería":      { "lujo": {"i":452.93,"g":1529.18}, "primera": {"i":447.65,"g":1513.56}, "segunda": {"i":447.65,"g":1497.87}, "tercera": {"i":447.65,"g":1497.87} },
+      "Portero de acceso":       { "lujo": {"i":18.46,"g":1394.56}, "primera": {"i":18.46,"g":1394.56}, "segunda": {"i":18.46,"g":1394.56} },
+      "Vigilante de noche":      { "lujo": {"i":20.53,"g":1394.56}, "primera": {"i":20.53,"g":1394.56}, "segunda": {"i":20.53,"g":1394.56} },
+      "Botones mayor de 18 años": { "lujo": {"i":15.97,"g":1394.56}, "primera": {"i":15.97,"g":1394.56}, "segunda": {"i":15.97,"g":1394.56} },
+      "Botones menor de 18 años": { "lujo": {"i":null,"g":1021.40}, "primera": {"i":null,"g":1021.40}, "segunda": {"i":null,"g":1021.40} },
+      "Planchadora diario":      { "lujo": {"i":20.04,"g":1394.56}, "primera": {"i":20.04,"g":1394.56}, "segunda": {"i":20.04,"g":1394.56}, "tercera": {"i":20.04,"g":1394.56}, "cuarta": {"i":20.04,"g":1394.56} },
+      "Costurera zurcidora":     { "lujo": {"i":20.04,"g":1394.56}, "primera": {"i":20.04,"g":1394.56}, "segunda": {"i":20.04,"g":1394.56}, "tercera": {"i":20.04,"g":1394.56}, "cuarta": {"i":20.04,"g":1394.56} },
+      "Lavandera-lencera":       { "lujo": {"i":20.04,"g":1394.56}, "primera": {"i":20.04,"g":1394.56}, "segunda": {"i":20.04,"g":1394.56}, "tercera": {"i":20.04,"g":1394.56}, "cuarta": {"i":20.04,"g":1394.56} },
+      "Limpiadora (jornada entera)": { "lujo": {"i":20.04,"g":1394.56}, "primera": {"i":20.04,"g":1394.56}, "segunda": {"i":20.04,"g":1394.56}, "tercera": {"i":20.04,"g":1394.56}, "cuarta": {"i":20.04,"g":1394.56} },
+      "Limpiadora (media jornada)": { "lujo": {"i":null,"g":697.37}, "primera": {"i":null,"g":697.37}, "segunda": {"i":null,"g":697.37}, "tercera": {"i":null,"g":697.37}, "cuarta": {"i":null,"g":697.37} },
+      "Aprendiz mayor de 18 años": { "lujo": {"i":204.81,"g":1021.40}, "primera": {"i":204.81,"g":1021.40}, "segunda": {"i":204.81,"g":1021.40} },
+      "Aprendiz menor de 18 años": { "lujo": {"i":204.81,"g":826.02}, "primera": {"i":204.81,"g":826.02}, "segunda": {"i":204.81,"g":826.02} }
+    }
+  },
+  "seccion4_cafeterias_2025def": {
+    "$comment": "Sección 4ª cafeterías con servicio de mostrador y sala. Salario mensual Inicial (i) y Garantizado (g), categorías de establecimiento Especial/Primera/Segunda. Pág. 6 del PDF.",
+    "mostradorYSala": {
+      "Primer encargado":  { "especial": {"i":492.69,"g":1623.07}, "primera": {"i":476.54,"g":1607.39}, "segunda": {"i":476.54,"g":1576.18} },
+      "Segundo encargado": { "especial": {"i":476.54,"g":1576.18}, "primera": {"i":449.42,"g":1530.94}, "segunda": {"i":413.47,"g":1529.21} },
+      "Dependiente":       { "especial": {"i":449.42,"g":1529.21}, "primera": {"i":413.47,"g":1513.55}, "segunda": {"i":395.51,"g":1497.86} },
+      "Ayudante":          { "especial": {"i":351.66,"g":1450.99}, "primera": {"i":341.95,"g":1435.28}, "segunda": {"i":330.45,"g":1419.61} },
+      "Auxiliar de caja":  { "especial": {"i":351.66,"g":1482.25}, "primera": {"i":341.95,"g":1466.50}, "segunda": {"i":330.45,"g":1435.31} }
+    },
+    "personalVarios": {
+      "Cocinero":            { "especial": {"i":449.42,"g":1482.25}, "primera": {"i":413.47,"g":1466.50}, "segunda": {"i":395.51,"g":1450.99} },
+      "Ayudante cocinero":   { "especial": {"i":351.66,"g":1450.99}, "primera": {"i":341.95,"g":1435.28}, "segunda": {"i":330.45,"g":1419.61} },
+      "Repostero":           { "especial": {"i":446.10,"g":1576.18}, "primera": {"i":410.21,"g":1530.94}, "segunda": {"i":382.41,"g":1529.21} },
+      "Ayudante repostero":  { "especial": {"i":341.95,"g":1450.99}, "primera": {"i":330.45,"g":1435.28}, "segunda": {"i":322.26,"g":1419.61} },
+      "Cafetero":            { "especial": {"i":446.10,"g":1482.25}, "primera": {"i":410.21,"g":1466.50}, "segunda": {"i":383.84,"g":1450.99} },
+      "Ayudante cafetero":   { "especial": {"i":341.95,"g":1450.99}, "primera": {"i":330.45,"g":1435.28}, "segunda": {"i":322.26,"g":1419.61} },
+      "Encargado almacén":   { "especial": {"i":364.73,"g":1576.18}, "primera": {"i":364.73,"g":1530.94}, "segunda": {"i":341.95,"g":1529.21} },
+      "Mozo almacén":        { "especial": {"i":302.74,"g":1450.99}, "primera": {"i":302.74,"g":1435.28}, "segunda": {"i":302.74,"g":1419.61} },
+      "Planchista":          { "especial": {"i":449.42,"g":1482.25}, "primera": {"i":413.47,"g":1466.50}, "segunda": {"i":395.51,"g":1450.99} },
+      "Ayudante planchista": { "especial": {"i":351.66,"g":1450.99}, "primera": {"i":341.95,"g":1435.28}, "segunda": {"i":330.45,"g":1419.61} },
+      "Telefonista":         { "especial": {"i":273.50,"g":1450.99}, "primera": {"i":253.96,"g":1435.28}, "segunda": {"i":237.70,"g":1419.61} },
+      "Mecánico calefactor": { "especial": {"i":330.43,"g":1482.25}, "primera": {"i":317.38,"g":1466.50}, "segunda": {"i":302.70,"g":1450.99} },
+      "Portero":             { "especial": {"i":341.95,"g":1450.99}, "primera": {"i":330.45,"g":1435.28}, "segunda": {"i":322.26,"g":1419.61} },
+      "Fregadora-limpiadora": { "especial": {"i":216.17,"g":1425.94}, "primera": {"i":216.17,"g":1425.94}, "segunda": {"i":216.18,"g":1425.94} },
+      "Contable":            { "especial": {"i":410.34,"g":1623.07}, "primera": {"i":398.64,"g":1607.39}, "segunda": {"i":371.20,"g":1576.18} },
+      "Cajero":              { "especial": {"i":341.95,"g":1576.18}, "primera": {"i":330.45,"g":1530.94}, "segunda": {"i":322.26,"g":1529.21} },
+      "Oficial contabilidad": { "especial": {"i":341.95,"g":1529.21}, "primera": {"i":330.45,"g":1513.55}, "segunda": {"i":322.26,"g":1497.86} },
+      "Auxiliar":            { "especial": {"i":322.26,"g":1450.99}, "primera": {"i":302.70,"g":1435.28}, "segunda": {"i":266.20,"g":1419.61} },
+      "Aprendiz mayor de 18 años": { "especial": {"i":191.32,"g":1021.40}, "primera": {"i":175.83,"g":1021.40}, "segunda": {"i":169.26,"g":1021.40} },
+      "Aprendiz menor de 18 años": { "especial": {"i":191.32,"g":826.03}, "primera": {"i":175.83,"g":826.03}, "segunda": {"i":169.26,"g":826.03} }
+    }
+  },
+  "seccion5_baresAmericanos_2025def": {
+    "$comment": "Sección 5ª bares americanos y wiskerías. Salario mensual. 'barra' con Inicial/Garantizado (una sola escala); 'sala' con Inicial (i) y Garantizado (g) por categoría de establecimiento Lujo/Primera/Segunda/Tercera/Cuarta. Pág. 7 del PDF.",
+    "barra": {
+      "Barman":        { "inicial": 34.17, "garantizado": 1623.07 },
+      "Segundo barman": { "inicial": 28.51, "garantizado": 1576.18 },
+      "Ayudante barman": { "inicial": 23.34, "garantizado": 1529.18 },
+      "Aprendiz mayor de 18 años": { "inicial": 16.12, "garantizado": 1021.40 },
+      "Aprendiz menor de 18 años": { "inicial": 16.12, "garantizado": 826.03 }
+    },
+    "sala": {
+      "Jefe de sala":       { "lujo": {"i":34.29,"g":1623.07}, "primera": {"i":31.16,"g":1607.39}, "segunda": {"i":31.16,"g":1576.18}, "tercera": {"i":31.16,"g":1576.18}, "cuarta": {"i":31.16,"g":1576.18} },
+      "Camarero":           { "lujo": {"i":22.25,"g":1482.24}, "primera": {"i":20.53,"g":1466.50}, "segunda": {"i":18.53,"g":1450.98}, "tercera": {"i":17.24,"g":1450.98}, "cuarta": {"i":15.87,"g":1450.98} },
+      "Ayudante camarero":  { "lujo": {"i":17.24,"g":1450.98}, "primera": {"i":16.58,"g":1435.27}, "segunda": {"i":15.33,"g":1419.61}, "tercera": {"i":14.10,"g":1419.61}, "cuarta": {"i":12.46,"g":1419.61} }
+    }
+  },
+  "seccion5_mostradorCafesBares_2025def": {
+    "$comment": "Sección 5ª. Personal de mostrador de cafés, bares, cervecerías, chocolaterías, heladerías. Salario mensual GARANTIZADO (valor único por categoría de establecimiento Especial/Primera/Segunda/Tercera/Cuarta; esta tabla no desglosa inicial). Pág. 8 del PDF.",
+    "mostrador": {
+      "Primer encargado mostrador":  { "especial": 1623.07, "primera": 1607.39, "segunda": 1576.18, "tercera": 1576.18, "cuarta": 1576.18 },
+      "Segundo encargado mostrador": { "especial": 1576.18, "primera": 1551.14, "segunda": 1529.18, "tercera": 1529.18, "cuarta": 1529.18 },
+      "Dependiente de primera":      { "especial": 1529.18, "primera": 1513.56, "segunda": 1497.87, "tercera": 1497.87, "cuarta": 1497.87 },
+      "Dependiente de segunda":      { "especial": 1482.24, "primera": 1466.50, "segunda": 1450.98, "tercera": 1450.98, "cuarta": 1450.98 }
+    },
+    "personalVarios": {
+      "Contable":            { "especial": 1623.07, "primera": 1607.39, "segunda": 1576.18, "tercera": 1576.18, "cuarta": 1576.18 },
+      "Cajero":              { "especial": 1576.18, "primera": 1551.14, "segunda": 1529.18, "tercera": 1529.18, "cuarta": 1529.18 },
+      "Auxiliar caja":       { "especial": 1450.98, "primera": 1435.27, "segunda": 1419.61, "tercera": 1419.61, "cuarta": 1419.61 },
+      "Oficial contabilidad": { "especial": 1529.18, "primera": 1513.56, "segunda": 1497.87, "tercera": 1497.87, "cuarta": 1497.87 },
+      "Auxiliar de oficinas": { "especial": 1450.98, "primera": 1435.27, "segunda": 1419.61, "tercera": 1419.61, "cuarta": 1419.61 },
+      "Jefe de cocina":      { "especial": 1623.07, "primera": 1607.39, "segunda": 1576.18, "tercera": 1576.18, "cuarta": 1576.18 },
+      "Cocinero":            { "especial": 1482.24, "primera": 1466.50, "segunda": 1450.98, "tercera": 1450.98, "cuarta": 1450.98 },
+      "Ayudante de cocinero": { "especial": 1450.98, "primera": 1435.27, "segunda": 1419.61, "tercera": 1419.61, "cuarta": 1419.61 },
+      "Repostero":           { "especial": 1576.18, "primera": 1551.14, "segunda": 1529.18, "tercera": 1529.18, "cuarta": 1529.18 },
+      "Oficial repostero":   { "especial": 1529.18, "primera": 1513.56, "segunda": 1497.87, "tercera": 1497.87, "cuarta": 1497.87 },
+      "Ayudante repostero":  { "especial": 1450.98, "primera": 1435.27, "segunda": 1419.61, "tercera": 1419.61, "cuarta": 1419.61 },
+      "Cafetero":            { "especial": 1482.24, "primera": 1466.50, "segunda": 1450.98, "tercera": 1450.98, "cuarta": 1450.98 },
+      "Bodeguero":           { "especial": 1482.24, "primera": 1466.50, "segunda": 1450.98, "tercera": 1450.98, "cuarta": 1450.98 },
+      "Encargado almacén":   { "especial": 1576.18, "primera": 1551.14, "segunda": 1529.18, "tercera": 1529.18, "cuarta": 1529.18 },
+      "Mozo de almacén":     { "especial": 1450.98, "primera": 1435.27, "segunda": 1419.61, "tercera": 1419.61, "cuarta": 1419.61 },
+      "Mecánico calefactor": { "especial": 1482.24, "primera": 1466.50, "segunda": 1450.98, "tercera": 1450.98, "cuarta": 1450.98 },
+      "Portero":             { "especial": 1450.98, "primera": 1435.27, "segunda": 1419.61, "tercera": 1419.61, "cuarta": 1419.61 },
+      "Telefonista":         { "especial": 1450.98, "primera": 1435.27, "segunda": 1419.61, "tercera": 1419.61, "cuarta": 1419.61 },
+      "Vigilante noche y fregadores": { "especial": 1425.94, "primera": 1425.94, "segunda": 1425.94, "tercera": 1425.94, "cuarta": 1425.94 }
+    },
+    "limpieza": {
+      "Media jornada":   { "especial": 712.95, "primera": 712.95, "segunda": 712.95, "tercera": 712.95, "cuarta": 712.95 },
+      "Jornada completa": { "especial": 1425.94, "primera": 1425.94, "segunda": 1425.94, "tercera": 1425.94, "cuarta": 1434.60 },
+      "Aprendiz mayor de 18 años": { "especial": 1021.40, "primera": 1021.40, "segunda": 1021.40, "tercera": 1021.40, "cuarta": 1021.40 },
+      "Aprendiz menor de 18 años": { "especial": 826.03, "primera": 826.03, "segunda": 826.03, "tercera": 826.03, "cuarta": 826.03 }
+    }
+  },
+  "seccion6_casinosSalasFiestasDiscotecas_2025def": {
+    "$comment": "Sección 6ª casinos, salas de fiestas y discotecas. Salario BASE mensual (valor único por categoría profesional, sin desglose por tipo de establecimiento). Pág. 10 del PDF. 'Ayudante casado' transcrito literal del boletín (posible errata de imprenta; DUDA UGT).",
+    "salarioBase": {
+      "Jefe de sala": 1717.17,
+      "Segundo jefe de sala": 1650.38,
+      "Jefe de rango": 1589.56,
+      "Ayudante": 1560.44,
+      "Ayudante casado": 1589.56,
+      "Primer barman": 1650.38,
+      "Segundo barman": 1480.04,
+      "Limpiadora": 1560.44,
+      "Portero": 1589.56,
+      "Cajero": 1589.56,
+      "Contable": 1650.38,
+      "Bodeguero": 1650.38,
+      "Repostero": 1560.44,
+      "Electricista": 1650.38,
+      "Taquillero": 1589.56,
+      "Vigilante de noche": 1598.56,
+      "Pinchadiscos": 1589.56
+    }
+  },
+  "seccion7_tabernas_2025def": {
+    "$comment": "Sección 7ª tabernas. Salario BASE mensual. Pág. 7 del PDF.",
+    "salarioBase": {
+      "Dependiente de primera": 1201.65,
+      "Dependiente de segunda": 1201.65,
+      "Aprendiz mayor de 18 años": 1021.40,
+      "Aprendiz menor de 18 años": 835.48
+    }
+  },
+  "seccion8_casinos_2025def": {
+    "$comment": "Sección 8ª casinos, personal de oficina y contabilidad + personal subalterno. Salario mensual (garantizado) por categoría de establecimiento: 'cat12' = casinos de 1.ª y 2.ª, 'cat34' = casinos de 3.ª y 4.ª. Pág. 9 del PDF.",
+    "oficinaYContabilidad": {
+      "Jefe de primera":  { "cat12": 1551.37, "cat34": 1502.53 },
+      "Jefe de segunda":  { "cat12": 1502.53, "cat34": 1471.24 },
+      "Oficial primera":  { "cat12": 1483.56, "cat34": 1458.31 },
+      "Oficial segunda":  { "cat12": 1458.31, "cat34": 1439.94 },
+      "Auxiliar":         { "cat12": 1427.26, "cat34": 1409.13 },
+      "Aspirante 16 y 17 años": { "cat12": 1032.08, "cat34": 1032.08 }
+    },
+    "subalterno": {
+      "Cobrador":         { "cat12": 1458.31, "cat34": 1439.93 },
+      "Conserje":         { "cat12": 1513.53, "cat34": 1482.24 },
+      "Telefonista":      { "cat12": 1421.66, "cat34": 1409.13 },
+      "Portero":          { "cat12": 1502.55, "cat34": 1439.93 },
+      "Ordenanza salón":  { "cat12": 1502.55, "cat34": 1439.93 },
+      "Jardinero":        { "cat12": 1502.55, "cat34": 1439.93 },
+      "Vigilante de noche": { "cat12": 1502.55, "cat34": 1439.93 },
+      "Botones 18 años":  { "cat12": 1502.55, "cat34": 1439.93 },
+      "Limpiadora jornada completa": { "cat12": 1394.54, "cat34": 1394.54 },
+      "Limpiadora media jornada":    { "cat12": 1019.64, "cat34": 1019.64 }
+    }
+  },
+  "seccion9_2025def": {
+    "$comment": "Sección 9ª (billares y salones de juego recreativo). Salario mensual Inicial (i) / Garantizado (g) / Fijo. Casilla vacía = null. Pág. 10 del PDF.",
+    "personal": {
+      "Encargado de sala":        { "i": 27.09, "g": 1515.87, "fijo": 1515.87 },
+      "Mozo de billar o salón de": { "i": 17.74, "g": 1427.41, "fijo": 1427.41 },
+      "Ayudante":                 { "i": 17.21, "g": 1375.01, "fijo": 1375.01 },
+      "Botones, aprendiz mayor de 18": { "i": null, "g": 1388.10, "fijo": null }
+    },
+    "limpieza": {
+      "Jornada completa": { "i": null, "g": 1388.10, "fijo": null },
+      "Media jornada":    { "i": null, "g": 975.88, "fijo": null }
+    }
+  },
+  "caterin_seccion3_2025def": {
+    "$comment": "Tabla salarial de cáterin (sección 3ª). Salario BASE mensual por grupo profesional I-VII. Pág. 7 del PDF.",
+    "salarioBasePorGrupo": {
+      "I": 2192.13,
+      "II": 1941.56,
+      "III": 1833.92,
+      "IV": 1722.37,
+      "V": 1628.40,
+      "VI": 1597.05,
+      "VII": 1158.76
+    }
+  },
+  "conceptosGenerales_2025def": {
+    "$comment": "Conceptos económicos no incluidos en las tablas salariales, 2025 definitiva, cada uno con su artículo. Importes en euros. Pág. 11 del PDF. Salario mínimo del sector art.33 = 1.188,55 €/mes.",
+    "salarioMinimoSector": { "importe": 1188.55, "articulo": "Art. 33", "ambito": "Todas las categorías y secciones" },
+    "vestuario": {
+      "articulo": "Art. 17",
+      "secciones1y2": { "hoteles543estrellasOllaves": 58.27, "restoEstablecimientos": 29.13 },
+      "secciones3y4y5": { "restaurantesLujoYCafeterias3tazas": 58.27, "restoEstablecimientos": 29.13 },
+      "seccion6": { "todas": 29.13 }
+    },
+    "bolsaVacacionesAnual": {
+      "articulo": "Art. 36",
+      "secciones1y2": 1557.90,
+      "seccion7": 2076.38,
+      "restoSecciones": 924.86
+    },
+    "manutencion": { "articulo": "Art. 37", "compensacionMetalicoEstablecimientosComida": 58.27 },
+    "plusAyudaFamiliar": { "articulo": "Art. 62", "todas": 29.13 },
+    "plusConvenioSeccion6": {
+      "articulo": "Art. 76",
+      "complementoPorExtinguidoPlusAyudaCultura": 121.33,
+      "plusAbolicionPorcentajeParticipacionMaxima": 146.24,
+      "plusAbolicionPorcentajeParticipacionMinima": 49.44
+    }
+  },
+  "vacaciones": {
+    "$comment": "Sólo consta la 'bolsa de vacaciones anual' (retribución económica, art. 36). Los detalles del régimen de vacaciones (días, naturales/laborables, periodo de disfrute, fraccionamiento, retribución con complementos, baja durante vacaciones, festivos) NO figuran en esta publicación: el BOP nº70/2026 sólo publica las TABLAS SALARIALES, no el articulado del convenio. Requiere el texto consolidado del convenio (otra publicación).",
+    "bolsaVacacionesAnual": { "articulo": "Art. 36", "secciones1y2": 1557.90, "seccion7": 2076.38, "restoSecciones": 924.86 },
+    "dias": "pendiente",
+    "naturalesOLaborables": "pendiente",
+    "diasExtraPorAntiguedad": "pendiente",
+    "retribucion": "pendiente",
+    "periodoDisfrute": "pendiente",
+    "fijadasEmpresaOPactadas": "pendiente",
+    "fraccionamiento": "pendiente",
+    "bajaDuranteVacaciones": "pendiente",
+    "festivosDentroVacaciones": "pendiente"
+  },
+  "pagasExtraordinarias": "pendiente (nº de pagas y base no figuran en la publicación de tablas; requiere articulado del convenio, art. correspondiente por confirmar)",
+  "jornadaAnual": "pendiente (no figura en la publicación de tablas; requiere articulado del convenio)",
+  "nocturnidad": "pendiente (tramo horario y % o €/h no figuran en la publicación de tablas; requiere articulado del convenio)",
+  "horasExtraordinarias": "pendiente (precio/fórmula y tope anual no figuran en la publicación de tablas; requiere articulado del convenio)",
+  "antiguedad": "pendiente (escala y base no figuran en la publicación de tablas; requiere articulado del convenio)",
+  "permisosRetribuidos": "pendiente (matrimonio, fallecimiento/enfermedad grave, nacimiento, lactancia, mudanza, exámenes, deber inexcusable... no figuran en la publicación de tablas; requiere articulado del convenio)",
+  "complementoIT": "pendiente (complemento empresarial en baja médica —enfermedad común vs accidente laboral, % y días— no figura en la publicación de tablas; requiere articulado del convenio)",
+  "regimenDisciplinario": "pendiente (faltas leves/graves/muy graves, sanciones, procedimiento y prescripción del convenio no figuran en la publicación de tablas; requiere articulado del convenio. Base legal general: art. 58 ET)",
+  "representacionSindical": "pendiente (mejoras del convenio sobre crédito horario/garantías no figuran en la publicación de tablas; requiere articulado del convenio. Base legal general: arts. 62-68 ET, LOLS)",
+  "periodoPrueba": "pendiente (requiere articulado del convenio)",
+  "excedencias": "pendiente (requiere articulado del convenio)",
+  "ropaTrabajo": {
+    "$comment": "El convenio abona plus de vestuario (art. 17) como compensación económica; el detalle de si la empresa entrega uniforme físico requiere el articulado.",
+    "plusVestuario": { "articulo": "Art. 17", "secciones1y2_hoteles543": 58.27, "secciones1y2_resto": 29.13, "secciones3y4y5_lujoYcafeterias3tazas": 58.27, "secciones3y4y5_resto": 29.13, "seccion6": 29.13 },
+    "entregaUniformeFisico": "pendiente (requiere articulado del convenio)"
+  },
   "pendiente": [
-    "Sección 3ª 'Personal varios' (contable, telefonista, limpieza... — leído, transcribir)",
-    "Sección 4ª cafeterías (mostrador y sala)",
-    "Secciones 5ª/6ª",
-    "Conceptos generales 2025 def (salario mínimo sector, plus convenio sección 6, abolición porcentaje)",
-    "Nocturnidad, horas extra, jornada anual (del texto del convenio)",
-    "Tablas 2026 provisionales (págs 11-19 del PDF)"
+    "TODO EL ARTICULADO: esta publicación (BOP nº70/2026) contiene SÓLO las tablas salariales (definitivas 2025 + provisionales 2026), no el texto normativo del convenio. Los siguientes bloques requieren el CONVENIO CONSOLIDADO (otra publicación): vacaciones (días/disfrute/fraccionamiento/retribución/baja), permisos retribuidos, complemento IT baja médica, régimen disciplinario, representación sindical, jornada anual, nocturnidad, horas extra, antigüedad, nº de pagas extraordinarias, periodo de prueba, excedencias, ascensos, polivalencia, contratación (fijo-discontinuo), igualdad y acoso.",
+    "Tablas 2026 PROVISIONALES (págs 12-20 del PDF): NO se transcriben (regla D32, sólo definitivas).",
+    "Confirmar con UGT: 'Ayudante casado' (sección 6ª) — posible errata del boletín."
   ],
-  "estado": "seccion1a3_2025def_verificado",
-  "verificadoContra": "PDF oficial BOP Málaga nº70 (14-04-2026) renderizado a imagen, celda a celda. Sección 1ª/2ª (mes+hora) y sección 3ª restaurantes (cocina+comedor) 2025 definitivas verificadas.",
-  "fechaVerificacion": "2026-07-07"
+  "estado": "tablasSalariales2025def_verificado_completo (articulado pendiente: la fuente es sólo tablas)",
+  "verificadoContra": "PDF oficial BOP Málaga nº70 (14-04-2026), CVE 20260414-01187-2026, renderizado a imagen (dpi 185) y leído celda a celda. Verificadas TODAS las tablas 2025 DEFINITIVAS: secciones 1ª/2ª (mes+hora), 3ª restaurantes (cocina+comedor+personal varios), cáterin, 4ª cafeterías (mostrador+sala y varios), 5ª bares americanos (barra+sala) y mostrador de cafés/bares (mostrador+varios+limpieza), 6ª casinos/salas de fiestas, 7ª tabernas, 8ª casinos (oficina+subalterno), 9ª billares, y conceptos económicos generales. El documento NO contiene articulado, por lo que los bloques no salariales quedan pendientes.",
+  "fechaVerificacion": "2026-07-08"
 }
