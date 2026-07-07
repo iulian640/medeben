@@ -1,0 +1,53 @@
+{
+  "$comment": "Tablas de HOTELES 2025 verificadas visualmente contra el PDF oficial (BOP Sevilla nº102, 30-05-2025, CVE BOP-SE-2025-102031). El convenio tiene más tablas por tipo de establecimiento (restaurantes, cafeterías, bares) en las páginas siguientes — pendientes. Marco (jornada, pagas, nocturnidad) de fuentes que citan el BOP; confirmar en texto.",
+  "id": "sevilla-hosteleria",
+  "nombre": "Convenio colectivo del sector de Hostelería de la provincia de Sevilla",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Andalucía", "provincias": ["Sevilla"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP Sevilla",
+    "numero": 102,
+    "fecha": "2025-05-30",
+    "documento": "CVE BOP-SE-2025-102031",
+    "url": "https://bopsevilla.dipusevilla.es/"
+  },
+  "vigencia": { "desde": "2025-01-01", "hasta": "2028-12-31", "nota": "Subida histórica ~17% en 4 años." },
+  "jornadaAnual": { "horas": 1800, "bolsaHorasIrregular": { "horas": 180, "meses": "febrero-mayo y septiembre-diciembre", "limites": "10 h/día, 50 h/semana" }, "verificado": false },
+  "pagasExtraordinarias": { "cantidad": 3, "fechas": ["julio", "diciembre", "primavera (antes del 1 de abril)"], "verificado": false },
+  "nocturnidad": {
+    "tramos": [ { "desde": "22:00", "hasta": "06:00", "recargoPct": 25, "sobre": "hora ordinaria" } ],
+    "reglaEspecial": "20% sobre el sueldo base si la jornada comienza tras las 22:00",
+    "verificado": false
+  },
+  "tablasSalarialesHoteles": {
+    "$comment": "Salario base mensual €, por categoría de hotel (estrellas) × nivel. VERIFICADO en imagen. Muestro los 4 años 2025-2028.",
+    "hoteles_5_4_estrellas": {
+      "Nivel 1": { "2025": 1571.85, "2026": 1650.44, "2027": 1716.46, "2028": 1785.11 },
+      "Nivel 2": { "2025": 1516.21, "2026": 1592.02, "2027": 1655.70, "2028": 1721.92 },
+      "Nivel 3": { "2025": 1423.97, "2026": 1495.17, "2027": 1554.97, "2028": 1617.17 },
+      "Nivel 3 Bis": { "2025": 1340.76, "2026": 1427.91, "2027": 1506.44, "2028": 1589.30 },
+      "Nivel 4": { "2025": 1265.16, "2026": 1328.42, "2027": 1381.55, "2028": 1436.82 },
+      "Nivel 5": { "2025": 1238.43, "2026": 1300.35, "2027": 1352.37, "2028": 1406.46 }
+    },
+    "hoteles_3_estrellas": {
+      "Nivel 1": { "2025": 1417.50 }, "Nivel 2": { "2025": 1319.71 }, "Nivel 3": { "2025": 1273.85 },
+      "Nivel 3 Bis": { "2025": 1273.85 }, "Nivel 4": { "2025": 1220.23 }, "Nivel 5": { "2025": 1220.23 }
+    },
+    "hoteles_2_estrellas": {
+      "Nivel 1": { "2025": 1307.46 }, "Nivel 2": { "2025": 1274.90 }, "Nivel 3": { "2025": 1225.06 },
+      "Nivel 3 Bis": { "2025": 1225.06 }, "Nivel 4": { "2025": 1163.96 }, "Nivel 5": { "2025": 1163.96 }
+    },
+    "hoteles_1_estrella": {
+      "Nivel 1": { "2025": 1275.84 }, "Nivel 2": { "2025": 1244.02 }, "Nivel 3": { "2025": 1195.21 },
+      "Nivel 3 Bis": { "2025": 1195.21 }, "Nivel 4": { "2025": 1135.05 }, "Nivel 5": { "2025": 1135.05 }
+    }
+  },
+  "pendiente": [
+    "Tablas de restaurantes, cafeterías y bares (páginas 24-26 del PDF)",
+    "Años 2026-2028 de las categorías de hotel de 3/2/1 estrellas (solo capturado 2025)",
+    "Mapeo categoría profesional → nivel; horas extra"
+  ],
+  "estado": "hoteles_2025_verificado",
+  "verificadoContra": "PDF oficial BOP Sevilla nº102 (30-05-2025) renderizado a imagen. Tablas de hoteles 2025 verificadas.",
+  "fechaVerificacion": "2026-07-07"
+}
