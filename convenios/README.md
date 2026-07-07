@@ -43,6 +43,16 @@ Por eso los ficheros se nombran `<territorio>-<subsector>.json`
 | Convenio | Subsector | Estado |
 |----------|-----------|--------|
 | `madrid-hospedaje.json` | Hospedaje (hoteles) | ✅ Transcrito del BOCM 121 (23-05-2026), tablas 2025-2028, jornada 1.800 h, nocturnidad y clasificación |
+| `madrid-hosteleria.json` | Hostelería (bares/restaurantes) | 🟡 STUB — estructura documentada, tablas SIN transcribir (BOCM 82, 06-04-2024). Modelo complejo: establecimiento × área × inicial/garantizado |
+
+### Aviso: el modelo de datos evoluciona
+
+El convenio de **hospedaje** encajó en un modelo simple (nivel × grupo). El de
+**hostelería de Madrid** demuestra que el modelo real debe soportar más ejes:
+sistema con/sin porcentaje de servicio, sección y categoría de establecimiento,
+área funcional (comedor/cocina/varios) y columnas inicial/garantizado. La
+transcripción de convenios complejos debe hacerse con cuidado y verificarse fila
+a fila contra el PDF — nunca a ojo ni con prisa.
 
 Pendiente de la primera tanda (por población): Madrid-hostelería (bares/restaurantes),
 Cataluña, Valencia, Alicante, Sevilla, y el estatal de restauración colectiva.

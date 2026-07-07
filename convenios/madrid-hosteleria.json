@@ -1,0 +1,49 @@
+{
+  "$comment": "STUB — NO transcrito todavía. La estructura de este convenio es mucho más compleja que la de hospedaje y requiere transcripción cuidadosa y verificación fila a fila contra el PDF. NO usar para cálculos hasta completar y verificar.",
+  "id": "madrid-hosteleria",
+  "nombre": "Convenio Colectivo del Sector de Hostelería y Actividades Turísticas de la Comunidad de Madrid",
+  "codigoRegcon": "28002085011981",
+  "ambitoTerritorial": {
+    "tipo": "autonomico",
+    "comunidad": "Comunidad de Madrid",
+    "provincias": ["Madrid"]
+  },
+  "ambitoFuncional": "hosteleria",
+  "ambitoFuncionalDescripcion": "Bares, restaurantes, cafeterías y actividades turísticas. Es el convenio de un camarero de bar en Madrid (distinto del de hospedaje/hoteles).",
+  "fuente": {
+    "boletin": "BOCM",
+    "numero": 82,
+    "fecha": "2024-04-06",
+    "documento": "BOCM-20240406-2",
+    "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2024/04/06/BOCM-20240406-2.PDF"
+  },
+  "vigencia": {
+    "desde": "2023-01-01",
+    "hasta": "2025-12-31",
+    "nota": "Convenio 2023-2025. En ultraactividad desde 2026-01-01: aplican las tablas de 2025 mientras se negocia el nuevo. Confirmar estado antes de dar por vigente."
+  },
+  "complejidadEstructural": {
+    "$comment": "Por qué este convenio no encaja en el modelo simple nivel×grupo de hospedaje:",
+    "dosSistemasSalariales": [
+      "Sistema normal (salario fijo garantizado)",
+      "Sistema con participación de porcentaje de servicio (Anexo III, tablas aparte)"
+    ],
+    "ejesDeTabla": [
+      "Sección de establecimiento (tercera: restaurantes; cuarta: cafeterías)",
+      "Categoría del establecimiento (lujo / primera / segunda / tercera / cuarta)",
+      "Área funcional (A: personal de comedor, B: personal de varios, C: personal de cocina)",
+      "Columnas inicial y garantizado en el sistema de porcentaje de servicio",
+      "Cafeterías con eje propio (mostrador y sala: '3 tazas / 2 tazas'...)"
+    ],
+    "años": ["2023", "2024", "2025"]
+  },
+  "datosDeReferenciaSinVerificar": {
+    "$comment": "Cifras vistas en el PDF, orientativas, NO verificadas fila a fila. NO usar en la app.",
+    "camareroNivelIII_salarioBaseAprox": 1250.91,
+    "plusConvenioMensual": 191.22,
+    "manutencionMensual": 57.82
+  },
+  "estado": "stub_pendiente_transcripcion",
+  "verificadoPor": null,
+  "fechaVerificacion": null
+}
