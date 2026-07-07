@@ -1,5 +1,5 @@
 {
-  "$comment": "STUB — NO transcrito todavía. La estructura de este convenio es mucho más compleja que la de hospedaje y requiere transcripción cuidadosa y verificación fila a fila contra el PDF. NO usar para cálculos hasta completar y verificar.",
+  "$comment": "Tablas 2025 (en ultraactividad para 2026) transcritas y VERIFICADAS visualmente contra el PDF del BOCM (páginas renderizadas a imagen). Sección tercera (restaurantes), áreas comedor y cocina. Pendiente: cafeterías (sección cuarta), catering, sistema de porcentaje de servicio (Anexo III), y tablas 2023/2024.",
   "id": "madrid-hosteleria",
   "nombre": "Convenio Colectivo del Sector de Hostelería y Actividades Turísticas de la Comunidad de Madrid",
   "codigoRegcon": "28002085011981",
@@ -9,7 +9,7 @@
     "provincias": ["Madrid"]
   },
   "ambitoFuncional": "hosteleria",
-  "ambitoFuncionalDescripcion": "Bares, restaurantes, cafeterías y actividades turísticas. Es el convenio de un camarero de bar en Madrid (distinto del de hospedaje/hoteles).",
+  "ambitoFuncionalDescripcion": "Bares, restaurantes, cafeterías y actividades turísticas. Es el convenio de un camarero de bar o cocinero de restaurante en Madrid (distinto del de hospedaje/hoteles).",
   "fuente": {
     "boletin": "BOCM",
     "numero": 82,
@@ -20,30 +20,90 @@
   "vigencia": {
     "desde": "2023-01-01",
     "hasta": "2025-12-31",
-    "nota": "Convenio 2023-2025. En ultraactividad desde 2026-01-01: aplican las tablas de 2025 mientras se negocia el nuevo. Confirmar estado antes de dar por vigente."
+    "nota": "Convenio 2023-2025. En ultraactividad desde 2026-01-01: aplican las tablas de 2025 hasta que se firme el nuevo. Confirmar estado antes de dar por vigente en 2026+."
   },
-  "complejidadEstructural": {
-    "$comment": "Por qué este convenio no encaja en el modelo simple nivel×grupo de hospedaje:",
-    "dosSistemasSalariales": [
-      "Sistema normal (salario fijo garantizado)",
-      "Sistema con participación de porcentaje de servicio (Anexo III, tablas aparte)"
+  "jornadaAnual": {
+    "horas": 1800,
+    "horasSemanales": 40,
+    "articulo": "Art. 14",
+    "nota": "Jornada diaria máxima 8 h, no más de dos períodos (partida)."
+  },
+  "pagasExtraordinarias": {
+    "cantidad": 2,
+    "fechas": ["20 de junio", "20 de diciembre"],
+    "articulo": "Art. 26"
+  },
+  "nocturnidad": {
+    "articulo": "Art. 27",
+    "tramos": [
+      { "desde": "22:00", "hasta": "00:00", "recargoSobreSalarioBasePct": 1 },
+      { "desde": "00:00", "hasta": "08:00", "recargoSobreSalarioBasePct": 25 }
     ],
-    "ejesDeTabla": [
-      "Sección de establecimiento (tercera: restaurantes; cuarta: cafeterías)",
-      "Categoría del establecimiento (lujo / primera / segunda / tercera / cuarta)",
-      "Área funcional (A: personal de comedor, B: personal de varios, C: personal de cocina)",
-      "Columnas inicial y garantizado en el sistema de porcentaje de servicio",
-      "Cafeterías con eje propio (mostrador y sala: '3 tazas / 2 tazas'...)"
-    ],
-    "años": ["2023", "2024", "2025"]
+    "formulaIncrementoHora": "salarioBase * pct / (4 * 40)",
+    "reglaJornadaCompleta": "Si se trabajan 5+ horas entre las 22:00 y las 08:00, toda la jornada se considera nocturna al 25%",
+    "nota": "El tramo 22:00-00:00 al 1% es correcto y peculiar de este convenio (verificado en imagen). Salas de baile, discotecas, salas de fiesta, tablaos y cafés-teatro se consideran nocturnos por naturaleza."
   },
-  "datosDeReferenciaSinVerificar": {
-    "$comment": "Cifras vistas en el PDF, orientativas, NO verificadas fila a fila. NO usar en la app.",
-    "camareroNivelIII_salarioBaseAprox": 1250.91,
-    "plusConvenioMensual": 191.22,
-    "manutencionMensual": 57.82
+  "pluses": {
+    "manutencion": {
+      "articulo": "Art. 28",
+      "descripcion": "Complemento en especie sustituible por metálico, durante los días trabajados. Solo establecimientos que elaboran comidas o tienen servicio de restaurante.",
+      "2023": 52.95, "2024": 55.60, "2025": 57.82
+    },
+    "convenio": {
+      "articulo": "Art. 29",
+      "descripcion": "Plus convenio (sustituye al extinto plus transporte), 11 meses.",
+      "2025": 191.22
+    }
   },
-  "estado": "stub_pendiente_transcripcion",
-  "verificadoPor": null,
-  "fechaVerificacion": null
+  "horasExtraordinarias": {
+    "precioFijadoEnConvenio": false,
+    "regla": "No se localiza precio de hora extra específico para plantilla; aplica el Estatuto de los Trabajadores (mínimo: valor de la hora ordinaria) o compensación con descanso.",
+    "valorHoraOrdinaria": "(salarioGarantizadoMensual * 14 + plusesAnuales) / jornadaAnualHoras",
+    "topeHorasExtraAnual": 80,
+    "nota": "Tope 80 h/año del ET salvo que el convenio fije otro (verificar art. de horas extra del convenio)."
+  },
+  "tablasSalariales2025": {
+    "$comment": "Salario mensual en euros. Sección tercera (restaurantes). Vigentes en 2026 por ultraactividad. Personal de comedor: 'inicial' (componente base) y 'garantizado' (salario garantizado total, el que se usa para el cálculo). Personal de cocina: valor fijo único. Columnas por categoría de establecimiento: lujo/primera/segunda/tercera/cuarta. '-' = categoría no contemplada.",
+    "seccionTercera": {
+      "comedor": {
+        "estructura": "inicial + garantizado por categoría de establecimiento",
+        "categorias": {
+          "Jefe de comedor o maestresala": { "lujo": {"inicial": 126.91, "garantizado": 1333.80}, "primera": {"inicial": 126.91, "garantizado": 1333.80}, "segunda": {"inicial": 125.70, "garantizado": 1292.44}, "tercera": {"inicial": 144.06, "garantizado": 1205.68}, "cuarta": {"inicial": 144.06, "garantizado": 1177.34} },
+          "Segundo jefe de comedor": { "lujo": {"inicial": 126.91, "garantizado": 1287.58}, "primera": {"inicial": 126.91, "garantizado": 1234.38}, "segunda": {"inicial": 125.70, "garantizado": 1172.45}, "tercera": {"inicial": 144.06, "garantizado": 1083.88} },
+          "Jefe de sector": { "lujo": {"inicial": 126.91, "garantizado": 1279.72} },
+          "Camarero": { "lujo": {"inicial": 126.91, "garantizado": 1249.51}, "primera": {"inicial": 126.91, "garantizado": 1192.20}, "segunda": {"inicial": 125.70, "garantizado": 1160.86}, "tercera": {"inicial": 144.06, "garantizado": 1083.88}, "cuarta": {"inicial": 144.06, "garantizado": 1083.88} },
+          "Sumiller": { "lujo": {"inicial": 126.91, "garantizado": 1249.51}, "primera": {"inicial": 126.91, "garantizado": 1192.20}, "segunda": {"garantizado": 1160.86} },
+          "Ayudante": { "lujo": {"inicial": 126.91, "garantizado": 1186.11}, "primera": {"inicial": 126.91, "garantizado": 1171.20}, "segunda": {"inicial": 125.70, "garantizado": 1160.86}, "tercera": {"inicial": 144.06, "garantizado": 1078.20}, "cuarta": {"inicial": 144.06, "garantizado": 1078.20} },
+          "Aprendices": { "lujo": {"inicial": 126.91, "garantizado": 839.83}, "primera": {"inicial": 126.91, "garantizado": 839.83}, "segunda": {"inicial": 125.70, "garantizado": 839.83}, "tercera": {"inicial": 144.06, "garantizado": 839.83}, "cuarta": {"inicial": 144.06, "garantizado": 839.83} }
+        }
+      },
+      "cocina": {
+        "estructura": "salario fijo por categoría de establecimiento",
+        "categorias": {
+          "Jefe de cocina": { "lujo": 1205.68, "primera": 1194.88, "segunda": 1182.92, "tercera": 1073.78, "cuarta": 1073.78 },
+          "Segundo jefe de cocina": { "lujo": 1183.57, "primera": 1172.07, "segunda": 1169.16, "tercera": 1073.78, "cuarta": 1073.78 },
+          "Jefe de partida": { "lujo": 1160.81, "primera": 1154.86, "segunda": 1149.56, "tercera": 1073.78, "cuarta": 1073.78 },
+          "Cocinero/a": { "lujo": 1146.63, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78 },
+          "Ayudante de cocina": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78 },
+          "Repostero/a": { "lujo": 1160.81, "primera": 1145.76, "segunda": 1145.76 },
+          "Oficial de repostero/a": { "lujo": 1146.63, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78 },
+          "Marmitón": { "lujo": 1145.76, "primera": 1145.76 },
+          "Pinche": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76 },
+          "Aprendiz": { "lujo": 839.83, "primera": 839.83, "segunda": 839.83, "tercera": 839.83, "cuarta": 839.83 },
+          "Fregador/a": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78, "cuarta": 1073.78 },
+          "Personal de platería": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76 }
+        }
+      }
+    }
+  },
+  "pendiente": [
+    "Cafeterías (sección cuarta) — estructura propia por 'tazas' (mostrador y sala)",
+    "Personal de catering (sección tercera, apartado D)",
+    "Sistema de participación de porcentaje de servicio (Anexo III)",
+    "Tablas 2023 y 2024 (históricas)",
+    "Personal de varios (contable, telefonista, limpieza, etc.) — visto en imagen, no transcrito aún"
+  ],
+  "estado": "verificado_parcial_2025",
+  "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen y leído visualmente (tablas 2025 sección tercera comedor y cocina, arts. 14/26/27/28/29). Verificación fila a fila.",
+  "fechaVerificacion": "2026-07-07"
 }

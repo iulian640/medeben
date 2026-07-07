@@ -166,6 +166,26 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 - Principio: el trabajador cansado no va a bucear en menús. El valor aparece solo, pegado a la acción que ya hace (fichar). Las vistas de resumen ("te deben X€ este mes") son agregados de esto, no la fuente.
 - **Aviso de tope legal en caliente (Iulian 2026-07-07):** la app lleva la cuenta de horas extra acumuladas en el año; cuando al fichar vayas a superar el tope, te avisa. El tope es **80 h/año O lo que fije el convenio de cada zona** (el 80 es el mínimo del ET; cada convenio puede tener el suyo) → campo `topeHorasExtraAnual` por convenio.
 
+### D27 — Feed de contenido laboral: PILAR de enganche/retención (Iulian 2026-07-07)
+- **No es una sección secundaria: es una de las patas de la app.** Iulian lo quiere explícito: "que entres y te enganche mirando cosas curiosas sobre este tema laboral", no solo una herramienta de fichaje.
+- **Por qué es estratégico:** una app de fichar se abre a regañadientes; un feed de contenido laboral que engancha se abre por gusto. Da una razón para abrir la app los días que NO fichas, y retiene al usuario hasta el día que necesita el "te deben X€". Resuelve el problema de retención de una utilidad pura.
+- **Contenido:** curiosidades y rarezas de convenios ("¿sabías que...?"), derechos poco conocidos, noticias laborales, comparativas absurdas entre convenios. Todo con su fuente oficial.
+- **Primer hallazgo real:** en el convenio de Hostelería de Madrid (Art. 27), la nocturnidad de **22:00 a 00:00 es solo del 1%** sobre salario base — con la fórmula `base×1%/(4×40)` sale literalmente **un par de céntimos por hora**. Trabajar hasta medianoche te renta casi nada; a partir de las 00:00 salta al 25%. Absurdo y real. (En hospedaje/hoteles el tramo 22-24h es del 20%: dos convenios de la misma ciudad, trato distinto.)
+- Guardar rarezas conforme se transcriben convenios → el feed se llena solo con el trabajo que ya hacemos.
+
+### D28 — Visión ampliada: de app a plataforma del trabajador (ideas de Iulian 2026-07-07, SIN comprometer)
+- Ideas lanzadas: sección de **convenios y sus cosas**, **noticias laborales**, **portal de ofertas de trabajo decentes de verdad**, y **directorio de profesionales reales** ofreciendo sus servicios.
+- Estado: VISIÓN a largo plazo (v3+), NO v1. Riesgo de scope creep: la v1 debe seguir siendo el núcleo (fichar + te deben X€) o no se lanza nunca. Un portal de empleo es un producto entero aparte (moderación, verificación de ofertas, masa crítica de dos lados).
+- **Consecuencia sobre el nombre:** si la visión de "plataforma del trabajador" se confirma, "TeDeben" (centrado en dinero adeudado) se queda corto. Reconsiderar el nombre ANTES de comprar dominio / hacer marca pública. De momento TeDeben sigue como nombre de trabajo (el dominio aún no está comprado; renombrar el repo es trivial). Pendiente de Iulian.
+
+### D25 — El convenio es el MÍNIMO; salario real configurable + avisar de artimañas (Iulian 2026-07-07)
+- El salario del convenio es un suelo, no lo que cobra cada uno. Al configurar su situación, el usuario indica si cobra: **el mínimo del convenio / más / menos** (menos = ya es ilegal, la app lo señala). Puede introducir su **salario real**, y el cálculo de "te deben X€" usa su hora real, no la del convenio (el convenio es la referencia/suelo).
+- **Avisar de artimañas cuando se cobra "más" (idea de Iulian):** los empresarios suelen recuperar por otro lado lo que suben. La app informa de trucos habituales:
+  - Bajar la **retención de IRPF** para inflar el neto → luego el trabajador paga en la declaración de junio.
+  - Pagar parte como **"dietas"/"pluses" exentos** que no cotizan → menos paro, menos jubilación, menos base reguladora.
+  - Salario "en negro" (ya cubierto en el comprobador de nómina).
+- Objetivo pedagógico coherente con D18: que el trabajador entienda que "cobrar más" a veces es una trampa que le perjudica a medio plazo.
+
 ### D24 — Estrategia de datos de convenios: JSON en Git → seed → PostgreSQL (2026-07-07)
 - **Dos capas.** (1) Ficheros `convenios/*.json` en el repo = fuente de verdad, versionada, con la fuente oficial de cada cifra; mantenimiento comunitario vía PR. (2) PostgreSQL = capa de consulta en runtime. Al desplegar, un proceso *seed* carga los JSON en la BD. La app consulta la BD, nunca los ficheros.
 - **Por qué:** si los datos vivieran solo en la BD se perdería la trazabilidad (¿de qué boletín salió?) y la revisión pública. Con Git, cada número tiene fuente e historial. La BD se regenera desde los JSON.
