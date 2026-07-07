@@ -97,7 +97,44 @@
     "articulo": "Art. 14",
     "nota": "1.800 h = (365 - 30 vacaciones - 20 descanso continuado) / 7 * 40. Descanso diario de 30 min computa como trabajo efectivo si la jornada excede 6 h."
   },
-  "estado": "verificado_contra_fuente",
-  "verificadoContra": "Texto extraído directamente del PDF oficial del BOCM (no de memoria). Iulian no pudo verificar por experiencia (no trabajó en Madrid) pero autoriza usar el dato oficial.",
-  "fechaVerificacion": "2026-07-07"
+  "vacaciones": {
+    "articulo": "Art. 18",
+    "dias": 30,
+    "tipo": "naturales",
+    "nota": "30 días naturales ininterrumpidos, a disfrutar dentro del año natural. No compensables económicamente. Menos de 1 año: proporcional.",
+    "calendario": "Se fija en el primer mes del año, de mutuo acuerdo empresa-representación; criterio rotativo. Desacuerdo → arbitraje (art. 52).",
+    "fraccionamiento": "pendiente_confirmar"
+  },
+  "permisosRetribuidos": {
+    "articulo": "Art. 19 (Licencias)",
+    "matrimonioOParejaHecho": { "dias": 15, "tipo": "naturales", "nota": "Disfrutables 15 días antes o después." },
+    "accidenteEnfermedadGraveHospitalizacionFamiliar2grado": { "dias": 5 },
+    "fallecimientoFamiliar2grado": { "dias": 2, "conDesplazamientoFueraMadrid": 4, "conDesplazamientoFueraPeninsula": 5 },
+    "trasladoDomicilio": { "dias": 1 },
+    "deberInexcusablePublico": "por el tiempo indispensable"
+  },
+  "complementoIT": {
+    "$comment": "DATO CLAVE (baja médica): la empresa complementa la prestación de la Seguridad Social.",
+    "articulo": "Art. 34",
+    "accidenteTrabajo_hospitalizacion_cirugia": { "porcentaje": 100, "desdeDia": 1 },
+    "enfermedadComun_accidenteNoLaboral": { "porcentaje": 100, "desdeDia": 4, "nota": "Los 3 primeros días no se abonan." },
+    "reincidencia": "A partir de la 3ª baja por enfermedad común en el año natural, el 100% se abona desde el 5º día (4 primeros no abonados).",
+    "duracionMaxima": "18 meses o hasta extinción de la relación laboral",
+    "notaDiasLibres": "Si en los 3-4 primeros días de IT coinciden días libres (máx. 2), no se descuenta por esos días."
+  },
+  "seguroVidaEInvalidez": {
+    "articulo": "Art. 27",
+    "importe2025": 25089.74,
+    "cubre": "fallecimiento o incapacidad permanente total/absoluta/gran invalidez",
+    "nota": "La empresa DEBE concertar póliza desde el alta. Dinero que el trabajador/beneficiarios cobran y casi nadie sabe que existe."
+  },
+  "representacionSindical": {
+    "articulo": "Arts. 38-39",
+    "creditoHorario": "según art. 68 ET; en empresas <50 trabajadores, acumulable para congresos y formación sindical del propio delegado",
+    "nota": "El convenio remite al ET en lo general; detalle de funciones en Art. 39."
+  },
+  "pendienteCondiciones": ["régimen disciplinario (faltas/sanciones) — probablemente remite al ALEH estatal", "excedencias (mencionadas, sin transcribir)", "periodo de prueba", "dietas/kilometraje"],
+  "estado": "verificado_contra_fuente_con_condiciones",
+  "verificadoContra": "PDF oficial del BOCM nº121 (23-05-2026). Tablas verificadas en imagen; condiciones (vacaciones Art.18, permisos Art.19, complemento IT Art.34, seguro vida Art.27, representación Arts.38-39) extraídas del articulado con su artículo (D33/D34).",
+  "fechaVerificacion": "2026-07-08"
 }
