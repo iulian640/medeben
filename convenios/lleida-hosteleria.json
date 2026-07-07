@@ -1,0 +1,454 @@
+{
+  "$comment": "Convenio PROVINCIAL PROPIO de hostelería y turismo de Lleida. Lleida NO está cubierta por el convenio interprovincial de Cataluña (cataluna-hosteleria.json), que solo aplica a Barcelona, Girona y Tarragona. Lleida tiene convenio propio (codi 25100025012013), con tablas propias más bajas y una estructura más simple: niveles I-VI con V BIS y 4 columnas de categoría de establecimiento A,B,C,D (A la más alta). ARTICULADO verificado contra el PDF oficial del BOP Lleida nº 130 de 05-07-2024 (texto íntegro, Resolució de 21-06-2024). TABLAS SALARIALES Y PLUSES 2025 verificados celda a celda contra la IMAGEN del PDF oficial del BOP Lleida nº 162 de 26-08-2025 (Resolució de 18-08-2025, la publicación MÁS RECIENTE, norma D32). El texto usa numeración de artículos casi idéntica a la del interprovincial pero con importes y detalles propios.",
+  "id": "lleida-hosteleria",
+  "nombre": "Conveni col·lectiu de treball del sector de la indústria d'hostaleria i turisme de Lleida",
+  "codigoRegcon": "25100025012013",
+  "ambitoTerritorial": {
+    "tipo": "provincial",
+    "comunidad": "Cataluña",
+    "provincias": ["Lleida"],
+    "articulo": "Art. 3",
+    "nota": "Todos los centros de trabajo ubicados en la provincia de Lleida. Lleida NO se rige por el convenio interprovincial de Cataluña (ese cubre Barcelona/Girona/Tarragona); tiene convenio provincial propio."
+  },
+  "ambitoFuncional": "hosteleria",
+  "ambitoFuncionalDescripcion": "Art. 2: hostelería, alojamiento turístico (incl. rural, albergues, viviendas de uso turístico), restauración, catering, salas de fiesta/discotecas/salas de baile/tablaos, salones recreativos, billares, comercio con degustación y campings. También casinos, pizzerías a domicilio, paradores y casas rurales sin otro convenio. Riders (repartidores) incluidos a efectos retributivos en el nivel V.",
+  "fuente": {
+    "boletin": "BOP Lleida (Butlletí Oficial de la Província de Lleida)",
+    "numero": 130,
+    "fecha": "2024-07-05",
+    "documento": "Resolució de 21 de juny de 2024 (Departament d'Empresa i Treball), edicte 5578, CVE BOP-2024_0_130_5578, codi de conveni 25100025012013. Texto íntegro del convenio 2023-2026 (45 páginas).",
+    "url": "https://ebop.diputaciolleida.cat/aplicacions/bop/bopV1/fitxers/pdf/2024/130/202413005578.pdf",
+    "fuenteTablas2025": {
+      "boletin": "BOP Lleida",
+      "numero": 162,
+      "fecha": "2025-08-26",
+      "documento": "Resolució de 18 d'agost de 2025, edicte 7073, CVE BOP-2025_0_162_7073. Taules salarials 2025 (acord de la comissió paritària de 01-07-2025, efectes 01-01-2025). Publicación MÁS RECIENTE.",
+      "url": "https://ebop.diputaciolleida.cat/aplicacions/bop/bopV1/fitxers/pdf/2025/162/202516207073.pdf"
+    }
+  },
+  "vigencia": {
+    "desde": "2023-07-01",
+    "hasta": "2026-06-30",
+    "articulo": "Art. 5",
+    "nota": "Entró en vigor el 01-07-2023 con independencia de la fecha de publicación. Prórroga tácita anual desde el 30-06-2026 salvo denuncia con 2 meses de antelación. Denunciado, se aplica en ultraactividad hasta firmar el nuevo convenio."
+  },
+  "prelacionNormas": {
+    "articulo": "Art. 6",
+    "orden": ["Convenio (preferente y prioritario)", "ALEH (Acuerdo Laboral de Ámbito Estatal para Hostelería) en período de prueba, contratación, clasificación profesional, movilidad, polivalencia, promoción, subrogación y régimen disciplinario", "Estatuto de los Trabajadores (RDL 2/2015) supletorio"]
+  },
+  "jornadaAnual": {
+    "articulo": "Art. 28",
+    "horas": 1791,
+    "horasSemanales": 40,
+    "nota": "Jornada máxima anual de trabajo efectivo 1.791 h durante toda la vigencia (equivale a 40 h/semana en cómputo anual). Continuada: descanso de 20 min computable como jornada en jornadas > 5 h (si se usa para comer y excede, el exceso lo recupera el trabajador al final de la jornada). Partida: turnos máx 5 h y mín 3 h, descanso entre turnos mín 1 h 30 min.",
+    "descansoEntreJornadas": "Regla general del ET (12 h). SOLO en zonas de afluencia turística de Pirineus y Prepirineus la empresa puede reducirlo a 10 h para áreas funcionales 2ª y 3ª del ALEH, con preaviso de 14 días y motivación; excluidos menores de 18, discapacitados, nocturnos, embarazadas, contratos de formación, reducción por guarda legal y colectividades (salvo sanitarios, bingos y catering).",
+    "desconexionDigital": "Reconocida (art. 88 LOPD 3/2018 y art. 20 bis ET). Las condiciones de jornada tienen carácter de máximas.",
+    "verificado": true
+  },
+  "descansoSemanal": {
+    "articulo": "Art. 29",
+    "dias": 2,
+    "nota": "2 días sin interrupción. Acumulable ½ día o 1 día en periodos de hasta 4 semanas (hasta 4 meses en actividades de temporada). Si no se disfruta en plazo, se paga como hora extraordinaria. Se procurará descanso en domingo al menos 1 vez al mes para quien no tenga día fijo. Menores de 18: mínimo 2 días ininterrumpidos.",
+    "verificado": true
+  },
+  "vacaciones": {
+    "articulo": "Art. 30",
+    "dias": 30,
+    "tipoDias": "naturales",
+    "diasExtraPorAntiguedad": "no (no se contempla escala de días extra por antigüedad)",
+    "retribucion": {
+      "base": "sueldo base de las tablas + antigüedad consolidada + demás conceptos y/o pluses salariales ordinarios",
+      "articulo": "Art. 30",
+      "nota": "Se retribuyen con los conceptos salariales ordinarios, no solo el salario base."
+    },
+    "periodoDisfrute": "preferentemente del 1 de abril al 31 de octubre; el inicio debe coincidir con día laborable",
+    "fijacionCalendario": {
+      "quien": "común acuerdo empresa-representación de los trabajadores",
+      "publicacion": "antes del 1 de enero de cada año, o a los 30 días de la apertura",
+      "desacuerdo": "Tribunal Laboral de Cataluña (TLC)"
+    },
+    "fraccionamiento": "pendiente (el convenio no fija expresamente número de fracciones ni mínimo de días seguidos)",
+    "bajaDuranteVacaciones": {
+      "embarazoPartoLactancia_o_susp485y7ET": "se disfrutan en fecha distinta al finalizar la suspensión, aunque haya terminado el año natural (Art. 30)",
+      "otrasContingenciasIT": "se disfrutan al finalizar la IT, siempre que no hayan pasado más de 18 meses desde el final del año en que se originaron (Art. 30)"
+    },
+    "festivosDentroVacaciones": "Una fiesta no recuperable que coincida con vacaciones queda absorbida (máx. una); ver Art. 32.",
+    "noDisfrutadasAlCesar": "pendiente (regla general ET: se abonan en finiquito; el convenio no lo detalla expresamente)",
+    "verificado": true
+  },
+  "fiestasNoRecuperables": {
+    "articulo": "Art. 32",
+    "regla": "Si no se disfrutan o coinciden con la fiesta semanal, el trabajador tiene derecho a disfrutarlas en otra fecha Y a que la empresa le abone un 40% según tabla salarial + antigüedad consolidada, salvo que coincida con vacaciones (queda absorbida, máx. una). El abono se hace el mismo mes en que se genera el derecho, o prorrateado mensualmente según los importes del anexo (plus festes no recuperables). Si la fecha de compensación coincide con IT, se mantiene el derecho y se pacta nueva fecha al finalizar la IT.",
+    "plusFestesNoRecuperables2025_EurosMes": {
+      "$comment": "Prorrateo mensual del plus festes no recuperables 2025, por nivel y categoría de establecimiento (BOP 162/2025, imagen).",
+      "columnas": ["A", "B", "C", "D"],
+      "I": {"A": 25.54, "B": 25.54, "C": 24.37, "D": 24.37},
+      "II": {"A": 24.37, "B": 24.37, "C": 23.20, "D": 23.20},
+      "III": {"A": 20.90, "B": 20.90, "C": 19.73, "D": 19.73},
+      "IV": {"A": 18.57, "B": 18.57, "C": 18.57, "D": 18.57},
+      "V": {"A": 17.41, "B": 17.41, "C": 17.41, "D": 17.41},
+      "V BIS": {"A": 14.50, "B": 14.50, "C": 14.50, "D": 14.50},
+      "VI": {"A": 12.21, "B": 12.21, "C": 12.21, "D": 12.21}
+    },
+    "verificado": true
+  },
+  "nocturnidad": {
+    "articulo": "Art. 42",
+    "tramos": [{"desde": "00:00", "hasta": "06:00", "recargoPct": 25, "sobre": "salario ordinario"}],
+    "nota": "Se consideran nocturnas las horas entre las 22:00 y las 06:00, pero el recargo del 25% se aplica SOLO a partir de las 00:00; las horas de 22:00 a 24:00 quedan sin recargo (salvo trabajo nocturno por naturaleza). EXCEPCIÓN condición más beneficiosa: los trabajadores dados de alta en la empresa antes del 04/12/2015 mantienen el recargo del 25% para todo el tramo 22:00-06:00 (no compensable ni absorbible).",
+    "plusFijoAlternativo": "Para quienes computen entre 420 y 520 horas nocturnas se establece alternativamente un plus fijo mensual de nocturnidad por nivel (tabla en anexo). El cómputo es de 00:00 a 06:00 (o de 22:00 a 06:00 para altas anteriores al 04/12/2015).",
+    "plusNocturnidad2025_EurosMes": {
+      "$comment": "Plus fijo mensual de nocturnidad 2025 por nivel y categoría (BOP 162/2025, imagen). No hay fila VI (los grums menores de 18 del nivel VI no generan nocturnidad).",
+      "columnas": ["A", "B", "C", "D"],
+      "I": {"A": 93.37, "B": 91.11, "C": 88.85, "D": 85.45},
+      "II": {"A": 86.57, "B": 84.30, "C": 80.92, "D": 78.65},
+      "III": {"A": 75.25, "B": 73.02, "C": 70.74, "D": 67.32},
+      "IV": {"A": 62.79, "B": 62.79, "C": 62.79, "D": 62.79},
+      "V": {"A": 61.68, "B": 61.68, "C": 61.68, "D": 61.68},
+      "V BIS": {"A": 49.24, "B": 49.24, "C": 49.24, "D": 49.24}
+    },
+    "verificado": true
+  },
+  "pagasExtraordinarias": {
+    "articulo": "Art. 43",
+    "cantidad": 2,
+    "denominacion": ["Gratificació d'estiu", "Gratificació de Nadal"],
+    "cuantiaCadaUna": "una mensualidad del salario + antigüedad consolidada",
+    "fechasAbono": ["10 de julio", "22 de diciembre"],
+    "devengo": {"estiu": "1 julio a 30 junio del año siguiente", "nadal": "1 enero a 31 diciembre"},
+    "prorrateables": "sí, por acuerdo RLT/empresa; en desacuerdo, la legislación vigente",
+    "nota": "No se resta ningún importe por estar el trabajador en situación de incapacidad temporal.",
+    "verificado": true
+  },
+  "horasExtraordinarias": {
+    "articulo": "Art. 34",
+    "precioFijadoEnConvenio": false,
+    "valorHora": "el de la hora ordinaria (en cada centro se negocia compensar por descanso o por dinero; en desacuerdo, la Ley)",
+    "topeHorasExtraAnual": 80,
+    "obligatorias": "solo para reparar siniestros u otros daños extraordinarios y urgentes; también las de riesgo de pérdida de materias primas, necesidades imprevistas del servicio, ausencias imprevistas o cambios de turno.",
+    "verificado": true
+  },
+  "incrementosSalariales": {
+    "articulo": "Art. 35",
+    "2023": "+4,00% sobre tablas 2022 (1er año, efectos 01-01-2023)",
+    "2024": "+3,00% (2º año, efectos 01-01-2024); cláusula IPC: si el IPC interanual jul-2024/jun-2025 > 3%, incremento adicional máx. 1% con efecto 01-01-2025",
+    "2025": "+3,00% (3er año, efectos 01-01-2025); cláusula IPC: si el IPC interanual jul-2025/jun-2026 > 3%, incremento adicional máx. 1% con efecto 01-01-2026",
+    "nota": "Las tablas 2025 de este JSON ya llevan aplicado el +3%. La eventual revisión por IPC (máx +1% para 2026) NO estaba publicada en tabla oficial a fecha de verificación: queda pendiente. Empresas con sistema de porcentaje de servicio a 31-12-2007 lo mantienen (salarios de referencia: tabla DOGC 16-09-1994 +13,04%).",
+    "verificado": true
+  },
+  "categoriasEstablecimiento": {
+    "$comment": "Las 4 columnas de las tablas (A,B,C,D) = categoría del establecimiento; A la más alta. Art. 2.6 del convenio.",
+    "articulo": "ANNEX I, punto 6",
+    "A": "Hoteles GL/5*/4* superior/4*, hoteles residencia/apartamento 4*, restaurantes 5 y 4 tenedores, cafès-bars especiales A y B, casinos de 1ª, moteles 4*, salones de té de lujo/1ª, bares americanos, salas de baile de lujo/1ª, cafeterías de 3 tazas.",
+    "B": "Hoteles 3*, hoteles residencia/apartamento 3*, apartamentos extrahoteleros 1ª/2ª, cafeterías de 2 tazas, bares de 1ª, casinos 2ª/3ª, tablaos flamencos, restaurantes de 3 tenedores, barbacoas, pizzerías, colectividades y catering.",
+    "C": "Granjas, restaurantes de 2 tenedores, hostales 3*, hoteles 2*, cafeterías de 1 taza, bares de 2ª, billares y salas de recreo (con bebida). Los comercios con degustación se clasifican en categoría C (art. 2).",
+    "D": "Hoteles 1*, hostales 2*/1*, pensiones, fondas y casas de huéspedes, ciudades de vacaciones y campings, restaurantes, bares, tabernas, cervecerías, gelaterías, salas de fiesta y discotecas, casinos de 4ª, casas de payés, albergues, viviendas de uso turístico.",
+    "verificado": true
+  },
+  "clasificacionNiveles": {
+    "$comment": "MAPA PUESTO->NIVEL transcrito del ANNEX I punto 7 (a diferencia del interprovincial, aquí SÍ está completo). Los niveles de tabla I-VI+V BIS se corresponden con los 'Nivell 1..6' y 'Nivell 5 bis' del texto.",
+    "articulo": "ANNEX I, punto 7",
+    "I": "Jefes: 1r jefe de comedor, 1r encargado barman, 1r encargado mostrador, jefe de cocina, jefe de recepción, contable general, mayordomo de pisos, jefe de contratación y reservas.",
+    "II": "2os jefes, 1r conserje de día, 2º jefe de cocina/comedor/recepción, jefe de sala, jefe de partida, jefe de sector, encargados, técnico de mantenimiento.",
+    "III": "Personal cualificado: CAMARERO/A y dependiente/a, COCINERO/A, barman, cajero, recepcionista, 2ª gobernanta, conserje de noche, comercial, esteticista.",
+    "IV": "Personal cualificado auxiliar: CAMARERO/A DE PISOS, cajero de mostrador, masajista, sommelier, telefonista, chófer de 1ª, animador turístico, socorrista, controlador de accesos de discotecas.",
+    "V": "Personal auxiliar: AYUDANTE de camarero/cocinero/barman/dependiente/recepción/mantenimiento, cafetero, fregador/limpiaplatos, marmitón, mozo de habitaciones/equipajes/almacén, personal de limpieza, planchadora, portero, vigilante de noche, chófer de 2ª. RIDERS incluidos aquí.",
+    "V BIS": "Trabajadores que acceden a su primer puesto en el sector o sin experiencia profesional (ver 'contratacion').",
+    "VI": "Grooms menores de 18 años y marmitones menores de 18 años.",
+    "verificado": true
+  },
+  "tablasSalariales": {
+    "$comment": "Salario mensual GARANTIZADO en euros por nivel (I-VI + V BIS) y categoría de establecimiento (A,B,C,D). Año vigente 2025 VERIFICADO celda a celda en la IMAGEN del BOP Lleida nº 162 de 26-08-2025 (efectos 01-01-2025). Se incluyen 2023 y 2024 (del texto del convenio, BOP 130/2024) como referencia histórica.",
+    "columnas": ["A", "B", "C", "D"],
+    "niveles": ["I", "II", "III", "IV", "V", "V BIS", "VI"],
+    "2025": {
+      "I":     {"A": 1949.20, "B": 1833.17, "C": 1749.37, "D": 1700.65},
+      "II":    {"A": 1711.46, "B": 1658.28, "C": 1601.13, "D": 1577.92},
+      "III":   {"A": 1528.13, "B": 1468.13, "C": 1420.11, "D": 1380.68},
+      "IV":    {"A": 1330.00, "B": 1301.72, "C": 1290.39, "D": 1284.05},
+      "V":     {"A": 1249.66, "B": 1249.66, "C": 1249.66, "D": 1249.66},
+      "V BIS": {"A": 1184.00, "B": 1184.00, "C": 1184.00, "D": 1184.00},
+      "VI":    {"A": 1184.00, "B": 1184.00, "C": 1184.00, "D": 1184.00}
+    },
+    "2024_referencia": {
+      "I":     {"A": 1892.43, "B": 1779.77, "C": 1698.42, "D": 1651.12},
+      "II":    {"A": 1661.62, "B": 1609.98, "C": 1554.49, "D": 1531.97},
+      "III":   {"A": 1483.62, "B": 1425.37, "C": 1378.75, "D": 1340.47},
+      "IV":    {"A": 1291.27, "B": 1263.81, "C": 1252.81, "D": 1246.65},
+      "V":     {"A": 1213.26, "B": 1213.26, "C": 1213.26, "D": 1213.26},
+      "V BIS": {"A": 1134.00, "B": 1134.00, "C": 1134.00, "D": 1134.00},
+      "VI":    {"A": 1134.00, "B": 1134.00, "C": 1134.00, "D": 1134.00}
+    },
+    "2023_referencia": {
+      "I":     {"A": 1837.31, "B": 1727.94, "C": 1648.95, "D": 1603.03},
+      "II":    {"A": 1613.22, "B": 1563.09, "C": 1509.22, "D": 1487.35},
+      "III":   {"A": 1440.41, "B": 1383.85, "C": 1338.59, "D": 1301.42},
+      "IV":    {"A": 1253.66, "B": 1227.00, "C": 1216.32, "D": 1210.34},
+      "V":     {"A": 1177.93, "B": 1177.93, "C": 1177.93, "D": 1177.93},
+      "V BIS": {"A": 1080.00, "B": 1080.00, "C": 1080.00, "D": 1080.00},
+      "VI":    {"A": 1080.00, "B": 1080.00, "C": 1080.00, "D": 1080.00}
+    },
+    "estado": "verificado_2025_completo_imagen; 2023-2024 del texto del convenio"
+  },
+  "serviciosExtraordinarios": {
+    "$comment": "Importe €/servicio para personal contratado especialmente para banquetes/eventos (art. 2.2 y 25). Representa el total devengado por todas las percepciones salariales y no salariales.",
+    "articulo": "ANNEX I, punto 4 (importes) / Art. 25",
+    "2025": {"cambreroOCocinero": 71.63, "netejaAjudant": 58.92},
+    "2024_referencia": {"cambreroOCocinero": 69.55, "netejaAjudant": 57.20},
+    "verificado": true
+  },
+  "pluses": {
+    "$comment": "Importes €/mes salvo indicación. Verificados 2025 en imagen del BOP 162/2025; 2024 del texto del convenio.",
+    "manutencion": {
+      "articulo": "Art. 38 / ANNEX I punto 5a",
+      "2025_EurosMes": 46.22,
+      "2024_EurosMes": 44.88,
+      "nota": "Complemento salarial en especie por manutención. Da derecho quien presta servicio en centros donde se elaboran comidas. Proporcional si jornada <= 4 h/día o <= 20 h/sem. El trabajador elige entre metálico o especie (notificándolo por escrito, mín. 3 meses); por causa económica/organizativa con acuerdo RLT la opción pasa a la empresa."
+    },
+    "allotjament": {
+      "articulo": "Art. 39 / ANNEX I punto 5b",
+      "2025_EurosMes": 28.39,
+      "nota": "Solo para trabajadores que a 01/05/1995 tenían derecho a alojamiento; se mantiene en los mismos términos y cuantías (importe congelado)."
+    },
+    "transporte": {
+      "articulo": "Art. 40 / ANNEX I punto 5c",
+      "2025_EurosMes": 14.03,
+      "2024_EurosMes": 14.03,
+      "nota": "Se mantiene únicamente para quienes lo percibían a 01/05/1995. ADEMÁS: puede pactarse individualmente un plus de transporte de hasta 125,26 €/trabajador cuando haya turnos partidos o la distancia a recorrer sea superior a 5 km."
+    },
+    "ropaTrabajo": {
+      "articulo": "Art. 41 / ANNEX I punto 5d",
+      "2025_EurosMes": 14.53,
+      "2024_EurosMes": 14.10,
+      "nota": "La empresa está obligada a proporcionar uniformes y ropa de trabajo (adaptada en caso de embarazo). Su conservación y limpieza corren a cargo de la empresa; si no, se compensa con este importe mensual. Los uniformes son competencia exclusiva de la empresa."
+    },
+    "dietaFijoDiscontinuoLlamamientoCorto": {
+      "articulo": "Art. 23",
+      "importe": "20 € (revisable con los incrementos anuales) + billetes de tren/autobús de línea regular",
+      "nota": "Si un fijo-discontinuo es llamado para periodos de actividad inferiores a 15 días, los gastos de desplazamiento corren a cuenta de la empresa. Si el medio es vehículo propio, se pacta previamente el importe."
+    },
+    "verificado": true
+  },
+  "permisosRetribuidos": {
+    "articulo": "Art. 33",
+    "nota": "Sin perjuicio de los del art. 37.3 ET; estas son mejoras. 'Pareja estable' según arts. 234-1/234-2 Ley 25/2010 (Código Civil de Cataluña): convivencia >2 años ininterrumpidos, o convivencia con hijo común, o escritura pública.",
+    "matrimonioOParejaEstable": "15 días (solo una vez cada 10 años)",
+    "fallecimiento_conyugeParejaParientes2Grado": "3 días; +2 días si hay desplazamiento (total 5)",
+    "accidenteOEnfermedadGraves_hospitalizacion_o_intervencionConReposoDomiciliario": "5 días (cónyuge/pareja/parientes hasta 2º grado o conviviente a cargo); ejercitable durante la convalecencia con justificante médico",
+    "acompanarFamiliar1erGradoQuimioRadio": "el tiempo indispensable",
+    "bodasHijosNietosHermanosCunadosPadresSuegros": "1 a 3 días según necesidad de desplazamiento",
+    "examenes": "el tiempo indispensable (justificando asistencia)",
+    "cambioDomicilioHabitual": "2 días",
+    "asuntosPropios": "2 días al año natural (preaviso lo antes posible, sin justificación posterior; requiere antigüedad mínima de 90 días)",
+    "lactancia": "1 hora de ausencia (divisible en 2 fracciones) hasta que el lactante cumpla 9 meses; sustituible por reducción de media hora o acumulable en jornadas completas (fórmula: 1 h/día laborable ÷ jornada diaria; mínimo 15 días)",
+    "fuerzaMayorMotivosFamiliaresUrgentes": "horas retribuidas equivalentes a 4 días/año",
+    "verificado": true
+  },
+  "complementoIT": {
+    "articulo": "Art. 47",
+    "$comment": "Dato oro: la empresa complementa la prestación de IT por encima del mínimo legal.",
+    "accidenteTrabajo_o_enfermedadComunConHospitalizacion": {
+      "porcentaje": 100,
+      "desde": "primer día",
+      "tope": "12 meses"
+    },
+    "enfermedadComunSinHospitalizacion": {
+      "dias1a15": "lo que marca la ley, a cargo del empresario",
+      "dias16a30": "80% del salario",
+      "dias31enAdelante": "100% del salario, hasta un tope de 12 meses"
+    },
+    "requisitoAntiguedad": "no se establece requisito de antigüedad en el articulado (a diferencia del interprovincial, que exige 180 días para ciertas mejoras)",
+    "nota": "El trabajador debe avisar a la empresa de la baja/confirmación/alta. En fijos-discontinuos las mejoras se suspenden durante los periodos de inactividad.",
+    "verificado": true
+  },
+  "seguroAccidentes": {
+    "articulo": "Art. 48",
+    "importe": 16500,
+    "cobertura": "muerte o invalidez permanente (absoluta y total para la profesión habitual) por accidente de trabajo",
+    "carencia": "45 días desde la firma del convenio para concertar la póliza",
+    "verificado": true
+  },
+  "premioVinculacion": {
+    "articulo": "Art. 37",
+    "$comment": "Premio de vinculación/jubilación: indemnización al cesar (salvo despido procedente por sentencia firme). Dato relevante para finiquito de trabajadores veteranos.",
+    "hasta_30_06_2025": "trabajadores de 45 o más años que cesen (excepto despido procedente firme)",
+    "desde_01_07_2025": "trabajadores de 50 o más años que cesen (excepto despido procedente firme o dimisión voluntaria, salvo que sea por acceso a jubilación o incapacidad permanente)",
+    "escala": {
+      "10 años": "2 mensualidades",
+      "15 años": "3 mensualidades",
+      "20 años": "4 mensualidades",
+      "25 años": "5 mensualidades",
+      "30 años": "6 mensualidades",
+      "35 años": "7 mensualidades"
+    },
+    "baseCalculo": "salario del nivel retributivo del trabajador en las tablas vigentes al cese + prorrateo de pagas extra + antigüedad consolidada. Si el trabajador fallece en activo, corresponde a sus herederos.",
+    "verificado": true
+  },
+  "finalizacionContrato": {
+    "articulo": "Art. 27",
+    "indemnizacion": "la del art. 49.c ET (12 días de salario por año trabajado)",
+    "abono": "junto con la liquidación por saldo y finiquito",
+    "nota": "NO mejora el ET (importe legal de 12 días), a diferencia del interprovincial de Cataluña, que da 14 días.",
+    "verificado": true
+  },
+  "antiguedad": {
+    "articulo": "Art. 36",
+    "regla": "Se mantiene, en concepto de 'antigüedad consolidada', la cuantía existente a 31-12-2007 (no absorbible ni compensable). Se revaloriza con los incrementos anuales del convenio. No hay nuevo devengo de antigüedad.",
+    "verificado": true
+  },
+  "periodoPrueba": {
+    "articulo": "Art. 17 / ANNEX III (remite al ALEH; el anexo transcribe la tabla)",
+    "$comment": "Días NATURALES. Columnas por grupo profesional: G1 = grupo primero de todas las áreas + grupo segundo del área 5ª; G2 = grupo segundo del resto de áreas; G3 = grupo tercero de todas las áreas.",
+    "indefinido_ordinario_o_fijoDiscontinuo": {"G1": "90 días", "G2": "60 días", "G3": "45 días"},
+    "temporalSuperior3Meses": {"G1": "75 días", "G2": "45 días", "G3": "30 días"},
+    "temporalHasta3Meses": {"G1": "60 días", "G2": "30 días", "G3": "15 días"},
+    "personalDirectivo": "6 meses (indefinido/fijo) o 4 meses (temporal)",
+    "contratosFormativos": "prácticas: máx 1 mes (grado medio) / 2 meses (grado superior); formación en alternancia: sin periodo de prueba",
+    "tiempoParcialNoTodosLosDias": "máx 30 días de trabajo efectivo (indefinido) o 20 (temporal)",
+    "nota": "Debe suscribirse siempre por escrito. Es nulo el pacto de prueba si el trabajador ya desempeñó las mismas funciones en la empresa habiéndolo superado. Durante el periodo de prueba cualquiera de las partes puede rescindir sin preaviso ni indemnización.",
+    "verificado": true
+  },
+  "dimisionPreaviso": {
+    "articulo": "Art. 18",
+    "regla": "2 meses si es grupo profesional 1 o 2 de cualquier área; 15 días para el resto de grupos (1 mes si la plantilla es inferior a 11 trabajadores). Sin preaviso si hay falta de pago o retraso continuado de 2+ meses del salario. El incumplimiento del preaviso descuenta la retribución de los días que falten.",
+    "verificado": true
+  },
+  "ascensos": {
+    "articulo": "Art. 19",
+    "regla": "Ante vacantes, preferencia del trabajador del puesto inmediato inferior que lleve desempeñando la tarea un mínimo de 6 meses, por orden de antigüedad, si demuestra su capacidad (prueba controlada por empresa y RLT; desacuerdo al TLC).",
+    "verificado": true
+  },
+  "excedencias": {
+    "articulo": "Art. 20",
+    "voluntaria": "tras 1 año en la empresa; duración mín 4 meses y máx 5 años; preaviso 30 días naturales; reingreso: baja definitiva si no se solicita reintegración con 30 días (excedencia >1 año) o 15 días (<1 año) de antelación; para otra excedencia voluntaria distinta hay que cubrir 4 años nuevos de servicio efectivo",
+    "forzosa": "por cargo de representación sindical comarcal/provincial/autonómico o superior (art. 9.1 LOLS); comunicar con 30 días",
+    "cuidadoHijos": "hasta 3 años por cada hijo (reserva de puesto el 1er año, luego mismo grupo; hasta 15/18 meses en familia numerosa)",
+    "cuidadoFamiliares": "hasta 2 años (cónyuge/pareja/familiar hasta 2º grado que no pueda valerse por sí mismo)",
+    "verificado": true
+  },
+  "polivalencia": {
+    "articulo": "Arts. 13 y 15",
+    "regla": "Polivalencia funcional entre camarero/a de pisos (área 4, grupo 2) y ayudante de camarero (área 3, grupo 3): si se ejerce a la inversa (el de pisos hace de ayudante), la persona percibe por ese tiempo el sueldo del NIVEL SALARIAL SUPERIOR, y se informa previamente a la RLT. También cabe polivalencia entre ayudante de camarero (área 3, grupo 3) y ayudante de cocina (área 2, grupo 2) por acuerdo RLT-Dirección.",
+    "verificado": true
+  },
+  "contratacion": {
+    "articulo": "Arts. 21-26",
+    "primerTrabajoEnElSector": "Art. 22: puesto para estudiantes de hostelería o trabajadores sin/poca experiencia, retribuido en NIVEL 5 BIS; permanencia máx 12 meses (con estudios reglados de hostelería terminados) o 18 meses (resto); después pasa al puesto superior cuya función ejerce. La comisión paritaria controla su evolución.",
+    "fijosDiscontinuos": "Art. 23: para trabajos de temporada; llamamiento por riguroso orden de antigüedad dentro de cada grupo; se comunica 15 días antes de la apertura por carta certificada con acuse; el trabajador responde en máx 10 días naturales (su silencio = renuncia). Cabe fijo-discontinuo a tiempo parcial (sin horas complementarias).",
+    "duracionDeterminada": "Art. 25: por circunstancias de la producción, hasta 12 meses; prorrogable una vez sin exceder ese máximo. Para servicios extraordinarios, contrato de duración inferior a 4 semanas.",
+    "formativos": "Art. 21: prácticas 6 meses-1 año (retribución no inferior al SMI); formación en alternancia 3 meses-2 años (SMI el 1er año, SMI+5% el 2º).",
+    "fomentoIndefinida": "Art. 26.1: según Ley 3/2012.",
+    "discapacidad": "Art. 26.2: cuota de reserva del 2% en empresas de 50+ trabajadores (RDL 1/2013, Decreto 86/2015).",
+    "verificado": true
+  },
+  "formacion": {
+    "articulo": "Art. 51",
+    "regla": "Derecho a formación profesional según el ET. Los reciclajes por cambios tecnológicos o de puesto se imparten dentro de la jornada laboral. Posibilidad de negociar por acuerdo de empresa un cuerpo de horas de formación dentro de jornada. Comisión paritaria de formación profesional.",
+    "verificado": true
+  },
+  "regimenDisciplinario": {
+    "articulo": "Art. 53 / ANNEX IV (transcripción literal del régimen del ALEH)",
+    "graduacion": ["leve", "grave", "muy grave"],
+    "procedimiento": {
+      "regla": "La notificación de las faltas requiere comunicación ESCRITA al trabajador con fecha y hechos; el trabajador acusa recibo. La RLT/representación sindical debe ser informada de las sanciones por faltas graves y muy graves. Los delegados sindicales deben ser oídos antes de despedir/sancionar a un afiliado (si consta a la empresa).",
+      "notaLegal": "Coincide con art. 58 ET: sin comunicación escrita con fecha y hechos, la sanción por falta grave/muy grave es impugnable."
+    },
+    "faltasLeves_ejemplos": [
+      "descuido/error/demora en un trabajo que no perturbe importantemente el servicio",
+      "1 a 3 faltas de puntualidad injustificadas de hasta 30 min en 30 días (sin graves perjuicios)",
+      "no comunicar con celeridad la ausencia justificada (IT u otro motivo)",
+      "abandono sin causa por breve tiempo o terminar antes con antelación < 30 min (sin graves perjuicios)",
+      "pequeñas negligencias en la conservación de géneros/material",
+      "no comunicar cambio de domicilio",
+      "discusiones con compañeros dentro de la empresa sin presencia de público",
+      "llevar el uniforme/ropa de trabajo con falta de cuidado; falta de aseo ocasional"
+    ],
+    "faltasGraves_ejemplos": [
+      "más de 3 faltas de puntualidad en 30 días, o 1 sola superior a 30 min o con graves perjuicios",
+      "faltar 1 o 2 días al trabajo en 30 días sin autorización/justificación",
+      "abandono o terminación anticipada superior a 30 min, entre 1 y 3 veces en 30 días",
+      "no comunicar puntualmente cambios de datos familiares (retenciones)",
+      "incumplir órdenes/instrucciones de la empresa (incl. PRL)",
+      "descuido importante en la conservación de géneros/materiales",
+      "simular la presencia de otro trabajador (fichar/firmar por él)",
+      "discusiones con compañeros en presencia del público",
+      "usar para uso propio artículos/enseres de la empresa sin autorización",
+      "asistir o permanecer en el trabajo bajo efectos de alcohol/drogas, o consumirlos en horario de trabajo",
+      "uso privado abusivo de medios informáticos/telemáticos de la empresa"
+    ],
+    "faltasMuyGraves_ejemplos": [
+      "3+ faltas de asistencia sin justificar en 30 días, 10 en 6 meses o 20 en un año",
+      "fraude, deslealtad o abuso de confianza; negocios por cuenta propia en la empresa sin autorización",
+      "hacer desaparecer/inutilizar o dañar materiales, útiles, instalaciones, edificios o documentos",
+      "robo, hurto o malversación en el ámbito de la empresa",
+      "violar el secreto de correspondencia o datos reservados",
+      "malos tratos de palabra u obra, abuso de autoridad o falta grave de respeto",
+      "disminución voluntaria y continuada del rendimiento",
+      "simulación de enfermedad/accidente; trabajar durante la IT o prolongarla de forma injustificada",
+      "acoso sexual (agravante si hay posición jerárquica)",
+      "acoso moral, sexual y por razón de sexo, origen racial/étnico, religión, discapacidad, edad, orientación sexual o género"
+    ],
+    "sanciones": {
+      "leves": ["amonestación", "suspensión de empleo y sueldo hasta 2 días"],
+      "graves": ["suspensión de empleo y sueldo de 3 a 15 días"],
+      "muyGraves": ["suspensión de empleo y sueldo de 16 a 60 días", "despido disciplinario"],
+      "plazosCumplimientoSuspension": {"hasta2dias": "2 meses", "de3a15dias": "4 meses", "de16a60dias": "6 meses"}
+    },
+    "sancionEconomicaProhibida": {
+      "regla": "PROHIBIDO. El convenio solo permite amonestación, suspensión de empleo y sueldo o despido. NO se puede sancionar con multa de haber (descontar dinero del sueldo estando de alta trabajando) ni recortar vacaciones/descansos.",
+      "baseLegal": "art. 58.3 ET",
+      "matiz": "Descontar el tiempo NO trabajado por llegar tarde no es sanción (es que no se paga lo no trabajado)."
+    },
+    "prescripcion": {
+      "leves": "10 días",
+      "graves": "20 días",
+      "muyGraves": "60 días",
+      "desde": "que la empresa tuvo conocimiento de su comisión",
+      "topeAbsoluto": "6 meses desde que se cometió"
+    },
+    "revisable": "Toda sanción es revisable ante la jurisdicción social (ANNEX IV).",
+    "verificado": true
+  },
+  "representacionSindical": {
+    "articulo": "Art. 50",
+    "marcoLegal": "LOLS 11/1985 + Estatuto de los Trabajadores (RDL 2/2015)",
+    "delegadoSindical": "1 delegado sindical en centros con plantilla superior a 125 trabajadores (sindicatos con las condiciones del art. 10 LOLS)",
+    "creditoHorarioMensual": {
+      "$comment": "MEJORA el ET (que da 15/20/30/35/40 h). Horas mensuales retribuidas para delegados sindicales, delegados de personal y miembros del comité.",
+      "hasta50trabajadores": 16,
+      "de51a100": 27,
+      "de101a750": 37,
+      "de751enAdelante": 40,
+      "acumulacion": "acumulable trimestral o semestralmente; en empresas de más de 125 trabajadores la acumulación entre miembros de una misma central es automática al comunicarse"
+    },
+    "garantiasFuero": "según arts. 68 ET y LOLS (expediente contradictorio, prioridad de permanencia, no despido/sanción por actividad representativa durante el mandato y el año siguiente).",
+    "verificado": true
+  },
+  "igualdadYAcoso": {
+    "articulo": "Disposiciones adicionales 2ª y 5ª; ANNEX IV (acoso como falta muy grave)",
+    "regla": "El acoso sexual, moral y por razón de sexo/origen/religión/discapacidad/edad/orientación sexual/género están tipificados como faltas MUY GRAVES. Plan de igualdad obligatorio en empresas de 50+ trabajadores (LO 3/2007). Protección de la maternidad: cambio de puesto de la embarazada por certificación de la Seguridad Social, garantizando salario y grupo (art. 49.5).",
+    "verificado": true
+  },
+  "estado": "verificado_completo",
+  "verificadoContra": "PDF oficial del BOP Lleida nº 130 de 05-07-2024 (edicte 5578, CVE BOP-2024_0_130_5578, Resolució de 21-06-2024): 45 páginas, texto íntegro del convenio 2023-2026 (articulado, ANNEX I tablas/pluses, ANNEX II áreas funcionales, ANNEX III periodo de prueba, ANNEX IV régimen disciplinario). TABLAS Y PLUSES 2025 verificados celda a celda en la IMAGEN del BOP Lleida nº 162 de 26-08-2025 (edicte 7073, CVE BOP-2025_0_162_7073, Resolució de 18-08-2025) renderizada a PNG (fitz dpi 185). Coincidencia aritmética confirmada: tabla 2025 = tabla 2024 (del texto del convenio) +3%.",
+  "pendientes": [
+    "Eventual revisión por cláusula IPC 2026 (máx +1% con efecto 01-01-2026): no publicada en tabla oficial a fecha de verificación",
+    "Fraccionamiento de vacaciones (nº de periodos / mínimo de días seguidos): no detallado en el articulado",
+    "Abono de vacaciones no disfrutadas al cesar: no detallado expresamente (regla general ET al finiquito)",
+    "Mapa completo puesto->nivel del ANNEX II (adecuación a áreas funcionales del ALEH): transcrito el ANNEX I punto 7 (puestos por nivel); el desglose por áreas funcionales del ANNEX II no se ha volcado íntegro"
+  ],
+  "dudasUGT": [
+    "Nocturnidad (art. 42): el recargo del 25% solo aplica DESDE las 00:00 para altas posteriores a 04/12/2015; las horas 22:00-24:00 quedan sin recargo. ¿Es esto conforme al art. 36.2 ET, que define el trabajo nocturno como el realizado entre 22:00 y 06:00? Confirmar si es legal excluir de recargo el tramo 22:00-24:00.",
+    "Indemnización fin de contrato (art. 27): remite al art. 49.c ET (12 días), NO mejora el convenio como sí hacen otros de hostelería. Confirmar que es correcto y no una tabla propia.",
+    "Complemento IT (art. 47): no fija requisito de antigüedad para las mejoras. Confirmar que aplica desde el primer día de alta sin carencia."
+  ],
+  "curiosidades": [
+    "Lleida tiene convenio PROPIO más modesto que el interprovincial de Cataluña: el nivel I categoría A cobra 1.949,20 €/mes en 2025, frente a los 2.121 € de Barcelona nivel I-A. Estructura más simple: 4 columnas (A-D) frente a las 5-6 del resto de provincias catalanas.",
+    "Salarios mínimos garantizados alineados con el SMI: niveles V BIS y VI se quedan en 1.184,00 € en las 4 categorías (suelo SMI 2025).",
+    "Reducción del descanso entre jornadas a 10 h SOLO en Pirineus y Prepirineus (zonas de esquí/turismo de montaña), reflejo del peso del turismo de nieve en la provincia.",
+    "El puesto 'primer trabajo en el sector' (nivel 5 BIS) permite a la empresa pagar el salario mínimo hasta 12 meses (con estudios) o 18 meses (sin estudios) antes de subir al puesto real: cuidado con abusos de permanencia.",
+    "Premio de vinculación potente: hasta 7 mensualidades a los 35 años de servicio al cesar (una especie de premio de jubilación por antigüedad).",
+    "Riders/repartidores expresamente incluidos y encuadrados en el nivel V a efectos retributivos."
+  ],
+  "fechaVerificacion": "2026-07-08"
+}
