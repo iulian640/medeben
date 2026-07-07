@@ -1,0 +1,64 @@
+{
+  "$comment": "Tablas 2025 VERIFICADAS visualmente contra el PDF oficial del BOP de Alicante (nº33, 18-02-2025, anuncio 971/2025). Este convenio es de los más completos: fija en euros la hora extra, la nocturnidad y la compensación de festivos. Pendiente del TEXTO del convenio (otra publicación): jornada anual, tramo horario de nocturnidad, y mapeo categoría→nivel.",
+  "id": "alicante-hosteleria",
+  "nombre": "Convenio colectivo del sector de Hostelería de la provincia de Alicante",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Comunidad Valenciana", "provincias": ["Alicante"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP Alicante",
+    "numero": 33,
+    "fecha": "2025-02-18",
+    "documento": "Anuncio 971/2025 (tabla salarial 2025)",
+    "url": "https://www.dip-alicante.es/bop2/pdftotal/2025/02/18_33/2025_000971.pdf"
+  },
+  "vigencia": { "desde": "2023-01-01", "hasta": "2026-12-31" },
+  "categoriasEstablecimiento": { "A": "grupo A (superior)", "B": "grupo B", "C": "grupo C", "nota": "Grupos de establecimientos A/B/C; detalle en el texto del convenio." },
+  "salariosBaseMensuales2025": {
+    "1": { "A": 1693.89, "B": 1612.58, "C": 1470.29 },
+    "2": { "A": 1584.93, "B": 1502.92, "C": 1400.16 },
+    "3": { "A": 1470.81, "B": 1432.29, "C": 1369.76 },
+    "4": { "A": 1432.79, "B": 1361.08, "C": 1288.48 },
+    "5": { "A": 1324.20, "B": 1282.38, "C": 1252.37 },
+    "6": { "A": 1245.38, "B": 1244.83, "C": 1243.93 }
+  },
+  "contratosFormacion2025": { "año1": 961.08, "año2": 1073.73, "nota": "Mínimo SMI (Art. 13)." },
+  "horasExtraordinarias2025": {
+    "$comment": "Art. 24. Precio POR HORA (€) — este convenio SÍ fija precio de hora extra (a diferencia de Madrid). Tope 80 h/año salvo mejora.",
+    "1": { "A": 17.13, "B": 16.33, "C": 14.94 },
+    "2": { "A": 16.07, "B": 15.29, "C": 14.27 },
+    "3": { "A": 14.96, "B": 14.56, "C": 13.96 },
+    "4": { "A": 14.56, "B": 13.88, "C": 13.18 },
+    "5": { "A": 13.52, "B": 13.11, "C": 12.81 },
+    "6": { "A": 12.75, "B": 12.75, "C": 12.74 }
+  },
+  "nocturnidad2025": {
+    "$comment": "Art. 34. Valor del plus POR HORA trabajada (€). El tramo horario que cuenta como nocturno está en el texto del convenio (pendiente).",
+    "porHora": {
+      "1": { "A": 1.42, "B": 1.35, "C": 1.22 },
+      "2": { "A": 1.33, "B": 1.27, "C": 1.16 },
+      "3": { "A": 1.22, "B": 1.19, "C": 1.13 },
+      "4": { "A": 1.19, "B": 1.12, "C": 1.08 },
+      "5": { "A": 1.10, "B": 1.06, "C": 1.04 },
+      "6": { "A": 1.04, "B": 1.04, "C": 1.04 }
+    }
+  },
+  "compensacionFiestas2025": {
+    "$comment": "Art. 26. € por día de fiesta trabajada.",
+    "1": { "A": 121.57, "B": 115.47, "C": 104.94 },
+    "2": { "A": 113.65, "B": 107.52, "C": 99.84 },
+    "3": { "A": 105.36, "B": 102.33, "C": 97.69 },
+    "4": { "A": 102.61, "B": 97.22, "C": 91.74 },
+    "5": { "A": 94.71, "B": 91.46, "C": 89.11 },
+    "6": { "A": 89.00, "B": 88.81, "C": 88.48 }
+  },
+  "pluses2025": {
+    "plusResponsabilidadComedoresEscolares": 59.89,
+    "gratificacionExtraordinariaOctubre": 1211.59,
+    "ropaTrabajoEsmoquin": 26.52,
+    "nota": "La gratificación de octubre (Art. 38b) sugiere posibles 3 pagas — confirmar nº total de pagas en el texto. Ropa de trabajo tiene más tramos (sin chaqueta/cocina, resto) en el PDF."
+  },
+  "jornadaAnual": { "horas": null, "nota": "≈40 h/semana; horas anuales exactas en el texto del convenio (pendiente)." },
+  "estado": "tablas_2025_verificadas",
+  "verificadoContra": "PDF oficial BOP Alicante nº33 (18-02-2025) renderizado a imagen y leído visualmente. Tablas 2025 (salarios, horas extra, nocturnidad, fiestas, pluses) verificadas.",
+  "fechaVerificacion": "2026-07-07"
+}
