@@ -1,0 +1,35 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a2e;
+  --color-accent: #1a1a2e;
+
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1a2e;
+    --color-text: #f3f4f6;
+    --color-accent: #f3f4f6;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
