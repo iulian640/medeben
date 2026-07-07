@@ -1,27 +1,280 @@
 {
-  "$comment": "Tablas de HOTELES 2025 verificadas visualmente contra el PDF oficial (BOP Sevilla nº102, 30-05-2025, CVE BOP-SE-2025-102031). El convenio tiene más tablas por tipo de establecimiento (restaurantes, cafeterías, bares) en las páginas siguientes — pendientes. Marco (jornada, pagas, nocturnidad) de fuentes que citan el BOP; confirmar en texto.",
+  "$comment": "Convenio del sector de Hostelería de Sevilla 2025-2028. Transcrito VISUALMENTE del PDF oficial (BOP Sevilla nº102, 30-05-2025, CVE BOP-SE-2025-102031), 26 páginas renderizadas a imagen 185 dpi y leídas celda a celda. Convenio multi-año: todas las tablas de los 4 años (2025-2028) publicadas de una vez. Incrementos: 4% (2025 sobre 2024), 5% (2026), 4% (2027), 4% (2028); no aplican a la antigüedad (art. 10). El convenio NO tiene régimen disciplinario ni artículo propio de permisos retribuidos ni periodo de prueba/excedencias/ascensos: en todo lo no previsto remite al VI Acuerdo Laboral de ámbito Estatal para el Sector de Hostelería (ALEH) — Disposición final.",
   "id": "sevilla-hosteleria",
-  "nombre": "Convenio colectivo del sector de Hostelería de la provincia de Sevilla",
+  "nombre": "Convenio del sector de Hostelería de Sevilla para el período 2025-2028",
+  "codigoRegcon": "pendiente",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Andalucía", "provincias": ["Sevilla"] },
   "ambitoFuncional": "hosteleria",
+  "ambitoPersonal": {
+    "$comment": "Art. 3. Se rige por el art. 4 del ALEH. El personal de limpieza de Viviendas de Uso Turístico (VUT) y Viviendas Turísticas de Alojamiento Rural (VTAR) se asimila a camarera/o de piso. Cláusula de sucesión: camareras/os de piso, camareros/as y ayudantes subcontratados perciben las condiciones esenciales de la empresa principal.",
+    "notaVUT": "Limpiadoras de VUT/VTAR asimiladas a camarera de piso (art. 3)."
+  },
+  "partesFirmantes": {
+    "patronal": ["Asociación de Hoteles de Sevilla", "Asociación Empresarial de Hostelería"],
+    "sindicatos": ["CCOO", "UGT"],
+    "comisionParitaria": "12 vocales (6 empresas + 6 sindicatos). Sede: Sindicato Provincial de Servicios de CC.OO-A, C/ Cardenal Bueno Monreal 58, Sevilla (art. 9)."
+  },
   "fuente": {
     "boletin": "BOP Sevilla",
     "numero": 102,
     "fecha": "2025-05-30",
-    "documento": "CVE BOP-SE-2025-102031",
-    "url": "https://bopsevilla.dipusevilla.es/"
+    "documento": "CVE BOP-SE-2025-102031. Convenio del sector de Hostelería de Sevilla 2025-2028",
+    "url": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/mapaNegociacionColectiva/descargarDocumento?uuid=8ff3eb6e-3d2f-11f0-bcfd-61838fa4072e"
   },
-  "vigencia": { "desde": "2025-01-01", "hasta": "2028-12-31", "nota": "Subida histórica ~17% en 4 años." },
-  "jornadaAnual": { "horas": 1800, "bolsaHorasIrregular": { "horas": 180, "meses": "febrero-mayo y septiembre-diciembre", "limites": "10 h/día, 50 h/semana" }, "verificado": false },
-  "pagasExtraordinarias": { "cantidad": 3, "fechas": ["julio", "diciembre", "primavera (antes del 1 de abril)"], "verificado": false },
+  "vigencia": {
+    "desde": "2025-01-01",
+    "hasta": "2028-12-31",
+    "nota": "Art. 4: vigencia 4 años, efectos económicos desde 1-1-2025 sea cual sea la fecha de publicación. Art. 6: denuncia con preaviso mínimo 2 meses; prórroga tácita anual; ULTRAACTIVIDAD: permanece vigente hasta que entre en vigor uno nuevo, aun pasado más de un año desde la denuncia."
+  },
+
+  "jornadaAnual": {
+    "horas": 1800,
+    "semanal": 40,
+    "articulo": "Art. 30",
+    "bolsaHorasIrregular": {
+      "horas": 180,
+      "meses": "febrero, marzo, abril, mayo, septiembre, octubre, noviembre y diciembre",
+      "limites": "10 h/día máximo y 50 h/semana en prolongación de jornada; el resto del año máx. 40 h/semana y 8 h/día",
+      "nota": "Salas de fiestas, discotecas, tablaos flamencos y cafés cantantes: la bolsa de 180 h puede fijarse en viernes, sábados y vísperas de festivos. Deben controlarse y comunicarse por escrito; se compensan por reducción de jornada o descansos."
+    },
+    "descansoSemanal": "1,5 días ininterrumpidos en centros de hasta 25 trabajadores/as fijos/as; 2 días ininterrumpidos en los de más de 25 (art. 30).",
+    "descansoJornadaContinuada": "20 minutos diarios (aseo/bocadillo), computan como tiempo efectivo de trabajo (art. 30).",
+    "verificado": true
+  },
+
+  "pagasExtraordinarias": {
+    "cantidad": 3,
+    "articulo": "Art. 13",
+    "detalle": "Dos pagas de 30 días cada una, abonadas el 15 de julio y el 15 de diciembre, sobre salario base + antigüedad. Además una Paga de Primavera equivalente a 30 días (salario base + antigüedad), cómputo por años naturales, abonada antes del 1 de abril del año siguiente al devengo. Quien inicie vacaciones antes del 15 de julio recibe la paga de julio el día anterior a su marcha.",
+    "prorrateo": "Posible en 12 mensualidades por acuerdo con el comité/delegados o con las personas trabajadoras.",
+    "verificado": true
+  },
+
+  "plusConvenio": {
+    "$comment": "Art. 16. Complemento adicional a las 3 pagas del art. 13. Es como una 4ª gratificación parcial de octubre.",
+    "importe": "20 días de salario base mensual + antigüedad",
+    "devengo": "del 15 de octubre del año anterior al 14 de octubre del año en curso",
+    "pago": "15 de octubre de cada año (prorrateable en 12 mensualidades por acuerdo)",
+    "articulo": "Art. 16",
+    "verificado": true
+  },
+
   "nocturnidad": {
-    "tramos": [ { "desde": "22:00", "hasta": "06:00", "recargoPct": 25, "sobre": "hora ordinaria" } ],
-    "reglaEspecial": "20% sobre el sueldo base si la jornada comienza tras las 22:00",
-    "verificado": false
+    "articulo": "Art. 15",
+    "tramos": [
+      { "desde": "22:00", "hasta": "06:00", "recargoPct": 25, "sobre": "salario hora ordinario", "aplicaA": "personas cuya jornada sea parcial nocturna" }
+    ],
+    "reglaEspecial": "Plus del 20% sobre el sueldo base para quienes tengan jornada específicamente nocturna por su propia naturaleza y que dé comienzo con posterioridad a las 22:00.",
+    "verificado": true
   },
-  "tablasSalarialesHoteles": {
-    "$comment": "Salario base mensual €, por categoría de hotel (estrellas) × nivel. VERIFICADO en imagen. Muestro los 4 años 2025-2028.",
-    "hoteles_5_4_estrellas": {
+
+  "horasExtraordinarias": {
+    "articulo": "Art. 12",
+    "tipo": "porcentaje",
+    "recargoPct": 75,
+    "sobre": "hora ordinaria",
+    "compensacionDescanso": "Alternativa a la retribución: compensación con descansos a razón de 1 hora extra = 1 hora y 45 minutos de descanso.",
+    "verificado": true
+  },
+
+  "antiguedad": {
+    "$comment": "Art. 14. Complemento calculado sobre el Salario Mínimo Interprofesional (SMI), NO sobre las tablas del convenio. La base queda CONGELADA cuando el SMI alcance la cuantía total de 420,71 €. Los incrementos salariales del convenio NO se aplican a la antigüedad (art. 10). Tiene condición 'ad personam': no compensable ni absorbible.",
+    "articulo": "Art. 14",
+    "baseCalculo": "Salario Mínimo Interprofesional vigente, con tope/congelación en 420,71 €",
+    "escalaCongeladaAntes1995": {
+      "3años": 3, "6años": 8, "9años": 16, "14años": 26, "19años": 38, "24años": 45,
+      "unidad": "porcentaje sobre SMI"
+    },
+    "escalaDesde1995": {
+      "3años": 3, "6años": 8,
+      "topeMaximoPct": 8,
+      "topeEuros": 420.71,
+      "nota": "Personas ingresadas desde 1-1-1995 generan hasta un máximo del 8% (3% a los 3 años, 8% a los 6 años), con tope de 420,71 €."
+    },
+    "verificado": true
+  },
+
+  "vacaciones": {
+    "articulo": "Art. 31 (y art. 32 para festivos)",
+    "dias": 30,
+    "tipoDias": "naturales",
+    "diasExtraPorAntiguedad": "No. 30 días naturales para todos/as, cualquiera que sea la antigüedad.",
+    "retribucion": "Salario base del convenio + complemento de antigüedad. No incluye promedio de nocturnidad/festivos.",
+    "periodoDisfrute": "Dentro del año natural. Se determina de común acuerdo empresa/persona trabajadora; la persona trabajadora tiene derecho a disfrutar 17 días entre el 1 de junio y el 30 de septiembre (21 días en centros de más de 50 personas trabajadoras).",
+    "quienLasFija": "De común acuerdo entre empresa y persona trabajadora. En materia de horario y vacaciones se consulta al comité de empresa; si no hay acuerdo resuelve la autoridad laboral (art. 33).",
+    "noCompensablesEnMetalico": true,
+    "proporcionalidad": "Quien no haya completado un año efectivo de servicio en la fecha de disfrute disfruta días proporcionales al tiempo trabajado.",
+    "turnos": "Cuando exista régimen de turnos de vacaciones, las personas con responsabilidades familiares tienen preferencia a que coincidan con los periodos de vacaciones escolares.",
+    "fraccionamiento": "pendiente (el convenio no lo regula expresamente; se estaría al ET/ALEH)",
+    "bajaDuranteVacaciones": "pendiente (no regulado expresamente en el convenio; rige el art. 38.3 ET, que reconoce la interrupción y recuperación)",
+    "festivosDentroDeVacaciones": "Si coincide un festivo no recuperable en periodo de vacaciones se atiende al art. 30 (jornada máxima anual 1.800 h). Los festivos abonables y no recuperables trabajados se compensan según art. 32.",
+    "vacacionesNoDisfrutadasAlCesar": "pendiente (no regulado expresamente; se abonan en el finiquito por aplicación general)",
+    "verificado": true
+  },
+
+  "festivosNoRecuperables": {
+    "$comment": "Art. 32. Días festivos abonables y no recuperables trabajados. A criterio de la empresa se compensan de una de estas formas.",
+    "articulo": "Art. 32",
+    "opciones": [
+      "a) Abonarlos con el 100% de recargo junto con la mensualidad (v.g.: 100 = 200).",
+      "b) Acumularlos a las vacaciones anuales o disfrutarlos como descanso continuado en periodo distinto, en ambos casos incrementados con los descansos semanales que procedan."
+    ],
+    "descansoRotatorioCoincidente": "Si el descanso semanal rotatorio coincide con un festivo abonable y no recuperable, se considera no disfrutado y se compensa por una de las dos formas anteriores.",
+    "verificado": true
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 22 (Enfermedad y accidente). El convenio NO distingue expresamente entre enfermedad común y accidente laboral: da el mismo tratamiento ('enfermedad o accidente'). Complemento hasta alcanzar el 100% del SALARIO BASE del convenio (no del salario real).",
+    "articulo": "Art. 22",
+    "objetivoComplemento": "Hasta el 100% del salario base del convenio (sumando lo que abona la Seguridad Social por IT)",
+    "tramos": [
+      {
+        "requisito": "≥ 6 meses de servicio y NO sustituido por interino/a",
+        "desdeDia": 1,
+        "duracionMaxMeses": 12
+      },
+      {
+        "requisito": "Sustituido por interino/a: solo con > 10 años de servicio",
+        "desdeDia": 8,
+        "duracionMaxMeses": 1
+      },
+      {
+        "requisito": "> 1 mes y < 6 meses de servicio, NO sustituido por interino/a, acreditando derecho a la prestación por IT",
+        "desdeDia": 21,
+        "duracionMaxMeses": 12
+      }
+    ],
+    "verificado": true
+  },
+
+  "seguroColectivo": {
+    "$comment": "Art. 38. Póliza obligatoria para personas con más de 30 días de antigüedad.",
+    "articulo": "Art. 38",
+    "capital": 30050.60,
+    "cobertura": "Muerte por accidente o invalidez permanente absoluta por accidente. Incluye muerte por infarto de miocardio si se declara accidente de trabajo. Excluye enfermedad profesional (aunque sea declarada accidente laboral) y muerte por uso privado de moto/ciclomotor (salvo que sea considerado accidente laboral).",
+    "verificado": true
+  },
+
+  "pluses": {
+    "manutencion": {
+      "$comment": "Art. 11. OJO: es un DESCUENTO/deducción, no un plus. Al personal que come en la empresa en turno coincidente se le descuentan 5,80 €/mes (2025), a opción del trabajador. Sube cada año igual que las tablas.",
+      "tipo": "descuento",
+      "importe2025": 5.80,
+      "unidad": "€/mes",
+      "articulo": "Art. 11"
+    },
+    "ayudaHijosDiscapacidad": {
+      "importe2025": 121.49,
+      "unidad": "€/mes por cada hijo/a con discapacidad",
+      "requisito": "Descendiente menor de edad con discapacidad, incapacitado para toda clase de trabajo (acreditación no exigible en menores de 16 años). Se incrementa anualmente como las tablas.",
+      "articulo": "Art. 18"
+    },
+    "premioNatalidad": {
+      "importe2025": 38.28,
+      "unidad": "€ por nacimiento (uno o más hijos en un mismo parto)",
+      "requisito": "1 año de antigüedad. Una sola gratificación si ambos progenitores son de la misma empresa. Sube como las tablas.",
+      "articulo": "Art. 21"
+    },
+    "gratificacionMatrimonioOParejaHecho": {
+      "importe": "50% de una mensualidad base a los 2 años de servicio; 75% a los 3 años; 100% a los 4 años. Por una sola vez en la misma empresa. Parejas de hecho registradas equiparadas a matrimonio (arts. 19 y 20).",
+      "articulo": "Arts. 19 y 20"
+    },
+    "plusAsistencia": {
+      "$comment": "Art. 17. Premio a la asistencia según nº de faltas injustificadas y/o bajas por IT al año.",
+      "importe": "10 días de salario base mensual + antigüedad, abonado en enero del año siguiente",
+      "escala": "100% si faltas injustificadas y/o bajas por IT ≤ 7 días/año; 50% con 8 faltas; 40% con 9 faltas; 0% con 10 o más días de faltas al año",
+      "exclusiones": "No computan faltas por nacimiento y cuidado de menor, ingreso hospitalario, accidente laboral ni permisos retribuidos",
+      "articulo": "Art. 17"
+    }
+  },
+
+  "ropaTrabajoUniforme": {
+    "$comment": "Art. 39. Las empresas que exijan uniformidad proporcionan los uniformes o partes no de uso común en la vida ordinaria, y reponen en caso de deterioro. No se especifica plus de compensación en metálico.",
+    "articulo": "Art. 39",
+    "plusCompensacionEuros": "pendiente (no se establece importe; la empresa entrega el uniforme en especie)"
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "El convenio NO tiene un artículo propio de permisos retribuidos con lista de días por causa (matrimonio, fallecimiento, mudanza, etc.): se rige por el art. 37 del Estatuto de los Trabajadores. La única mejora específica es el permiso de bautizo/comunión/boda del art. 30.",
+    "articulo": "Art. 30 (mejora puntual); resto art. 37 ET",
+    "bautizoComunionBoda": "Permiso retribuido el día de la celebración de bautizo, comunión o boda de familiares de primer grado (previa notificación y posterior justificación). Hasta segundo grado, mismo permiso pero SIN retribución, o compensando por acuerdo la inasistencia con trabajo en otras fechas.",
+    "matrimonioMudanzaFallecimientoNacimientoLactanciaExamenes": "pendiente (remitido al art. 37 ET; el convenio no los mejora expresamente)"
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PENDIENTE — el convenio de Sevilla NO regula el régimen disciplinario (faltas leves/graves/muy graves ni sanciones). Por la Disposición final, en todo lo no previsto se aplica el VI Acuerdo Laboral de ámbito Estatal para el Sector de Hostelería (ALEH). El régimen disciplinario está en el ALEH, no en este convenio provincial.",
+    "estado": "pendiente",
+    "remitidoA": "VI Acuerdo Laboral Estatal de Hostelería (ALEH)",
+    "acosoSexual": "El acoso sexual se sanciona como falta muy grave conforme al art. 40.12 del VI ALEH; agravante si se prevale de posición jerárquica (arts. 40-41 del convenio, con protocolo de actuación informal y formal)."
+  },
+
+  "representacionSindical": {
+    "$comment": "Art. 33. El crédito horario del convenio MEJORA el del art. 68.e ET (que da 15 h/mes hasta 100 trabajadores).",
+    "articulo": "Art. 33",
+    "creditoHorarioMensual": {
+      "hasta100": 27,
+      "de101a150": 37,
+      "masDe150": 47,
+      "unidad": "horas mensuales retribuidas",
+      "acumulable": "Sí, entre miembros del comité/delegados sin rebasar el máximo total"
+    },
+    "avisoAusencia": "Preaviso no inferior a 48 horas (salvo urgencia probada), con motivación.",
+    "delegadoSindical": "Se reconoce Delegado/a Sindical (de la plantilla fija) con las mismas garantías y competencias que el Comité de Empresa en empresas de más de 150 personas trabajadoras.",
+    "cuotaSindical": "La empresa descuenta la cuota sindical y la transfiere al sindicato a solicitud de la persona afiliada.",
+    "verificado": true
+  },
+
+  "contratacion": {
+    "articulo": "Arts. 24-29",
+    "fijoDiscontinuo": "Art. 24 (remite al art. 16 ET). Formalización por escrito. Llamamiento por mayor antigüedad dentro de la categoría, preaviso mínimo 4 días por medio con constancia (preferentemente SMS/WhatsApp); 24 h para responder o se entiende desistido. Periodo mínimo de actividad a tiempo completo: 4 meses en 12 (máx. 4 llamamientos). Escalafón/censo anual comunicado a la RLT.",
+    "fijoDiscontinuoTiempoParcial": "Art. 25. Periodo mínimo de actividad 6 meses en 12 (máx. 5 llamamientos). Tiempo mínimo de contratación 4 h diarias o 50% de la jornada completa comparable. Catering (epígrafe 677 IAE): periodo mínimo 120 días/año, máx. 3 periodos.",
+    "horasComplementarias": "Art. 26. Fijos y fijos-discontinuos a tiempo parcial: derecho a consolidar el 50% de las horas complementarias realizadas; primera consolidación a los 2 años, luego anual, vía novación contractual.",
+    "duracionDeterminada": "Art. 27. Contratos por circunstancias de la producción (art. 15 ET): duración máxima hasta 12 meses.",
+    "preavisoCese": "Art. 28. La persona trabajadora debe preavisar el cese con 7 días de antelación; el incumplimiento permite descontar de la liquidación 1 día de salario por cada día de retraso.",
+    "subrogacion": "Art. 29. Subrogación en concesiones administrativas del Estado cuando la concesión lleve aparejada la infraestructura/organización empresarial.",
+    "verificado": true
+  },
+
+  "formacion": {
+    "articulo": "Art. 37",
+    "detalle": "Permiso retribuido para asistir a cursos de reciclaje/formación cuando los proponga la empresa y la persona trabajadora acepte. Comisión Provincial de Formación Profesional (6+6).",
+    "verificado": true
+  },
+
+  "igualdadYAcoso": {
+    "articulo": "Arts. 40, 41 y 42",
+    "acosoSexual": "Art. 40: definición, código de conducta y protocolo de actuación (informal y formal). Sanción como falta muy grave (art. 40.12 ALEH).",
+    "planesIgualdad": "Art. 41: garantía de igualdad y no discriminación; datos anuales a la RLT desglosados por sexo/antigüedad/grupo/nivel.",
+    "lgtbi": "Art. 42: medidas para la igualdad y no discriminación de personas LGTBI; empresas >50 personas conforme a la Ley 4/2023 y RD 1026/2024.",
+    "verificado": true
+  },
+
+  "jubilacion": {
+    "articulo": "Art. 36",
+    "detalle": "Las empresas facilitan la jubilación anticipada y parcial, a opción de la persona trabajadora con derecho a ella, en las condiciones legales vigentes.",
+    "verificado": true
+  },
+
+  "camarerasPisoNivel3Bis": {
+    "$comment": "Art. 10. La categoría de camarera/o de piso está en el 'Nivel 3º Bis'. Se pacta un incremento adicional del 1,5% para 2025-2028, sin superar los salarios del Nivel 3.",
+    "articulo": "Art. 10"
+  },
+
+  "clasificacionProfesional": {
+    "$comment": "Anexo I. Niveles 1 a 5 (con Nivel 3º Bis para camarera/o de pisos). Ejemplos por nivel, no exhaustivo. El camarero/a está en el Nivel 4º; camarera/o de pisos en el Nivel 3º Bis.",
+    "articulo": "Anexo I",
+    "Nivel 1": "Jefe de 1ª Casinos, Jefe de Recepción, Contable General, Jefe de Cocina, Primer Jefe de Comedor, Jefe de Sala, Primer Encargado de Mostrador, Primer Barman, Encargado General o Gobernanta, Primer Conserje de Día, Dietista Titulado en Hospitales",
+    "Nivel 2": "Cajero, Oficial Contable, Interventor, Segundo Encargado de Mostrador, Segundo Barman, Segundo Jefe de Sala, Segundo Jefe de Cocina, Segundo Jefe de Recepción, Repostero, Jefe de Sector, Subgobernante, Mayordomo de Pisos, Recepcionista, Relaciones Públicas",
+    "Nivel 3": "Dependiente de Primera, Barman, Bodeguero, Camarero o Sumiller, Oficial Repostero, Jefe de Partida, Cocinero, Planchista, Auxiliar de Oficina, Telefonista, Conserje de Noche, Mecánico Calefactor, Socorrista Titulado",
+    "Nivel 3 Bis": "Camarero/a de pisos",
+    "Nivel 4": "Dependiente de Segunda, Ayudante de Dependiente y Barman, Ayudante de Cocinero, Ayudante de Recepción, Ayudante de Conserje, Mozo de Habitación, Ayudante Repostero, Cafetero (Cocina), Ayudante de Camarero, Portero de Servicios y Acceso, Vigilante de Noche, Conductor, Riders, Mozo Billar, Jardinero, Monitor/a de Comedor (Colectividades)",
+    "Nivel 5": "Mozo de Equipaje, Marmitones, Costurera, Lavandera, Planchadora, Mozo de Lavandería y Limpieza, Fregadores y Limpiadoras, Aprendices y Pinches, Mozos de Almacén, Personal de Platería, Ayudante de Economato y Bodega, Botones y Pajes mayores de 18 años"
+  },
+
+  "tablasSalariales": {
+    "$comment": "Anexo I punto 2. Salario base € brutos/mes, por TIPO DE ESTABLECIMIENTO × NIVEL, los 4 años 2025-2028. VERIFICADO en imagen celda a celda (páginas 21-24 del PDF = pág. 23-26 renderizadas). Los establecimientos de HOTELES/APARTAMENTOS y MOTELES usan niveles 1, 2, 3, 3 Bis, 4, 5. Restaurantes, cafeterías, bares, casinos usan niveles 1-5 (sin 3 Bis). Tabernas sin comidas y Billares solo tienen niveles 3, 4, 5.",
+
+    "hoteles_apartamentos_5_4_estrellas": {
       "Nivel 1": { "2025": 1571.85, "2026": 1650.44, "2027": 1716.46, "2028": 1785.11 },
       "Nivel 2": { "2025": 1516.21, "2026": 1592.02, "2027": 1655.70, "2028": 1721.92 },
       "Nivel 3": { "2025": 1423.97, "2026": 1495.17, "2027": 1554.97, "2028": 1617.17 },
@@ -29,25 +282,133 @@
       "Nivel 4": { "2025": 1265.16, "2026": 1328.42, "2027": 1381.55, "2028": 1436.82 },
       "Nivel 5": { "2025": 1238.43, "2026": 1300.35, "2027": 1352.37, "2028": 1406.46 }
     },
-    "hoteles_3_estrellas": {
-      "Nivel 1": { "2025": 1417.50 }, "Nivel 2": { "2025": 1319.71 }, "Nivel 3": { "2025": 1273.85 },
-      "Nivel 3 Bis": { "2025": 1273.85 }, "Nivel 4": { "2025": 1220.23 }, "Nivel 5": { "2025": 1220.23 }
+    "hoteles_apartamentos_3_estrellas": {
+      "Nivel 1": { "2025": 1417.50, "2026": 1488.37, "2027": 1547.91, "2028": 1609.83 },
+      "Nivel 2": { "2025": 1319.71, "2026": 1385.69, "2027": 1441.12, "2028": 1498.77 },
+      "Nivel 3": { "2025": 1273.85, "2026": 1337.55, "2027": 1391.05, "2028": 1446.69 },
+      "Nivel 3 Bis": { "2025": 1273.85, "2026": 1337.55, "2027": 1391.05, "2028": 1446.69 },
+      "Nivel 4": { "2025": 1220.23, "2026": 1281.24, "2027": 1332.49, "2028": 1385.79 },
+      "Nivel 5": { "2025": 1220.23, "2026": 1281.24, "2027": 1332.49, "2028": 1385.79 }
     },
-    "hoteles_2_estrellas": {
-      "Nivel 1": { "2025": 1307.46 }, "Nivel 2": { "2025": 1274.90 }, "Nivel 3": { "2025": 1225.06 },
-      "Nivel 3 Bis": { "2025": 1225.06 }, "Nivel 4": { "2025": 1163.96 }, "Nivel 5": { "2025": 1163.96 }
+    "hoteles_apartamentos_2_estrellas": {
+      "Nivel 1": { "2025": 1307.46, "2026": 1372.83, "2027": 1427.74, "2028": 1484.85 },
+      "Nivel 2": { "2025": 1274.90, "2026": 1338.65, "2027": 1392.20, "2028": 1447.88 },
+      "Nivel 3": { "2025": 1225.06, "2026": 1286.31, "2027": 1337.76, "2028": 1391.27 },
+      "Nivel 3 Bis": { "2025": 1225.06, "2026": 1286.31, "2027": 1337.77, "2028": 1391.28 },
+      "Nivel 4": { "2025": 1163.96, "2026": 1222.16, "2027": 1271.04, "2028": 1321.88 },
+      "Nivel 5": { "2025": 1163.96, "2026": 1222.16, "2027": 1271.04, "2028": 1321.88 }
     },
-    "hoteles_1_estrella": {
-      "Nivel 1": { "2025": 1275.84 }, "Nivel 2": { "2025": 1244.02 }, "Nivel 3": { "2025": 1195.21 },
-      "Nivel 3 Bis": { "2025": 1195.21 }, "Nivel 4": { "2025": 1135.05 }, "Nivel 5": { "2025": 1135.05 }
+    "hoteles_apartamentos_1_estrella": {
+      "Nivel 1": { "2025": 1275.84, "2026": 1339.63, "2027": 1393.22, "2028": 1448.95 },
+      "Nivel 2": { "2025": 1244.02, "2026": 1306.22, "2027": 1358.47, "2028": 1412.80 },
+      "Nivel 3": { "2025": 1195.21, "2026": 1254.97, "2027": 1305.17, "2028": 1357.38 },
+      "Nivel 3 Bis": { "2025": 1195.21, "2026": 1254.97, "2027": 1305.17, "2028": 1357.38 },
+      "Nivel 4": { "2025": 1135.05, "2026": 1191.80, "2027": 1239.47, "2028": 1289.05 },
+      "Nivel 5": { "2025": 1135.05, "2026": 1191.80, "2027": 1239.47, "2028": 1289.05 }
+    },
+    "moteles_camping_pensiones_hostales_residencias_geriatricas": {
+      "Nivel 1": { "2025": 1275.84, "2026": 1339.63, "2027": 1393.22, "2028": 1448.95 },
+      "Nivel 2": { "2025": 1244.02, "2026": 1306.22, "2027": 1358.47, "2028": 1412.80 },
+      "Nivel 3": { "2025": 1195.21, "2026": 1254.97, "2027": 1305.17, "2028": 1357.38 },
+      "Nivel 3 Bis": { "2025": 1195.21, "2026": 1254.97, "2027": 1305.17, "2028": 1357.38 },
+      "Nivel 4": { "2025": 1135.05, "2026": 1191.80, "2027": 1239.47, "2028": 1289.05 },
+      "Nivel 5": { "2025": 1135.05, "2026": 1191.80, "2027": 1239.47, "2028": 1289.05 }
+    },
+
+    "restaurantes_5_4_tenedores": {
+      "Nivel 1": { "2025": 1560.85, "2026": 1638.90, "2027": 1704.45, "2028": 1772.63 },
+      "Nivel 2": { "2025": 1505.21, "2026": 1580.47, "2027": 1643.69, "2028": 1709.44 },
+      "Nivel 3": { "2025": 1413.12, "2026": 1483.78, "2027": 1543.13, "2028": 1604.85 },
+      "Nivel 4": { "2025": 1290.76, "2026": 1355.30, "2027": 1409.52, "2028": 1465.90 },
+      "Nivel 5": { "2025": 1290.76, "2026": 1355.30, "2027": 1409.52, "2028": 1465.90 }
+    },
+    "restaurantes_3_2_tenedores_y_catering": {
+      "Nivel 1": { "2025": 1359.05, "2026": 1427.00, "2027": 1484.08, "2028": 1543.45 },
+      "Nivel 2": { "2025": 1324.65, "2026": 1390.88, "2027": 1446.52, "2028": 1504.38 },
+      "Nivel 3": { "2025": 1292.08, "2026": 1356.68, "2027": 1410.95, "2028": 1467.38 },
+      "Nivel 4": { "2025": 1210.27, "2026": 1270.78, "2027": 1321.61, "2028": 1374.48 },
+      "Nivel 5": { "2025": 1210.27, "2026": 1270.78, "2027": 1321.61, "2028": 1374.48 }
+    },
+    "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias": {
+      "Nivel 1": { "2025": 1346.38, "2026": 1413.70, "2027": 1470.25, "2028": 1529.06 },
+      "Nivel 2": { "2025": 1312.28, "2026": 1377.90, "2027": 1433.01, "2028": 1490.33 },
+      "Nivel 3": { "2025": 1280.19, "2026": 1344.20, "2027": 1397.97, "2028": 1453.88 },
+      "Nivel 4": { "2025": 1198.96, "2026": 1258.91, "2027": 1309.27, "2028": 1361.64 },
+      "Nivel 5": { "2025": 1198.96, "2026": 1258.91, "2027": 1309.27, "2028": 1361.64 }
+    },
+
+    "cafeterias_3_2_tazas": {
+      "Nivel 1": { "2025": 1346.23, "2026": 1413.54, "2027": 1470.08, "2028": 1528.88 },
+      "Nivel 2": { "2025": 1298.10, "2026": 1363.00, "2027": 1417.52, "2028": 1474.22 },
+      "Nivel 3": { "2025": 1248.53, "2026": 1310.96, "2027": 1363.40, "2028": 1417.93 },
+      "Nivel 4": { "2025": 1215.83, "2026": 1276.62, "2027": 1327.69, "2028": 1380.80 },
+      "Nivel 5": { "2025": 1215.83, "2026": 1276.62, "2027": 1327.69, "2028": 1380.80 }
+    },
+    "cafeterias_1_taza_y_creperias": {
+      "Nivel 1": { "2025": 1303.29, "2026": 1368.45, "2027": 1423.19, "2028": 1480.12 },
+      "Nivel 2": { "2025": 1271.13, "2026": 1334.69, "2027": 1388.07, "2028": 1443.60 },
+      "Nivel 3": { "2025": 1223.53, "2026": 1284.71, "2027": 1336.09, "2028": 1389.54 },
+      "Nivel 4": { "2025": 1204.51, "2026": 1264.73, "2027": 1315.32, "2028": 1367.93 },
+      "Nivel 5": { "2025": 1204.51, "2026": 1264.73, "2027": 1315.32, "2028": 1367.93 }
+    },
+    "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias": {
+      "Nivel 1": { "2025": 1302.19, "2026": 1367.30, "2027": 1422.00, "2028": 1478.88 },
+      "Nivel 2": { "2025": 1254.55, "2026": 1317.28, "2027": 1369.97, "2028": 1424.77 },
+      "Nivel 3": { "2025": 1205.30, "2026": 1265.56, "2027": 1316.18, "2028": 1368.83 },
+      "Nivel 4": { "2025": 1173.03, "2026": 1231.68, "2027": 1280.94, "2028": 1332.18 },
+      "Nivel 5": { "2025": 1173.03, "2026": 1231.68, "2027": 1280.94, "2028": 1332.18 }
+    },
+    "cafes_y_cafes_bares_de_4a": {
+      "Nivel 1": { "2025": 1265.70, "2026": 1328.99, "2027": 1382.15, "2028": 1437.43 },
+      "Nivel 2": { "2025": 1233.76, "2026": 1295.45, "2027": 1347.27, "2028": 1401.16 },
+      "Nivel 3": { "2025": 1186.46, "2026": 1245.79, "2027": 1295.62, "2028": 1347.44 },
+      "Nivel 4": { "2025": 1167.46, "2026": 1225.84, "2027": 1274.87, "2028": 1325.86 },
+      "Nivel 5": { "2025": 1167.46, "2026": 1225.84, "2027": 1274.87, "2028": 1325.86 }
+    },
+    "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile": {
+      "Nivel 1": { "2025": 1376.52, "2026": 1445.35, "2027": 1503.16, "2028": 1563.29 },
+      "Nivel 2": { "2025": 1308.25, "2026": 1373.66, "2027": 1428.61, "2028": 1485.75 },
+      "Nivel 3": { "2025": 1249.13, "2026": 1311.59, "2027": 1364.05, "2028": 1418.62 },
+      "Nivel 4": { "2025": 1233.95, "2026": 1295.65, "2027": 1347.47, "2028": 1401.37 },
+      "Nivel 5": { "2025": 1233.95, "2026": 1295.65, "2027": 1347.47, "2028": 1401.37 }
+    },
+    "tabernas_sin_comidas": {
+      "Nivel 3": { "2025": 1186.46, "2026": 1245.79, "2027": 1295.62, "2028": 1347.44 },
+      "Nivel 4": { "2025": 1167.46, "2026": 1225.84, "2027": 1274.87, "2028": 1325.86 },
+      "Nivel 5": { "2025": 1167.46, "2026": 1225.84, "2027": 1274.87, "2028": 1325.86 }
+    },
+
+    "casinos_1a_2a_categoria": {
+      "Nivel 1": { "2025": 1528.88, "2026": 1605.33, "2027": 1669.54, "2028": 1736.32 },
+      "Nivel 2": { "2025": 1473.42, "2026": 1547.09, "2027": 1608.97, "2028": 1673.33 },
+      "Nivel 3": { "2025": 1431.07, "2026": 1502.62, "2027": 1562.73, "2028": 1625.24 },
+      "Nivel 4": { "2025": 1381.48, "2026": 1450.56, "2027": 1508.58, "2028": 1568.92 },
+      "Nivel 5": { "2025": 1381.48, "2026": 1450.56, "2027": 1508.58, "2028": 1568.92 }
+    },
+    "casinos_3a_4a_categoria": {
+      "Nivel 1": { "2025": 1465.25, "2026": 1538.51, "2027": 1600.05, "2028": 1664.05 },
+      "Nivel 2": { "2025": 1433.01, "2026": 1504.66, "2027": 1564.84, "2028": 1627.44 },
+      "Nivel 3": { "2025": 1383.75, "2026": 1452.94, "2027": 1511.06, "2028": 1571.50 },
+      "Nivel 4": { "2025": 1351.37, "2026": 1418.93, "2027": 1475.69, "2028": 1534.72 },
+      "Nivel 5": { "2025": 1351.37, "2026": 1418.93, "2027": 1475.69, "2028": 1534.72 }
+    },
+    "billares_y_salones_de_recreo": {
+      "Nivel 3": { "2025": 1210.99, "2026": 1271.54, "2027": 1322.40, "2028": 1375.29 },
+      "Nivel 4": { "2025": 1190.22, "2026": 1249.73, "2027": 1299.72, "2028": 1351.71 },
+      "Nivel 5": { "2025": 1173.03, "2026": 1231.68, "2027": 1280.94, "2028": 1332.18 }
     }
   },
+
   "pendiente": [
-    "Tablas de restaurantes, cafeterías y bares (páginas 24-26 del PDF)",
-    "Años 2026-2028 de las categorías de hotel de 3/2/1 estrellas (solo capturado 2025)",
-    "Mapeo categoría profesional → nivel; horas extra"
+    "codigoRegcon (código de convenio / REGCON) — no aparece en las páginas del articulado leídas",
+    "Régimen disciplinario (faltas y sanciones) — no lo regula el convenio; está en el VI ALEH",
+    "Permisos retribuidos por matrimonio/mudanza/fallecimiento/nacimiento/lactancia/exámenes — remitido al art. 37 ET; el convenio solo mejora el permiso de bautizo/comunión/boda",
+    "Periodo de prueba, excedencias, ascensos/promoción y polivalencia — no regulados en el convenio (remitido a ALEH/ET)",
+    "Vacaciones: fraccionamiento, baja durante vacaciones y pago de no disfrutadas al cesar — no regulados expresamente",
+    "Plus/importe de compensación por uniforme en metálico — el convenio entrega el uniforme en especie, sin importe",
+    "Dietas y kilometraje por desplazamiento — no aparecen en el convenio"
   ],
-  "estado": "hoteles_2025_verificado",
-  "verificadoContra": "PDF oficial BOP Sevilla nº102 (30-05-2025) renderizado a imagen. Tablas de hoteles 2025 verificadas.",
-  "fechaVerificacion": "2026-07-07"
+  "estado": "verificado",
+  "verificadoContra": "PDF oficial BOP Sevilla nº102 (30-05-2025), CVE BOP-SE-2025-102031, 26 páginas renderizadas a imagen 185 dpi y leídas visualmente celda a celda. VERIFICADO: identificación y ámbitos (arts. 1-9), vigencia y ultraactividad (arts. 4 y 6), materia retributiva completa (arts. 10-21), IT/enfermedad (art. 22), contratación (arts. 24-29), jornada y descansos (art. 30), vacaciones y festivos (arts. 31-32), derechos sindicales (art. 33), salud laboral, formación, seguro y uniformidad (arts. 34-39), igualdad/acoso/LGTBI (arts. 40-42), gestión (arts. 43-44), clasificación profesional (Anexo I) y TODAS las tablas salariales 2025-2028 por tipo de establecimiento (hoteles/apartamentos 5/4/3/2/1★, moteles-camping-pensiones-hostales-geriátricas, restaurantes 5/4 y 3/2 tenedores y catering, restaurante 1 tenedor/tabernas con comidas/colectividades/pizzerías, cafeterías 3/2 y 1 taza/creperías, cafés y cafés-bares especiales/4ª, bares de categoría especial/pubs/discotecas, tabernas sin comidas, casinos 1/2 y 3/4, billares y salones de recreo).",
+  "fechaVerificacion": "2026-07-08"
 }
