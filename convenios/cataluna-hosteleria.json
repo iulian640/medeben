@@ -1,0 +1,61 @@
+{
+  "$comment": "Convenio interprovincial de hostelería y turismo de Cataluña (cubre Barcelona, Girona y Tarragona). Marco VERIFICADO visualmente/texto contra el DOGC. Las tablas salariales completas (varias, por área/nivel/año) quedan pendientes de una pasada cuidadosa: hay estructuras de niveles distintas (I-VI y I-VII Bis) que no deben mezclarse.",
+  "id": "cataluna-hosteleria",
+  "nombre": "Convenio colectivo interprovincial del sector de la industria de hostelería y turismo de Cataluña",
+  "codigoRegcon": "79000275011992",
+  "ambitoTerritorial": {
+    "tipo": "interprovincial",
+    "comunidad": "Cataluña",
+    "provincias": ["Barcelona", "Girona", "Tarragona"],
+    "nota": "Interprovincial: cubre Barcelona, Girona y Tarragona. Confirmar si Lleida se rige por este o por otro convenio."
+  },
+  "ambitoFuncional": "hosteleria",
+  "ambitoFuncionalDescripcion": "Industria de hostelería y turismo: hoteles, restaurantes, bares, cafeterías, salas de fiesta.",
+  "fuente": {
+    "boletin": "DOGC",
+    "numero": 9630,
+    "fecha": "2026-03-23",
+    "documento": "Resolución EMT/774/2026, CVE-DOGC-B-26075020-2026",
+    "url": "https://dogc.gencat.cat/"
+  },
+  "vigencia": { "desde": "2025-01-01", "hasta": "2028-12-31" },
+  "jornadaAnual": {
+    "2025": 1791,
+    "2026": 1783, "2027": 1783, "2028": 1783,
+    "nota": "Equivale a 40 h semanales en cómputo anual. MENOR que las 1.800 h de Madrid.",
+    "verificado": true
+  },
+  "vacaciones": { "diasNaturales": 31, "nota": "Subida de 30 a 31 con el convenio 2025-2028 (pendiente confirmar en texto)." },
+  "nocturnidad": {
+    "articulo": "Art. 42",
+    "tramos": [ { "desde": "22:00", "hasta": "06:00", "recargoPct": 25, "sobre": "salario ordinario" } ],
+    "nota": "Salvo que el salario ya contemple que el trabajo es nocturno por su naturaleza.",
+    "verificado": true
+  },
+  "pagasExtraordinarias": { "cantidad": 2, "nota": "Prorrateables por acuerdo (Art. 43). Confirmar número y fechas." },
+  "categoriasEstablecimiento": {
+    "$comment": "Las columnas A-E de las tablas salariales = categoría del establecimiento.",
+    "A": "Hoteles 4 superior/4/GL/5 estrellas, hoteles apartamento de 4, restaurantes de gama alta...",
+    "nota": "A es la categoría más alta (lujo/5 estrellas/5 tenedores) y va bajando hasta E. Detalle completo en el anexo de clasificación de establecimientos del convenio.",
+    "verificado": true
+  },
+  "pluses2025": {
+    "manutencion": 56.93,
+    "alojamiento": 53.39,
+    "transporte": 13.86,
+    "ropaDeTrabajo": { "mensual": 14.80, "anual": 177.59 },
+    "verificado": true
+  },
+  "horasExtraordinarias": {
+    "precioFijadoEnConvenio": "pendiente",
+    "regla": "Confirmar art. de horas extra; en su defecto aplica el ET (mínimo valor hora ordinaria), tope 80 h/año salvo que el convenio fije otro.",
+    "valorHoraOrdinaria": "(salarioMensual * pagas + plusesAnuales) / jornadaAnual (1791 en 2025, 1783 desde 2026)"
+  },
+  "tablasSalariales": {
+    "$comment": "PENDIENTE de pasada cuidadosa. Hay varias tablas por área funcional y año, con estructuras de niveles distintas (I-VI y hasta VII Bis). Visto en p45 un cuadro 2025 Nivel I-VI × categorías A-E (I≈2.039,70€ ... VI≈1.185,31€), pero su ámbito exacto (área/colectivo) debe confirmarse antes de usarlo. Camarero/cocinero ≈ Nivel III (por ALEH y prensa, confirmar en el propio convenio).",
+    "estado": "pendiente_transcripcion_cuidadosa"
+  },
+  "estado": "verificado_marco",
+  "verificadoContra": "PDF oficial DOGC (Resolución EMT/774/2026) — jornada, nocturnidad, pluses y categorías leídos de imagen/texto. Tablas salariales pendientes.",
+  "fechaVerificacion": "2026-07-07"
+}

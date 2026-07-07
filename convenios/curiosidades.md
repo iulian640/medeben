@@ -69,6 +69,36 @@ por el otro lado. Lección segura: **el "sueldo inicial" NO es lo que cobras.**
 - **Fuente:** Convenio Hostelería de Madrid, sección cuarta (cafeterías con servicio de mostrador y sala), nota 2. BOCM nº 82, 06-04-2024 (BOCM-20240406-2).
 - **Gancho:** "Mira tu nómina: si solo ves el 'sueldo base', no estás viendo lo que de verdad te corresponde. En las cafeterías de Madrid, el local grande hasta paga menos de fijo... porque el resto va aparte."
 
+## 7. En Cataluña trabajas menos horas al año que en Madrid (y bajando)
+
+La jornada máxima anual en hostelería es de **1.800 horas en Madrid**, pero en
+**Cataluña es de 1.791 h en 2025 y baja a 1.783 h en 2026-2028**. Menos horas por
+el mismo sueldo mensual significa dos cosas: tu hora **vale más**, y llegas antes
+al límite de horas extra. Misma profesión, comunidad distinta, calculadora
+distinta.
+
+- **Fuente:** Convenio interprovincial de hostelería y turismo de Cataluña, art. de jornada. DOGC nº 9630, 23-03-2026 (Resolución EMT/774/2026). Madrid: BOCM, Art. 14.
+- **Gancho:** "¿Sabías que la 'jornada completa' no es igual en toda España? En Cataluña son 1.783 horas al año; en Madrid, 1.800. 17 horas tuyas de diferencia según dónde curres."
+
+## 8. Tu convenio te paga por casarte (y por tener hijos)
+
+En el **Convenio de Hospedaje de Madrid** hay una **"gratificación por matrimonio"
+de 1.033,14 €** (2025) y un **"premio de natalidad" de 784,08 €** por hijo. Dinero
+que la mayoría no reclama porque no sabe que existe.
+
+- **Fuente:** Convenio de Hospedaje de Madrid, anexo de pluses salariales y extrasalariales. BOCM nº 121, 23-05-2026 (BOCM-20260523-1).
+- **Gancho:** "¿Te casas este año? Tu convenio quizá te debe más de 1.000 €. ¿Tienes un bebé? Otros 784 €. Y nadie te lo va a recordar... salvo esta app."
+
+## 9. Tienes un seguro de vida y no lo sabes
+
+Muchos convenios obligan a la empresa a contratarte un **seguro de vida e
+invalidez**: en Hospedaje de Madrid son **25.089 €** (2025) y en restauración
+colectiva **19.298 €**. Si te pasa algo trabajando, tú o tu familia cobran. Casi
+nadie sabe que lo tiene ni comprueba que la empresa lo haya contratado.
+
+- **Fuente:** Hospedaje Madrid (BOCM-20260523-1) y Restauración colectiva (BOE-A-2025-12598), anexos de complementos.
+- **Gancho:** "Tienes un seguro de vida pagado por tu jefe y no lo sabes. ¿Y sabes si de verdad lo ha contratado? Deberías."
+
 ---
 
 _Añadir más conforme se transcriben convenios._
