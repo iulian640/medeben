@@ -195,6 +195,10 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
   - **Jornada partida:** algunos convenios la compensan.
 - Campos por convenio: `descansoEntreJornadasHoras`, `vacacionesDias`, reglas de jornada partida.
 
+### D35 — Tags clicables de explicación en cada concepto (Iulian 2026-07-07)
+- Al registrar su situación, el usuario ve una opción de **enlace/representación sindical** con un **tag clicable "¿qué es esto?"** que le explica en cristiano qué es, cómo se llega y qué le protege (art. 68 ET, crédito horario, fuero...).
+- Generalizar el patrón: **cada concepto de la app lleva su tag clicable de explicación** en lenguaje llano — nocturnidad, complemento de baja, multa de haber (ilegal), polivalencia, prescripción de faltas, fijo-discontinuo... La app es educativa: no suelta un tecnicismo sin ofrecer explicarlo. Encaja con D18 (transparencia) y D27 (contenido que engancha).
+
 ### D34 — Cada dato con su fuente al nivel de artículo (Iulian 2026-07-07)
 - Cuando la app le dé un dato al trabajador, debe decir DE DÓNDE sale: "según el **art. X** del Convenio de [zona/subsector]". No basta con citar el convenio: hay que citar el artículo/anexo concreto.
 - Por qué: es una app de derechos; cada afirmación tiene que ser verificable por el propio trabajador (y por un abogado). Refuerza la confianza y el manifiesto (D18: "no me creas, compruébalo").
