@@ -175,7 +175,30 @@
     "Sistema de participación de porcentaje de servicio (Anexo III) — tablas alternativas",
     "Tablas 2023 y 2024 (históricas)"
   ],
-  "estado": "verificado_2025_completo",
-  "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen y leído visualmente (tablas 2025 sección tercera comedor y cocina, arts. 14/26/27/28/29). Verificación fila a fila.",
-  "fechaVerificacion": "2026-07-07"
+  "vacaciones": {
+    "articulo": "Art. 18",
+    "dias": 30,
+    "tipo": "naturales",
+    "fraccionamiento": "Puede pactarse en 2 periodos de 15 días; uno debe caer entre el 15 de junio y el 15 de septiembre. Se inicia tras el descanso semanal.",
+    "nota": "Ininterrumpidas, dentro del año natural. Menos de 1 año: proporcional."
+  },
+  "permisosRetribuidos": {
+    "articulo": "Art. 19 (Licencias)",
+    "matrimonioOParejaHecho": { "dias": 15, "tipo": "naturales", "nota": "Pareja de hecho requiere 1 año de antigüedad; disfrutables 15 días antes/después." },
+    "accidenteEnfermedadGraveHospitalizacionFamiliar": { "dias": 5 },
+    "nota": "Lista completa en Art. 19 (fallecimiento, traslado, deber inexcusable... — pendiente detallar el resto)."
+  },
+  "complementoIT": {
+    "$comment": "DATO CLAVE (baja médica). Mejor que hospedaje: 100% desde día 1 también en la 1ª baja por enfermedad del año.",
+    "articulo": "Art. 39",
+    "accidente": { "porcentaje": 100, "desdeDia": 1 },
+    "primeraBajaEnfermedadDelAño": { "porcentaje": 100, "desdeDia": 1 },
+    "segundaYSucesivasBajasEnfermedad": { "porcentaje": 100, "desdeDia": 4, "nota": "Los 3 primeros días sin complemento." },
+    "hospitalizacionCirugia": { "porcentaje": 100, "desdeDia": 1 },
+    "duracionMaxima": "18 meses"
+  },
+  "pendienteCondiciones": ["resto de permisos del Art.19 (fallecimiento, traslado, deber inexcusable)", "régimen disciplinario", "excedencias", "periodo de prueba", "representación sindical", "seguro de vida si existe"],
+  "estado": "verificado_2025_completo_con_condiciones",
+  "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen (tablas 2025 sec 3ª, arts. 14/26/27/28/29). Condiciones (vacaciones Art.18, permisos Art.19, complemento IT Art.39) extraídas del articulado con su artículo (D33/D34).",
+  "fechaVerificacion": "2026-07-08"
 }
