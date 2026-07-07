@@ -1,0 +1,421 @@
+{
+  "$comment": "Convenio Colectivo del Sector de HOSTELERÍA (2025-2028) de la Provincia de Santa Cruz de Tenerife. El ARTICULADO se publicó en el BOP de Santa Cruz de Tenerife nº154 (22-12-2025), anuncio 5698, código de convenio 38000905011981. Las TABLAS SALARIALES (Anexo I) NO se incluyeron en ese boletín: se publicaron aparte como CORRECCIÓN DE ERRORES en el BOP nº4 (09-01-2026), anuncio 55. Todo transcrito VISUALMENTE de la imagen del PDF oficial (185 dpi), no de la extracción de texto. Vigencia por temporadas de 1 de julio a 30 de junio. Se publican los TRES periodos: 2025-2026 (+7%), 2026-2027 (+3,25%) y 2027-2028 (+3,25%). AVISO DE ALCANCE: en esta primera transcripción se cubre COMPLETA la Clasificación 1 (Hoteles y Pensiones), que es el grueso del sector, más todos los complementos y todo el articulado (condiciones no salariales). Las Clasificaciones 2, 3 y 4 quedan marcadas 'pendiente' con la referencia exacta de páginas del BOP nº4 para su transcripción posterior; se prefiere dato ausente a dato erróneo.",
+  "id": "tenerife-hosteleria",
+  "nombre": "Convenio colectivo provincial de Hostelería de Santa Cruz de Tenerife 2025-2028",
+  "codigoRegcon": "38000905011981",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Canarias", "provincias": ["Santa Cruz de Tenerife"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "articulado": {
+      "boletin": "BOP Santa Cruz de Tenerife",
+      "numero": 154,
+      "fecha": "2025-12-22",
+      "documento": "Consejería de Turismo y Empleo, Dirección General de Trabajo, Servicio de Promoción Laboral. CONVENIO, anuncio 5698. Código de convenio 38000905011981. Texto del convenio (Arts. 1-49 + Disposiciones), páginas 4-49 del boletín (numeración interna 30035-30080).",
+      "url": "https://www.bopsantacruzdetenerife.es/boletines/2025/22-12-25/22-12-25.pdf"
+    },
+    "tablasSalariales": {
+      "boletin": "BOP Santa Cruz de Tenerife",
+      "numero": 4,
+      "fecha": "2026-01-09",
+      "documento": "CORRECCIÓN DE ERRORES, anuncio 55. 'Advertido error en la publicación del BOP nº154 de 22/12/2025... se procede a la remisión de las Tablas Salariales del citado Convenio.' Anexo I (tablas por Clasificación y Área Funcional) y tabla de complementos, páginas 4-19 del boletín (numeración interna 333-348). Firmado por el Director General de Trabajo (23-12-2025).",
+      "url": "https://www.bopsantacruzdetenerife.es/boletines/2026/9-1-26/9-1-26.pdf"
+    }
+  },
+  "vigencia": { "desde": "2025-07-01", "hasta": "2028-06-30", "nota": "Art. 4: vigencia de tres años del 1 de julio de 2025 al 30 de junio de 2028, con independencia de la fecha de publicación; sustituye al convenio anterior (2022-2026). Art. 6: prórroga tácita hasta ser sustituido por otro convenio; denuncia con 3 meses de antelación. Los tramos económicos van de 1 de julio a 30 de junio (no por año natural)." },
+  "partesFirmantes": {
+    "patronal": ["Ashotel (Asociación Hotelera y Extrahotelera de Tenerife, La Palma, La Gomera y El Hierro)", "AERO (Asociación de Empresarios de Restauración y Ocio)"],
+    "sindicatos": ["Sindicalistas de Base", "UGT"],
+    "nota": "Art. 1: comisión negociadora con 11 (Ashotel) + 4 (AERO) por la patronal; por la parte social, de 15 representantes, 10 de Sindicalistas de Base y 2 de UGT."
+  },
+  "solucionDiscrepancias": { "articulo": "Art. 5", "detalle": "Adhesión al Acuerdo Interprofesional Canario (BOC 30/07/04) y al Tribunal Laboral Canario para la solución extrajudicial de conflictos." },
+
+  "jornadaAnual": {
+    "semanal": 40,
+    "horasReferenciaValorHora": 1829,
+    "nota": "Art. 22: jornada semanal máxima 40 horas de trabajo efectivo; diaria continuada o partida. El convenio NO fija una cifra de jornada anual en horas, pero para calcular el VALOR DE LA HORA ORDINARIA (nocturnidad y horas extra, Arts. 23 y 24) usa el divisor de 1.829 horas: valor hora = total devengado anual por todos los conceptos salariales / 1.829. Calendario laboral anual pactado empresa-representación; turnos expuestos con una semana de antelación."
+  },
+  "descansos": {
+    "articulo": "Art. 26",
+    "entreJornadasHoras": 12,
+    "jornadaContinuaDescanso": "30 minutos computados como trabajo efectivo (tiempo completo).",
+    "jornadaPartida": "Máximo 2 turnos/día, cada uno de 6 h máx y 2 h mín, con mínimo 2 h entre turnos; descanso de 15 min computado como jornada efectiva (no aplica en restauración ni donde haya plus mensual de jornada partida).",
+    "semanal": "2 días consecutivos e ininterrumpidos. Si el ciclo se interrumpe por IT o vacaciones, derecho a 2 días libres por cada 5 trabajados, a compensar en los 15 días siguientes a la reincorporación."
+  },
+  "distribucionIrregular": "Art. 22.2 y Disp. Final Quinta: las empresas alojativas pueden aplicar el art. 34.2 ET. Para restauración y ocio (Disp. Final Quinta), hasta el 30% de la jornada en cómputo trimestral.",
+
+  "nocturnidad": {
+    "$comment": "Art. 23. NO es un importe fijo €/hora ni un % sobre salario base: es un recargo del 50% sobre el VALOR DE LA HORA ORDINARIA, con reglas especiales de conversión a categoría superior cuando la nocturnidad es habitual.",
+    "articulo": "Art. 23",
+    "tipo": "porcentaje_sobre_hora_ordinaria",
+    "porcentaje": 50,
+    "tramoHorario": { "desde": "22:00", "hasta": "06:00", "nota": "Horas nocturnas: de 22:00 a 06:00. Excepción: en jornada continua, las horas de 22:00 a 24:00 tienen valor de hora normal." },
+    "reglaHabitual": "Si se realizan MÁS de 4 horas nocturnas de forma habitual (partida o continuada) a partir de las 22:00, la percepción pasa a la de la CATEGORÍA INMEDIATA SUPERIOR y queda sin efecto el recargo del 50%. Si las horas nocturnas son 4 o menos (jornada específicamente nocturna), se abonan con el 50%.",
+    "trabajoFijoNoche": "El personal con trabajo fijo de noche (00:00 a 08:00) se considera a efectos económicos en la categoría inmediata superior.",
+    "casosEspeciales": "El recepcionista que cubre los días libres del recepcionista de noche percibe las horas nocturnas de 24:00 a 08:00 de esos días con +50%. El personal de Servicio Técnico y Room Service que sustituye descansos/vacaciones del personal nocturno percibe las de 24:00 a 06:00 con +50%.",
+    "valorHoraOrdinaria": "Total devengado anual por todos los conceptos salariales / 1.829 horas."
+  },
+  "horasExtraordinarias": {
+    "$comment": "Art. 24. Se compensan preferentemente con descanso; si no es posible, a valor de salario ordinario (el convenio NO establece recargo económico sobre la hora extra).",
+    "articulo": "Art. 24",
+    "iniciativa": "De la empresa, con libre aceptación de la persona trabajadora.",
+    "compensacion": "Con descanso de idéntica duración dentro de los 2 meses siguientes; de no ser posible en ese plazo, se abonan a valor de salario ordinario.",
+    "valorHoraOrdinaria": "Total devengado anual por todos los conceptos salariales / 1.829 horas.",
+    "topeAnual": 80,
+    "nota": "Máximo 80 horas extraordinarias al año, salvo las necesarias para prevenir o reparar siniestros u otros daños extraordinarios o urgentes."
+  },
+  "horasComplementarias": { "articulo": "Art. 25", "detalle": "Contratos a tiempo parcial indefinidos: hasta el 40% de las horas ordinarias del contrato, pactadas por escrito y de realización voluntaria (art. 12.5 ET)." },
+
+  "pagasExtraordinarias": {
+    "total": 14,
+    "articulo": "Art. 34",
+    "$comment": "12 mensualidades + 2 pagas extraordinarias (NO 15 como Cádiz). Las dos pagas son la de Navidad (se cobra el 21 de diciembre) y la del 1 de mayo (se cobra entre el 1 y el 15 de mayo). Cada paga equivale a UNA mensualidad de los salarios garantizados del Anexo I, EXCLUYENDO los complementos extrasalariales del art. 35 y la manutención del art. 48, MÁS el Complemento Personal (antigua antigüedad consolidada). Prorrateo posible por acuerdo. Devengo: paga de mayo del 1-may al 30-abr; paga de Navidad del 1-ene al 31-dic."
+  },
+
+  "salariosClasificacion1": {
+    "$comment": "ANEXO I, CLASIFICACIÓN 1. HOTELES Y PENSIONES. Verificado en imagen del BOP nº4 (09-01-2026), páginas 4-6 (los tres periodos). El salario depende de la OCUPACIÓN (con su Grupo Profesional G.prof y Grupo Salarial G.sal del ALEH) y del TIPO DE ESTABLECIMIENTO, que se agrupa en 4 grupos (1A-1D) equivalentes a las 'antiguas clasificaciones' I-IV. Dentro de cada grupo (1A/1B/1C/1D) TODAS las columnas de establecimiento tienen el mismo importe, por lo que cada ocupación se resume en 4 valores [A, B, C, D]. Importes € brutos/mes.",
+    "columnasEstablecimiento": {
+      "A": { "grupo": "1A", "antiguaClasificacion": "I", "establecimientos": ["Hotel 5*", "Hotel 4*"] },
+      "B": { "grupo": "1B", "antiguaClasificacion": "II", "establecimientos": ["Hotel 3*", "Hotel emblemático"] },
+      "C": { "grupo": "1C", "antiguaClasificacion": "III", "establecimientos": ["Hotel 2*", "Hotel 1*", "Hotel Rural"] },
+      "D": { "grupo": "1D", "antiguaClasificacion": "IV", "establecimientos": ["Pensiones"] }
+    },
+    "periodos": ["2025-2026 (+7%, 01/07/2025-30/06/2026)", "2026-2027 (+3,25%, 01/07/2026-30/06/2027)", "2027-2028 (+3,25%, 01/07/2027-30/06/2028)"],
+    "formatoSalarios": "[A, B, C, D] en euros brutos/mes",
+    "areasFuncionales": {
+      "AF1_recepcion_conserjeria_rrpp_admon_gestion": [
+        { "puesto": "Jefe/a de recepción", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "2.º Jefe/a de recepción", "gProf": "1º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Jefe/a comercial", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Jefe/a de administración", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Primer/a conserje", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Segundo/a conserje de día", "gProf": "1º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Recepcionista", "gProf": "2º", "gSal": "3", "2025-2026": [1475.60, 1443.62, 1409.74, 1345.82], "2026-2027": [1523.55, 1490.54, 1455.55, 1389.56], "2027-2028": [1573.07, 1538.98, 1502.86, 1434.72] },
+        { "puesto": "Conserje", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Administrativo/a", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Relaciones públicas", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Comercial", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Técnico/a prevención riesgos laborales", "gProf": "2º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Ayudante de recepción y/o conserjería", "gProf": "2º", "gSal": "4", "2025-2026": [1403.03, 1382.34, 1355.98, 1320.22], "2026-2027": [1448.63, 1427.27, 1400.05, 1363.13], "2027-2028": [1495.71, 1473.66, 1445.55, 1407.43] },
+        { "puesto": "Telefonista", "gProf": "2º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Ayudante/a administrativo", "gProf": "2º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Auxiliar de recepción (portero)", "gProf": "3º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Auxiliar de recepción (botones)", "gProf": "3º", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] }
+      ],
+      "AF2_cocina_economato": [
+        { "puesto": "Jefe/a de cocina", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "2ª jefe de cocina", "gProf": "1ª", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Jefe/a de catering", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Jefe/a de partida / encargado de economato", "gProf": "2º", "gSal": "3", "2025-2026": [1488.44, 1456.46, 1422.58, 1358.66], "2026-2027": [1536.81, 1503.80, 1468.81, 1402.82], "2027-2028": [1586.76, 1552.67, 1516.55, 1448.41] },
+        { "puesto": "Cocinero/a", "gProf": "2º", "gSal": "4", "2025-2026": [1403.03, 1382.34, 1355.98, 1320.22], "2026-2027": [1448.63, 1427.27, 1400.05, 1363.13], "2027-2028": [1495.71, 1473.66, 1445.55, 1407.43] },
+        { "puesto": "Repostero/a", "gProf": "2º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Encargado/a economato", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Ayudante/a cocina/economato", "gProf": "2º", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] },
+        { "puesto": "Auxiliar de cocina / economato", "gProf": "3º", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] }
+      ],
+      "AF3_restaurante_sala_bar_colectividades_catering": [
+        { "puesto": "Jefe/a de restaurante o sala", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "2º Jefe/a de restaurante o sala", "gProf": "1º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Jefe/a operaciones catering", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Gerente de centro", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Jefe/a de sector", "gProf": "2º", "gSal": "3", "2025-2026": [1482.02, 1450.04, 1416.16, 1352.24], "2026-2027": [1530.18, 1497.17, 1462.18, 1396.19], "2027-2028": [1579.92, 1545.82, 1509.71, 1441.56] },
+        { "puesto": "Camarero/a", "gProf": "2º", "gSal": "4", "2025-2026": [1409.46, 1388.76, 1362.40, 1326.64], "2026-2027": [1455.26, 1433.90, 1406.68, 1369.76], "2027-2028": [1502.56, 1480.50, 1452.39, 1414.28] },
+        { "puesto": "Primer barman/barwoman", "gProf": "2º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Segundo barman/barwoman", "gProf": "2º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Sumiller", "gProf": "2º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Jefe/a sala catering", "gProf": "2º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Supervisor/a catering", "gProf": "2º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Supervisor/a colectividades", "gProf": "2º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Supervisor/a de restauración moderna", "gProf": "2º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Preparador/a montador/a catering", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Conductor/a equipo catering", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Preparador/a restauración moderna", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Ayudante/a de camarero", "gProf": "3º", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] },
+        { "puesto": "Ayudante/a equipo de catering", "gProf": "3º", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] },
+        { "puesto": "Monitor/a o cuidador/a colectividades", "gProf": "3º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Asistente/a colectividades", "gProf": "3º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Asistente/a preparador/montador catering", "gProf": "3º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Asistente/a restauración moderna", "gProf": "3º", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] },
+        { "puesto": "Ayudante/a / mozo/a equipo catering", "gProf": "3ª", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] }
+      ],
+      "AF4_pisos_limpieza": [
+        { "puesto": "Gobernante/a o Encargado/a general", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] },
+        { "puesto": "Subgobernante/a o Encargado/a sección", "gProf": "1º", "gSal": "3", "2025-2026": [1475.60, 1443.62, 1409.74, 1345.82], "2026-2027": [1523.55, 1490.54, 1455.55, 1389.56], "2027-2028": [1573.07, 1538.98, 1502.86, 1434.72] },
+        { "puesto": "Camarero/a de pisos", "gProf": "2º", "gSal": "4", "2025-2026": [1396.61, 1375.92, 1349.55, 1313.80], "2026-2027": [1442.00, 1420.64, 1393.42, 1356.50], "2027-2028": [1488.87, 1466.81, 1438.70, 1400.58] },
+        { "puesto": "Auxiliar pisos y limpieza (mozo/a de habitaciones / valet)", "gProf": "3º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Auxiliar pisos y limpieza (limpiador/a)", "gProf": "3ª", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] }
+      ],
+      "AF5_mantenimiento_servicios_auxiliares": [
+        { "puesto": "Jefe/a servicios catering / Encargado/a mantenimiento (Jefe SSTT) y servicios auxiliares", "gProf": "1º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Encargado/a sección", "gProf": null, "gSal": null, "2025-2026": null, "2026-2027": null, "2027-2028": null, "nota": "En la tabla figura con importe 0,00 € (sin salario asignado); fila incluida por el convenio pero sin cuantía." },
+        { "puesto": "2º encargado de mantenimiento / 2º JSSTT", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Especialista mantenimiento (oficial de SSTT) y servicios auxiliares", "gProf": "2º", "gSal": "4", "2025-2026": [1390.19, 1369.50, 1343.13, 1307.38], "2026-2027": [1435.37, 1414.01, 1386.79, 1349.87], "2027-2028": [1482.02, 1459.96, 1431.86, 1393.74] },
+        { "puesto": "Especialista mantenimiento y servicios técnicos catering (flota o instalaciones y edificios)", "gProf": "2º", "gSal": null, "2025-2026": null, "2026-2027": null, "2027-2028": null, "nota": "En la tabla figura con importe 0,00 € (sin salario asignado)." },
+        { "puesto": "Auxiliar mantenimiento (ayudante SSTT) y servicios auxiliares", "gProf": "3º", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] }
+      ],
+      "AF6_servicios_complementarios": [
+        { "puesto": "Responsable servicio", "gProf": "1º", "gSal": "2", "2025-2026": [1589.75, 1543.61, 1521.86, 1418.51], "2026-2027": [1641.41, 1593.78, 1571.32, 1464.61], "2027-2028": [1694.76, 1645.58, 1622.39, 1512.21] },
+        { "puesto": "Técnico/a servicio (fisioterapeuta, dietista y otros titulados en Ciencias de la Salud)", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Especialista servicio (socorrista o especialista primeros auxilios, animador turístico o tiempo libre, monitor/a deportivo/a, pinchadiscos, masajista, quiromasajista, esteticista, especialista termal o balneario, hidroterapia y atención al cliente)", "gProf": "2º", "gSal": "3", "2025-2026": [1469.18, 1437.20, 1403.32, 1339.40], "2026-2027": [1516.92, 1483.91, 1448.92, 1382.93], "2027-2028": [1566.22, 1532.13, 1496.01, 1427.87] },
+        { "puesto": "Auxiliar servicio (auxiliar atención al cliente y auxiliar piscina o balneario)", "gProf": "3º", "gSal": "5", "2025-2026": [1250.95, 1250.95, 1250.95, 1250.95], "2026-2027": [1291.60, 1291.60, 1291.60, 1291.60], "2027-2028": [1333.58, 1333.58, 1333.58, 1333.58] }
+      ],
+      "titulados": [
+        { "puesto": "Titulados de G.Med y Superior / Téc. Universitarios", "gProf": "1º", "gSal": "1", "2025-2026": [1657.43, 1636.75, 1591.57, 1522.02], "2026-2027": [1711.30, 1689.95, 1643.30, 1571.49], "2027-2028": [1766.91, 1744.87, 1696.70, 1622.56] }
+      ]
+    }
+  },
+
+  "salariosClasificacion2": {
+    "$comment": "CLASIFICACIÓN 2. APARTAMENTOS, CAMPINGS Y VIVIENDA VACACIONAL. Misma estructura de Áreas Funcionales y ocupaciones que la Clasificación 1, pero con columnas de establecimiento distintas (Aptos 5*/4*, Camping lujo = Grupo 2A; Camping 1ª = Grupo 2B; Camping 2ª, Aptos 3*, Vvda. Vacacional = Grupo 2C; Aptos 2 llaves, Aptos 1 llave = Grupo 2D) y con importes DIFERENTES a la Clasificación 1 para cada tramo. En esta clasificación, a diferencia de la 1, dentro de un mismo grupo puede haber columnas con importes distintos, por lo que se debe transcribir columna a columna.",
+    "estado": "pendiente",
+    "pendiente": "Transcripción celda a celda de BOP nº4 (09-01-2026), páginas 7 (2025-2026), 8 (2026-2027) y 9 (2027-2028). No transcrito en esta pasada para no arriesgar errores; se prefiere dato ausente a dato erróneo."
+  },
+  "salariosClasificacion3": {
+    "$comment": "CLASIFICACIÓN 3. CAMPOS DE GOLF, CASINOS, SALONES DE FIESTA Y DE BAILE. RESTAURACIÓN Y OCIO (restaurantes, bares, cafeterías, discotecas, etc.). Es la clasificación aplicable al subsector de Restauración y Ocio (Disp. Final Quinta), muy relevante en hostelería no alojativa.",
+    "estado": "pendiente",
+    "pendiente": "Transcripción celda a celda de BOP nº4 (09-01-2026), páginas 10-15 (los tres periodos). No transcrito en esta pasada; ver también Disp. Final Quinta del articulado (incremento del 3% por tramo para Restauración y Ocio, Clasificación 3ªD)."
+  },
+  "salariosClasificacion4": {
+    "$comment": "CLASIFICACIÓN 4. CLUB PRIVADO, COLECTIVIDADES Y CATERING.",
+    "estado": "pendiente",
+    "pendiente": "Transcripción celda a celda de BOP nº4 (09-01-2026), páginas 16-18 (los tres periodos). No transcrito en esta pasada."
+  },
+
+  "complementos": {
+    "$comment": "Tabla de 'Complementos salariales y extrasalariales' del BOP nº4 (09-01-2026), página 19. Tres periodos: 2025-2026 (+7%), 2026-2027 (+3,25%), 2027-2028 (+3,25%). Importes en euros.",
+    "salariales": {
+      "galaNavidad": { "2025-2026": 195.67, "2026-2027": 202.03, "2027-2028": 208.60, "unidad": "€/gala realizada", "articulo": "Art. 37", "nota": "Galas de Navidad, Fin de Año y Reyes (25 y 31 de diciembre y 6 de enero). Importe por cada gala. Se puede renunciar a 2 de las 3 si se es designado para las tres." },
+      "bolsaVacaciones": {
+        "articulo": "Art. 27",
+        "unidad": "€ percepción anual",
+        "nota": "Compensación por trabajar en festivos, ligada a la opción de días de vacaciones elegida. Solo la perciben quienes por su función trabajan en festivos.",
+        "opcion30dias": { "2025-2026": 1534.11, "2026-2027": 1583.97, "2027-2028": 1635.45 },
+        "opcion39dias": { "2025-2026": 767.07, "2026-2027": 792.00, "2027-2028": 817.74 },
+        "opcion44dias": { "2025-2026": 767.07, "2026-2027": 792.00, "2027-2028": 817.74, "nota": "La tabla de complementos añade una opción de 44 días (22+22) con el mismo importe que la de 39; el art. 27 la menciona como pacto de mutuo acuerdo empresa-representación, cobrada por mitades al inicio de cada periodo." },
+        "opcion48dias": { "2025-2026": 383.53, "2026-2027": 396.00, "2027-2028": 408.87 }
+      },
+      "natalidad": { "2025-2026": 96.35, "2026-2027": 99.48, "2027-2028": 102.72, "unidad": "€/nacimiento (pago único)", "articulo": "Art. 31 D", "nota": "Se abona tras el parto, al padre y a la madre salvo que ambos trabajen en la misma empresa." },
+      "lavadoUniforme": { "2025-2026": 16.51, "2026-2027": 17.05, "2027-2028": 17.60, "unidad": "€/mes", "articulo": "Art. 35.3", "nota": "Conservación y limpieza del uniforme facilitado por la empresa." },
+      "calzado": { "computoAnual": { "2025-2026": 198.12, "2026-2027": 204.56, "2027-2028": 211.21 }, "computoMensual": { "2025-2026": 16.51, "2026-2027": 17.05, "2027-2028": 17.60 }, "unidad": "€", "articulo": "Art. 35.3", "nota": "Complemento de calzado; su abono es obligatorio. Si el calzado exigido por el Servicio de Prevención cuesta más que el importe anual, la empresa abona la diferencia (EPI)." }
+    },
+    "extrasalariales": {
+      "notaGeneral": "Art. 35.4: los complementos extrasalariales de transporte, desgaste de herramientas, calzado y lavado de ropa NO se abonan en IT ni en las pagas extraordinarias. Se perciben íntegros (no proporcional a jornada) también por el personal a tiempo parcial (Art. 35.3.3).",
+      "plusTransporte": { "computoAnual": { "2025-2026": 937.34, "2026-2027": 967.80, "2027-2028": 999.26 }, "computoMensual": { "2025-2026": 78.11, "2026-2027": 80.65, "2027-2028": 83.27 }, "unidad": "€", "articulo": "Art. 35.1", "nota": "Para trabajadores incluidos en las clasificaciones 1ª a 5ª. No absorbible ni compensable. Adicional de 3 €/día para quien trabaje en turno partido (Art. 35.1.4)." },
+      "desgasteUtilesHerramientas": { "2025-2026": 8.52, "2026-2027": 8.79, "2027-2028": 9.08, "unidad": "€/mes", "articulo": "Art. 35.2", "nota": "Solo si la persona trabajadora aporta útiles/herramientas propios con permiso escrito; no se le puede obligar a aportarlos." },
+      "manutencion": { "computoAnual": { "2025-2026": 293.04, "2026-2027": 302.56, "2027-2028": 312.40 }, "computoMensual": { "2025-2026": 24.42, "2026-2027": 25.21, "2027-2028": 26.03 }, "unidad": "€", "articulo": "Art. 48", "nota": "DISCREPANCIA EN LA FUENTE: la tabla de complementos (BOP nº4, pág. 19) fija 293,04 €/año y 24,42 €/mes para 2025-2026, pero el ARTICULADO (Art. 48, BOP nº154) dice 293,16 €/año y 24,43 €/mes. Se toma el valor de la tabla oficial de complementos. No aplica a Apartamentos ni Residencias (salvo que presten manutención). No se abona en IT ni en pagas extra.", "discrepanciaArticulado": { "computoAnual2025-2026": 293.16, "computoMensual2025-2026": 24.43 } }
+    }
+  },
+
+  "antiguedad": {
+    "$comment": "Art. 36. El complemento de antigüedad está SUPRIMIDO desde convenios anteriores. Solo pervive el 'Complemento Personal' (antigüedad congelada a 1995) para quienes ya lo tuvieran, consolidado, no absorbible y SIN incremento. Existe además un 'Premio de Vinculación' de pago único al cesar.",
+    "articulo": "Art. 36",
+    "complementoAntiguedad": "suprimido",
+    "complementoPersonal": "Antigüedad congelada en el vencimiento siguiente al tramo disfrutado a 1 de enero de 1995. Se mantiene como 'complemento personal' consolidado, no absorbible ni compensable, sin incrementos. Se incluye en la base de las pagas extraordinarias (Art. 34).",
+    "premioVinculacion": {
+      "escala": { "16a18años": "3 mensualidades de salario real", "19a21años": "4 mensualidades", "22a24años": "5 mensualidades", "25oMasAños": "6 mensualidades" },
+      "condiciones": "Pago único al extinguirse el contrato, salvo despido procedente. No se cobra si la baja es voluntaria y se incorpora a empresa del mismo CNAE en los 6 meses siguientes. Se calcula sobre el salario real al cese. En jubilación parcial: 75% al inicio + 25% al pasar a jubilación definitiva."
+    }
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 27. Dato clave: 30 días NATURALES (el convenio lo dice expresamente, a diferencia de Cádiz). La retribución de vacaciones y la 'bolsa de vacaciones' van muy ligadas al trabajo en festivos. La liquidación al cese se hace sobre salario real (media 12 meses).",
+    "articulo": "Art. 27",
+    "dias": 30,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "Art. 27: 'vacaciones anuales retribuidas de 30 días naturales ininterrumpidas o la parte proporcional al tiempo trabajado'.",
+    "diasExtraAntiguedad": "no_previsto",
+    "fraccionamiento": { "permitido": true, "maxPeriodos": 2, "minimoPorFraccion": "15 días", "nota": "De común acuerdo, dos fracciones, ninguna inferior a 15 días." },
+    "festivosNoRecuperables": "14 al año (12 nacionales + 2 locales). En el calendario de vacaciones la persona trabajadora que trabaje en festivos elige entre 3 opciones que combinan más días de vacaciones y una 'bolsa de vacaciones' (ver complementos.salariales.bolsaVacaciones): 30 días + bolsa mayor; 39 días (9 días extra) + bolsa media; 48 días (18 días extra, 9+9) + bolsa menor. Existe también el pacto de 44 días (22+22).",
+    "retribucion": { "durante": "Retribución ordinaria durante el disfrute.", "liquidacionAlCese": "Sobre SALARIO REAL = media aritmética de la base de cotización de los 12 meses anteriores (o del tiempo en la empresa), excluyendo prorrateo de pagas extra, bolsa de vacaciones, horas extra y cotizaciones por plus de transporte, calzado, manutención, limpieza de uniforme, desgaste de útiles y quebranto de moneda.", "bolsaProporcionalTiempoParcial": "El personal a tiempo parcial percibe la bolsa proporcional a su jornada." },
+    "noCompensableEnDinero": "Las vacaciones anuales no pueden compensarse en metálico durante la relación laboral. Al cese se liquidan proporcionalmente los días no disfrutados y la parte de bolsa que corresponda.",
+    "fijacion": "Calendario de vacaciones elaborado en cada centro antes de fin de año (en los dos últimos meses del año anterior); cupos negociados con la representación y turnos por sorteo; plan entregado a la RLT en los 15 días siguientes. La empresa entrega por escrito el parte de vacaciones antes de su inicio.",
+    "bajaDuranteVacaciones_IT": "La relación entre vacaciones e IT se rige por el art. 38.3 ET (si caes en IT no pierdes las vacaciones; se disfrutan después).",
+    "festivosDentroVacaciones": "Si a quien no acumula festivos a vacaciones le coincide un festivo dentro del periodo vacacional, se amplían las vacaciones en un día (proporcional si son varios); sin descuento en la bolsa por coincidencia de festivos con descansos, vacaciones, permisos o enfermedad."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 28. Días de permiso retribuido. Se incrementan en 2 días si el hecho ocurre FUERA DE LA ISLA (para los apartados 2,3,4,5,6,7,9,10,11 y 13). En lo no previsto, art. 37 ET.",
+    "articulo": "Art. 28",
+    "matrimonioTrabajador": { "dias": 15, "articulo": "Art. 28.1.1", "nota": "15 días por matrimonio de la persona trabajadora (no especifica naturales/laborables; el ET fija 15 días)." },
+    "accidenteEnfermedadGraveHospitalizacion": { "dias": 5, "articulo": "Art. 28.1.2", "causa": "Accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario de cónyuge, pareja de hecho o parientes hasta 2º grado por consanguinidad o afinidad (incluido consanguíneo de la pareja de hecho) y conviviente que requiera cuidado efectivo." },
+    "fallecimiento": { "cónyugeConvivientePadresHijosHermanos": { "dias": 3, "articulo": "Art. 28.1.3" }, "padresPoliticosHijosHermanosPoliticosAbuelos": { "dias": 2, "articulo": "Art. 28.1.4" } },
+    "matrimonioHijo": { "dias": 2, "articulo": "Art. 28.1.5" },
+    "matrimonioHermano": { "dias": 1, "articulo": "Art. 28.1.6" },
+    "trasladoDomicilio": { "dias": 1, "articulo": "Art. 28.1.7" },
+    "lactancia": { "articulo": "Art. 28.1.8", "opciones": ["Reducción de jornada (art. 37.4 ET)", "Acumulación en jornadas completas: 14 días, disfrutable por madre o padre si ambos trabajan"] },
+    "examenes": { "dias": "tiempo indispensable", "articulo": "Art. 28.1.9", "nota": "Justificando asistencia." },
+    "deberPublicoYPersonal": { "dias": "tiempo indispensable", "articulo": "Art. 28.1.10" },
+    "donacionOrganos": { "dias": "tiempo indispensable", "articulo": "Art. 28.1.11", "nota": "Actos preparatorios de donación de órganos o tejidos dentro de la jornada." },
+    "imposibilidadAccesoCentro": { "dias": "hasta 4", "articulo": "Art. 28.1.12", "nota": "Por limitaciones de las autoridades o riesgo grave e inminente (catástrofe/meteorología). Se prolonga hasta que desaparezcan las circunstancias." },
+    "fuerzaMayorFamiliar": { "dias": 4, "articulo": "Art. 28.1.13", "nota": "Por motivos familiares urgentes (enfermedad o accidente de familiares/convivientes que hagan indispensable la presencia inmediata), retribuidas, hasta 4 días. Recoge el art. 37.9 ET." },
+    "incrementoFueraIsla": "+2 días cuando el hecho ocurra fuera de la isla (apartados 2, 3, 4, 5, 6, 7, 9, 10, 11 y 13).",
+    "notaGeneral": "En lo no dispuesto se estará al art. 37 ET. Los permisos por enfermedad/hospitalización se disfrutan tantas veces al año como situaciones lo generen, desde el primer día laborable, sin absorber descanso semanal ni vacaciones."
+  },
+
+  "licenciasNacimiento": {
+    "$comment": "Art. 31. El convenio AMPLÍA la suspensión por nacimiento a 19 semanas (frente a las 16 legales generales).",
+    "articulo": "Art. 31",
+    "suspensionSemanas": 19,
+    "distribucion": "6 semanas obligatorias ininterrumpidas y a jornada completa tras el parto; 11 semanas (22 en monoparentalidad) a voluntad, distribuibles hasta que el hijo cumpla 12 meses (la madre biológica puede anticipar hasta 4 semanas antes del parto); 2 semanas (4 en monoparentalidad) para cuidado del menor, distribuibles hasta que cumpla 8 años.",
+    "efectosEconomicos": "Los que determine la prestación de la Seguridad Social (pago directo por la SS).",
+    "excedenciaCuidadoHijos": "Hasta 3 años por cada hijo desde el nacimiento; el primer año con reserva del puesto (art. 46 ET); computable a efectos de antigüedad; solo uno de los progenitores si ambos trabajan."
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 30. Dato 'oro' de baja médica. El convenio complementa hasta el 100% de la base de cotización, pero con reglas distintas según sea enfermedad común / accidente de trabajo y según se sustituya o no a la persona. Máximo 12 meses en todos los casos.",
+    "articulo": "Art. 30",
+    "enfermedadComun_noSustituido": {
+      "requisito": "Mínimo 12 meses de servicio en la empresa.",
+      "complemento": "La empresa abona los primeros 15 días y luego complementa las prestaciones de la SS hasta el 100% de la base de cotización.",
+      "duracionMaximaMeses": 12
+    },
+    "enfermedadComun_sustituido": {
+      "complemento": "Si la persona es sustituida (contrato de sustitución), NO percibe complemento durante los primeros 30 días, dejando de percibirlo en el momento en que efectivamente sea sustituida dentro de esos 30 días. La empresa garantiza el 100% de la base los 3 primeros días; del 4º al 30º percibe lo de la SS (60% del 4º al 20º; 75% del 21º al 30º); a partir del día 31 la empresa complementa hasta el 100% de la base de cotización.",
+      "duracionMaximaMeses": 12,
+      "nota": "Redacción compleja en el articulado; transcrita literalmente en lo esencial. Duda de interpretación para UGT (ver dudasUGT)."
+    },
+    "accidenteTrabajo": {
+      "requisito": "Sin importar antigüedad y sea o no sustituida la persona.",
+      "complemento": "La empresa complementa hasta el 100% de la base de cotización (del mes anterior al hecho causante) desde el inicio.",
+      "duracionMaximaMeses": 12
+    },
+    "hospitalizacionUOncologico": {
+      "complemento": "IT por contingencias comunes que requieran hospitalización superior a 24 h, o enfermedades oncológicas acreditadas: complemento hasta el 100% de la base de cotización (del mes anterior).",
+      "duracionMaximaMeses": 12
+    },
+    "baseCalculo": "Media aritmética de la base de cotización de los 12 meses anteriores al hecho causante, excluyendo los complementos extrasalariales (transporte, calzado, manutención, limpieza de uniforme, desgaste de útiles).",
+    "pagasExtra": "No se abona complemento de enfermedad en las pagas extra si están prorrateadas; si no se acredita el prorrateo, se garantiza el abono de las gratificaciones en mayo y diciembre."
+  },
+
+  "periodoPrueba": {
+    "$comment": "Art. 16. El convenio NO regula duraciones propias: remite al ALEH estatal (arts. 21 a 27).",
+    "articulo": "Art. 16",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería), arts. 21 a 27.",
+    "nota": "Consultar el ALEH para la duración por grupo/categoría. Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "excedencias": {
+    "$comment": "Art. 29. La excedencia voluntaria de este convenio es MÁS FAVORABLE que la del ET: reserva de plaza en el mismo centro (no amortizable), no solo derecho preferente.",
+    "articulo": "Art. 29",
+    "voluntaria": {
+      "antiguedadMinima": "1 año",
+      "duracionMaxima": "3 años",
+      "reserva": "Reserva de la MISMA PLAZA en el mismo centro de trabajo (no amortizable), mejorando el art. 46 ET.",
+      "solicitud": "Con 30 días de antelación.",
+      "reingreso": "Solicitar el reingreso con al menos 30 días de antelación al vencimiento si la excedencia es superior a un año, o 15 días si es igual o inferior; en su defecto, baja definitiva.",
+      "repeticion": "Segunda excedencia solo tras 4 años desde la anterior.",
+      "limitePlantilla": "Denegable si ya la disfruta al menos el 5% de la plantilla.",
+      "restriccion": "1os y 2os jefes no pueden trabajar por cuenta ajena en su área funcional (ámbito insular) durante la excedencia con reserva de puesto; el sustituto pasa a fijo si el excedente no reingresa. Durante la excedencia no se acumula antigüedad."
+    },
+    "porEnfermedadFamiliar": "Excedencia voluntaria por enfermedad de padre, cónyuge, hijos o personas a cargo (art. 46.3 ET); no limita la voluntaria ordinaria.",
+    "cuidadoHijos": "Hasta 3 años por hijo (Art. 31 C); primer año con reserva de puesto; computable a efectos de antigüedad.",
+    "especiales": "Excedencias del art. 46.1 y 4 y art. 48.3 ET, y por responsabilidades sindicales (ámbito insular o superior) y cargos públicos (ayuntamientos, cabildos, autonómicos, parlamentos), conforme a la LOLS."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El convenio NO contiene un capítulo de régimen disciplinario: no tipifica faltas leves/graves/muy graves ni sanciones empresa-trabajador. Verificado leyendo el articulado completo (tras el Cap. IX Derechos Sindicales pasa al Cap. X Acción Social; no hay capítulo de faltas y sanciones). Por tanto se rige por el ALEH estatal y el ET.",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería), que regula la tipificación de faltas y sanciones, y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver ALEH",
+    "faltasGraves": "pendiente — ver ALEH",
+    "faltasMuyGraves": "pendiente — ver ALEH",
+    "sanciones": "pendiente — ver ALEH (amonestación, suspensión de empleo y sueldo, inhabilitación para ascenso, despido solo en muy graves).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede imponer sanciones que consistan en la reducción de vacaciones/descansos ni en multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad, que no es sanción. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos.",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    },
+    "notaConvenio": "El único fuero disciplinario que el convenio detalla es el de los representantes (Art. 44): expediente contradictorio, prioridad de permanencia y protección frente a despido/sanción por actividad representativa durante el mandato y el año siguiente."
+  },
+
+  "representacionSindical": {
+    "$comment": "Arts. 42-46. El convenio detalla el crédito horario legal (art. 68.e ET, sin mejorarlo salvo por acuerdo de empresa), las garantías/fuero (art. 44) y crea un Fondo de Atenciones Sociales y Actividad Sindical (art. 45).",
+    "articulo": "Arts. 42-46",
+    "creditoHorario": {
+      "escala": { "hasta100trab": 15, "de101a250": 20, "de251a500": 30, "de501a750": 35 },
+      "unidad": "horas retribuidas/mes",
+      "acumulable": "mensualmente entre miembros del comité/delegados (cesión por escrito); no acumulable a meses posteriores salvo acuerdo.",
+      "mejoraET": "Reproduce el mínimo del art. 68.e ET (no lo mejora en el convenio, salvo mejora por acuerdo de empresa). No incluye tramo para +751 trabajadores.",
+      "articulo": "Art. 44.d"
+    },
+    "garantiasYfuero": {
+      "articulo": "Art. 44",
+      "detalle": "No despido/sanción durante el mandato ni el año siguiente al cese por la actividad representativa; para faltas graves/muy graves por otras causas, expediente contradictorio (oídos el interesado, el comité/delegados y el delegado sindical); prioridad de permanencia ante suspensión/extinción por causas tecnológicas o económicas; no discriminación en promoción; libertad de expresión."
+    },
+    "delegadoSindical": "Art. 42: las secciones sindicales tienen un delegado sindical con derechos y garantías; la empresa pone a disposición del sindicato un tablón de anuncios.",
+    "fondoAtencionesSociales": "Art. 45: las empresas formalizan un Fondo de Atenciones Sociales y de Actividad Sindical, administrado por el comité/delegados.",
+    "quienRepresentaYeleccion": "No detallado específicamente en el convenio; se rige por el ET (arts. 62-68: delegados de personal 6-49 trabajadores, comité de empresa desde 50) y la LOLS."
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 12-18. Fijo-discontinuo clave en hostelería de temporada canaria.",
+    "articulo": "Arts. 12-18",
+    "fijoDiscontinuo": {
+      "articulo": "Art. 13",
+      "llamamiento": "Por riguroso orden de salida al periodo de inactividad dentro de cada grupo profesional, cada vez que se inicie la actividad. Se realiza con 7 días de antelación mínima mediante carta certificada con acuse de recibo, indicando la fecha de incorporación.",
+      "respuestaTrabajador": "4 días naturales desde el acuse de recibo; el incumplimiento sin causa justificada implica renuncia al puesto.",
+      "incumplimientoEmpresa": "Si no se produce el llamamiento, la persona puede instar despido ante el Juzgado de lo Social (el plazo corre desde que conoce la falta de convocatoria).",
+      "inactividad": "El periodo de inactividad se comunica con 7 días de antelación mínima."
+    },
+    "eventualPorProduccion": { "articulo": "Art. 14", "duracionMaxima": "12 meses (una sola prórroga si se concierta por tiempo inferior)", "tope": "La contratación eventual no puede superar el 10% respecto a fijos discontinuos e indefinidos (excluyendo sustituciones de vacaciones, reservas de puesto y eventuales previsibles de duración ≤90 días naturales/año)." },
+    "formativos": { "articulo": "Art. 15", "remite": "ALEH y art. 11 ET (formación en alternancia y para práctica profesional)." },
+    "preavisoFinContrato": { "articulo": "Art. 17", "detalle": "Contratos de duración determinada (excepto sustitución): preaviso de 15 días por ambas partes; su incumplimiento da derecho a indemnización de un día de salario real por cada día no preavisado.", "indemnizacionFinContrato": "12 días de salario por año de servicio (excepto contratos formativos y de sustitución)." },
+    "subcontratacion": { "articulo": "Art. 18", "detalle": "Prohibido contratar/subcontratar personal para restaurantes, bares, cocinas, recepción y pisos. Sí se permite para actividades accesorias (seguridad, jardinería, animación, mantenimiento técnico, socorrismo, limpieza especializada) y servicios especiales (bodas, banquetes, congresos). La limpieza subcontratable es solo la especializada, no la habitual de zonas comunes." }
+  },
+
+  "formacion": {
+    "articulo": "Arts. 40-41",
+    "gestion": "Formación profesional gestionada a través de la Comisión Paritaria y del Observatorio por el Empleo, la Calidad y la Competitividad (Art. 41).",
+    "permisosExamenes": "Tiempo indispensable por concurrencia a exámenes (Art. 28.1.9), justificando asistencia.",
+    "creditoHorasFormacion": "no_previsto — el convenio no fija un crédito de horas de formación específico."
+  },
+
+  "igualdadYAcoso": {
+    "articulo": "Arts. 38-39 (Cap. VII: Seguridad y Salud, Planificación Familiar, Acoso Moral y Sexual)",
+    "detalle": "Se constituye la Comisión Provincial de Salud Laboral en Hostelería (Art. 38) y una Comisión Paritaria sobre Prevención del Acoso y para la Igualdad (Art. 39). El convenio remite en lo esencial a la legislación (LPRL, LO 3/2007, LO 1/2004).",
+    "estado": "parcial",
+    "pendiente": "Detalle del Art. 39 (protocolos de acoso e igualdad) no transcrito exhaustivamente; ver BOP nº154, páginas 34-37."
+  },
+
+  "otrasCondicionesEconomicasNoSalariales": {
+    "seguroVidaEIncapacidad": { "articulo": "Art. 47", "capital": 15000, "unidad": "€ (pago único)", "coberturas": "Fallecimiento por cualquier causa antes de la jubilación; e Incapacidad Permanente en grados de Gran Invalidez, Absoluta para todo trabajo y Total para la profesión habitual con extinción del contrato. Mismo capital para muerte e incapacidad.", "nota": "El seguro se vincula a la permanencia en la empresa: el cese da de baja de la póliza sin conservar derecho. Los fijos discontinuos permanecen en la póliza durante su periodo de inactividad." },
+    "manutencionYAlojamiento": { "articulo": "Art. 48", "manutencion": "Derecho a comer en la empresa (ver complementos.extrasalariales.manutencion). No aplica al personal de Apartamentos y Residencias salvo que presten manutención a clientes.", "alojamiento": "Desaparece la obligatoriedad de alojamiento en el establecimiento; se mantiene como garantía 'ad personam' para los casos existentes." },
+    "premioVinculacion": { "articulo": "Art. 36", "remite": "Ver 'antiguedad.premioVinculacion' (3 a 6 mensualidades de salario real según años, pago único al cese salvo despido procedente)." },
+    "anticipos": { "articulo": "Art. 33", "detalle": "Derecho a anticipos a cuenta del trabajo ya realizado, hasta el 90% del salario mensual." },
+    "pagoNominaYFiniquito": { "articulo": "Art. 33", "detalle": "Salarios dentro de los 5 primeros días de cada mes; liquidaciones y finiquitos en máximo 10 días desde la finalización de la relación laboral. El empresario acompaña propuesta de liquidación al comunicar la extinción (Art. 17.2)." }
+  },
+
+  "regimenesEspeciales": {
+    "colectividades": "Disp. Final Segunda: excepciones para restauración de colectividades (posibilidad de aplicar el Convenio Estatal de Colectividades por acuerdo; reglas propias de vacaciones/festivos ligadas al calendario escolar; 30 días de vacaciones o proporcional).",
+    "restauracionYOcio": "Disp. Final Quinta: para restaurantes, bares, cafeterías, discotecas, etc. Tablas del Anexo I Clasificación 3ªD con incremento del 3% por tramo. Reglas propias de jornada partida a tiempo parcial (máx. 2 periodos, pausa máx. 3-4 h, mínimo 2 h consecutivas, jornada diaria mínima 6 h), fijos discontinuos a tiempo parcial (mínimo 25 h/semana) y distribución irregular (hasta 30% trimestral)."
+  },
+
+  "curiosidades": [
+    { "dato": "El convenio se publicó 'a trozos': el texto articulado salió en el BOP nº154 (22-12-2025) SIN las tablas salariales, y estas llegaron 18 días después como 'corrección de errores' en el BOP nº4 (09-01-2026). Para calcular sueldos hay que cruzar los dos boletines.", "fuente": "BOP SC Tenerife nº154 (art. 5698) y nº4 (art. 55)." },
+    { "dato": "La nocturnidad no es un porcentaje sobre salario base ni un importe fijo: es +50% sobre el valor de la hora ordinaria (devengado anual / 1.829 h), y si haces más de 4 horas nocturnas de forma habitual el 50% desaparece y pasas a cobrar como la categoría inmediata superior.", "fuente": "Art. 23." },
+    { "dato": "Hay solo 2 pagas extra (Navidad el 21 de diciembre y una el 1 de mayo, no en verano), frente a las 15 pagas de Cádiz.", "fuente": "Art. 34." },
+    { "dato": "El sistema salarial arrastra el histórico 'porcentaje de servicios' (tronco) de la extinta Ordenanza de Hostelería: el salario garantizado del Anexo I se compone de sueldo fijo + porcentaje de servicios, y en muchas empresas hay 'pactos salariales' que sustituyen ese reparto.", "fuente": "Art. 32." },
+    { "dato": "El complemento de IT por accidente de trabajo es del 100% de la base desde el primer día y sin exigir antigüedad; en enfermedad común exige 12 meses y hay un régimen distinto (y peor) si te sustituyen.", "fuente": "Art. 30." },
+    { "dato": "Existe un 'Premio de Vinculación' de hasta 6 mensualidades de salario real al cesar tras 25+ años, que se pierde si te vas voluntariamente y fichas por una empresa del mismo sector (CNAE) en 6 meses.", "fuente": "Art. 36." }
+  ],
+
+  "dudasUGT": [
+    "complementoIT.enfermedadComun_sustituido: la redacción del Art. 30 sobre el complemento cuando la persona es sustituida es confusa (garantía del 100% los 3 primeros días vs. no complemento los primeros 30 días vs. porcentajes SS del 4º-30º). Confirmar la interpretación práctica.",
+    "complementos.manutencion: discrepancia entre la tabla de complementos (293,04 €/año, 24,42 €/mes) y el Art. 48 del articulado (293,16 €/año, 24,43 €/mes) para 2025-2026. Se ha tomado la tabla; confirmar cuál prevalece.",
+    "salariosClasificacion1.AF5: dos filas ('Encargado/a sección' y 'Especialista mantenimiento y servicios técnicos catering (flota o instalaciones y edificios)') aparecen con importe 0,00 € en las tablas. Confirmar si es un error de la tabla o si esos puestos no tienen salario propio en la clasificación de hoteles.",
+    "permisos: el Art. 28.1.1 (matrimonio, 15 días) no especifica días naturales o laborables; confirmar interpretación."
+  ],
+
+  "estado": "parcial",
+  "estadoNota": "Clasificación 1 (Hoteles y Pensiones) transcrita COMPLETA para los 3 periodos (2025-2028), verificada en imagen celda a celda del BOP nº4. Complementos salariales/extrasalariales completos. Todo el articulado (condiciones no salariales) capturado del texto oficial del BOP nº154: jornada, nocturnidad, horas extra, vacaciones (30 días naturales), permisos, licencias por nacimiento, complemento IT, excedencias, representación sindical, contratación/fijos discontinuos, formación, seguros y otras condiciones económicas. Régimen disciplinario y periodo de prueba NO los regula el convenio (remiten al ALEH). PENDIENTE: transcripción de las tablas salariales de las Clasificaciones 2 (Apartamentos/Campings), 3 (Golf/Casinos/Restauración y Ocio) y 4 (Club privado/Colectividades/Catering), disponibles en BOP nº4 páginas 7-18.",
+  "pendienteCondiciones": [
+    "salariosClasificacion2: tablas Apartamentos/Campings/Vivienda vacacional — BOP nº4 págs. 7-9.",
+    "salariosClasificacion3: tablas Campos de golf/Casinos/Salones de fiesta/Restauración y Ocio — BOP nº4 págs. 10-15 (subsector de restauración y ocio, relevante).",
+    "salariosClasificacion4: tablas Club privado/Colectividades/Catering — BOP nº4 págs. 16-18.",
+    "igualdadYAcoso: detalle del protocolo del Art. 39 — BOP nº154 págs. 34-37.",
+    "regimenDisciplinario y periodoPrueba: no regulados en el convenio → tomar del ALEH estatal."
+  ],
+  "verificadoContra": "PDF oficial BOP Santa Cruz de Tenerife nº154 (22-12-2025, articulado Arts. 1-49, leído del texto oficial) y BOP nº4 (09-01-2026, corrección de errores con las tablas del Anexo I y complementos, renderizado a imagen 185 dpi y leído celda a celda: Clasificación 1 págs. 4-6 los 3 periodos, y complementos pág. 19). Clasificaciones 2-4 (págs. 7-18) NO transcritas en esta pasada, marcadas 'pendiente'.",
+  "fechaVerificacion": "2026-07-08"
+}
