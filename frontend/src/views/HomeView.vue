@@ -4,7 +4,9 @@
 <template>
   <main class="home">
     <h1>TeDeben</h1>
-    <p class="tagline">Las horas que trabajas, cobradas.</p>
+    <p class="tagline">
+      Las horas que trabajas, cobradas.
+    </p>
   </main>
 </template>
 
