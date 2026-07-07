@@ -109,6 +109,177 @@
     "notaEstado": "Se incorporará al futuro convenio colectivo 2026-2029 (mesa de negociación abierta desde septiembre 2025), aún no firmado ni publicado. Cuando salga el BOP con las tablas 2026 en euros, añadir bloque salariosBaseMensuales2026 verificado contra imagen.",
     "tablasEuros": null
   },
+  "codigoRegcon": "35000975011981",
+  "$comentarioCondiciones": "BACKFILL D33 (condiciones no salariales) añadido el 2026-07-08 a partir del TEXTO ARTICULADO del convenio 2020-2025, BOP Las Palmas nº15 (03-02-2023), Código REGCON 35000975011981. Fuente leída: PDF de la Confederación Canaria de Empresarios (CCELPA) que reproduce literalmente el anuncio del BOP nº15. Cada dato lleva su artículo. Lo NO regulado en el convenio provincial se marca como remitido al ALEH V (Acuerdo Laboral de Ámbito Estatal de Hostelería) o al Estatuto de los Trabajadores (art. 46, normas subsidiarias). Las TABLAS y datos económicos preexistentes (bloques 2025) NO se han tocado.",
+  "vacaciones": {
+    "articulo": "Art. 25",
+    "dias": 30,
+    "naturalesOLaborables": "naturales",
+    "notaDias": "Art. 25: 30 días naturales por año natural (1-ene a 31-dic). El convenio NO añade días por antigüedad.",
+    "diasExtraPorAntiguedad": "no contempla (ni en vacaciones art. 25 ni en la bolsa de vacaciones art. 15, que expresamente dice 'no se aplicará antigüedad de clase alguna')",
+    "retribucion": "Salario de convenio MÁS los complementos que se tuvieran reconocidos en esa fecha, incluido el 'complemento por extinción del porcentaje de servicio' (art. 21). Las vacaciones no pueden compensarse en metálico (salvo finiquito por cese). Art. 25.",
+    "periodoDisfrute": "Calendario fijado por cada departamento y publicado en el tablón de anuncios antes del 31 de diciembre (o a los 30 días de la apertura en empresas que inicien/reinicien actividad). Preferencia para quien tenga hijos/as en edad escolar a que coincidan con las vacaciones escolares (dentro de los límites del cuadro del departamento). Art. 25.",
+    "fijadasEmpresaOPactadas": "Calendario elaborado por la EMPRESA de común acuerdo con el comité de empresa o delegados/as de personal y, en su ausencia, con cada una de las personas trabajadoras. Art. 25.",
+    "fraccionamiento": "El art. 25 no fija expresamente el número de periodos en que se fraccionan los 30 días de vacaciones (pendiente de matiz). El fraccionamiento en dos periodos que sí regula el convenio se refiere a los 18 días de fiestas no recuperables (art. 26), no a las vacaciones.",
+    "bajaDuranteVacaciones": "DERECHO REFORZADO (art. 25): el derecho a las vacaciones NO se pierde ni se limita porque la persona esté o haya estado en incapacidad temporal; con independencia de lo que dure la IT, al reincorporarse puede disfrutar el periodo de vacaciones sin descuento alguno.",
+    "festivosDentroVacaciones": "Art. 26.2: si una de las fiestas no recuperables coincide con el disfrute de vacaciones o día libre, se tiene derecho a disfrutarla en otro periodo (salvo quienes de ordinario las disfruten y empresas que cierren en dichas festividades).",
+    "vacacionesNoDisfrutadasAlCesar": "No compensables en metálico durante la relación (art. 25); al cesar antes del disfrute se liquidan en el finiquito. La bolsa de vacaciones (art. 15) también se prorratea en el finiquito.",
+    "anioNatural": "1 de enero a 31 de diciembre (art. 25)"
+  },
+  "fiestasNoRecuperables": {
+    "articulo": "Art. 26",
+    "dias": 14,
+    "detalle": "14 días considerados fiestas no recuperables (2020-2025). Es potestad de la empresa disfrutarlos ininterrumpidos o fraccionados en dos periodos de igual duración. En disfrute ininterrumpido se acumulan 4 días más de descanso semanal (14+4 = 18 días); si se fracciona en dos periodos de 7 días, 2 días adicionales por cada periodo.",
+    "preavisoAsignacion": "La empresa puede asignar los 18 días juntos o en dos periodos de 9 días, con preaviso mínimo de 10 días naturales y copia a la RLT. Art. 26.4.",
+    "notaIT": "Art. 26.5: si ya se disfrutó la compensación de festivos y luego alguno cae en situación de IT, esos días se descuentan del disfrute del año siguiente."
+  },
+  "permisosRetribuidos": {
+    "$comment": "Art. 29 (licencias) + art. 30 (lactancia) + art. 31 (formación). Mejoran el art. 37.3 ET (p. ej. matrimonio 16 días vs 15 legales) y añaden supuestos propios. Se equipara matrimonio a pareja de hecho (art. 29.10).",
+    "articuloPrincipal": "Art. 29",
+    "matrimonioOParejaDeHecho": { "dias": 16, "articulo": "Art. 29.1 y 29.10" },
+    "nacimientoHijo": { "dias": "5 si es en la isla, 6 si es en otro lugar; +4 días acumulables si el alumbramiento conlleva cesárea u otra intervención de igual o superior importancia", "articulo": "Art. 29.2" },
+    "fallecimientoConyuge": { "dias": 7, "articulo": "Art. 29.3" },
+    "fallecimientoPadresHijosHermanos": { "dias": 5, "articulo": "Art. 29.3" },
+    "fallecimientoFamiliaresPoliticosYAbuelos": { "dias": "2 (abuelos/as, padres/hijos/hermanos políticos); 4 si requiere desplazamiento", "articulo": "Art. 29.4" },
+    "bautizoOComunionHijo": { "dias": 1, "articulo": "Art. 29.5" },
+    "matrimonioHijosOHermanos": { "dias": "2 en la isla, 3 en otra isla canaria, 4 fuera de Canarias", "articulo": "Art. 29.6" },
+    "enfermedadGraveOIntervencionConHospitalizacion": { "dias": 4, "detalle": "Cónyuge, hijos o personas a cargo, con hospitalización de al menos 24 horas. El art. 29.11 regula el disfrute en bloque y supuestos de intervención sin hospitalización o convalecencia.", "articulo": "Art. 29.7 y 29.11" },
+    "cambioDomicilio": { "dias": "3 con cambio de mobiliario, 1 sin mobiliario", "articulo": "Art. 29.8" },
+    "entierroPrimosTiosSobrinos": { "dias": 1, "articulo": "Art. 29.9" },
+    "lactancia": { "detalle": "Hijo menor de 9 meses: 1 hora de ausencia diaria, divisible en dos fracciones; sustituible por reducción de jornada de 1 hora (entrada más tarde o salida antes) o acumulable al permiso por nacimiento. Disfrutable indistintamente por madre o padre si ambos trabajan.", "articulo": "Art. 30" },
+    "maternidadNacimiento": { "detalle": "Se remite a la normativa general vigente en cada momento; acumulable al periodo vacacional que corresponda.", "articulo": "Art. 30" },
+    "formacionYExamenes": { "detalle": "10 horas/mes retribuidas para estudios reglados (universitarios/profesionales) + 2 días de licencia por cada día de examen de fin de curso, con acreditación. Trato preferente en asignación de turnos (art. 23 ET).", "articulo": "Art. 31" },
+    "notaMejoraET": "Mejora el art. 37.3 ET (matrimonio 16 vs 15 días) y añade supuestos no legales (bautizo/comunión, matrimonio de hijos/hermanos, entierro de primos/tíos/sobrinos)."
+  },
+  "complementoIT": {
+    "$comment": "Art. 28 — el dato 'oro'. La empresa complementa la prestación de IT hasta el 100% del salario de tablas, con requisito de antigüedad mínima de 6 meses y siempre que la persona no sea sustituida.",
+    "articulo": "Art. 28",
+    "requisitoAntiguedad": "6 meses mínimo",
+    "porcentaje": "hasta el 100% del salario según tablas del convenio",
+    "condicionGeneral": "Siempre que la persona no sea sustituida y a partir de la fecha de la baja.",
+    "accidenteTrabajo": {
+      "porcentaje": "100%",
+      "duracionMaxima": "12 meses",
+      "articulo": "Art. 28.1.1º",
+      "notaOncologico": "La IT por motivos oncológicos se equipara a accidente de trabajo (desde que se comunica a la empresa); se mantiene el complemento si no se sustituye en los primeros 30 días tras la comunicación."
+    },
+    "enfermedadComunYAccidenteNoLaboral": {
+      "$comment": "Contingencias comunes (art. 28.2: enfermedad común o accidente no laboral).",
+      "enfermedadMayor15Dias": { "porcentaje": "100%", "duracionMaxima": "12 meses", "articulo": "Art. 28.1.2º" },
+      "enfermedadMenor15Dias": { "porcentaje": "100%", "condicion": "siempre que no haya habido baja por la misma contingencia en los 12 meses anteriores", "articulo": "Art. 28.1.3º" },
+      "tresPrimerosDias": { "detalle": "El complemento del 100% se abona también durante los tres primeros días de baja por enfermedad común o accidente no laboral.", "articulo": "Art. 28.4" }
+    },
+    "deberDeAviso": "La persona debe avisar a la empresa de su situación con la máxima inmediatez por el medio establecido; si no lo hace, la empresa no está obligada a complementar los días de preaviso incumplido si no la sustituye (salvo accidente, intervención quirúrgica u hospitalización de urgencia). Art. 28.5."
+  },
+  "regimenDisciplinario": {
+    "$comment": "El convenio provincial NO tipifica faltas ni sanciones: se remiten al ALEH V (Acuerdo Laboral de Ámbito Estatal de Hostelería) por la vía del art. 46 (normas subsidiarias) y del art. 33.5. Solo regula garantías procedimentales concretas. Se completa con la base legal general (ET).",
+    "faltasYSanciones": "REMITIDO AL ALEH V. El convenio de Las Palmas no lista faltas leves/graves/muy graves ni el catálogo de sanciones; hay que acudir al Acuerdo Laboral de Ámbito Estatal de Hostelería (art. 46 del convenio, normas subsidiarias).",
+    "comunicacionPreviaFaltaGrave": { "detalle": "Toda sanción por falta grave debe comunicarse PREVIAMENTE al comité de empresa o delegados/as de personal (basta comunicarlo a la Secretaría del comité o a cualquier miembro).", "articulo": "Art. 40.3" },
+    "detencionPolicial": { "detalle": "Se considera causa justificada de falta al trabajo, salvo que vaya seguida de sentencia condenatoria (que además interrumpe la prescripción de la falta).", "articulo": "Art. 40.4" },
+    "expedienteContradictorioRepresentantes": { "detalle": "Los representantes (comité/delegados) tienen derecho a apertura de expediente contradictorio antes de sanción por falta grave o muy grave.", "articulo": "Art. 43.A" },
+    "multaDeHaberProhibida": {
+      "prohibido": true,
+      "baseLegal": "Art. 58.3 ET (VERIFICADO)",
+      "detalle": "La empresa NO puede imponer sanciones que consistan en reducir el salario, las vacaciones o el descanso ('multa de haber'). Distinto es descontar el tiempo NO trabajado por llegar tarde (eso no es sanción). Este límite es legal (ET), el convenio no lo altera."
+    },
+    "procedimiento": "Faltas graves y muy graves: notificación por escrito con fecha y hechos (art. 58 ET). Sin ello, la sanción es impugnable.",
+    "prescripcion": "Base legal (art. 60.2 ET): faltas leves 10 días, graves 20 días, muy graves 60 días; máximo 6 meses desde que se cometió. El convenio no fija plazos propios.",
+    "revisionJudicial": "Toda sanción es revisable ante el Juzgado de lo Social."
+  },
+  "representacionSindical": {
+    "$comment": "Arts. 40-45 del convenio. El crédito horario del art. 43.G MEJORA el ET en el tramo pequeño de plantilla (20 h desde 6 trabajadores, frente a las 15 h del art. 68.e ET hasta 100 trabajadores). Base legal general: ET arts. 62-68 y LOLS 11/1985.",
+    "creditoHorarioMensual": {
+      "$comment": "Art. 43.G. Horas mensuales retribuidas para funciones de representación. Acumulables en uno o varios miembros (art. 43.H).",
+      "articulo": "Art. 43.G",
+      "escala": {
+        "6-49": "20 h",
+        "50-100": "20 h",
+        "101-250": "25 h",
+        "251-500": "35 h",
+        "501+": "40 h"
+      },
+      "notaMejora": "El ET (art. 68.e) fija 15 h/mes para empresas de hasta 100 trabajadores; el convenio lo eleva a 20 h ya desde 6 trabajadores. Mejora del convenio.",
+      "acumulacion": "Las horas no utilizadas por unos miembros pueden acumularse en uno o varios (liberados), por decisión voluntaria acreditada documentalmente. Art. 43.H."
+    },
+    "garantias": {
+      "articulo": "Art. 43",
+      "detalle": "A) Expediente contradictorio antes de sanción por falta grave/muy grave. B) Prioridad de permanencia en la empresa ante suspensión/extinción por causas tecnológicas o económicas. C) No ser despedido ni sancionado durante el mandato ni en el año siguiente por su actividad representativa. D) Opción a la readmisión en despido disciplinario declarado improcedente. E) Libertad de expresión colegiada. F) Local adecuado y tablón de anuncios (mínimo 2x1)."
+    },
+    "funciones": { "articulo": "Art. 44", "detalle": "Información trimestral sobre la marcha de la empresa; acceso a balance, cuenta de resultados y memoria; conocer modelos de contrato y documentos de fin de relación; vigilancia de seguridad e higiene; ser informado de sanciones por faltas graves y muy graves; representar en ERE; velar por el cumplimiento de la normativa laboral y de Seguridad Social." },
+    "asamblea": { "articulo": "Art. 41", "detalle": "El comité/delegados convocan asamblea general al menos una vez por trimestre; las personas trabajadoras disponen de 1 hora de la jornada para asistir a cada asamblea mensual convocada." },
+    "seccionesSindicales": { "articulo": "Art. 45", "detalle": "Constitución de secciones sindicales conforme a la LOLS. Derechos: descuento de la cuota sindical en nómina a petición de la persona afiliada, tablón de anuncios a cargo de la empresa, convocatoria de asambleas de afiliados. Las tareas y reuniones se realizan fuera de la jornada." },
+    "baseLegal": "ET arts. 62-68 (delegados de personal / comité de empresa) y LOLS (Ley Orgánica 11/1985 de Libertad Sindical)."
+  },
+  "periodoPrueba": {
+    "regulado": false,
+    "detalle": "El convenio provincial de Las Palmas NO regula el periodo de prueba en su articulado. Se rige por el ALEH V (Acuerdo Laboral de Ámbito Estatal de Hostelería) y, en su defecto, por el art. 14 ET, por la vía del art. 46 del convenio (normas subsidiarias).",
+    "articuloRemision": "Art. 46 (normas subsidiarias)"
+  },
+  "excedencias": {
+    "$comment": "Art. 32. Mejora la regulación legal: reingreso inmediato al término si se preavisa.",
+    "articulo": "Art. 32",
+    "voluntaria": {
+      "requisitoAntiguedad": "1 año mínimo",
+      "duracion": "hasta 5 años, con un máximo de una prórroga",
+      "reingreso": "Inmediato al término si se preavisa con al menos 30 días de antelación al vencimiento; sin ese preaviso, solo derecho expectante a la existencia de vacantes.",
+      "nivelesIyII": "Para los niveles I y II del Anexo II (categorías especialmente cualificadas), la reincorporación es AUTOMÁTICA durante los dos primeros años (preaviso de 30 días). Superados los 2 años, se aplica el art. 46.5 ET."
+    },
+    "especiales": {
+      "articulo": "Art. 32.2",
+      "enfermedadGraveFamiliar1erGrado": "Máximo 2 años, prorrogable mientras subsista la gravedad; reincorporación inmediata.",
+      "cargoPublicoOSindical": "Por el tiempo que dure el cargo (político o sindical); reincorporación inmediata."
+    },
+    "preaviso": "30 días para la voluntaria; 4 días para las especiales. El silencio o negativa de la empresa no impide el disfrute desde el día comunicado. Art. 32.3."
+  },
+  "movilidadFuncionalYPolivalencia": {
+    "$comment": "Art. 34. Comprobador de categoría: si haces funciones de nivel superior, cobras el salario superior desde el primer día y consolidas tras 3 meses.",
+    "articulo": "Art. 34",
+    "funcionSuperior": "Se percibe el salario de la función superior desde el primer día. Se CONSOLIDAN salario y funciones tras 3 meses ininterrumpidos o 6 meses alternos dentro de 12 meses, salvo que la ocupación sea por sustitución por vacaciones, enfermedad, accidente o excedencia.",
+    "funcionInferior": "Se mantiene el salario del nivel propio; no puede prolongarse más de 45 días.",
+    "voluntariedad": "La opción la tiene la persona trabajadora, que no puede ser sancionada por negarse a trabajos ajenos a su clasificación; excepción: los segundos niveles de responsabilidad del departamento están obligados a sustituir a los primeros.",
+    "baseGrupos": "Grupos profesionales del ALEH y art. 39 ET."
+  },
+  "contratacion": {
+    "$comment": "Art. 33. Clave en hostelería: contrato fijo-discontinuo.",
+    "articulo": "Art. 33",
+    "fijoDiscontinuo": {
+      "periodoMinimoActividad": "9 meses dentro de cada año natural",
+      "periodosInactividad": "Máximo 5 periodos de inactividad al año, de duración mínima 15 días cada uno; no pueden fijarse en el periodo de vacaciones de la persona.",
+      "llamamiento": "Por orden de suspensión más antigua (prioridad), atendiendo a criterios objetivos de especialidad, capacitación y formación dentro del grupo profesional. Preaviso mínimo de 7 días naturales por medio acreditable (carta certificada, burofax, email...), con copia a la RLT. La no incorporación en fecha sin causa justificada implica renuncia al puesto.",
+      "finDeActividad": "También se comunica con 7 días naturales de antelación.",
+      "accionJudicial": "Si no le convocan, la persona puede instar el procedimiento de despido ante el Juzgado de lo Social desde que tuvo conocimiento de la falta de convocatoria.",
+      "articulo": "Art. 33.3"
+    },
+    "tiempoParcial": { "detalle": "Horas complementarias ampliables hasta el 60% en contratos indefinidos a tiempo parcial. Si el pacto supera el 30% de las ordinarias, la suma computa a efectos indemnizatorios.", "articulo": "Art. 33.4" },
+    "otrasModalidades": "Remitidas al ALEH y, en su defecto, a la normativa general (art. 33.5)."
+  },
+  "ropaTrabajoUniforme": {
+    "$comment": "Art. 14. La empresa entrega el uniforme/ropa de trabajo o lo compensa en metálico; además abona conservación/limpieza (importe en tablas: uniformeRopaTrabajoArt14 = 12,51 €/mes en la tabla 2025, ya recogido en complementos2025).",
+    "articulo": "Art. 14",
+    "entregaUniforme": "La empresa está obligada a proporcionar el uniforme y la ropa de trabajo que no sea de uso común, o a compensarlo en metálico según precio medio de mercado.",
+    "calzado2025": { "estandar": 61.57, "lonaOSimilar": 46.19, "unidad": "€/año, prorrateado en 12 mensualidades si se compensa en metálico; o un par al año si se entrega en especie", "articulo": "Art. 14.2 y 14.3" },
+    "conservacionYLimpieza": { "detalle": "Importe no absorbible ni compensable, abonado en 12 mensualidades (uniformeRopaTrabajoArt14 = 12,51 € en tabla 2025); la empresa puede optar por asumir directamente la limpieza y no abonarlo.", "articulo": "Art. 14.5" },
+    "ayudaPantalonCamisa": "Si se exige pantalón negro y camisa blanca, la empresa entrega un máximo anual de un pantalón y dos camisas (art. 14.6)."
+  },
+  "seguroVidaEIncapacidad": {
+    "$comment": "Art. 19. Seguro obligatorio a cargo de la empresa.",
+    "articulo": "Art. 19",
+    "capital": 12020.24,
+    "unidad": "€",
+    "cobertura": "Fallecimiento (a los beneficiarios designados) e invalidez permanente en grados de incapacidad permanente total para la profesión habitual, absoluta o gran invalidez, por enfermedad o accidente.",
+    "requisitoAntiguedad": "1 año mínimo para el supuesto de invalidez permanente, salvo accidentes (comunes o laborales) y hechos imprevisibles como infartos, que quedan exentos del requisito de antigüedad."
+  },
+  "transporte": {
+    "articulo": "Art. 20",
+    "detalle": "Las empresas que vinieran dando transporte (guagua propia o contratada) conservan esa condición; pueden sustituirlo por compensación económica (mediando presencia de la RLT) no inferior a la tarifa vigente del transporte regular, no absorbible ni compensable. No se abona durante vacaciones ni IT/invalidez. Régimen especial de negociación en Lanzarote y Fuerteventura por deficiencias del transporte regular."
+  },
+  "estadoCondiciones": "verificado_articulado_BOP15_2023",
+  "verificadoCondicionesContra": "Texto articulado del convenio 2020-2025 (BOP Las Palmas nº15, 03-02-2023, REGCON 35000975011981), PDF de la CCELPA que reproduce el anuncio del BOP. Leídos y transcritos con su artículo: vacaciones (art. 25), fiestas no recuperables (art. 26), complemento IT/baja (art. 28), licencias/permisos (art. 29), maternidad y lactancia (art. 30), formación (art. 31), excedencias (art. 32), contratación y fijo-discontinuo (art. 33), movilidad funcional (art. 34), garantías y representación sindical (arts. 40-45), uniforme (art. 14), seguro de vida (art. 19), transporte (art. 20), jornada/descansos (arts. 23-24).",
+  "pendienteCondiciones": [
+    "Régimen disciplinario (faltas leves/graves/muy graves y catálogo de sanciones): el convenio provincial NO lo tipifica, remite al ALEH V (art. 46). Capturar del ALEH V si se quiere el detalle sectorial estatal.",
+    "Periodo de prueba: no regulado en el convenio provincial; remitido al ALEH V / art. 14 ET.",
+    "Fraccionamiento de los 30 días de vacaciones (número de periodos): el art. 25 no lo detalla expresamente."
+  ],
   "estado": "tablas_2025_desde_abril_verificadas",
   "verificadoContra": "PDF oficial BOP Las Palmas nº79 (02-07-2025), pág. 10870, renderizado a imagen (dpi 185) y leído visualmente celda a celda: tabla salarial 2025-desde-abril (niveles I-V bis × clasificaciones 1-5), complementos Art.12-15 y servicios extraordinarios Art.17. Jornada (1.819 h), nocturnidad (Art.22), horas extra, pagas (Art.11) y clasificación/niveles (Anexos I y II) tomados del texto articulado del convenio base (BOP nº15, 03-02-2023).",
   "pendiente": [
