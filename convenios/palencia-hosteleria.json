@@ -1,0 +1,483 @@
+{
+  "$comment": "Convenio Colectivo para las Industrias de Hostelería de Palencia 2020-2026. ARTICULADO y TABLAS transcritos VISUALMENTE del PDF oficial del BOP de Palencia nº6 (13-01-2023), Resolución de inscripción y publicación (Expediente 34/01/0072/2022), páginas 2-31. Actualizado con el BOP de Palencia nº32 (16-03-2026, Expediente 34/01/0009/2026), acta de la Comisión Negociadora de 09-10-2025 que: (1) añade la Disposición Final Decimotercera de medidas LGTBI (RD 1026/2024) con su propio régimen disciplinario, y (2) subsana las tablas de 2024 y 2025 al SMI 2025 (1.184,00 €). A julio de 2026, el nº32 es la publicación MÁS RECIENTE (regla D32). Particularidades de Palencia: convenio de 7 años sin revisión salarial durante la vigencia (Art. 23; +2% con efectos 01-01-2027 sobre las tablas 2026); las tablas se estructuran por 6 ÁREAS FUNCIONALES x Grupo Profesional x Grupo de establecimiento (I/II/III), pero por Disposición Duodécima en 2026 sólo existe UN grupo único de establecimientos. Las tablas 'definitivas 2025' corregidas al SMI van adjuntas al acta registrada; el BOP nº32 sólo reprodujo el texto del acta con valores concretos, no la tabla completa.",
+  "id": "palencia-hosteleria",
+  "nombre": "Convenio colectivo para las Industrias de Hostelería de Palencia 2020-2026",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla y León", "provincias": ["Palencia"] },
+  "ambitoFuncional": "hosteleria",
+  "codigoRegcon": "34000265011981",
+  "fuente": {
+    "boletin": "BOP Palencia",
+    "numero": 6,
+    "fecha": "2023-01-13",
+    "documento": "Resolución de inscripción y publicación de la Oficina Territorial de Trabajo de Palencia (Junta de Castilla y León). Expediente 34/01/0072/2022. Convenio suscrito por la Comisión Negociadora el 03-01-2023 (acuerdo plasmado el 12-12-2022). Código de convenio 34000265011981. Articulado (Arts. 1-46, Disposiciones Finales, Subrogaciones y categorías de establecimientos) en páginas 2-13; tablas salariales 2020-2026 (imágenes escaneadas) en páginas 14-31.",
+    "url": "https://www.diputaciondepalencia.es/system/files/bop/2023/20230113-bop-6-Ordinario.pdf"
+  },
+  "actualizaciones": [
+    {
+      "boletin": "BOP Palencia",
+      "numero": 32,
+      "fecha": "2026-03-16",
+      "documento": "Resolución de inscripción y publicación del acta de la Comisión Negociadora de 09-10-2025. Expediente 34/01/0009/2026. Añade la Disposición Final Decimotercera (medidas para la igualdad y no discriminación de las personas LGTBI, RD 1026/2024) con su propio régimen disciplinario, y subsana las tablas salariales de 2024 y 2025 al SMI 2025 (1.184,00 €), corrigiendo además errores en cocinero y ayudante de cocina. Es la publicación MÁS RECIENTE a julio de 2026 (regla D32). Contenido del acta en páginas 12-15.",
+      "url": "https://www.diputaciondepalencia.es/system/files/bop/2026/20260316-bop-32-Ordinario.pdf"
+    },
+    {
+      "boletin": "BOP Palencia",
+      "numero": 67,
+      "fecha": "2024-06-03",
+      "documento": "Acta de la Comisión Negociadora de 16-04-2024 relativa a las tablas salariales de 2024 (referencia según registro de convenios; no verificada en imagen en esta transcripción).",
+      "url": "pendiente",
+      "nota": "Referencia bibliográfica del registro de convenios; no leída en imagen. Las tablas base de 2024 sí constan en el BOP nº6/2023 (pp. 23-25) porque el convenio publicó de una vez todas las anualidades 2020-2026."
+    }
+  ],
+  "vigencia": {
+    "desde": "2020-01-01",
+    "hasta": "2026-12-31",
+    "nota": "Art. 4: vigencia de 7 años. Denunciado automáticamente un mes antes del vencimiento, con compromiso de presentar la plataforma antes del 31-01-2027 y constituir la Comisión Negociadora en los 30 días siguientes. Disposición Final Décima (ultraactividad): el convenio sigue en vigor, sea cual sea su vigencia, hasta la publicación en el BOP de un nuevo acuerdo que lo sustituya, quedando prorrogado en todo su articulado."
+  },
+  "partesFirmantes": { "patronal": "C.P.O.E. (Confederación Palentina de Organizaciones Empresariales)", "sindicatos": ["CCOO", "UGT"] },
+
+  "jornadaAnual": {
+    "horas": 1796,
+    "semanal": 40,
+    "articulo": "Art. 13 y 14",
+    "nota": "Art. 13: 40 h/semana; cómputo anual 1.796 horas. Art. 14: descanso de 20 minutos 'de bocadillo' computado como tiempo de trabajo efectivo. Del 1 de junio al 30 de septiembre la jornada ordinaria puede ampliarse sin superar el cómputo anual (máx. 9 h/día ordinarias, art. 34.2 ET), compensando la reducción el resto del año.",
+    "descansoSemanal": "Art. 14: dos días de descanso ininterrumpidos durante un periodo de cuatro meses al año, garantizando el disfrute de siete fines de semana al año. Si la empresa tiene día de cierre, el descanso coincide con ese cierre. En contratación eventual, el descanso es proporcional a la vigencia del contrato."
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 17 (con festivos dentro de vacaciones en Art. 18). Dato clave de retribución: se pagan a razón de salario base, antigüedad y plus de manutención (no incluye nocturnidad ni otros complementos variables).",
+    "articulo": "Art. 17 (festivos: Art. 18)",
+    "dias": 31,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "Art. 17: 'vacaciones anuales de treinta y un días (31) naturales'. Explícito en el convenio.",
+    "diasExtraAntiguedad": "no_previsto",
+    "diasExtraAntiguedadNota": "El convenio no suma días de vacaciones por antigüedad en el régimen general. Sí prevé días adicionales de vacaciones para quien se acoja voluntariamente a la jubilación anticipada (Art. 34): 85 días si se jubila a los 60 años, 67 a los 61, 50 a los 62 y 40 a los 63, con mínimo de 5 años de antigüedad.",
+    "retribucion": {
+      "base": "salario_base_mas_antiguedad_mas_plus_manutencion",
+      "nota": "Art. 17: 'Los periodos vacacionales se retribuirán a razón del salario base, antigüedad y plus de manutención.' No se mencionan nocturnidad ni otros complementos."
+    },
+    "periodoDisfrute": {
+      "regla": "Se fija de común acuerdo con la empresa. Art. 17.a: el empresario puede excluir como periodo de vacaciones el que coincida con la mayor actividad productiva estacional de la empresa, previo acuerdo con la representación legal de la plantilla.",
+      "temporadaAltaBloqueada": "Sí, potestativo: la empresa puede excluir el periodo de mayor actividad estacional (Art. 17.a).",
+      "nota": "Trabajadores con responsabilidades familiares tienen preferencia a que sus vacaciones coincidan con los periodos vacacionales escolares (Art. 17.c). En caso de desacuerdo, resuelve la jurisdicción competente con procedimiento sumario y preferente (Art. 17.d)."
+    },
+    "fijacion": "De común acuerdo con la empresa; ésta puede convenir la división en dos periodos (Art. 17).",
+    "preaviso": "El calendario de vacaciones se fija en cada empresa y el personal debe conocer su fecha con dos meses de antelación al periodo de disfrute (Art. 17).",
+    "fraccionamiento": {
+      "permitido": true,
+      "maxPeriodos": 2,
+      "nota": "Art. 17: la empresa podrá convenir la división en dos periodos. No fija un mínimo de días seguidos."
+    },
+    "inicioTrasDescanso": "En ningún caso el inicio del periodo vacacional podrá coincidir con días de descanso del trabajador ni con otro día que por cualquier motivo no le correspondiera trabajar (Art. 17).",
+    "bajaDuranteVacaciones_IT": {
+      "derecho": "Art. 17: se interrumpe el disfrute si el trabajador cae en IT durante sus vacaciones, desde ese momento y mientras dure la IT. No comienza el cómputo si al iniciarlas ya está en situación de incapacidad; se disfrutan al finalizar la IT siempre que no hayan transcurrido más de 18 meses a partir del final del año en que se originaron.",
+      "maternidadEmbarazoLactancia": "Si la IT deriva de embarazo, parto o lactancia natural, o coincide con la suspensión del art. 48 ET, se disfrutan en fecha distinta, aunque haya terminado el año natural (Art. 17)."
+    },
+    "festivosDentroVacaciones": "Los festivos retribuidos y no recuperables trabajados durante el año se suman al periodo vacacional o se disfrutan en otra época de común acuerdo (Art. 18). Alternativas del Art. 18: se convierten en 19 días en proporción a los abonables no disfrutados; o se adicionan al descanso semanal; o, a opción de la empresa, se abonan a 85,00 €/día (años 2022-2026; 78,23 €/día en 2020-2021) por cada uno de los 14 días festivos retribuidos no recuperables no disfrutados (no aplica en despido, baja voluntaria ni abandono).",
+    "noPrescripcion": "El personal con contratos interanuales de duración inferior a un año conserva las vacaciones, no prescribiendo el 31 de diciembre. Si no pueden disfrutarse antes del 31 de diciembre por causas no imputables al trabajador, la empresa expide recibo de adeudo de vacaciones (Art. 17).",
+    "cierreEmpresa": "Si la empresa tiene establecido el cierre del establecimiento durante un periodo determinado, la plantilla disfruta el periodo vacacional coincidiendo con dicho cierre (Art. 17)."
+  },
+
+  "pagasExtraordinarias": {
+    "total": 14,
+    "articulo": "Art. 27",
+    "$comment": "Art. 27: dos gratificaciones extraordinarias (12 mensualidades + 2 pagas = 14 pagas). Una de verano (abono el 15 de julio) y otra de Navidad (abono el 22 de diciembre), cada una a razón de una mensualidad de salario vigente más antigüedad. El personal retribuido por porcentaje percibe las gratificaciones según la fórmula de la Ordenanza."
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 24. Recargo porcentual, no euros/hora.",
+    "articulo": "Art. 24",
+    "tipo": "porcentaje",
+    "porcentaje": 25,
+    "sobre": "salario (pactado en convenio)",
+    "tramoHorario": { "desde": "22:00", "hasta": "06:00" },
+    "nota": "Art. 24: la nocturnidad se paga con el incremento del 25%. Obligación de pagarlo aquellas empresas cuyo personal trabaje la mayor parte de su jornada entre las 22:00 y las 6:00 horas, salvo que el salario haya sido pactado considerando el mismo nocturno por su propia naturaleza."
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "Art. 15. El convenio no fija precio ni recargo propio; suprime las horas extra habituales y remite al resto a la legislación vigente.",
+    "articulo": "Art. 15",
+    "tipo": "remite_legislacion",
+    "nota": "Art. 15: se acuerda que sean suprimidas las horas extraordinarias habituales. En cuanto a otra clase de horas extraordinarias, se estará a lo dispuesto en la legislación vigente (art. 35 ET). No establece precio €/hora ni porcentaje de recargo propios."
+  },
+
+  "antiguedad": {
+    "$comment": "Art. 26. Escala sobre el SMI vigente en cada momento. Sólo para personal contratado ANTES del 1 de enero de 1997. Los contratos posteriores a esa fecha NO generan antigüedad.",
+    "articulo": "Art. 26",
+    "baseCalculo": "SMI vigente en cada momento",
+    "escala": { "3años": 3, "6años": 8, "9años": 16, "14años": 26, "19años": 38, "24años": 45 },
+    "condicion": "Sólo el personal contratado con anterioridad al 1 de enero de 1997 percibe antigüedad (cumplida a partir del 1 de enero de 1985). El personal contratado antes del 31 de diciembre de 1984 mantiene consolidadas las cantidades que en concepto de antigüedad tenían reconocidas de forma individual. Los contratos posteriores al 1 de enero de 1997 NO generan antigüedad."
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 29. Dato 'oro' de baja médica. La empresa complementa hasta el 100% de las cantidades del anexo salarial del convenio (no de la base de cotización). Distingue accidente laboral (desde el primer día) de enfermedad común / accidente no laboral (según haya o no hospitalización).",
+    "articulo": "Art. 29",
+    "complementoHasta": "100% de las cantidades establecidas en el anexo salarial del convenio",
+    "accidenteTrabajo": {
+      "desdeDia": 1,
+      "nota": "Accidente laboral: complemento hasta el 100% desde el primer día del primer mes."
+    },
+    "enfermedadComunYaccidenteNoLaboral": {
+      "conHospitalizacion": { "desdeDia": 1, "nota": "Enfermedad común y accidente no laboral: desde el primer día si hay hospitalización." },
+      "sinHospitalizacion": { "desdeDia": 4, "nota": "Sin hospitalización: desde el cuarto día." },
+      "topeMeses": 12
+    },
+    "notaCalculo": "En las 12 pagas ordinarias debe incluirse la cuantía correspondiente a la antigüedad y a la manutención; en las 2 pagas extraordinarias, la cuantía correspondiente a la antigüedad. En ningún supuesto el complemento puede exceder de 12 meses.",
+    "complementoRiesgoEmbarazo": "Art. 30: a las trabajadoras en suspensión del contrato por riesgo durante el embarazo, la empresa complementa la prestación de la Seguridad Social hasta el 100% de la base reguladora."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 19. La mayoría se expresan en días naturales. Los permisos se extienden a las parejas de hecho acreditadas (certificado del Registro o, en su defecto, certificado de convivencia). En lo no previsto rige el ET (algunos supuestos del ET —p. ej. accidente/enfermedad grave de familiares u hospitalización— hoy superan al convenio tras el RD-ley 5/2023 y se aplican como mínimo legal).",
+    "articulo": "Art. 19 (licencias no retribuidas: Art. 20)",
+    "matrimonio": { "dias": 15, "tipo": "naturales", "articulo": "Art. 19.a" },
+    "enfermedadHospitalizacionIntervencionFamiliar": { "dias": 3, "tipo": "naturales", "articulo": "Art. 19.b", "causa": "Enfermedad, hospitalización, intervención quirúrgica, así como intervención quirúrgica sin hospitalización que precise reposo domiciliario, de parientes hasta el segundo grado de consanguinidad o afinidad. Disfrutados mientras dure el hecho causante y no obligatoriamente consecutivos.", "notaMejoraET": "El ET (art. 37.3.b, redacción RD-ley 5/2023) reconoce hoy 5 días para estos supuestos; prevalece el ET como mínimo legal frente a los 3 días del convenio." },
+    "fallecimiento": { "dias": 3, "tipo": "naturales", "articulo": "Art. 19.c", "causa": "Fallecimiento de los familiares citados en el apartado anterior (hasta 2º grado de consanguinidad o afinidad)." },
+    "bautizoHijos": { "dias": 1, "articulo": "Art. 19.d" },
+    "trasladoDomicilio": { "dias": 1, "articulo": "Art. 19.e" },
+    "bodaHijosOhermanos": { "dias": 1, "articulo": "Art. 19.f" },
+    "deberInexcusable": { "dias": "tiempo indispensable", "articulo": "Art. 19.g", "causa": "Cumplimiento de un deber inexcusable de carácter público o personal." },
+    "examenes": { "articulo": "Art. 19.h", "detalle": "Tiempo necesario para concurrir a exámenes de Centro de Formación Académica, Profesional o social; retribuido los diez primeros días del año y no retribuido lo que exceda de dicho número, siempre previa justificación." },
+    "consultaMedica": { "articulo": "Art. 19.i", "detalle": "20 horas retribuidas al año por consulta médica, pudiéndose coger un máximo de 4 horas diarias con la correspondiente justificación de la Seguridad Social." },
+    "acompanamientoHijosMedico": { "articulo": "Art. 19.j", "detalle": "20 horas de permiso retribuido al año, en fracciones mínimas de dos horas (salvo trabajo nocturno), para, entre otras cosas, acompañamiento de hijos menores al médico." },
+    "lactancia": { "articulo": "Art. 19.k", "detalle": "Hijo menor de 9 meses: 1 hora de ausencia divisible en dos fracciones, o sustituible por reducción de media hora de jornada. Acumulable, previo acuerdo, en descanso continuado de 19 días a disfrutar a continuación del permiso maternal." },
+    "guardaLegal": { "articulo": "Art. 19.l", "detalle": "Guarda legal de menor de 12 años o persona con discapacidad física, psíquica o sensorial que no desempeñe actividad retribuida: reducción de jornada con disminución proporcional del salario entre, al menos, un octavo y un máximo de la mitad." },
+    "incrementoPorDesplazamiento": { "articulo": "Art. 19.ll", "escala": { "mas150km": "+1 día", "mas300km": "+2 días", "mas500km": "+3 días" }, "nota": "Se incrementa el permiso cuando haya que realizar desplazamientos." },
+    "parejasDeHecho": "Todos los permisos del Art. 19 se extienden a las parejas de hecho acreditadas mediante certificado del Registro de parejas de hecho o, en su defecto, certificado de convivencia (Art. 19)."
+  },
+
+  "licenciasNoRetribuidas": {
+    "articulo": "Art. 20",
+    "detalle": "Por enfermedad de parientes hasta 2º grado de consanguinidad o casos de urgente necesidad, licencia o permiso sin sueldo de duración máxima de tres meses al año, con justificación mediante certificado. La empresa no está obligada a concederla cuando existiendo otros trabajadores de la misma categoría en la misma situación, su concesión implique la ausencia de todo el personal de esa categoría. Si la evolución de la enfermedad es favorable, el trabajador puede solicitar el reingreso anticipado y la empresa debe readmitirle en el plazo de 7 días desde la petición (por escrito)."
+  },
+
+  "excedencias": {
+    "$comment": "Art. 21. Voluntaria, por guarda legal (cuidado de hijos y de familiares) y remisión al ET.",
+    "articulo": "Art. 21",
+    "voluntaria": {
+      "antiguedadMinima": "1 año",
+      "duracion": "no inferior a 4 meses ni superior a 5 años",
+      "reingreso": "Causa baja definitiva en la empresa el excedente que no solicite su ingreso con una antelación no inferior a 30 días a la fecha del vencimiento."
+    },
+    "cuidadoDeHijos": {
+      "duracion": "no superior a 3 años desde la fecha de nacimiento (o resolución judicial/administrativa en adopción/acogimiento)",
+      "reservaPuesto": "Durante el primer año, reserva del puesto de trabajo; transcurrido ese plazo, la reserva queda referida a un puesto del mismo grupo profesional o categoría equivalente. Familia numerosa: reserva hasta 15 meses (categoría general) o 18 meses (categoría especial).",
+      "antiguedad": "El periodo de excedencia es computable a efectos de antigüedad y da derecho a asistir a cursos de formación profesional.",
+      "nota": "Los sucesivos hijos dan derecho a un nuevo periodo que pone fin al que se viniera disfrutando."
+    },
+    "cuidadoDeFamiliar": {
+      "duracion": "no superior a 2 años",
+      "causa": "Cuidado de un familiar hasta el 2º grado de consanguinidad o afinidad que por razones de edad, accidente, enfermedad o discapacidad no pueda valerse por sí mismo y no desempeñe actividad retribuida."
+    }
+  },
+
+  "periodoPrueba": {
+    "$comment": "Art. 9. El convenio no fija duraciones propias: remite al V Acuerdo Laboral Estatal de Hostelería (ALEH).",
+    "articulo": "Art. 9",
+    "regulado": false,
+    "remitidoA": "V Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería (ALEH).",
+    "nota": "Los ingresos de los trabajadores fijos se consideran hechos a título de prueba, cuyo periodo será variable según la índole de los puestos a cubrir y se determinará conforme al V ALEH. Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El articulado del convenio (Arts. 1-46) NO tipifica faltas ni sanciones: la Disposición Final Novena remite expresamente el régimen disciplinario al ALEH estatal. La ÚNICA tipificación disciplinaria propia añadida al convenio es la del régimen disciplinario LGTBI de la Disposición Final Decimotercera (introducida por el BOP nº32 de 16-03-2026), que sanciona conductas LGTBIfóbicas.",
+    "articulo": "Disposición Final Novena (remisión al ALEH) y Disposición Final Decimotercera (régimen disciplinario LGTBI, BOP nº32/2026)",
+    "reguladoGeneral": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería), que tipifica las faltas leves/graves/muy graves y las sanciones, y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver ALEH (el convenio provincial no las tipifica)",
+    "faltasGraves": "pendiente — ver ALEH",
+    "faltasMuyGraves": "pendiente — ver ALEH",
+    "sanciones": "pendiente — ver ALEH (amonestación, suspensión de empleo y sueldo, inhabilitación para ascenso, despido sólo en muy graves).",
+    "regimenDisciplinarioLGTBI": {
+      "articulo": "Disposición Final Decimotercera, apartado 8 (BOP Palencia nº32, 16-03-2026)",
+      "faltaLeve": "Manifestaciones, expresiones o comportamientos que se produzcan espontáneamente, sin premeditación, y que conlleven una agresión no intencionada basada en prejuicios contra la comunidad LGTBI+.",
+      "faltaGrave": "Toda falta leve que reúna uno de estos requisitos: el hecho punible se reitera en el tiempo; sus efectos se prolongan en el tiempo o tienen carácter permanente; perjudica el ascenso o la promoción profesional de la persona agredida; la persona agresora abusa de una posición jerárquica superior; o denigración, ridiculización, humillación u ofensa de las familias LGTBI+ en el ámbito laboral.",
+      "faltaMuyGrave": "a) Actitudes/expresiones/comportamientos basados en prejuicios contra las personas LGTBI+ o sus familias con objeto de ridiculizarlos o atentar contra su dignidad. b) Agresiones físicas o verbales dentro o fuera del lugar de trabajo a personas del colectivo LGTBI+ o a quienes lo parecen o lo defienden. c) Promoción de la ideología del odio al colectivo LGTBI+. d) Omisión o inacción de mandos intermedios o superiores frente a conductas LGTBIfóbicas. e) El hostigamiento, el chantaje o la coacción bajo amenaza de revelar la pertenencia al colectivo LGTBI+.",
+      "sanciones": "Corresponde a la empresa imponer sanciones adaptadas al régimen de sanciones existente en cada convenio colectivo (es decir, el del ALEH). Todas las faltas se ponen en conocimiento de la RLPT y permanecen en el expediente de la persona infractora."
+    },
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede sancionar mediante la reducción de vacaciones/descansos ni con multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos.",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    }
+  },
+
+  "categoriasEstablecimiento": {
+    "$comment": "Anexo del convenio (BOP nº6/2023, p.13): 'Categorías de establecimientos de hospedaje y restauración'. Hasta 4 grupos de establecimiento. IMPORTANTE: por Disposición Duodécima, en el año 2026 sólo existe UN grupo único de establecimientos, por lo que la tabla salarial vigente (2026) tiene un único valor por categoría profesional.",
+    "grupo1": "Hostales 5 y 4 estrellas; Restaurantes, casas de comidas y tabernas de 1ª que sirvan comidas; Cafeterías especiales de 1ª; Cafés, bares, cervecerías y chocolaterías de 1ª.",
+    "grupo2": "Hoteles de 3 estrellas; Restaurantes, casas de comidas y tabernas de 2ª que sirven comidas; Cafés, bares y chocolaterías de 2ª.",
+    "grupo3": "Hoteles de 2 estrellas; Restaurantes, casas de comidas y tabernas de 3ª que sirven comidas; Cafés, bares, cervecerías y chocolaterías de 3ª.",
+    "grupo4": "Hoteles de 1 estrella; Hostales de 2 y 1 estrella; Pensiones categoría única; Restaurantes, casas de comidas y todas las tabernas que no sirven comidas; Cafés, bares, cervecerías y chocolaterías de 4ª; Camping; Casas Rurales; Salones Recreativos.",
+    "grupoUnico2026": "Disposición Duodécima: en 2026 sólo existe un único grupo de establecimientos."
+  },
+
+  "areasFuncionales": {
+    "$comment": "Los salarios se estructuran en 6 Áreas Funcionales, cada una con hasta 4 Grupos Profesionales. La clasificación profesional detallada se rige por el ALEH (Art. 11).",
+    "primera": "Recepción, Conserjería, Relaciones Públicas, Administración y Gestión",
+    "segunda": "Cocina y Economato",
+    "tercera": "Restaurante, Bar y Similares, Pista para Catering (incluye tablas propias para Clubes, Discotecas, Salas de Baile y Salas de Fiestas)",
+    "cuarta": "Pisos y Limpieza",
+    "quinta": "Servicios de Mantenimiento y Servicios auxiliares",
+    "sexta": "Servicios Complementarios (más tabla de Casinos)"
+  },
+
+  "salariosBase2026": {
+    "$comment": "TABLA SALARIAL VIGENTE — 'TABLAS SALARIALES DE PALENCIA AÑO 2026' (BOP nº6/2023, pp. 29-31), leída celda a celda en imagen. Es el último año de vigencia del convenio y, por Disposición Duodécima, tiene UN grupo único de establecimientos (un solo valor por categoría). Importe en € brutos: 'mensual' (x14 pagas) y 'anual'. AVISO: algunas categorías quedan por debajo del SMI (1.184,00 € en 2025); en esos casos rige el SMI como suelo legal mientras el convenio no publique la corrección de 2026 (el acta del BOP nº32/2026 sólo subsanó 2024 y 2025).",
+    "año": 2026,
+    "grupoEstablecimiento": "único (Disposición Duodécima)",
+    "areaFuncionalPrimera": {
+      "descripcion": "Recepción, Conserjería, Relaciones Públicas, Administración y Gestión",
+      "grupoI": {
+        "jefeDeRecepcion": { "mensual": 1385.21, "anual": 19392.94 },
+        "segundoJefeRecepcion_primerConserje_jefeAdministracion_jefeComercial": { "mensual": 1313.31, "anual": 18386.35 }
+      },
+      "grupoII": {
+        "administrativo_recepcionista_relacionesPublicas": { "mensual": 1256.06, "anual": 17584.87 }
+      },
+      "grupoIII": {
+        "ayudantesAdministrativo_telefonista_ayudanteRecepcion_conserje_comercial_mozoEquipajes": { "mensual": 1160.00, "anual": 16240.00 }
+      },
+      "grupoIV": {
+        "auxiliarRecepcion_auxiliarConserjeria": { "mensual": 1125.00, "anual": 15750.00 }
+      }
+    },
+    "areaFuncionalSegunda": {
+      "descripcion": "Cocina y Economato",
+      "grupoI": {
+        "jefeDeCocina": { "mensual": 1628.00, "anual": 22792.06 },
+        "segundoJefeDeCocina": { "mensual": 1449.71, "anual": 20295.95 }
+      },
+      "grupoII": {
+        "jefeDePartida": { "mensual": 1413.63, "anual": 19790.81 },
+        "cocinero_repostero": { "mensual": 1385.21, "anual": 19392.94 },
+        "encargadoDeEconomato": { "mensual": 1256.06, "anual": 17584.87 }
+      },
+      "grupoIII": {
+        "ayudanteReposteroYcocina": { "mensual": 1186.62, "anual": 16612.71 },
+        "ayudanteDeEconomato": { "mensual": 1160.00, "anual": 16240.00 }
+      },
+      "grupoIV": {
+        "auxiliarDeCocina": { "mensual": 1125.00, "anual": 15750.00 }
+      }
+    },
+    "areaFuncionalTercera": {
+      "descripcion": "Restaurante, Bar y Similares, Pista para Catering",
+      "grupoI": {
+        "jefeDeRestauranteOsala": { "mensual": 1385.21, "anual": 19392.94 },
+        "segundoJefeRestauranteOsala_jefeDeSector": { "mensual": 1313.30, "anual": 18386.35 }
+      },
+      "grupoII": {
+        "camarero_barman_sumiller": { "mensual": 1256.06, "anual": 17584.87 }
+      },
+      "grupoIII": {
+        "ayudanteDeCamarero_riders": { "mensual": 1186.34, "anual": 16608.76 }
+      }
+    },
+    "tablasClubesDiscotecasSalasBaileYfiestas": {
+      "grupoI": { "encargado": { "mensual": 1460.00, "anual": 20440.00 } },
+      "grupoII": { "camarero_barman_djPinchadiscos": { "mensual": 1296.00, "anual": 18144.00 } },
+      "grupoIII": { "ayudanteCamareroObarman_taquillero": { "mensual": 1188.05, "anual": 16632.65 } },
+      "grupoIV": { "personalDeLimpieza": { "mensual": 1143.30, "anual": 16006.20 } }
+    },
+    "areaFuncionalCuarta": {
+      "descripcion": "Pisos y Limpieza",
+      "grupoI": {
+        "encargadoGeneral": { "mensual": 1319.49, "anual": 17584.87 },
+        "encargadoDeSeccion": { "mensual": 1308.86, "anual": 17584.87 }
+      },
+      "grupoII": {
+        "camareroDePisos": { "mensual": 1200.04, "anual": 16800.56 }
+      },
+      "grupoIII": {
+        "auxiliarDePisosYlimpieza": { "mensual": 1125.00, "anual": 15750.00 }
+      }
+    },
+    "areaFuncionalQuinta": {
+      "descripcion": "Servicios de Mantenimiento y Servicios auxiliares",
+      "grupoI": {
+        "encargadoMantenimientoYserviciosTecnicos_encargadoDeSeccion": { "mensual": 1313.63, "anual": 18390.82 }
+      },
+      "grupoII": {
+        "especialistaMantenimientoYserviciosAuxiliares": { "mensual": 1256.46, "anual": 17590.46 }
+      },
+      "grupoIII": {
+        "auxiliarMantenimientoYserviciosAuxiliares_monitor": { "mensual": 1125.00, "anual": 16002.54 }
+      }
+    },
+    "areaFuncionalSexta": {
+      "descripcion": "Servicios Complementarios",
+      "grupoI": {
+        "responsableDeServicio": { "mensual": 1385.21, "anual": 19392.94 },
+        "tecnicoDeServicio_dietista_fisioterapeuta_tituladosSalud": { "mensual": 1313.30, "anual": 18386.35 }
+      },
+      "grupoII": {
+        "especialistaDeServicios_socorrista_diskjockey_masajista_atencionCliente": { "mensual": 1256.06, "anual": 17584.87 },
+        "auxiliarDeServicio_atencionCliente_auxiliarBalnearioOpiscina": { "mensual": 1125.00, "anual": 16002.54 }
+      }
+    },
+    "casinos": {
+      "$comment": "Tabla propia de Casinos (2026).",
+      "conserje": { "mensual": 1283.28, "anual": 17965.91 },
+      "ordenanza": { "mensual": 1191.99, "anual": 16687.91 },
+      "personalDeLimpieza": { "mensual": 1121.07, "anual": 15694.98 },
+      "camarero": { "mensual": 1283.12, "anual": 17963.67 }
+    },
+    "manutencion2026": { "mensual": 49.50, "anual": 594.00, "nota": "'Otros aspectos económicos' de la tabla 2026. Coincide con el Art. 28 (49,50 €/mes para 2026)." }
+  },
+
+  "tablas2025_correccionSMI": {
+    "$comment": "Las tablas base de 2025 (BOP nº6/2023, pp. 26-28) quedaron parcialmente por debajo del SMI 2025 (1.184,00 €). El acta de la Comisión Negociadora de 09-10-2025 (publicada en el BOP nº32, 16-03-2026) SUBSANÓ esas tablas. El BOP nº32 NO reprodujo la tabla completa (las 'tablas definitivas 2025' van adjuntas al acta registrada), pero sí fijó por escrito estos valores concretos, que son los VERIFICADOS en imagen. La tabla base 2025 completa por categoría queda 'pendiente' de reproducción oficial: consultar BOP nº6/2023 pp. 26-28 para los valores no corregidos.",
+    "smi2025": 1184.00,
+    "estructura": "12 pagas ordinarias + 2 pagas extraordinarias",
+    "valoresCorregidos": {
+      "cocinero_AF2_grupoI": 1357.92,
+      "cocinero_AF2_gruposIIyIII": 1305.31,
+      "ayudanteCocina_grupoI": 1163.24,
+      "ayudanteCocina_gruposIIyIII": 1116.25,
+      "grupoII_cocineroRepostero_AF2_grupoI": 1371.50,
+      "grupoII_cocineroRepostero_AF2_gruposIIyIII": 1344.47,
+      "ayudanteReposteroYcocina_AF2_todosGrupos": 1134.00
+    },
+    "categoriasElevadasAlSMI_1184": [
+      "AF1 GP III (ayudantes administrativos, telefonista, ayudante de recepción, conserje, comercial, mozo de equipajes)",
+      "AF1 GP IV (auxiliar de recepción y auxiliar de consejería)",
+      "AF2 GP III (ayudante de economato)",
+      "AF2 GP IV (auxiliar de cocina)",
+      "AF3 GP III (ayudante de camarero, riders)",
+      "Tablas clubes/discotecas GP III (ayudante de camarero o barman, taquillero) y GP IV (personal de limpieza)",
+      "AF4 GP II (camarero/a de pisos)",
+      "AF4 GP III (auxiliar de pisos y limpieza)",
+      "AF5 GP III (auxiliar de mantenimiento y servicios auxiliares, monitor)",
+      "AF6 GP II (auxiliar de servicio, auxiliar de balneario o piscina)",
+      "Casinos: ordenanza y personal de limpieza"
+    ],
+    "notaCorreccion": "Punto 16 del acta: 'Se procede a corregir referidos errores para 2024 y 2025 y se adjuntan tablas definitivas para 2025.' Todas estas categorías corregidas se retribuyen a 1.184,00 € por 12 pagas ordinarias más 2 pagas extraordinarias."
+  },
+
+  "pluses": {
+    "$comment": "Art. 28 (manutención) y Art. 46 (formación). Importes en €.",
+    "manutencion": {
+      "articulo": "Art. 28",
+      "importes": { "2020-2021": 44.54, "2022": 45.50, "2023": 46.50, "2024": 47.50, "2025": 48.50, "2026": 49.50, "unidad": "€/mes" },
+      "totalAnual2020_2021": 534.55,
+      "nota": "Toda la plantilla percibe la manutención salvo que se opte por la manutención en especie (no posible en establecimientos sin servicio de comedor). Se abona íntegramente a todos los trabajadores, NO proporcional a la jornada realizada. Prorrateada en 12 mensualidades. Forma parte de la base de retribución de vacaciones (Art. 17) y del complemento de IT (Art. 29)."
+    },
+    "plusFormacion": {
+      "articulo": "Art. 46",
+      "importe": 25.00,
+      "unidad": "€/mes",
+      "naturaleza": "salarial",
+      "nota": "Plus compensatorio de formación que deben abonar las empresas que NO acrediten su participación en planes de formación continua del sector (agrupados o individuales), según el sistema de acreditación del Art. 46 (certificación con visado de la Comisión Paritaria)."
+    }
+  },
+
+  "compensacionPerdidaSalarial2020_2021": {
+    "articulo": "Art. 22",
+    "importe": 150.00,
+    "nota": "Cantidad única de 150 € para cada trabajador, sin distinción de categoría y en proporción a su jornada, en compensación de la pérdida salarial de los años 2020 y 2021. Abono en los 30 días siguientes a la publicación del convenio en el BOP (13-01-2023)."
+  },
+
+  "revisionSalarial": {
+    "articulo": "Art. 23",
+    "detalle": "No opera ninguna revisión salarial durante la vigencia del convenio. Con efectos del 1 de enero de 2027 se actualizarán las tablas vigentes para 2026 en un 2%.",
+    "nota": "Las correcciones de 2024 y 2025 no fueron 'revisiones' sino subsanaciones para respetar el SMI legal, no incrementos pactados."
+  },
+
+  "otrasCondicionesEconomicasNoSalariales": {
+    "$comment": "Complementos y protecciones con su artículo, útiles para finiquito y reclamaciones.",
+    "seguroAccidentesTrabajo": {
+      "articulo": "Art. 33",
+      "coberturas": {
+        "2020-2022": { "muerte": 23200.00, "invalidezPermanenteAbsoluta": 29500.00 },
+        "2023-2026": { "muerte": 25000.00, "invalidezPermanenteAbsoluta": 32000.00 }
+      },
+      "nota": "Póliza obligatoria de las empresas para cubrir muerte e invalidez permanente absoluta por accidente de trabajo, a favor de sus causahabientes."
+    },
+    "utilesYherramientas": { "articulo": "Art. 31", "detalle": "Las empresas están obligadas a proporcionar y reponer todos los útiles necesarios para el trabajo." },
+    "ropaDeTrabajo": {
+      "articulo": "Art. 32",
+      "detalle": "Las empresas facilitan al personal los uniformes y la ropa de trabajo que no sea de uso común en la vida ordinaria. El personal que utilice smoking o prendas especiales no lavables en casa: la empresa abona el coste de la limpieza (previa justificación), salvo que la limpieza la efectúe la propia empresa. No hay plus dinerario de compensación de uniforme.",
+      "plusCompensacion": "no_previsto"
+    },
+    "jubilacionAnticipada": {
+      "articulo": "Art. 34",
+      "detalle": "Días de vacaciones adicionales a cargo de la empresa para quien voluntariamente se acoja a la jubilación anticipada, con mínimo de 5 años de antigüedad: 85 días (jubilación a los 60 años), 67 días (61), 50 días (62), 40 días (63)."
+    },
+    "finiquito": {
+      "articulo": "Art. 41 y Disposición Final Segunda",
+      "detalle": "Modelo único de finiquito de uso obligatorio (adjunto al convenio). El finiquito se pone a disposición del trabajador durante los 10 días siguientes para formular reclamación; una vez firmado surte efectos liberatorios. La liquidación final de salarios debe entregarse dentro de los 2 días hábiles siguientes a la finalización; cada día de retraso genera indemnización de un día de salario, hasta un máximo de 15 días.",
+      "concepto": "Se desglosa en: indemnización, salarios pendientes, pluses, partes proporcionales de extraordinarias, vacaciones y otros conceptos. Enlaza con la calculadora de finiquito."
+    }
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 8, 10, 35, 36. Ingreso, preavisos, pluriempleo y subcontratación.",
+    "articulo": "Art. 8, 10, 35, 36",
+    "preferenciaIngreso": "Art. 8: preferencia en igualdad de méritos para quienes hayan desempeñado funciones en la empresa con carácter eventual, interino o de duración determinada.",
+    "ceseVoluntarioPreaviso": { "articulo": "Art. 10", "jefeGrupoProfesional": "1 mes", "restoPersonal": "15 días", "nota": "El incumplimiento del preaviso permite a la empresa descontar de la liquidación un día de salario por cada día de retraso." },
+    "preavisoFinContratoTemporal": "Art. 10: en contratos temporales de duración superior a 6 meses, la empresa debe comunicar la extinción con 15 días de antelación; el incumplimiento da derecho a un día de salario por cada día de retraso. Ambas partes deben comunicar con 15 días la continuidad o no de la relación.",
+    "acumulacionDeTareas": "Art. 35: contratos por acumulación de tareas de duración de 12 meses dentro de un periodo de 18 meses.",
+    "compromisoNoPluriempleo": "Art. 35: las empresas se comprometen a no contratar trabajadores que tengan otro empleo y el personal se compromete a no prestar trabajo en otras empresas. La Comisión Paritaria vigila el pluriempleo.",
+    "subcontratacion": "Art. 36: no se subcontratan los servicios propios de la actividad de hostelería; sí los accesorios (seguridad, jardinería, animación, mantenimiento técnico, socorrismo) y servicios especiales (bodas, banquetes, congresos). No aplica a contratos de puesta a disposición de ETT.",
+    "subrogacion": "Anexo 'Subrogaciones' (BOP nº6/2023, pp. 12-13): principio general de subrogación en cambios de titularidad de concesiones/contratas. Subrogación obligatoria del personal cuya categoría se corresponda con los niveles del convenio, en idénticas condiciones salariales, de antigüedad y mejoras sociales, sin período de prueba. Subrogación discrecional para contratos con antigüedad menor de 3 meses (decisión del nuevo concesionario en 20 días). Subrogación total cuando el establecimiento sea la única explotación del concesionario saliente."
+  },
+
+  "formacion": {
+    "articulo": "Art. 46 (permisos de examen: Art. 19.h)",
+    "detalle": "Las empresas se adhieren a las iniciativas formativas y a los Acuerdos Nacionales de Formación Continua. Plus compensatorio de formación de 25 €/mes (naturaleza salarial) para empresas que no acrediten participación en planes formativos (ver 'pluses.plusFormacion').",
+    "permisosExamenes": "Art. 19.h: tiempo necesario para exámenes en centros oficiales, retribuido los 10 primeros días del año.",
+    "creditoHorasFormacion": "no_previsto — el convenio no fija un crédito de horas de formación específico para la persona trabajadora."
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Art. 42, 43 y Disposición Final Decimotercera (LGTBI, BOP nº32/2026).",
+    "articulo": "Art. 42, Art. 43 y Disposición Final Decimotercera",
+    "igualdad": "Art. 42: las partes asumen la Ley 39/99, la LO 3/2007 de 22 de marzo (igualdad efectiva de mujeres y hombres) y el art. 48 ET.",
+    "acosoSexualYporRazonDeSexo": "Art. 43: se estará a lo dispuesto en el Acuerdo Laboral Estatal de Hostelería (ALEH), incluido el protocolo de actuación en el ámbito de las empresas de hostelería.",
+    "medidasLGTBI": "Disposición Final Decimotercera (RD 1026/2024, añadida por el BOP nº32/2026): tolerancia cero a la discriminación LGTBI; cláusulas de igualdad de trato, acceso al empleo, clasificación/promoción, formación/lenguaje inclusivo, entornos diversos e inclusivos (privacidad en baños, duchas, vestuarios), permisos y beneficios sociales para toda modalidad de pareja/familia, prevención de riesgos laborales (adaptación del puesto de personas trans) y régimen disciplinario específico LGTBI (ver 'regimenDisciplinario.regimenDisciplinarioLGTBI'). Las personas trans deben ser tratadas según su nombre e identidad de género elegidos, modificando la documentación interna.",
+    "violenciaDeGenero": "pendiente — el convenio provincial no cuantifica mejoras propias sobre la legislación (LO 1/2004); rige la ley."
+  },
+
+  "representacionSindical": {
+    "$comment": "Arts. 37, 38, 39, 40. El convenio regula secciones sindicales, descuento de cuota y Comisión Paritaria. Las garantías/fuero y el crédito horario general se rigen por el ET (arts. 62-68) y la LOLS, no detallados en el convenio.",
+    "articulo": "Art. 37, 38, 39, 40",
+    "cuotaSindical": "Art. 37: la empresa hace efectivo el descuento de la cuota sindical del trabajador afiliado que lo solicite, en el mes siguiente a la notificación.",
+    "seccionesSindicales": {
+      "articulo": "Art. 38",
+      "detalle": "Las empresas de más de 150 personas trabajadoras reconocen las Secciones Sindicales y la figura del Delegado de Sección Sindical de las organizaciones firmantes o adheridas que superen el 15% de representatividad en la empresa. El delegado de sección debe ser representante electo de su sindicato, registrado por el SMAC.",
+      "creditoSuplementario": "5 horas, con independencia de las que le correspondan como Representante de los Trabajadores.",
+      "remite": "Ley Orgánica de Libertad Sindical (LOLS)."
+    },
+    "creditoHorarioGeneral": "pendiente — el convenio no fija crédito horario propio para delegados de personal/comité; rige el art. 68.e ET (15 h/mes hasta 100 trabajadores, etc.).",
+    "garantiasYfuero": "pendiente — no detallado en el convenio; rige el art. 68 ET (expediente contradictorio previo a sanción grave, prioridad de permanencia, protección frente a despido/sanción por actividad representativa durante el mandato y el año siguiente).",
+    "comisionParitaria": {
+      "articulo": "Art. 39 y 40",
+      "composicion": "3 miembros de la Representación Social + 3 de las asociaciones empresariales firmantes.",
+      "funciones": "Interpretación y aplicación del convenio; desbloqueo de desacuerdos y mediación en: clasificación profesional, señalamiento de vacaciones, sanciones inferiores al despido, permisos retribuidos, reconocimiento de antigüedad, reclamaciones de cantidad no superiores a 1.200,00 €, derechos sindicales, modificación de condiciones de trabajo, discriminación y contratación temporal/política de empleo.",
+      "plazo": "Resuelve en un plazo no superior a 15 días; si no hay acuerdo, procede el procedimiento judicial. Adhesión voluntaria al SERLA (Acuerdo Interprofesional sobre Procedimientos de Solución Autónoma de Conflictos Laborales de Castilla y León)."
+    }
+  },
+
+  "prevencionRiesgos": {
+    "articulo": "Art. 44",
+    "detalle": "Las partes asumen la Ley 31/95 de Prevención de Riesgos Laborales. Todas las empresas del sector están obligadas a tener realizada, actualizada y documentada la Evaluación de riesgos."
+  },
+
+  "inaplicacionDescuelgue": {
+    "articulo": "Art. 25",
+    "detalle": "Mecanismo de inaplicación temporal (descuelgue) del convenio en jornada, horario, turnos, remuneración/cuantía salarial, sistema de trabajo/rendimiento y funciones, conforme al art. 82.3 ET. Requiere periodo de consultas (máx. 15 días); en desacuerdo, la discrepancia va a la Comisión Paritaria (resuelve en 7 días) y, en su defecto, al SERLA."
+  },
+
+  "estado": "verificado",
+  "estadoNota": "Articulado completo (Arts. 1-46, Disposiciones Finales, Subrogaciones y categorías de establecimientos) y tabla salarial VIGENTE 2026 (Áreas Funcionales Primera a Sexta + clubes/discotecas + casinos + manutención) transcritos celda a celda desde la imagen del BOP nº6/2023 (pp. 2-31). Régimen disciplinario LGTBI y correcciones al SMI 2025 transcritos del BOP nº32/2026 (pp. 12-15). Régimen disciplinario general y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal.",
+  "pendienteCondiciones": [
+    "salariosBase por categoría de los años 2020-2025: sólo se ha transcrito íntegra la tabla VIGENTE 2026 (grupo único). Las tablas base 2020-2025 (grupos de establecimiento I/II/III) constan en imagen en el BOP nº6/2023 pp. 14-28 pero no se han volcado celda a celda por volumen y por estar superadas; las de 2025 fueron además corregidas al SMI (ver 'tablas2025_correccionSMI').",
+    "tablas 'definitivas 2025' completas por categoría: van adjuntas al acta registrada; el BOP nº32/2026 sólo reprodujo valores concretos, no la tabla completa. Marcado como parcial.",
+    "regimenDisciplinario general (faltas y sanciones): NO regulado en el convenio provincial → tomar del ALEH estatal (Disposición Final Novena).",
+    "periodoPrueba: duraciones por grupo/categoría NO reguladas → tomar del V ALEH (Art. 9).",
+    "representacionSindical.creditoHorarioGeneral y garantiasYfuero: no detallados en el convenio → base legal ET arts. 62-68 y LOLS.",
+    "BOP nº67/2024 (tablas 2024): referencia del registro no leída en imagen; URL pendiente."
+  ],
+  "verificadoContra": "PDF oficial BOP Palencia nº6 (13-01-2023), https://www.diputaciondepalencia.es/system/files/bop/2023/20230113-bop-6-Ordinario.pdf — articulado en pp. 2-13 y tablas (imágenes escaneadas) en pp. 14-31, renderizadas a 185 dpi y leídas celda a celda (tabla 2026 en pp. 29-31). PDF oficial BOP Palencia nº32 (16-03-2026), https://www.diputaciondepalencia.es/system/files/bop/2026/20260316-bop-32-Ordinario.pdf — acta de la Comisión Negociadora (LGTBI + corrección SMI 2025) en pp. 12-15, leída en imagen a 185 dpi.",
+  "fechaVerificacion": "2026-07-08"
+}
