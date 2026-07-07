@@ -195,6 +195,16 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
   - **Jornada partida:** algunos convenios la compensan.
 - Campos por convenio: `descansoEntreJornadasHoras`, `vacacionesDias`, reglas de jornada partida.
 
+### D33 — Capturar TODAS las condiciones importantes, no solo salarios (Iulian 2026-07-07)
+- Hueco detectado: los JSON capturaban tablas salariales + jornada + nocturnidad + pagas, pero NO sistemáticamente las condiciones no salariales, que son igual de importantes para informar bien al trabajador. Ampliar el modelo de cada convenio para capturar:
+  - **`vacacionesDias`** — días de vacaciones (varían: 30, 31...).
+  - **`permisosRetribuidos`** — boda/matrimonio, mudanza, fallecimiento/enfermedad de familiar, nacimiento, exámenes, deber inexcusable... (días por cada causa; algunos convenios mejoran el ET).
+  - **`complementoIT`** (baja médica) — CLAVE: muchos convenios complementan la prestación de la Seguridad Social hasta el 100% (o X%) del salario durante los primeros días/meses de baja por enfermedad/accidente. Dinero que casi nadie sabe que le corresponde. Distinguir baja por enfermedad común vs accidente laboral (suelen tener trato distinto).
+  - **`antiguedad`** — trienios/quinquenios o antigüedad consolidada.
+  - **`descansoEntreJornadasHoras`**, jornada partida (de D30).
+- La app: sección "tus condiciones" por convenio + avisos ("estás de baja: tu convenio dice que la empresa te complementa hasta el 100% los primeros X días"). Encaja con D29 (derechos que no sabías).
+- Los agentes que transcriben provincias deben capturar estos campos también (o reportarlos si no llegan); Claude los backfilllea al verificar.
+
 ### D27 — Feed de contenido laboral: PILAR de enganche/retención (Iulian 2026-07-07)
 - **No es una sección secundaria: es una de las patas de la app.** Iulian lo quiere explícito: "que entres y te enganche mirando cosas curiosas sobre este tema laboral", no solo una herramienta de fichaje.
 - **Por qué es estratégico:** una app de fichar se abre a regañadientes; un feed de contenido laboral que engancha se abre por gusto. Da una razón para abrir la app los días que NO fichas, y retiene al usuario hasta el día que necesita el "te deben X€". Resuelve el problema de retención de una utilidad pura.
