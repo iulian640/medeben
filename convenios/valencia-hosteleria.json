@@ -1,7 +1,7 @@
 {
-  "$comment": "MARCO de fuentes secundarias que citan el BOP oficial — NO verificado aún en imagen contra el boletín. Las cifras de tablas salariales deben transcribirse del PDF oficial (BOP Valencia nº26, 07-02-2023) antes de darse por buenas. Los datos de marco (jornada, nocturnidad, nº pagas) están bien corroborados pero pendientes de confirmación visual.",
+  "$comment": "VERIFICADO EN IMAGEN contra el PDF oficial del BOP Valencia nº26 (07-02-2023, CSV BOPV-2023/01380), texto articulado + Anexos I-VI leidos pagina a pagina a dpi 185. Tablas salariales 2025 (Anexo II, la mas reciente segun regla D32) transcritas celda a celda. Complementado con las actas de la comision paritaria (interpretaciones) publicadas en BOP nº192 03-10-2024 y BOP nº215 10-11-2025. Convenio en ultraactividad en 2026 (denunciado, sin nuevo convenio firmado); tablas 2025 vigentes en 2026.",
   "id": "valencia-hosteleria",
-  "nombre": "XVII Convenio colectivo de Hostelería de la provincia de Valencia",
+  "nombre": "XVII Convenio colectivo intersectorial de Hostelería de la provincia de Valencia",
   "codigoRegcon": "46001285011982",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Comunidad Valenciana", "provincias": ["Valencia"] },
   "ambitoFuncional": "hosteleria",
@@ -10,30 +10,389 @@
     "numero": 26,
     "fecha": "2023-02-07",
     "documento": "CSV BOPV-2023/01380",
-    "url": "https://bop.dival.es/"
+    "urlOficial": "https://bop.dival.es/bop",
+    "notaUrl": "El portal bop.dival.es no da enlace PDF directo estable; el boletin se descarga navegando por CSV/fecha. El PDF verificado se obtuvo de la copia oficial (marcada BOP) publicada por UGT-FeSMC PV: https://www.fesmcugtcv.org (seccion Hosteleria Valencia). Es el mismo texto con sello de verificacion CSV BOPV-2023/01380.",
+    "documentosRelacionados": [
+      { "descripcion": "Acta 2/2024 comision paritaria (consulta plus transporte)", "boletin": "BOP Valencia nº192", "fecha": "2024-10-03", "csv": "BOPV-2024/13257" },
+      { "descripcion": "Acta 3/2024 comision paritaria (varias consultas)", "boletin": "BOP Valencia nº192", "fecha": "2024-10-03", "csv": "BOPV-2024/13259" },
+      { "descripcion": "Acta 1/2025 comision paritaria (interpretacion art. 22 complementos IT, elevada por UGT)", "boletin": "BOP Valencia nº215", "fecha": "2025-11-10", "csv": "BOPV-2025/13033" }
+    ]
   },
-  "vigencia": { "desde": "2022-01-01", "hasta": "2025-12-31", "nota": "En ultraactividad; tablas 2025 aplicables en 2026 mientras se negocia el nuevo. Confirmar." },
-  "jornadaAnual": { "horas": 1794, "horasSemanales": 40, "verificado": false },
+  "vigencia": {
+    "desde": "2022-01-01",
+    "hasta": "2025-12-31",
+    "articuloVigencia": "art. 4",
+    "nota": "Vigencia de 4 años (art. 4). Denuncia obligatoria con 60 dias naturales de antelacion (art. 45). En ultraactividad desde 01-01-2026: se mantienen las condiciones y las tablas 2025 mientras se negocia el nuevo convenio (ET art. 86.3). Negociacion del siguiente convenio abierta en 2026."
+  },
+  "jornadaAnual": {
+    "horas": 1794,
+    "horasSemanales": 40,
+    "articulo": "art. 10",
+    "descansoSemanal": "2 dias (art. 12)",
+    "registroJornada": "registro diario obligatorio (art. 10, remite a ET art. 34.9)",
+    "bolsaHoras": "el convenio contempla distribucion/bolsa de horas con acceso de la representacion legal a la informacion (art. 10-11)",
+    "verificado": true
+  },
+  "fiestasAbonables": {
+    "dias": 14,
+    "articulo": "art. 14",
+    "nota": "14 festivos anuales que se disfrutan con independencia de vacaciones y descansos. Si se trabaja un festivo abonable, se compensa segun el valor 'FESTIVOS ABONABLES' de la tabla salarial del nivel. Si coincide con descanso o vacaciones, se recupera.",
+    "verificado": true
+  },
+  "vacaciones": {
+    "dias": 30,
+    "tipoDias": "naturales",
+    "articulo": "art. 15",
+    "disfrute": "ininterrumpido salvo acuerdo en contrario; parte proporcional si no se lleva un año en la empresa",
+    "diasExtraAntiguedad": "no previstos en el convenio",
+    "retribucion": "el convenio no fija expresamente el modulo retributivo de vacaciones; por defecto percepcion minima garantizada/salario base + antiguedad consolidada (pendiente confirmar si incluye promedio de nocturnidad/festivos). Duda para UGT.",
+    "periodoDisfrute": "fijado en calendario pactado entre empresa y representacion legal; centros de temporada excluyen los meses de mayor actividad",
+    "quienFija": "calendario pactado empresa-representacion legal; preaviso minimo 2 meses antes del disfrute (art. 15)",
+    "fraccionamiento": "permitido por acuerdo (regla general es disfrute ininterrumpido)",
+    "bajaDuranteVacaciones": "IT por embarazo/parto/lactancia o suspension ex art. 48.4/5/7 ET: derecho a disfrutar en fecha distinta aunque acabe el año natural. Otras IT que impidan disfrutarlas: suspenden el computo y se disfrutan despues, con limite de 18 meses desde el fin del año de origen (art. 15).",
+    "festivosDentroVacaciones": "los 14 festivos abonables se disfrutan aparte de las vacaciones (art. 14)",
+    "vacacionesNoDisfrutadas": "se liquidan en el finiquito junto a partes proporcionales de pagas extra (art. 6)",
+    "verificado": true
+  },
   "pagasExtraordinarias": {
     "cantidad": 3,
-    "fechas": ["30 de junio", "20 de diciembre", "marzo (entre 1-ene y 15-mar del año siguiente)"],
-    "base": "30 días de percepción mínima garantizada o salario base + antigüedad",
-    "verificado": false
+    "totalPagasAnuales": 15,
+    "articulo": "art. 19",
+    "peculiaridad": "SALARIO EN 15 PAGAS: 12 mensualidades + 3 pagas extraordinarias de 30 dias cada una (rareza del convenio de Valencia).",
+    "base": "percepcion minima garantizada o salario base + antiguedad (en su caso)",
+    "fechas": [
+      { "nombre": "Junio", "abono": "30 de junio", "devengo": "1 julio a 30 junio del año siguiente" },
+      { "nombre": "Navidad", "abono": "20 de diciembre", "devengo": "1 enero a 31 diciembre del mismo año" },
+      { "nombre": "Marzo", "abono": "entre 1 enero y 15 marzo del año siguiente al de devengo", "devengo": "1 enero a 31 diciembre de cada año" }
+    ],
+    "prorrateo": "permitido por periodos mensuales; los periodos de IT no computan para su devengo (art. 19)",
+    "verificado": true
   },
-  "peculiaridad": "SALARIO EN 15 PAGAS AL AÑO (no 14). Rareza del convenio de Valencia.",
   "nocturnidad": {
-    "tramos": [ { "desde": "00:30", "hasta": "06:00", "recargoPct": 20, "sobre": "salario base diario" } ],
-    "verificado": false
-  },
-  "tablasSalariales": {
-    "$comment": "Rango conocido 1.100,46 € - 1.415,47 €/mes según categoría (fuente secundaria). PENDIENTE transcripción del PDF oficial del BOP con verificación visual fila a fila.",
-    "estado": "pendiente_pdf_oficial"
+    "articulo": "art. 18",
+    "definicionTrabajoNocturno": "trabajo realizado entre las 22:00 y las 06:00 (definicion general)",
+    "complemento": {
+      "tramoHorario": "00:30 a 06:00",
+      "recargoPct": 20,
+      "sobre": "salario garantizado o base diario correspondiente a las horas trabajadas en dicho tramo",
+      "notaTramo": "El convenio considera que la jornada habitual se extiende hasta las 00:30; solo las horas trabajadas entre 00:30 y 06:00 generan el plus del 20%.",
+      "baseCalculo": "(salario base x 12) / 1794 = base horaria de calculo",
+      "excepciones": "no se aplica a Conserje de noche ni a quienes ya tengan la nocturnidad incluida en su retribucion; se respeta como condicion mas beneficiosa cualquier importe superior por horario, porcentaje o base mas favorable"
+    },
+    "verificado": true
   },
   "horasExtraordinarias": {
-    "regla": "Aplica ET (mínimo valor hora ordinaria) salvo que el convenio fije otro. Tope 80 h/año salvo mejora del convenio. Confirmar en el texto oficial.",
-    "valorHoraOrdinaria": "(salarioMensual * 15 + plusesAnuales) / 1794  ← OJO: 15 pagas en Valencia"
+    "articulo": "art. 13",
+    "valor": "importe por hora fijado por nivel en la columna 'HORAS EXTRAS' de cada tabla salarial (Anexo II)",
+    "regla": "supresion de las habituales; se realizan las de fuerza mayor y las coyunturales/estructurales. Pueden compensarse por descanso equivalente. Registro dia a dia.",
+    "verificado": true
   },
-  "estado": "marco_sin_verificar_imagen",
-  "verificadoContra": "Fuentes secundarias que citan BOP Valencia nº26 (07-02-2023). Pendiente descargar y leer el PDF oficial para verificar todo, especialmente tablas salariales.",
-  "fechaVerificacion": null
+  "tablasSalariales": {
+    "anio": 2025,
+    "reglaD32": "Anexo II del convenio contiene tablas 2022, 2023, 2024 y 2025; se transcriben las de 2025 por ser las mas recientes publicadas (aplicables en 2026 por ultraactividad).",
+    "articulo": "art. 16 y Anexo II",
+    "unidad": "euros/mes (salarioBaseMes) y euros (horaExtra, festivoAbonable)",
+    "estructura": "5 niveles retributivos (PRIMERO a QUINTO) por tipo de establecimiento; algunas tablas de hospedaje añaden CONSERJE NOCHE y CAMARERO/A PISO",
+    "notaNumeracion": "El BOP numera los apartados de 2025 con una errata (repite VII y desordena VI/VII/VIII); aqui se identifica cada tabla por su descripcion, no por el numero romano del boletin.",
+    "categorias": [
+      {
+        "apartadoBOP": "I",
+        "descripcion": "Cafeterias (especial/1ª/2ª); restaurantes (5 a 1 tenedor); cafes-bares; colectividades; restauracion moderna; comidas para llevar; discotecas; salas de baile; pizzerias; hamburgueserias; cervecerias; pubs; heladerias; chocolaterias; salones de te; casinos; cibercafes; etc.",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1337.87, "horaExtra": 15.70, "festivoAbonable": 116.16 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1288.69, "horaExtra": 15.15, "festivoAbonable": 111.90 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1214.84, "horaExtra": 14.21, "festivoAbonable": 105.27 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1165.60, "horaExtra": 13.69, "festivoAbonable": 101.16 },
+          { "nivel": "QUINTO", "salarioBaseMes": 1100.46, "horaExtra": 12.91, "festivoAbonable": 95.40 }
+        ]
+      },
+      {
+        "apartadoBOP": "II",
+        "descripcion": "Hoteles de cinco y cuatro estrellas",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1415.47, "horaExtra": 16.77, "festivoAbonable": 124.08 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1363.05, "horaExtra": 16.15, "festivoAbonable": 119.49 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1284.43, "horaExtra": 15.20, "festivoAbonable": 112.47 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1231.95, "horaExtra": 14.64, "festivoAbonable": 108.05 },
+          { "nivel": "QUINTO", "salarioBaseMes": 1162.48, "horaExtra": 13.78, "festivoAbonable": 101.88 }
+        ]
+      },
+      {
+        "apartadoBOP": "III",
+        "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1238.80, "horaExtra": 13.86, "festivoAbonable": 102.64 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1218.37, "horaExtra": 13.69, "festivoAbonable": 101.42 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1190.34, "horaExtra": 12.72, "festivoAbonable": 94.19 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1166.45, "horaExtra": 12.64, "festivoAbonable": 93.51 },
+          { "nivel": "QUINTO", "salarioBaseMes": 1115.63, "horaExtra": 12.14, "festivoAbonable": 89.50 },
+          { "nivel": "CONSERJE NOCHE", "salarioBaseMes": 1199.36, "horaExtra": 12.99, "festivoAbonable": 96.15 },
+          { "nivel": "CAMARERO/A PISO", "salarioBaseMes": 1186.09, "horaExtra": 12.71, "festivoAbonable": 94.07 }
+        ]
+      },
+      {
+        "apartadoBOP": "V",
+        "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1142.91, "horaExtra": 12.16, "festivoAbonable": 89.62 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1119.90, "horaExtra": 11.97, "festivoAbonable": 88.20 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1078.37, "horaExtra": 11.40, "festivoAbonable": 84.11 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1066.90, "horaExtra": 11.32, "festivoAbonable": 83.56 },
+          { "nivel": "QUINTO", "salarioBaseMes": 1042.51, "horaExtra": 11.08, "festivoAbonable": 81.40 }
+        ]
+      },
+      {
+        "apartadoBOP": "VII (1ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de una estrella, hostales de dos estrellas y resto de establecimientos de categoria inferior en hospedaje no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1108.99, "horaExtra": 11.56, "festivoAbonable": 85.28 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1093.82, "horaExtra": 11.43, "festivoAbonable": 84.41 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1066.88, "horaExtra": 11.03, "festivoAbonable": 81.82 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1058.58, "horaExtra": 10.98, "festivoAbonable": 81.37 },
+          { "nivel": "QUINTO", "salarioBaseMes": 1040.93, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+        ]
+      },
+      {
+        "apartadoBOP": "VI",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas (tablas historicas de esa zona)",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1232.64, "horaExtra": 13.74, "festivoAbonable": 101.94 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1212.16, "horaExtra": 13.59, "festivoAbonable": 100.59 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1184.51, "horaExtra": 12.70, "festivoAbonable": 93.97 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1160.56, "horaExtra": 12.55, "festivoAbonable": 92.86 },
+          { "nivel": "QUINTO", "salarioBaseMes": 1110.03, "horaExtra": 12.05, "festivoAbonable": 88.88 },
+          { "nivel": "CONSERJE NOCHE", "salarioBaseMes": 1193.26, "horaExtra": 12.93, "festivoAbonable": 95.01 },
+          { "nivel": "CAMARERO/A PISO", "salarioBaseMes": 1179.76, "horaExtra": 12.63, "festivoAbonable": 93.47 }
+        ]
+      },
+      {
+        "apartadoBOP": "VII (2ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de dos estrellas",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1125.04, "horaExtra": 12.15, "festivoAbonable": 89.62 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1101.37, "horaExtra": 11.97, "festivoAbonable": 88.20 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1061.16, "horaExtra": 11.39, "festivoAbonable": 84.11 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1049.33, "horaExtra": 11.32, "festivoAbonable": 83.55 },
+          { "nivel": "QUINTO", "salarioBaseMes": 1025.32, "horaExtra": 11.08, "festivoAbonable": 81.40 }
+        ]
+      },
+      {
+        "apartadoBOP": "VIII",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de una estrella",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1090.95, "horaExtra": 11.56, "festivoAbonable": 85.28 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1075.72, "horaExtra": 11.42, "festivoAbonable": 84.41 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1050.54, "horaExtra": 11.02, "festivoAbonable": 81.82 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1041.65, "horaExtra": 10.97, "festivoAbonable": 81.37 },
+          { "nivel": "QUINTO", "salarioBaseMes": 1023.74, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+        ]
+      },
+      {
+        "apartadoBOP": "IX",
+        "descripcion": "Estaciones termales y/o balnearios con termalismo social",
+        "rows": [
+          { "nivel": "PRIMERO", "salarioBaseMes": 1085.32, "horaExtra": 11.54, "festivoAbonable": 85.20 },
+          { "nivel": "SEGUNDO", "salarioBaseMes": 1063.82, "horaExtra": 11.43, "festivoAbonable": 84.41 },
+          { "nivel": "TERCERO", "salarioBaseMes": 1024.44, "horaExtra": 11.02, "festivoAbonable": 81.78 },
+          { "nivel": "CUARTO", "salarioBaseMes": 1017.40, "horaExtra": 10.98, "festivoAbonable": 81.37 },
+          { "nivel": "QUINTO", "salarioBaseMes": 997.40, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+        ]
+      }
+    ],
+    "rangoSalarioBase2025": { "min": 997.40, "max": 1415.47, "nota": "min = QUINTO de balnearios/termalismo; max = PRIMERO de hoteles 5*/4*. El rango 1.100,46-1.415,47 de fuentes secundarias solo miraba la tabla general I; el minimo real del convenio es 997,40." },
+    "notaAnexoIIBis": "Existe ademas un Anexo II BIS (ESPECIAL SIN EXPERIENCIA, art. 5.E) con importes inferiores para nuevos ingresos sin experiencia; NO transcrito aqui (pendiente si la app lo necesita).",
+    "verificado": true
+  },
+  "antiguedad": {
+    "articulo": "art. 17",
+    "regla": "Los complementos de antiguedad y porcentaje de servicio estan CONGELADOS y 'a extinguir': solo se siguen pagando, como cantidad consolidada 'ad personam' y en la cuantia congelada, a quienes ya los tuvieran reconocidos. No se genera nueva antiguedad bajo este convenio, y no son absorbibles ni compensables.",
+    "escalaHistorica": "El Anexo V recoge las tablas de porcentajes/valores historicos de antiguedad y del valor de festivos abonables. No transcrita celda a celda (solo aplica a trabajadores con derecho consolidado previo).",
+    "verificado": true
+  },
+  "pluses": {
+    "articulos": "arts. 20, 21, 28 y Anexo IV (IV-1 general, IV-2 hoteleras/balnearios/Gandia), año 2025",
+    "manutencion": {
+      "articulo": "art. 20",
+      "valoracionEspecie": "25 €/mes (valoracion del coste medio a efectos de cotizacion, art. 20, para quien usa comedor de empresa)",
+      "complementoSalarial2025": {
+        "general_IV1": 41.32,
+        "hoteleras_IV2": 44.13,
+        "balnearios": 38.51,
+        "gandiaSafor": 36.89,
+        "unidad": "euros/mes"
+      },
+      "nota": "Solo tiene derecho quien presta servicio en horario coincidente con comida/cena en empresas que dispensen comidas; no compensable en metalico si no se usa el servicio."
+    },
+    "plusTransporte2025": {
+      "articulo": "art. 20 y Anexo IV",
+      "general_IV1": { "jornadaPartida": 66.96, "jornadaContinuada": 46.80 },
+      "hoteleras_IV2": { "jornadaPartida": 55.81, "jornadaContinuada": 36.01 },
+      "balnearios": { "importeUnico": 49.09 },
+      "gandiaSafor": { "jornadaPartida": 50.37, "jornadaContinuada": 33.38 },
+      "unidad": "euros/mes",
+      "nota": "Se devenga con independencia de la duracion de la jornada."
+    },
+    "utilesYHerramientas2025": {
+      "articulo": "art. 21 y Anexo IV",
+      "general_IV1": { "trimestral": 25.78, "mensual": 8.59 },
+      "hoteleras_IV2": { "trimestral": 27.51, "mensual": 9.18 },
+      "unidad": "euros",
+      "nota": "Compensacion en metalico solo si el/la trabajador/a aporta utiles/herramientas a requerimiento de la empresa."
+    },
+    "ropaTrabajo": {
+      "articulo": "art. 28 y Anexo IV",
+      "regla": "La empresa proporciona el uniforme y los EPI. Si no lo hace, compensacion en metalico por desgaste segun tabla de prendas del Anexo IV (importe mensual = suma de amortizaciones por prenda).",
+      "detallePrendas2025": [
+        { "prenda": "Un smoking", "coste": 559.85, "duracionMeses": 24, "importeMes": 23.33 },
+        { "prenda": "Un lazo", "coste": 10.70, "duracionMeses": 24, "importeMes": 0.45 },
+        { "prenda": "Dos chaquetas", "coste": 86.62, "duracionMeses": 18, "importeMes": 9.62 },
+        { "prenda": "Dos pantalones", "coste": 66.34, "duracionMeses": 18, "importeMes": 7.37 },
+        { "prenda": "Dos camisas", "coste": 45.86, "duracionMeses": 18, "importeMes": 5.10 },
+        { "prenda": "Una corbata", "coste": 12.91, "duracionMeses": 18, "importeMes": 0.72 },
+        { "prenda": "Dos chaquetillas", "coste": 38.07, "duracionMeses": 18, "importeMes": 4.23 },
+        { "prenda": "Dos gorros", "coste": 10.26, "duracionMeses": 18, "importeMes": 1.14 },
+        { "prenda": "Dos pantalones (cocina)", "coste": 45.86, "duracionMeses": 18, "importeMes": 5.10 },
+        { "prenda": "Un par de zapatos y calcetin o media", "coste": 82.09, "duracionMeses": 12, "importeMes": 6.84 }
+      ],
+      "nota": "Tabla identica en Anexo IV-1 y IV-2 2025. Importe segun jornada a tiempo completo, proporcional para tiempo parcial."
+    },
+    "alojamiento": {
+      "articulo": "art. 20",
+      "regla": "Solo se mantiene 'ad personam' y congelado para quien ya lo tuviera reconocido; no absorbible ni compensable."
+    },
+    "verificado": true
+  },
+  "complementoIT": {
+    "articulo": "art. 22 (y art. 23 para contratos de formacion en alternancia)",
+    "descripcion": "El dato 'oro': la empresa complementa la prestacion de IT por encima del minimo legal.",
+    "enfermedadLeveSinBaja": "Enfermedad justificada con o sin baja, inferior a 4 dias, con aviso: 50% del salario diario, maximo 4 dias al año (art. 22.a). Compatible con el complemento de contingencias comunes si se superponen.",
+    "accidenteTrabajo": "Contingencias profesionales (accidente de trabajo): complemento hasta el 100% de la base reguladora desde el primer dia y durante todo el periodo de baja (excluidas horas extra de la base) (art. 22.b).",
+    "enfermedadComun": "Contingencias comunes (enfermedad comun): del dia 4 al 20 (ambos inclusive) complemento hasta el 75% de la base reguladora; desde el dia 21 y durante el resto de la baja, hasta el 100% (art. 22.c).",
+    "hospitalizacionCirugia": "En caso de hospitalizacion y/o intervencion quirurgica: 100% de la base reguladora desde el inicio y durante toda la baja (confirmado por acta 1/2025 de la comision paritaria, BOP nº215 10-11-2025).",
+    "limiteMaximo": "Agotados los 12 meses de baja finaliza el devengo de los complementos.",
+    "condicionAbsentismo": "El complemento por enfermedad comun/accidente no laboral esta condicionado a no superar los indices de absentismo del centro: 14% (hasta 10 trabajadores), 9% (11-30), 7% (mas de 30), calculado con formula del art. 22 (5,70 h/dia). No computan a estos efectos nacimiento/cuidado de menor, riesgo embarazo/lactancia, intervenciones/hospitalizacion ni enfermedad grave.",
+    "contratosFormacion": "Art. 23: en contratos de formacion en alternancia, complemento del 100% del salario desde el dia 9 hasta el dia 120 de la IT, una sola vez al año.",
+    "requisito": "Entrega en plazo de los partes de baja/confirmacion; la entrega fuera de plazo implica no percibir el complemento.",
+    "verificado": true
+  },
+  "seguros": {
+    "articulo": "art. 24",
+    "capital": 25000.00,
+    "cobertura": "muerte y extincion del contrato por invalidez permanente (total para la profesion habitual, absoluta o gran invalidez) derivada de accidente 24 horas.",
+    "verificado": true
+  },
+  "auxilioDefuncion": {
+    "articulo": "art. 27",
+    "regla": "Fallecimiento por enfermedad comun de trabajador/a con al menos 10 años de antiguedad: ayuda al conyuge/hijos/derechohabientes equivalente a la percepcion minima garantizada mensual + antiguedad en su caso.",
+    "verificado": true
+  },
+  "jubilacion": {
+    "articulo": "art. 26",
+    "regla": "Jubilacion anticipada y parcial conforme a normativa vigente; en jubilacion parcial la empresa concierta contrato a tiempo parcial + contrato de relevo.",
+    "verificado": true
+  },
+  "permisosRetribuidos": {
+    "articulo": "art. 25.A",
+    "matrimonio": "16 dias naturales",
+    "nacimientoHijo": "4 dias (5 si desplazamiento >250 km); incompatible/excluyente con el permiso legal de nacimiento",
+    "fallecimientoFamiliar": "2 dias + 1 natural por fallecimiento de parientes hasta 2º grado de consanguinidad o afinidad (ampliable a 4 si desplazamiento a otra provincia)",
+    "trasladoDomicilio": "2 dias",
+    "matrimonioFamiliares": "2 dias naturales por matrimonio de padres, hijos o hermanos (3 si desplazamiento >250 km; 4 si >500 km)",
+    "enfermedadGraveHospitalizacion": "3 dias por enfermedad grave, accidente u hospitalizacion de parientes (max = duracion de la hospitalizacion si es menor; 4 si desplazamiento a otra provincia). Intervencion quirurgica sin hospitalizacion con reposo domiciliario: 2 dias (4 con desplazamiento).",
+    "deberInexcusable": "el tiempo indispensable (incluido sufragio activo)",
+    "examenes": "el tiempo indispensable, justificando la asistencia",
+    "diasLibreDisposicion": "2 dias al año (1 si alta < 6 meses ese año), a fijar de mutuo acuerdo; acumulables a vacaciones si no se disfrutan por causa ajena",
+    "lactancia": "permiso legal por hijo menor de 9 meses, acumulable (1 hora/dia)",
+    "riesgoEmbarazo": "ausencia conforme al art. 26.4 Ley de Prevencion de Riesgos Laborales",
+    "extensiones": "Los permisos son extensibles a pareja de hecho registrada (salvo los ligados a la condicion de matrimonio). Los de nacimiento, fallecimiento, traslado, enfermedad grave y deber inexcusable pueden disfrutarse de forma no consecutiva.",
+    "mejoraSobreET": "matrimonio 16 dias (vs 15 ET); añade 2 dias de libre disposicion; detalla desplazamientos.",
+    "verificado": true
+  },
+  "excedencias": {
+    "articulo": "art. 25.B",
+    "voluntaria": "antiguedad minima 1 año; duracion 4 meses a 5 años; preaviso 15 dias (30 dias niveles I y II); reingreso solicitado con 15 dias de antelacion (30 niveles I-II); nuevo derecho solo tras 4 años desde la anterior",
+    "forzosa": "por cargo publico o funciones sindicales de ambito provincial o superior; reingreso en 30 dias tras el cese",
+    "cuidadoHijo": "menor de 3 años, conforme al art. 46.3 ET",
+    "permisosNoRetribuidos": "art. 25.D: hasta 3 meses antes del parto (preaviso 15 dias); hasta 3 meses para atender hijo menor de 8 años (preaviso 15 dias)",
+    "verificado": true
+  },
+  "periodoPrueba": {
+    "articulo": "art. 6",
+    "regla": "Remite a los periodos de prueba del art. 20 del V ALEH (Acuerdo Laboral de ambito Estatal para Hosteleria). No se fija en el convenio provincial.",
+    "cese": "Preaviso de cese/dimision 15 dias naturales (30 dias para niveles I y II); excepto despido disciplinario y no superacion del periodo de prueba. Falta de preaviso: indemnizacion equivalente a los dias no preavisados.",
+    "estado": "parcial",
+    "verificado": true,
+    "notaPendiente": "Los dias concretos de periodo de prueba estan en el V ALEH (convenio estatal), no en este provincial. Duda para UGT: confirmar la duracion vigente por grupo."
+  },
+  "ascensos": {
+    "articulo": "art. 9",
+    "regla": "Ascensos a nivel retributivo superior segun formacion, capacitacion profesional y antiguedad en la empresa; para el resto de puestos priman formacion y capacitacion.",
+    "verificado": true
+  },
+  "polivalencia": {
+    "articulo": "art. 8",
+    "regla": "Trabajos de nivel retributivo superior: se retribuye el nivel superior por el tiempo que se desempeñen esas funciones, conforme al art. 39 ET (remision).",
+    "notaApp": "Enlaza con el comprobador de categoria: si haces funciones de categoria superior debes cobrar el nivel superior.",
+    "verificado": true
+  },
+  "regimenDisciplinario": {
+    "articulo": "no regulado en el convenio provincial",
+    "regla": "El XVII Convenio de Valencia NO contiene un regimen de faltas y sanciones propio. Rige el del V ALEH (Acuerdo Laboral estatal de Hosteleria, faltas leves/graves/muy graves y sanciones) como derecho supletorio (art. 46 del convenio remite al ALEH), y en su defecto el Estatuto de los Trabajadores.",
+    "garantiasVerificadas": {
+      "sancionEconomicaProhibida": "La empresa NO puede sancionar con multa de haber ni recorte de vacaciones/descansos (art. 58.3 ET). Descontar el tiempo no trabajado por impuntualidad no es sancion.",
+      "procedimiento": "Faltas graves y muy graves requieren comunicacion escrita con fecha y hechos (art. 58 ET).",
+      "prescripcion": "Faltas leves 10 dias, graves 20 dias, muy graves 60 dias; maximo 6 meses desde su comision.",
+      "revisable": "Toda sancion es revisable ante el Juzgado de lo Social."
+    },
+    "estado": "parcial",
+    "notaPendiente": "Detalle de conductas por nivel de falta y escala de sanciones: transcribir del V ALEH estatal (fuera de este fichero provincial). Duda para UGT: confirmar version vigente del ALEH."
+  },
+  "formacion": {
+    "articulo": "arts. 16.B, 43, 52",
+    "plusFormacion": "Plus de Formacion de naturaleza salarial: 20 € x 12 pagas (2022), incrementable cada año con la subida del convenio, para empresas que no acrediten planes de formacion (art. 16.B).",
+    "reciclaje": "Dias naturales remunerados para asistir a cursos de formacion/reciclaje (art. 43).",
+    "tarjetaProfesional": "Art. 52: acredita la formacion recibida (inicial en prevencion, higiene alimentaria, etc.).",
+    "verificado": true
+  },
+  "contratacion": {
+    "articulo": "arts. 5, 5.E",
+    "fijoDiscontinuo": "Llamamiento por orden de antiguedad dentro de cada especialidad; interrupciones en orden inverso de antiguedad. La falta de llamamiento abre plazo para reclamar (posible despido).",
+    "tipos": "contrato formativo (ET art. 11), temporal por circunstancias de la produccion (ET art. 15), fijo-discontinuo, y contrato para el fomento de la contratacion indefinida (art. 5.E, ligado al Anexo II BIS especial sin experiencia).",
+    "verificado": true
+  },
+  "igualdadYAcoso": {
+    "articulo": "arts. 48, 49 y Anexo VI",
+    "regla": "Aplicacion de la LO 3/2007 de igualdad efectiva; principio de igualdad de trato en acceso, formacion, promocion, retribucion (RD 902/2020) y despido. Protocolo de actuacion frente al acoso sexual y por razon de sexo en el Anexo VI (procedimiento informal y formal, con sanciones del art. 40.13 del ALEH).",
+    "verificado": true
+  },
+  "representacionSindical": {
+    "articulos": "arts. 29-38",
+    "delegadosSindicales": "art. 31 (delegado sindical de seccion) y arts. 35-36 (comites/delegados de personal)",
+    "creditoHorario": {
+      "base": "el del art. 68.e ET segun plantilla (15 h/mes hasta 100 trabajadores, 20 h 101-250, 30 h 251-500, 35 h 501-750, 40 h +751)",
+      "mejoraConvenio": "En empresas de mas de 30 trabajadores/as el credito de horas se INCREMENTA en 5 horas mensuales (art. 36.6). Acumulable en 'liberados' (art. 37).",
+      "articulo": "art. 36.6 y 37"
+    },
+    "garantiasFuero": "art. 36: no ser despedido/sancionado por la actividad representativa durante el mandato y el año siguiente; expediente contradictorio previo a sancion por falta grave/muy grave o despido; prioridad de permanencia ante despidos por causas economicas/tecnicas/organizativas/productivas; no discriminacion; libertad de expresion.",
+    "cuotaSindical": "art. 33: descuento en nomina a peticion del afiliado.",
+    "verificado": true
+  },
+  "curiosidades": [
+    "15 pagas al año (12 + 3 extras de 30 dias): rareza casi unica en España, propia del convenio de Valencia (art. 19).",
+    "El salario base minimo real 2025 es 997,40 €/mes (nivel V de balnearios/termalismo), por debajo del rango que citan los blogs (1.100,46-1.415,47).",
+    "El plus de nocturnidad (20%) solo cubre las horas trabajadas entre 00:30 y 06:00, no desde las 22:00: el convenio considera que la jornada 'normal' llega hasta las 00:30 (art. 18).",
+    "La antiguedad esta congelada 'a extinguir': quien no la tuviera ya reconocida no la genera bajo este convenio (art. 17).",
+    "El BOP tiene una errata en la numeracion romana de las tablas 2025 (repite 'VII' y desordena VI/VII/VIII); se han identificado por descripcion.",
+    "La comision paritaria (acta 1/2025, elevada por UGT) reconocio que el art. 22 (complementos IT) debe revisarse en la proxima negociacion por la situacion del absentismo."
+  ],
+  "dudasParaUGT": [
+    "Retribucion de vacaciones: ¿solo salario base o promedio con nocturnidad/festivos? El art. 15 no lo concreta.",
+    "Periodo de prueba: confirmar duraciones vigentes por grupo en el V ALEH (el provincial solo remite).",
+    "Regimen disciplinario: version vigente del V ALEH aplicable (faltas/sanciones) para incorporarlo aparte.",
+    "Manutencion: coexisten la valoracion en especie de 25 € (art. 20, a efectos de cotizacion) y el complemento salarial del Anexo IV (41,32-44,13 €/mes 2025). Confirmar cual aplica al calculo de 'te deben'.",
+    "Anexo II BIS (especial sin experiencia): ¿la app debe manejar estas tablas reducidas para nuevos ingresos?"
+  ],
+  "estado": "verificado",
+  "verificadoContra": "PDF oficial BOP Valencia nº26 (07-02-2023, CSV BOPV-2023/01380), copia sellada de UGT-FeSMC PV. Leido en imagen (fitz dpi 185): texto articulado (arts. 1-52) y tablas salariales 2025 celda a celda (Anexo II, apartados I-IX) + pluses 2025 (Anexo IV-1/IV-2). Actas de la comision paritaria 2024 (BOP nº192) y 2025 (BOP nº215) revisadas. Pendientes marcados: Anexo II BIS, escala de antiguedad del Anexo V (solo consolidados), periodo de prueba y regimen disciplinario (remitidos al V ALEH estatal).",
+  "fechaVerificacion": "2026-07-08"
 }
