@@ -1,5 +1,5 @@
 {
-  "$comment": "Convenio interprovincial de hostelería y turismo de Cataluña (cubre Barcelona, Girona y Tarragona). Marco VERIFICADO visualmente/texto contra el DOGC. Las tablas salariales completas (varias, por área/nivel/año) quedan pendientes de una pasada cuidadosa: hay estructuras de niveles distintas (I-VI y I-VII Bis) que no deben mezclarse.",
+  "$comment": "Convenio interprovincial de hostelería y turismo de Cataluña (Barcelona, Girona, Tarragona). MARCO y TABLAS SALARIALES 2025-2028 VERIFICADOS visualmente contra el PDF del DOGC (Resolución EMT/774/2026), páginas renderizadas a imagen y leídas celda a celda. Hay TRES estructuras de niveles distintas: Barcelona/Maresme (Anexo A) usa niveles I-VI con V Bis; Tarragona (Anexo B) usa I-VIII con VII Bis; Girona (Anexo C) usa I-VIII con VII Bis y columna extra 'Ai'. NO mezclar. Las columnas A-F / Ai-E son categorías del establecimiento (A=más alta).",
   "id": "cataluna-hosteleria",
   "nombre": "Convenio colectivo interprovincial del sector de la industria de hostelería y turismo de Cataluña",
   "codigoRegcon": "79000275011992",
@@ -7,10 +7,10 @@
     "tipo": "interprovincial",
     "comunidad": "Cataluña",
     "provincias": ["Barcelona", "Girona", "Tarragona"],
-    "nota": "Interprovincial: cubre Barcelona, Girona y Tarragona. Confirmar si Lleida se rige por este o por otro convenio."
+    "nota": "Interprovincial: cubre Barcelona (con subzona Maresme), Girona y Tarragona con tablas salariales propias por provincia. Lleida no figura en los anexos salariales; confirmar si se rige por otro convenio."
   },
   "ambitoFuncional": "hosteleria",
-  "ambitoFuncionalDescripcion": "Industria de hostelería y turismo: hoteles, restaurantes, bares, cafeterías, salas de fiesta.",
+  "ambitoFuncionalDescripcion": "Industria de hostelería y turismo: hoteles, restaurantes, bares, cafeterías, salas de fiesta, campings, turismo rural.",
   "fuente": {
     "boletin": "DOGC",
     "numero": 9630,
@@ -19,43 +19,600 @@
     "url": "https://dogc.gencat.cat/"
   },
   "vigencia": { "desde": "2025-01-01", "hasta": "2028-12-31" },
+  "prelacionNormas": {
+    "articulo": "Art. 6",
+    "orden": ["Convenio (preferente)", "ALEH (Acuerdo Laboral de Ámbito Estatal para Hostelería)", "Estatuto de los Trabajadores (RDL 2/2015) supletorio"]
+  },
   "jornadaAnual": {
+    "articulo": "Art. 28",
     "2025": 1791,
     "2026": 1783, "2027": 1783, "2028": 1783,
-    "nota": "Equivale a 40 h semanales en cómputo anual. MENOR que las 1.800 h de Madrid.",
+    "horasSemanales": 40,
+    "nota": "Jornada máxima anual de trabajo efectivo. Continuada: descanso de 20 min computable como jornada en jornadas > 5 h (si se usa para comer y excede, el exceso lo recupera el trabajador). Partida: turnos máx 5 h y mín 3 h, descanso entre turnos mín 1 h 30 min. MENOR que las 1.800 h de Madrid.",
     "verificado": true
   },
-  "vacaciones": { "diasNaturales": 31, "nota": "Subida de 30 a 31 con el convenio 2025-2028 (pendiente confirmar en texto)." },
+  "descansoSemanal": {
+    "articulo": "Art. 29",
+    "dias": 2,
+    "nota": "2 días sin interrupción. Se procurará que quien no tenga día fijo descanse en domingo al menos una vez al mes.",
+    "verificado": true
+  },
+  "vacaciones": {
+    "articulo": "Art. 30",
+    "dias": 31,
+    "tipoDias": "naturales",
+    "diasExtraPorAntiguedad": "no (no se contempla escala de días extra por antigüedad)",
+    "retribucion": {
+      "base": "salario PROMEDIO de los últimos 12 meses anteriores al disfrute, según los recibos de salario",
+      "nota": "Art. 30.5. Se retribuyen con el promedio real (incluye complementos variables), no solo el salario base. Dato relevante: recorte frecuente."
+    },
+    "periodoDisfrute": "preferentemente del 1 de abril al 31 de octubre",
+    "fijacionCalendario": {
+      "quien": "común acuerdo empresa-representación de los trabajadores",
+      "publicacion": "antes del 1 de enero de cada año, o a los 30 días de la apertura inicial",
+      "desacuerdo": "Tribunal Laboral de Cataluña (TLC)"
+    },
+    "fraccionamiento": "Contratos fijos discontinuos: por acuerdo pueden disfrutarse al final de la temporada, en periodos no coincidentes con la temporada alta (Art. 30.6).",
+    "bajaDuranteVacaciones": {
+      "embarazoPartoLactancia_o_susp48ET": "se disfrutan en fecha distinta al finalizar la suspensión, aunque haya terminado el año natural (Art. 30.2)",
+      "otrasContingenciasIT": "se disfrutan al finalizar la IT, siempre que no hayan pasado más de 18 meses desde el final del año en que se originaron (Art. 30.3)"
+    },
+    "festivosDentroVacaciones": "Una fiesta no recuperable que coincida con vacaciones queda absorbida (máx. una); ver Art. 32.",
+    "noDisfrutadasAlCesar": "pendiente (regla general ET: se abonan en finiquito; el convenio no la detalla expresamente)",
+    "verificado": true
+  },
+  "fiestasNoRecuperables": {
+    "articulo": "Art. 32",
+    "regla": "Si la persona se ve obligada a trabajar una fiesta no recuperable, tiene derecho a disfrutarla en otra fecha Y a que la empresa le abone un 40% según tabla salarial + antigüedad consolidada, salvo que coincida con vacaciones (queda absorbida, máx. una). Si el descanso semanal coincide con fiesta no recuperable, se disfruta en otra fecha SIN el 40%.",
+    "verificado": true
+  },
   "nocturnidad": {
     "articulo": "Art. 42",
     "tramos": [ { "desde": "22:00", "hasta": "06:00", "recargoPct": 25, "sobre": "salario ordinario" } ],
-    "nota": "Salvo que el salario ya contemple que el trabajo es nocturno por su naturaleza.",
+    "nota": "Las horas entre las 22:00 y las 06:00 tienen retribución específica incrementada del 25% sobre el salario ordinario, salvo que el salario ya se haya establecido atendiendo a que el trabajo es nocturno por su propia naturaleza.",
     "verificado": true
   },
-  "pagasExtraordinarias": { "cantidad": 2, "nota": "Prorrateables por acuerdo (Art. 43). Confirmar número y fechas." },
-  "categoriasEstablecimiento": {
-    "$comment": "Las columnas A-E de las tablas salariales = categoría del establecimiento.",
-    "A": "Hoteles 4 superior/4/GL/5 estrellas, hoteles apartamento de 4, restaurantes de gama alta...",
-    "nota": "A es la categoría más alta (lujo/5 estrellas/5 tenedores) y va bajando hasta E. Detalle completo en el anexo de clasificación de establecimientos del convenio.",
-    "verificado": true
-  },
-  "pluses2025": {
-    "manutencion": 56.93,
-    "alojamiento": 53.39,
-    "transporte": 13.86,
-    "ropaDeTrabajo": { "mensual": 14.80, "anual": 177.59 },
+  "pagasExtraordinarias": {
+    "articulo": "Art. 43",
+    "cantidad": 2,
+    "denominacion": ["Gratificación de verano", "Gratificación de Navidad"],
+    "cuantiaCadaUna": "una mensualidad del salario + antigüedad consolidada",
+    "fechasAbono": ["10 de julio", "22 de diciembre"],
+    "devengo": { "verano": "1 julio a 30 junio del año siguiente", "navidad": "1 enero a 31 diciembre" },
+    "prorrateables": "sí, por acuerdo RLT/empresa",
+    "nota": "No sufren detracción por estar el trabajador en situación de incapacidad temporal.",
     "verificado": true
   },
   "horasExtraordinarias": {
-    "precioFijadoEnConvenio": "pendiente",
-    "regla": "Confirmar art. de horas extra; en su defecto aplica el ET (mínimo valor hora ordinaria), tope 80 h/año salvo que el convenio fije otro.",
-    "valorHoraOrdinaria": "(salarioMensual * pagas + plusesAnuales) / jornadaAnual (1791 en 2025, 1783 desde 2026)"
+    "articulo": "Art. 34",
+    "precioFijadoEnConvenio": false,
+    "valorHora": "el de la hora ordinaria (se negocia en cada centro compensar por descanso o por dinero; en desacuerdo, la Ley)",
+    "topeHorasExtraAnual": 80,
+    "obligatorias": "solo para reparar siniestros/daños urgentes (no computan al tope) o por riesgo de pérdida de materias primas, necesidades imprevistas, ausencias imprevistas o cambios de turno (sí computan).",
+    "valorHoraOrdinariaFormula": "(salarioMensual * 14 + plusesAnuales) / jornadaAnual (1791 en 2025, 1783 desde 2026)",
+    "verificado": true
+  },
+  "antiguedad": {
+    "articulo": "Art. 35.2",
+    "regla": "El salario ordinario = salario base + antigüedad consolidada + manutención (en Tarragona además el plus personal de manutención del Art. 38.3). El convenio no establece una escala de antigüedad de nuevo devengo; se refiere a la 'antigüedad consolidada' del sistema anterior.",
+    "verificado": true
+  },
+  "incrementosSalariales": {
+    "articulo": "Art. 35",
+    "2025": "+4,00% sobre tablas 2024",
+    "2026": "+4,00% sobre tablas 2025",
+    "2027": "+4,00% sobre tablas 2026",
+    "2028": "+3,00% sobre tablas 2027",
+    "nota": "Los valores ya aplicados están en las tablas de este JSON; no recalcular.",
+    "verificado": true
+  },
+  "categoriasEstablecimiento": {
+    "$comment": "Las columnas de las tablas salariales = categoría del establecimiento. A es la más alta y baja hacia E/F.",
+    "barcelonaYMaresme_A_E": "5 columnas A,B,C,D,E (Anexo A)",
+    "tarragona_A_F": "6 columnas A,B,C,D,E,F. Grupo A = GL/5 estrellas, 5 tenedores, bares/cafeterías lujo, salas de fiesta de lujo, campings de lujo, casinos/billares/salones de recreo de 1ª. Grupo B = hoteles 4 sup/4*, 4 tenedores, bares de 1ª, cafeterías 3 tazas... (B.1, p61)",
+    "girona_Ai_E": "6 columnas Ai,A,B,C,D,E (Anexo C). 'Ai' es columna especial superior; hay régimen transitorio (C.5) que garantiza el salario a 31-12-2007 para ciertas categorías de las columnas Ai y A.",
+    "verificado": true
+  },
+  "clasificacionNiveles": {
+    "$comment": "Cada nivel agrupa puestos. La correspondencia puesto→nivel está en Anexo II (A.2 Barcelona, B.2 Tarragona, C.2 Girona) según áreas funcionales del ALEH. Camarero/a y cocinero/a se sitúan aprox. en Nivel III (confirmar en la clasificación del propio convenio). Jefe de animación: Nivel II (Art. 35). En Tarragona, un nivel IV contratado como ayudante puede permanecer 4 años en el nivel retributivo VI antes de pasar a IV (B.3.1).",
+    "mapaCompletoPuestoNivel": "pendiente (transcripción de Anexo II A.2/B.2/C.2 no realizada celda a celda)"
   },
   "tablasSalariales": {
-    "$comment": "PENDIENTE de pasada cuidadosa. Hay varias tablas por área funcional y año, con estructuras de niveles distintas (I-VI y hasta VII Bis). Visto en p45 un cuadro 2025 Nivel I-VI × categorías A-E (I≈2.039,70€ ... VI≈1.185,31€), pero su ámbito exacto (área/colectivo) debe confirmarse antes de usarlo. Camarero/cocinero ≈ Nivel III (por ALEH y prensa, confirmar en el propio convenio).",
-    "estado": "pendiente_transcripcion_cuidadosa"
+    "$comment": "Salario mensual GARANTIZADO en euros. Verificado en imagen del DOGC celda a celda. Cuatro años (2025-2028). NO mezclar estructuras: Barcelona/Maresme niveles I..VI+V Bis; Tarragona y Girona I..VIII+VII Bis.",
+    "barcelona": {
+      "anexo": "A",
+      "articuloTabla": "A.3",
+      "columnas": ["A", "B", "C", "D", "E"],
+      "niveles": ["I", "II", "III", "IV", "V", "V Bis", "VI"],
+      "2025": {
+        "I":     {"A": 2039.70, "B": 1852.19, "C": 1792.79, "D": 1669.11, "E": 1852.19},
+        "II":    {"A": 1792.79, "B": 1733.48, "C": 1669.11, "D": 1605.07, "E": 1733.48},
+        "III":   {"A": 1733.70, "B": 1669.11, "C": 1639.55, "D": 1545.43, "E": 1669.61},
+        "IV":    {"A": 1545.43, "B": 1545.43, "C": 1516.39, "D": 1516.39, "E": 1545.43},
+        "V":     {"A": 1516.39, "B": 1516.39, "C": 1481.86, "D": 1481.86, "E": 1516.39},
+        "V Bis": {"A": 1350.86, "B": 1350.86, "C": 1333.53, "D": 1333.53, "E": 1350.86},
+        "VI":    {"A": 1185.31, "B": 1185.31, "C": 1185.31, "D": 1185.31, "E": 1185.31}
+      },
+      "2026": {
+        "I":     {"A": 2121.29, "B": 1926.28, "C": 1864.51, "D": 1735.87, "E": 1926.28},
+        "II":    {"A": 1864.51, "B": 1802.82, "C": 1735.87, "D": 1669.28, "E": 1802.82},
+        "III":   {"A": 1803.05, "B": 1735.87, "C": 1705.13, "D": 1607.25, "E": 1736.39},
+        "IV":    {"A": 1607.25, "B": 1607.25, "C": 1577.05, "D": 1577.05, "E": 1607.25},
+        "V":     {"A": 1577.05, "B": 1577.05, "C": 1541.14, "D": 1541.14, "E": 1577.05},
+        "V Bis": {"A": 1404.89, "B": 1404.89, "C": 1386.87, "D": 1386.87, "E": 1404.89},
+        "VI":    {"A": 1232.72, "B": 1232.72, "C": 1232.72, "D": 1232.72, "E": 1232.72}
+      },
+      "2027": {
+        "I":     {"A": 2206.14, "B": 2003.33, "C": 1939.09, "D": 1805.31, "E": 2003.33},
+        "II":    {"A": 1939.09, "B": 1874.93, "C": 1805.31, "D": 1736.05, "E": 1874.93},
+        "III":   {"A": 1875.17, "B": 1805.31, "C": 1773.34, "D": 1671.54, "E": 1805.85},
+        "IV":    {"A": 1671.54, "B": 1671.54, "C": 1640.13, "D": 1640.13, "E": 1671.54},
+        "V":     {"A": 1640.13, "B": 1640.13, "C": 1602.78, "D": 1602.78, "E": 1640.13},
+        "V Bis": {"A": 1461.09, "B": 1461.09, "C": 1442.35, "D": 1442.35, "E": 1461.09},
+        "VI":    {"A": 1282.03, "B": 1282.03, "C": 1282.03, "D": 1282.03, "E": 1282.03}
+      },
+      "2028": {
+        "I":     {"A": 2272.32, "B": 2063.43, "C": 1997.26, "D": 1859.46, "E": 2063.43},
+        "II":    {"A": 1997.26, "B": 1931.18, "C": 1859.46, "D": 1788.13, "E": 1931.18},
+        "III":   {"A": 1931.43, "B": 1859.46, "C": 1826.54, "D": 1721.68, "E": 1860.02},
+        "IV":    {"A": 1721.68, "B": 1721.68, "C": 1689.33, "D": 1689.33, "E": 1721.68},
+        "V":     {"A": 1689.33, "B": 1689.33, "C": 1650.87, "D": 1650.87, "E": 1689.33},
+        "V Bis": {"A": 1504.92, "B": 1504.92, "C": 1485.62, "D": 1485.62, "E": 1504.92},
+        "VI":    {"A": 1320.49, "B": 1320.49, "C": 1320.49, "D": 1320.49, "E": 1320.49}
+      }
+    },
+    "maresme": {
+      "anexo": "A",
+      "articuloTabla": "A.7",
+      "nota": "Subzona del Maresme (provincia de Barcelona). Solo 4 columnas A,B,C,D.",
+      "columnas": ["A", "B", "C", "D"],
+      "niveles": ["I", "II", "III", "IV", "V", "V Bis", "VI"],
+      "2025": {
+        "I":     {"A": 2050.90, "B": 1862.48, "C": 1802.72, "D": 1678.32},
+        "II":    {"A": 1802.72, "B": 1743.06, "C": 1678.32, "D": 1613.89},
+        "III":   {"A": 1457.05, "B": 1457.05, "C": 1457.05, "D": 1457.05},
+        "IV":    {"A": 1361.99, "B": 1361.99, "C": 1361.99, "D": 1361.99},
+        "V":     {"A": 1324.84, "B": 1324.84, "C": 1324.84, "D": 1324.84},
+        "V Bis": {"A": 1184.31, "B": 1184.31, "C": 1184.31, "D": 1184.31},
+        "VI":    {"A": 1191.83, "B": 1191.83, "C": 1191.83, "D": 1191.83}
+      },
+      "2026": {
+        "I":     {"A": 2132.94, "B": 1936.98, "C": 1874.82, "D": 1745.45},
+        "II":    {"A": 1874.82, "B": 1812.78, "C": 1745.45, "D": 1678.45},
+        "III":   {"A": 1515.33, "B": 1515.33, "C": 1515.33, "D": 1515.33},
+        "IV":    {"A": 1416.47, "B": 1416.47, "C": 1416.47, "D": 1416.47},
+        "V":     {"A": 1377.83, "B": 1377.83, "C": 1377.83, "D": 1377.83},
+        "V Bis": {"A": 1231.68, "B": 1231.68, "C": 1231.68, "D": 1231.68},
+        "VI":    {"A": 1239.50, "B": 1239.50, "C": 1239.50, "D": 1239.50}
+      },
+      "2027": {
+        "I":     {"A": 2218.25, "B": 2014.46, "C": 1949.82, "D": 1815.27},
+        "II":    {"A": 1949.82, "B": 1885.29, "C": 1815.27, "D": 1745.59},
+        "III":   {"A": 1575.95, "B": 1575.95, "C": 1575.95, "D": 1575.95},
+        "IV":    {"A": 1473.13, "B": 1473.13, "C": 1473.13, "D": 1473.13},
+        "V":     {"A": 1432.94, "B": 1432.94, "C": 1432.94, "D": 1432.94},
+        "V Bis": {"A": 1280.95, "B": 1280.95, "C": 1280.95, "D": 1280.95},
+        "VI":    {"A": 1289.08, "B": 1289.08, "C": 1289.08, "D": 1289.08}
+      },
+      "2028": {
+        "I":     {"A": 2284.80, "B": 2074.90, "C": 2008.31, "D": 1869.73},
+        "II":    {"A": 2008.31, "B": 1941.85, "C": 1869.73, "D": 1797.95},
+        "III":   {"A": 1623.22, "B": 1623.22, "C": 1623.22, "D": 1623.22},
+        "IV":    {"A": 1517.33, "B": 1517.33, "C": 1517.33, "D": 1517.33},
+        "V":     {"A": 1475.93, "B": 1475.93, "C": 1475.93, "D": 1475.93},
+        "V Bis": {"A": 1319.38, "B": 1319.38, "C": 1319.38, "D": 1319.38},
+        "VI":    {"A": 1327.76, "B": 1327.76, "C": 1327.76, "D": 1327.76}
+      }
+    },
+    "tarragona": {
+      "anexo": "B",
+      "articuloTabla": "B.4",
+      "nota": "Estructura DISTINTA: niveles I-VIII con VII Bis, 6 columnas A-F.",
+      "columnas": ["A", "B", "C", "D", "E", "F"],
+      "niveles": ["I", "II", "III", "IV", "V", "VI", "VII", "VII Bis", "VIII"],
+      "2025": {
+        "I":       {"A": 2264.63, "B": 2101.03, "C": 2018.80, "D": 1937.14, "E": 1855.34, "F": 2018.80},
+        "II":      {"A": 2181.36, "B": 2018.80, "C": 1937.14, "D": 1855.35, "E": 1773.25, "F": 1937.14},
+        "III":     {"A": 2101.03, "B": 1937.31, "C": 1855.35, "D": 1773.25, "E": 1691.47, "F": 1855.35},
+        "IV":      {"A": 1937.03, "B": 1773.25, "C": 1691.47, "D": 1609.48, "E": 1527.61, "F": 1691.47},
+        "V":       {"A": 1847.56, "B": 1676.84, "C": 1591.62, "D": 1506.11, "E": 1428.85, "F": 1600.79},
+        "VI":      {"A": 1519.54, "B": 1484.51, "C": 1450.34, "D": 1397.90, "E": 1383.48, "F": 1450.34},
+        "VII":     {"A": 1429.24, "B": 1418.06, "C": 1399.39, "D": 1380.60, "E": 1362.16, "F": 1399.39},
+        "VII Bis": {"A": 1184.00, "B": 1184.00, "C": 1184.00, "D": 1184.00, "E": 1184.00, "F": 1184.00},
+        "VIII":    {"A": 1184.00, "B": 1184.00, "C": 1184.00, "D": 1184.00, "E": 1184.00, "F": 1184.00}
+      },
+      "2026": {
+        "I":       {"A": 2355.22, "B": 2185.07, "C": 2099.55, "D": 2014.62, "E": 1929.55, "F": 2099.55},
+        "II":      {"A": 2268.61, "B": 2099.55, "C": 2014.62, "D": 1929.56, "E": 1844.18, "F": 2014.62},
+        "III":     {"A": 2185.07, "B": 2014.80, "C": 1929.56, "D": 1844.18, "E": 1759.13, "F": 1929.56},
+        "IV":      {"A": 2014.51, "B": 1844.18, "C": 1759.13, "D": 1673.86, "E": 1588.72, "F": 1759.13},
+        "V":       {"A": 1921.46, "B": 1743.92, "C": 1655.28, "D": 1566.35, "E": 1486.00, "F": 1664.82},
+        "VI":      {"A": 1580.33, "B": 1543.89, "C": 1508.36, "D": 1453.81, "E": 1438.82, "F": 1508.36},
+        "VII":     {"A": 1486.41, "B": 1474.78, "C": 1455.37, "D": 1435.82, "E": 1416.65, "F": 1455.37},
+        "VII Bis": {"A": 1221.00, "B": 1221.00, "C": 1221.00, "D": 1221.00, "E": 1221.00, "F": 1221.00},
+        "VIII":    {"A": 1221.00, "B": 1221.00, "C": 1221.00, "D": 1221.00, "E": 1221.00, "F": 1221.00}
+      },
+      "2027": {
+        "I":       {"A": 2449.43, "B": 2272.47, "C": 2183.53, "D": 2095.21, "E": 2006.73, "F": 2183.53},
+        "II":      {"A": 2359.36, "B": 2183.53, "C": 2095.21, "D": 2006.75, "E": 1917.95, "F": 2095.21},
+        "III":     {"A": 2272.47, "B": 2095.40, "C": 2006.75, "D": 1917.95, "E": 1829.49, "F": 2006.75},
+        "IV":      {"A": 2095.09, "B": 1917.95, "C": 1829.49, "D": 1740.82, "E": 1652.27, "F": 1829.49},
+        "V":       {"A": 1998.32, "B": 1813.67, "C": 1721.49, "D": 1629.01, "E": 1545.44, "F": 1731.41},
+        "VI":      {"A": 1643.54, "B": 1605.64, "C": 1568.69, "D": 1511.96, "E": 1496.37, "F": 1568.69},
+        "VII":     {"A": 1545.87, "B": 1533.77, "C": 1513.58, "D": 1493.26, "E": 1473.31, "F": 1513.58},
+        "VII Bis": {"A": 1229.99, "B": 1229.99, "C": 1207.58, "D": 1186.03, "E": 1186.03, "F": 1207.58},
+        "VIII":    {"A": 1186.03, "B": 1186.03, "C": 1186.03, "D": 1186.03, "E": 1186.03, "F": 1186.03}
+      },
+      "2028": {
+        "I":       {"A": 2522.91, "B": 2340.65, "C": 2249.04, "D": 2158.06, "E": 2066.94, "F": 2249.04},
+        "II":      {"A": 2430.14, "B": 2249.04, "C": 2158.06, "D": 2066.95, "E": 1975.49, "F": 2158.06},
+        "III":     {"A": 2340.65, "B": 2158.26, "C": 2066.95, "D": 1975.49, "E": 1884.37, "F": 2066.95},
+        "IV":      {"A": 2157.95, "B": 1975.49, "C": 1884.37, "D": 1793.04, "E": 1701.84, "F": 1884.37},
+        "V":       {"A": 2058.27, "B": 1868.08, "C": 1773.14, "D": 1677.88, "E": 1591.80, "F": 1783.36},
+        "VI":      {"A": 1692.84, "B": 1653.81, "C": 1615.75, "D": 1557.32, "E": 1541.26, "F": 1615.75},
+        "VII":     {"A": 1592.24, "B": 1579.79, "C": 1558.99, "D": 1538.05, "E": 1517.51, "F": 1558.99},
+        "VII Bis": {"A": 1266.89, "B": 1266.89, "C": 1243.80, "D": 1221.62, "E": 1221.62, "F": 1243.80},
+        "VIII":    {"A": 1221.62, "B": 1221.62, "C": 1221.62, "D": 1221.62, "E": 1221.62, "F": 1221.62}
+      }
+    },
+    "girona": {
+      "anexo": "C",
+      "articuloTabla": "C.2.2",
+      "nota": "Estructura DISTINTA: niveles I-VIII con 'VII Bis (ant. IV B)' y 'VIII (menor 18 años)'; 6 columnas Ai,A,B,C,D,E ('Ai' es columna superior especial).",
+      "columnas": ["Ai", "A", "B", "C", "D", "E"],
+      "niveles": ["I", "II", "III", "IV", "V", "VI", "VII", "VII Bis", "VIII"],
+      "2025": {
+        "I":       {"Ai": 2083.84, "A": 1844.19, "B": 1798.31, "C": 1748.21, "D": 1748.21, "E": 1798.31},
+        "II":      {"Ai": 1895.32, "A": 1722.18, "B": 1705.30, "C": 1595.01, "D": 1578.89, "E": 1705.30},
+        "III":     {"Ai": 1710.76, "A": 1636.96, "B": 1612.25, "C": 1537.22, "D": 1537.22, "E": 1605.73},
+        "IV":      {"Ai": 1599.98, "A": 1536.94, "B": 1500.77, "C": 1427.20, "D": 1416.78, "E": 1495.28},
+        "V":       {"Ai": 1468.97, "A": 1442.58, "B": 1380.19, "C": 1380.19, "D": 1380.19, "E": 1380.19},
+        "VI":      {"Ai": 1363.90, "A": 1363.90, "B": 1363.90, "C": 1337.80, "D": 1337.80, "E": 1363.90},
+        "VII":     {"Ai": 1313.09, "A": 1313.09, "B": 1313.09, "C": 1313.09, "D": 1313.09, "E": 1313.09},
+        "VII Bis": {"Ai": 1184.00, "A": 1184.00, "B": 1184.00, "C": 1184.00, "D": 1184.00, "E": 1184.00},
+        "VIII":    {"Ai": 1184.00, "A": 1184.00, "B": 1184.00, "C": 1184.00, "D": 1184.00, "E": 1184.00}
+      },
+      "2026": {
+        "I":       {"Ai": 2167.19, "A": 1917.96, "B": 1870.24, "C": 1818.14, "D": 1818.14, "E": 1870.24},
+        "II":      {"Ai": 1971.13, "A": 1791.06, "B": 1773.51, "C": 1658.81, "D": 1642.04, "E": 1773.51},
+        "III":     {"Ai": 1779.19, "A": 1702.44, "B": 1676.74, "C": 1598.71, "D": 1598.71, "E": 1669.96},
+        "IV":      {"Ai": 1663.98, "A": 1598.42, "B": 1560.80, "C": 1484.29, "D": 1473.45, "E": 1555.09},
+        "V":       {"Ai": 1527.73, "A": 1500.29, "B": 1435.40, "C": 1435.40, "D": 1435.40, "E": 1435.40},
+        "VI":      {"Ai": 1418.45, "A": 1418.45, "B": 1418.45, "C": 1391.32, "D": 1391.32, "E": 1418.45},
+        "VII":     {"Ai": 1365.62, "A": 1365.62, "B": 1365.62, "C": 1365.62, "D": 1365.62, "E": 1365.62},
+        "VII Bis": {"Ai": 1221.00, "A": 1221.00, "B": 1221.00, "C": 1221.00, "D": 1221.00, "E": 1221.00},
+        "VIII":    {"Ai": 1221.00, "A": 1221.00, "B": 1221.00, "C": 1221.00, "D": 1221.00, "E": 1221.00}
+      },
+      "2027": {
+        "I":       {"Ai": 2253.88, "A": 1994.68, "B": 1945.05, "C": 1890.86, "D": 1890.86, "E": 1945.05},
+        "II":      {"Ai": 2049.97, "A": 1862.71, "B": 1844.45, "C": 1725.16, "D": 1707.72, "E": 1844.45},
+        "III":     {"Ai": 1850.36, "A": 1770.54, "B": 1743.81, "C": 1662.66, "D": 1662.66, "E": 1736.76},
+        "IV":      {"Ai": 1730.54, "A": 1662.36, "B": 1623.23, "C": 1543.66, "D": 1532.39, "E": 1617.30},
+        "V":       {"Ai": 1588.84, "A": 1560.30, "B": 1492.82, "C": 1492.82, "D": 1492.82, "E": 1492.82},
+        "VI":      {"Ai": 1475.19, "A": 1475.19, "B": 1475.19, "C": 1446.97, "D": 1446.97, "E": 1475.19},
+        "VII":     {"Ai": 1420.24, "A": 1420.24, "B": 1420.24, "C": 1420.24, "D": 1420.24, "E": 1420.24},
+        "VII Bis": {"Ai": 1186.03, "A": 1186.03, "B": 1186.03, "C": 1186.03, "D": 1186.03, "E": 1186.03},
+        "VIII":    {"Ai": 1186.03, "A": 1186.03, "B": 1186.03, "C": 1186.03, "D": 1186.03, "E": 1186.03}
+      },
+      "2028": {
+        "I":       {"Ai": 2321.50, "A": 2054.52, "B": 2003.40, "C": 1947.59, "D": 1947.59, "E": 2003.40},
+        "II":      {"Ai": 2111.47, "A": 1918.59, "B": 1899.78, "C": 1776.91, "D": 1758.96, "E": 1899.78},
+        "III":     {"Ai": 1905.87, "A": 1823.65, "B": 1796.12, "C": 1712.54, "D": 1712.54, "E": 1788.86},
+        "IV":      {"Ai": 1782.45, "A": 1712.23, "B": 1671.93, "C": 1589.97, "D": 1578.36, "E": 1665.81},
+        "V":       {"Ai": 1636.50, "A": 1607.11, "B": 1537.60, "C": 1537.60, "D": 1537.60, "E": 1537.60},
+        "VI":      {"Ai": 1519.45, "A": 1519.45, "B": 1519.45, "C": 1490.38, "D": 1490.38, "E": 1519.45},
+        "VII":     {"Ai": 1462.85, "A": 1462.85, "B": 1462.85, "C": 1462.85, "D": 1462.85, "E": 1462.85},
+        "VII Bis": {"Ai": 1221.62, "A": 1221.62, "B": 1221.62, "C": 1221.62, "D": 1221.62, "E": 1221.62},
+        "VIII":    {"Ai": 1221.62, "A": 1221.62, "B": 1221.62, "C": 1221.62, "D": 1221.62, "E": 1221.62}
+      }
+    },
+    "estado": "verificado_2025_2028_completo"
   },
-  "estado": "verificado_marco",
-  "verificadoContra": "PDF oficial DOGC (Resolución EMT/774/2026) — jornada, nocturnidad, pluses y categorías leídos de imagen/texto. Tablas salariales pendientes.",
-  "fechaVerificacion": "2026-07-07"
+  "baremosCafeterias": {
+    "$comment": "Baremo especial para sueldos de cafeterías. Columnas: Categoría especial / Categoría 1ª / Categoría 2ª. Barcelona (A.5) transcrito los 4 años; Maresme (A.9) solo 2025.",
+    "barcelona": {
+      "articulo": "A.5",
+      "columnas": ["especial", "primera", "segunda"],
+      "2025": {
+        "I - Encargado/a 1ª":       {"especial": 1876.56, "primera": 1852.19, "segunda": 1669.11},
+        "II - Encargado/a 2ª":      {"especial": 1777.87, "primera": 1728.31, "segunda": 1605.16},
+        "III - Dependienta/a":      {"especial": 1718.67, "primera": 1669.11, "segunda": 1546.08},
+        "IV - Ayudante dependiente/a": {"especial": 1555.66, "primera": 1545.88, "segunda": 1516.39},
+        "V - Limpiadores/as":       {"especial": 1526.08, "primera": 1516.39, "segunda": 1481.29},
+        "V Bis":                    {"especial": 1358.40, "primera": 1350.86, "segunda": 1333.53},
+        "VI":                       {"especial": 1190.39, "primera": 1185.14, "segunda": 1184.10}
+      },
+      "2026": {
+        "I - Encargado/a 1ª":       {"especial": 1951.62, "primera": 1926.28, "segunda": 1735.87},
+        "II - Encargado/a 2ª":      {"especial": 1848.98, "primera": 1797.45, "segunda": 1669.36},
+        "III - Dependienta/a":      {"especial": 1787.42, "primera": 1735.87, "segunda": 1607.93},
+        "IV - Ayudante dependiente/a": {"especial": 1617.89, "primera": 1607.71, "segunda": 1577.05},
+        "V - Limpiadores/as":       {"especial": 1587.12, "primera": 1577.05, "segunda": 1540.54},
+        "V Bis":                    {"especial": 1412.73, "primera": 1404.89, "segunda": 1386.87},
+        "VI":                       {"especial": 1238.01, "primera": 1232.55, "segunda": 1231.47}
+      },
+      "2027": {
+        "I - Encargado/a 1ª":       {"especial": 2029.68, "primera": 2003.33, "segunda": 1805.31},
+        "II - Encargado/a 2ª":      {"especial": 1922.94, "primera": 1869.34, "segunda": 1736.14},
+        "III - Dependienta/a":      {"especial": 1858.92, "primera": 1805.31, "segunda": 1672.25},
+        "IV - Ayudante dependiente/a": {"especial": 1682.61, "primera": 1672.02, "segunda": 1640.13},
+        "V - Limpiadores/as":       {"especial": 1650.60, "primera": 1640.13, "segunda": 1602.17},
+        "V Bis":                    {"especial": 1469.24, "primera": 1461.09, "segunda": 1442.35},
+        "VI":                       {"especial": 1287.53, "primera": 1281.85, "segunda": 1280.73}
+      },
+      "2028": {
+        "I - Encargado/a 1ª":       {"especial": 2090.57, "primera": 2063.43, "segunda": 1859.46},
+        "II - Encargado/a 2ª":      {"especial": 1980.63, "primera": 1925.42, "segunda": 1788.22},
+        "III - Dependienta/a":      {"especial": 1914.68, "primera": 1859.46, "segunda": 1722.41},
+        "IV - Ayudante dependiente/a": {"especial": 1733.08, "primera": 1722.18, "segunda": 1689.33},
+        "V - Limpiadores/as":       {"especial": 1700.12, "primera": 1689.33, "segunda": 1650.23},
+        "V Bis":                    {"especial": 1513.32, "primera": 1504.92, "segunda": 1485.62},
+        "VI":                       {"especial": 1326.16, "primera": 1320.31, "segunda": 1319.15}
+      }
+    },
+    "maresme": {
+      "articulo": "A.9",
+      "columnas": ["especial", "primera", "segunda"],
+      "2025": {
+        "I - Encargado/a 1ª":       {"especial": 1886.91, "primera": 1862.48, "segunda": 1678.32},
+        "II - Encargado/a 2ª":      {"especial": 1787.74, "primera": 1737.86, "segunda": 1614.08},
+        "III - Dependienta/a":      {"especial": 1728.19, "primera": 1678.32, "segunda": 1554.68},
+        "IV - Ayudante dependiente/a": {"especial": 1564.24, "primera": 1554.42, "segunda": 1524.73},
+        "V - Limpiadores/as":       {"especial": 1534.51, "primera": 1524.73, "segunda": 1489.47},
+        "V Bis":                    {"especial": 1365.88, "primera": 1355.18, "segunda": 1340.92},
+        "VI":                       {"especial": 1197.00, "primera": 1191.70, "segunda": 1190.63}
+      },
+      "2026_2028": "pendiente (A.9 Maresme de 2026-2028 no transcrito celda a celda)"
+    }
+  },
+  "complementoCamarerasPiso": {
+    "$comment": "Complemento para camareros/as de pisos y mozos de habitación (III ALEH, Área Funcional IV) por término municipal/estrellas. Absorbible si se retribuye a porcentaje y supera el garantizado. €/mes.",
+    "articulo": "A.3 (nota tras tabla)",
+    "barcelona": {
+      "2025": {"hoteles5y4estrellas": 44.88, "hoteles3estrellas": 29.29, "hoteles2estrellas": 27.00},
+      "2026": {"hoteles5y4estrellas": 46.67, "hoteles3estrellas": 30.46, "hoteles2estrellas": 28.08},
+      "2027": {"hoteles5y4estrellas": 48.54, "hoteles3estrellas": 31.68, "hoteles2estrellas": 29.20},
+      "2028": {"hoteles5y4estrellas": 49.99, "hoteles3estrellas": 32.63, "hoteles2estrellas": 30.08}
+    },
+    "maresme": {
+      "2025": {"hoteles5y4estrellas": 45.13, "hoteles3estrellas": 29.52, "hoteles2estrellas": 27.16},
+      "2026": {"hoteles5y4estrellas": 46.93, "hoteles3estrellas": 30.70, "hoteles2estrellas": 28.25},
+      "2027": {"hoteles5y4estrellas": 48.81, "hoteles3estrellas": 31.92, "hoteles2estrellas": "pendiente (valor cortado en la imagen)"},
+      "2028": "pendiente"
+    }
+  },
+  "pluses": {
+    "$comment": "€/mes salvo indicación. Manutención Art. 38, Alojamiento Art. 39, Transporte Art. 40, Ropa de trabajo Art. 41. Cada provincia tiene sus importes.",
+    "barcelona": {
+      "2025": {"manutencion": 56.93, "alojamiento": 53.39, "transporte": 13.86, "ropaTrabajoMes": 14.80, "ropaTrabajoAnual": 177.59},
+      "2026": {"manutencion": 59.21, "alojamiento": 55.53, "transporte": 14.42, "ropaTrabajoMes": 15.39, "ropaTrabajoAnual": 184.69},
+      "2027": {"manutencion": 61.58, "alojamiento": 57.75, "transporte": 14.99, "ropaTrabajoMes": 16.01, "ropaTrabajoAnual": 192.08},
+      "2028": {"manutencion": 63.42, "alojamiento": 59.48, "transporte": 15.44, "ropaTrabajoMes": 16.49, "ropaTrabajoAnual": 197.84}
+    },
+    "maresme": {
+      "2025": {"manutencion": 56.90, "alojamiento": 53.23, "transporte": 13.81, "ropaTrabajoMes": 14.80, "ropaTrabajoAnual": 177.59},
+      "2026_2028": "pendiente (A.8 Pluses Maresme 2026-2028 no transcritos; se revalorizan anualmente)"
+    },
+    "tarragona": {
+      "$comment": "Tarragona añade 'Plus diferencia manutención' (Art. 38.3) para quienes venían percibiendo la manutención en metálico.",
+      "2025": {"manutencion": 56.93, "plusDiferenciaManutencion": 28.02, "alojamiento": 13.36, "transporte": 13.78, "ropaTrabajoMes": 14.80, "ropaTrabajoAnual": 177.59},
+      "2026": {"manutencion": 59.21, "plusDiferenciaManutencion": 29.14, "alojamiento": 13.90, "transporte": 14.33, "ropaTrabajoMes": 15.39, "ropaTrabajoAnual": 184.69},
+      "2027": {"manutencion": 61.58, "plusDiferenciaManutencion": 30.31, "alojamiento": 14.45, "transporte": 14.90, "ropaTrabajoMes": 16.01, "ropaTrabajoAnual": 192.08},
+      "2028": {"manutencion": 63.42, "plusDiferenciaManutencion": 31.22, "alojamiento": 14.89, "transporte": 15.35, "ropaTrabajoMes": 16.49, "ropaTrabajoAnual": 197.84}
+    },
+    "girona": {
+      "2025": {"manutencion": 47.92, "alojamiento": 22.54, "transporte": 13.82, "ropaTrabajoMes": 14.80, "ropaTrabajoAnual": 177.59},
+      "2026": {"manutencion": 49.84, "alojamiento": 23.44, "transporte": 14.37, "ropaTrabajoMes": 15.39, "ropaTrabajoAnual": 184.69},
+      "2027": {"manutencion": 51.83, "alojamiento": 24.38, "transporte": 14.95, "ropaTrabajoMes": 16.01, "ropaTrabajoAnual": 192.08},
+      "2028": {"manutencion": 53.39, "alojamiento": 25.11, "transporte": 15.40, "ropaTrabajoMes": 16.49, "ropaTrabajoAnual": 197.84}
+    },
+    "verificado": true
+  },
+  "serviciosExtraordinarios": {
+    "$comment": "Servicios extraordinarios (banquetes/eventos, Art. 2.3). €/servicio, sujetos a IRPF y cotización. Duración máx 6 h 30 min; montaje +50%; servicio de fin de fiesta +50% sobre el sueldo del día.",
+    "barcelona": {
+      "articulo": "A.6",
+      "2025": {"servicioDiario": {"camareroOCocinero": 114.73, "friegaplatos": 80.09}, "servicioFestivos": {"camareroOCocinero": 146.92, "friegaplatos": 93.24}, "kilometrajeEuroKm": 0.20},
+      "2026": {"servicioDiario": {"camareroOCocinero": 119.32, "friegaplatos": 83.29}, "servicioFestivos": {"camareroOCocinero": 152.80, "friegaplatos": 96.97}, "kilometrajeEuroKm": 0.21},
+      "2027": {"servicioDiario": {"camareroOCocinero": 124.09, "friegaplatos": 86.63}, "servicioFestivos": {"camareroOCocinero": 158.91, "friegaplatos": 100.84}, "kilometrajeEuroKm": 0.21},
+      "2028": {"servicioDiario": {"camareroOCocinero": 127.82, "friegaplatos": 89.22}, "servicioFestivos": {"camareroOCocinero": 163.68, "friegaplatos": 103.87}, "kilometrajeEuroKm": 0.22}
+    },
+    "maresme": {
+      "articulo": "A.10",
+      "2025": {"servicioDiario": {"camareroOCocinero": 114.70, "friegaplatos": 80.00}, "servicioFestivos": {"camareroOCocinero": 146.89, "friegaplatos": 93.23}},
+      "2026": {"servicioDiario": {"camareroOCocinero": 119.29, "friegaplatos": 83.20}, "servicioFestivos": {"camareroOCocinero": 152.77, "friegaplatos": 96.95}},
+      "2027": {"servicioDiario": {"camareroOCocinero": 124.06, "friegaplatos": 86.52}, "servicioFestivos": {"camareroOCocinero": 158.88, "friegaplatos": 100.83}},
+      "2028": {"servicioDiario": {"camareroOCocinero": 127.78, "friegaplatos": 89.12}, "servicioFestivos": {"camareroOCocinero": 163.64, "friegaplatos": 103.86}}
+    },
+    "tarragona": {
+      "articulo": "B.6",
+      "nota": "Tarragona detalla por categoría, €/servicio.",
+      "2025": {"cocinero": 123.43, "ayudanteCocinero": 74.62, "camarero": 91.82, "ayudanteCamarero": 68.09, "cobradorDiaTrabajo": 48.91},
+      "2026": {"cocinero": 128.36, "ayudanteCocinero": 77.60, "camarero": 95.49, "ayudanteCamarero": 70.81, "cobradorDiaTrabajo": 50.87},
+      "2027": {"cocinero": 133.50, "ayudanteCocinero": 80.71, "camarero": 99.31, "ayudanteCamarero": 73.64, "cobradorDiaTrabajo": 52.90},
+      "2028": "pendiente (B.6 Servicios extraordinarios Tarragona 2028 en pág. 71, no transcrito celda a celda)"
+    },
+    "girona": {
+      "articulo": "C.4",
+      "2025": {"servicioDiario": {"camareroOCocinero": 96.23, "friegaplatos": 80.16}, "servicioFestivos": {"camareroOCocinero": 109.64, "friegaplatos": 93.39}},
+      "2026": {"servicioDiario": {"camareroOCocinero": 100.08, "friegaplatos": 83.37}, "servicioFestivos": {"camareroOCocinero": 114.02, "friegaplatos": 97.13}},
+      "2027": {"servicioDiario": {"camareroOCocinero": 104.08, "friegaplatos": 86.70}, "servicioFestivos": {"camareroOCocinero": 118.58, "friegaplatos": 101.01}},
+      "2028": {"servicioDiario": {"camareroOCocinero": 107.21, "friegaplatos": 89.31}, "servicioFestivos": {"camareroOCocinero": 122.14, "friegaplatos": 104.04}}
+    }
+  },
+  "permisosRetribuidos": {
+    "articulo": "Art. 33 (Licencias)",
+    "nota": "Sin perjuicio de los del art. 37 ET. Parejas de hecho = parejas de derecho (Ley 25/2010 Cataluña). Los permisos se inician el primer día laborable siguiente al hecho causante si éste sucede en día no laborable.",
+    "matrimonioOParejaDeHecho": "15 días naturales",
+    "accidenteOEnfermedadGraves_hospitalizacion_o_intervencionSinHospitalizacionConReposo": "5 días (cónyuge/pareja/parientes hasta 2º grado o conviviente a cargo); continuado o fraccionado mientras dure el hecho causante",
+    "fallecimiento": "2 días (cónyuge/pareja/parientes hasta 2º grado); +2 días si hay desplazamiento",
+    "bodasDeHijosNietosHermanosPadres": "1 a 3 días",
+    "examenes": "el tiempo indispensable (justificando asistencia)",
+    "cambioDomicilioHabitual": "2 días (el 2º día solo una vez al año)",
+    "asuntosPropios": "2 días al año natural (requiere antigüedad mínima de 90 días)",
+    "imposibilidadAccederCentro_autoridades_catastrofe_meteo": "hasta 4 días (prorrogable mientras persistan las circunstancias; art. 47.6 ET)",
+    "fuerzaMayorMotivosFamiliaresUrgentes": "horas retribuidas equivalentes a 4 días/año",
+    "visitasMedicasPropias_o_acompanamientoFamiliar1erGrado": "8 horas al año, retribuidas y no recuperables",
+    "lactancia": "1 hora de ausencia (divisible en 2 fracciones) hasta que el lactante cumpla 9 meses; acumulable en 19 jornadas completas consecutivas; o reducción de media hora; extensible hasta 12 meses si ambos progenitores lo ejercen (con reducción proporcional del salario a partir de los 9 meses)",
+    "verificado": true
+  },
+  "complementoIT": {
+    "articulo": "Art. 45 (Enfermedad y accidente)",
+    "$comment": "Dato oro: la empresa complementa la prestación de IT por encima del mínimo legal.",
+    "accidenteTrabajo_o_enfermedadComunConHospitalizacion_o_intervencionSinHospitalizacionConReposo": {
+      "porcentaje": 100,
+      "desde": "primer día",
+      "tope": "12 meses"
+    },
+    "enfermedadComunSinHospitalizacion": {
+      "dias1a15": "lo que marca la ley, a cargo del empresario",
+      "dias16a30": "80% del salario",
+      "dias31enAdelante": "100% del salario, hasta un tope de 12 meses"
+    },
+    "requisitoAntiguedad": "mejoras a partir de 180 días de antigüedad, salvo enfermedad común con hospitalización >=4 días, accidente laboral, enfermedad profesional, IT por interrupción del embarazo, menstruación incapacitante secundaria o donación de órganos/tejidos (sin requisito de antigüedad)",
+    "fijosDiscontinuos": "el complemento se suspende durante los periodos de inactividad y se reactiva al reanudar la actividad",
+    "verificado": true
+  },
+  "seguroAccidentes": {
+    "articulo": "Art. 46",
+    "importe": 16500,
+    "cobertura": "fallecimiento o invalidez permanente (absoluta y total para la profesión habitual) por accidente de trabajo",
+    "carencia": "45 días desde la firma del convenio para concertar la póliza",
+    "verificado": true
+  },
+  "finalizacionContrato": {
+    "articulo": "Art. 27",
+    "indemnizacion": "14 días de salario por año trabajado (o parte proporcional) al finalizar cualquier contrato no indefinido, excepto interinidad o sustitución",
+    "abono": "junto con la liquidación por saldo y finiquito",
+    "nota": "Mejora el ET (12 días). Relevante para el cálculo de finiquito.",
+    "verificado": true
+  },
+  "periodoPrueba": {
+    "articulo": "Art. 17",
+    "regla": "Se remite al ALEH vigente. Debe suscribirse siempre por escrito, con los límites de duración máxima que fija el ALEH según grupo/categoría.",
+    "duracionesConcretas": "pendiente (remite al ALEH; duraciones exactas no transcritas de la pág. 8)"
+  },
+  "ascensos": {
+    "articulo": "Art. 19",
+    "regla": "Ante vacantes, preferencia del trabajador del puesto inmediato inferior que lleve desempeñándolo un mínimo de 6 meses y supere la prueba de capacidad (controlada por empresa y RLT; desacuerdo al TLC).",
+    "verificado": true
+  },
+  "excedencias": {
+    "articulo": "Art. 20",
+    "voluntaria": "tras 1 año en la empresa; duración mín 4 meses y máx 5 años; preaviso 30 días naturales; reingreso preferente a vacante de igual/similar puesto",
+    "cuidadoHijos": "hasta 3 años por cada hijo (con reserva de puesto)",
+    "cuidadoFamiliares": "hasta 2 años",
+    "verificado": true
+  },
+  "polivalencia": {
+    "articulo": "Art. 16",
+    "regla": "Cuando se acuerde polivalencia funcional o funciones de dos o más grupos, la equiparación (y retribución) se realiza según las funciones que se desempeñen durante mayor tiempo.",
+    "verificado": true
+  },
+  "contratacion": {
+    "articulo": "Arts. 26, 30.6, 45",
+    "fijosDiscontinuos": "clave en hostelería de temporada; vacaciones al final de temporada (Art. 30.6); la prestación de IT se suspende en periodos de inactividad (Art. 45). Bolsa de horas de temporada en Tarragona (60 h/año, B.3.2).",
+    "fomentoIndefinida": "según legislación vigente (Art. 26.1)",
+    "discapacidad": "cuota de reserva del 2% en empresas de 50+ trabajadores (Art. 26.2)"
+  },
+  "formacion": {
+    "articulo": "Art. 49",
+    "regla": "Derecho a formación profesional según el ET. Los reciclajes por cambios tecnológicos o de puesto se imparten dentro de la jornada laboral. Posibilidad de negociar cuerpo de horas de formación por acuerdo de empresa.",
+    "verificado": true
+  },
+  "regimenDisciplinario": {
+    "articulo": "Anexo I (transcripción literal del régimen disciplinario del ALEH)",
+    "graduacion": ["leve", "grave", "muy grave"],
+    "procedimiento": {
+      "articulo": "Anexo I Art. 3",
+      "regla": "La notificación de las faltas requiere comunicación ESCRITA al trabajador haciendo constar fecha y hechos; el trabajador acusa recibo. La RLT debe ser informada de las sanciones por faltas graves y muy graves. Los delegados sindicales deben ser oídos antes de despedir/sancionar a un afiliado (si la empresa lo conoce).",
+      "notaLegal": "Coincide con art. 58 ET: sin comunicación escrita con fecha y hechos, la sanción por falta grave/muy grave es impugnable."
+    },
+    "faltasLeves_ejemplos": [
+      "descuido, error o demora leve sin perturbación importante del servicio",
+      "1 a 3 faltas de puntualidad de hasta 30 min en 30 días (sin graves perjuicios)",
+      "no comunicar con celeridad la ausencia justificada",
+      "abandono del trabajo sin causa por menos de 30 min (sin graves perjuicios)",
+      "pequeños descuidos en la conservación de géneros/material",
+      "no comunicar cambio de domicilio",
+      "discusiones con compañeros sin presencia de público",
+      "llevar la uniformidad de forma descuidada; falta de aseo ocasional"
+    ],
+    "faltasGraves_ejemplos": [
+      "más de 3 faltas de puntualidad en 30 días, o 1 sola superior a 30 min o con graves perjuicios",
+      "faltar 2 días al trabajo en 30 días sin justificar",
+      "abandono superior a 30 min, entre 1 y 3 veces en 30 días",
+      "no comunicar puntualmente cambios de datos familiares (retenciones)",
+      "incumplir órdenes/instrucciones (incl. PRL)",
+      "descuido importante en la conservación de géneros/materiales",
+      "simular la presencia de otro trabajador (fichar/firmar por él)",
+      "discusiones con compañeros en presencia del público",
+      "usar para uso propio artículos/enseres de la empresa sin autorización",
+      "asistir o permanecer en el trabajo bajo efectos de alcohol/drogas"
+    ],
+    "faltasMuyGraves_ejemplos": [
+      "3+ faltas de asistencia sin justificar en 30 días, 10 en 6 meses o 20 en un año",
+      "fraude, deslealtad o abuso de confianza",
+      "hacer desaparecer/inutilizar o dañar materiales, útiles, instalaciones o documentos",
+      "robo, hurto o malversación en el ámbito de la empresa",
+      "violar el secreto de correspondencia o datos reservados",
+      "malos tratos de palabra u obra, abuso de autoridad o falta grave de respeto",
+      "disminución voluntaria y continuada del rendimiento",
+      "simulación de enfermedad/accidente para no asistir",
+      "acoso sexual (agravante si hay posición jerárquica)",
+      "acoso moral o discriminatorio (racial, religión, discapacidad, edad, orientación sexual, género)"
+    ],
+    "sanciones": {
+      "articulo": "Anexo I Art. 7",
+      "leves": ["amonestación", "suspensión de empleo y sueldo hasta 2 días"],
+      "graves": ["suspensión de empleo y sueldo de 3 a 15 días"],
+      "muyGraves": ["suspensión de empleo y sueldo de 16 a 60 días", "despido disciplinario"],
+      "plazosCumplimientoSuspension": {"hasta2dias": "2 meses", "de3a15dias": "4 meses", "de16a60dias": "6 meses"}
+    },
+    "sancionEconomicaProhibida": {
+      "regla": "PROHIBIDO. El convenio solo permite amonestación, suspensión de empleo y sueldo o despido. NO se puede sancionar con multa de haber (descontar dinero del sueldo estando de alta trabajando) ni recortar vacaciones/descansos.",
+      "baseLegal": "art. 58.3 ET",
+      "matiz": "Descontar el tiempo NO trabajado por llegar tarde no es sanción (es que no se paga lo no trabajado)."
+    },
+    "prescripcion": {
+      "articulo": "Anexo I Art. 8",
+      "leves": "10 días",
+      "graves": "20 días",
+      "muyGraves": "60 días",
+      "desde": "que la empresa tuvo conocimiento de su comisión",
+      "topeAbsoluto": "6 meses desde que se cometió"
+    },
+    "revisable": "Toda sanción es revisable ante la jurisdicción social (Anexo I Art. 1).",
+    "verificado": true
+  },
+  "representacionSindical": {
+    "articulo": "Art. 48 (Derechos sindicales)",
+    "marcoLegal": "LOLS 11/1985 + Estatuto de los Trabajadores (RDL 2/2015)",
+    "delegadoSindical": "1 delegado sindical en centros con plantilla superior a 125 trabajadores/as (sindicatos con las condiciones de la LOLS)",
+    "creditoHorarioMensual": {
+      "$comment": "MEJORA el ET (que da 15/20/30/35/40 h). Horas mensuales retribuidas para delegados sindicales, delegados de personal y miembros del comité.",
+      "hasta50trabajadores": 16,
+      "de51a100": 27,
+      "de101a750": 37,
+      "de751enAdelante": 40,
+      "acumulacion": "acumulable trimestral o semestralmente; en empresas de más de 125 trabajadores la acumulación entre miembros de una misma central es automática"
+    },
+    "garantiasFuero": "según arts. 68 ET y LOLS (expediente contradictorio, prioridad de permanencia, no despido/sanción por actividad representativa durante el mandato y el año siguiente).",
+    "verificado": true
+  },
+  "igualdadYAcoso": {
+    "regla": "El acoso sexual y el acoso moral/discriminatorio están tipificados como faltas muy graves (Anexo I Art. 6, apartados 12 y 13). Protocolo/plan de igualdad y violencia de género: pendiente (no localizado bloque específico en la lectura realizada).",
+    "verificado": true
+  },
+  "estado": "verificado_completo",
+  "verificadoContra": "PDF oficial DOGC nº 9630 de 23-03-2026 (Resolución EMT/774/2026, CVE-DOGC-B-26075020-2026), 85 páginas renderizadas a imagen (fitz dpi 185) y leídas visualmente. Tablas salariales 2025-2028 de Barcelona (A.3), Maresme (A.7), Tarragona (B.4) y Girona (C.2.2) transcritas celda a celda. Pluses, servicios extraordinarios, baremos de cafeterías, complemento camareras de piso y articulado (jornada art.28, vacaciones art.30, permisos art.33, IT art.45, seguro art.46, pagas art.43, nocturnidad art.42, finiquito art.27, régimen disciplinario Anexo I, sindical art.48) leídos de imagen.",
+  "pendientes": [
+    "Mapa completo puesto->nivel (Anexo II A.2/B.2/C.2)",
+    "Pluses Maresme 2026-2028 y baremos cafeterías Maresme 2026-2028",
+    "Servicios extraordinarios Tarragona 2028 (pág. 71)",
+    "Complemento camareras de piso Maresme 2027 (2 estrellas) y 2028",
+    "Duraciones concretas del periodo de prueba (remite al ALEH)",
+    "Protocolo de igualdad/acoso y violencia de género (bloque específico)"
+  ],
+  "fechaVerificacion": "2026-07-08"
 }
