@@ -160,6 +160,16 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 
 ---
 
+### D21 — TDD siempre, sin excepción (Iulian 2026-07-07)
+- Todo el código (backend y frontend) se hace con TDD: test primero, luego implementación. No negociable, en todo el proyecto.
+- Backend: JUnit 5 + Mockito + MockMvc + Testcontainers (skills springboot-tdd / tdd-workflow). Frontend: Vitest + @vue/test-utils (configurado 2026-07-07).
+- Tooling de calidad instalado en el scaffold: ESLint (eslint-plugin-vue) + Vitest en frontend; los reviewers java-reviewer/vue-reviewer se pasan tras cambios relevantes.
+
+### D20 — Selección de categoría en cristiano + explicación del nivel (Iulian 2026-07-07)
+- **Entrada fácil:** el usuario elige su **puesto real** de un desplegable (ayudante de cocina, cocinero, jefe de partida, jefe de cocina, camarero, pinche, fregador...), no un "nivel salarial" abstracto.
+- **Pero SÍ se muestra el nivel y se explica** (matiz de Iulian): tras elegir, la app le dice "eres nivel 3 porque el convenio clasifica a cocineros/camareros ahí; tu salario base es X€" con enlace a su convenio completo. Objetivo pedagógico: que el trabajador ENTIENDA su convenio, que tiene siempre accesible en la app (encaja con el visor de convenio, D4). No ocultar el nivel: educarlo.
+- Las categorías salen del ALEH VI (clasificación nacional común) → el desplegable es casi el mismo en toda España; solo cambia a qué nivel/salario mapea cada convenio.
+
 ### D19 — Reparto de trabajo (cerrado 2026-07-07)
 - **Convenios:** los investigan **juntos** (Iulian + Claude). Primer pendiente al arrancar. Ideas de partida: modelo de datos genérico (convenio → año → categoría → salario base / plus nocturnidad / precio hora extra), carga incremental (1-2 provincias reales de piloto + modo configurable a mano como respaldo), fuente oficial (BOE / boletines provinciales).
 - **Código: lo escribe Claude, con supervisión de Iulian.** NO es proyecto didáctico (a diferencia del bootcamp) — no aplica el modo enseñanza sino el ciclo normal: git completo por Claude (ramas, conventional commits, PR, merge, borrar ramas), tests, code review.
@@ -179,7 +189,13 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 - El detalle vivo está en la memoria automática: `project_idea_horas_extras.md`. Este ADR es la copia completa y durable en los Documentos de Iulian.
 - **Tooling (revisado 2026-07-07):** skills de Spring/Vue/Postgres/TDD/security + agentes revisores cubren el stack. Agente `data-privacy-officer` restaurado del archivo para el trabajo RGPD (D11). En `agents-archive/` queda `marketing-app-store-optimizer` para la ficha de Play Store cuando toque. Gaps sin skill: Capacitor y offline-first → usar `documentation-lookup` (Context7) con docs oficiales.
 - **Modo de trabajo acordado:** Iulian verifica convenios con ayuda de Claude mientras un subagente construye la app en paralelo (él lo ha pedido explícitamente — spawnearlo cuando haya repo).
-- **Convenios (investigado 2026-07-07):** el ALEH VI (BOE-A-2023-6344) da la clasificación profesional común nacional; ~50 convenios provinciales/autonómicos solo cambian los números; tablas en boletines provinciales (PDF); REGCON sin API; los textos oficiales no tienen copyright (art. 13 LPI) → transcribir es legal. Arquitectura: tablas como ficheros de datos en el repo (mantenimiento comunitario vía PR), cada tabla con su vigencia visible, + modo configurable de respaldo para provincias sin transcribir.
+- **Convenios (investigado 2026-07-07):** el ALEH VI (BOE-A-2023-6344) da la clasificación profesional común nacional; tablas en boletines provinciales (PDF); REGCON sin API; los textos oficiales no tienen copyright (art. 13 LPI) → transcribir es legal. Arquitectura: tablas como ficheros de datos en el repo (mantenimiento comunitario vía PR), cada tabla con su vigencia visible, + modo configurable de respaldo para provincias sin transcribir.
+- **⚠️ SUBSECTORES (clave, Iulian 2026-07-07): "hostelería" NO es un solo convenio por provincia, son TRES ejes que se cruzan.** El usuario elige DOS cosas: (a) dónde trabaja [provincia/CCAA] y (b) tipo de establecimiento:
+  1. **Hospedaje / hoteles** → convenio provincial o autonómico
+  2. **Hostelería** (restaurantes, bares, cafeterías) → convenio provincial o autonómico DISTINTO del de hospedaje (verificado: en Madrid son dos convenios separados)
+  3. **Restauración colectiva** (comedores de colegios, hospitales, empresas, residencias) → convenio ESTATAL único (BOE-A-2025-12598), igual en toda España
+  Modelo de datos: añadir campo `subsector` al ámbito de cada convenio; el par (provincia, subsector) determina el convenio aplicable. El borrador de Madrid ya descubierto es de HOSPEDAJE (`docs/borrador-convenio-madrid-hospedaje.json`), NO cubre bares/restaurantes de Madrid.
+- **Análisis de competencia (Iulian 2026-07-07):** al estudiar apps existentes (Sesame, Factorial...) la intención es SACAR IDEAS de UX/features, NO copiar código ni APIs. La skill `android-reverse-engineering` se usa solo para aprender de decisiones de diseño; extraer/replicar su propiedad intelectual queda fuera (choca con D18 y el plano legal).
 - **Orden de carga de convenios (decisión de Iulian 2026-07-07): por población, de más a menos.** Primera tanda: 1) Madrid (autonómico), 2) Barcelona → convenio de Cataluña interprovincial (incluye Girona, Tarragona y Lleida gratis), 3) Valencia, 4) Alicante, 5) Sevilla. = 8 provincias y ~20M de habitantes cubiertos de salida. Iulian verifica las tablas transcritas (con ayuda de Claude) mientras un subagente codea.
 - Git/fontanería lo hace Claude sin preguntar (ver CLAUDE.md global). Todavía **no hay repo** — crearlo cuando se decida arrancar.
 - Iulian: castellano de España, tuteo, directo, mensajes cortos, él marca el ritmo. No cerrar cada mensaje con pregunta.
