@@ -1,0 +1,241 @@
+{
+  "$comment": "Convenio ÚNICO de hostelería de la Región de Murcia (cubre hospedaje Y restauración/bares en un solo texto autonómico, a diferencia de Madrid). Tablas AÑO 2024 VERIFICADAS visualmente contra el PDF oficial del BORM nº176 (30-07-2024, acuerdo tablas 2024, corrección de errores; NPE A-300724-3949). El texto del convenio (nocturnidad, jornada, pagas, pluses) verificado contra BORM nº157 (10-07-2023, NPE A-100723-4258). AVISO CRÍTICO DE CURRENCY: las tablas 2024 son las ÚLTIMAS OFICIALMENTE PUBLICADAS. El Art.14 pacta +3% para 2025 sobre 2024, PERO no consta tabla salarial 2025 publicada en el registro (la ficha CARM C-01251 no lista nada posterior a 30-07-2024; un supuesto 'resultado 2025' en búsquedas era en realidad el convenio de CARPINTERÍA de Murcia, NO hostelería). Por REGLA SUPREMA no se calculan/inventan los importes 2025 de la tabla base. El convenio expiró 31-12-2025 y está en prórroga/ultraactividad en 2026.",
+  "id": "murcia-hosteleria",
+  "nombre": "Convenio colectivo de Hostelería de la Región de Murcia 2023-2025",
+  "codigoRegcon": "30000805011981",
+  "ambitoTerritorial": { "tipo": "autonomico", "comunidad": "Región de Murcia", "provincias": ["Murcia"] },
+  "ambitoFuncional": "hosteleria",
+  "ambitoFuncionalDetalle": "Convenio único que incluye hospedaje (hoteles, hostales, pensiones, moteles, apartamentos, balnearios, albergues, campings) y restauración (restaurantes, catering, colectividades, comida rápida, pizzerías, hamburgueserías, bares, cafeterías, cervecerías, heladerías, chocolaterías, salones de té, salas de baile/discotecas, cafés-teatro, tablaos), así como servicios de comidas/bebidas en casinos, bingos, billares y salones recreativos (Art. 2).",
+  "fuente": {
+    "boletin": "BORM (Boletín Oficial de la Región de Murcia)",
+    "tablasSalariales": {
+      "boletin": "BORM",
+      "numero": 176,
+      "fecha": "2024-07-30",
+      "documento": "Acuerdo tablas salariales AÑO 2024 (corrección de errores). NPE A-300724-3949",
+      "url": "https://www.borm.es/services/anuncio/ano/2024/numero/3949/pdf?id=829084"
+    },
+    "textoConvenio": {
+      "boletin": "BORM",
+      "numero": 157,
+      "fecha": "2023-07-10",
+      "documento": "Convenio colectivo del Sector de Hostelería de la Región de Murcia 2023-2025. NPE A-100723-4258",
+      "url": "https://www.borm.es/services/anuncio/ano/2023/numero/4258/pdf?id=820557"
+    }
+  },
+  "vigencia": {
+    "desde": "2023-03-01",
+    "hasta": "2025-12-31",
+    "nota": "Art. 3: vigencia 1-mar-2023 a 31-dic-2025; prórroga automática por periodos anuales salvo denuncia expresa. En 2026 está en prórroga/ultraactividad. Aún no consta nuevo convenio ni tabla 2025 publicada."
+  },
+  "revisionSalarial": {
+    "$comment": "Art. 14.",
+    "2023": "+15,8% sobre las tablas de 2018",
+    "2024": "+3% sobre las tablas de 2023",
+    "2025": "+3% sobre las tablas de 2024 (pactado, pero SIN tabla 2025 localizada en el registro oficial: importes de la tabla base 2025 PENDIENTES, no calculados)",
+    "plusSMI": "Garantía adicional de 0,5% sobre el SMI para categorías que queden por debajo del SMI en cómputo anual (columnas 'Plus SMI' de las tablas), durante los tres años de vigencia."
+  },
+  "jornadaAnual": {
+    "horas": 1822,
+    "horasSemanales": 40,
+    "descansoSemanalDias": 2,
+    "nota": "Art. 25: 40 h/semana de trabajo efectivo, máximo 1.822 h/año. Art. 26: descanso semanal de dos días."
+  },
+  "nocturnidad": {
+    "$comment": "Art. 17. Franja nocturna 22:00-06:00.",
+    "franjaNocturna": "22:00 a 06:00",
+    "tramo22a01": "De 22:00 a 01:00: salario base SIN recargo.",
+    "tramo01a06": "De 01:00 a 06:00: recargo del 25% del salario base.",
+    "trabajosNocturnosPorNaturaleza": "Incremento del 10% del salario base durante el periodo que se realicen.",
+    "nota": "Se respetan condiciones más beneficiosas previas a la publicación del convenio."
+  },
+  "pagasExtraordinarias": {
+    "numero": 2,
+    "pagasAnualesTotales": 14,
+    "detalle": "Art. 19: dos gratificaciones, una de Navidad (pagadera 20-dic) y otra en junio (pagadera 15-jun). Cada una equivale a una mensualidad de salario más complemento 'ad personam'. Prorrateables por acuerdo. => 14 pagas anuales.",
+    "nota": "OJO: son 14 pagas (12 mensualidades + 2 extras), NO 15."
+  },
+  "horasExtraordinarias": {
+    "$comment": "Art. 20. Este convenio NO fija un precio en euros por hora extra en la tabla (a diferencia de Alicante). Se calcula por fórmula.",
+    "fijaPrecioEnTabla": false,
+    "formula": "Dividendo = salario base + pagas extraordinarias + plus manutención + complemento 'ad personam' + premio de vinculación. Divisor = número de horas anuales de trabajo efectivo.",
+    "nota": "El coste de la hora extra se obtiene con esa operación; el trabajo y abono se rigen además por la normativa vigente."
+  },
+  "plusManutencion": {
+    "$comment": "Art. 18. Complemento salarial en especie (manutención) o su sustitución en metálico, por mes de servicio efectivo.",
+    "2023": 6.79,
+    "2024": 6.99,
+    "2025": 7.20,
+    "nota": "No se abona a quienes presten servicios menos de 20 h/semana. Exentas las empresas que no sirvan comidas ni tengan cocina. Importes 2025 SÍ están en el texto oficial del convenio (Art. 18)."
+  },
+  "plusDistanciaYTransporte": {
+    "$comment": "Art. 23. Importe anual; se abona en 12 mensualidades aunque se devenga en 11.",
+    "2023": { "anual": 611.25, "mensual": 50.93 },
+    "2024": { "anual": 629.59, "mensual": 52.47 },
+    "2025": { "anual": 648.48, "mensual": 54.04 }
+  },
+  "premioNupcialidad": {
+    "$comment": "Art. 21. Premio por matrimonio del trabajador que continúe en la empresa.",
+    "2023": 90.80,
+    "2024": 93.52,
+    "2025": 96.32
+  },
+  "premioVinculacion": {
+    "$comment": "Art. 22.",
+    "detalle": "30 días de salario base más complemento 'ad personam', pagadero el 15 de septiembre de cada año. Proporcional en altas/bajas durante el año."
+  },
+  "antiguedad": {
+    "detalle": "Art. 16: el Complemento Personal de Antigüedad quedó suprimido a 1-ago-1998; sustituido por un complemento 'ad personam' no absorbible ni compensable para quienes lo percibían a 31-12-1997.",
+    "nota": "No hay devengo de nuevos trienios/quinquenios de antigüedad en este convenio."
+  },
+  "ropaTrabajo": {
+    "detalle": "Art. 24: la empresa proporciona uniformes y ropa de trabajo no de uso común, o su compensación en metálico. La limpieza que requiera tintorería es por cuenta de la empresa."
+  },
+  "clasificacionProfesional": {
+    "sistema": "Grupos profesionales y áreas funcionales del ALEH (Acuerdo Laboral de ámbito Estatal para el Sector de la Hostelería). Art. 11.",
+    "areasFuncionales": [
+      "Primera: Recepción, conserjería, relaciones públicas, administración y gestión",
+      "Segunda: Cocina y economato",
+      "Tercera: Restaurante, bar y similares; pista para catering",
+      "Cuarta: Pisos y limpieza",
+      "Quinta: Servicios de mantenimiento y servicios auxiliares",
+      "Sexta: Servicios complementarios"
+    ]
+  },
+  "columnasEstablecimiento": {
+    "$comment": "Las tablas cruzan cada categoría con el TIPO de establecimiento. Claves usadas en 'tablasSalariales2024'.",
+    "hot4y5_rest4y5": "Columna 1: Hoteles 4 y 5*, Restaurantes 4 y 5 tenedores",
+    "hot3_rest3": "Columna 2: Hoteles 3*, Hoteles-Restaurantes y Restaurantes 3*",
+    "hot1y2_hosp_rest1y2": "Columna 3: Hoteles 1 y 2*, Hospedajes y Pensiones, Restaurantes 1 y 2",
+    "cafeterias_bares": "Columna 4: Cafeterías, cervecerías y bares",
+    "casinos1y2": "Columna 5a: Casinos españoles 1ª y 2ª categoría",
+    "casinos3y4": "Columna 5b: Casinos 3ª y 4ª categoría",
+    "salones_billares": "Columna 6: Salones recreativos y billares"
+  },
+  "formatoCelda": "Cada celda cumplimentada es un objeto { salarioBase (€/mes), plusSMI? (€/mes) }. Solo se transcriben las celdas con valor en el BORM; las vacías se omiten. 'salarioBase' es salario mensual de la tabla (14 pagas).",
+  "tablasSalariales2024": {
+    "$comment": "AÑO 2024. Salario base mensual en euros. Verificado visualmente celda a celda contra BORM nº176 (30-07-2024).",
+    "areaPrimera_recepcionAdmin": {
+      "grupoI": {
+        "1º Jefe de Recepción": { "hot4y5_rest4y5": {"salarioBase": 1266.83}, "hot3_rest3": {"salarioBase": 1149.18}, "hot1y2_hosp_rest1y2": {"salarioBase": 1058.89}, "casinos1y2": {"salarioBase": 1266.83}, "casinos3y4": {"salarioBase": 1239.35} },
+        "2º Jefe de Recepción": { "hot4y5_rest4y5": {"salarioBase": 1222.98}, "hot3_rest3": {"salarioBase": 1058.89}, "hot1y2_hosp_rest1y2": {"salarioBase": 1028.78}, "casinos1y2": {"salarioBase": 1222.98}, "casinos3y4": {"salarioBase": 1209.32} },
+        "Contable General": { "hot4y5_rest4y5": {"salarioBase": 1266.83}, "hot3_rest3": {"salarioBase": 1149.18}, "hot1y2_hosp_rest1y2": {"salarioBase": 1058.89}, "cafeterias_bares": {"salarioBase": 1089.00}, "casinos1y2": {"salarioBase": 1266.83}, "casinos3y4": {"salarioBase": 1239.35} },
+        "Jefe Comercial": { "hot4y5_rest4y5": {"salarioBase": 1266.83}, "hot3_rest3": {"salarioBase": 1149.18}, "hot1y2_hosp_rest1y2": {"salarioBase": 1058.89}, "casinos1y2": {"salarioBase": 1266.83}, "casinos3y4": {"salarioBase": 1239.35} },
+        "1ª Conserje": { "hot4y5_rest4y5": {"salarioBase": 1224.01}, "hot3_rest3": {"salarioBase": 1058.89}, "hot1y2_hosp_rest1y2": {"salarioBase": 1028.78} },
+        "2ª Conserje": { "hot4y5_rest4y5": {"salarioBase": 1149.18} }
+      },
+      "grupoII": {
+        "Recepcionista": { "hot4y5_rest4y5": {"salarioBase": 1149.18}, "hot3_rest3": {"salarioBase": 1014.07, "plusSMI": 7.65}, "hot1y2_hosp_rest1y2": {"salarioBase": 1009.16, "plusSMI": 12.56}, "casinos1y2": {"salarioBase": 1192.95}, "casinos3y4": {"salarioBase": 1162.80} },
+        "Conserje": { "hot4y5_rest4y5": {"salarioBase": 1068.67}, "hot3_rest3": {"salarioBase": 1012.23, "plusSMI": 9.49}, "hot1y2_hosp_rest1y2": {"salarioBase": 1002.59, "plusSMI": 19.13}, "casinos1y2": {"salarioBase": 1192.95}, "casinos3y4": {"salarioBase": 1162.80} },
+        "Tenedor de cuentas": { "hot4y5_rest4y5": {"salarioBase": 1190.15}, "hot3_rest3": {"salarioBase": 1034.36}, "hot1y2_hosp_rest1y2": {"salarioBase": 1028.78}, "cafeterias_bares": {"salarioBase": 1018.99}, "casinos1y2": {"salarioBase": 1192.95}, "casinos3y4": {"salarioBase": 1162.80} },
+        "Relaciones Públicas": { "hot4y5_rest4y5": {"salarioBase": 1149.18}, "hot3_rest3": {"salarioBase": 1014.07, "plusSMI": 7.65}, "hot1y2_hosp_rest1y2": {"salarioBase": 1009.16, "plusSMI": 12.56}, "casinos1y2": {"salarioBase": 1192.95}, "casinos3y4": {"salarioBase": 1162.80} },
+        "Comercial": { "hot4y5_rest4y5": {"salarioBase": 1068.67}, "hot3_rest3": {"salarioBase": 1012.23, "plusSMI": 9.49}, "hot1y2_hosp_rest1y2": {"salarioBase": 1002.59, "plusSMI": 19.13}, "casinos1y2": {"salarioBase": 1192.95}, "casinos3y4": {"salarioBase": 1162.80} }
+      },
+      "grupoIII": {
+        "Ayudante de Recepción": { "hot4y5_rest4y5": {"salarioBase": 1028.78}, "hot3_rest3": {"salarioBase": 1004.22, "plusSMI": 17.50}, "cafeterias_bares": {"salarioBase": 1165.59}, "casinos1y2": {"salarioBase": 1132.74} },
+        "Oficial de Contabilidad": { "hot4y5_rest4y5": {"salarioBase": 1149.18}, "hot3_rest3": {"salarioBase": 1014.07, "plusSMI": 7.65}, "hot1y2_hosp_rest1y2": {"salarioBase": 1009.16, "plusSMI": 12.56}, "cafeterias_bares": {"salarioBase": 1012.45, "plusSMI": 9.27}, "casinos1y2": {"salarioBase": 1149.18}, "casinos3y4": {"salarioBase": 1129.96} },
+        "Telefonista de 1ª": { "hot4y5_rest4y5": {"salarioBase": 1149.18}, "hot3_rest3": {"salarioBase": 1014.07, "plusSMI": 7.65}, "hot1y2_hosp_rest1y2": {"salarioBase": 1009.16, "plusSMI": 12.56}, "cafeterias_bares": {"salarioBase": 1012.45, "plusSMI": 9.27}, "casinos1y2": {"salarioBase": 1149.18}, "casinos3y4": {"salarioBase": 1129.96} }
+      },
+      "grupoIV": {
+        "Portero": { "hot4y5_rest4y5": {"salarioBase": 1028.78}, "hot3_rest3": {"salarioBase": 1012.45, "plusSMI": 9.27}, "hot1y2_hosp_rest1y2": {"salarioBase": 1005.84, "plusSMI": 15.88}, "cafeterias_bares": {"salarioBase": 1005.84, "plusSMI": 15.88}, "casinos1y2": {"salarioBase": 1165.59}, "casinos3y4": {"salarioBase": 1132.74} }
+      }
+    },
+    "areaSegunda_cocinaEconomato": {
+      "grupoI": {
+        "Jefe de Cocina": { "hot4y5_rest4y5": {"salarioBase": 1266.83}, "hot3_rest3": {"salarioBase": 1149.18}, "hot1y2_hosp_rest1y2": {"salarioBase": 1089.00}, "cafeterias_bares": {"salarioBase": 1089.00}, "casinos1y2": {"salarioBase": 1266.83}, "casinos3y4": {"salarioBase": 1239.35} },
+        "2º Jefe de Cocina": { "hot4y5_rest4y5": {"salarioBase": 1222.98}, "hot3_rest3": {"salarioBase": 1058.89}, "hot1y2_hosp_rest1y2": {"salarioBase": 1028.78}, "casinos1y2": {"salarioBase": 1222.98}, "casinos3y4": {"salarioBase": 1058.87} },
+        "Jefe de Catering": { "hot3_rest3": {"salarioBase": 1028.78} }
+      },
+      "grupoII": {
+        "Jefe de Partida": { "hot4y5_rest4y5": {"salarioBase": 1190.15}, "hot3_rest3": {"salarioBase": 1034.36}, "hot1y2_hosp_rest1y2": {"salarioBase": 1012.45, "plusSMI": 9.27}, "casinos1y2": {"salarioBase": 1192.95}, "casinos3y4": {"salarioBase": 1058.89} },
+        "Cocinero": { "hot4y5_rest4y5": {"salarioBase": 1129.96}, "hot3_rest3": {"salarioBase": 1014.07, "plusSMI": 7.65}, "hot1y2_hosp_rest1y2": {"salarioBase": 1009.16, "plusSMI": 12.56}, "cafeterias_bares": {"salarioBase": 1018.99, "plusSMI": 2.73}, "casinos1y2": {"salarioBase": 1018.99, "plusSMI": 2.73}, "casinos3y4": {"salarioBase": 1018.99, "plusSMI": 2.73} },
+        "Jefe Repostero": { "hot4y5_rest4y5": {"salarioBase": 1190.15}, "hot3_rest3": {"salarioBase": 1034.36}, "hot1y2_hosp_rest1y2": {"salarioBase": 1012.45, "plusSMI": 9.27}, "cafeterias_bares": {"salarioBase": 1018.99, "plusSMI": 2.73}, "casinos1y2": {"salarioBase": 1018.99, "plusSMI": 2.73}, "casinos3y4": {"salarioBase": 1018.99, "plusSMI": 2.73} },
+        "Encargado de Economato": { "hot4y5_rest4y5": {"salarioBase": 1190.15}, "hot3_rest3": {"salarioBase": 1034.36}, "hot1y2_hosp_rest1y2": {"salarioBase": 1012.45, "plusSMI": 9.27}, "cafeterias_bares": {"salarioBase": 1018.99, "plusSMI": 2.73}, "casinos1y2": {"salarioBase": 1018.99, "plusSMI": 2.73}, "casinos3y4": {"salarioBase": 1018.99, "plusSMI": 2.73} },
+        "Bodeguero": { "hot4y5_rest4y5": {"salarioBase": 1058.89} }
+      },
+      "grupoIII": {
+        "Ayudante Economato y Bodega": { "hot4y5_rest4y5": {"salarioBase": 1005.84, "plusSMI": 15.88}, "hot3_rest3": {"salarioBase": 974.97, "plusSMI": 46.75}, "hot1y2_hosp_rest1y2": {"salarioBase": 973.39, "plusSMI": 48.33}, "cafeterias_bares": {"salarioBase": 973.39, "plusSMI": 48.33}, "casinos1y2": {"salarioBase": 973.39, "plusSMI": 48.33}, "casinos3y4": {"salarioBase": 973.39, "plusSMI": 48.33} },
+        "Ayudante de Cocinero": { "hot4y5_rest4y5": {"salarioBase": 1005.84, "plusSMI": 15.88}, "hot3_rest3": {"salarioBase": 974.97, "plusSMI": 46.75}, "hot1y2_hosp_rest1y2": {"salarioBase": 973.39, "plusSMI": 48.33}, "cafeterias_bares": {"salarioBase": 973.39, "plusSMI": 48.33}, "casinos1y2": {"salarioBase": 973.39, "plusSMI": 48.33}, "casinos3y4": {"salarioBase": 973.39, "plusSMI": 48.33} }
+      },
+      "grupoIV": {
+        "Marmitón": { "hot4y5_rest4y5": {"salarioBase": 1005.84, "plusSMI": 15.88}, "hot3_rest3": {"salarioBase": 1004.22, "plusSMI": 17.50}, "hot1y2_hosp_rest1y2": {"salarioBase": 1002.59, "plusSMI": 19.13}, "cafeterias_bares": {"salarioBase": 1002.59, "plusSMI": 19.13}, "casinos1y2": {"salarioBase": 1002.59, "plusSMI": 19.13}, "casinos3y4": {"salarioBase": 1002.59, "plusSMI": 19.13} }
+      }
+    },
+    "areaTercera_restauranteSala": {
+      "grupoI": {
+        "Jefe de Sala": { "hot4y5_rest4y5": {"salarioBase": 1266.83}, "hot3_rest3": {"salarioBase": 1149.18}, "hot1y2_hosp_rest1y2": {"salarioBase": 1058.89}, "cafeterias_bares": {"salarioBase": 1149.18}, "casinos1y2": {"salarioBase": 1192.95}, "casinos3y4": {"salarioBase": 1192.95} },
+        "Jefe de Operaciones (catering)": { "hot3_rest3": {"salarioBase": 1028.78} },
+        "2º Jefe de Comedor": { "hot4y5_rest4y5": {"salarioBase": 1222.98}, "hot3_rest3": {"salarioBase": 1058.89}, "hot1y2_hosp_rest1y2": {"salarioBase": 1042.48}, "cafeterias_bares": {"salarioBase": 1089.00}, "casinos1y2": {"salarioBase": 1042.48}, "casinos3y4": {"salarioBase": 1042.48} }
+      },
+      "grupoII": {
+        "3ª Jefe de Sector": { "hot4y5_rest4y5": {"salarioBase": 1190.15}, "hot3_rest3": {"salarioBase": 1034.36}, "hot1y2_hosp_rest1y2": {"salarioBase": 1017.36} },
+        "Jefe de Sala (catering)": { "hot1y2_hosp_rest1y2": {"salarioBase": 1017.36} },
+        "Camarero": { "hot4y5_rest4y5": {"salarioBase": 1149.18}, "hot3_rest3": {"salarioBase": 1017.36}, "hot1y2_hosp_rest1y2": {"salarioBase": 1017.36}, "cafeterias_bares": {"salarioBase": 1017.36}, "casinos1y2": {"salarioBase": 1017.36}, "casinos3y4": {"salarioBase": 1017.36} },
+        "Barman": { "cafeterias_bares": {"salarioBase": 1089.00}, "casinos1y2": {"salarioBase": 1089.00}, "casinos3y4": {"salarioBase": 1089.00} },
+        "Jefe de Sumiller": { "hot4y5_rest4y5": {"salarioBase": 1190.15}, "hot3_rest3": {"salarioBase": 1034.36}, "hot1y2_hosp_rest1y2": {"salarioBase": 1017.36} },
+        "Supervisor": { "hot1y2_hosp_rest1y2": {"salarioBase": 1017.36} },
+        "Jefe de Equipo": { "hot1y2_hosp_rest1y2": {"salarioBase": 1017.36} },
+        "Supervisor Colectividades": { "hot1y2_hosp_rest1y2": {"salarioBase": 1017.36} }
+      },
+      "grupoIII": {
+        "Ayudante Camarero": { "hot4y5_rest4y5": {"salarioBase": 1028.78}, "hot3_rest3": {"salarioBase": 1012.45, "plusSMI": 9.27}, "hot1y2_hosp_rest1y2": {"salarioBase": 1012.45, "plusSMI": 9.27}, "cafeterias_bares": {"salarioBase": 1008.58, "plusSMI": 13.14}, "casinos1y2": {"salarioBase": 1008.58, "plusSMI": 13.14}, "casinos3y4": {"salarioBase": 1008.58, "plusSMI": 13.14} },
+        "Preparador/Montador de catering": { "hot1y2_hosp_rest1y2": {"salarioBase": 1012.45, "plusSMI": 9.27} },
+        "Conductor Equipo Catering": { "hot1y2_hosp_rest1y2": {"salarioBase": 1012.45, "plusSMI": 9.27} },
+        "Ayudante Equipo Catering": { "hot1y2_hosp_rest1y2": {"salarioBase": 1012.45, "plusSMI": 9.27} }
+      },
+      "grupoIV": {
+        "Auxiliar Colectividades": { "hot1y2_hosp_rest1y2": {"salarioBase": 1000.91, "plusSMI": 20.81} },
+        "Auxiliar de Preparación o Montaje de Catering": { "hot1y2_hosp_rest1y2": {"salarioBase": 1000.91, "plusSMI": 20.81} }
+      }
+    },
+    "areaCuarta_pisosLimpieza": {
+      "grupoI": {
+        "Encargado General": { "hot4y5_rest4y5": {"salarioBase": 1222.98}, "hot3_rest3": {"salarioBase": 1058.89}, "hot1y2_hosp_rest1y2": {"salarioBase": 1028.78}, "casinos1y2": {"salarioBase": 1222.98}, "casinos3y4": {"salarioBase": 1058.89} },
+        "Gobernanta de 2ª": { "hot4y5_rest4y5": {"salarioBase": 1149.18}, "hot3_rest3": {"salarioBase": 1014.07, "plusSMI": 7.65}, "hot1y2_hosp_rest1y2": {"salarioBase": 1014.07, "plusSMI": 7.65}, "cafeterias_bares": {"salarioBase": 1014.07, "plusSMI": 7.65}, "casinos1y2": {"salarioBase": 1149.18}, "casinos3y4": {"salarioBase": 1014.07, "plusSMI": 7.65} }
+      },
+      "grupoII": {
+        "Camarera de Pisos": {
+          "$notaFila": "Valores tomados de la fila 'Lencera' (primera fila del grupo 'Camarera de Pisos'); el resto de filas del grupo (Camarera de Pisos, Planchadora, Costurera, Lavandera, Zurcidora) aparecen en blanco en el BORM y comparten nivel.",
+          "hot4y5_rest4y5": {"salarioBase": 1028.78}, "hot3_rest3": {"salarioBase": 1012.45, "plusSMI": 9.27}, "hot1y2_hosp_rest1y2": {"salarioBase": 1012.45, "plusSMI": 9.27}, "cafeterias_bares": {"salarioBase": 1012.45, "plusSMI": 9.27}
+        }
+      },
+      "grupoIII": {
+        "Auxiliar de Pisos y Limpieza (Personal de Limpieza)": { "hot4y5_rest4y5": {"salarioBase": 1000.90, "plusSMI": 20.82}, "hot3_rest3": {"salarioBase": 1000.90, "plusSMI": 20.82}, "hot1y2_hosp_rest1y2": {"salarioBase": 1000.90, "plusSMI": 20.82}, "cafeterias_bares": {"salarioBase": 1000.90, "plusSMI": 20.82}, "casinos1y2": {"salarioBase": 1000.90, "plusSMI": 20.82}, "casinos3y4": {"salarioBase": 1000.90, "plusSMI": 20.82} }
+      }
+    },
+    "areaQuinta_mantenimientoAuxiliares": {
+      "grupoI": {
+        "Jefe de Servicios de Catering": { "hot1y2_hosp_rest1y2": {"salarioBase": 1058.89} }
+      },
+      "grupoII": {
+        "Encargado de Trabajos (Mantenimiento y Servicios)": { "hot4y5_rest4y5": {"salarioBase": 1222.98}, "hot3_rest3": {"salarioBase": 1058.89}, "hot1y2_hosp_rest1y2": {"salarioBase": 1028.78} },
+        "Encargado de Sala / Oficial 1ª (Encargado de Sección)": { "hot4y5_rest4y5": {"salarioBase": 1129.96}, "hot3_rest3": {"salarioBase": 1034.36}, "hot1y2_hosp_rest1y2": {"salarioBase": 1017.36}, "salones_billares": {"salarioBase": 1004.22, "plusSMI": 17.50} }
+      },
+      "grupoIII": {
+        "Mecánico/Calefactor (Especialista de Mantenimiento)": { "hot4y5_rest4y5": {"salarioBase": 1028.78}, "hot3_rest3": {"salarioBase": 1012.45, "plusSMI": 9.27}, "hot1y2_hosp_rest1y2": {"salarioBase": 1005.84, "plusSMI": 15.88}, "cafeterias_bares": {"salarioBase": 1005.84, "plusSMI": 15.88}, "casinos1y2": {"salarioBase": 1005.84, "plusSMI": 15.88}, "casinos3y4": {"salarioBase": 1149.18} },
+        "Animador Turístico": { "hot4y5_rest4y5": {"salarioBase": 1022.82} }
+      },
+      "grupoIV": {
+        "Ayudante de Mecánico/Calefactor (Auxiliar de Mantenimiento)": { "hot4y5_rest4y5": {"salarioBase": 1000.90, "plusSMI": 20.82}, "hot3_rest3": {"salarioBase": 1000.90, "plusSMI": 20.82}, "hot1y2_hosp_rest1y2": {"salarioBase": 1000.90, "plusSMI": 20.82}, "salones_billares": {"salarioBase": 1000.90, "plusSMI": 20.82} }
+      },
+      "grupoV": {
+        "Monitor-Cuidador": { "hot1y2_hosp_rest1y2": {"salarioBase": 995.11, "plusSMI": 26.61} }
+      }
+    },
+    "areaSexta_serviciosComplementarios": {
+      "$comment": "En el BORM la tabla del Área Sexta (Responsable de Servicio, Fisioterapeuta, Dietista, Socorrista, Animador, Masajista, Esteticista, Auxiliar de Servicio, etc.) aparece SIN salarios cumplimentados (todas las celdas en blanco). No hay importes que transcribir.",
+      "estado": "sin_importes_en_boletin"
+    }
+  },
+  "tablas2025": {
+    "estado": "pendiente",
+    "nota": "Art. 14 pacta +3% sobre 2024, pero NO se ha localizado tabla salarial 2025 publicada en el registro oficial (ficha CARM C-01251 sin publicaciones posteriores a 30-07-2024). Los importes de la tabla base 2025 NO se calculan aquí (regla: no inventar cifras). Los pluses con importe 2025 fijado en el texto del convenio (manutención 7,20 €; nupcialidad 96,32 €; transporte 648,48 €/año, 54,04 €/mes) SÍ constan arriba."
+  },
+  "estado": "parcial",
+  "verificadoContra": "Tablas AÑO 2024: PDF oficial BORM nº176 (30-07-2024, NPE A-300724-3949) renderizado a imagen y leído visualmente celda a celda (áreas Primera a Quinta; Área Sexta sin importes). Texto del convenio (nocturnidad, jornada 1.822 h, pagas, pluses, horas extra por fórmula): PDF oficial BORM nº157 (10-07-2023, NPE A-100723-4258).",
+  "pendiente": [
+    "Tabla salarial 2025 (no publicada en el registro a fecha de transcripción; confirmar con UGT si existe o si aplica ultraactividad de las tablas 2024).",
+    "Estado de negociación del convenio 2026 y siguientes (expiró 31-12-2025, en prórroga)."
+  ],
+  "fechaVerificacion": "2026-07-07"
+}
