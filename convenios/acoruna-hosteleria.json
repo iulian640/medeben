@@ -1,0 +1,436 @@
+{
+  "$comment": "Táboas 2024 VERIFICADAS visualmente e por dobre método (imaxe renderizada a 185 dpi + extracción de texto, coincidentes) contra o PDF oficial do BOP da Coruña nº241 (22-12-2022, anuncio 2022/8018), que contén o texto do convenio e as táboas salariais 2022/2023/2024. As táboas de 2024 son as vixentes en xullo de 2026: o convenio (2019-2024) está en ULTRAACTIVIDADE dende 01-01-2025 e a cláusula de revisión por IPC do art.6 NON se activou (confirmado en acta da comisión paritaria publicada no BOP nº60 de 28-03-2025, punto 3º: 'como no se ha llegado al IPC acumulado no procede el ajuste'). As publicacións paritarias posteriores (2024, mar-2025, dec-2025) só resolven consultas: non conteñen táboas novas. OLLO: este convenio estrutura os salarios por SECCIÓN de establecemento (hoteis, pensións, restaurantes, cafetarías, cafés-bares, salas de festa, tabernas, billares) x ÁREA FUNCIONAL (1-6) x GRUPO PROFESIONAL (I/II/III) x FUNCIÓN x CATEGORÍA de establecemento (estrelas/luxo-primeira.../tazas...). A nocturnidade e a hora extra son PORCENTAXES sobre salario base/hora (non € fixos como en Alacante).",
+  "id": "acoruna-hosteleria",
+  "nombre": "Convenio colectivo do sector da hostalería da provincia da Coruña",
+  "codigoConvenio": "15000745011981",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Galicia", "provincias": ["A Coruña"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "boletin": "BOP A Coruña",
+    "numero": 241,
+    "fecha": "2022-12-22",
+    "documento": "Anuncio 2022/8018 (texto do convenio + táboas salariais 2022-2024)",
+    "url": "https://bop.dacoruna.gal/bopportal/publicado/2022/12/22/2022_0000008018.pdf"
+  },
+  "publicacionesPosteriores": [
+    { "boletin": "BOP A Coruña", "numero": 99, "fecha": "2024-05-23", "documento": "Anuncio 2024/3495 - acordo comisión paritaria (só resposta a consultas, sen táboas)" },
+    { "boletin": "BOP A Coruña", "numero": 60, "fecha": "2025-03-28", "documento": "Anuncio 2025/1902 - acordo comisión paritaria; confirma que a cláusula IPC do art.6 non se activa (sen táboas)" },
+    { "boletin": "BOP A Coruña", "numero": 231, "fecha": "2025-12-02", "documento": "Anuncio 2025/7938 - acordo comisión paritaria (só resposta a consultas, sen táboas)" }
+  ],
+  "vigencia": {
+    "desde": "2019-01-01",
+    "hasta": "2024-12-31",
+    "situacion": "En ultraactividade dende 2025-01-01 (art.4, prórroga anual). Táboas 2024 vixentes en xullo-2026; a revisión por IPC de 2025 non procedeu (acta paritaria BOP 60, 28-03-2025)."
+  },
+  "incrementos": { "2022": "4%", "2023": "3.75%", "2024": "4%", "clausulaIPC": "Se o IPC acumulado 2022-2024 supera o 11,75%, actualízanse as táboas co 50% da diferenza (efectos 01-01-2025). NON se activou." },
+  "jornadaAnual": { "horas": 1792, "articulo": 14, "nota": "40 h/semana de promedio de traballo efectivo." },
+  "vacaciones": { "diasNaturales": 30, "articulo": 13 },
+  "pagas": {
+    "numero": 15,
+    "extraordinarias": 3,
+    "nombres": ["Nadal", "xullo", "setembro"],
+    "articulo": 9,
+    "nota": "12 mensualidades + 3 pagas extra a razón de salario garantido; aboadas antes do día 15 do mes; prorrateables en 12 mensualidades a elección da empresa."
+  },
+  "nocturnidad": {
+    "articulo": 14,
+    "tramos": [
+      { "desde": "22:00", "hasta": "00:00", "incremento": "1% sobre salario base" },
+      { "desde": "00:00", "hasta": "06:00", "incremento": "25% sobre salario base" }
+    ],
+    "nota": "Non aplica se o salario se fixou atendendo a que o traballo sexa nocturno pola súa natureza, se hai acordo individual, ou se compensa con descansos. Xornada nocturna máx. 8 h/día de promedio nun período de 15 días."
+  },
+  "horasExtraordinarias": {
+    "articulo": 11,
+    "incremento": "≥25% sobre o salario da hora ordinaria",
+    "compensacion": "Compensables por descanso: 1 h extra = 1 h 15 min de descanso, dentro dos 4 meses seguintes. Cobrar ou descansar é decisión da empresa.",
+    "nota": "Este convenio NON fixa prezo en € por hora extra (a diferenza de Alacante): é unha porcentaxe sobre a hora ordinaria."
+  },
+  "serviciosExtraordinarios2024": {
+    "$comment": "Art. 12. Persoal ALLEO á empresa (extras). € por servizo (columna 2024).",
+    "cocina": { "xefeCocina": 112.88, "cocineiro": 87.5 },
+    "comedor": { "xefeComedor": 110.8, "camareiro": 87.5, "axudante": 87.5 },
+    "plusMontaxe": 6.78,
+    "servizoCorrenteRestaurante": { "soldoInicial": 2.73, "garantidoDiario": 59.91 },
+    "notaFora": "Servizos fóra da localidade: +15%, con portes, manutención e aloxamento a cargo da empresa."
+  },
+  "manutencionAloxamento2024": { "manutencion": 61.75, "aloxamento": 17.48, "articulo": 6, "nota": "€/mes; só se o traballador tiña recoñecido o dereito e non fai uso del." },
+  "plusFormacion": { "articulo": 35, "importe": 20, "periodicidad": "por 15 pagas", "nota": "Plus Compensatorio de Formación de 20 € (por 15 pagas) para empresas que non impartan a formación prevista no art. 35." },
+  "seguros": { "accidentes": { "articulo": 26 }, "vida": { "articulo": 27 }, "nota": "Pólizas obrigatorias; contías concretas no texto (pendiente de detallar)." },
+  "categoriasEstablecimiento": {
+    "seccion1_hoteis": ["5 estrelas", "4 estrelas", "3 estrelas", "2 estrelas", "1 estrela"],
+    "seccion2_pensions_posadas": ["3 estrelas", "2 estrelas", "1 estrela"],
+    "seccion3_restaurantes": ["luxo", "primeira", "segunda", "terceira", "cuarta"],
+    "catering": ["salario_base_unico"],
+    "seccion4_cafetarias": ["3 tazas", "2 tazas", "1 taza"],
+    "seccion5_cafes_bares": ["especial", "primeira", "segunda", "terceira", "cuarta"],
+    "barras_americanas": ["salario_base_unico"],
+    "seccion6_salas_festa": ["especial", "primeira", "segunda", "terceira", "cuarta"],
+    "seccion7_tabernas_sen_comidas": ["salario_base_unico"],
+    "seccion8_billares_salons_recreativos": ["salario_base_unico"]
+  },
+  "salariosBaseMensuales2024": {
+    "seccion1_hoteis": {
+      "columnas": ["5 estrelas", "4 estrelas", "3 estrelas", "2 estrelas", "1 estrela"],
+      "areaFuncional1_recepcion": {
+        "grupoI_mandos": {
+          "Xefe/a de recepción": [1402.12, 1321.62, 1277.04, 1277.04, 1277.04],
+          "2º Xefe/a de recepción": [1358.82, 1301.32, 1262.91, 1262.91, 1262.91],
+          "Xefe/a de Administración": [1402.12, 1321.62, 1277.04, 1277.04, 1277.04],
+          "Primeiro/a Conserxe": [1649.01, 1292.10, 1262.91, 1222.39, 1185.02]
+        },
+        "grupoII_tecnicos": {
+          "Recepcionista": [1305.42, 1262.91, 1232.49, 1217.32, 1217.32],
+          "Conserxe": [1445.68, 1262.91, 1232.49, 1214.26, 1175.71],
+          "Administrativo/a": [1305.49, 1262.91, 1232.49, 1217.43, 1217.43],
+          "Axudante de recepción e/ou": [1246.71, 1226.34, 1204.20, 1195.12, 1173.77],
+          "Telefonista": [1271.74, 1242.70, 1218.16, 1194.08, 1169.71],
+          "Axudante Administrativo": [1301.32, 1262.91, 1226.34, 1226.33, 1226.33]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar de recepción e conxerxería": [1216.34, 1204.21, 1190.01, 1173.77, 1163.65]
+        }
+      },
+      "areaFuncional2_cocina": {
+        "grupoI_mandos": {
+          "Xefe/a de cociña": [1402.12, 1321.62, 1281.88, 1239.25, 1189.99],
+          "2º xefe/a de cociña": [1358.82, 1301.32, 1262.91, 1230.18, 1175.71]
+        },
+        "grupoII_tecnicos": {
+          "Xefe/a de partida": [1305.42, 1262.91, 1232.49, 1217.43, 1174.70],
+          "Cociñeiro/a": [1271.74, 1242.66, 1218.81, 1194.08, 1169.69],
+          "Reposteiro/a": [1287.40, 1262.91, 1226.34, 1226.34, 1226.34],
+          "Encargado/a de economato": [1267.87, 1242.70, 1218.81, 1218.81, 1218.81],
+          "Axudante de cociña": [1216.34, 1204.20, 1190.01, 1173.77, 1163.65],
+          "Axudante economato": [1216.34, 1204.20, 1190.01, 1190.01, 1190.01]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar de cociña / economato": [1163.65, 1163.65, 1163.65, 1163.65, 1163.65]
+        }
+      },
+      "areaFuncional3_restaurante": {
+        "grupoI_mandos": {
+          "Xefe/a de restaurante ou sala": [1402.12, 1321.62, 1281.10, 1232.49, 1190.01],
+          "2º xefe de restaurante ou sala": [1358.82, 1301.02, 1262.90, 1222.39, 1185.03]
+        },
+        "grupoII_tecnicos": {
+          "Xefe de sector": [1333.66, 1281.14, 1281.14, 1281.14, 1281.14],
+          "Camareiro/a": [1305.42, 1278.29, 1234.61, 1204.20, 1204.20],
+          "Sumiller": [1305.42, 1278.29, 1232.49, 1232.49, 1232.49]
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": [1214.34, 1204.20, 1190.01, 1173.77, 1163.65]
+        }
+      },
+      "areaFuncional4_pisos": {
+        "grupoI_mandos": {
+          "Gobernante/a Encargado/a general": [1358.82, 1301.32, 1262.70, 1262.70, 1262.70],
+          "Subgob./a o encargado/a de sección": [1303.41, 1262.91, 1232.49, 1207.63, 1194.08]
+        },
+        "grupoII_tecnicos": {
+          "Camarero/a de pisos": [1216.34, 1204.20, 1190.01, 1190.01, 1190.01]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar pisos e limpeza": [1216.13, 1204.20, 1190.01, 1190.01, 1190.01]
+        }
+      },
+      "areaFuncional5_mantemento": {
+        "grupoI_mandos": {
+          "Encargado/a mant. e servizos aux.": [1333.66, 1333.66, 1333.66, 1333.66, 1333.66]
+        },
+        "grupoII_tecnicos": {
+          "Especialista mantemento e servizos aux": [1187.80, 1183.90, 1173.77, 1165.70, 1163.65]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar mantemento e servizos aux.": [1163.65, 1163.65, 1163.65, 1163.65, 1163.65]
+        }
+      }
+    },
+    "seccion2_pensions_posadas": {
+      "columnas": ["3 estrelas", "2 estrelas", "1 estrela"],
+      "areaFuncional1_recepcion": {
+        "grupoI_mandos": {
+          "Xefe/a de Administración": [1204.20, 1204.20, 1204.20],
+          "Primeiro/a Conserxe": [1222.39, 1183.92, 1183.92]
+        },
+        "grupoII_tecnicos": {
+          "Recepcionista": [1204.20, 1169.70, 1169.70],
+          "Conserxe": [1204.20, 1175.71, 1163.64],
+          "Administrativo/a": [1204.20, 1204.20, 1204.20],
+          "Axudante de recepción e/ou conserxeria": [1194.08, 1194.08, 1194.08],
+          "Telefonista": [1194.08, 1169.70, 1169.70],
+          "Axudante Administrativo": [1194.08, 1194.08, 1194.08]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar de recepción e conxerxería": [1194.08, 1194.08, 1194.08]
+        }
+      },
+      "areaFuncional2_cocina": {
+        "grupoI_mandos": {
+          "Xefe/a de cociña": [1190.28, 1190.00, 1190.00]
+        },
+        "grupoII_tecnicos": {
+          "Xefe/a de partida": [1176.42, 1175.71, 1175.71],
+          "Cociñeiro/a": [1174.30, 1173.77, 1173.77],
+          "Axudante de cociña": [1169.93, 1163.64, 1163.64]
+        }
+      },
+      "areaFuncional3_restaurante": {
+        "grupoI_mandos": {
+          "Xefe/a de restaurante ou sala": [1232.49, 1222.39, 1190.00],
+          "2º xefe de restaurante ou sala": [1216.34, 1204.20, 1204.20]
+        },
+        "grupoII_tecnicos": {
+          "Camareiro/a": [1204.20, 1173.77, 1173.77]
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": [1176.31, 1163.64, 1163.64]
+        }
+      },
+      "areaFuncional4_pisos": {
+        "grupoI_mandos": {
+          "Gobernante/a Encargado/a general": [1191.82, 1169.58, 1165.70],
+          "Subgob./a o encargado/a de sección": [1174.30, 1173.77, 1173.77]
+        },
+        "grupoII_tecnicos": {
+          "Camarero/a de pisos": [1173.77, 1163.64, 1163.64]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar pisos e limpeza": [1157.87, 1157.87, 1157.87]
+        }
+      },
+      "areaFuncional5_mantemento": {
+        "grupoII_tecnicos": {
+          "Especialista mantemento e servizos aux": [1173.77, 1163.64, 1163.64]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar mantemento e servizos aux.": [1163.64, 1163.64, 1163.64]
+        }
+      }
+    },
+    "seccion3_restaurantes": {
+      "columnas": ["luxo", "primeira", "segunda", "terceira", "cuarta"],
+      "areaFuncional1_recepcion": {
+        "grupoI_mandos": {
+          "Xefe/a de Administración": [1402.12, 1277.04, 1277.04, 1277.04, 1277.04]
+        },
+        "grupoII_tecnicos": {
+          "Administrativo/a": [1358.46, 1262.92, 1262.92, 1262.92, 1262.92],
+          "Telefonista": [1275.03, 1218.30, 1185.30, 1185.30, 1185.30],
+          "Axudante Administrativo": [1305.43, 1238.58, 1238.58, 1238.58, 1238.58]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar de recepción e conxerxería": [1275.03, 1218.30, 1185.30, 1185.30, 1185.30]
+        }
+      },
+      "areaFuncional2_cocina": {
+        "grupoI_mandos": {
+          "Xefe/a de cociña": [1402.12, 1277.10, 1222.39, 1190.00, 1190.00],
+          "2º xefe/a de cociña": [1389.60, 1262.92, 1214.26, 1175.71, 1175.71]
+        },
+        "grupoII_tecnicos": {
+          "Xefe/a de partida": [1305.43, 1232.49, 1205.26, 1190.00, 1190.00],
+          "Cociñeiro/a": [1275.03, 1218.30, 1175.71, 1171.04, 1171.04],
+          "Reposteiro/a": [1305.43, 1232.49, 1232.49, 1232.49, 1232.49],
+          "Encargado/a de economato": [1272.81, 1218.16, 1169.70, 1169.70, 1169.70],
+          "Axudante de cociña": [1216.34, 1190.00, 1173.77, 1163.64, 1163.64]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar de cociña / economato": [1163.64, 1163.64, 1163.64, 1163.64, 1163.64]
+        }
+      },
+      "areaFuncional3_restaurante": {
+        "grupoI_mandos": {
+          "Xefe/a de restaurante ou sala": [1402.12, 1276.80, 1232.49, 1203.75, 1203.75],
+          "2º xefe de restaurante ou sala": [1358.88, 1268.86, 1222.39, 1183.90, 1183.90]
+        },
+        "grupoII_tecnicos": {
+          "Xefe de sector": [1333.67, 1333.67, 1333.67, 1333.67, 1333.67],
+          "Camareiro/a": [1305.43, 1238.82, 1204.20, 1191.97, 1190.00],
+          "Sumiller": [1305.43, 1232.49, 1232.49, 1232.49, 1232.49]
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": [1216.34, 1190.00, 1173.77, 1173.77, 1173.77]
+        }
+      },
+      "areaFuncional4_pisos": {
+        "grupoI_mandos": {
+          "Subgob./a o encargado/a de sección": [1305.43, 1238.58, 1204.20, 1190.14, 1173.77]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar pisos e limpeza": [1163.64, 1163.64, 1163.64, 1163.64, 1163.64]
+        }
+      }
+    },
+    "catering": {
+      "columnas": ["salario_base_unico"],
+      "areaFuncional2_cocina": {
+        "grupoI_mandos": {
+          "Xefe/a de cociña": 1534.24,
+          "2º xefe/a de cociña": 1482.87
+        },
+        "grupoII_tecnicos": {
+          "Xefe/a de partida": 1433.00,
+          "Cociñeiro/a": 1382.33,
+          "Reposteiro/a": 1433.00,
+          "Axudante de cociña": 1233.55
+        }
+      },
+      "areaFuncional3_restaurante": {
+        "grupoI_mandos": {
+          "Xefe/a de restaurante ou sala": 1433.00,
+          "Xefe/a de operacións de catering": 1534.24
+        },
+        "grupoII_tecnicos": {
+          "Xefe de sector": 1382.33,
+          "Xefe/a de sala catering": 1433.00,
+          "Supervisor/a catering": 1433.00,
+          "Preparador/a montador/a catering": 1331.69
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de equipo catering": 1331.69,
+          "Asist./a preparador/a montador/a colectv.": 1281.10
+        }
+      }
+    },
+    "seccion4_cafetarias": {
+      "columnas": ["3 tazas", "2 tazas", "1 taza"],
+      "areaFuncional1_recepcion": {
+        "grupoII_tecnicos": {
+          "Administrativo/a": [1333.67, 1333.67, 1333.67]
+        }
+      },
+      "areaFuncional2_cocina": {
+        "grupoII_tecnicos": {
+          "Cociñeiro/a": [1275.03, 1216.98, 1206.14],
+          "Reposteiro/a": [1305.43, 1262.90, 1232.49],
+          "Encargado/a de economato": [1216.34, 1206.14, 1206.14],
+          "Axudante de cociña": [1216.34, 1206.14, 1206.14]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar de cociña / economato": [1206.14, 1206.14, 1206.14]
+        }
+      },
+      "areaFuncional3_restaurante": {
+        "grupoI_mandos": {
+          "Xefe/a de restaurante ou sala": [1384.38, 1321.62, 1266.88],
+          "2º xefe de restaurante ou sala": [1362.07, 1302.97, 1266.88]
+        },
+        "grupoII_tecnicos": {
+          "Camareiro/a": [1333.67, 1281.10, 1248.71]
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": [1305.43, 1262.92, 1232.49]
+        }
+      }
+    },
+    "seccion5_cafes_bares": {
+      "columnas": ["especial", "primeira", "segunda", "terceira", "cuarta"],
+      "areaFuncional1_recepcion": {
+        "grupoII_tecnicos": {
+          "Administrativo/a": [1305.43, 1262.92, 1262.92, 1262.92, 1262.92]
+        }
+      },
+      "areaFuncional2_cocina": {
+        "grupoI_mandos": {
+          "Xefe/a de cociña": [1327.89, 1277.04, 1232.49, 1206.14, 1206.14]
+        },
+        "grupoII_tecnicos": {
+          "Cociñeiro/a": [1224.93, 1216.13, 1206.14, 1206.14, 1206.14],
+          "Reposteiro/a": [1305.43, 1262.92, 1232.49, 1206.14, 1206.14],
+          "Axudante de cociña": [1216.34, 1206.14, 1206.14, 1206.14, 1206.14]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar de cociña / economato": [1206.14, 1206.14, 1206.14, 1206.14, 1206.14]
+        }
+      },
+      "areaFuncional3_restaurante": {
+        "grupoI_mandos": {
+          "Xefe/a de restaurante ou sala": [1392.49, 1321.62, 1277.04, 1232.49, 1206.14],
+          "2º xefe de restaurante ou sala": [1362.07, 1301.32, 1262.92, 1222.80, 1222.80]
+        },
+        "grupoII_tecnicos": {
+          "Camareiro/a": [1333.68, 1281.10, 1248.71, 1214.26, 1206.14]
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": [1305.43, 1262.92, 1231.90, 1206.14, 1206.14]
+        }
+      }
+    },
+    "barras_americanas": {
+      "columnas": ["salario_base_unico"],
+      "areaFuncional3_restaurante": {
+        "grupoII_tecnicos": {
+          "Barman/barwoman": 1392.49
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": 1331.43
+        }
+      }
+    },
+    "seccion6_salas_festa": {
+      "columnas": ["especial", "primeira", "segunda", "terceira", "cuarta"],
+      "areaFuncional1_recepcion": {
+        "grupoIII_asistentes": {
+          "Auxiliar de recepción e conxerxería": [1216.34, 1206.14, 1206.14, 1206.14, 1206.14]
+        }
+      },
+      "areaFuncional2_cocina": {
+        "grupoII_tecnicos": {
+          "Reposteiro/a": [1285.68, 1262.92, 1206.14, 1206.14, 1206.14]
+        },
+        "grupoIII_asistentes": {
+          "Auxiliar de cociña / economato": [1206.14, 1206.14, 1206.14, 1206.14, 1206.14]
+        }
+      },
+      "areaFuncional3_restaurante": {
+        "grupoI_mandos": {
+          "Xefe/a de restaurante ou sala": [1392.49, 1321.64, 1276.54, 1232.49, 1206.14],
+          "2º xefe de restaurante ou sala": [1362.07, 1303.75, 1262.90, 1215.33, 1215.33]
+        },
+        "grupoII_tecnicos": {
+          "Camareiro/a": [1333.67, 1282.19, 1262.81, 1214.26, 1206.14]
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": [1305.43, 1280.82, 1247.28, 1208.51, 1206.14]
+        }
+      }
+    },
+    "seccion7_tabernas_sen_comidas": {
+      "$comment": "No BOP o encabezado di '2022' pero os valores están no bloque de táboas 2024 e difiren dos de 2022 (Camareiro/a 2022 = 1117,83); trátase dunha errata de encabezado do boletín. Valores tomados como 2024.",
+      "columnas": ["salario_base_unico"],
+      "areaFuncional3_restaurante": {
+        "grupoII_tecnicos": {
+          "Camareiro/a": 1206.14
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": 1171.00
+        }
+      }
+    },
+    "seccion8_billares_salons_recreativos": {
+      "$comment": "Mesma errata de encabezado ('2022') que a sección 7; valores no bloque 2024 e distintos dos de 2022. Tomados como 2024.",
+      "columnas": ["salario_base_unico"],
+      "areaFuncional3_restaurante": {
+        "grupoI_mandos": {
+          "Xefe/a de restaurante ou sala": 1325.63
+        },
+        "grupoIII_asistentes": {
+          "Axudante/a de camareiro": 1206.14
+        }
+      },
+      "areaFuncional5_mantemento": {
+        "grupoIII_asistentes": {
+          "Auxiliar mantemento e servizos aux. (mozo de billar)": 1262.92
+        }
+      }
+    }
+  },
+  "estado": "tablas_2024_verificadas",
+  "verificadoContra": "PDF oficial BOP A Coruña nº241 (22-12-2022, anuncio 2022/8018) renderizado a imaxe (185 dpi) e lido visualmente celda a celda, cotexado co texto extraído (coincidentes). Táboas 2024 de todas as seccións (1-8 + catering + barras americanas), xornada, nocturnidade, horas extra, servizos extraordinarios, pagas, manutención/aloxamento e plus formación verificados. Vixencia das táboas 2024 confirmada coas actas paritarias posteriores (BOP 60/2025 e BOP 231/2025).",
+  "fechaVerificacion": "2026-07-07",
+  "pendiente": [
+    "Contías concretas das pólizas de seguro de accidentes (art.26) e vida (art.27).",
+    "Confirmar mapeo función→nivel se a app usa niveis numéricos (aquí a estrutura oficial é sección×área funcional×grupo×función×categoría de establecemento, non nivel numérico)."
+  ]
+}
