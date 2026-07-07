@@ -166,6 +166,21 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 - Principio: el trabajador cansado no va a bucear en menús. El valor aparece solo, pegado a la acción que ya hace (fichar). Las vistas de resumen ("te deben X€ este mes") son agregados de esto, no la fuente.
 - **Aviso de tope legal en caliente (Iulian 2026-07-07):** la app lleva la cuenta de horas extra acumuladas en el año; cuando al fichar vayas a superar el tope, te avisa. El tope es **80 h/año O lo que fije el convenio de cada zona** (el 80 es el mínimo del ET; cada convenio puede tener el suyo) → campo `topeHorasExtraAnual` por convenio.
 
+### D29 — "Derechos que no sabías que tienes": dinero oculto del convenio (hallazgo al transcribir, 2026-07-07)
+- Repasando convenios aparece MUCHO dinero/derechos que el trabajador no reclama porque no sabe que existen. Feature potente (enganche + valor real + dinero de verdad):
+  - **Premios en metálico:** gratificación por matrimonio (Madrid hospedaje: 1.033 €), premio de natalidad (784 €).
+  - **Seguro de vida/invalidez obligatorio** que la empresa DEBE contratar (12.000-25.000 €). La app avisa de que existe y sugiere comprobar que esté contratado.
+  - **Pluses menores** que no se pagan: transporte, ropa de trabajo, manutención/alojamiento en especie.
+- Feature: sección **"Derechos que no sabías que tienes"** por convenio. El usuario mete su situación (me caso, tengo un hijo, trabajo de noche...) y la app le lista lo que le corresponde y cómo pedirlo. Complementa el "te deben X€" (que era solo horas extra) con TODO el dinero adeudado.
+- Datos: cada JSON de convenio debe capturar estos conceptos (premios, seguros, pluses), no solo las tablas salariales.
+
+### D30 — Contador de derechos de TIEMPO (hallazgo al transcribir, 2026-07-07)
+- Además del dinero, hay derechos de tiempo que se vulneran mucho y la app puede vigilar con los fichajes que ya tiene:
+  - **Descanso entre jornadas:** mínimo 12 h (ET); algunos convenios lo bajan (Cataluña a 10 h con condiciones). La app avisa si cierras y entras con menos margen del legal.
+  - **Vacaciones:** varían por convenio (Cataluña 31 días, otros 30). Contador de vacaciones que te corresponden/debes.
+  - **Jornada partida:** algunos convenios la compensan.
+- Campos por convenio: `descansoEntreJornadasHoras`, `vacacionesDias`, reglas de jornada partida.
+
 ### D27 — Feed de contenido laboral: PILAR de enganche/retención (Iulian 2026-07-07)
 - **No es una sección secundaria: es una de las patas de la app.** Iulian lo quiere explícito: "que entres y te enganche mirando cosas curiosas sobre este tema laboral", no solo una herramienta de fichaje.
 - **Por qué es estratégico:** una app de fichar se abre a regañadientes; un feed de contenido laboral que engancha se abre por gusto. Da una razón para abrir la app los días que NO fichas, y retiene al usuario hasta el día que necesita el "te deben X€". Resuelve el problema de retención de una utilidad pura.

@@ -54,7 +54,9 @@ sistema con/sin porcentaje de servicio, sección y categoría de establecimiento
 transcripción de convenios complejos debe hacerse con cuidado y verificarse fila
 a fila contra el PDF — nunca a ojo ni con prisa.
 
-Pendiente de la primera tanda (por población): Madrid-hostelería (bares/restaurantes),
+| `cataluna-hosteleria.json` | Hostelería (Barcelona/Girona/Tarragona) | 🟡 Marco verificado (jornada 1791/1783h, nocturnidad 25%, pluses, categorías A-E). Tablas salariales pendientes de pasada cuidadosa |
+
+Pendiente: Valencia, Alicante, Sevilla (hospedaje + hostelería); Lleida; tablas salariales de Cataluña.
 Cataluña, Valencia, Alicante, Sevilla, y el estatal de restauración colectiva.
 
 **Ojo:** `madrid-hospedaje.json` cubre solo hoteles. Un camarero de un bar de
