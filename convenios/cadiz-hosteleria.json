@@ -214,7 +214,197 @@
     }
   },
 
-  "estado": "tablas_2025_2028_verificadas",
-  "verificadoContra": "PDF oficial BOP Cádiz nº153 (12-08-2025), páginas 2-13, renderizado a imagen (185 dpi) y leído visualmente celda a celda. Verificado: articulado completo, jornada 1.800 h, 15 pagas, nocturnidad 25%, horas extra 75%, fiestas 150%, y tablas salariales completas de los 4 años (Anexo III grupos 1-5 x categorías A/B/C, Anexo IV casinos), pluses y servicios extraordinarios.",
-  "fechaVerificacion": "2026-07-07"
+  "vacaciones": {
+    "$comment": "Art. 24. Bloque completo de vacaciones. Dato clave de retribución: NO se pagan solo a salario base, sino por PROMEDIO de los seis últimos meses (recoge complementos), con suelo en las percepciones mínimas del convenio.",
+    "articulo": "Art. 24 (festivos dentro de vacaciones: Art. 23; IT durante vacaciones: Art. 24 + Art. 38.3 ET)",
+    "dias": 30,
+    "tipoDias": "pendiente",
+    "tipoDiasNota": "El Art. 24 dice literalmente '30 días' SIN especificar si son naturales o laborables. No se infiere del convenio. Por defecto, el art. 38 ET fija el mínimo en 30 días naturales; salvo pacto o uso de empresa en contrario, se interpretan naturales. Duda para UGT.",
+    "diasExtraAntiguedad": "no_previsto",
+    "diasExtraAntiguedadNota": "El convenio no suma días de vacaciones por antigüedad.",
+    "retribucion": {
+      "base": "promedio_seis_ultimos_meses",
+      "suelo": "no inferior a las percepciones mínimas del convenio (Anexos salariales) con inclusión de antigüedad y garantía personal, quien la tuviere",
+      "nota": "Art. 24: 'la retribución será la pactada en cada Empresa, debiendo percibir el promedio de los seis últimos meses'. Es de las cláusulas que más se recortan en la práctica."
+    },
+    "periodoDisfrute": {
+      "regla": "Por años naturales: a 31 de diciembre de cada año todas las personas trabajadoras deben haber disfrutado las que legalmente les correspondan.",
+      "temporadaAltaBloqueada": "no_especificado",
+      "nota": "El convenio NO fija meses concretos de disfrute ni bloquea expresamente la temporada alta; remite al acuerdo empresa-representación."
+    },
+    "fijacion": "La empresa fija de común acuerdo con los Comités o Delegados/as de Personal el periodo de disfrute y su carácter ininterrumpido o no (Art. 24).",
+    "preaviso": "El trabajador/a conocerá la fecha con al menos 2 meses de antelación al disfrute (Art. 24).",
+    "fraccionamiento": {
+      "permitido": true,
+      "maxPeriodos": 2,
+      "nota": "Puede convenirse la división en un máximo de dos periodos (Art. 24). No fija un mínimo de días seguidos."
+    },
+    "inicioTrasDescanso": "El periodo vacacional comienza una vez disfrutado el descanso semanal; si la reincorporación coincide con un día de descanso semanal, éste se respeta (Art. 24).",
+    "bajaDuranteVacaciones_IT": {
+      "derecho": "El derecho al disfrute de vacaciones no se limita por haber estado en situación de Incapacidad Temporal (Art. 24, remite a Art. 38.3 ET).",
+      "nota": "El convenio recoge expresamente el Art. 38.3 ET: si caes en IT, no pierdes las vacaciones; se disfrutan en fecha posterior aunque termine el año natural (dentro de los plazos del ET)."
+    },
+    "festivosDentroVacaciones": "Si el periodo de vacaciones incluye algún festivo abonable y no recuperable, tal festivo se computa como tal y NO se descuenta del total ni se considera festivo disfrutado; si no se disfrutaron fiestas abonables no recuperables, el trabajador tiene derecho a aumentar las vacaciones en esos días (Art. 23 y Art. 24).",
+    "noCompensableEnDinero": "Durante la relación laboral, por ningún concepto puede compensarse en dinero el disfrute (Art. 24). Las vacaciones devengadas y no disfrutadas al cese se abonan en el finiquito (regla legal general — enlaza con la calculadora de finiquito).",
+    "proporcionalidad": "Quien en la fecha de disfrute no haya completado un año de servicio, disfruta días proporcionales a los trabajados (Art. 24)."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 25 (licencias con sueldo) + Art. 27 (lactancia y exámenes prenatales). Todas las licencias del Art. 25 se disfrutan en días LABORABLES excepto la de matrimonio/pareja de hecho, que es en días naturales. En lo no previsto → Estatuto de los Trabajadores.",
+    "articulo": "Art. 25 y Art. 27",
+    "matrimonioOparejaHecho": { "dias": 18, "tipo": "naturales", "articulo": "Art. 25.a", "mejoraET": "Sí. El ET (art. 37.3.a) reconoce 15 días; el convenio los eleva a 18 naturales. Aplicable también a parejas de hecho inscritas y legalizadas." },
+    "accidenteEnfermedadGraveHospitalizacion": { "dias": 5, "tipo": "laborables", "articulo": "Art. 25.b", "causa": "Accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario del cónyuge, pareja de hecho o parientes hasta el 2º grado por consanguinidad o afinidad (incluido el consanguíneo de la pareja de hecho) y cualquier conviviente en el mismo domicilio que requiera cuidado efectivo.", "fraccionable": true, "nota": "En caso de enfermedad grave con hospitalización que exceda de esos días, puede trasladarse el permiso anual a las fechas indicadas." },
+    "fallecimiento": { "dias": 3, "diasFueraProvincia": 4, "tipo": "laborables", "articulo": "Art. 25.c", "causa": "Fallecimiento de cónyuge, padres/madres, hijos/as, nietos/as, hermanos/as y los mismos por afinidad (políticos).", "mejoraET": "El convenio da 3 días (4 si fuera de la provincia); el ET general da 2 días (4 con desplazamiento), por lo que mejora el caso sin desplazamiento." },
+    "examenes": { "dias": "hasta 3", "tipo": "laborables", "articulo": "Art. 25.d", "causa": "Asistencia a exámenes de Educación Secundaria Obligatoria u otra superior en centros oficiales; el tiempo necesario con límite de 3 días laborables, justificando asistencia." },
+    "trasladoDomicilio": { "dias": 2, "tipo": "laborables", "articulo": "Art. 25.e" },
+    "deberInexcusable": { "dias": "tiempo indispensable", "articulo": "Art. 25.f", "causa": "Cumplimiento de un deber inexcusable de carácter público y/o personal." },
+    "fuerzaMayorFamiliar": { "dias": "hasta 4 al año", "tipo": "laborables", "articulo": "Art. 25.g", "causa": "Ausencia por fuerza mayor por motivos familiares urgentes (enfermedad o accidente de familiares o convivientes que hagan indispensable la presencia inmediata). Retribuidas hasta el equivalente a 4 días laborables al año.", "concuerdaET": "Recoge el art. 37.9 ET (redacción RD-ley 5/2023)." },
+    "imposibilidadAccesoCentro": { "dias": "hasta 4", "tipo": "laborables", "articulo": "Art. 25.h", "causa": "Imposibilidad de acceder al centro de trabajo por limitaciones/prohibiciones de las autoridades o riesgo grave e inminente (catástrofe o fenómeno meteorológico adverso). Transcurridos los 4 días se prolonga hasta que desaparezcan las circunstancias." },
+    "lactancia": { "articulo": "Art. 27", "duracion": "Hasta que el bebé cumple 9 meses.", "opciones": ["1 hora diaria de ausencia", "media hora de retraso al inicio + media hora de adelanto al final", "acumulación en jornadas completas (cálculo por cociente detallado en el artículo)"], "nota": "Derecho de madre o padre." },
+    "examenesPrenatales": { "articulo": "Art. 27", "derecho": "Ausencia retribuida para exámenes prenatales y técnicas de preparación al parto, previo aviso y justificación de que deben realizarse dentro de la jornada." },
+    "notaGeneral": "Art. 25: en los supuestos y causas no previstos se estará al ET. Todas las licencias retribuidas son días laborables salvo la de matrimonio/registro de pareja de hecho (naturales)."
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 28. El dato 'oro' de baja médica. La empresa SÍ complementa la prestación de la Seguridad Social. Distingue accidente de trabajo/enfermedad profesional (desde el primer día) de enfermedad común (desde el 4º día).",
+    "articulo": "Art. 28",
+    "accidenteTrabajoYenfermedadProfesional": {
+      "complementoPorcentaje": 25,
+      "sobre": "base_de_cotizacion_ultima",
+      "desdeDia": 1,
+      "nota": "Las empresas complementan las prestaciones de la Seguridad Social con un 25% de la base de cotización última, desde el primer día, para contingencias por accidente de trabajo y enfermedad profesional."
+    },
+    "enfermedadComun": {
+      "complementoPorcentaje": 25,
+      "sobre": "base_de_cotizacion_ultima",
+      "desdeDia": 4,
+      "hastaDias": 545,
+      "hastaMeses": 18,
+      "nota": "En enfermedad común, complemento del 25% de la base de cotización última desde el 4º día de la baja (inclusive), extendiéndose hasta los 18 meses de la baja (545 días)."
+    }
+  },
+
+  "periodoPrueba": {
+    "$comment": "Art. 36. El convenio NO regula duraciones propias del periodo de prueba: remite íntegramente al ALEH estatal vigente en cada momento.",
+    "articulo": "Art. 36",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería) vigente en cada momento.",
+    "nota": "Consultar el ALEH para la duración por grupo/categoría. Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "excedencias": {
+    "$comment": "Art. 26. Tipos, duración y derecho de reingreso.",
+    "articulo": "Art. 26",
+    "voluntaria": {
+      "antiguedadMinima": "1 año",
+      "duracion": "no menor a 4 meses ni superior a 5 años",
+      "prorrogas": "Permitidas dentro del máximo, comunicándolas con 2 meses de antelación al vencimiento.",
+      "reingreso": "Derecho PREFERENTE al reingreso en vacantes de igual o similar categoría (no reserva automática de puesto).",
+      "repeticion": "Ejercitable de nuevo por la misma persona tras 2 años desde la reincorporación de la anterior.",
+      "nota": "No se considera competencia desleal trabajar durante la excedencia voluntaria en otras empresas de hostelería, salvo para categorías del Grupo 1 del Anexo II."
+    },
+    "forzosa": {
+      "causa": "Designación o elección para cargo público que imposibilite la asistencia al trabajo.",
+      "efectos": "Conserva el puesto y el cómputo de antigüedad durante su vigencia.",
+      "reingreso": "Debe solicitarse dentro del mes siguiente al cese en el cargo público."
+    },
+    "cuidadoDeMenor": {
+      "duracion": "no superior a 3 años desde la fecha de nacimiento de cada menor",
+      "nota": "Sucesivos hijos/as dan derecho a un nuevo periodo que pone fin al que se viniera disfrutando."
+    },
+    "sindical": {
+      "causa": "Ejercicio de funciones sindicales de ámbito provincial o superior mientras dura el cargo representativo.",
+      "reingreso": "Se garantiza el reingreso en el puesto de trabajo."
+    }
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El articulado del convenio (Art. 1-50) NO incluye capítulo de régimen disciplinario: no tipifica faltas leves/graves/muy graves ni sanciones. Verificado leyendo el articulado completo (tras la Disposición Novena pasa directamente al Anexo I de clasificación de establecimientos). Por tanto el régimen disciplinario se rige por el ALEH estatal y el ET.",
+    "articulo": "No regulado en el convenio provincial (Art. 50 remite a la legislación general; Art. 2 encuadra el convenio en el ALEH).",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería), que sí regula la tipificación de faltas leves/graves/muy graves y las sanciones, y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver ALEH",
+    "faltasGraves": "pendiente — ver ALEH",
+    "faltasMuyGraves": "pendiente — ver ALEH",
+    "sanciones": "pendiente — ver ALEH (amonestación, suspensión de empleo y sueldo por nº de días, inhabilitación para ascenso, despido solo en muy graves).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede imponer sanciones que consistan en la reducción de la duración de las vacaciones u otra minoración de los derechos al descanso, ni en multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad, que no es sanción. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos. Sin ello la sanción es impugnable.",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    },
+    "notaConvenio": "El convenio sí menciona un caso puntual: el incumplimiento de dar conocimiento a la RLPT de los contratos (control del pluriempleo) se considera falta grave a efectos de sanción por la Autoridad Laboral (Art. 44), pero no es un régimen disciplinario empresa-trabajador."
+  },
+
+  "representacionSindical": {
+    "$comment": "Art. 35 (Condiciones sindicales). El convenio MEJORA el crédito horario legal. El resto de garantías/fuero y el sistema de elección se rigen por el ET (arts. 62-68) y la LOLS, no detallados en el convenio.",
+    "articulo": "Art. 35",
+    "creditoHorario": {
+      "horasMensuales": 30,
+      "acumulable": "trimestralmente",
+      "quien": "Delegados y Delegadas de Personal o miembros del Comité de Empresa.",
+      "transferible": "Sí: donde exista más de un representante, pueden transferir total o parcialmente su cómputo de horas a uno o varios representantes.",
+      "excluido": "No se deducen del crédito las horas empleadas en la negociación del Convenio.",
+      "mejoraET": "SÍ. El art. 68.e ET fija el mínimo en 15 h/mes para centros de hasta 100 trabajadores; el convenio concede 30 h/mes a todos, mejorándolo."
+    },
+    "asamblea": "Derecho a reunirse y celebrar asamblea en los locales de la empresa, fuera de las horas de trabajo, previa comunicación escrita a la Dirección, que debe autorizar o denegar por escrito razonando la negativa (Art. 35.1).",
+    "cuotaSindical": "A requerimiento del trabajador afiliado, la empresa descuenta de la nómina la cuota sindical y la transfiere al sindicato indicado; detracción indefinida salvo indicación en contrario (Art. 35.5).",
+    "nulidadActosAntisindicales": "Son nulos los actos dirigidos a condicionar el empleo a la afiliación, a que el empresario constituya/apoye un sindicato, o a despedir/discriminar/sancionar por afiliación o actividad sindical (Art. 35.2).",
+    "quienRepresentaYeleccion": "pendiente — no detallado en el convenio; se rige por el ET (arts. 62-68: delegados de personal en empresas 6-49, comité de empresa desde 50) y la LOLS.",
+    "garantiasYfuero": "pendiente — no detallado en el convenio; se rige por el art. 68 ET (expediente contradictorio previo a sanción grave, prioridad de permanencia, protección frente a despido/sanción por actividad representativa durante el mandato y el año siguiente)."
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 39-41. Destaca el contrato fijo-discontinuo, clave en hostelería de temporada.",
+    "articulo": "Art. 39 (modalidades) y Art. 41 (contratación)",
+    "fijoDiscontinuo": {
+      "llamamiento": "Por escrito y de forma fehaciente, por ORDEN DE ANTIGÜEDAD de cada especialidad, cada vez que vayan a realizarse las actividades para las que se contrató (Art. 39.D).",
+      "presuncionNoLlamado": "Se presume no efectuado el llamamiento si, llegada la fecha de reincorporación, no se produce, o si se contrata a otro de menor antigüedad en la misma especialidad; el trabajador puede ejercitar demanda de despido.",
+      "fijoDiscontinuoTiempoParcial": "Periodo mínimo garantizado de actividad de 3 meses y jornada mínima de 20 h/semana; para esos 3 meses no pueden hacerse más de 3 llamamientos.",
+      "conversionAfijoOrdinario": "La empresa informa de vacantes fijas ordinarias; los fijos-discontinuos tienen prioridad para cubrirlas por orden de antigüedad en la especialidad."
+    },
+    "topeTemporalidad": "Empresas con más de 2 años en el sector: máximo 35% de contratos temporales, manteniendo un mínimo del 65% de personal fijo o fijo-discontinuo (Art. 41).",
+    "eventualPorProduccion": "Duración máxima 12 meses (Art. 39.E).",
+    "preavisoFinContrato": "Las empresas deben preavisar por escrito la terminación de contratos de duración determinada; su incumplimiento da derecho a cobrar un día de salario por cada día no preavisado (Art. 41).",
+    "ceseVoluntarioPreaviso": { "articulo": "Art. 46", "jefaturas": "15 días (Jefes/as de Recepción, Contable general, Cajero/a, Encargado/a, Jefe/a de Cocina, 1er Encargado/a de Bares y salas de fiestas, Jefes/as de 1ª y 2ª de Casinos)", "resto": "4 días", "nota": "El incumplimiento del preaviso permite a la empresa descontar un día de salario por cada día de retraso." }
+  },
+
+  "formacion": {
+    "$comment": "Art. 47 + Art. 33 + Art. 25.d.",
+    "articulo": "Art. 47",
+    "gestion": "Las facultades de formación continua se confieren a la Comisión Paritaria de Interpretación del Convenio, que hace el seguimiento y control de los cursos (Art. 47).",
+    "creditoHorasFormacion": "no_previsto — el convenio no fija un crédito de horas de formación específico para la persona trabajadora.",
+    "ayudaEstudios": "10,73 €/mes (2025) a quien acredite realizar estudios oficiales (Art. 33 — ver 'pluses.ayudaEstudios').",
+    "permisosExamenes": "Hasta 3 días laborables por exámenes en centros oficiales (Art. 25.d)."
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Disposiciones adicionales + protocolos. El convenio establece el compromiso y el marco; los protocolos concretos se desarrollan en cada empresa/Comisión Paritaria.",
+    "articulo": "Disposiciones Adicionales 3ª y 6ª; apartados 'Acoso moral y sexual', 'Violencia de género' y 'Protocolo LGTBI+'",
+    "planesIgualdad": "Empresas con más de 50 personas trabajadoras: obligadas a negociar un Plan de Igualdad (LO 3/2007) con la RLPT; en empresas de menos de 50, medidas acordadas con la RLPT si la hubiere.",
+    "acosoSexualYporRazonDeSexo": "En 3 meses desde la firma se regula, en el seno de la Comisión Paritaria, un modelo de 'Protocolo para la Prevención y Actuación ante el acoso sexual y acoso por razón de sexo'; cada empresa implanta el suyo con procedimiento de denuncia, Comisión Instructora y medidas cautelares.",
+    "protocoloLGTBI": "Protocolo específico de vigencia 4 años para garantizar los derechos LGTBI e impedir trato discriminatorio.",
+    "violenciaDeGenero": "Las víctimas acreditadas judicial o administrativamente disfrutan de todos los derechos previstos en la legislación vigente (LO 1/2004); el convenio no fija mejoras cuantitativas propias.",
+    "mejoraET": "El convenio remite en lo esencial a la legislación (LO 3/2007, LO 1/2004); no cuantifica permisos propios de violencia de género por encima de la ley."
+  },
+
+  "otrasCondicionesEconomicasNoSalariales": {
+    "$comment": "Complementos asistenciales ya presentes o adicionales, con su artículo, útiles para el finiquito y reclamaciones.",
+    "auxilioViudedad": { "articulo": "Art. 29", "importe": "1 mensualidad de salario (2 mensualidades si 10+ años en la empresa) a viuda/o, hijos/as menores o discapacitados, cuando la persona trabajadora con 5+ años de servicio causa baja por fallecimiento." },
+    "seguroColectivo": { "articulo": "Art. 30", "coberturas": { "muerteNatural": 9854.86, "invalidezPermanenteTotalAbsolutaGranInvalidez": 9854.86, "muerteAccidente": 19709.70, "muerteAccidenteCirculacion": 29564.55 }, "vigenciaCapitales": "01/01/2026–31/12/2028", "exclusiones": "suicidio, deportes de alto riesgo, ingesta de drogas no prescritas." },
+    "premioNatalidad": { "articulo": "Art. 31", "remite": "Ver 'pluses.premioNatalidad' (141,50 € 2025, con más de un año de servicio)." },
+    "indemnizacionExtincionEdad": { "articulo": "Art. 42", "detalle": "Al extinguir el contrato entre los 60 años y la edad legal de jubilación: 30 días de salario si lleva 8 años de servicio, más 30 días por cada 5 años de servicio. No aplica en baja voluntaria ni despido." },
+    "finiquito": { "articulo": "Art. 45", "detalle": "La empresa entrega copia del recibo de finiquito con al menos 3 días hábiles de antelación a la firma; sin RLPT, el finiquito no tiene carácter liberatorio durante los 5 días siguientes a la firma." }
+  },
+
+  "estado": "condiciones_no_salariales_verificadas",
+  "estadoNota": "Tablas 2025-2028 ya verificadas en imagen (sin cambios). Añadidas en esta revisión las condiciones no salariales del articulado (vacaciones, permisos, complemento IT, excedencias, representación sindical, contratación, formación, igualdad/acoso y otras condiciones económicas), extraídas del texto oficial del articulado. Régimen disciplinario y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal.",
+  "pendienteCondiciones": [
+    "vacaciones.tipoDias: el Art. 24 no especifica naturales/laborables (por defecto ET = 30 naturales). Duda para UGT.",
+    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio provincial → tomar del ALEH estatal.",
+    "periodoPrueba: duraciones por grupo/categoría NO reguladas en el convenio → tomar del ALEH estatal.",
+    "representacionSindical.quienRepresentaYeleccion y garantiasYfuero: no detallados en el convenio → base legal ET arts. 62-68 y LOLS."
+  ],
+  "verificadoContra": "PDF oficial BOP Cádiz nº153 (12-08-2025). Tablas (Anexo III/IV) verificadas previamente en imagen (185 dpi) celda a celda. Condiciones no salariales de esta revisión extraídas del ARTICULADO completo (Arts. 1-50, páginas 2-9) leído del texto oficial: Art. 24 (vacaciones), Art. 25 y 27 (permisos y lactancia), Art. 26 (excedencias), Art. 28 (complemento IT), Art. 35 (representación sindical), Art. 36 (periodo de prueba → ALEH), Arts. 39-41 y 46 (contratación y preaviso), Art. 47 (formación), Disp. Adic. y protocolos (igualdad/acoso), Arts. 29-31, 42, 45 (otras condiciones económicas). Verificado que el articulado NO contiene régimen disciplinario propio (tras la Disp. Novena pasa al Anexo I).",
+  "fechaVerificacion": "2026-07-08"
 }
