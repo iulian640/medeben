@@ -4,10 +4,27 @@ Tablas salariales de los convenios colectivos de hostelería de España,
 **transcritas a mano de los boletines oficiales** (BOE y boletines
 provinciales/autonómicos) y verificadas antes de entrar aquí.
 
+## Los tres subsectores (importante)
+
+"Hostelería" no es un solo convenio por provincia. Hay **tres subsectores** que
+se cruzan con el territorio, y el par (territorio, subsector) determina el
+convenio aplicable:
+
+1. **Hospedaje / hoteles** → convenio provincial o autonómico.
+2. **Hostelería** (restaurantes, bares, cafeterías) → convenio provincial o
+   autonómico **distinto** del de hospedaje (verificado: en Madrid son dos).
+3. **Restauración colectiva** (comedores de colegios, hospitales, empresas,
+   residencias) → convenio **estatal único** (BOE-A-2025-12598), igual en toda
+   España.
+
+Por eso los ficheros se nombran `<territorio>-<subsector>.json`
+(p. ej. `madrid-hospedaje.json`).
+
 ## Formato
 
-- **Un fichero JSON por convenio**, con su ámbito (provincia/CCAA), vigencia
-  (años que cubre) y la referencia al boletín oficial de donde se transcribió.
+- **Un fichero JSON por convenio**, con su ámbito (territorio + subsector),
+  vigencia (años que cubre) y la referencia al boletín oficial de donde se
+  transcribió.
 - Los textos oficiales no tienen copyright (art. 13 LPI): transcribirlos es legal.
 
 ## Reglas
@@ -23,5 +40,12 @@ provinciales/autonómicos) y verificadas antes de entrar aquí.
 
 ## Estado
 
-Todavía no hay convenios transcritos — la primera tanda (Madrid, Cataluña,
-Valencia, Alicante, Sevilla) está en verificación.
+| Convenio | Subsector | Estado |
+|----------|-----------|--------|
+| `madrid-hospedaje.json` | Hospedaje (hoteles) | ✅ Transcrito del BOCM 121 (23-05-2026), tablas 2025-2028, jornada 1.800 h, nocturnidad y clasificación |
+
+Pendiente de la primera tanda (por población): Madrid-hostelería (bares/restaurantes),
+Cataluña, Valencia, Alicante, Sevilla, y el estatal de restauración colectiva.
+
+**Ojo:** `madrid-hospedaje.json` cubre solo hoteles. Un camarero de un bar de
+Madrid va por otro convenio (hostelería), aún sin transcribir.

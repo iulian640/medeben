@@ -1,0 +1,103 @@
+{
+  "$comment": "BORRADOR — pendiente de verificación por Iulian contra el BOCM. NO cargar en la app hasta verificar.",
+  "id": "es-madrid-hospedaje",
+  "nombre": "Convenio colectivo del Sector Hospedaje de la Comunidad de Madrid",
+  "codigoRegcon": "28009435011996",
+  "ambitoTerritorial": {
+    "tipo": "autonomico",
+    "comunidad": "Comunidad de Madrid",
+    "provincias": ["Madrid"]
+  },
+  "ambitoFuncional": "hospedaje",
+  "ambitoFuncionalDescripcion": "Hoteles y establecimientos de alojamiento. Los restaurantes/bares de Madrid tienen OTRO convenio (hostelería y actividades turísticas).",
+  "fuente": {
+    "boletin": "BOCM",
+    "numero": 121,
+    "fecha": "2026-05-23",
+    "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2026/05/23/BOCM-20260523-1.PDF"
+  },
+  "vigencia": { "desde": "2025-01-01", "hasta": "2028-12-31" },
+  "pagasExtraordinarias": {
+    "cantidad": 2,
+    "fechas": ["20 de junio", "20 de diciembre"],
+    "importe": "una mensualidad de salario base + antigüedad consolidada"
+  },
+  "clasificacion": {
+    "$comment": "Anexo II — categoría profesional → nivel retributivo. Solo categorías de cocina/sala aquí; el anexo completo tiene más.",
+    "1A": ["Jefe/a de cocina", "Primer/a maitre - jefe/a de comedor - jefe/a de sala", "Jefe/a de recepción"],
+    "1B": ["Segundo/a jefe/a de cocina", "Segundo/a maitre", "Repostero/a o jefe/a de repostería"],
+    "2": ["Jefe/a de partida", "Barman", "Sumiller", "Bodeguero/a", "Cafetero/a", "Recepcionista"],
+    "3": ["Cocinero/a", "Camarero/a", "Oficial repostero/a", "Telefonista"],
+    "4": ["Ayudante/a de cocina", "Ayudante/a de camarero", "Camarera/o de pisos", "Ayudante/a de repostero"],
+    "5": ["Pinche", "Marmitón/a", "Auxiliar de cocina", "Fregador/a", "Personal de limpieza", "Botones"]
+  },
+  "tablasSalarialesMensuales": {
+    "$comment": "Anexo III. Salario base mensual en euros, por nivel y grupo de establecimiento (A-D según categoría del hotel). 14 pagas.",
+    "2025": {
+      "1A": { "A": 2235.60, "B": 1980.07, "C": 1916.23, "D": 1890.60 },
+      "1B": { "A": 2043.94, "B": 1916.23, "C": 1852.33, "D": 1826.76 },
+      "2":  { "A": 1916.23, "B": 1852.33, "C": 1762.90, "D": 1737.34 },
+      "3":  { "A": 1724.56, "B": 1699.01, "C": 1571.24, "D": 1545.69 },
+      "4":  { "A": 1596.82, "B": 1469.06, "C": 1443.55, "D": 1418.00 },
+      "5":  { "A": 1532.91, "B": 1430.81, "C": 1379.70, "D": 1354.13 }
+    },
+    "2026": {
+      "1A": { "A": 2302.67, "B": 2039.48, "C": 1973.72, "D": 1947.31 },
+      "1B": { "A": 2105.26, "B": 1973.72, "C": 1907.90, "D": 1881.56 },
+      "2":  { "A": 1973.72, "B": 1907.90, "C": 1815.79, "D": 1789.46 },
+      "3":  { "A": 1776.30, "B": 1749.98, "C": 1618.38, "D": 1592.06 },
+      "4":  { "A": 1644.72, "B": 1513.13, "C": 1486.86, "D": 1460.54 },
+      "5":  { "A": 1578.90, "B": 1473.73, "C": 1421.09, "D": 1394.76 }
+    },
+    "2027": {
+      "1A": { "A": 2371.75, "B": 2100.66, "C": 2032.93, "D": 2005.73 },
+      "1B": { "A": 2168.41, "B": 2032.93, "C": 1965.14, "D": 1938.00 },
+      "2":  { "A": 2032.93, "B": 1965.14, "C": 1870.26, "D": 1843.15 },
+      "3":  { "A": 1829.59, "B": 1802.48, "C": 1666.93, "D": 1639.83 },
+      "4":  { "A": 1694.06, "B": 1558.53, "C": 1531.46, "D": 1504.36 },
+      "5":  { "A": 1626.27, "B": 1517.94, "C": 1463.72, "D": 1436.60 }
+    },
+    "2028": {
+      "1A": { "A": 2466.62, "B": 2184.69, "C": 2114.25, "D": 2085.96 },
+      "1B": { "A": 2255.15, "B": 2114.25, "C": 2043.74, "D": 2015.53 },
+      "2":  { "A": 2114.25, "B": 2043.74, "C": 1945.07, "D": 1916.87 },
+      "3":  { "A": 1902.77, "B": 1874.58, "C": 1733.61, "D": 1705.42 },
+      "4":  { "A": 1761.83, "B": 1620.87, "C": 1592.72, "D": 1564.53 },
+      "5":  { "A": 1691.32, "B": 1578.66, "C": 1522.27, "D": 1494.07 }
+    }
+  },
+  "pluses": {
+    "transporte": {
+      "$comment": "Se abona 11 meses al año",
+      "2025": 195.25, "2026": 201.10, "2027": 207.14, "2028": 215.42
+    },
+    "manutencion": {
+      "2025": 59.10, "2026": 60.87, "2027": 62.70, "2028": 65.21
+    }
+  },
+  "nocturnidad": {
+    "tramos": [
+      { "desde": "24:00", "hasta": "06:00", "recargoSobreSalarioBasePct": 25 },
+      { "desde": "22:00", "hasta": "24:00", "recargoSobreSalarioBasePct": 20 }
+    ],
+    "formulaIncrementoHora": "salarioBase * pct / (4 * 40)",
+    "reglaJornadaCompleta": "Si se trabajan 5+ horas entre las 22:00 y las 06:00, toda la jornada se considera nocturna",
+    "nota": "Tramo 06:00-08:00 solo para personal anterior al convenio 2015/2020 (ad personam, 15%)"
+  },
+  "horasExtraordinarias": {
+    "precioFijadoEnConvenio": false,
+    "regla": "El convenio no fija precio de hora extra para plantilla (los 22,65€ del Anexo V son solo para 'servicios extras'/eventos). Aplica el Estatuto de los Trabajadores: la hora extra se abona como mínimo al valor de la hora ordinaria, o se compensa con descanso equivalente.",
+    "valorHoraOrdinaria": "(salarioBaseMensual * 14 + plusesAnuales) / jornadaAnualHoras",
+    "topeLegalAnual": 80
+  },
+  "jornadaAnual": {
+    "horas": 1800,
+    "diasTrabajoEfectivo": 225,
+    "horasSemanales": 40,
+    "articulo": "Art. 14",
+    "nota": "1.800 h = (365 - 30 vacaciones - 20 descanso continuado) / 7 * 40. Descanso diario de 30 min computa como trabajo efectivo si la jornada excede 6 h."
+  },
+  "estado": "verificado_contra_fuente",
+  "verificadoContra": "Texto extraído directamente del PDF oficial del BOCM (no de memoria). Iulian no pudo verificar por experiencia (no trabajó en Madrid) pero autoriza usar el dato oficial.",
+  "fechaVerificacion": "2026-07-07"
+}
