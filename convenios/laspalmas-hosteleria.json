@@ -1,0 +1,119 @@
+{
+  "$comment": "Tablas 2025 (a partir de ABRIL 2025) VERIFICADAS visualmente contra el PDF oficial del BOP Las Palmas nº79 (02-07-2025), pág. 10870, renderizado a imagen y leído celda a celda. Es el Acuerdo de 12-abril-2025 (registro 134394) que resolvió la huelga y fija las tablas 2025 desde abril. IMPORTANTE (Norma D32): a fecha jul-2026 NO existe tabla salarial 2026 en EUROS publicada en BOP. El Acuerdo solo PACTA un +4,00% para 2026 sobre las tablas vigentes a 31-12-2025, a incorporar al futuro convenio 2026-2029 (aún sin firmar). No se calculan las cifras 2026: dato ausente es mejor que dato inventado. El texto del convenio (jornada, nocturnidad, clasificación, niveles) procede del convenio base 2020-2025, BOP Las Palmas nº15 (03-02-2023).",
+  "id": "laspalmas-hosteleria",
+  "nombre": "Convenio colectivo del sector de Hostelería de la provincia de Las Palmas",
+  "ambitoTerritorial": {
+    "tipo": "provincial",
+    "comunidad": "Canarias",
+    "provincias": ["Las Palmas"],
+    "islas": ["Gran Canaria", "Lanzarote", "Fuerteventura"]
+  },
+  "ambitoFuncional": "hosteleria",
+  "notaAmbito": "Cubre todo el sector turístico/hostelería de la provincia: hoteles, apartamentos, bares, cafeterías y restaurantes. No hay un convenio de hospedaje separado en Las Palmas: hospedaje y restauración van en el MISMO convenio provincial, diferenciados por la clasificación de establecimiento (Anexo I). Los bares-cafeterías y restaurantes se encuadran en la CLASIFICACIÓN QUINTA (columna 5) con efectos desde 1-enero-2024 (hasta 31-12-2023 estaban en la Cuarta).",
+  "fuente": {
+    "boletin": "BOP Las Palmas",
+    "numero": 79,
+    "fecha": "2025-07-02",
+    "documento": "Acuerdo de 12-04-2025 para la mejora de las condiciones de trabajo del sector de hostelería de Las Palmas y solución de la huelga (registro 134394). Tablas salariales año 2025 a partir de abril 2025, pág. 10870.",
+    "url": "https://www.asolan.com/wp-content/uploads/2026/01/20250412-Acuerdo-laboral.pdf",
+    "notaUrl": "PDF hospedado por ASOLAN que reproduce íntegramente el BOP Las Palmas nº79 (02-07-2025). Original oficial: boplaspalmas.net (BOP nº79).",
+    "fuenteTextoConvenio": {
+      "boletin": "BOP Las Palmas",
+      "numero": 15,
+      "fecha": "2023-02-03",
+      "documento": "Convenio colectivo del sector de Hostelería de Las Palmas 2020-2025 (texto articulado, Anexos I/II/III). Contiene jornada, nocturnidad, clasificación de establecimientos y niveles de personal."
+    }
+  },
+  "vigencia": {
+    "desde": "2020-01-01",
+    "hasta": "2025-12-31",
+    "situacion": "Convenio 2020-2025 expirado a 31-12-2025; en ultraactividad mientras se negocia el nuevo convenio 2026-2029 (mesa abierta desde sept-2025). Tablas económicas vigentes: las de 2025 a partir de abril 2025.",
+    "tablasVigentes": "2025-desde-abril"
+  },
+  "clasificacionEstablecimientos": {
+    "$comment": "Anexo I. Las columnas 1-5 de las tablas salariales corresponden a estas cinco clasificaciones de establecimiento.",
+    "1": "Clasificación Primera: hoteles 5*, hoteles-residencia 5*, albergues/paradores 5*, apartamentos turísticos 5*",
+    "2": "Clasificación Segunda: hoteles 4*, hoteles-apartamentos 4*, hostales 4*, casinos de 1ª categoría, catering, camping de lujo",
+    "3": "Clasificación Tercera: hoteles 3*, apartamentos turísticos 3 llaves, moteles 3*, discotecas de 2ª categoría, viviendas vacacionales, camping de 1ª",
+    "4": "Clasificación Cuarta: hoteles 2 y 1*, moteles 2 y 1*, apartamentos 2 y 1 llave, ciudades vacacionales 2 y 1*, camping de 2ª y 3ª. (Hasta 31-12-2023 incluía bares-cafeterías y restaurantes)",
+    "5": "Clasificación Quinta: hoteles-residencia 3/2/1*, hostales 2 y 1*, pensiones, fondas, casas de huéspedes, hoteles y casas rurales, y BARES-CAFETERÍAS Y RESTAURANTES (con efectos 1-enero-2024)"
+  },
+  "niveles": {
+    "$comment": "Anexo II. Categorías o niveles del personal (grupos profesionales), filas de las tablas.",
+    "I": "Jefe/a de recepción, jefe/a de cocina, jefe/a de sala, primer/a jefe/a de comedor, titulado grado medio/superior, jefe/a de barras...",
+    "II": "2º jefe/a de recepción o 1er recepcionista, contable, conserje de noche, 2º jefe/a de cocina, jefe/a de compras, 2º barman...",
+    "III": "Recepcionista, jefe/a de partida, jefe/a de sector en comedor/bar, conserje, oficial de contabilidad, monitores...",
+    "IV": "Cocinero/a, camarero/a, cafetero/a, bodeguero/a, dependiente/a, oficial de oficios, auxiliar administrativo...",
+    "IVbis": "Mozo/a de habitación",
+    "V": "Ayudantes no incluidos en nivel IV, marmitón, pinche, fregadero/platero, limpiador/a, botones, vigilante de noche, mozo/a de almacén..."
+  },
+  "salariosBaseMensuales2025": {
+    "$comment": "€/mes brutos. Tablas AÑO 2025 A PARTIR DEL MES DE ABRIL 2025 (encabezado del BOP: '5,00%'). Filas=nivel, columnas=clasificación de establecimiento (1=Primera ... 5=Quinta). Para un camarero/a de bar o restaurante, usar nivel IV, columna 5.",
+    "I":     { "1": 1820.06, "2": 1777.79, "3": 1694.87, "4": 1607.98, "5": 1497.02 },
+    "II":    { "1": 1751.70, "2": 1669.15, "3": 1627.29, "4": 1498.25, "5": 1412.16 },
+    "III":   { "1": 1665.87, "2": 1612.88, "3": 1559.78, "4": 1453.65, "5": 1389.64 },
+    "IV":    { "1": 1575.83, "2": 1518.51, "3": 1477.12, "4": 1422.47, "5": 1342.96 },
+    "IVbis": { "1": 1512.42, "2": 1473.98, "3": 1443.73, "4": 1400.14, "5": 1323.72 },
+    "V":     { "1": 1449.02, "2": 1429.49, "3": 1410.37, "4": 1377.78, "5": 1304.49 }
+  },
+  "complementos2025": {
+    "$comment": "Valores de la tabla 2025 (desde abril 2025), BOP nº79 pág. 10870.",
+    "manutencionArt12": 45.91,
+    "plusDesgasteUtilesArt13": 7.76,
+    "uniformeRopaTrabajoArt14": 12.51,
+    "bolsaVacacionesArt15": 1476.01,
+    "notaBolsaVacaciones": "Art. 16: al iniciar las vacaciones se percibe el importe de una paga ordinaria hasta el tope del Anexo III según categoría/nivel.",
+    "serviciosExtraordinariosArt17": {
+      "$comment": "Servicios extraordinarios tipo banquete/evento (NO son horas extra). €.",
+      "hotel5estrellasPorServicio": 85.40,
+      "hotel5estrellasHoraExcedaDeCuatro": 11.92,
+      "hotel4estrellasPorServicio": 78.57,
+      "hotel4estrellasHoraExcedaDeCuatro": 10.26,
+      "hotel3estrellasPorServicio": 71.67,
+      "hotel3estrellasHoraExcedaDeCuatro": 10.26,
+      "restoHotelesPorServicio": 63.24
+    }
+  },
+  "nocturnidad": {
+    "$comment": "Art. 22 del convenio (texto, no varía por tabla anual).",
+    "trabajoNocturnoTramo": "22:00 a 06:00",
+    "recargo": "25% sobre el salario base/hora",
+    "matiz": "El recargo del 25% se aplica A PARTIR DE LAS 24:00; las dos primeras horas nocturnas (22:00-24:00) quedan SIN recargo.",
+    "excepcion": "No afecta a puestos nocturnos por naturaleza (conserje/vigilante de noche y categorías específicamente nocturnas), cuyo salario ya contempla la nocturnidad."
+  },
+  "horasExtraordinarias": {
+    "$comment": "Art. sobre horas extraordinarias del convenio. NO fija un precio en euros: es un recargo sobre el salario/hora de tablas.",
+    "recargo": "100% sobre el valor del salario/hora resultante de las tablas salariales (es decir, la hora extra se paga al doble)",
+    "limite": "15 horas/mes y 80 horas/año por persona trabajadora",
+    "nota": "El convenio declara suprimida la realización de horas extra salvo urgencias imprevisibles."
+  },
+  "jornadaAnual": {
+    "horas": 1819,
+    "nota": "Art. 23: cómputo anual de 1.819 horas de trabajo efectivo. Descanso semanal de 2 días consecutivos; mínimo 12 h entre jornadas."
+  },
+  "pagas": {
+    "numero": 14,
+    "nota": "Art. 11: dos gratificaciones extraordinarias (1 de julio -verano- y 22 de diciembre -navidad-), cada una de una mensualidad de salario bruto garantizado. 12 mensualidades + 2 extras = 14 pagas."
+  },
+  "primaExtraordinaria2025": {
+    "$comment": "Acuerdo de 12-04-2025, cláusula PRIMERA. Pago único, NO forma parte de las tablas ni es consolidable.",
+    "importe": 650.00,
+    "detalle": "650 € brutos a jornada completa (proporcional al resto), abonados en la nómina de mayo 2025. Sector extrahotelero y empresas <50 trabajadores: en 4 plazos de 162,50 € (mayo-agosto).",
+    "exclusion": "El sector de la RESTAURACIÓN queda EXCLUIDO de esta prima (cláusula SEGUNDA)."
+  },
+  "revision2026": {
+    "$comment": "OJO: a jul-2026 solo está pactado el porcentaje; las tablas 2026 en EUROS no están publicadas en BOP. No se transcriben cifras para no inventar.",
+    "incremento": "4,00% sobre las tablas vigentes a 31-12-2025",
+    "aplicacion": "Desde la nómina de enero 2026, con independencia de la fecha de firma del nuevo convenio (para evitar atrasos).",
+    "estado": "pendiente_publicacion_oficial",
+    "notaEstado": "Se incorporará al futuro convenio colectivo 2026-2029 (mesa de negociación abierta desde septiembre 2025), aún no firmado ni publicado. Cuando salga el BOP con las tablas 2026 en euros, añadir bloque salariosBaseMensuales2026 verificado contra imagen.",
+    "tablasEuros": null
+  },
+  "estado": "tablas_2025_desde_abril_verificadas",
+  "verificadoContra": "PDF oficial BOP Las Palmas nº79 (02-07-2025), pág. 10870, renderizado a imagen (dpi 185) y leído visualmente celda a celda: tabla salarial 2025-desde-abril (niveles I-V bis × clasificaciones 1-5), complementos Art.12-15 y servicios extraordinarios Art.17. Jornada (1.819 h), nocturnidad (Art.22), horas extra, pagas (Art.11) y clasificación/niveles (Anexos I y II) tomados del texto articulado del convenio base (BOP nº15, 03-02-2023).",
+  "pendiente": [
+    "Tablas salariales 2026 en euros (BOP no publicado a jul-2026; solo pactado +4%).",
+    "Nuevo convenio 2026-2029 cuando se firme."
+  ],
+  "fechaVerificacion": "2026-07-07"
+}
