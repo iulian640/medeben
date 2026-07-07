@@ -13,7 +13,14 @@ tablas definitivas del año más reciente), nunca una provisional vieja.
 | `cataluna-hosteleria` | DOGC 9630, 23-03-2026 (2025-2028) | ✅ Sí | 🟡 Solo marco | Transcribir tablas salariales |
 | `valencia-hosteleria` | BOP 26, 2023 (ultraactividad) | ⚠️ Fuente secundaria | ❌ No verificado en imagen | **Conseguir PDF oficial y verificar** |
 | `estatal-restauracion-colectiva` | BOE, 20-06-2025 (2025) | 🟡 Comprobar si hay revisión 2026 | 🟡 Marco + Cáceres | Comprobar 2026 + más provincias |
-| `malaga-hosteleria` | Cambiado a BOP 70, 14-04-2026 (2025 def + 2026 prov) | ✅ Sí (documento correcto) | 🟡 En progreso | Terminar transcripción |
+| `malaga-hosteleria` | BOP 70, 14-04-2026 (2025 def + 2026 prov) | ✅ Sí (documento correcto) | 🟡 Sección 1ª-3ª 2025 def (imagen) | Completar cafeterías, sec. 5/6, 2026 prov |
+| `cadiz-hosteleria` | BOP 153, 12-08-2025 (2025-2028) | ✅ Sí (multi-año) | ✅ Imagen, completo (agente + spot-check de Claude OK) | — (4 dudas de interpretación para UGT) |
+| `vizcaya-hosteleria` | BOB 38, 25-02-2026 (tablas 2026) + BOB 81, 30-04-2025 (texto) | ✅ Sí | 🟡 Imagen por agente (pendiente spot-check Claude) | Mapeo categoría→nivel; tramo nocturno |
+| `murcia-hosteleria` | (agente en curso) | — | 🟡 En progreso | — |
+| `acoruna-hosteleria` | (agente en curso) | — | 🟡 En progreso | — |
+| `laspalmas-hosteleria` | (agente en curso) | — | 🟡 En progreso | — |
+
+**Leyenda verificación:** ✅ Imagen = leído celda a celda del PDF oficial. "spot-check Claude" = Claude reverificó una muestra de celdas contra la fuente. Los de agente sin spot-check quedan marcados hasta que Claude los revise.
 
 ## Lección aprendida (2026-07-07)
 El primer PDF de Málaga (BOP 90, may-2025) traía 2024 definitivas + 2025

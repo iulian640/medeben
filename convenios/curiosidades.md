@@ -119,6 +119,27 @@ calcula tu hora — y quien no lo sepa, calcula mal lo que le deben.
 - **Fuente:** XVII Convenio de Hostelería de la provincia de Valencia. BOP Valencia nº 26, 07-02-2023. (Pendiente verificar en el PDF oficial.)
 - **Gancho:** "¿Sabías que en Valencia el sueldo de hostelería se cobra en 15 pagas y no en 14? Detalle pequeño, cuentas distintas."
 
+## 12. Trabajar en Nochevieja se paga con tarifa propia
+
+En Cádiz, el servicio extraordinario de **Nochevieja y cotillón** tiene su propia
+tarifa por hora (58,61 €/hora en 2027, mínimo 4 horas), aparte de camareros y
+cocineros normales. Y las fiestas del calendario trabajadas se pagan con un
+**recargo del 150%** sobre el salario real (o las cambias por días de vacaciones).
+
+- **Fuente:** Convenio de Hostelería de Cádiz, arts. 14 y 23. BOP Cádiz nº 153, 12-08-2025.
+- **Gancho:** "¿Curras en Nochevieja? Tu convenio puede tener una tarifa especial para esa noche. Y las fiestas trabajadas van al 150%."
+
+## 13. Tu sueldo base congelado, pero cobras más: el truco del complemento
+
+En Bizkaia, el salario BASE de un camarero (nivel Primera) lleva **congelado en
+725,06 €** años, pero el sueldo real sube cada año. ¿Cómo? Porque lo que sube son
+los **complementos**, no la base. Además hay una "garantía mínima" (Art. 7) que se
+recalcula cada año y puede variar mucho (de 249 € a 63 €) sin que cambie lo que
+cobras. Lección: mirar solo el "salario base" engaña; hay que mirar el total.
+
+- **Fuente:** VII Convenio de Hostelería de Bizkaia, arts. 7 y tablas. BOB nº 81 (30-04-2025) y nº 38 (25-02-2026).
+- **Gancho:** "Tu sueldo base lleva años congelado... pero cobras más cada año. El truco está en los complementos. Aprende a leer tu nómina de verdad."
+
 ---
 
 _Añadir más conforme se transcriben convenios._
