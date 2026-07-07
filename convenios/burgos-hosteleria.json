@@ -1,0 +1,442 @@
+{
+  "$comment": "Convenio colectivo para la industria de hostelería de la provincia de Burgos 2023-2026. El ARTICULADO se transcribe VISUALMENTE del PDF oficial del BOP de Burgos nº 68 (lunes 8-04-2024), C.V.E. BOPBUR-2024-01704 (Resolución de 21-03-2024 de la Oficina Territorial de Trabajo de Burgos). Las TABLAS SALARIALES son las DEFINITIVAS de 2026 publicadas en el BOP de Burgos nº 54 (jueves 19-03-2026), C.V.E. BOPBUR-2026-01173 (Resolución de 6-03-2026, acuerdo de la comisión paritaria de 20-02-2026), que sustituyen a las provisionales de 2026 que figuraban en el convenio base (calculadas con IPC 2025 aún desconocido). A julio de 2026 es la publicación de tablas MÁS RECIENTE (regla D32). Código convenio 09000345011982. Particularidades: la clasificación es por ÁREA FUNCIONAL (6 áreas) y GRUPO PROFESIONAL (I-III), adaptada al ALEH; el convenio NO regula régimen disciplinario propio (faltas/sanciones → ALEH + ET); la antigüedad está consolidada/congelada (no genera nuevos tramos), pervive como 'complemento personal' ad personam (Art. 40).",
+  "id": "burgos-hosteleria",
+  "nombre": "Convenio colectivo para la industria de hostelería de la provincia de Burgos 2023-2026",
+  "codigoRegcon": "09000345011982",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla y León", "provincias": ["Burgos"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "$comment": "Dos publicaciones oficiales: el articulado (convenio base 2023-2026) y las tablas salariales definitivas de 2026.",
+    "articulado": {
+      "boletin": "BOP Burgos",
+      "numero": 68,
+      "fecha": "2024-04-08",
+      "documento": "Resolución de 21 de marzo de 2024 de la Oficina Territorial de Trabajo de Burgos, inscripción y publicación del convenio colectivo para la industria de hostelería de la provincia de Burgos. C.V.E. BOPBUR-2024-01704. C.C. 09000345011982.",
+      "url": "https://bopbur.diputaciondeburgos.es/sites/default/files/private/publicado/bopbur-2024-068/bopbur-2024-068-anuncio-202401704.pdf"
+    },
+    "tablas2026": {
+      "boletin": "BOP Burgos",
+      "numero": 54,
+      "fecha": "2026-03-19",
+      "documento": "Resolución de 6 de marzo de 2026 de la Oficina Territorial de Trabajo de Burgos, publicación de las tablas salariales para el año 2026 (acuerdo de la comisión paritaria de 20-02-2026). C.V.E. BOPBUR-2026-01173. C.C. 09000345011982.",
+      "url": "https://bopbur.diputaciondeburgos.es/sites/default/files/private/publicado/bopbur-2026-054/bopbur-2026-054-anuncio-202601173.pdf"
+    }
+  },
+  "vigencia": {
+    "desde": "2023-01-01",
+    "hasta": "2026-12-31",
+    "nota": "Art. 4: vigencia de 4 años. Las tablas definitivas de 2023 rigen desde el 1-07-2023 (hasta esa fecha las de 2022). El convenio mantiene su vigencia hasta que por otro sea sustituido (ultraactividad, Art. 4). Art. 5: denunciado desde la firma; negociaciones desde el 1-12-2026, suspendidas hasta el 10-01-2027 si no hay acuerdo el día 15."
+  },
+  "partesFirmantes": {
+    "patronal": "Federación Provincial de Empresarios de Hostelería de Burgos",
+    "sindicatos": ["CCOO", "UGT"]
+  },
+
+  "jornadaAnual": {
+    "horas": 1774,
+    "semanal": 40,
+    "articulo": "Art. 10",
+    "descansoEntreJornadasHoras": 12,
+    "nota": "Art. 10: jornada máxima anual de 1.774 h, YA DEDUCIDOS los 4 días de asuntos propios del Art. 17. Máximo 40 h/semana de trabajo efectivo. La jornada no puede dividirse en más de 2 periodos; descanso entre periodos mínimo 2 h; entre jornada y jornada mínimo 12 h. En contratos a tiempo parcial de 4 h/día o menos no se puede pactar jornada partida."
+  },
+
+  "descansoSemanal": {
+    "articulo": "Art. 11",
+    "duracion": "1 día y medio continuados",
+    "domingoMensual": "En empresas de más de 5 trabajadores, derecho a descansar al menos un domingo al mes dentro del descanso semanal, salvo que coincida con puentes, los meses de julio y agosto, y desde el día de la Constitución (6-dic) al día de Reyes (6-ene).",
+    "nota": "Se respeta el día de cierre semanal en las empresas que lo tengan establecido."
+  },
+
+  "categoriasEstablecimiento": {
+    "$comment": "A diferencia de otros convenios (p. ej. Cádiz), Burgos NO clasifica por categoría de establecimiento (A/B/C). El salario depende de ÁREA FUNCIONAL y GRUPO PROFESIONAL (Art. 38), no del tipo de establecimiento.",
+    "aplica": false
+  },
+
+  "areasFuncionalesYgrupos": {
+    "$comment": "Art. 38. Nuevo sistema de clasificación adaptado al ALEH. 6 áreas funcionales, cada una con grupos profesionales I, II y III. El camarero está en el ÁREA TERCERA, Grupo II.",
+    "areaPrimera": "Recepción-conserjería, relaciones públicas, administración y gestión",
+    "areaSegunda": "Cocina y economato",
+    "areaTercera": "Restaurante, bar y similares, pista para catering",
+    "areaCuarta": "Pisos y limpieza",
+    "areaQuinta": "Servicios de mantenimiento y servicios auxiliares",
+    "areaSexta": "Servicios complementarios",
+    "grupos": "Grupo profesional I (jefaturas/titulados superiores), II (oficiales/cualificados) y III (ayudantes/auxiliares)."
+  },
+
+  "tablasSalariales": {
+    "$comment": "TABLAS SALARIALES DEFINITIVAS DE BURGOS AÑO 2026 (BOP nº 54, 19-03-2026). Salario base en € brutos: 'mes' (14 pagas) y 'ano' (anual). Leídas celda a celda de la imagen del PDF oficial. Cada fila indica área funcional, grupo profesional y puestos incluidos.",
+    "2026": {
+      "areaPrimera_RecepcionConserjeriaRRPPAdministracion": [
+        { "grupo": "I", "puestos": "Jefe de recepción, jefe de administración, comercial", "mes": 1721.07, "ano": 24094.98 },
+        { "grupo": "I", "puestos": "2º jefe de recepción, primer conserje de día", "mes": 1488.89, "ano": 20844.46 },
+        { "grupo": "II", "puestos": "Administrativo comercial", "mes": 1488.89, "ano": 20844.46 },
+        { "grupo": "II", "puestos": "Recepcionista, relaciones públicas", "mes": 1310.33, "ano": 18344.62 },
+        { "grupo": "III", "puestos": "Ayudante administrativo, telefonista", "mes": 1310.33, "ano": 18344.62 },
+        { "grupo": "III", "puestos": "Ayudante de recepción, auxiliar de recepción, auxiliar de conserjería", "mes": 1253.69, "ano": 17551.66 }
+      ],
+      "areaSegunda_CocinaYEconomato": [
+        { "grupo": "I", "puestos": "Jefe de cocina, jefe de catering", "mes": 1721.07, "ano": 24094.98 },
+        { "grupo": "I", "puestos": "Segundo jefe de cocina, jefe de partida", "mes": 1488.89, "ano": 20844.46 },
+        { "grupo": "II", "puestos": "Cocinero, repostero, encargado de economato", "mes": 1310.33, "ano": 18344.62 },
+        { "grupo": "III", "puestos": "Ayudante de economato, ayudante de cocina, auxiliar de cocina", "mes": 1253.69, "ano": 17551.66 }
+      ],
+      "areaTercera_RestauranteBarCatering": [
+        { "grupo": "I", "puestos": "Jefe de restaurante, sala o catering", "mes": 1721.07, "ano": 24094.98 },
+        { "grupo": "I", "puestos": "Segundo jefe de restaurante o sala", "mes": 1488.89, "ano": 20844.46 },
+        { "grupo": "II", "puestos": "Jefe de sector, supervisor de catering", "mes": 1488.89, "ano": 20844.46 },
+        { "grupo": "II", "puestos": "Camarero, barman, sumiller, preparador montador de catering", "mes": 1310.33, "ano": 18344.62 },
+        { "grupo": "III", "puestos": "Ayudante de camarero, ayudante equipo catering, auxiliar preparación catering", "mes": 1253.69, "ano": 17551.66 }
+      ],
+      "areaCuarta_PisosYLimpieza": [
+        { "grupo": "I", "puestos": "Encargado general", "mes": 1488.89, "ano": 20844.46 },
+        { "grupo": "I", "puestos": "Encargado de sección", "mes": 1310.33, "ano": 18344.62 },
+        { "grupo": "II", "puestos": "Camarero/a de pisos", "mes": 1265.33, "ano": 17714.62 },
+        { "grupo": "III", "puestos": "Auxiliar de pisos y limpieza", "mes": 1253.69, "ano": 17551.66 }
+      ],
+      "areaQuinta_MantenimientoYServiciosAuxiliares": [
+        { "grupo": "I", "puestos": "Jefe de servicios", "mes": 1721.07, "ano": 24094.98 },
+        { "grupo": "II", "puestos": "Encargado de mantenimiento y/o servicios auxiliares, técnico de catering o flota o de instalaciones y edificios", "mes": 1488.89, "ano": 20844.46 },
+        { "grupo": "III", "puestos": "Mecánico, calefactor, ebanista, electricista, carpintero, albañil, pintor, conductor, fontanero, jardinero, especialista de mantenimiento y servicios técnicos", "mes": 1310.33, "ano": 18344.62 },
+        { "grupo": "III", "puestos": "Ayte. mecánico o calefactor, ayudante de ebanista, de carpintero, de electricista, de albañil y pintor-mozo de billar o salón de recreo, guarda del exterior, monitor", "mes": 1253.69, "ano": 17551.66 }
+      ],
+      "areaSexta_ServiciosComplementarios": [
+        { "grupo": "I", "puestos": "Responsable de servicio", "mes": 1721.07, "ano": 24094.98 },
+        { "grupo": "II", "puestos": "Técnico de servicio, fisioterapeuta, dietista y otros titulados en salud", "mes": 1488.89, "ano": 20844.46 },
+        { "grupo": "II", "puestos": "Especialista de servicios (socorrista, primeros auxilios, disc-jockey, masajista, monitor deportivo, quiromasajista, especialista de atención al cliente)", "mes": 1310.33, "ano": 18344.62 },
+        { "grupo": "III", "puestos": "Auxiliar de servicio (auxiliar atención al cliente, auxiliar de balneario o piscina)", "mes": 1253.69, "ano": 17551.66 }
+      ]
+    }
+  },
+
+  "pagasExtraordinarias": {
+    "$comment": "Art. 44 (gratificaciones extraordinarias) + Art. 41 (paga del sector).",
+    "totalPagas": 14,
+    "articulo": "Art. 44 y Art. 41",
+    "gratificacionesExtraordinarias": {
+      "numero": 2,
+      "cuando": "Verano (antes del 15 de julio) y Navidad (antes del 22 de diciembre)",
+      "base": "Una mensualidad de salario garantizado cada una, incrementada con el complemento de antigüedad consolidada, y con la prorrata de la paga del sector (Art. 41) si así se hubiera convenido.",
+      "articulo": "Art. 44"
+    },
+    "pagaDelSector": {
+      "articulo": "Art. 41",
+      "importe2026": 1201.45,
+      "unidad": "€ brutos/año",
+      "nota": "Paga anual de cuantía IGUAL para todas las categorías profesionales. Para 2026: 1.201,45 € brutos (importe DEFINITIVO del BOP nº 54/2026; el convenio base la dejaba como 1.167,59 € + IPC 2025, provisional). Puede prorratearse en las 14 pagas. Si se paga de una sola vez, antes del 30 de septiembre."
+    }
+  },
+
+  "complementoPersonal": {
+    "$comment": "Art. 40. Complemento personal 'ad personam' derivado de la consolidación de la antigüedad (ver 'antiguedad'). Solo lo perciben quienes ya tenían derecho. La tabla es la del convenio base 2024 (el BOP nº 54/2026 de tablas no la reeditó); pendiente confirmar si se actualizó para 2026.",
+    "articulo": "Art. 40",
+    "tabla": {
+      "unidad": "€ (14 pagas), por nivel salarial",
+      "grupoI": { "A": 82.14, "B": 71.05, "C": 62.53, "D": 60.40, "E": 59.84 },
+      "grupoII": { "A": 21.28, "B": 18.60, "C": 16.70, "D": 16.10, "E": 15.95 }
+    },
+    "valores2026": "pendiente — el PDF de tablas 2026 (BOP 54) no reeditó el complemento personal; los importes mostrados son los del convenio base (BOP 68/2024). Duda para UGT."
+  },
+
+  "antiguedad": {
+    "$comment": "El convenio NO contiene un artículo de antigüedad con escala de tramos. El Art. 44 se refiere a 'complemento de antigüedad consolidada' y el Art. 40 regula el 'complemento personal' resultante. Interpretación: la antigüedad quedó CONGELADA/CONSOLIDADA (no genera nuevos tramos), pervive como importe fijo ad personam para quien lo tuviera.",
+    "escala": "no_previsto",
+    "estado": "consolidada",
+    "articulo": "Art. 40 (complemento personal) y Art. 44 (paga extra incluye la antigüedad consolidada)",
+    "nota": "No hay escala de % por años de servicio en el convenio provincial. Quien tuviera antigüedad devengada la mantiene consolidada. Duda para UGT: ¿se sigue devengando antigüedad por el ALEH o quedó definitivamente congelada?"
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 46. Recargo porcentual, NO euros/hora.",
+    "tipo": "porcentaje",
+    "porcentaje": 25,
+    "sobre": "hora_ordinaria",
+    "articulo": "Art. 46",
+    "tramoHorario": { "desde": "22:00", "hasta": "no_especificado" },
+    "condicion": "Se abona el recargo del 25% a las horas trabajadas a partir de las 22:00, siempre que se trabajen más de cuatro horas a partir de esa hora.",
+    "formulaValorHora": "Hora nocturna = [ (Salario mensual + Antigüedad) x 14 pagas + paga del sector ] / Jornada de trabajo ordinaria anual  x 1,25"
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "Art. 15. Recargo porcentual o compensación con descanso.",
+    "tipo": "porcentaje",
+    "porcentaje": 75,
+    "sobre": "hora_ordinaria",
+    "articulo": "Art. 15",
+    "compensacionDescanso": "Alternativa a elección: compensar con descanso en la misma proporción, es decir 1 hora y 45 minutos de descanso por cada hora extraordinaria realizada.",
+    "voluntariedad": "Voluntarias, salvo las motivadas por fuerza mayor y las justificadas por necesidades del servicio. Ambas partes acuerdan reducir al máximo las horas extra habituales.",
+    "formulaValorHora": "Hora extraordinaria = [ (Salario mensual + antigüedad) x 14 pagas + paga del sector ] / Jornada de trabajo ordinaria anual  x 1,75"
+  },
+
+  "festivos": {
+    "$comment": "Art. 13. Festivos abonables y no recuperables trabajados: compensación a elección de común acuerdo con la empresa.",
+    "articulo": "Art. 13",
+    "opciones": [
+      "a) Acumularlos a las vacaciones anuales (añadir los días festivos trabajados al periodo de disfrute).",
+      "b) Percibirlos en metálico como si fueran horas extraordinarias, con independencia del salario del día, cuando no se compensen con descanso o vacaciones.",
+      "c) Disfrutarlos como descanso continuado en periodos distintos (se suman los días de descanso incluidos en ese periodo).",
+      "d) Si el día de descanso semanal coincide con festivo, la empresa compensa con un día más de descanso durante la semana."
+    ]
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 12 (+ Art. 13 festivos y Art. 4/preaviso). Dato importante: son 31 días NATURALES (no 30), y con periodo de disfrute parcialmente garantizado en verano.",
+    "articulo": "Art. 12",
+    "dias": 31,
+    "tipoDias": "naturales",
+    "tipoDiasNota": "El Art. 12 dice literalmente '31 días naturales ininterrumpidos'. Mejora el mínimo legal del ET (30 días naturales) en 1 día.",
+    "diasExtraAntiguedad": "no_previsto",
+    "diasExtraAntiguedadNota": "'sin distinción de antigüedad'. El convenio no suma días por antigüedad.",
+    "retribucion": {
+      "base": "pendiente",
+      "nota": "El Art. 12 NO especifica el módulo retributivo de las vacaciones (salario base solo vs. promedio con complementos). No se infiere. Duda para UGT."
+    },
+    "periodoDisfrute": {
+      "regla": "Preferentemente en verano. En empresas con 10 o más personas trabajadoras, derecho a disfrutar 16 días entre los meses de junio y septiembre (ambos inclusive), salvo en empresas que cierren su establecimiento en cualquier época del año.",
+      "temporadaAltaBloqueada": "no_especificado"
+    },
+    "fijacion": "En caso de discrepancias sobre la fecha de disfrute se siguen los trámites del ET y demás leyes de aplicación (Art. 12).",
+    "preaviso": "Toda persona trabajadora conocerá la fecha de disfrute con al menos 3 meses de antelación, pudiéndose variar en casos de fuerza mayor (Art. 12).",
+    "fraccionamiento": {
+      "permitido": "no_especificado",
+      "nota": "El Art. 12 no regula expresamente el fraccionamiento; habla de 31 días 'ininterrumpidos'."
+    },
+    "inicioTrasDescanso": "En ningún caso el inicio del periodo vacacional podrá coincidir con días de descanso de la persona trabajadora ni con otro día que por cualquier motivo no le correspondiera trabajar (Art. 12).",
+    "bajaDuranteVacaciones_IT": {
+      "derecho": "Si el periodo de vacaciones coincide con una IT que imposibilite disfrutarlas (total o parcialmente) durante el año natural, se disfrutan una vez finalizada la incapacidad, siempre que no hayan transcurrido más de 18 meses a partir del final del año en que se originaron (Art. 12).",
+      "riesgoEmbarazoMaternidad": "El riesgo durante el embarazo y el descanso por maternidad que se inicien antes o durante las vacaciones interrumpen su cómputo, pudiéndose disfrutar después incluso si superan el año natural (Art. 12)."
+    },
+    "festivosDentroVacaciones": "A las vacaciones anuales pueden acumularse los festivos trabajados, de común acuerdo con la empresa (Art. 12 y Art. 13.a).",
+    "proporcionalidad": "Quien lleve menos de un año en la empresa disfruta los días que le correspondan en prorrateo según su tiempo de permanencia (Art. 12)."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 16 (permisos retribuidos, con 12 apartados) + Art. 17 (asuntos propios). Previo aviso y justificación. Todos los permisos se extienden a parejas de hecho registradas (Art. 16.12).",
+    "articulo": "Art. 16 y Art. 17",
+    "matrimonio": { "dias": 17, "articulo": "Art. 16.1", "nota": "Por matrimonio de la persona trabajadora, 17 días a contar desde el día de la boda o, a su elección, el día anterior. Mejora el ET (15 días)." },
+    "nacimientoHijo": { "dias": 3, "diasConDesplazamiento": 5, "articulo": "Art. 16.2", "nota": "3 días, ampliables 2 días más si hay desplazamiento. (Complementario al permiso legal por nacimiento de 16 semanas.)" },
+    "accidenteEnfermedadGraveHospitalizacion": { "dias": 5, "articulo": "Art. 16.3", "causa": "Accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario del cónyuge, pareja de hecho o parientes hasta el 2º grado por consanguinidad o afinidad (incluido el consanguíneo de la pareja de hecho) y cualquier conviviente en el mismo domicilio que requiera el cuidado efectivo.", "nota": "Disfrutable de forma ininterrumpida mientras subsista la causa, no necesariamente desde el primer día del suceso." },
+    "fallecimiento": { "dias": 3, "diasMenos300km": 4, "diasDesde300km": 5, "articulo": "Art. 16.4", "causa": "Fallecimiento de cónyuge, pareja de hecho o pariente hasta el 2º grado de consanguinidad o afinidad. 3 días si el hecho se produce en la misma localidad, 4 si hay que desplazarse a menos de 300 km, 5 si el desplazamiento es a partir de 300 km." },
+    "fallecimientoTercerGrado": { "dias": 1, "articulo": "Art. 16.5", "causa": "Fallecimiento de familiar de 3er grado por consanguinidad o afinidad." },
+    "fuerzaMayorFamiliar": { "dias": "hasta 4 al año", "articulo": "Art. 16.6", "causa": "Ausencia por fuerza mayor por motivos familiares urgentes (enfermedad o accidente de familiares o convivientes que hagan indispensable la presencia inmediata). Retribuidas las horas de ausencia equivalentes a 4 días al año, en acuerdo entre empresa y RLPT. Recoge el art. 37.9 ET." },
+    "matrimonioFamiliares": { "dias": "1, 2 o 3", "articulo": "Art. 16.7", "causa": "Matrimonio de padres, un hijo o hermano: 1 día si en la ciudad de residencia, 2 si en otra localidad de la provincia, 3 si fuera de la provincia. Matrimonio de padres y hermanos políticos: 1 día si misma provincia, 2 si otra. Puede anticiparse al día anterior a la boda." },
+    "lactancia": { "articulo": "Art. 16.8", "duracion": "Hijo menor de 12 meses.", "opciones": ["1 hora de ausencia divisible en 2 fracciones", "reducción de 1 hora de jornada al inicio o al final", "acumulación al periodo de baja por maternidad/paternidad en 17 días laborales"], "nota": "Derecho individual no transferible a la otra persona progenitora." },
+    "acompanarMedicoHijos": { "articulo": "Art. 16.9", "derecho": "Tiempo necesario para acompañar al médico a hijos menores o discapacitados (naturales, adoptivos o de acogida), justificando la visita y avisando con antelación." },
+    "consultaMedica": { "articulo": "Art. 16.10", "derecho": "Permiso retribuido para asistencia a consultas de médicos de cabecera y especialistas, con preaviso y posterior justificación." },
+    "comunionBautizo": { "dias": 1, "articulo": "Art. 16.11", "causa": "Comunión o bautizo de hijos, hermanos o nietos." },
+    "asuntosPropios": { "dias": 4, "articulo": "Art. 17", "nota": "4 días de licencia con sueldo, sin justificación posterior, solicitados con antelación suficiente, salvo coincidencia con periodos de mayor actividad. YA DESCONTADOS de la jornada anual (Art. 10)." },
+    "parejasHecho": "Todos los permisos del Art. 16, en equivalencia con el cónyuge, se extienden a las parejas de hecho debidamente registradas o que pasen a serlo (Art. 16.12).",
+    "examenesPrenatales": { "articulo": "Art. 36", "derecho": "Las trabajadoras embarazadas tienen ausencia retribuida para exámenes prenatales y técnicas de preparación al parto, previo aviso y justificación de que deben realizarse dentro de la jornada." }
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 20. Dato 'oro' de baja médica. La empresa SÍ complementa la prestación. Distingue accidente (de trabajo, no laboral) y enfermedad profesional (100% desde el día 1) de enfermedad común (100% desde el día 10, con escalado posterior).",
+    "articulo": "Art. 20",
+    "accidenteYenfermedadProfesional": {
+      "complementoHasta": "100% del salario",
+      "desdeDia": 1,
+      "nota": "IT derivada de accidente de trabajo, accidente no laboral o enfermedad profesional: 100% del salario desde el primer día."
+    },
+    "enfermedadComun": {
+      "primeros3Dias": { "porcentaje": 50, "limite": "una sola baja al año", "nota": "En una sola baja al año, durante los 3 primeros días de IT por enfermedad se percibe el 50% del salario." },
+      "desdeDia10hasta180": { "porcentaje": 100 },
+      "desdeDia181hasta365": { "porcentaje": 90 },
+      "desdeDia365": { "porcentaje": 0, "nota": "A partir del día 365 la empresa NO complementa la prestación por IT derivada de enfermedad común." },
+      "nota": "IT por enfermedad común: 100% del salario a partir del día 10 de la baja y hasta el día 180; del día 181 al 365, 90%; a partir del 365, sin complemento."
+    }
+  },
+
+  "seguroAccidentes": {
+    "$comment": "Art. 34.",
+    "articulo": "Art. 34",
+    "importe": 30000.00,
+    "unidad": "€ (capital único para la vigencia del convenio)",
+    "coberturas": "Muerte, invalidez absoluta y gran invalidez derivadas de accidente de trabajo, incluidos los 'in itinere'."
+  },
+
+  "indemnizacionVinculacionSector": {
+    "$comment": "Art. 21. Premio a la permanencia. Dos modalidades incompatibles (se opta por la más beneficiosa).",
+    "articulo": "Art. 21",
+    "porCeseAntesDe64": {
+      "requisito": "Cese en la empresa antes de los 64 años con un mínimo de 8 años de servicio.",
+      "escala": { "60años": "5 mensualidades", "61años": "4 mensualidades", "62años": "3 mensualidades", "63años": "1 mensualidad" }
+    },
+    "por20AnosServicio": {
+      "requisito": "Mínimo 20 años al servicio de la empresa.",
+      "importe": "3 mensualidades (incrementadas con todos los emolumentos inherentes) + 1 mensualidad más por cada 5 años que exceda de los 20 años de referencia."
+    },
+    "nota": "Ambas indemnizaciones son incompatibles entre sí; la persona trabajadora opta por la más beneficiosa. Se percibe junto a las cantidades que correspondan al cese por otros conceptos. (No aplica en baja voluntaria ni despido según la lógica del artículo.)"
+  },
+
+  "pluses": {
+    "$comment": "Importes DEFINITIVOS de 2026 (BOP nº 54/2026) salvo indicación.",
+    "plusTransporte": {
+      "2026": 61.42,
+      "unidad": "€ brutos/mes",
+      "articulo": "Art. 42",
+      "nota": "Para todas las personas trabajadoras sin distinción de categoría. Se abona exclusivamente en las 12 pagas ordinarias. No tiene naturaleza salarial (excluido de compensación/absorción, Art. 6)."
+    },
+    "gastosLocomocion": {
+      "2026": 0.27,
+      "unidad": "€ brutos/km",
+      "articulo": "Art. 43",
+      "nota": "Para quienes presten servicios en áreas de servicio, caterings y colectividades de autopistas, autovías y carreteras situadas a más de 8 km del límite del casco urbano de la localidad donde habite el trabajador, usando medios propios de desplazamiento."
+    },
+    "serviciosExtras": {
+      "2025y2026": 48.00,
+      "2023y2024": 45.00,
+      "unidad": "€ brutos/jornada (importe mínimo)",
+      "articulo": "Art. 23",
+      "nota": "Servicios extraordinarios (banquetes y cócteles de celebraciones sociales, de breve duración y carácter irregular) prestados por 'extras' ajenos a la plantilla fija, contratados en las oficinas de empleo entre desempleados del sector. Mínimo 48,00 € brutos por jornada en 2025 y 2026."
+    },
+    "manutencionYalojamiento": {
+      "articulo": "Art. 45",
+      "importe": "pendiente",
+      "nota": "El personal señalado en el anexo III de la (derogada) ordenanza laboral tiene derecho a manutención y alojamiento en especie durante los días de servicio, sustituibles/compensables según el art. 72 de la ordenanza. El convenio NO fija importe en euros: remite a la ordenanza laboral (supletoria). Duda para UGT: cuantificación."
+    }
+  },
+
+  "ropaTrabajo": {
+    "$comment": "Art. 32. La empresa da el uniforme o compensa en metálico; sin coste para la persona trabajadora.",
+    "articulo": "Art. 32",
+    "obligacionEmpresa": "Las empresas están obligadas a proporcionar los uniformes y la ropa de trabajo que no sea de uso común en la vida ordinaria o, en su defecto, su compensación en metálico. En ningún caso puede suponer coste para la persona trabajadora.",
+    "dotacionAnual": "1 traje de pantalón y chaqueta, 1 corbata o corbatín, 1 chaquetilla, 1 pantalón, 2 picos de cocina o 2 gorros, 1 bata, 1 cofia, 1 guardapolvo o mono, 2 camisas o polos, 2 delantales, 1 par de zapatos. Renovación mínima anual (o antes si se deteriora).",
+    "calzadoEspecial": "El calzado especial (antideslizante, botas de trabajo, botas de agua) exigido en ciertos departamentos corre a cargo de la empresa si la persona lleva al menos 6 meses de permanencia; renovación anual.",
+    "limpieza": "Las prendas del uniforme que no puedan lavarse en lavadoras convencionales las limpia la empresa o abona el coste (Art. 32.3).",
+    "embarazadas": "Uniforme adecuado a su estado para las trabajadoras embarazadas (Art. 32.4)."
+  },
+
+  "utilesYherramientas": {
+    "articulo": "Art. 33",
+    "nota": "Las empresas facilitan a su personal todos los útiles y herramientas necesarios para el desempeño de sus actividades, sin coste para la persona trabajadora."
+  },
+
+  "ascensos": {
+    "$comment": "Art. 19.",
+    "articulo": "Art. 19",
+    "criterio": "Las vacantes se cubren por las personas trabajadoras de la categoría inmediata inferior que lleven desempeñándola un mínimo de 6 meses, por orden de antigüedad, teniendo en cuenta formación y méritos y las facultades organizativas de la empresa. Se oye a la representación legal de las personas trabajadoras."
+  },
+
+  "periodoPrueba": {
+    "$comment": "Art. 28. A diferencia de otros convenios (p. ej. Cádiz), Burgos SÍ regula duraciones propias.",
+    "articulo": "Art. 28",
+    "regulado": true,
+    "tecnicosTitulados": "6 meses",
+    "restoPersonal": "2 meses",
+    "contratosFormativosAprendizaje": "1 mes",
+    "nota": "Será nulo el pacto de periodo de prueba cuando el trabajador ya haya desempeñado las mismas funciones con anterioridad en la empresa bajo cualquier modalidad contractual. Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "excedencias": {
+    "$comment": "Art. 18. Regula la excedencia por cuidado de familiares y la reducción de jornada. En lo no regulado (p. ej. excedencia voluntaria general), remite a la legislación vigente (ET).",
+    "articulo": "Art. 18",
+    "cuidadoDeHijo": {
+      "duracion": "no superior a 3 años por cada hijo/a (por naturaleza, adopción o acogimiento permanente o preadoptivo)",
+      "computo": "Desde el fin del descanso por maternidad o desde la resolución judicial/administrativa.",
+      "solicitud": "Inicio y reincorporación con 1 mes de antelación.",
+      "efectos": "Reserva del puesto de trabajo propio y cómputo a efectos de antigüedad."
+    },
+    "cuidadoDeFamiliar": {
+      "duracion": "no superior a 2 años",
+      "causa": "Cuidado de familiar hasta el 2º grado de consanguinidad o afinidad que por edad, accidente, enfermedad o discapacidad no pueda valerse por sí mismo y no desempeñe actividad retribuida.",
+      "efectos": "Reserva del puesto de trabajo propio y cómputo a efectos de antigüedad."
+    },
+    "reduccionJornadaMotivosFamiliares": "Guarda legal de menor de 12 años o persona con discapacidad sin actividad retribuida: reducción de jornada entre 1/8 y 1/2, con disminución proporcional del salario (Art. 18.2).",
+    "excedenciaVoluntaria": "no_regulada_en_convenio — en lo no previsto se está a la legislación vigente (ET art. 46)."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El articulado del convenio (Arts. 1-50) NO incluye régimen disciplinario: no tipifica faltas leves/graves/muy graves ni sus sanciones. Verificado leyendo el articulado completo del PDF oficial (BOP 68/2024). Única mención: el Art. 35 califica el acoso sexual como falta muy grave, sin desarrollar el resto. Por tanto el régimen disciplinario se rige por el ALEH estatal y el ET.",
+    "articulo": "No regulado en el convenio provincial (salvo Art. 35, acoso sexual = falta muy grave).",
+    "regulado": false,
+    "remitidoA": "ALEH (Acuerdo Laboral de ámbito Estatal para el sector de la Hostelería), que tipifica las faltas leves/graves/muy graves y sus sanciones, y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver ALEH",
+    "faltasGraves": "pendiente — ver ALEH",
+    "faltasMuyGraves": "pendiente — ver ALEH (el convenio solo cita el acoso sexual, Art. 35).",
+    "sanciones": "pendiente — ver ALEH (amonestación, suspensión de empleo y sueldo por nº de días, inhabilitación para ascenso, despido solo en muy graves).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede imponer sanciones que consistan en la reducción de la duración de las vacaciones u otra minoración de los derechos al descanso, ni en multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad, que no es sanción. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos. Sin ello la sanción es impugnable.",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    }
+  },
+
+  "representacionSindical": {
+    "$comment": "Art. 37 (Organización sindical). El convenio reconoce la libertad sindical y derechos de reunión/información, pero NO fija crédito horario propio ni detalla el sistema de elección: se rigen por el ET (arts. 62-68) y la LOLS.",
+    "articulo": "Art. 37",
+    "creditoHorario": {
+      "horasMensuales": "pendiente — no fijado en el convenio",
+      "mejoraET": "El convenio NO mejora el crédito horario; se aplica el art. 68.e ET (15 h/mes hasta 100 trabajadores, escalado superior). Duda para UGT."
+    },
+    "libertadSindical": "Las empresas respetan la sindicación libre; no pueden condicionar el empleo a no afiliarse ni renunciar a la afiliación, ni despedir o perjudicar por afiliación o actividad sindical (Art. 37).",
+    "derechosAfiliados": "Reuniones, recaudación de cuotas y distribución de información sindical fuera de las horas de trabajo, sin perturbar la actividad normal; los sindicatos con afiliación apreciable pueden emitir información. Asesoramiento de la central sindical para negociar o debatir cuestiones laborales.",
+    "quienRepresentaYeleccion": "pendiente — no detallado en el convenio; se rige por el ET (arts. 62-68: delegados de personal en empresas 6-49, comité de empresa desde 50) y la LOLS.",
+    "garantiasYfuero": "pendiente — no detallado en el convenio; se rige por el art. 68 ET (expediente contradictorio previo a sanción grave, prioridad de permanencia, protección frente a despido/sanción por actividad representativa durante el mandato y el año siguiente)."
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 24-27 y 30. Modalidades formativas remitidas al ALEH VI y al ET; fijo-discontinuo con cálculo de ocupación mínima propio.",
+    "articulo": "Art. 24 (formativo práctica), Art. 25 (formación en alternancia), Art. 26 (indefinida y temporal), Art. 27 (fijo-discontinuo), Art. 30 (preaviso)",
+    "contratoFormativoPractica": {
+      "articulo": "Art. 24",
+      "retribucion": "No inferior al 75% (1er año) u 85% (2º año) del salario de convenio para el mismo puesto o equivalente. Regido por el art. 11.3 y 4 ET y el ALEH VI."
+    },
+    "contratoFormacionAlternancia": {
+      "articulo": "Art. 25",
+      "nota": "Regido por el art. 11.2 y 4 ET y el ALEH VI."
+    },
+    "temporalYindefinida": {
+      "articulo": "Art. 26",
+      "nota": "Contratos temporales por escrito con copia al trabajador; asegurado desde el primer día; visado preceptivo en la oficina de empleo antes de iniciar la prestación. Demás modalidades → legislación vigente."
+    },
+    "fijoDiscontinuo": {
+      "articulo": "Art. 27",
+      "nota": "Fija-discontinua a tiempo parcial: para el cálculo de ocupación mínima (efectivo desde 1/1/2024) se toma la media de días y horas trabajados en los 3 años naturales anteriores por cada persona; a partir de los 3 años esos días y horas se asignan como definitivos y punto de partida del contrato fijo-discontinuo."
+    },
+    "preavisoFinContrato": {
+      "articulo": "Art. 30",
+      "empresa": "En contratos de duración determinada y formativos (práctica y alternancia): preaviso mínimo de 15 días si la persona lleva más de 1 año, acompañando propuesta de liquidación. El incumplimiento se sanciona económicamente añadiendo a la liquidación la cantidad correspondiente a los días no preavisados.",
+      "ceseVoluntario": "La persona trabajadora que cese voluntariamente tras superar el periodo de prueba debe preavisar con un mínimo de 10 días; el incumplimiento permite descontar de la liquidación el importe de los días no preavisados."
+    }
+  },
+
+  "formacion": {
+    "$comment": "Art. 29 + Art. 16.9 (acompañamiento médico) + Art. 36 (exámenes prenatales).",
+    "articulo": "Art. 29",
+    "nota": "Las partes asumen el contenido íntegro del acuerdo nacional de formación continua vigente; la comisión mixta desarrolla iniciativas de aplicación. El convenio NO fija un crédito de horas de formación específico ni un plus de formación.",
+    "creditoHorasFormacion": "no_previsto"
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Art. 35 (conductas de acoso), Art. 36 (mujer embarazada) y Art. 50 (comisión paritaria de prevención del acoso e igualdad).",
+    "articulo": "Art. 35, Art. 36 y Art. 50",
+    "acosoSexual": "El acoso sexual en el trabajo se considera ataque a la libertad y dignidad de la persona y es sancionable como falta muy grave (Art. 35).",
+    "mujerEmbarazada": "Cambio de puesto de la mujer embarazada si sus funciones son incompatibles con su estado y existe otro puesto compatible; ausencia retribuida para exámenes prenatales y preparación al parto (Art. 36).",
+    "comisionIgualdad": "Se constituye una subcomisión de igualdad de oportunidades y no discriminación (4 miembros, 2 patronal y 2 sindical) dentro de la comisión paritaria, que se reúne al menos una vez al año, promueve medidas contra el acoso (moral y sexual) y la discriminación, y estudia un plan de igualdad con diagnóstico, programación, seguimiento y evaluación (Art. 50).",
+    "conciliacion": "La comisión paritaria de igualdad negocia medidas de conciliación de la vida familiar y personal con el trabajo a turnos, en los términos de la LO 3/2007 (última página del convenio).",
+    "mejoraET": "El convenio remite en lo esencial a la LO 3/2007; no cuantifica permisos propios de violencia de género por encima de la ley."
+  },
+
+  "otrasCondiciones": {
+    "$comment": "Condiciones varias con su artículo.",
+    "compensacionAbsorcion": { "articulo": "Art. 6", "detalle": "Las condiciones económicas se compensan/absorben en su conjunto con las existentes, EXCEPTO el plus de transporte (no se considera salario)." },
+    "garantiaAdPersonam": { "articulo": "Art. 7", "detalle": "Se respetan 'ad personam' las situaciones personales que globalmente excedan del convenio; no cabe pactar condiciones inferiores a las del convenio." },
+    "saludLaboral": { "articulo": "Art. 22", "detalle": "Carné de manipulador de alimentos anual a cargo de la empresa; reconocimientos médicos iniciales y anuales; evaluación de riesgos y plan de prevención; confidencialidad de la vigilancia de la salud." },
+    "cotizacionNominas": { "articulo": "Art. 31", "detalle": "Cotización por todas las percepciones salariales legalmente preceptuadas; salarios abonados el último día de cada mes, con recargo por mora en caso contrario; RLC (TC/1) y RNT (TC/2) en el tablón de anuncios." },
+    "clausulaInaplicacion": { "articulo": "Art. 47", "detalle": "Descuelgue por causas económicas, técnicas, organizativas o de producción, con periodo de consultas (art. 41.4 ET); discrepancias a la comisión del convenio (7 días) y, en su defecto, al ASCL de Castilla y León con arbitraje vinculante." }
+  },
+
+  "estado": "verificado",
+  "estadoNota": "Tablas salariales DEFINITIVAS de 2026 leídas celda a celda de la imagen del PDF oficial (BOP Burgos nº 54, 19-03-2026, BOPBUR-2026-01173). Articulado completo (Arts. 1-50) leído de la imagen del PDF oficial del convenio base (BOP Burgos nº 68, 8-04-2024, BOPBUR-2024-01704). Verificado que el convenio NO regula régimen disciplinario ni crédito horario sindical propios (→ ALEH/ET). Quedan como 'pendiente' los datos que el convenio no fija (módulo retributivo de vacaciones, importe de manutención/alojamiento, actualización 2026 del complemento personal).",
+  "pendienteCondiciones": [
+    "vacaciones.retribucion: el Art. 12 no especifica el módulo retributivo (base vs. promedio con complementos). Duda para UGT.",
+    "complementoPersonal.valores2026: el PDF de tablas 2026 (BOP 54) no reeditó la tabla del Art. 40; se muestran los importes del convenio base 2024. Duda para UGT.",
+    "pluses.manutencionYalojamiento: el Art. 45 no fija importe en euros, remite a la ordenanza laboral (derogada, supletoria). Duda para UGT.",
+    "antiguedad: sin escala de tramos en el convenio; consolidada/congelada como complemento personal (Art. 40). Duda para UGT: ¿se sigue devengando por el ALEH?",
+    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio (salvo acoso sexual = muy grave, Art. 35) → tomar del ALEH estatal.",
+    "representacionSindical.creditoHorario / quienRepresenta / garantías: no fijados en el convenio → base legal ET arts. 62-68 y LOLS.",
+    "vacaciones.fraccionamiento: no regulado expresamente (habla de días 'ininterrumpidos')."
+  ],
+  "verificadoContra": "Imagen (185 dpi) del PDF oficial BOP Burgos nº 54 (19-03-2026, BOPBUR-2026-01173): 6 áreas funcionales × grupos I-III leídas celda a celda, más 'otros conceptos retributivos 2026' (paga del sector Art. 41 = 1.201,45 €, plus transporte Art. 42 = 61,42 €/mes, gastos locomoción Art. 43 = 0,27 €/km). Imagen (185 dpi) del PDF oficial BOP Burgos nº 68 (08-04-2024, BOPBUR-2024-01704), articulado completo Arts. 1-50: Art. 4-5 (vigencia/ultraactividad), Art. 10-11 (jornada 1.774 h/descanso), Art. 12 (vacaciones 31 días naturales), Art. 13 (festivos), Art. 15 (horas extra 75%), Art. 16-17 (permisos y asuntos propios), Art. 18 (excedencias), Art. 19 (ascensos), Art. 20 (IT), Art. 21 (indemnización vinculación), Art. 22 (salud laboral), Art. 23 (servicios extras 48 €), Art. 24-27 y 30 (contratación y preaviso), Art. 28 (periodo de prueba), Art. 32-33 (ropa y útiles), Art. 34 (seguro 30.000 €), Art. 35-36 (acoso/embarazada), Art. 37 (org. sindical), Art. 38 (áreas funcionales), Art. 40 (complemento personal), Art. 44 (gratificaciones extraordinarias), Art. 45 (manutención/alojamiento), Art. 46 (nocturnidad 25%), Art. 47 (inaplicación), Art. 50 (comisión igualdad). Confirmado que NO existe capítulo de régimen disciplinario.",
+  "fechaVerificacion": "2026-07-08"
+}
