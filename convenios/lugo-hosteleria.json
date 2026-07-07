@@ -1,0 +1,539 @@
+{
+  "$comment": "Convenio Colectivo provincial de Hostelería de Lugo. Convenio con vigencia 2021-2024, actualmente EN ULTRAACTIVIDAD / prórroga tácita (Art. 3): expiró el 31-12-2024 y se prorroga de año en año hasta nuevo convenio, por lo que sigue plenamente vigente en 2026. Dos fuentes oficiales del BOP de Lugo: (1) ARTICULADO en BOP Lugo nº190 (20-08-2022), texto original del convenio, redactado en GALEGO; (2) TABLAS SALARIALES en BOP Lugo nº51 (03-03-2025), que aprueban las 'tablas revisadas 2024' por la cláusula de revisión al IPC del Art. 8, con vigencia desde el 1-01-2025. Esas tablas revisadas 2024 son la publicación MÁS RECIENTE con tablas (regla D32) y son las aplicables en 2026 al no haberse pactado aún incremento para 2025. Verificado que NO es restauración colectiva (convenio estatal aparte): esto es hostelería provincial (hoteles, restaurantes, bares, cafeterías, discotecas, casinos). Estructura de tablas MUY distinta a Cádiz: se organiza por SECCIONES de establecimiento (Primera a Sexta) y dentro por categoría (estrellas/tenedores/tazas/lujo) con dos columnas: S. Base (salario base) y P. Conv. (Plus de Convenio, plus mensual del Art. 11). Dato ORO: el complemento de IT es del 100% del salario real desde el primer día (Art. 21), uno de los mejores de España.",
+  "id": "lugo-hosteleria",
+  "nombre": "Convenio colectivo provincial de Hostelería de Lugo (2021-2024, en ultraactividad)",
+  "codigoRegcon": "27000325011982",
+  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Galicia", "provincias": ["Lugo"] },
+  "ambitoFuncional": "hosteleria",
+  "fuente": {
+    "articulado": {
+      "boletin": "BOP Lugo",
+      "numero": 190,
+      "fecha": "2022-08-20",
+      "documento": "Convenio Colectivo de Hostelería de la provincia de Lugo (Código 27000325011982), firmado el 10-06-2022 por la Asociación Provincial de Empresarios de Hostelería de Lugo y las centrales sindicales UGT (46,88%) y CC.OO. (31,25%). Texto en gallego. Resolución de inscripción y publicación de la Xefatura Territorial de Lugo (Consellería de Promoción do Emprego e Igualdade).",
+      "url": "https://www.ccoo-servicios.es/archivos/galicia/CONVENIO%20HOSTELERIA%20Lugo%202021-24.pdf",
+      "urlOficialBOP": "BOP Lugo nº190 de 20-08-2022 (deputacionlugo.gal). El texto verificado procede de la copia oficial del BOP publicada por CCOO."
+    },
+    "tablasSalariales": {
+      "boletin": "BOP Lugo",
+      "numero": 51,
+      "fecha": "2025-03-03",
+      "documento": "Anuncio. Convenios Colectivos. Código 27000325011982. Acta de acuerdo de 19-02-2025 de la Comisión Negociadora que aprueba las 'Tablas salariales revisadas 2024' del Convenio Colectivo de Hostelería de la provincia de Lugo, conforme a la cláusula de revisión salarial al IPC del Art. 8. Firmada por la Asociación Provincial de Empresarios de Hostelería y Turismo de Lugo y por UGT (46,88%) y CC.OO. (31,25%). Vigencia desde 1-01-2025. Resolución de la directora territorial de 26-02-2025.",
+      "url": "https://deputacionlugo.gal/sites/deputacionlugo.org/files/2025-02/03-03-2025%20spa.pdf",
+      "nota": "El PDF es el boletín completo del día; el anuncio de hostelería ocupa las páginas 1-7 del BOP nº51."
+    }
+  },
+  "vigencia": {
+    "desde": "2021-01-01",
+    "hasta": "2024-12-31",
+    "nota": "Art. 2: entró en vigor el 1-01-2021 y finalizó su vigencia el 31-12-2024. Art. 3 (Denuncia): se prorroga tácitamente de año en año mientras no se alcance acuerdo sobre un nuevo convenio. Por tanto, a 2026 está EN ULTRAACTIVIDAD/PRÓRROGA: todo el articulado y las tablas revisadas 2024 (vigentes desde 1-01-2025) siguen aplicándose. El incremento para 2025 aún NO está pactado ni publicado (regla D32: no se inventa)."
+  },
+  "partesFirmantes": {
+    "patronal": "Asociación Provincial de Empresarios de Hostelería y Turismo de Lugo (APEHL) — contacto: Rúa Montenegro 15, Lugo; laboral@apehl.org",
+    "sindicatos": ["UGT (46,88%)", "CCOO (31,25%)"]
+  },
+
+  "jornadaAnual": {
+    "horas": 1800,
+    "semanal": "pendiente — el convenio no fija horas semanales explícitas",
+    "descansoSemanal": "Día y medio de descanso semanal (Art. 17).",
+    "articulo": "Art. 17",
+    "nota": "Art. 17: jornada laboral de 1.800 horas anuales de trabajo efectivo con día y medio de descanso semanal. No se especifica jornada semanal en horas ni bolsa de horas/distribución irregular."
+  },
+
+  "pagasExtraordinarias": {
+    "total": "2 pagas de mensualidad completa + 1 paga de 7 días (equivale aprox. a 14 pagas + 7 días de salario base al año); en casinos y sociedades recreativas hay 1 paga adicional",
+    "articulo": "Art. 12 (general) y Art. 13 (casinos)",
+    "detalle": {
+      "pagaJulio": "Una mensualidad de salario base + antigüedad. Se abona el 15 de julio. Devengo anual (o semestral si la empresa lo venía haciendo).",
+      "pagaNavidad": "Una mensualidad de salario base + antigüedad. Se abona el 15 de diciembre. Devengo anual (o semestral).",
+      "pagaSantaMarta": "Paga extraordinaria de Santa Marta (patrona de la hostelería): 7 días de salario base + antigüedad. Se abona en la 1ª quincena de octubre. Devengo anual del 1-oct al 30-sep del año siguiente.",
+      "pagaCasinos": "Solo casinos y sociedades recreativas (Art. 13): una paga adicional el 5 de octubre, sin distinción de categorías. Compensable/absorbible en cómputo anual. No computa el plus de convenio."
+    },
+    "notaFiniquito": "Disposición Final Primera: el sueldo anual = 12 mensualidades + las 2 pagas extraordinarias + la gratificación de Santa Marta (+ la paga específica de casinos si aplica). Relevante para el cálculo de finiquito."
+  },
+
+  "categoriasEstablecimiento": {
+    "$comment": "El convenio de Lugo NO usa las categorías A/B/C ni grupos profesionales 1-5 al estilo de otros convenios. Clasifica los establecimientos en 6 SECCIONES, y dentro de cada sección por categoría (estrellas/tenedores/tazas/lujo). La clasificación profesional (grupos y áreas funcionales) se remite al V ALEH estatal (Art. 24).",
+    "seccionPrimera": "Hoteles en sus distintas especialidades (hoteles apartamentos, balnearios, deportivos, gastronómicos, etc.). Categorías: 5 estrellas, 4 estrellas, 3 estrellas, 1 y 2 estrellas.",
+    "seccionSegunda": "Pensiones, moteles, turismo rural, albergues turísticos y campamentos de turismo. Categorías: 3 estrellas, 1 y 2 estrellas.",
+    "seccionTercera": "Restaurantes, empresas de colectividades y de catering. Categorías: 5 y 4 tenedores, 3 tenedores, 1 y 2 tenedores.",
+    "seccionCuarta": "Cafeterías, cafés, cafés-bares y tabernas. Categorías: '3 y 2 Tazas / 1ª y 2ª' y '1 Taza, 3ª, Tabernas'.",
+    "seccionQuinta": "Discotecas, salas de fiesta o de baile. Categorías: 'Lujo y 1ª' y '2ª y 3ª'.",
+    "seccionSexta": "Casinos y sociedades recreativas. Categorías: 'Lujo y 1ª' y '2ª y 3ª'."
+  },
+
+  "gruposProfesionales": {
+    "$comment": "Art. 24: la clasificación profesional (grupos profesionales, áreas funcionales, factores de encuadramiento) se remite ÍNTEGRAMENTE al V Acuerdo Laboral estatal del sector de hostelería (ALEH, BOE 21-05-2015). El convenio de Lugo no define grupos propios: usa las categorías/puestos concretos que figuran en las tablas por sección.",
+    "remitidoA": "V ALEH estatal (BOE 21-05-2015)"
+  },
+
+  "tablasSalariales": {
+    "$comment": "TABLAS REVISADAS 2024 (BOP nº51, 03-03-2025), vigentes desde 1-01-2025 y aplicables en 2026 por ultraactividad. Cada puesto tiene S.Base (salario base €/mes) y P.Conv (Plus de Convenio €/mes, Art. 11). Verificadas celda a celda en IMAGEN (185 dpi). Celda vacía = categoría no contemplada para ese tipo de establecimiento. El Plus de Convenio se prorratea según jornada efectiva y se abona en las 12 mensualidades.",
+    "anio": "2024_revisadas (vigentes desde 2025-01-01; sin incremento 2025 pactado a fecha de verificación)",
+    "unidad": "€/mes bruto. Formato por puesto: [S.Base, P.Conv] por cada categoría de la sección.",
+
+    "seccionPrimera_Hoteles": {
+      "categorias": ["5 Estrellas", "4 Estrellas", "3 Estrellas", "1 y 2 Estrellas"],
+      "recepcionConserjeria": {
+        "Jefe/a Recepción": [[1481.39, 94.40], [1424.46, 94.40], [1396.02, 94.40], [null, null]],
+        "2º Jefe/a Recepción": [[1282.21, 94.40], [1253.73, 94.40], [1196.83, 94.40], [null, null]],
+        "Recepcionista": [[1282.21, 62.92], [1225.27, 62.92], [1196.83, 62.92], [1137.18, 32.40]],
+        "Conserje": [[1252.94, 32.40], [1224.48, 32.40], [1167.58, 32.40], [1127.00, 32.40]],
+        "Vigilante-conserje noche": [[1224.48, 32.40], [1167.58, 32.40], [1127.00, 32.40], [1139.09, 32.40]],
+        "Ayudante": [[1139.09, 32.40], [1139.09, 32.40], [1121.56, 32.40], [1121.56, 32.40]],
+        "Auxiliar": [[1121.56, 32.40], [1121.56, 32.40], [1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "administracionGestion": {
+        "Jefe/a Administración": [[1481.39, 94.40], [1424.46, 94.40], [1396.02, 94.40], [null, null]],
+        "Contable": [[1424.46, 94.40], [1396.02, 94.40], [1339.12, 94.40], [1253.73, 94.40]],
+        "Oficial administrativo/a": [[1224.48, 32.40], [1167.58, 32.40], [1139.09, 32.40], [1127.00, 32.40]],
+        "Auxiliar administrativo/a-Telefonista": [[1224.48, 32.40], [1167.58, 32.40], [1139.09, 32.40], [1121.56, 32.40]]
+      },
+      "cocina": {
+        "Jefe/a Cocina": [[1566.79, 94.40], [1509.87, 94.40], [1424.46, 94.40], [1310.68, 94.40]],
+        "2º Jefe/a Cocina": [[1339.12, 94.40], [1282.21, 94.40], [1282.21, 94.40], [1168.36, 94.40]],
+        "Encargado/a Economato": [[1253.73, 62.92], [1196.83, 62.92], [1139.88, 62.92], [1124.02, 62.92]],
+        "Cocinero/a-repostero/a": [[1253.73, 62.92], [1196.83, 62.92], [1225.27, 62.92], [1124.02, 62.92]],
+        "Ayudante": [[1224.48, 32.40], [1167.58, 32.40], [1121.56, 32.40], [1121.56, 32.40]],
+        "Auxiliar-fregador/a": [[1121.56, 32.40], [1121.56, 32.40], [1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "comedor": {
+        "Jefe/a Comedor": [[1566.79, 94.40], [1509.87, 94.40], [1424.46, 94.40], [1339.12, 94.40]],
+        "2º Jefe/a Comedor": [[1367.57, 94.40], [1339.12, 94.40], [1310.68, 94.40], [1225.27, 94.40]],
+        "Camarero/a": [[1253.73, 62.92], [1225.27, 62.92], [1196.83, 62.92], [1168.37, 62.92]],
+        "Ayudante": [[1167.58, 32.40], [1139.09, 32.40], [1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "pisosLimpieza": {
+        "Encargado/a General": [[1253.73, 94.40], [1225.27, 94.40], [1225.27, 94.40], [1138.00, 62.92]],
+        "Encargado/a Sección": [[1167.58, 32.40], [1135.00, 32.40], [1127.00, 32.40], [1127.00, 32.40]],
+        "Camarero/a pisos": [[1123.80, 32.40], [1127.00, 32.40], [1127.00, 32.40], [1127.00, 32.40]],
+        "Auxiliar pisos-limpiador/a": [[1121.56, 32.40], [1121.56, 32.40], [1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "mantenimientoServiciosAuxiliares": {
+        "Encargado/a Sección": [[1253.73, 94.40], [1223.37, 62.92], [1194.90, 62.92], [1138.00, 62.92]],
+        "Especialista": [[1252.94, 32.40], [1167.58, 32.40], [1139.09, 32.40], [1127.00, 32.40]],
+        "Auxiliar": [[1139.09, 32.40], [1121.56, 32.40], [1121.56, 32.40], [1121.56, 32.40]],
+        "Chófer": [[1196.83, 62.92], [1194.10, 32.40], [1165.61, 32.40], [1137.18, 32.40]]
+      },
+      "balnearios": {
+        "$comment": "Columna única (S.Base, P.Conv). (1)=Técnico masajista/esteticista/actividades físicas. (2)=Auxiliar clínica/masajista/esteticista/baños/actividades físicas.",
+        "Director/a": [1424.46, 94.40],
+        "Coordinador/a": [1196.83, 94.40],
+        "Fisioterapeuta": [1196.83, 94.40],
+        "Técnico balneario (1)": [1165.61, 32.40],
+        "Auxiliar balneario (2)": [1121.56, 32.40]
+      }
+    },
+
+    "seccionSegunda_PensionesTurismoRural": {
+      "categorias": ["3 Estrellas", "1 y 2 estrellas"],
+      "recepcionConserjeria": {
+        "Recepcionista": [[1194.10, 32.40], [1165.61, 32.40]],
+        "Conserje-vigilante noche": [[1121.56, 32.40], [1121.56, 32.40]],
+        "Ayudante": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "administracionGestion": {
+        "Oficial administrativo/a": [[1139.09, 32.40], [1127.00, 32.40]],
+        "Auxiliar administrativo/a-Telefonista": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "cocina": {
+        "Jefe/a Cocina": [[1339.11, 94.40], [1192.15, 32.40]],
+        "Cocinero/a-repostero/a": [[1137.18, 32.40], [1127.00, 32.40]],
+        "Ayudante": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "comedor": {
+        "Jefe/a Comedor": [[1396.02, 94.40], [1194.90, 62.92]],
+        "Camarero/a": [[1225.27, 62.92], [1165.61, 32.40]],
+        "Ayudante": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "pisosLimpieza": {
+        "Encargado/a": [[1139.09, 32.40], [1135.00, 32.40]],
+        "Encargado/a Sección": [[1127.00, 32.40], [1127.00, 32.40]],
+        "Camarero/a Pisos": [[1127.00, 32.40], [1127.00, 32.40]],
+        "Auxiliar Pisos-Limpiador/a": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "mantenimientoServiciosAuxiliares": {
+        "Personal Mantenimiento": [[1167.58, 32.40], [1139.09, 32.40]],
+        "Chófer": [[1165.61, 32.40], [1137.18, 32.40]]
+      }
+    },
+
+    "seccionTercera_RestaurantesColectividadesCatering": {
+      "categorias": ["5 y 4 Tenedores", "3 Tenedores", "1 y 2 Tenedores"],
+      "administracionGestion": {
+        "Contable": [[1367.57, 94.40], [1223.37, 62.92], [1141.75, 32.40]],
+        "Auxiliar administrativo/a-Telefonista": [[1196.04, 32.40], [1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "cocina": {
+        "Jefe/a Cocina": [[1538.31, 94.40], [1452.93, 94.40], [1282.21, 94.40]],
+        "2º Jefe/a Cocina": [[1367.57, 94.40], [1253.73, 94.40], [1196.83, 94.40]],
+        "Cocinero/a-Repostero/a": [[1253.73, 62.92], [1194.10, 32.40], [1165.62, 32.40]],
+        "Encargado/a Economato": [[1196.04, 32.40], [1121.56, 32.40], [1121.56, 32.40]],
+        "Ayudante": [[1167.58, 32.40], [1121.56, 32.40], [1121.56, 32.40]],
+        "Auxiliar": [[1139.09, 32.40], [1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "comedor": {
+        "Jefe/a Comedor": [[1538.31, 94.40], [1481.39, 94.40], [1339.12, 94.40]],
+        "2º Jefe/a Comedor": [[1367.57, 94.40], [1310.68, 94.40], [1225.27, 94.40]],
+        "Camarero/a": [[1253.73, 62.92], [1222.56, 32.40], [1194.10, 32.40]],
+        "Ayudante": [[1252.94, 32.40], [1167.58, 32.40], [1139.09, 32.40]]
+      },
+      "limpieza": {
+        "Limpiador/a": [[1121.56, 32.40], [1121.56, 32.40], [1121.56, 32.40]]
+      }
+    },
+
+    "seccionCuarta_CafeteriasCafesBaresTabernas": {
+      "categorias": ["3 y 2 Tazas / 1ª y 2ª", "1 Taza, 3ª, Tabernas"],
+      "administracionGestion": {
+        "Encargado/a": [[1253.73, 94.40], [1196.83, 94.40]],
+        "Contable": [[1192.17, 32.40], [1141.75, 32.40]],
+        "Auxiliar/Telefonista": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "cocina": {
+        "Jefe/a Cocina": [[1225.27, 94.40], [1192.15, 32.40]],
+        "Cocinero/a-Repostero/a": [[1165.61, 32.40], [1137.18, 32.40]],
+        "Bodeguero/a": [[1139.10, 32.40], [1121.56, 32.40]],
+        "Ayudante": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "comedor": {
+        "Jefe/a Comedor": [[1225.27, 94.40], [1192.15, 32.40]],
+        "Dependiente/Camarero": [[1194.10, 32.40], [1137.18, 32.40]],
+        "Ayudante": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "limpieza": {
+        "Limpiador/a": [[1121.56, 32.40], [1121.56, 32.40]]
+      }
+    },
+
+    "seccionQuinta_DiscotecasSalasFiesta": {
+      "categorias": ["Lujo y 1ª", "2ª y 3ª"],
+      "administracionGestion": {
+        "Encargado/a": [[1481.39, 94.40], [1396.02, 94.40]],
+        "Contable": [[1367.57, 94.40], [1163.71, 32.40]],
+        "Auxiliar/Telefonista": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "mostrador": {
+        "Jefe/a Mostrador": [[1452.93, 94.40], [1367.57, 94.40]],
+        "Camarero/a": [[1367.57, 62.92], [1253.73, 62.92]],
+        "Bodeguero/a": [[1309.87, 32.40], [1121.56, 32.40]],
+        "Ayudante": [[1121.56, 32.40], [1121.56, 32.40]]
+      },
+      "serviciosAuxiliares": {
+        "Relaciones Públicas": [[1366.78, 32.40], [1309.87, 32.40]],
+        "Disc-Jockey": [[1366.78, 32.40], [1309.87, 32.40]],
+        "Cajero/a-Guardarropa": [[1139.09, 32.40], [1121.56, 32.40]],
+        "Portero/a": [[1139.09, 32.40], [1121.56, 32.40]]
+      },
+      "limpieza": {
+        "Limpiador/a": [[1121.56, 32.40], [1121.56, 32.40]]
+      }
+    },
+
+    "seccionSexta_CasinosSociedadesRecreativas": {
+      "categorias": ["Lujo y 1ª", "2ª y 3ª"],
+      "administracionGestion": {
+        "Jefe/a 1ª": [[1595.26, 94.40], [1424.46, 94.40]],
+        "Jefe/a 2ª": [[1452.93, 94.40], [1282.21, 94.40]],
+        "Oficial 1ª Advo/a": [[1452.93, 62.92], [1282.21, 62.92]],
+        "Oficial 2ª Advo/a": [[1339.12, 62.92], [1282.21, 62.92]],
+        "Auxiliar Advo/a": [[1309.92, 32.40], [1167.61, 32.40]]
+      },
+      "conserjeria": {
+        "Conserje": [[1452.93, 62.92], [1452.93, 62.92]],
+        "Ayudante conserje": [[1339.12, 62.92], [1225.27, 62.92]],
+        "Joven/a": [[1196.08, 32.40], [1167.61, 32.40]]
+      },
+      "salonComedor": {
+        "Encargado/a Salón": [[1339.12, 62.92], [1225.27, 62.92]],
+        "Ordenanza Salón": [[1310.68, 62.92], [1168.36, 62.92]],
+        "Camarero/a": [[1339.12, 62.92], [1225.27, 62.92]],
+        "Ayudante": [[1196.08, 32.40], [1167.61, 32.40]]
+      },
+      "serviciosAuxiliares": {
+        "Portero/a": [[1310.68, 62.92], [1168.36, 62.92]],
+        "Vigilante Noche": [[1338.36, 32.40], [1196.08, 32.40]],
+        "Xardinero/a (jardinero/a)": [[1338.36, 32.40], [1196.08, 32.40]]
+      },
+      "limpieza": {
+        "Limpiador/a": [[1196.08, 32.40], [1167.61, 32.40]]
+      }
+    }
+  },
+
+  "plusConvenio": {
+    "$comment": "Art. 11. Plus mensual de naturaleza salarial para todo el personal, cuyos importes concretos figuran en la columna P.Conv de cada tabla (habitualmente 94,40 / 62,92 / 32,40 €/mes según puesto). Se devenga en proporción a la jornada efectiva y se incrementa cada año igual que el salario base (Art. 8).",
+    "articulo": "Art. 11"
+  },
+
+  "nocturnidad": {
+    "$comment": "Art. 15. Recargo porcentual sobre salario base, NO euros/hora. Tramo nocturno amplio: de medianoche a 8 de la mañana.",
+    "articulo": "Art. 15",
+    "tipo": "porcentaje",
+    "porcentaje": 25,
+    "sobre": "salario_base",
+    "tramoHorario": { "desde": "00:00", "hasta": "08:00", "nota": "El texto dice 'entre las 12 de la noche y las 8 de la mañana'." }
+  },
+
+  "horasExtraordinarias": {
+    "$comment": "El articulado NO fija un precio ni recargo específico de la hora extraordinaria ordinaria. Solo regula el valor de la hora extra DENTRO de los servicios extraordinarios de restauración (Art. 33), cuyo importe figura en las tablas anexas. Para la hora extra ordinaria se está a la legislación general (ET) y al ALEH estatal.",
+    "articulo": "Art. 33 (solo servicios extraordinarios); no hay tarifa de hora extra ordinaria en el convenio",
+    "precioHoraOrdinaria": "pendiente — no regulado en el convenio (remisión al ET/ALEH)",
+    "horaExtraServiciosExtraordinarios": "El importe de la hora extra en servicios extraordinarios figura en las tablas salariales anexas (no reproducido aquí: la tabla revisada 2024 del BOP nº51 detalla el salario del día de servicio extraordinario y el importe de la hora extra en dichos servicios; ver 'serviciosExtraordinarios'). Duda para UGT: confirmar el importe exacto vigente 2024/2025 del día de servicio extraordinario y de su hora extra."
+  },
+
+  "serviciosExtraordinarios": {
+    "$comment": "Art. 33. Servicios ocasionales de restauración (banquetes, cócteles, eventos, celebraciones sociales) que no puede cubrir la plantilla fija y requieren personal ajeno. NO cubren picos de temporada alta.",
+    "articulo": "Art. 33",
+    "duracionMinima": "3 horas",
+    "duracionMaxima": "6 horas (equivale a jornada completa diaria; lo que exceda se computa como hora extraordinaria)",
+    "menosDe3Horas": "Se abonan al valor de la hora extraordinaria establecida para los servicios extraordinarios.",
+    "comida": "La empresa facilita la comida al personal en servicios de almuerzo y cena (en los 15 min anteriores al servicio, que forman parte de la jornada).",
+    "uniforme": "Lo aporta el propio trabajador (chaquetilla negra, camisa blanca, pantalón negro, calcetines y zapatos negros, lazo negro) y herramientas básicas (sacacorchos).",
+    "importes": "El salario del día de servicio extraordinario y el importe de su hora extra figuran en las tablas anexas al convenio (revisadas 2024). Pendiente de leer celda a celda si se necesita el importe exacto."
+  },
+
+  "antiguedad": {
+    "$comment": "DOS sistemas según fecha de incorporación (Arts. 9 y 10). El moderno (Art. 9) aplica a quien se incorporó a plantilla fija desde el 1-01-1995: trienios al 3% sobre salario base garantizado. El antiguo (Art. 10) mantiene la escala progresiva para quien ya la venía devengando antes de 1995 (derechos adquiridos).",
+    "sistemaVigenteNuevosContratos": {
+      "articulo": "Art. 9",
+      "aplicaA": "Personal incorporado a plantilla fija desde el 1-01-1995 (la generalidad de la plantilla actual).",
+      "escala": "3% del salario base garantizado por cada trienio (3 años de servicio en la empresa).",
+      "tope": "Sujeto al límite general del 60% del ET."
+    },
+    "sistemaAntiguoDerechosAdquiridos": {
+      "articulo": "Art. 10",
+      "aplicaA": "Personal que ya venía devengando antigüedad antes del 1-01-1995 (derechos adquiridos).",
+      "escalaPorcentualSobreSalarioBase": { "3años": 5, "6años": 8, "9años": 16, "15años": 25, "19años": 38, "20años": 40, "22años": 45, "28años": 50 },
+      "casinos1y2categoria": "Bienios al 5% sin limitación (salvo el tope del 60% del ET).",
+      "casinos3y4categoria": "Trienios al 5%.",
+      "tope": "60% (ET)."
+    }
+  },
+
+  "pluses": {
+    "$comment": "€ salvo indicación. El convenio de Lugo tiene pocos pluses económicos monetarios más allá del Plus de Convenio (que va en tablas). Destacan el plus de formación (condicional) y el plus de actividad de casinos.",
+    "plusCompensatorioFormacion": {
+      "articulo": "Art. 16",
+      "importe": 20.0,
+      "unidad": "€/mes × 12 pagas",
+      "nota": "Lo abonan SOLO las empresas que NO acrediten participación en planes de formación del sector (adhesión a organización empresarial representativa que promueva formación, o planes individuales/agrupados de formación continua). Si la empresa acredita formación, queda excluida de pagarlo. De naturaleza salarial. El trabajador puede pedir a la Comisión Paritaria si la certificación de su empresa está vigente para reclamarlo."
+    },
+    "plusActividadCasinos": {
+      "articulo": "Art. 14",
+      "importe": 30.0,
+      "unidad": "€/mes cotizable a la Seguridad Social",
+      "nota": "Solo para personal de casinos y sociedades recreativas."
+    },
+    "transporte": "no_previsto — el convenio no fija plus de transporte.",
+    "manutencion": {
+      "articulo": "Disposición Adicional Segunda + tablas",
+      "nota": "Existe derecho a manutención (en especie) cuando el personal presta servicios en el horario de comidas. El importe/valoración va ligado a las tablas. Además la empresa facilita agua durante la jornada. No es un plus económico fijo en €."
+    },
+    "ropaTrabajo": {
+      "articulo": "Art. 31",
+      "nota": "NO hay plus económico de ropa. La empresa facilita 2 uniformes al año cuando exige un modelo/color determinado (se excluye el simple pantalón negro + camisa blanca). El uniforme es propiedad de la empresa (en depósito) y se devuelve al cesar."
+    }
+  },
+
+  "compensacionFestivos": {
+    "$comment": "Art. 18. Los festivos no recuperables que no se disfruten o coincidan con el descanso semanal se disfrutan en otra fecha. Las noches del 24 y 31 de diciembre trabajadas se compensan con día y medio de descanso. El descanso compensatorio se hace dentro de los 4 meses siguientes. No hay recargo económico específico por festivo trabajado en el articulado.",
+    "articulo": "Art. 18",
+    "noches24y31Diciembre": "Compensadas con 1,5 días de descanso.",
+    "recargoEconomico": "no_previsto — el convenio compensa en descanso, no fija recargo en €."
+  },
+
+  "vacaciones": {
+    "$comment": "Art. 20. Bloque de vacaciones. DATO IMPORTANTE: son 30 días NATURALES expresamente (no ambiguo), y la retribución incluye salario base + antigüedad + PLUSES (mejora habitual: no se recorta al salario base). Personal menor de 18 y mayor de 60 años: 32 días naturales.",
+    "articulo": "Art. 20",
+    "dias": 30,
+    "tipoDias": "naturales",
+    "diasExtraAntiguedad": "no_por_antiguedad_pero_si_por_edad",
+    "diasPorEdad": "Los trabajadores menores de 18 años y mayores de 60 años tienen 32 días naturales de vacaciones (Art. 20).",
+    "retribucion": {
+      "base": "salario_base + antiguedad + pluses",
+      "nota": "Art. 20: 'A retribución correspondente ao período vacacional estará constituída polo salario base, antigüedade e os pluses'. Incluye los pluses, no solo el salario base."
+    },
+    "periodoDisfrute": "no_especificado — el convenio no fija meses concretos ni bloquea la temporada alta.",
+    "fijacion": "pendiente — el convenio no detalla el procedimiento de fijación ni el preaviso del calendario (se está al ET art. 38: pactado empresa-trabajador, calendario conocido con 2 meses de antelación).",
+    "bajaDuranteVacaciones_IT": {
+      "derecho": "Si iniciado el disfrute el trabajador pasa a Incapacidad Temporal, tiene derecho a señalar un NUEVO período por el tiempo que restara al iniciarse la IT (Art. 20).",
+      "matiz": "En este caso concreto es el EMPRESARIO quien fija el nuevo período de las vacaciones restantes (Art. 20). Solo cubre expresamente la IT sobrevenida una vez iniciadas; para IT previa se está al art. 38.3 ET (más favorable)."
+    },
+    "festivosDentroVacaciones": "pendiente — no regulado expresamente en el Art. 20.",
+    "noCompensableEnDinero": "Las vacaciones no disfrutadas se abonan en el finiquito (regla legal general — enlaza con la calculadora de finiquito). El convenio no añade regla propia."
+  },
+
+  "permisosRetribuidos": {
+    "$comment": "Art. 19 (Licencias retribuidas), en gallego. IMPORTANTE: el convenio se firmó en 2022, ANTES de la reforma del ET por RD-ley 5/2023, que elevó varios mínimos legales (p.ej. 5 días por hospitalización de familiar hasta 2º grado, permiso de 4 días/año por fuerza mayor familiar, permiso parental). Donde el ET vigente sea MÁS FAVORABLE que el convenio, se aplica el ET. Marcado abajo. Referencias al cónyuge se extienden a la pareja de hecho inscrita en el registro municipal.",
+    "articulo": "Art. 19",
+    "matrimonio": { "dias": 15, "tipo": "naturales", "articulo": "Art. 19.a", "nota": "Por matrimonio del trabajador/a. Igual que el mínimo ET (15 días). Aplicable también a pareja de hecho inscrita." },
+    "matrimonioDeFamiliar": { "dias": "2 (dentro de la provincia) / 4 (fuera)", "articulo": "Art. 19.a", "causa": "Matrimonio de padres, hijos, hermanos y cuñados." },
+    "nacimientoHijo": { "dias": "3 (misma localidad) / 5 (localidad distinta)", "articulo": "Art. 19.b", "nota": "'Por alumbramiento de la esposa'. OJO: el permiso de nacimiento/paternidad hoy se rige por el art. 48.4 ET (16 semanas de suspensión por nacimiento), muy superior; esta licencia de 3-5 días es una reliquia. Duda para UGT sobre su vigencia práctica." },
+    "accidenteEnfermedadGraveConyugePadresHijos": {
+      "dias": "4 (ampliables a 8 si el enfermo reside fuera de la provincia a más de 500 km)",
+      "articulo": "Art. 19.c",
+      "causa": "Accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo de cónyuge, padres o hijos.",
+      "fraccionable": true,
+      "avisoET": "El ET tras RD-ley 5/2023 (art. 37.3.b) reconoce 5 días por este supuesto (ampliado también a parientes hasta 2º grado y convivientes). Donde el ET sea más favorable (5 días vs 4), se aplica el ET."
+    },
+    "fallecimientoConyugePadresHijos": {
+      "dias": "5 (en la localidad) / 7 (fuera de ella)",
+      "articulo": "Art. 19.d",
+      "causa": "Fallecimiento de cónyuge, padres o hijos.",
+      "mejoraET": "Mejora claramente el ET (que da 2 días, 4 con desplazamiento, para 1º grado; y 10 días para fallecimiento de cónyuge/pareja tras la reforma... verificar). En todo caso el mayor de convenio/ET rige."
+    },
+    "accidenteEnfermedadGraveHasta2Grado": {
+      "dias": "2 (4 si necesita desplazamiento)",
+      "articulo": "Art. 19.e",
+      "causa": "Accidente/enfermedad grave, hospitalización o intervención quirúrgica sin hospitalización con reposo domiciliario, o fallecimiento, de parientes hasta 2º grado no previstos antes.",
+      "fraccionable": true,
+      "avisoET": "El ET vigente (5 días para hospitalización de parientes hasta 2º grado) es más favorable y se aplica."
+    },
+    "accidenteEnfermedadGraveHasta3GradoACargo": {
+      "dias": "2",
+      "articulo": "Art. 19.f",
+      "causa": "Accidente/enfermedad grave, hospitalización... o fallecimiento de parientes hasta 3er grado que estén a cargo del trabajador (con convivencia acreditada).",
+      "fraccionable": true
+    },
+    "consultaMedica": { "articulo": "Art. 19.g", "derecho": "El tiempo necesario para consulta del médico de cabecera de la SS cuando coincida con el horario de trabajo, con justificante. Igual para consulta de especialista de la SS prescrita por el médico general." },
+    "acompañamientoFamiliar": { "articulo": "Art. 19.h", "derecho": "Tiempo necesario para acompañar a hijos menores de 12 años (ampliado a 15 años) al pediatra/especialista de la SS; también acompañamiento a médico de cabecera/especialista de familiares de 1er grado dependientes, o dependientes convivientes aunque no sean de 1er grado. Con justificante." },
+    "trasladoDomicilio": { "dias": 2, "articulo": "Art. 19.i" },
+    "asuntosPropios": { "dias": 3, "articulo": "Art. 19.j", "nota": "2 días originalmente; desde el 1-01-2023 son 3 días. No acumulables a vacaciones, festivos ni fines de semana." },
+    "notaGeneral": "Art. 19: las licencias por motivos familiares no pueden iniciarse en día de descanso semanal (redacción posterior a la publicación). Las referencias al cónyuge incluyen a la pareja de hecho inscrita en el registro municipal. En lo no previsto, se está al ET (y prevalece el ET donde sea más favorable, especialmente tras RD-ley 5/2023). No hay permiso de lactancia propio en el convenio: se aplica el art. 37.4 ET."
+  },
+
+  "complementoIT": {
+    "$comment": "Art. 21. DATO ORO y MUY FAVORABLE: la empresa complementa hasta el 100% del salario real (salario base + pluses) durante TODA la baja, tanto por accidente como por enfermedad, SIN distinguir contingencia y SIN periodo de carencia (desde el primer día). Es de los mejores complementos de IT del sector en España.",
+    "articulo": "Art. 21",
+    "enfermedadComun": { "complementoHasta": "100% del salario real (salario base + pluses)", "desdeDia": 1, "duracion": "mientras dure la situación de IT" },
+    "accidente": { "complementoHasta": "100% del salario real (salario base + pluses)", "desdeDia": 1, "duracion": "mientras dure la situación de IT" },
+    "nota": "El texto no distingue entre enfermedad común y accidente: en ambos casos complementa al 100% del salario real desde el primer día y mientras dure la IT."
+  },
+
+  "seguroColectivo": {
+    "$comment": "Art. 22. Póliza de accidentes obligatoria para todas las empresas.",
+    "articulo": "Art. 22",
+    "fallecimientoOInvalidezPermanente": 25000.0,
+    "nota": "Capital de 23.000 € que pasó a 25.000 € a partir del día 1 del mes siguiente a cumplirse 2 meses desde la publicación del convenio (BOP 20-08-2022), por lo que el importe vigente es 25.000 €. Cubre fallecimiento (a cónyuge o herederos legales) e invalidez permanente del trabajador. El convenio no desglosa por tipo de invalidez ni por accidente de circulación."
+  },
+
+  "premioJubilacionLiquidacionCese": {
+    "$comment": "Art. 23. Beneficio para quien cesa voluntariamente entre los 60 y 65 años con antigüedad, o pasa a incapacidad permanente. Se articula como 'vacaciones retribuidas' extra (mensualidades de salario base + antigüedad).",
+    "articulo": "Art. 23",
+    "requisito": "Edad entre 60 y 65 años y baja voluntaria en la empresa (o pasar a incapacidad permanente total, absoluta o gran invalidez).",
+    "escala": {
+      "5a9años": "2 mensualidades",
+      "10a14años": "3 mensualidades",
+      "15a19años": "4 mensualidades",
+      "20oMasAños": "5 mensualidades, más 1 mensualidad adicional por cada 5 años que excedan de los 20"
+    },
+    "retribucion": "Salario base + antigüedad. Solo si es imposible disfrutar esas 'vacaciones', se genera compensación económica (art. 38 ET)."
+  },
+
+  "periodoPrueba": {
+    "$comment": "Art. 25. El convenio SÍ fija duraciones propias (a diferencia de Cádiz, que remitía al ALEH).",
+    "articulo": "Art. 25",
+    "tecnicosTitulados": "6 meses",
+    "restoPersonal": "2 meses",
+    "temporales": "En contratos temporales o de duración determinada, el periodo de prueba no puede superar el 70% de la duración inicial del contrato.",
+    "nota": "Durante el periodo de prueba la extinción no genera indemnización (regla legal general)."
+  },
+
+  "contratacion": {
+    "$comment": "Arts. 26-28. Destaca el contrato fijo-discontinuo (clave en hostelería de temporada) y el tope de 12 meses del eventual por circunstancias de la producción. La Disp. Adic. 3ª advierte que la regulación de contratación es PROVISIONAL (pendiente de adaptar al ALEH tras la reforma laboral de 2021/2022).",
+    "articulo": "Arts. 26-28",
+    "eventualPorProduccion": { "articulo": "Art. 26", "duracionMaxima": "12 meses" },
+    "tiempoParcial": { "articulo": "Art. 27", "nota": "Jornada continuada en contratos de media jornada o inferior salvo causa justificada. Derecho preferente del trabajador a tiempo parcial a ampliar su jornada si la empresa necesita nueva contratación para el mismo puesto (debe responder en 48 h)." },
+    "fijoDiscontinuo": {
+      "articulo": "Art. 28",
+      "llamamiento": "Por riguroso orden de MAYOR antigüedad y puesto de trabajo; la salida por orden de menor antigüedad. Comunicación del llamamiento con 7 días de antelación al inicio de la temporada/trabajos.",
+      "presuncionDespido": "Si la empresa no da ocupación efectiva en el período de los trabajos/temporada, se entiende que el trabajador ha sido despedido (aplica legislación de despido).",
+      "llamamientoVoluntarioFueraTemporada": "El llamamiento fuera de la duración de los trabajos/temporada es de asistencia voluntaria; no se pierde la condición de fijo-discontinuo por no asistir. El trabajador debe responder en 48 h.",
+      "tiempoParcial": "Pueden concertarse fijos-discontinuos a tiempo parcial (art. 16.5 ET)."
+    },
+    "provisionalidad": "Disp. Adic. 3ª: las regulaciones de contratación son provisionales, pendientes de adaptación al ALEH estatal tras la reforma laboral."
+  },
+
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El convenio de Lugo NO incluye un capítulo de régimen disciplinario: no tipifica faltas leves/graves/muy graves ni sus sanciones. La única referencia es el Art. 37, que califica el ACOSO (sexual, por razón de sexo o psicológico) como infracción MUY GRAVE. Por tanto, el régimen disciplinario general se rige por el V ALEH estatal (que sí tipifica faltas y sanciones) y por el Estatuto de los Trabajadores.",
+    "articulo": "No regulado con carácter general en el convenio provincial (solo Art. 37 sobre acoso = falta muy grave). Remisión al ALEH (Art. 1 y 24).",
+    "regulado": false,
+    "remitidoA": "V ALEH estatal (BOE 21-05-2015) y Estatuto de los Trabajadores.",
+    "faltasLeves": "pendiente — ver ALEH",
+    "faltasGraves": "pendiente — ver ALEH",
+    "faltasMuyGraves": "El acoso sexual, por razón de sexo o psicológico es falta MUY GRAVE (Art. 37). El resto: ver ALEH.",
+    "sanciones": "pendiente — ver ALEH (amonestación, suspensión de empleo y sueldo por nº de días, despido solo en muy graves).",
+    "desconexionDigital": "Art. 36: no se puede sancionar ni despedir por no atender comunicaciones fuera de la jornada (salvo urgencias imprevistas justificadas).",
+    "referenciasLegalesGenerales": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede sancionar reduciendo vacaciones/descansos ni con multa de haber (quitar dinero del sueldo como castigo). Distinto de descontar el tiempo NO trabajado por impuntualidad. Feature app: '¿te han descontado del sueldo como castigo? Es ILEGAL.'",
+      "procedimiento": "Art. 58.2 ET: faltas graves y muy graves requieren comunicación por escrito con fecha y hechos.",
+      "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa tuvo conocimiento; máximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    }
+  },
+
+  "representacionSindical": {
+    "$comment": "El convenio de Lugo NO regula la representación unitaria (delegados/comité), ni mejora el crédito horario legal, ni detalla garantías/fuero. Solo crea comisiones paritarias sectoriales (Formación, Seguridad e Higiene, y la Comisión Mixta Paritaria del convenio). Todo lo relativo a la representación de los trabajadores se rige por el ET (arts. 62-68) y la LOLS.",
+    "articulo": "Arts. 29, 30, 38 (comisiones paritarias); no hay artículo de crédito horario ni de garantías sindicales.",
+    "creditoHorario": "pendiente — NO mejorado por el convenio; se aplica el art. 68.e ET (15 h/mes hasta 100 trabajadores, etc.).",
+    "quienRepresentaYeleccion": "pendiente — no detallado; se rige por el ET arts. 62-68 (delegados de personal en empresas 6-49, comité de empresa desde 50) y la LOLS.",
+    "garantiasYfuero": "pendiente — no detallado; se rige por el art. 68 ET.",
+    "comisionesParitarias": {
+      "comisionMixtaParitaria": "Art. 38: órgano de interpretación, conciliación, arbitraje y vigilancia. 2 representantes UGT + 2 CCOO + igual número por la parte empresarial. Resuelve consultas en 15 días naturales. En caso de desacuerdo, se somete al AGA (Acuerdo Interprofesional Galego de solución extrajudicial de conflictos). Gestiona la inaplicación salarial (art. 82.3 ET).",
+      "comisionFormacionProfesional": "Art. 29.",
+      "comisionSeguridadHigiene": "Art. 30."
+    }
+  },
+
+  "excedencias": {
+    "$comment": "El convenio NO regula excedencias (ni voluntaria, ni forzosa, ni por cuidado de hijos/familiares). Se aplica íntegramente el art. 46 del ET.",
+    "regulado": false,
+    "remitidoA": "Art. 46 ET (excedencia voluntaria: antigüedad mínima 1 año, duración 4 meses a 5 años, derecho preferente al reingreso; excedencia por cuidado de hijos hasta 3 años con reserva de puesto el 1er año; forzosa por cargo público)."
+  },
+
+  "formacion": {
+    "$comment": "Arts. 16, 29, 32.",
+    "plusFormacion": "Art. 16: 20 €/mes × 12 pagas para empresas que NO acrediten formación (ver 'pluses.plusCompensatorioFormacion').",
+    "formacionAlimentaria": "Art. 32: la empresa se hace cargo de la formación obligatoria en seguridad e higiene alimentaria, adecuada al puesto.",
+    "comisionParitariaFormacion": "Art. 29: Comisión Paritaria provincial sectorial de Formación Profesional.",
+    "creditoHorasFormacion": "no_previsto — el convenio no fija un crédito de horas de formación individual."
+  },
+
+  "igualdadYAcoso": {
+    "$comment": "Arts. 35 (igualdad) y 37 (protocolo de acoso). El convenio incorpora un protocolo de actuación contra el acoso sexual, por razón de sexo y psicológico bastante desarrollado.",
+    "articulo": "Arts. 35 y 37",
+    "igualdad": "Art. 35: prohibición de discriminación por etnia, ideología, género, afiliación política o sindical; igualdad de acceso a los puestos. En materia de planes de igualdad se remite al V ALEH estatal.",
+    "protocoloAcoso": "Art. 37: protocolo contra el acoso sexual, por razón de sexo y psicológico (mobbing). Incluye definiciones, medidas preventivas, procedimiento informal y formal (denuncia por escrito, instructor = responsable de personal, secretario = representante legal de los trabajadores; resolución en máx. 25 días hábiles), medidas cautelares de separación, protección de la intimidad/confidencialidad y no represalias. El acoso constatado es infracción MUY GRAVE.",
+    "violenciaDeGenero": "no_previsto expresamente — se está a la legislación vigente (LO 1/2004). El convenio no cuantifica mejoras propias.",
+    "desconexionDigital": "Art. 36: derecho a la desconexión digital fuera de la jornada."
+  },
+
+  "otrasCondiciones": {
+    "subrogacion": { "articulo": "Art. 34", "detalle": "En sucesiones por concesiones administrativas opera la subrogación del V ALEH estatal (BOE 21-05-2015)." },
+    "manutencionYAgua": { "articulo": "Disp. Adic. 2ª", "detalle": "Derecho a manutención cuando se presta servicio en horario de comidas; la empresa facilita agua durante la jornada." },
+    "solucionConflictos": { "articulo": "Art. 39", "detalle": "Adhesión al AGA (Acuerdo Interprofesional Galego) para la solución extrajudicial de conflictos colectivos." }
+  },
+
+  "estado": "verificado_con_matices",
+  "estadoNota": "Tablas salariales revisadas 2024 (BOP nº51, 03-03-2025) verificadas en IMAGEN a 185 dpi, celda a celda, para las 6 secciones. Articulado (BOP nº190, 20-08-2022, en gallego) leído íntegro (Arts. 1-39 + disposiciones) del texto oficial: jornada, pagas, nocturnidad, antigüedad, pluses, permisos, IT, vacaciones, seguro, premio jubilación, periodo de prueba, contratación, igualdad/acoso. NO regulados en el convenio y remitidos a ALEH/ET: régimen disciplinario (salvo acoso = muy grave), excedencias, representación sindical/crédito horario, precio hora extra ordinaria, lactancia. Convenio en ULTRAACTIVIDAD (venció 31-12-2024); tablas 2025/2026 aún no pactadas (D32: no se inventan).",
+  "pendienteCondiciones": [
+    "Incremento salarial 2025 (y 2026): NO pactado ni publicado. Las tablas vigentes son las revisadas 2024. Regla D32: no inventar.",
+    "regimenDisciplinario: faltas y sanciones NO tipificadas en el convenio (solo acoso = muy grave, Art. 37) → tomar del ALEH estatal.",
+    "excedencias: NO reguladas → art. 46 ET.",
+    "representacionSindical: crédito horario NO mejorado y garantías NO detalladas → ET arts. 62-68 y LOLS.",
+    "horasExtraordinarias: precio de la hora extra ORDINARIA no fijado en el convenio → ET/ALEH. Importe del día de servicio extraordinario y su hora extra (Art. 33) figuran en tablas pero no se han transcrito celda a celda.",
+    "jornada semanal en horas: no fijada explícitamente (solo 1.800 h/año y día y medio de descanso).",
+    "permisos: el convenio es de 2022 (pre RD-ley 5/2023); varios permisos del ET vigente son más favorables y prevalecen. Duda para UGT sobre cuáles aplicar en la práctica.",
+    "vacaciones: festivos dentro de vacaciones y procedimiento de fijación/preaviso no regulados en el Art. 20."
+  ],
+  "dudasUGT": [
+    "¿Se ha pactado ya el incremento 2025 (y 2026) del convenio, o sigue aplicándose la tabla revisada 2024? ¿Hay negociación de un nuevo convenio en marcha?",
+    "Complemento de IT al 100% del salario real desde el primer día (Art. 21): confirmar que se mantiene íntegro en la prórroga y que no distingue enfermedad común de accidente.",
+    "Permisos del Art. 19 vs ET reformado (RD-ley 5/2023): confirmar qué se aplica en la práctica (nacimiento 3-5 días vs suspensión 16 semanas; hospitalización 4 vs 5 días; fuerza mayor familiar).",
+    "Importe exacto vigente del salario del día de servicio extraordinario y de su hora extra (Art. 33) en la tabla revisada 2024."
+  ],
+  "verificadoContra": "TABLAS: PDF oficial BOP Lugo nº51 (03-03-2025), páginas 1-7, renderizadas a 185 dpi y leídas celda a celda (Secciones Primera a Sexta). ARTICULADO: PDF oficial BOP Lugo nº190 (20-08-2022), Arts. 1-39 y disposiciones adicionales/finales, leído del texto oficial (copia CCOO del BOP). Código de convenio 27000325011982 confirmado en ambas publicaciones. Verificado que es HOSTELERÍA provincial (hoteles/restaurantes/bares/cafeterías/discotecas/casinos), NO restauración colectiva.",
+  "fechaVerificacion": "2026-07-08"
+}
