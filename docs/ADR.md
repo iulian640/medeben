@@ -84,6 +84,7 @@ Momentos críticos:
 Transversal:
 - **Multi-idioma** — rumano, árabe, inglés... mucha gente de cocina no domina el castellano. Nadie tiene una app de derechos laborales en tu idioma. Iulian mismo es el caso de uso.
 - **Exportar informe PDF** como evidencia para SMAC/abogado (de la idea original).
+- **Detección de pago en negro / plus encubierto** (idea de Iulian 2026-07-07): en hostelería las horas extra, si se pagan, suelen ir en negro o disfrazadas de "plus voluntario" para que no consten (no cotizan, no cuentan para paro/jubilación). El comprobador de nómina cruza las horas extra que la app ha registrado con lo que aparece en la nómina y avisa: "cobras un 'plus' de X€ que probablemente son tus horas extra sin nombrar — esto te perjudica". Educar sobre por qué el negro perjudica al trabajador.
 
 ### D9 — Sección Recursos (por zona del usuario)
 - v1: **sindicatos** (federaciones de hostelería CCOO, UGT...), **Inspección de Trabajo**, **SMAC de cada CCAA**, **guías "cómo reclamar paso a paso"** + el visor del convenio (D4). Todo dato público y estable, precargable.
@@ -159,6 +160,18 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 - **Pendiente al crear el repo:** elegir licencia si el código es público. Candidata: AGPL (impide que alguien lo convierta en producto cerrado de pago — encaja con el espíritu "por amor al arte").
 
 ---
+
+### D22 — Los cálculos saltan al fichar, no son herramientas aparte (Iulian 2026-07-07)
+- Nocturnidad, horas extra, festivos, detección de plus encubierto... NO son pantallas separadas en un menú: se calculan y se muestran **en el momento en que el usuario registra sus horas**, en caliente. Al cerrar el turno la app avisa ahí mismo ("este turno: 2 h nocturnas +25%, 1 h extra; ojo si te la pagan como 'plus'").
+- Principio: el trabajador cansado no va a bucear en menús. El valor aparece solo, pegado a la acción que ya hace (fichar). Las vistas de resumen ("te deben X€ este mes") son agregados de esto, no la fuente.
+- **Aviso de tope legal en caliente (Iulian 2026-07-07):** la app lleva la cuenta de horas extra acumuladas en el año; cuando al fichar vayas a superar el tope, te avisa. El tope es **80 h/año O lo que fije el convenio de cada zona** (el 80 es el mínimo del ET; cada convenio puede tener el suyo) → campo `topeHorasExtraAnual` por convenio.
+
+### D23 — Aviso por condiciones climáticas / calor extremo (idea de Iulian 2026-07-07)
+- La app cruza la ubicación/jornada del usuario con una **API del tiempo**; si hay calor extremo (p. ej. 38°) o alerta AEMET, avisa al trabajador de sus derechos: puede no ser exigible ir/seguir trabajando.
+- Base legal real: **RD-ley 4/2023** (modifica el RD 486/1997) obliga a adaptar o suspender el trabajo con alertas meteorológicas adversas (calor/frío), especialmente en exteriores/terrazas. Algunos convenios fijan umbrales propios de temperatura.
+- ⚠️ PENDIENTE afinar: umbral exacto (¿alerta AEMET naranja/roja? ¿grados del convenio?) por zona/subsector. Requiere verificación legal. Campo `umbralesClimaticos` por convenio + integración con API meteorológica gratuita (AEMET OpenData es gratis y oficial).
+- **Si va igual, lo anota y queda registrado (Iulian 2026-07-07):** aunque el trabajador acabe yendo (lo normal), puede marcar "trabajé con alerta de calor / 38° el día X" y la app lo guarda como prueba con fecha (la temperatura/alerta AEMET de ese día queda registrada automáticamente). Igual que los cuadrantes: evidencia acumulada. Sirve para reclamar condiciones o como agravante si hay un problema de salud.
+- Diferenciador fuerte: ninguna app del sector avisa de esto.
 
 ### D21 — TDD siempre, sin excepción (Iulian 2026-07-07)
 - Todo el código (backend y frontend) se hace con TDD: test primero, luego implementación. No negociable, en todo el proyecto.
