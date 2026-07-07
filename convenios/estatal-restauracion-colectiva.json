@@ -16,8 +16,22 @@
   "vigencia": { "desde": "2025-01-01", "hasta": "2025-12-31", "nota": "Suscrito 30-12-2024, publicado 20-06-2025. Confirmar prórroga/ultraactividad para 2026." },
   "marcoNacional": {
     "jornadaAnual": { "horas": 1800, "diariaMax": "9 h (excepcionalmente 10)" },
-    "nocturnidadPct": 25,
-    "nota": "Nocturnidad 25% sobre salario base (visto en anexos provinciales). Estructura de clasificación por grupos profesionales y áreas funcionales común. Los importes y algunos complementos (nº y meses de pagas extra, antigüedad) se fijan por provincia."
+    "nocturnidad": {
+      "$comment": "NO existe un porcentaje de nocturnidad uniforme a nivel estatal. El anterior 'nocturnidadPct: 25' era una sobregeneralización engañosa. La regulación general del Art. 22 (apartados 22.1 y 22.2) NO fija ninguna cuantía de nocturnidad; esta se remite al apartado 'Jornada especialidades' del propio Art. 22, que recoge reglas ESPECÍFICAS por provincia (condiciones más beneficiosas). Cada provincia fija su propia regla: un %, un importe de tabla, o remisión al convenio provincial de hostelería. Verificado visualmente en el PDF del BOE-A-2025-12598, págs. 82108-82114.",
+      "articulo": "Artículo 22. Jornada laboral — apartado 'Jornada especialidades'",
+      "uniformeEstatal": false,
+      "reglaPorProvincia": true,
+      "ejemplosVerificados": {
+        "$comment": "Redacción literal del BOE (resumida). Ampliar a más provincias en la carga incremental; el % o importe concreto depende del anexo/especialidad provincial.",
+        "Cantabria": "Trabajadores SIN jornada específicamente nocturna: incremento del 15 % sobre cada hora trabajada a partir de las 22:00 (10 de la noche). Trabajadores específicamente nocturnos (habitualmente 22:00-06:00, o al menos 3/4 partes de la jornada): la cuantía económica recogida en las tablas del convenio; si no prestan servicios todos los días de la semana, una cantidad por cada día realizado según el anexo (BOE pág. 82111).",
+        "Segovia": "Incremento específico, como mínimo del 25 %, sobre el salario base para las horas trabajadas entre las 22:00 y las 06:00, salvo salario pactado como nocturno por su propia naturaleza (BOE pág. 82111).",
+        "Melilla": "Incremento del 27 % del salario base más antigüedad; las jornadas que ocupen más de 4,5 h en el período 22:00-06:00 se consideran nocturnas en su totalidad (BOE pág. 82113).",
+        "Malaga": "Incremento del 25 % sobre el salario base/hora para el trabajo realizado entre las 22:00 y las 06:00 (BOE pág. 82114).",
+        "Huelva": "Turno de noche permanente y completo: complemento del 10 % del salario + antigüedad; quienes los sustituyan eventualmente: 25 % por hora trabajada durante la sustitución (BOE pág. 82110).",
+        "provinciasQueRemitenAConvenioProvincial": "Muchas provincias remiten la nocturnidad y su retribución específica a su respectivo Convenio Provincial de Hostelería de procedencia (p. ej. Ceuta, Las Palmas de Gran Canaria, Albacete, Ciudad Real)."
+      },
+      "nota": "Antes de aplicar nocturnidad hay que leer la regla de la provincia concreta en 'Jornada especialidades' del Art. 22: NO hay un 25 % estatal uniforme. El porcentaje o importe varía por provincia (10 %, 15 %, 25 %, 27 %, importe de tabla) y en numerosos casos se remite al convenio provincial de hostelería."
+    }
   },
   "tablasPorProvincia": {
     "$comment": "Un bloque por provincia. Verificados los que tengan estado 'verificado'. El resto, pendiente.",
