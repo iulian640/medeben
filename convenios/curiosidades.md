@@ -99,6 +99,16 @@ nadie sabe que lo tiene ni comprueba que la empresa lo haya contratado.
 - **Fuente:** Hospedaje Madrid (BOCM-20260523-1) y Restauración colectiva (BOE-A-2025-12598), anexos de complementos.
 - **Gancho:** "Tienes un seguro de vida pagado por tu jefe y no lo sabes. ¿Y sabes si de verdad lo ha contratado? Deberías."
 
+## 10. Si te dan menos de 12 horas entre turnos, te deben descanso
+
+Europa (Directiva 2003/88) exige **11 h** de descanso entre jornadas; España (ET)
+sube a **12 h**. Pero algunos convenios de hostelería (Cataluña) permiten bajarlo
+a **10 h**... solo si te dan **descanso compensatorio** por esa hora. Casi nadie
+sabe que, si cierra a las 2 y entra a las 10, le deben recuperar ese tiempo.
+
+- **Fuente:** Directiva UE 2003/88/CE (art. 3), Estatuto de los Trabajadores (art. 34.3), Convenio de hostelería de Cataluña. (Pendiente confirmar el compensatorio con UGT.)
+- **Gancho:** "¿Cierras de madrugada y entras por la mañana? Si hay menos de 12 horas de por medio, la ley dice que te deben ese descanso. No es un favor: es tu derecho."
+
 ---
 
 _Añadir más conforme se transcriben convenios._

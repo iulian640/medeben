@@ -166,6 +166,14 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 - Principio: el trabajador cansado no va a bucear en menús. El valor aparece solo, pegado a la acción que ya hace (fichar). Las vistas de resumen ("te deben X€ este mes") son agregados de esto, no la fuente.
 - **Aviso de tope legal en caliente (Iulian 2026-07-07):** la app lleva la cuenta de horas extra acumuladas en el año; cuando al fichar vayas a superar el tope, te avisa. El tope es **80 h/año O lo que fije el convenio de cada zona** (el 80 es el mínimo del ET; cada convenio puede tener el suyo) → campo `topeHorasExtraAnual` por convenio.
 
+### D31 — Jerarquía de normas y suelo europeo (Iulian preguntó por convenios europeos, 2026-07-07)
+- Aclaración: NO existen "convenios colectivos europeos" que fijen salarios. Lo que está por encima de lo nacional es la **legislación de la UE** (directivas), que fija mínimos irrebasables. Jerarquía (VERIFICADO en la red):
+  1. **Derecho UE** — Directiva 2003/88/CE de tiempo de trabajo: máx **48 h/semana** (incluidas extra), descanso diario mín **11 h**/24 h, descanso semanal 24 h + 11 h, **4 semanas** de vacaciones. Suelo absoluto.
+  2. **Ley española (ET)** — suele mejorar la UE (p. ej. 12 h de descanso entre jornadas vs 11 h UE).
+  3. **Convenio estatal/sectorial** → **provincial/autonómico** (tablas) → **contrato individual**.
+  - Principio de **norma más favorable** al trabajador.
+- **Uso en la app:** codificar los mínimos UE/ET como *backstop* absoluto. Si un convenio o contrato baja de ahí, la app lo marca como ilegal. Ej. detectado: Cataluña reduce el descanso entre jornadas a 10 h — la UE lo permite en hostelería (turnos/jornada partida) SOLO con **descanso compensatorio equivalente**. La app avisa: "te han dado 10 h entre turnos; te deben recuperar esa hora en descanso". (Confirmar con UGT.)
+
 ### D29 — "Derechos que no sabías que tienes": dinero oculto del convenio (hallazgo al transcribir, 2026-07-07)
 - Repasando convenios aparece MUCHO dinero/derechos que el trabajador no reclama porque no sabe que existen. Feature potente (enganche + valor real + dinero de verdad):
   - **Premios en metálico:** gratificación por matrimonio (Madrid hospedaje: 1.033 €), premio de natalidad (784 €).

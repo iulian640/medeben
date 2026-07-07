@@ -52,6 +52,13 @@ reales. Objetivo: confirmar cómo interpretar/aplicar bien los datos en la app.
   lucha contra el fraude (anónimo). ¿Qué prueba pide Inspección? ¿Sirven fotos de
   cuadrantes y registros hechos por el propio trabajador?
 
+## 7b. Descanso entre jornadas y suelo europeo
+- El convenio de Cataluña permite reducir el descanso entre jornadas a 10 h. La UE
+  (Directiva 2003/88) exige 11 h y el ET 12 h. ¿Es legal bajar a 10 h? ¿Obliga a
+  dar **descanso compensatorio** por esa hora? ¿Cómo se reclama?
+- ¿Qué mínimos europeos conviene que la app vigile como suelo absoluto (48 h/sem,
+  11 h descanso, 4 semanas vacaciones)?
+
 ## 8. Calor / condiciones climáticas
 - ¿Qué dice exactamente el RD-ley 4/2023 sobre parar el trabajo por calor? ¿Hay
   umbral de grados o va por alerta AEMET? ¿Aplica a cocinas/terrazas?
