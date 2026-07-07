@@ -227,6 +227,135 @@
       "estado": "sin_importes_en_boletin"
     }
   },
+  "vacaciones": {
+    "$comment": "Art. 29.",
+    "dias": 31,
+    "tipoDias": "naturales",
+    "nota": "Art. 29: 31 días naturales retribuidos. Comienzan en día laborable y se disfrutan ininterrumpidamente. El trabajador, de acuerdo con la empresa, puede solicitar el disfrute NO ininterrumpido (fraccionado).",
+    "diasExtraPorAntiguedad": { "estado": "no_regulado", "nota": "El convenio no añade días de vacaciones por antigüedad." },
+    "retribucion": { "estado": "remitido_ET", "nota": "El convenio no detalla la base de cálculo; Art. 29 remite al art. 38 ET 'en todo lo demás'. Por doctrina, la retribución de vacaciones debe incluir el promedio de complementos habituales, pero el convenio no lo concreta." },
+    "periodoDisfrute": { "estado": "remitido_ET", "nota": "No se fijan meses concretos ni bloqueo de temporada alta en el texto; remitido al art. 38 ET y al calendario pactado en empresa." },
+    "fijacionYPreaviso": { "estado": "remitido_ET", "nota": "El convenio no fija preaviso propio del calendario de vacaciones; remitido al art. 38 ET (calendario pactado, que por ley debe conocerse con al menos 2 meses de antelación al disfrute)." },
+    "fraccionamiento": { "permitido": true, "nota": "Art. 29: por defecto ininterrumpidas, pero el trabajador de acuerdo con la empresa puede solicitar el disfrute fraccionado. No fija número de periodos ni mínimo de días seguidos." },
+    "bajaDuranteVacaciones": { "estado": "remitido_ET", "nota": "No regulado específicamente en el convenio; remitido al art. 38.3 ET (IT, embarazo, parto o lactancia coincidentes con vacaciones: derecho a disfrutarlas en otro periodo)." },
+    "festivosDentroVacaciones": { "$comment": "Art. 29 párrafos finales.", "nota": "Los festivos abonables y no recuperables trabajados se compensan de una de tres formas: a) abonarlos con el recargo legal junto a la mensualidad (de mutuo acuerdo empresa-trabajador); b) añadirlos a las vacaciones anuales (elige el trabajador); c) descanso compensatorio (elige el trabajador)." },
+    "noDisfrutadasAlCesar": { "estado": "remitido_legislacion", "nota": "El convenio no lo regula; por ley se abonan en el finiquito las vacaciones devengadas y no disfrutadas al cesar. Enlaza con la calculadora de finiquito." }
+  },
+  "permisosRetribuidos": {
+    "$comment": "Art. 30 (Licencias) y Art. 31 (Lactancia). Se avisa con antelación y se justifica adecuadamente.",
+    "matrimonioOUnionHecho": { "dias": 15, "nota": "Art. 30.1: matrimonio y/o unión de hecho debidamente inscrita en el registro. Coincide con el mínimo del ET." },
+    "nacimiento": { "dias": "el legalmente previsto", "nota": "Art. 30.2: remite a la duración legal (permiso por nacimiento y cuidado de menor del ET / Seguridad Social)." },
+    "fallecimientoEnfermedadGraveIntervencion": { "dias": 3, "familiares": "cónyuge o pareja de hecho inscrita, padres, padres políticos, hijos, nietos, abuelos y hermanos", "nota": "Art. 30.3: 3 días. Situaciones no contempladas → art. 37.3 ET. El listado de parientes es amplio (incluye nietos y abuelos)." },
+    "examenes": { "dias": "tiempo necesario", "nota": "Art. 30.4: tiempo necesario para concurrir a exámenes, avisando con antelación suficiente y justificando después la asistencia." },
+    "asuntosPropios": { "dias": 1, "nota": "Art. 30.5: un día por asuntos propios al año. MEJORA el ET (que no reconoce asuntos propios con carácter general)." },
+    "incrementoPorDesplazamiento": { "nota": "Art. 30: en los casos de nacimiento (apdo. 2) y fallecimiento/enfermedad grave (apdo. 3), +1 día si el hecho ocurre fuera de la localidad dentro de provincias limítrofes; +3 días en el resto de España." },
+    "lactancia": { "$comment": "Art. 31.", "nota": "Hasta que el menor cumpla 9 meses: 1 hora de ausencia divisible en dos fracciones, o reducción de media hora de la jornada. Incremento proporcional en partos/adopciones/acogimientos múltiples. Disfrutable indistintamente por madre o padre si ambos trabajan." },
+    "prescripcionReposo": { "$comment": "Art. 34.", "nota": "Media hora retribuida antes/después de administrar una dosis medicamentosa por padecimiento crónico o prescripción médica, debidamente justificada." },
+    "mudanza": { "estado": "remitido_ET", "nota": "No listado con día propio en el convenio; remitido al art. 37.3 ET (traslado de domicilio habitual: 1 día)." },
+    "deberInexcusable": { "estado": "remitido_ET", "nota": "No regulado en el convenio; remitido al art. 37.3 ET." },
+    "otros": { "nota": "Para lo no previsto en el Art. 30 se aplica el art. 37.3 ET (deber inexcusable de carácter público, traslado de domicilio, etc.)." }
+  },
+  "complementoIT": {
+    "$comment": "Art. 36. Complemento por Incapacidad Temporal (baja médica). Dato 'oro'. Distingue contingencia profesional vs común.",
+    "accidenteLaboralYAsimilados": {
+      "cobertura": "100% de la base ordinaria de cotización",
+      "duracion": "hasta el final del proceso de IT",
+      "detalle": "En IT por accidente laboral, enfermedad profesional, intervención quirúrgica u hospitalización, la empresa abona la diferencia entre la prestación de la aseguradora y el 100% de la base ordinaria de cotización, hasta el final del proceso de IT.",
+      "franquiciaDias": "ninguna indicada en el texto (desde el inicio de la baja)"
+    },
+    "enfermedadComunYAccidenteNoLaboral": {
+      "cobertura": "100% de la base ordinaria de cotización (misma diferencia)",
+      "limite": "solo la PRIMERA baja del año natural",
+      "detalle": "En IT por enfermedad común o accidente no laboral la empresa abona la misma diferencia hasta el 100%, pero ÚNICAMENTE en la primera baja del año natural. Las siguientes bajas por contingencia común en el mismo año NO se complementan."
+    },
+    "exclusiones": "No se abona complemento si la relación laboral se ha extinguido; en fijos discontinuos, si ha terminado el llamamiento, tampoco se abona."
+  },
+  "regimenDisciplinario": {
+    "$comment": "Art. 40. El convenio NO tipifica faltas ni sanciones: remite en bloque al ALEH.",
+    "estado": "remitido_ALEH",
+    "remision": "Art. 40: se estará a lo dispuesto en el vigente Acuerdo Laboral de ámbito Estatal para el Sector de la Hostelería (ALEH). Las faltas (leves / graves / muy graves), las sanciones (amonestación, suspensión de empleo y sueldo, inhabilitación para ascenso, despido) y el procedimiento se rigen por el ALEH, no por este convenio autonómico. Ver el JSON del ALEH para el detalle tipificado.",
+    "prohibidoMultaDeHaber": "VERIFICADO (art. 58.3 ET): ninguna sanción puede consistir en reducir la duración de las vacaciones u otra minoración de los derechos al descanso, ni en multa de haber (descontar dinero del sueldo como castigo). Rige aunque el régimen disciplinario esté remitido al ALEH. (Distinto: descontar el tiempo NO trabajado por llegar tarde no es sanción — art. 30.3 del preaviso y descuento por impuntualidad sí es válido.)",
+    "procedimiento": "Art. 58 ET: las faltas graves y muy graves requieren comunicación por escrito con fecha y hechos; sin ello la sanción es impugnable.",
+    "prescripcion": "Régimen general (verificado, art. 60.2 ET): faltas leves 10 días, graves 20 días, muy graves 60 días desde que la empresa las conoce; en todo caso a los 6 meses de haberse cometido. El ALEH puede detallar plazos propios.",
+    "revisabilidad": "Toda sanción es revisable ante el Juzgado de lo Social."
+  },
+  "representacionSindical": {
+    "$comment": "Art. 39 (Acción sindical). Complementa ET arts. 62-68 y LOLS.",
+    "derechosGenerales": "Art. 39: delegados de personal y comités de empresa tienen los derechos que la ley determine (39.1). Libre afiliación sindical (39.2). El empresario no puede crear ni apoyar sindicatos de empresa (39.3), ni tomar medidas disciplinarias por ideas u opiniones políticas o religiosas (39.4). Asambleas conforme a los arts. 77 y 79 ET (39.5).",
+    "creditoHorario": {
+      "$comment": "Art. 39.6. Horas mensuales retribuidas por representante. Reproduce la escala del art. 68.e ET (NO la mejora).",
+      "hasta100": 15,
+      "de101a250": 20,
+      "de251a500": 30,
+      "de501a750": 35,
+      "de751enAdelante": 40,
+      "acumulacion": "Acumulables las horas de varios miembros del comité/delegados en uno o varios de ellos ('liberados'), sin rebasar 40 h/mes por persona."
+    },
+    "comisionParitaria": "Art. 39.7: los componentes de la Comisión Paritaria tienen ADEMÁS 8 horas mensuales abonadas para su dedicación a la misma.",
+    "garantiasYFuero": { "estado": "remitido_ET", "nota": "El convenio no detalla el fuero; rige el art. 68 ET (expediente contradictorio previo a sanción por falta grave/muy grave, prioridad de permanencia ante despidos por causas económicas/técnicas, no despido ni sanción por la actividad representativa durante el mandato y el año siguiente, libertad de expresión)." },
+    "quienRepresentaYComoSeElige": { "estado": "remitido_ET", "nota": "Régimen general del ET (delegados de personal en empresas de 6-49 trabajadores: 1 si 6-30, 3 si 31-49; comité de empresa desde 50) y LOLS. Elecciones sindicales; cualquier trabajador puede presentarse en candidatura sindical o como grupo de trabajadores. El convenio no lo modifica." }
+  },
+  "periodoPrueba": {
+    "$comment": "Art. 9.",
+    "estado": "remitido_ALEH",
+    "nota": "Art. 9: la duración del periodo de prueba (contratos por tiempo indefinido y temporales) se rige por el ALEH vigente; el convenio autonómico no fija plazos propios. Durante el periodo de prueba el contrato puede resolverse sin indemnización."
+  },
+  "excedencias": {
+    "estado": "no_regulado",
+    "nota": "El convenio no contiene artículo específico de excedencias. Rige el régimen general del art. 46 ET: voluntaria (mín. 4 meses, máx. 5 años, tras 1 año de antigüedad, con derecho preferente al reingreso, no reserva automática de puesto); forzosa (con reserva de puesto); por cuidado de hijos hasta 3 años y de familiares hasta 2 años, con reserva de puesto."
+  },
+  "trabajoSuperiorCategoria": {
+    "$comment": "Art. 12 (polivalencia / categoría superior).",
+    "nota": "Quien desempeñe funciones de categoría superior percibe el salario de esa categoría y el reconocimiento de sus condiciones laborales. El desempeño no puede durar más de 3 meses consecutivos o 6 meses en cómputo anual; superado ese plazo se consolida la categoría superior. Clasificación, encuadramiento en grupos/áreas y movilidad funcional remitidos al ALEH (Art. 11 y 12). Enlaza con el comprobador de categoría."
+  },
+  "contratacion": {
+    "$comment": "Art. 7, Art. 8, Art. 10 y Disposición Transitoria.",
+    "fijosDiscontinuos": "Para trabajos estacionales o de temporada. Llamamiento por RIGUROSO ORDEN DE ANTIGÜEDAD dentro de cada categoría y especialidad (empate → mayor edad); preaviso de llamamiento 72 h (7 días si el trabajador está desplazado en el extranjero), por medios electrónicos (SMS, WhatsApp, mail). La no reincorporación tras reiterar el llamamiento y transcurrir de nuevo el plazo se considera baja voluntaria. No pueden contratarse temporales de una categoría mientras haya fijos discontinuos de esa categoría sin llamar.",
+    "adquisicionCondicionFijoDiscontinuo": "Disposición transitoria: adquieren la condición de fijo discontinuo quienes presten servicios 3 años consecutivos con promedio de 150 días/año y sean contratados para una cuarta temporada consecutiva.",
+    "duracionDeterminadaPorProduccion": "Máximo 12 meses (prorrogable por acuerdo dentro de ese límite); la modalidad para situaciones ocasionales previsibles se limita a 90 días/año natural, no continuados.",
+    "sustitucion": "Contrato de sustitución con reserva de puesto (nombre del sustituido y causa); solape máximo 15 días; cobertura de vacante durante selección/promoción máx. 3 meses.",
+    "tiempoParcial": "Horas complementarias hasta el 60% de las ordinarias contratadas; si durante 12 meses continuados se superan el 40% de la jornada ordinaria pactada, derecho a consolidar ese 40% como jornada ordinaria.",
+    "preavisoCeseVoluntario": "Art. 10: preaviso mínimo de 20 días si la categoría está encuadrada en el Grupo I de cualquier área funcional; 10 días para el resto. El incumplimiento (con más de 1 año de antigüedad) permite a la empresa descontar de la liquidación un día de salario por cada día de retraso.",
+    "vacantes": "Art. 8: las vacantes se comunican a los órganos representativos de los trabajadores en el momento en que se producen."
+  },
+  "ascensos": {
+    "estado": "remitido_ALEH",
+    "nota": "El convenio no fija criterios propios de ascenso/promoción; se rige por el ALEH (clasificación profesional y movilidad, Arts. 11 y 12). Las vacantes se comunican a la representación legal (Art. 8)."
+  },
+  "formacion": {
+    "$comment": "Art. 44 y Art. 49.",
+    "estado": "remitido",
+    "nota": "Art. 44: formación continua remitida al Acuerdo Estatal Sectorial sobre Formación Continua en Hostelería. Art. 49: se crea una bolsa de trabajadores del sector a los que se intentará dar formación (idiomas básicos, atención al cliente, cocina, etc.). No se fija plus de formación ni un número de horas anuales concreto. El permiso retribuido por exámenes está en permisosRetribuidos (Art. 30.4)."
+  },
+  "igualdadYAcoso": {
+    "$comment": "Art. 41 (Igualdad) y Art. 42 (Acoso sexual).",
+    "igualdad": "Art. 41: remisión a la normativa vigente y al ALEH; compromiso de no discriminación por razón de sexo en ofertas de empleo, selección, contratación, promoción y retribución; embarazo/maternidad no pueden ser traba; uso de lenguaje inclusivo en el convenio.",
+    "acosoSexual": "Art. 42: compromiso de mantener un entorno que respete la dignidad y libertad sexual; definición de acoso sexual conforme al art. 7 de la LO 3/2007; las quejas se canalizan a través de los representantes legales siguiendo el procedimiento sancionador.",
+    "violenciaGenero": { "estado": "remitido", "nota": "El convenio no mejora expresamente los permisos por violencia de género; remitido a la legislación vigente." },
+    "planIgualdad": { "estado": "remitido", "nota": "No se detalla protocolo/plan de igualdad propio en el articulado; remitido a la normativa y al ALEH." }
+  },
+  "segurosObligatorios": {
+    "$comment": "Art. 35 (Seguro de accidentes y ayuda por fallecimiento).",
+    "seguroAccidentes": "Póliza que cubre a todas las personas trabajadoras por muerte por accidente o incapacidad permanente derivada de accidente laboral Y no laboral, por un capital de 36.000 €.",
+    "ayudaFallecimientoNatural": "Si el trabajador fallece por muerte natural perteneciendo a la plantilla, la empresa abona a sus herederos legales 4 mensualidades de sus haberes."
+  },
+  "jubilacion": {
+    "$comment": "Arts. 37 y 38.",
+    "especial64": "Art. 37: adhesión a la jubilación especial a los 64 años (RD 1194/85), conforme a la legislación vigente en cada momento.",
+    "obligatoria": "Art. 38: el contrato se extingue automáticamente al cumplir 68 años si el trabajador tiene derecho al 100% de la pensión contributiva y la empresa cumple medidas de política de empleo (nueva contratación indefinida o conversión de temporal en indefinido por cada contrato extinguido). No aplica a la jubilación voluntaria."
+  },
+  "dietasYKilometraje": {
+    "estado": "no_regulado",
+    "nota": "El convenio no fija importes de dieta (comida/cena/pernocta) ni €/km por desplazamiento de servicio. Sí existe el 'Plus de distancia y transporte' (Art. 23, ya recogido: 648,48 €/año en 2025) para el trayecto residencia-centro de trabajo, y la manutención en especie (Art. 18). Kilometraje por desplazamientos de servicio: pendiente / remitido a acuerdo de empresa."
+  },
+  "revisionMedica": {
+    "$comment": "Arts. 32 y 33.",
+    "nota": "Art. 33: reconocimiento médico anual obligatorio para la empresa; voluntario para el trabajador salvo obligación normativa. Art. 32: prevención de riesgos conforme a la Ley 31/1995; la Comisión Paritaria desarrollará una Comisión Sectorial de Salud Laboral."
+  },
+  "inaplicacionDescuelgue": {
+    "$comment": "Art. 43.",
+    "nota": "Empresas deficitarias o con pérdidas pueden inaplicar condiciones (descuelgue) conforme al art. 82.3 ET, pactando con la representación legal y comunicando a la Comisión Paritaria en 15 días; ésta dispone de máx. 1 mes para pronunciarse. Solo afecta a la inaplicación del incremento económico salvo lo previsto en el art. 82.3 ET."
+  },
   "tablas2025": {
     "estado": "pendiente",
     "nota": "Art. 14 pacta +3% sobre 2024, pero NO se ha localizado tabla salarial 2025 publicada en el registro oficial (ficha CARM C-01251 sin publicaciones posteriores a 30-07-2024). Los importes de la tabla base 2025 NO se calculan aquí (regla: no inventar cifras). Los pluses con importe 2025 fijado en el texto del convenio (manutención 7,20 €; nupcialidad 96,32 €; transporte 648,48 €/año, 54,04 €/mes) SÍ constan arriba."
