@@ -166,6 +166,12 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 - Principio: el trabajador cansado no va a bucear en menús. El valor aparece solo, pegado a la acción que ya hace (fichar). Las vistas de resumen ("te deben X€ este mes") son agregados de esto, no la fuente.
 - **Aviso de tope legal en caliente (Iulian 2026-07-07):** la app lleva la cuenta de horas extra acumuladas en el año; cuando al fichar vayas a superar el tope, te avisa. El tope es **80 h/año O lo que fije el convenio de cada zona** (el 80 es el mínimo del ET; cada convenio puede tener el suyo) → campo `topeHorasExtraAnual` por convenio.
 
+### D32 — Norma de currency: SIEMPRE la última publicación (Iulian 2026-07-07)
+- Antes de transcribir un convenio, buscar la publicación MÁS RECIENTE de sus tablas. Un dato viejo es un dato erróneo, y "si damos información errónea no valemos nada" (Iulian).
+- Cuidado con "provisional vs definitiva": las tablas de un año salen primero provisionales (con cláusula IPC) y luego definitivas. Usar siempre las definitivas del año en curso.
+- Caso real detectado: el 1er PDF de Málaga (BOP 90, may-2025) traía 2025 PROVISIONALES; estando en 2026 hay que usar el BOP 70 (abr-2026) con las 2025 DEFINITIVAS. Y Alicante: transcrita la tabla 2025 cuando ya existe la 2026.
+- La app debe mostrar la vigencia de cada tabla y avisar si podría haber una más nueva. `convenios/ESTADO.md` lleva el control de currency por convenio.
+
 ### D31 — Jerarquía de normas y suelo europeo (Iulian preguntó por convenios europeos, 2026-07-07)
 - Aclaración: NO existen "convenios colectivos europeos" que fijen salarios. Lo que está por encima de lo nacional es la **legislación de la UE** (directivas), que fija mínimos irrebasables. Jerarquía (VERIFICADO en la red):
   1. **Derecho UE** — Directiva 2003/88/CE de tiempo de trabajo: máx **48 h/semana** (incluidas extra), descanso diario mín **11 h**/24 h, descanso semanal 24 h + 11 h, **4 semanas** de vacaciones. Suelo absoluto.
@@ -199,6 +205,7 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
 ### D28 — Visión ampliada: de app a plataforma del trabajador (ideas de Iulian 2026-07-07, SIN comprometer)
 - Ideas lanzadas: sección de **convenios y sus cosas**, **noticias laborales**, **portal de ofertas de trabajo decentes de verdad**, y **directorio de profesionales reales** ofreciendo sus servicios.
 - Estado: VISIÓN a largo plazo (v3+), NO v1. Riesgo de scope creep: la v1 debe seguir siendo el núcleo (fichar + te deben X€) o no se lanza nunca. Un portal de empleo es un producto entero aparte (moderación, verificación de ofertas, masa crítica de dos lados).
+- **Cómo hacer el portal de empleo (idea de Iulian 2026-07-07):** en vez de que las empresas publiquen, **scrapear ofertas de otros portales y mostrar SOLO las que cumplen el convenio** (salario ≥ tabla del convenio para esa categoría/zona). Tablón filtrado de "ofertas decentes de verdad". Diferenciador brutal: nadie hace un job board pre-filtrado por legalidad. Cautelas honestas: (1) muchos portales prohíben el scraping en sus términos — revisar legalidad/ToS o usar APIs/feeds oficiales; (2) verificar que una oferta "cumple el convenio" es difícil porque las ofertas raramente indican salario y categoría exactos → filtrar solo las que declaran salario, o estimar y marcar como "parece cumplir". v3+.
 - **Consecuencia sobre el nombre:** si la visión de "plataforma del trabajador" se confirma, "TeDeben" (centrado en dinero adeudado) se queda corto. Reconsiderar el nombre ANTES de comprar dominio / hacer marca pública. De momento TeDeben sigue como nombre de trabajo (el dominio aún no está comprado; renombrar el repo es trivial). Pendiente de Iulian.
 
 ### D25 — El convenio es el MÍNIMO; salario real configurable + avisar de artimañas (Iulian 2026-07-07)
