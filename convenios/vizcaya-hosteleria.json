@@ -2,7 +2,13 @@
   "$comment": "Tablas salariales AÑO 2026 VERIFICADAS visualmente contra el PDF oficial del Boletín Oficial de Bizkaia (BOB nº38, 25-02-2026, cve BOB-2026a038-(III-29)), renderizado a imagen y leído celda a celda. Marco (jornada anual, pagas, nocturnidad, vigencia) verificado contra el TEXTO del convenio publicado en el BOB nº81, 30-04-2025 (cve BOB-2025a081-(III-74)). Este es el VII Convenio, vigencia hasta 2027; las tablas 2026 son la revisión más reciente a julio-2026 (incremento +3,5% = IPC 2025 3% + 0,5% diferencial).",
   "id": "vizcaya-hosteleria",
   "nombre": "Convenio colectivo del sector de Hostelería de Bizkaia",
-  "ambitoTerritorial": { "tipo": "provincial", "comunidad": "País Vasco", "provincias": ["Bizkaia"] },
+  "ambitoTerritorial": {
+    "tipo": "provincial",
+    "comunidad": "País Vasco",
+    "provincias": [
+      "Bizkaia"
+    ]
+  },
   "ambitoFuncional": "hosteleria",
   "codigoConvenio": "48001205011981",
   "fuente": {
@@ -20,7 +26,11 @@
     "documento": "VII Convenio Colectivo de Hostelería de Bizkaia (cve BOB-2025a081-(III-74))",
     "url": "https://www.bizkaia.eus/lehendakaritza/Bao_bob/2025/04/30/III-74_cas.pdf"
   },
-  "vigencia": { "desde": "2021-01-01", "hasta": "2027-12-31", "nota": "VII Convenio. Sustituye al anterior (finalizó 31-12-2020, prorrogado hasta 30-06-2021). Duración hasta 31-12-2027. Las tablas de este fichero son las del año 2026." },
+  "vigencia": {
+    "desde": "2021-01-01",
+    "hasta": "2027-12-31",
+    "nota": "VII Convenio. Sustituye al anterior (finalizó 31-12-2020, prorrogado hasta 30-06-2021). Duración hasta 31-12-2027. Las tablas de este fichero son las del año 2026."
+  },
   "calificaciones": {
     "$comment": "El convenio clasifica por 'Calificación' (nivel), no por grupo de establecimiento. Seis niveles: PRIMERA a QUINTA + ESPECIAL. TERCERA equivale a camarero/a y cocinero/a. El mapeo categoría profesional → calificación está en el texto del convenio (no transcrito aquí).",
     "PRIMERA": "Calificación primera",
@@ -32,46 +42,423 @@
   },
   "tablasSalariales2026": {
     "$comment": "Columnas literales del Anexo I (BOB 38/2026). 'salarioBase' + 'complementos' = 'garantizado' (bruto mensual en 15 pagas). 'complementos' YA INCLUYE el plus de nocturnidad de 44 h/mes (Art. 22) más el antiguo Plus Convenio. 'horaExtra' y 'heFestiva' son precio POR HORA (€) — festivas = 150%, normales = 100%. 'plusHoraNocturna' es el valor plus POR HORA nocturna (€). 'plusFormacion' es importe fijo. 'garantiaMinima' es la garantía mínima del Art. 7 (columna aparte, no indexada al salario base; recalculada cada año).",
-    "PRIMERA":  { "salarioBase": 725.06, "complementos": 1195.40, "garantizado": 1920.46, "horaExtra": 33.00, "heFestiva": 41.25, "plusFormacion": 30.13, "plusHoraNocturna": 1.25, "garantiaMinima": 63.15 },
-    "SEGUNDA":  { "salarioBase": 683.47, "complementos": 1140.32, "garantizado": 1823.79, "horaExtra": 31.34, "heFestiva": 39.17, "plusFormacion": 30.13, "plusHoraNocturna": 1.17, "garantiaMinima": 59.97 },
-    "TERCERA":  { "salarioBase": 647.57, "complementos": 1047.17, "garantizado": 1694.74, "horaExtra": 29.12, "heFestiva": 36.40, "plusFormacion": 30.13, "plusHoraNocturna": 1.11, "garantiaMinima": 55.73 },
-    "CUARTA":   { "salarioBase": 647.57, "complementos": 952.99,  "garantizado": 1600.56, "horaExtra": 27.50, "heFestiva": 34.38, "plusFormacion": 30.13, "plusHoraNocturna": 1.11, "garantiaMinima": 52.63 },
-    "QUINTA":   { "salarioBase": 647.57, "complementos": 843.33,  "garantizado": 1490.90, "horaExtra": 25.62, "heFestiva": 32.02, "plusFormacion": 30.13, "plusHoraNocturna": 1.11, "garantiaMinima": 49.02 },
-    "ESPECIAL": { "salarioBase": 647.57, "complementos": 550.10,  "garantizado": 1197.67, "horaExtra": 20.58, "heFestiva": 25.72, "plusFormacion": 30.13, "plusHoraNocturna": 1.11, "garantiaMinima": 39.38 }
+    "PRIMERA": {
+      "salarioBase": 725.06,
+      "complementos": 1195.4,
+      "garantizado": 1920.46,
+      "horaExtra": 33.0,
+      "heFestiva": 41.25,
+      "plusFormacion": 30.13,
+      "plusHoraNocturna": 1.25,
+      "garantiaMinima": 63.15
+    },
+    "SEGUNDA": {
+      "salarioBase": 683.47,
+      "complementos": 1140.32,
+      "garantizado": 1823.79,
+      "horaExtra": 31.34,
+      "heFestiva": 39.17,
+      "plusFormacion": 30.13,
+      "plusHoraNocturna": 1.17,
+      "garantiaMinima": 59.97
+    },
+    "TERCERA": {
+      "salarioBase": 647.57,
+      "complementos": 1047.17,
+      "garantizado": 1694.74,
+      "horaExtra": 29.12,
+      "heFestiva": 36.4,
+      "plusFormacion": 30.13,
+      "plusHoraNocturna": 1.11,
+      "garantiaMinima": 55.73
+    },
+    "CUARTA": {
+      "salarioBase": 647.57,
+      "complementos": 952.99,
+      "garantizado": 1600.56,
+      "horaExtra": 27.5,
+      "heFestiva": 34.38,
+      "plusFormacion": 30.13,
+      "plusHoraNocturna": 1.11,
+      "garantiaMinima": 52.63
+    },
+    "QUINTA": {
+      "salarioBase": 647.57,
+      "complementos": 843.33,
+      "garantizado": 1490.9,
+      "horaExtra": 25.62,
+      "heFestiva": 32.02,
+      "plusFormacion": 30.13,
+      "plusHoraNocturna": 1.11,
+      "garantiaMinima": 49.02
+    },
+    "ESPECIAL": {
+      "salarioBase": 647.57,
+      "complementos": 550.1,
+      "garantizado": 1197.67,
+      "horaExtra": 20.58,
+      "heFestiva": 25.72,
+      "plusFormacion": 30.13,
+      "plusHoraNocturna": 1.11,
+      "garantiaMinima": 39.38
+    }
   },
   "salarioMensualGarantizado2026": {
     "$comment": "Atajo: bruto mensual garantizado (base + complementos) por nivel, en 15 pagas. Es la cifra de referencia del salario.",
-    "PRIMERA": 1920.46, "SEGUNDA": 1823.79, "TERCERA": 1694.74, "CUARTA": 1600.56, "QUINTA": 1490.90, "ESPECIAL": 1197.67
+    "PRIMERA": 1920.46,
+    "SEGUNDA": 1823.79,
+    "TERCERA": 1694.74,
+    "CUARTA": 1600.56,
+    "QUINTA": 1490.9,
+    "ESPECIAL": 1197.67
   },
   "horasExtraordinarias2026": {
     "$comment": "Art. 11. Precio POR HORA (€). El convenio fija el importe: 'horaExtra' para horas normales, 'heFestiva' para las trabajadas durante el descanso semanal (150%).",
-    "porHoraNormal":  { "PRIMERA": 33.00, "SEGUNDA": 31.34, "TERCERA": 29.12, "CUARTA": 27.50, "QUINTA": 25.62, "ESPECIAL": 20.58 },
-    "porHoraFestiva": { "PRIMERA": 41.25, "SEGUNDA": 39.17, "TERCERA": 36.40, "CUARTA": 34.38, "QUINTA": 32.02, "ESPECIAL": 25.72 }
+    "porHoraNormal": {
+      "PRIMERA": 33.0,
+      "SEGUNDA": 31.34,
+      "TERCERA": 29.12,
+      "CUARTA": 27.5,
+      "QUINTA": 25.62,
+      "ESPECIAL": 20.58
+    },
+    "porHoraFestiva": {
+      "PRIMERA": 41.25,
+      "SEGUNDA": 39.17,
+      "TERCERA": 36.4,
+      "CUARTA": 34.38,
+      "QUINTA": 32.02,
+      "ESPECIAL": 25.72
+    }
   },
   "nocturnidad": {
     "$comment": "Art. 22. Valor del plus POR HORA nocturna (€), fijado en la tabla. La columna 'complementos' ya incorpora el plus de nocturnidad correspondiente a 44 h/mes. Las horas nocturnas que superen esas 44 h/mes se abonan aparte según estos módulos. El tramo horario exacto que cuenta como 'período nocturno' no se detalla en el articulado transcrito (pendiente de confirmar; por defecto ET: 22:00–06:00).",
-    "porHora": { "PRIMERA": 1.25, "SEGUNDA": 1.17, "TERCERA": 1.11, "CUARTA": 1.11, "QUINTA": 1.11, "ESPECIAL": 1.11 },
+    "porHora": {
+      "PRIMERA": 1.25,
+      "SEGUNDA": 1.17,
+      "TERCERA": 1.11,
+      "CUARTA": 1.11,
+      "QUINTA": 1.11,
+      "ESPECIAL": 1.11
+    },
     "horasIncluidasEnComplementos": 44
   },
   "pagas": {
     "numero": 15,
     "$comment": "Art. 23. 12 mensualidades ordinarias + 3 gratificaciones extraordinarias (abril, julio y diciembre). Cada extra se liquida sobre el Salario Garantizado más la antigüedad.",
-    "extraordinarias": ["abril", "julio", "diciembre"]
+    "extraordinarias": [
+      "abril",
+      "julio",
+      "diciembre"
+    ]
   },
-  "jornadaAnual": { "horas": 1746, "nota": "Art. 8. Jornada máxima en cómputo anual de 1.746 horas para todos los años de vigencia. Máximo 9 horas diarias." },
-  "vacaciones": { "diasNaturales": 30, "nota": "Art. 12. 30 días naturales, preferentemente junio–septiembre." },
-  "plusFormacion2026": { "importe": 30.13, "nota": "Importe fijo igual en todos los niveles. Supuestos de aplicación y excepciones en el Art. 20 del convenio (no transcrito)." },
+  "jornadaAnual": {
+    "horas": 1746,
+    "nota": "Art. 8. Jornada máxima en cómputo anual de 1.746 horas para todos los años de vigencia. Máximo 9 horas diarias."
+  },
+  "vacaciones": {
+    "diasNaturales": 30,
+    "nota": "Art. 12. 30 días naturales, preferentemente junio–septiembre.",
+    "computo": "naturales",
+    "periodoDisfrute": "Preferentemente meses estivales, junio a septiembre ambos inclusive (Art. 12).",
+    "fraccionamiento": "En el subsector de ALOJAMIENTO, por acuerdo con la persona trabajadora o la representacion sindical, se puede disfrutar hasta el 50% fuera del periodo estival, comunicandolo a la Comision Paritaria (Art. 12). El resto del articulado no fija un fraccionamiento general para hosteleria.",
+    "noCompensableEnMetalico": "La vacacion anual NO puede compensarse en metalico, salvo cese en el trabajo (Art. 12).",
+    "quienLasFija": "La empresa comunica el calendario de vacaciones al comienzo de cada ano natural; el cuadro se confecciona por rotacion tomando como base el calendario del ano anterior (Art. 12).",
+    "preavisoCalendarioMeses": 2,
+    "preavisoNota": "El cuadro de distribucion se expone en el tablon de anuncios con 2 meses como minimo de antelacion al comienzo de las vacaciones. Si la empresa cierra un mes por vacaciones debidamente anunciado con 2 meses, el personal disfruta en ese periodo (Art. 12).",
+    "retribucion": "Se retribuyen conforme al SALARIO REAL, tomando como tal el promedio de lo percibido en los TRES ultimos meses naturales anteriores al disfrute. La liquidacion se abona antes del comienzo de las vacaciones (Art. 12). Mejora el ET: incluye complementos, no solo salario base.",
+    "ceseEnElAno": "Quien cese durante el ano tiene derecho a la parte proporcional segun meses trabajados, computando como mes completo la fraccion superior a 15 dias; en caso de fallecimiento se abona a los derechohabientes (Art. 12). Enlaza con la calculadora de finiquito.",
+    "bajaVoluntariaAntes30Dias": "Quien cause baja voluntaria antes de los 30 dias de alta, si la empresa le ofrecio disfrutarlas antes de finalizar la relacion y no las tomo, no tiene derecho a compensacion economica (Art. 12).",
+    "festivosDentroDeVacaciones": "Las fiestas retribuidas no recuperables trabajadas pueden ACUMULARSE al periodo de vacaciones, o disfrutarse en otros periodos, de manera continuada y en dias naturales (Art. 13).",
+    "bajaMedicaDuranteVacaciones": "pendiente: el Art. 12 no regula expresamente la interrupcion de vacaciones por IT, maternidad o accidente. Se aplica el derecho general del ET (art. 38.3) y jurisprudencia TJUE: si caes de baja se interrumpen y se recuperan.",
+    "articulo": "Art. 12 (vacaciones) y Art. 13 (festivos dentro de vacaciones)."
+  },
+  "plusFormacion2026": {
+    "importe": 30.13,
+    "nota": "Importe fijo igual en todos los niveles. Supuestos de aplicación y excepciones en el Art. 20 del convenio (no transcrito)."
+  },
   "garantiaMinima2026": {
     "$comment": "Art. 7. Columna aparte de la tabla; garantiza un incremento salarial mínimo respecto a la tabla a 31-12-2020. No está indexada al salario base, por eso varía mucho entre años (2025: 249,25 para PRIMERA; 2026: 63,15).",
-    "PRIMERA": 63.15, "SEGUNDA": 59.97, "TERCERA": 55.73, "CUARTA": 52.63, "QUINTA": 49.02, "ESPECIAL": 39.38
+    "PRIMERA": 63.15,
+    "SEGUNDA": 59.97,
+    "TERCERA": 55.73,
+    "CUARTA": 52.63,
+    "QUINTA": 49.02,
+    "ESPECIAL": 39.38
   },
   "pendiente": [
-    "Mapeo categoría profesional (camarero/a, cocinero/a, ayudante, etc.) → calificación PRIMERA..ESPECIAL (está en el texto del convenio, sin transcribir).",
-    "Tramo horario exacto del período nocturno (Art. 22 no lo explicita en lo transcrito).",
-    "Escala de antigüedad (porcentajes/trienios) — no verificada celda a celda.",
-    "Tablas 2027 (aún no publicadas a julio-2026)."
+    "Matriz exacta de permisos por fallecimiento/enfermedad grave segun parentesco x ambito geografico (Art. 14): duraciones 2-6 dias, columnas desalineadas en la extraccion; verificar celda a celda contra la IMAGEN del PDF.",
+    "Escala de antiguedad Art. 19 (porcentajes y acumulado por anos de servicio): tabla desalineada en la extraccion, verificar celda a celda contra imagen.",
+    "Tramo horario exacto del periodo nocturno (Art. 22 no lo explicita; por defecto ET 22:00-06:00).",
+    "Importes 2026 de pluses no indexados (manutencion, desgaste herramientas, servicios extraordinarios): el articulado da cifras 2025; confirmar revision 2026.",
+    "Regimen disciplinario detallado (faltas/sanciones) y grupos profesionales generales: remitidos al ALEH, no transcritos aqui.",
+    "Periodo de prueba: remitido al ALEH / art. 14 ET, no regulado en el convenio.",
+    "Tablas 2027 (aun no publicadas a julio-2026; revision pactada: IPC 2026 + 1,6 puntos, Art. 6)."
   ],
   "estado": "tablas_2026_verificadas",
-  "verificadoContra": "PDF oficial BOB nº38 (25-02-2026, cve BOB-2026a038-(III-29)) renderizado a imagen y leído visualmente celda a celda: tabla salarial 2026 completa (base, complementos, garantizado, hora extra, H.E. festiva, plus formación, plus hora nocturna, garantía mínima) para los 6 niveles. Marco (jornada 1.746 h, 15 pagas, nocturnidad Art. 22, vigencia hasta 2027) verificado contra el texto del convenio en BOB nº81 (30-04-2025, cve BOB-2025a081-(III-74)).",
-  "fechaVerificacion": "2026-07-07"
+  "verificadoContra": "PDF oficial BOB nº38 (25-02-2026, cve BOB-2026a038-(III-29)) renderizado a imagen y leído visualmente celda a celda: tabla salarial 2026 completa (base, complementos, garantizado, hora extra, H.E. festiva, plus formación, plus hora nocturna, garantía mínima) para los 6 niveles. Marco (jornada 1.746 h, 15 pagas, nocturnidad Art. 22, vigencia hasta 2027) verificado contra el texto del convenio en BOB nº81 (30-04-2025, cve BOB-2025a081-(III-74)). ADEMAS (condiciones no salariales, 2026-07-08): leido el TEXTO integro del convenio (BOB nº81, 30-04-2025, cve BOB-2025a081-(III-74)), extraido con pdftotext -layout. Anadidos vacaciones (Art.12), festivos (Art.13), permisos (Art.14), complemento IT (Art.27), regimen disciplinario (Art.35->ALEH), representacion sindical (Art.31), excedencias (Art.28), periodo de prueba (remitido), ascensos (Art.17), antiguedad (Art.19), ropa (Art.24), seguro de vida (Art.32), premio vinculacion (Art.18), pluses (Arts.21/26/29/30), cese y preaviso (Art.15) y clasificacion profesional (Anexo II) que RESUELVE el mapeo categoria->calificacion. Datos con columnas desalineadas (matriz de permisos, escala de antiguedad, servicios extraordinarios) marcados como pendientes de verificacion visual celda a celda.",
+  "fechaVerificacion": "2026-07-08",
+  "descansos": {
+    "semanalDias": 2,
+    "semanalNota": "Descanso semanal de 2 dias, disfrutables en dos periodos (dia y medio + medio dia) o en dias separados. Cada trabajador/a debe disfrutar el descanso semanal al menos una vez al mes en domingo (con excepciones para empresas donde el domingo es dia especial de trabajo). Si la empresa cierra un dia, es descanso obligatorio para toda la plantilla (Art. 8).",
+    "entreJornadas": "Para jornadas partidas que se extienden de forma discontinua mas de 12 horas al dia, el descanso entre jornadas se regula por el art. 22 del RD 1561/1995 (jornadas especiales), sin afectar al descanso semanal (Art. 8).",
+    "jornadaMaximaDiariaHoras": 9,
+    "articulo": "Art. 8."
+  },
+  "festivos": {
+    "compensacionFestivosTrabajados": "Quien trabaje realmente 8 o 9 festivos: +2 dias de compensacion. Quien trabaje 10 o mas: +4 dias. Se disfrutan dentro del ano natural en fechas no coincidentes con periodos de especial relevancia; en desacuerdo decide la Comision Paritaria (vinculante) (Art. 13).",
+    "primeroDeMayo": "El 1 de mayo se disfruta por la mayoria de trabajadores que lo soliciten en lugar de su fiesta semanal; se establecen retenes segun necesidades (Art. 13).",
+    "articulo": "Art. 13."
+  },
+  "permisosRetribuidos": {
+    "$comment": "Art. 14. Todos retribuidos con arreglo al SALARIO REAL. Los grados de parentesco incluyen afinidad y consanguinidad. Solicitar un permiso con engano o abuso de confianza es falta muy grave.",
+    "matrimonioOParejaDeHecho": "20 dias naturales (propio); puede comenzar como maximo 3 dias antes de la ceremonia.",
+    "bautizoOComunionOCelebracionSimilar": "1 dia (hijo/a; en bautizo tambien hermano/a o hermano/a politico).",
+    "fallecimientoAccidenteEnfermedadGraveHospitalizacion": "Fallecimiento, accidente o enfermedad graves, hospitalizacion justificada o intervencion quirurgica sin hospitalizacion que precise reposo domiciliario: entre 2 y 6 dias segun grado de parentesco (conyuge/pareja de hecho; padres, hijos/as, hermanos/as, abuelos/as y nietos/as; abuelos politicos) y ambito geografico (Bizkaia / provincia limitrofe / resto del Estado).",
+    "examenesUOposiciones": "Por el tiempo indispensable, justificando fehacientemente la asistencia a las pruebas.",
+    "asuntosPropios": "De 1 a 6 dias al ano, disfrutables repartidos en dos veces (continuada o fraccionada) sin superar el maximo de 6 dias; no acumulables de un ano para otro. No obligatoria su concesion en dias festivos, de afluencia superior a lo normal, o cuando la empresa tenga programado un trabajo que requiera todo el personal.",
+    "consultaMedica": "Por el tiempo indispensable, hasta 8 horas al ano (consulta propia), justificando fehacientemente.",
+    "trasladoDomicilioHabitual": "1 dia.",
+    "deberInexcusablePublicoYPersonal": "Por el tiempo indispensable (incluye ejercicio del sufragio activo). Si una norma fija un periodo determinado, se estara a lo que disponga.",
+    "examenesPrenatalesYPreparacionAlParto": "Por el tiempo indispensable, tambien para adopcion/guarda/acogimiento (sesiones de informacion y preparacion e informes psicologicos/sociales previos a la declaracion de idoneidad), siempre que deban tener lugar dentro de la jornada.",
+    "matrizFallecimientoPorGeografia": "pendiente: la tabla del Art. 14 gradua la duracion (2 a 6 dias) segun parentesco Y ambito geografico; la matriz celda a celda no se ha podido reconstruir con fiabilidad desde la extraccion de texto (columnas desalineadas). Verificar contra la IMAGEN del PDF antes de dar cifras exactas por combinacion.",
+    "mejoraET": "Matrimonio 20 dias mejora ampliamente el ET (15 dias). Incluye parejas de hecho y asuntos propios retribuidos, no exigidos por el ET.",
+    "articulo": "Art. 14."
+  },
+  "complementoIT": {
+    "$comment": "Art. 27 ('Situacion de baja'). La empresa COMPLEMENTA la prestacion de la Seguridad Social hasta el 100% del salario real. Distingue contingencia.",
+    "accidenteTrabajoOEnfermedadProfesional": {
+      "porcentaje": 100,
+      "base": "salario real",
+      "desde": "primer dia (fecha de baja)",
+      "nota": "Tambien 100% desde la fecha de baja si esta ingresado/a en un centro sanitario y se justifica debidamente."
+    },
+    "enfermedadComun": {
+      "porcentaje": 100,
+      "base": "salario",
+      "desde": "primer dia de la IT",
+      "condicion": "Solo si la IT es SUPERIOR a 30 dias; en ese caso se cobra el 100% desde el primer dia de la IT.",
+      "nota": "Si la IT de enfermedad comun no supera los 30 dias, el Art. 27 no obliga al complemento (se estara a la prestacion legal de la SS)."
+    },
+    "sinPrestacionBasica": "Si el/la trabajador/a no percibe la prestacion basica por no reunir requisitos, la empresa solo abona la diferencia entre esa prestacion y el importe integro de sus retribuciones (Art. 27).",
+    "articulo": "Art. 27."
+  },
+  "regimenDisciplinario": {
+    "$comment": "Art. 35. El convenio provincial NO tipifica faltas ni sanciones: REMITE al Acuerdo Laboral de ambito Estatal para el sector de Hosteleria (ALEH), incorporando automaticamente sus futuras modificaciones. Las faltas leves/graves/muy graves y las sanciones se consultan en el ALEH, no en este convenio.",
+    "remitidoA": "Acuerdo Laboral de ambito Estatal para el sector de Hosteleria (ALEH) - graduacion de faltas y sanciones.",
+    "faltasYSanciones": "pendiente en este convenio: ver ALEH. El convenio de Bizkaia no lista las conductas por nivel ni las sanciones.",
+    "faltaMuyGraveExpresa": "Solicitar un permiso retribuido con engano o abuso de confianza al justificarlo se considera falta MUY GRAVE (Art. 14).",
+    "marcoLegalET": {
+      "multaDeHaberProhibida": "VERIFICADO (art. 58.3 ET): la empresa NO puede sancionar con reduccion de la duracion de vacaciones, otra minoracion de descansos, ni MULTA DE HABER (quitar dinero del sueldo como castigo). Distinto: descontar el tiempo no trabajado por llegar tarde NO es sancion (es salario no devengado). El Art. 15 del convenio recalca que el resarcimiento por falta de preaviso 'no constituye privacion del salario'.",
+      "procedimiento": "art. 58 ET: faltas graves y muy graves requieren comunicacion por ESCRITO con fecha y hechos. Sin ello la sancion es impugnable.",
+      "prescripcion": "Faltas leves 10 dias, graves 20 dias, muy graves 60 dias desde que la empresa las conoce; maximo 6 meses desde que se cometieron.",
+      "revisable": "Toda sancion es revisable ante el Juzgado de lo Social."
+    },
+    "articulo": "Art. 35 (remite al ALEH); marco: art. 58 ET."
+  },
+  "representacionSindical": {
+    "$comment": "Art. 31 ('Garantias sindicales'). Base legal general en ET arts. 62-68 y LOLS; el convenio MEJORA el credito horario.",
+    "quienRepresenta": "Comite de Empresa o Delegados/as de Personal (composicion, derechos y garantias segun arts. 61 y ss. ET). Secciones sindicales representan solo a los afiliados de su central.",
+    "creditoHorarioMensualHoras": 40,
+    "creditoHorarioNota": "MEJORA sobre el ET: 40 horas mensuales retribuidas para TODOS los miembros del Comite/Delegados, con independencia del tamano de plantilla (el ET escalona 15-40 h segun numero de trabajadores). Basta comunicacion al empresario y posterior justificacion. Las reuniones promovidas por la empresa se excluyen de las 40 h (Art. 31).",
+    "acumulacionCreditoHorario": "En centros con mas de 90 trabajadores, los sindicatos firmantes pueden acumular el credito horario de los miembros del Comite hasta un maximo de 80 horas mensuales, con un descuento del 20% en el credito del sindicato que use este sistema (Art. 31).",
+    "mediosMateriales": "Derecho a tablon de anuncios y local dentro de la empresa para reunirse. Informacion periodica de la Direccion sobre la marcha economica y, con caracter previo, en Expedientes de Crisis (Art. 31).",
+    "seccionesSindicales": "Baremo de afiliados/as para tener Delegado/a de Seccion Sindical: hasta 10 trab. -> 5 afiliados; hasta 15 -> 7; hasta 25/50 -> 10; mas de 50 -> 15/20 (tabla del Art. 31, con algunas celdas desalineadas en la extraccion). Los Delegados Sindicales tienen las mismas garantias y atribuciones que los miembros del Comite dentro de la Seccion.",
+    "asambleas": "Derecho a asambleas en el local de la empresa, fuera de horas de trabajo, convocadas por el Comite/Delegados o por un 33% de la plantilla, comunicandolo a la empresa (Art. 31).",
+    "excedenciaSindical": "Quienes sean elegidos/as para cargo de direccion de una central sindical tienen los mismos derechos de excedencia que los cargos publicos (Art. 28).",
+    "garantiasET": "art. 68 ET: expediente contradictorio previo a sancion grave, prioridad de permanencia, no despido/sancion por la actividad representativa durante el mandato y el ano siguiente, libertad de expresion, no discriminacion.",
+    "articulo": "Art. 31 (garantias sindicales) y Art. 28 (excedencia sindical); marco: ET arts. 62-68, LOLS."
+  },
+  "periodoPrueba": {
+    "$comment": "El convenio de Bizkaia NO fija un periodo de prueba propio (no hay articulo dedicado). Se aplica el ALEH y, en su defecto, el art. 14 ET. Durante el periodo de prueba el desistimiento es libre y sin indemnizacion.",
+    "duracion": "pendiente: remitido al Acuerdo Laboral Estatal de Hosteleria (ALEH) y al art. 14 ET. No regulado en este convenio.",
+    "mencionIndirecta": "El Art. 5 alude a la 'no superacion del periodo de prueba' como causa de finalizacion, sin fijar su duracion. En subrogacion de colectividades no puede imponerse nuevo periodo de prueba (Anexo III).",
+    "articulo": "No regulado; remitido a ALEH y art. 14 ET."
+  },
+  "excedencias": {
+    "$comment": "Art. 28. Rige el ET, ampliado por el convenio.",
+    "voluntaria": "La empresa esta obligada a conceder excedencia voluntaria (minimo el plazo legal del ET), salvo razones objetivas motivadas: que ya este en excedencia mas del 5% de la plantilla, o que el puesto sea relevante/de dificil cobertura/estrategico (p.ej. Jefe, Encargado, Cocinero). Reingreso anticipado posible si la permanencia no es inferior a 6 meses ni superior a 2 anos.",
+    "reingreso": "Causa baja definitiva quien no solicite el reingreso con al menos 30 dias de antelacion al vencimiento (si la excedencia era de 1 ano o superior) o 15 dias (si inferior). Puede ser sustituido/a con contrato de duracion determinada.",
+    "porEnfermedadFamiliar": "Excedencia por enfermedad de padres, conyuge o hijos a cargo (demostrada y justificada), por el tiempo necesario, no inferior a 6 meses. Obligatoria salvo que ya este en excedencia mas del 5% de la plantilla (Art. 28).",
+    "sindical": "Cargo de direccion en central sindical: mismos derechos que cargos publicos (Art. 28).",
+    "articulo": "Art. 28."
+  },
+  "ropaTrabajo": {
+    "laProporcionaLaEmpresa": true,
+    "plusCompensacion": "No hay plus: la empresa esta OBLIGADA a proporcionar uniformes y ropa de trabajo que no sea de uso comun (prendas de uniformidad), y a sustituirlas en caso de deterioro manifiesto (Art. 24).",
+    "articulo": "Art. 24."
+  },
+  "ascensos": {
+    "criterio": "Proporcionalidad: 1 trabajador/a de calificacion TERCERA por cada 2 de CUARTA (Ayudante o Dependiente de 2.a). Sin esa proporcionalidad se cubre automaticamente la vacante de tercera si demuestra capacidad (prueba controlada por empresa y representantes) (Art. 17).",
+    "porAntiguedad": "Con 2 anos como Ayudante -> categoria superior si hay vacante, con preferencia sobre personal ajeno. Sin vacante: quien lleve 3 anos en la empresa como ayudante/dependiente de 2.a (4 si es ayudante de cocina) percibe el SALARIO de calificacion TERCERA conservando su categoria hasta que haya vacante. Igual derecho acreditando 4 anos en el sector (5 en cocina) (Art. 17).",
+    "polivalenciaCategoriaSuperior": "Debe respetarse la categoria correspondiente a las funciones realmente realizadas (Art. 17). Enlaza con el comprobador de categoria: si haces funciones de categoria superior, corresponde el salario de esa categoria.",
+    "articulo": "Art. 17."
+  },
+  "antiguedad": {
+    "$comment": "Art. 19. Retribucion por permanencia calculada como porcentaje sobre el SALARIO BASE de tablas (ese es el modulo).",
+    "modulo": "Salario base de las Tablas Salariales (Art. 19).",
+    "escala": "pendiente: la escala por anos de servicio (aprox. 3 anos 3%, 6 anos 5%, 9 anos 8%... hasta 24 anos) figura en el Art. 19 pero las columnas 'Porcentaje' y 'Acumulado' aparecen DESALINEADAS en la extraccion de texto; verificar celda a celda contra la IMAGEN del PDF antes de usar cifras.",
+    "fijosDiscontinuos": "Los fijos-discontinuos computan su antiguedad por toda la duracion de la relacion laboral (no solo el tiempo efectivo), con reglas de 365/270 dias; mejora aplicable a periodos trabajados desde 01-07-2021 (Art. 19).",
+    "articulo": "Art. 19."
+  },
+  "contratacion": {
+    "contratosFormativos": "Formacion en alternancia y para la obtencion de practica profesional segun normativa vigente. Se parte del salario de calificacion ESPECIAL durante los primeros 6 o 12 meses (segun formacion acreditada), pasando luego al salario de tablas. El periodo computa a efectos de antiguedad (Art. 16).",
+    "salarioIngresoSinExperiencia": "Personas de nuevo ingreso sin experiencia en el sector: salario de calificacion ESPECIAL durante 12 meses, reducibles a 6 acreditando 120 h de formacion o carnet de manipulador. No aplica a limpieza/fregado ni a titulados de FP de Grado Superior en hosteleria (Art. 5).",
+    "fijoDiscontinuo": "Figura clave en el sector; el Art. 19 le reconoce computo pleno de antiguedad. Llamamiento y demas condiciones segun ET y ALEH (no detallado en el convenio provincial).",
+    "articulo": "Art. 16 (formativos), Art. 5 (ingreso sin experiencia), Art. 19 (fijo-discontinuo)."
+  },
+  "cesePreaviso": {
+    "preavisoBajaVoluntaria": "Jefe de Grupo Profesional: 30 dias. Resto del personal: 15 dias. Por escrito (Art. 15).",
+    "incumplimientoPreaviso": "El/la trabajador/a que no preavise abona a la empresa el salario real diario por cada dia de demora (deducible del finiquito), sin que ello constituya privacion del salario (Art. 15).",
+    "finiquito": "Habiendo preavisado, la empresa debe presentar el finiquito 3 dias habiles antes del fin del plazo; si se retrasa, indemniza con 1 dia de salario real por cada dia de retraso (Art. 15).",
+    "articulo": "Art. 15."
+  },
+  "plusesAdicionales": {
+    "$comment": "Importes de referencia 2025 salvo indicacion; algunos no se revisan igual que la tabla salarial. Verificar importe vigente 2026 en la revision anual.",
+    "plusRepartidorRider": "60 euros/mes para categoria Repartidor/a (Rider), en proporcion a la jornada (Art. 21).",
+    "complementoManutencionEspecie": "Complemento salarial en especie de manutencion; sustituible por 58,43 euros brutos/mes (2025) (Art. 26).",
+    "plusDesgasteHerramientas": "45,46 euros/mes (2025) si la empresa no facilita las herramientas (Art. 29).",
+    "plusTransporte": "La empresa abona o proporciona transporte en supuestos especiales (horarios fuera de servicios publicos) y para centros a mas de 2 km de una parada de transporte publico colectivo (Art. 30). No es un importe fijo.",
+    "articulo": "Arts. 21, 26, 29, 30."
+  },
+  "serviciosExtraordinarios": {
+    "$comment": "Art. 25. Servicios realizados con personal ajeno a la empresa, o por fijos en funciones distintas a su calificacion. Tabla de importes minimos 2025 (extraccion con filas desalineadas; verificar contra imagen).",
+    "importes2025Aprox": "Camarero/a montaje ~71,77 EUR; ayudante montaje ~42,25 EUR; cocinero/a un servicio ~82,81 EUR; jornada completa mas manutencion cocineros ~118,21 EUR; con desplazamiento importes superiores (~177,43 / 236,87). Verificar celda a celda.",
+    "articulo": "Art. 25."
+  },
+  "seguroVida": {
+    "$comment": "Art. 32. Indemnizaciones NO acumulables. Beneficiarios: trabajadores de alta en la SS que no hayan alcanzado la edad legal de jubilacion y con antiguedad minima de 1 mes.",
+    "fallecimientoPorEnfermedad": 7800,
+    "invalidezPermanenteTotalAbsolutaOGranInvalidez": 7800,
+    "fallecimientoPorAccidente": 15600,
+    "fallecimientoEnAccidenteDeCirculacion": 23400,
+    "moneda": "EUR",
+    "articulo": "Art. 32."
+  },
+  "premioVinculacion": {
+    "$comment": "Art. 18 (compensacion por vinculacion a la empresa). Premio de permanencia/jubilacion, pago unico.",
+    "requisito": "18 anos de servicios continuados en la misma empresa y cese voluntario tras cumplir 59 anos.",
+    "importe": "6 veces el importe mensual (salario base + complemento de antiguedad) al cese, mas 1 vez por cada 4 anos que excedan de los 18; ultimo cuatrienio incompleto: 50% si la fraccion < 2 anos, 100% en otro caso (Art. 18).",
+    "articulo": "Art. 18."
+  },
+  "clasificacionProfesional": {
+    "$comment": "Anexo II (clasificacion del personal por escalas) + Art. 36. Mapeo categoria profesional -> calificacion PRIMERA..QUINTA. Los grupos profesionales generales se remiten al ALEH (Art. 36); estas escalas son las del convenio de Bizkaia. RESUELVE el pendiente de mapeo.",
+    "PRIMERA": [
+      "Jefe/a de recepcion",
+      "Contable general",
+      "Jefe de cocina",
+      "Primer jefe/a de comedor",
+      "Jefe/a de sala",
+      "1.o encargado/a de mostrador",
+      "1.o encargado/a de barman",
+      "Jefe/a de operaciones",
+      "Primer/a conserje de dia"
+    ],
+    "SEGUNDA": [
+      "Jefe/a de sala (caterings)",
+      "Interventor/a",
+      "Oficial de contabilidad",
+      "2.o encargado/a de mostrador",
+      "2.o encargado/a de barman",
+      "2.o jefe/a de sala",
+      "2.o jefe/a de comedor",
+      "2.o jefe/a de cocina",
+      "2.o jefe/a de recepcion",
+      "2.o conserje de dia",
+      "Mayordomo/a de pisos",
+      "Encargado/a general o gobernanta",
+      "Jefe/a de partida",
+      "Jefe/a de sector",
+      "Encargado/a de trabajo",
+      "Cajero/a administrativo/a",
+      "Jefe/a repostero/a",
+      "Supervisor/a (caterings)",
+      "Encargado/a de economato y bodega"
+    ],
+    "TERCERA": [
+      "Dependiente/a de primera y dependiente/a (cat)",
+      "Barman",
+      "Camarero/a y similar",
+      "Repostero/a",
+      "Recepcionista",
+      "Cocinero/a",
+      "Planchista",
+      "Encargado/a de lenceria y lavadero",
+      "Facturista de comedor",
+      "Telefonista de primera",
+      "Cajero/a de comedor",
+      "Cajero/a de mostrador",
+      "Conserje de noche",
+      "Gobernante/a (caterings)",
+      "Encargado/a de sala",
+      "Disc-jockey",
+      "Calefactor/a",
+      "Dietista"
+    ],
+    "CUARTA": [
+      "Dependiente/a de segunda",
+      "Ayudante de dependiente y barman",
+      "Telefonista de segunda",
+      "Bodeguero/a",
+      "Ayudante de cocinero/a",
+      "Camarero/a de piso",
+      "Ayudante de repostero/a",
+      "Cafetero/a (en cocina)",
+      "Ayudante de camarero/a",
+      "Ayudante de planchista",
+      "Auxiliar de oficina",
+      "Conductor/a",
+      "Ayudante de supervisor/a (caterings)",
+      "Ayudante de equipo",
+      "Encargado/a de almacen y economato (cafeterias)",
+      "Taquillero/a",
+      "Ayudante de recepcion",
+      "Portero/a de acceso",
+      "Guardarropa",
+      "Monitor/a o cuidador/a de colectividades",
+      "Auxiliar de colectividades"
+    ],
+    "QUINTA": [
+      "Mozo/a de equipaje",
+      "Portero/a de servicio",
+      "Marmiton",
+      "Costurero/a, lavandero/a y planchador/a",
+      "Mozo/a de limpieza y limpiador/a",
+      "Fregador/a",
+      "Pinche",
+      "Ascensorista",
+      "Mozo/a de almacen",
+      "Vigilante de noche",
+      "Ordenanza de salon",
+      "Personal de plateria",
+      "Ayudante de calefactor/a",
+      "Ayudante de economato y bodega",
+      "Ayudante de cafetero/a (cocina)",
+      "Mozo/a de habitaciones",
+      "Preparador/a (caterings)",
+      "Mozo/a de billar",
+      "Repartidor/a (Rider)"
+    ],
+    "ESPECIAL": "Calificacion salarial de ingreso (Art. 5) para personal sin experiencia durante 6-12 meses; no es una escala de categorias del Anexo II.",
+    "articulo": "Anexo II y Art. 36 (grupos profesionales remitidos al ALEH)."
+  },
+  "igualdadYAcoso": {
+    "$comment": "El convenio de Bizkaia NO incorpora protocolo de acoso, plan de igualdad ni permisos por violencia de genero especificos que mejoren la ley.",
+    "regulado": "pendiente/remitido: se aplica la legislacion vigente (LO 3/2007, LO 10/2022, art. 37 ET para violencia de genero) y el ALEH (Disposicion Final 1). Sin mejora convencional en el articulado.",
+    "articulo": "No regulado en el convenio; Disposicion Final 1 (remision a legislacion y ALEH)."
+  },
+  "comisionParitaria": {
+    "composicion": "3 representantes de la patronal + 3 sociales (1 ELA, 1 CCOO, 1 UGT). Domicilio: Gran Via 38, 2.o, Bilbao.",
+    "funciones": "Interpretacion previa y obligatoria del convenio; discrepancias en modificacion sustancial de condiciones o inaplicacion del regimen salarial (art. 82.3 ET); se reune en 15 dias y resuelve en 3 meses (art. 91 ET).",
+    "articulo": "Disposiciones Finales, punto 3."
+  },
+  "remisionesALEH": {
+    "$comment": "Materias que el convenio de Bizkaia NO regula por si mismo y remite al Acuerdo Laboral de ambito Estatal para el sector de Hosteleria (ALEH) o a la legislacion (Disposicion Final 1).",
+    "regimenDisciplinario": "Faltas y sanciones -> ALEH (Art. 35).",
+    "gruposProfesionales": "Definicion de grupos profesionales -> ALEH (Art. 36). Las ESCALAS de categoria->calificacion si estan en el Anexo II del convenio.",
+    "periodoPrueba": "-> ALEH / art. 14 ET (no regulado en el convenio).",
+    "igualdadAcosoViolenciaGenero": "-> legislacion vigente y ALEH.",
+    "subrogacionColectividadesYAlojamiento": "Regulada en detalle en los Anexos III y IV del convenio (garantias por cambio de empresario / subcontratacion).",
+    "condicionMasBeneficiosa": "Se respetan las condiciones mas beneficiosas adquiridas (Disposicion Final 2)."
+  }
 }
