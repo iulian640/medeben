@@ -93,17 +93,89 @@
           "Fregador/a": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78, "cuarta": 1073.78 },
           "Personal de platería": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76 }
         }
+      },
+      "varios": {
+        "estructura": "salario fijo por categoría de establecimiento",
+        "categorias": {
+          "Contable general": { "lujo": 1205.68, "primera": 1194.93, "segunda": 1177.58 },
+          "Oficial de contabilidad": { "lujo": 1183.57, "primera": 1168.20 },
+          "Cajero/a de comedor": { "lujo": 1172.13, "primera": 1141.81, "segunda": 1160.81, "tercera": 1073.78, "cuarta": 1073.78 },
+          "Interventor/a": { "lujo": 1172.13, "primera": 1141.81, "segunda": 1160.81 },
+          "Telefonista": { "lujo": 1146.63, "primera": 1146.63, "segunda": 1146.63 },
+          "Auxiliar de oficina": { "lujo": 1183.57, "primera": 1145.76, "segunda": 1166.44, "tercera": 1073.78 },
+          "Porteros/as": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78 },
+          "Vigilantes de noche": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78 },
+          "Botones": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78, "cuarta": 1073.78 },
+          "Encargada/o de lencería": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78, "cuarta": 1073.78 },
+          "Planchador/a (diario)": { "lujo": 39.12, "primera": 39.12, "segunda": 39.12, "tercera": 35.95, "cuarta": 35.95 },
+          "Aprendiz de contabilidad": { "lujo": 839.83, "primera": 839.83, "segunda": 839.83, "tercera": 839.83, "cuarta": 839.83 },
+          "Limpiador/a (jornada entera)": { "lujo": 1145.76, "primera": 1145.76, "segunda": 1145.76, "tercera": 1073.78, "cuarta": 1073.78 },
+          "Limpiador/a (media jornada)": { "lujo": 586.24, "primera": 586.24, "segunda": 586.24, "tercera": 550.12, "cuarta": 550.12 },
+          "Costurero/a-zurcidor/a (diario)": { "lujo": 39.12, "primera": 39.12, "segunda": 39.12, "tercera": 35.95, "cuarta": 35.95 }
+        }
+      },
+      "catering": {
+        "estructura": "salario fijo único (apartado D)",
+        "categorias": {
+          "Jefe de cocina": 1458.70,
+          "Segundo jefe de cocina": 1409.20,
+          "Jefe de partida": 1356.78,
+          "Repostero/a": 1356.78,
+          "Oficial de repostero/a": 1307.48,
+          "Cocinero/a": 1307.48,
+          "Ayudante de cocinero/a": 1196.76,
+          "Ayudante de repostero/a": 1196.76,
+          "Pinche": 1175.65,
+          "Aprendiz": 839.83,
+          "Fregador/a": 1175.65,
+          "Jefe de operaciones": 1458.70,
+          "Supervisor/a": 1255.16,
+          "Ayudante supervisor/a": 1230.55,
+          "Jefe de sala": 1409.20,
+          "Jefe de equipo": 1307.48,
+          "Conductor/a de equipo de catering": 1252.30,
+          "Ayudante de equipo": 1201.36,
+          "Preparador/a": 1175.65,
+          "Auxiliar de preparación / montaje de catering": 1175.65
+        }
+      }
+    },
+    "seccionCuartaCafeterias": {
+      "$comment": "Cafeterías con servicio de mostrador y sala. Los importes son SUELDO INICIAL: se completan con la participación en el porcentaje de servicio hasta alcanzar (o superar) el cuadro de cafeterías sin servicio de sala. NO usar el inicial como salario total. Columnas por tamaño: 3 tazas / 2 tazas / 1 taza.",
+      "conServicioMostradorYSala_sueldoInicial": {
+        "Primer encargado/a": { "3tazas": 450.59, "2tazas": 436.06, "1taza": 403.51 },
+        "Segundo encargado/a": { "3tazas": 420.41, "2tazas": 408.45, "1taza": 376.16 },
+        "Dependiente": { "3tazas": 390.51, "2tazas": 376.16, "1taza": 360.97 },
+        "Ayudante": { "3tazas": 309.89, "2tazas": 316.45, "1taza": 309.06 },
+        "Aprendices": { "3tazas": 164.64, "2tazas": 164.64, "1taza": 164.64 },
+        "Auxiliar de caja": { "3tazas": 309.89, "2tazas": 316.45, "1taza": 309.06 },
+        "Cocinero/a": { "3tazas": 390.51, "2tazas": 376.16, "1taza": 360.97 },
+        "Ayudante de cocina": { "3tazas": 309.89, "2tazas": 316.45, "1taza": 306.51 },
+        "Repostero/a": { "3tazas": 387.84, "2tazas": 373.66, "1taza": 358.86 },
+        "Ayudante de repostero/a": { "3tazas": 299.93, "2tazas": 309.06, "1taza": 295.69 },
+        "Cafetero/a": { "3tazas": 387.84, "2tazas": 373.66, "1taza": 358.86 },
+        "Ayudante de cafetero/a": { "3tazas": 299.93, "2tazas": 309.06, "1taza": 301.59 },
+        "Encargado/a de almacén": { "3tazas": 319.73, "2tazas": 336.25, "1taza": 316.50 },
+        "Mozo de almacén": { "3tazas": 267.24, "2tazas": 284.26, "1taza": 277.01 },
+        "Planchista": { "3tazas": 390.51, "2tazas": 376.16, "1taza": 360.97 },
+        "Ayudante de plancha": { "3tazas": 309.89, "2tazas": 316.45, "1taza": 309.06 },
+        "Telefonista": { "3tazas": 244.48, "2tazas": 241.80, "1taza": 232.14 },
+        "Mecánico-calefactor": { "3tazas": 292.55, "2tazas": 296.41, "1taza": 284.26 },
+        "Portero/a": { "3tazas": 299.93, "2tazas": 309.06 },
+        "Fregador/a-limpiador/a": { "3tazas": 194.57, "2tazas": 212.00, "1taza": 212.00 },
+        "Contable": { "3tazas": 372.51, "2tazas": 366.28, "1taza": 341.56 },
+        "Cajero/a": { "3tazas": 299.93, "2tazas": 309.06, "1taza": 301.59 },
+        "Oficial de contabilidad": { "3tazas": 299.93, "2tazas": 309.06, "1taza": 301.59 },
+        "Auxiliar": { "3tazas": 285.07, "2tazas": 293.74, "1taza": 284.26 }
       }
     }
   },
   "pendiente": [
-    "Cafeterías (sección cuarta) — estructura propia por 'tazas' (mostrador y sala)",
-    "Personal de catering (sección tercera, apartado D)",
-    "Sistema de participación de porcentaje de servicio (Anexo III)",
-    "Tablas 2023 y 2024 (históricas)",
-    "Personal de varios (contable, telefonista, limpieza, etc.) — visto en imagen, no transcrito aún"
+    "Cafeterías SIN servicio de sala (cuadro con salario completo, no solo inicial)",
+    "Sistema de participación de porcentaje de servicio (Anexo III) — tablas alternativas",
+    "Tablas 2023 y 2024 (históricas)"
   ],
-  "estado": "verificado_parcial_2025",
+  "estado": "verificado_2025_completo",
   "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen y leído visualmente (tablas 2025 sección tercera comedor y cocina, arts. 14/26/27/28/29). Verificación fila a fila.",
   "fechaVerificacion": "2026-07-07"
 }

@@ -46,6 +46,16 @@ en Cáceres julio/diciembre/enero. "Estatal" no significa "igual para todos".
 - **Fuente:** Convenio estatal de restauración colectiva, anexos por provincia. BOE nº 148, 20-06-2025 (BOE-A-2025-12598).
 - **Gancho:** "Un convenio 'nacional' que tiene 50 tablas de sueldos distintas por dentro. Bienvenido a los convenios de España."
 
+## 5. Las cafeterías se miden en "tazas", como los hoteles en estrellas
+
+En el **Convenio de Hostelería de Madrid**, las cafeterías se clasifican por
+**tazas de café**: hay cafeterías de **1, 2 y 3 tazas**. Cuantas más tazas, más
+categoría el local y más cobra el trabajador. Un sistema antiguo y entrañable que
+sigue vigente hoy en las tablas salariales.
+
+- **Fuente:** Convenio Hostelería de Madrid, tablas de la sección cuarta (cafeterías). BOCM nº 82, 06-04-2024 (BOCM-20240406-2).
+- **Gancho:** "Los hoteles tienen estrellas. Las cafeterías de Madrid tienen... tazas. Y sí, cobras distinto en una de 1 taza que en una de 3."
+
 ---
 
 _Añadir más conforme se transcriben convenios._

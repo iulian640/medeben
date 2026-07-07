@@ -43,7 +43,7 @@ Por eso los ficheros se nombran `<territorio>-<subsector>.json`
 | Convenio | Subsector | Estado |
 |----------|-----------|--------|
 | `madrid-hospedaje.json` | Hospedaje (hoteles) | ✅ Transcrito del BOCM 121 (23-05-2026), tablas 2025-2028, jornada 1.800 h, nocturnidad y clasificación |
-| `madrid-hosteleria.json` | Hostelería (bares/restaurantes) | ✅ Tablas 2025 (sección tercera: comedor+cocina) verificadas VISUALMENTE contra BOCM 82. Jornada 1.800h, nocturnidad 1%/25%. Pendiente: cafeterías, catering, % servicio, varios |
+| `madrid-hosteleria.json` | Hostelería (bares/restaurantes) | ✅ 2025 COMPLETO (comedor, cocina, varios, catering, cafeterías) verificado visualmente. Pendiente: cafeterías sin servicio de sala, % servicio, años 2023/24 |
 
 ### Aviso: el modelo de datos evoluciona
 
