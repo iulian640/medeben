@@ -1,71 +1,436 @@
 {
-  "$comment": "Mapeo puesto→dimensiones para jaen-hosteleria. TODOS los puestos van a null: la única dimensión de los hechos salarioBase es 'nivel' (1.35-1.70), y el Anexo VII asigna el nivel a cada categoría SEGÚN el tipo y la categoría del establecimiento (hoteles por estrellas, restaurantes por tenedores, cafeterías por tazas, pensiones, catering, otros). Un mismo puesto (p. ej. cocinero/a) puede ir de 1.40 a 1.60 según dónde trabaje. La resolución puesto→nivel exige la respuesta de establecimiento y la tabla del Anexo VII (transcripción: asignacionNivelPorCategoria). NUNCA inventar.",
+  "$comment": "Mapeo puesto→dimensiones para jaen-hosteleria. ANÁLISIS: el nivel salarial (1.35-1.70, única dimensión de los hechos salarioBase) NO es fijo por puesto: el Anexo VII lo asigna según el TIPO de establecimiento (hoteles/restaurantes/cafeterías/pensiones/catering/otros/salas de fiesta/casinos) Y su CATEGORÍA (estrellas/tenedores/tazas/Especial-Resto), transcrito celda a celda en asignacionNivelPorCategoria. 'tipoEstablecimiento' y 'categoriaEstablecimiento' son propiedades del establecimiento (las responde el usuario), NO dimensiones de los hechos: se usan como entrada del Anexo VII para RESOLVER el nivel. El formato de mapeo actual (dimensiones planas puesto→valor fijo; OcupacionesCatalog solo lee 'dimensiones') únicamente permite fijar el nivel cuando es EL MISMO en TODOS los tipos y categorías: eso solo ocurre en personal-limpieza (grupo III, 1.35 en todo el Anexo VII), que queda fijado. Para los otros 15 puestos el nivel es condicional y su mapeo completo verificado está en 'condicionalPorEstablecimiento' de cada puesto (tipoEstablecimiento → columna de categoría → {nivel}), que el backend actual IGNORA (hueco estructural nº 1 de docs/revisiones-pendientes.md: 'requiere extender el formato de mapeo con condiciones, o preguntar el establecimiento ANTES del puesto'). SEMÁNTICA PROPUESTA de 'condicionalPorEstablecimiento': el resolver pregunta primero el tipo de establecimiento y su categoría (dimensiones de establecimiento), aplica el {nivel} de la celda correspondiente o cae a modo manual si es null (categoría no aplicable / puesto no listado en ese tipo), y como salarioBase no tiene más dimensiones que 'nivel' no quedan preguntas pendientes. Mientras el formato no lo soporte, 'dimensiones' queda null (modo manual): dato ausente > dato erróneo. Las columnas conservan las claves exactas del Anexo VII ('5*y4*','3*','2*','1*' hoteles; '5T/lujo'..'1T/4a' restaurantes; '3T-Especial','2T-1a','1T-2a' cafeterías; '2*','1*' pensiones; 'Especial','Resto' otros; 'Especial' salas de fiesta y casinos; 'unico' catering). NUNCA inventar.",
   "id": "jaen-hosteleria",
   "articulo": "Anexo VII (asignación de nivel a cada categoría según tipo y categoría de establecimiento)",
   "ocupaciones": {
     "jefe-cocina": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.50 y 1.70 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), pensiones 1-2*, otros establecimientos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.70",
+          "3*": "1.60",
+          "2*": "1.60",
+          "1*": "1.55"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.70",
+          "4T/1a": "1.65",
+          "3T/2a": "1.60",
+          "2T/3a": "1.55",
+          "1T/4a": "1.55"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.50",
+          "1*": "1.50"
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.65",
+          "Resto": "1.50"
+        }
+      }
     },
     "segundo-jefe-cocina": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.50 y 1.65 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores). Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.65",
+          "3*": "1.60",
+          "2*": "1.55",
+          "1*": "1.50"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.65",
+          "4T/1a": "1.60",
+          "3T/2a": "1.55",
+          "2T/3a": "1.50",
+          "1T/4a": "1.50"
+        }
+      }
     },
     "jefe-partida": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.45 y 1.60 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), pensiones 1-2*. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.60",
+          "3*": "1.55",
+          "2*": "1.50",
+          "1*": "1.45"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.60",
+          "4T/1a": "1.60",
+          "3T/2a": "1.55",
+          "2T/3a": "1.50",
+          "1T/4a": "1.50"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.50",
+          "1*": "1.50"
+        }
+      }
     },
     "cocinero": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.40 y 1.60 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), cafeterías (tazas), pensiones 1-2*, otros establecimientos, casinos/bingos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.55",
+          "3*": "1.50",
+          "2*": "1.45",
+          "1*": "1.40"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.60",
+          "4T/1a": "1.55",
+          "3T/2a": "1.50",
+          "2T/3a": "1.50",
+          "1T/4a": "1.50"
+        },
+        "cafeterias": {
+          "3T-Especial": "1.60",
+          "2T-1a": "1.55",
+          "1T-2a": "1.50"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.45",
+          "1*": "1.45"
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.60",
+          "Resto": "1.45"
+        },
+        "casinosBingos": {
+          "Especial": "1.55"
+        }
+      }
     },
     "repostero": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.45 y 1.60 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), cafeterías (tazas), otros establecimientos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.55",
+          "3*": "1.50",
+          "2*": "1.45",
+          "1*": "1.45"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.55",
+          "4T/1a": "1.50",
+          "3T/2a": "1.45",
+          "2T/3a": "1.45",
+          "1T/4a": null
+        },
+        "cafeterias": {
+          "3T-Especial": "1.60",
+          "2T-1a": "1.55",
+          "1T-2a": "1.50"
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.60",
+          "Resto": "1.45"
+        }
+      }
     },
     "ayudante-cocina": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.35 y 1.55 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), cafeterías (tazas), pensiones 1-2*, otros establecimientos, salas de fiesta/discotecas, casinos/bingos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.50",
+          "3*": "1.45",
+          "2*": "1.40",
+          "1*": "1.35"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.50",
+          "4T/1a": "1.50",
+          "3T/2a": "1.50",
+          "2T/3a": "1.45",
+          "1T/4a": "1.45"
+        },
+        "cafeterias": {
+          "3T-Especial": "1.55",
+          "2T-1a": "1.50",
+          "1T-2a": "1.45"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.40",
+          "1*": null
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.50",
+          "Resto": "1.40"
+        },
+        "salasFiestaDiscotecas": {
+          "Especial": "1.40"
+        },
+        "casinosBingos": {
+          "Especial": "1.45"
+        }
+      }
     },
     "auxiliar-cocina": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.35 y 1.40 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), cafeterías (tazas), pensiones 1-2*, otros establecimientos, casinos/bingos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.40",
+          "3*": "1.35",
+          "2*": "1.35",
+          "1*": "1.35"
+        },
+        "cafeterias": {
+          "3T-Especial": "1.35",
+          "2T-1a": "1.35",
+          "1T-2a": "1.35"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.35",
+          "1*": "1.35"
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.35",
+          "Resto": "1.35"
+        },
+        "casinosBingos": {
+          "Especial": "1.35"
+        }
+      }
     },
     "jefe-sala": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.45 y 1.70 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), catering, cafeterías (tazas), pensiones 1-2*, otros establecimientos, salas de fiesta/discotecas, casinos/bingos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.70",
+          "3*": "1.70",
+          "2*": "1.60",
+          "1*": "1.55"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.70",
+          "4T/1a": "1.70",
+          "3T/2a": "1.60",
+          "2T/3a": "1.55",
+          "1T/4a": "1.55"
+        },
+        "catering": {
+          "unico": "1.60"
+        },
+        "cafeterias": {
+          "3T-Especial": "1.65",
+          "2T-1a": "1.65",
+          "1T-2a": "1.60"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.55",
+          "1*": "1.50"
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.65",
+          "Resto": "1.45"
+        },
+        "salasFiestaDiscotecas": {
+          "Especial": "1.65"
+        },
+        "casinosBingos": {
+          "Especial": "1.60"
+        }
+      }
     },
     "camarero": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.40 y 1.55 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), cafeterías (tazas), pensiones 1-2*, otros establecimientos, salas de fiesta/discotecas, casinos/bingos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.55",
+          "3*": "1.50",
+          "2*": "1.45",
+          "1*": "1.40"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.50",
+          "4T/1a": "1.45",
+          "3T/2a": "1.40",
+          "2T/3a": "1.40",
+          "1T/4a": "1.40"
+        },
+        "cafeterias": {
+          "3T-Especial": "1.55",
+          "2T-1a": "1.50",
+          "1T-2a": "1.45"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.45",
+          "1*": "1.45"
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.55",
+          "Resto": "1.40"
+        },
+        "salasFiestaDiscotecas": {
+          "Especial": "1.55"
+        },
+        "casinosBingos": {
+          "Especial": "1.55"
+        }
+      }
     },
     "ayudante-camarero": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.35 y 1.50 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), cafeterías (tazas), pensiones 1-2*, otros establecimientos, salas de fiesta/discotecas, casinos/bingos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.45",
+          "3*": "1.40",
+          "2*": "1.35",
+          "1*": "1.35"
+        },
+        "restaurantes": {
+          "5T/lujo": "1.40",
+          "4T/1a": "1.40",
+          "3T/2a": "1.35",
+          "2T/3a": "1.35",
+          "1T/4a": "1.35"
+        },
+        "cafeterias": {
+          "3T-Especial": "1.50",
+          "2T-1a": "1.45",
+          "1T-2a": "1.40"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.40",
+          "1*": "1.40"
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.40",
+          "Resto": "1.35"
+        },
+        "salasFiestaDiscotecas": {
+          "Especial": "1.50"
+        },
+        "casinosBingos": {
+          "Especial": "1.50"
+        }
+      }
     },
     "barman": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.55 y 1.65 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), otros establecimientos, salas de fiesta/discotecas. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.60",
+          "3*": "1.55",
+          "2*": null,
+          "1*": null
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.65",
+          "Resto": null
+        },
+        "salasFiestaDiscotecas": {
+          "Especial": "1.60"
+        }
+      }
     },
     "sumiller": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.50 y 1.55 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores). Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.55",
+          "3*": "1.50",
+          "2*": null,
+          "1*": null
+        },
+        "restaurantes": {
+          "5T/lujo": "1.50",
+          "4T/1a": "1.50",
+          "3T/2a": null,
+          "2T/3a": null,
+          "1T/4a": null
+        }
+      }
     },
     "recepcionista": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.50 y 1.60 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), pensiones 1-2*. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.60",
+          "3*": "1.55",
+          "2*": "1.50",
+          "1*": null
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.50",
+          "1*": null
+        }
+      }
     },
     "camarera-pisos": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.35 y 1.45 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), pensiones 1-2*. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.45",
+          "3*": "1.45",
+          "2*": "1.45",
+          "1*": "1.40"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.35",
+          "1*": "1.35"
+        }
+      }
     },
     "administrativo": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "nota": "Nivel CONDICIONAL al establecimiento (el formato plano actual no lo expresa): varía entre 1.40 y 1.60 según el TIPO de establecimiento y su CATEGORÍA (Anexo VII). Mapeo completo verificado en 'condicionalPorEstablecimiento'. Aparece en: hoteles (estrellas), restaurantes (tenedores), cafeterías (tazas), pensiones 1-2*, otros establecimientos, salas de fiesta/discotecas, casinos/bingos. Celda null = categoría no aplicable en esa categoría de establecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles": {
+          "5*y4*": "1.60",
+          "3*": "1.55",
+          "2*": "1.50",
+          "1*": null
+        },
+        "restaurantes": {
+          "5T/lujo": "1.60",
+          "4T/1a": "1.55",
+          "3T/2a": "1.50",
+          "2T/3a": "1.40",
+          "1T/4a": "1.40"
+        },
+        "cafeterias": {
+          "3T-Especial": "1.55",
+          "2T-1a": "1.50",
+          "1T-2a": "1.45"
+        },
+        "pensiones1y2estrellas": {
+          "2*": "1.45",
+          "1*": "1.40"
+        },
+        "otrosEstablecimientos": {
+          "Especial": "1.55",
+          "Resto": "1.45"
+        },
+        "salasFiestaDiscotecas": {
+          "Especial": "1.55"
+        },
+        "casinosBingos": {
+          "Especial": "1.50"
+        }
+      }
     },
     "personal-limpieza": {
-      "dimensiones": null,
-      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+      "dimensiones": {
+        "nivel": "1.35"
+      },
+      "nota": "Único puesto con nivel CONSTANTE en todo el Anexo VII: grupo III, nivel 1.35 en todos los tipos y categorías de establecimiento (hoteles, restaurantes, cafeterías, pensiones, catering, otros, salas de fiesta, casinos). No requiere preguntar por el establecimiento."
     }
   }
 }
