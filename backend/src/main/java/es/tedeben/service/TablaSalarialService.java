@@ -53,13 +53,21 @@ public class TablaSalarialService {
 
         // Ultraactividad: la última tabla publicada antes de la fecha sigue aplicando
         // hasta que se publique una nueva (el convenio vencido no caduca).
-        return candidatos.stream()
+        List<Hecho> anteriores = candidatos.stream()
                 .filter(h -> h.hasta().isBefore(fecha))
-                .max(Comparator.comparing(Hecho::hasta))
-                .map(h -> new SalarioBaseResuelto(h.importe(), List.of(
-                        cita(h),
-                        "Tabla vigente hasta " + FECHA.format(h.hasta())
-                                + ", aplicada por ultraactividad: sigue en vigor hasta que se publique la nueva")));
+                .toList();
+        Optional<Hecho> ultima = anteriores.stream().max(Comparator.comparing(Hecho::hasta));
+        if (ultima.isPresent()
+                && anteriores.stream().filter(h -> h.hasta().equals(ultima.get().hasta())).count() > 1) {
+            // Mismo guardia que en la rama vigente: dos tablas "últimas" empatadas = capa derivada corrupta.
+            throw new IllegalStateException(
+                    "Capa derivada ambigua: varias tablas terminan en " + ultima.get().hasta()
+                            + " para " + ultima.get().dimensiones());
+        }
+        return ultima.map(h -> new SalarioBaseResuelto(h.importe(), List.of(
+                cita(h),
+                "Tabla vigente hasta " + FECHA.format(h.hasta())
+                        + ", aplicada por ultraactividad: sigue en vigor hasta que se publique la nueva")));
     }
 
     private static Optional<Hecho> unico(List<Hecho> vigentes, LocalDate fecha) {

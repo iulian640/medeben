@@ -53,6 +53,10 @@ public record Hecho(
         if (!importeNodo.isNumber()) {
             throw new IllegalArgumentException(origen + ": importe no numérico (" + rutaCruda + ")");
         }
+        // INVARIANTE: este decimalValue() y el del validador cruzado (que lee la
+        // transcripción) deben usar la MISMA config de parseo numérico de Jackson
+        // (ObjectMapper sin USE_BIG_DECIMAL_FOR_FLOATS en ambos lados); si un día
+        // se configura un ObjectMapper custom, aplicarlo a los dos catálogos.
 
         return new Hecho(
                 concepto,
