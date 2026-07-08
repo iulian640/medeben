@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { setAuthToken } from '../services/api'
 import { postLogin, postRegistro } from '../services/auth'
 import { mensajeDeError } from '../lib/formato'
+import { useCuentaStore } from './cuenta'
 
 /**
  * Sesión del usuario. REQUISITO DE SEGURIDAD: el JWT vive SOLO aquí, en
@@ -62,11 +63,20 @@ export const useAuthStore = defineStore('auth', () => {
     return iniciarSesion(emailForm, password)
   }
 
+  /**
+   * Punto central de limpieza: por aquí pasan tanto el logout manual
+   * (cerrarSesion) como la expulsión por 401 (sesionCaducada). Además del
+   * token se vacía el store de cuenta — es un singleton y, en un dispositivo
+   * compartido, el siguiente usuario no debe heredar los datos salariales del
+   * anterior. La dependencia va en un solo sentido (auth → cuenta; cuenta no
+   * importa auth), así que no hay ciclo entre stores.
+   */
   function limpiarSesion() {
     token.value = null
     email.value = null
     expiraEn.value = null
     setAuthToken(null)
+    useCuentaStore().limpiar()
   }
 
   /** Logout voluntario. */

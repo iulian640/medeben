@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
 import { ApiError } from '../services/api'
 import type { PerfilGuardado } from '../services/perfilUsuario'
+import { useAuthStore } from './auth'
 import { useCuentaStore } from './cuenta'
 
 vi.mock('../services/perfilUsuario', () => ({
@@ -12,9 +13,14 @@ vi.mock('../services/convenios', () => ({
   getProvincias: vi.fn(),
   getPuestos: vi.fn(),
 }))
+vi.mock('../services/auth', () => ({
+  postLogin: vi.fn(),
+  postRegistro: vi.fn(),
+}))
 
 import { getPerfilUsuario, putPerfilUsuario } from '../services/perfilUsuario'
 import { getProvincias, getPuestos } from '../services/convenios'
+import { postLogin } from '../services/auth'
 
 const perfilServidor: PerfilGuardado = {
   provincia: 'Madrid',
@@ -142,6 +148,68 @@ describe('cuenta store', () => {
 
     expect(cuenta.guardado).toBe(false)
     expect(cuenta.error).toMatch(/No hay convenio/)
+  })
+
+  it('cargar con 404 limpia TODOS los campos si venían rellenos de otra cuenta', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+    expect(cuenta.salarioBaseMensual).toBe(1500)
+
+    // Segunda carga: este usuario todavía no tiene perfil (404).
+    vi.mocked(getPerfilUsuario).mockRejectedValue(
+      new ApiError(404, 'API 404', { status: 404, detail: 'Todavía no has creado tu perfil' }),
+    )
+    await cuenta.cargar()
+
+    expect(cuenta.sinPerfil).toBe(true)
+    expect(cuenta.provincia).toBeNull()
+    expect(cuenta.subsector).toBeNull()
+    expect(cuenta.puestoId).toBeNull()
+    expect(cuenta.salarioBaseMensual).toBeNull()
+    expect(cuenta.plusesAnuales).toBeNull()
+    expect(cuenta.convenioId).toBeNull()
+  })
+
+  it('dispositivo compartido: logout de A y login de B sin perfil → formulario limpio', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-a', expiraEn: '2026-07-09T00:00:00Z' })
+    const auth = useAuthStore()
+    const cuenta = useCuentaStore()
+    await auth.iniciarSesion('a@example.com', 'superclave123')
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    await cuenta.cargar()
+    expect(cuenta.salarioBaseMensual).toBe(1500)
+
+    auth.cerrarSesion()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-b', expiraEn: '2026-07-09T00:00:00Z' })
+    await auth.iniciarSesion('b@example.com', 'superclave123')
+    vi.mocked(getPerfilUsuario).mockRejectedValue(new ApiError(404, 'API 404', null))
+    await cuenta.cargar()
+
+    expect(cuenta.sinPerfil).toBe(true)
+    expect(cuenta.provincia).toBeNull()
+    expect(cuenta.puestoId).toBeNull()
+    expect(cuenta.salarioBaseMensual).toBeNull()
+    expect(cuenta.plusesAnuales).toBeNull()
+  })
+
+  it('limpiar descarta una carga en vuelo: la respuesta tardía no repuebla el formulario', async () => {
+    let resolverPerfil!: (p: PerfilGuardado) => void
+    vi.mocked(getPerfilUsuario).mockReturnValue(
+      new Promise((resolve) => {
+        resolverPerfil = resolve
+      }),
+    )
+    const cuenta = useCuentaStore()
+    const carga = cuenta.cargar()
+
+    cuenta.limpiar()
+    resolverPerfil(perfilServidor)
+    await carga
+
+    expect(cuenta.provincia).toBeNull()
+    expect(cuenta.salarioBaseMensual).toBeNull()
+    expect(cuenta.cargando).toBe(false)
   })
 
   it('editar un campo tras guardar retira la marca de guardado', async () => {
