@@ -146,6 +146,66 @@ class ConvenioCatalogTest {
     }
 
     @Nested
+    @DisplayName("selección de convenio por (provincia, subsector) — D20")
+    class SeleccionPorTerritorio {
+
+        @Test
+        @DisplayName("Madrid distingue hostelería de hospedaje (dos convenios)")
+        void madridDistingueSubsectores() {
+            assertThat(catalog.paraTrabajador("Madrid", Subsector.HOSTELERIA).orElseThrow().id())
+                    .isEqualTo("madrid-hosteleria");
+            assertThat(catalog.paraTrabajador("Madrid", Subsector.HOSPEDAJE).orElseThrow().id())
+                    .isEqualTo("madrid-hospedaje");
+        }
+
+        @Test
+        @DisplayName("donde no hay convenio de hospedaje propio, un hotel usa el de hostelería")
+        void hospedajeCaeAlGeneralSiNoHayPropio() {
+            assertThat(catalog.paraTrabajador("Soria", Subsector.HOSPEDAJE).orElseThrow().id())
+                    .isEqualTo("soria-hosteleria");
+        }
+
+        @Test
+        @DisplayName("Barcelona/Girona/Tarragona van al interprovincial de Cataluña; Lleida tiene el suyo")
+        void catalunaInterprovincial() {
+            assertThat(catalog.paraTrabajador("Barcelona", Subsector.HOSTELERIA).orElseThrow().id())
+                    .isEqualTo("cataluna-hosteleria");
+            assertThat(catalog.paraTrabajador("Girona", Subsector.HOSTELERIA).orElseThrow().id())
+                    .isEqualTo("cataluna-hosteleria");
+            assertThat(catalog.paraTrabajador("Lleida", Subsector.HOSTELERIA).orElseThrow().id())
+                    .isEqualTo("lleida-hosteleria");
+        }
+
+        @Test
+        @DisplayName("restauración colectiva es el convenio estatal en toda España")
+        void colectivaSiempreEstatal() {
+            assertThat(catalog.paraTrabajador("Madrid", Subsector.RESTAURACION_COLECTIVA).orElseThrow().id())
+                    .isEqualTo("estatal-restauracion-colectiva");
+            assertThat(catalog.paraTrabajador("Melilla", Subsector.RESTAURACION_COLECTIVA).orElseThrow().id())
+                    .isEqualTo("estatal-restauracion-colectiva");
+        }
+
+        @Test
+        @DisplayName("provincia desconocida devuelve vacío, no inventa")
+        void provinciaDesconocidaVacio() {
+            assertThat(catalog.paraTrabajador("Narnia", Subsector.HOSTELERIA)).isEmpty();
+        }
+
+        @Test
+        @DisplayName("cobertura total: las 52 provincias resuelven convenio en los 3 subsectores")
+        void las52ProvinciasResuelven() {
+            assertThat(catalog.provincias()).hasSize(52);
+            for (String provincia : catalog.provincias()) {
+                for (Subsector subsector : Subsector.values()) {
+                    assertThat(catalog.paraTrabajador(provincia, subsector))
+                            .as("%s / %s", provincia, subsector)
+                            .isPresent();
+                }
+            }
+        }
+    }
+
+    @Nested
     @DisplayName("validación fail-fast al parsear (un dato malo es peor que ninguno)")
     class ValidacionFailFast {
 

@@ -3,6 +3,7 @@ package es.tedeben.repository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import es.tedeben.domain.convenio.Convenio;
+import es.tedeben.domain.convenio.Subsector;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,7 @@ import java.util.Optional;
 @Component
 public class ConvenioCatalog {
 
+    private static final String ID_ESTATAL_RESTAURACION_COLECTIVA = "estatal-restauracion-colectiva";
     private static final String PATRON_CONVENIOS = "classpath*:convenios/*.json";
 
     private final Map<String, Convenio> conveniosPorId;
@@ -37,6 +39,39 @@ public class ConvenioCatalog {
 
     public Optional<Convenio> porId(String id) {
         return Optional.ofNullable(conveniosPorId.get(id));
+    }
+
+    /** Provincias con convenio en el corpus (para el desplegable del perfil), ordenadas. */
+    public List<String> provincias() {
+        return conveniosPorId.values().stream()
+                .flatMap(c -> c.ambitoTerritorial().provincias().stream())
+                .distinct()
+                .sorted()
+                .toList();
+    }
+
+    /**
+     * El convenio que aplica a un trabajador según dónde y en qué tipo de sitio
+     * trabaja (D20): restauración colectiva → convenio estatal único; hospedaje →
+     * convenio propio de hospedaje si la provincia lo tiene (Madrid, Gipuzkoa,
+     * La Rioja), si no el general de hostelería de la provincia.
+     */
+    public Optional<Convenio> paraTrabajador(String provincia, Subsector subsector) {
+        if (subsector == Subsector.RESTAURACION_COLECTIVA) {
+            return porId(ID_ESTATAL_RESTAURACION_COLECTIVA);
+        }
+        Optional<Convenio> propio = porProvinciaYSubsector(provincia, subsector);
+        if (propio.isEmpty() && subsector == Subsector.HOSPEDAJE) {
+            return porProvinciaYSubsector(provincia, Subsector.HOSTELERIA);
+        }
+        return propio;
+    }
+
+    private Optional<Convenio> porProvinciaYSubsector(String provincia, Subsector subsector) {
+        return conveniosPorId.values().stream()
+                .filter(c -> c.subsector() == subsector)
+                .filter(c -> c.ambitoTerritorial().provincias().contains(provincia))
+                .findFirst();
     }
 
     private static Map<String, Convenio> carga(ObjectMapper objectMapper) {
