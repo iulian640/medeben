@@ -1,5 +1,5 @@
 {
-  "$comment": "Tablas 2025 (en ultraactividad para 2026) transcritas y VERIFICADAS visualmente contra el PDF del BOCM (páginas renderizadas a imagen). IMPORTANTE: las tablas de 'tablasSalariales2025' (comedor inicial+garantizado, cocina, varios, catering, cafeterías sueldo inicial) son las del ANEXO III, es decir, las del SISTEMA DE PARTICIPACIÓN EN EL PORCENTAJE DE SERVICIO, aplicable SOLO a las empresas que mantienen ese sistema histórico (ver campo 'sistemaPorcentajeServicio'). El salario por defecto para la mayoría de empresas son las tablas por niveles retributivos del ANEXO I, aún NO transcritas (ver 'pendiente'). Cafeterías, catering, sistema de % de servicio y permisos completos del Art. 19 verificados contra imagen (D33/D34).",
+  "$comment": "Tablas VERIFICADAS visualmente contra el PDF del BOCM (páginas renderizadas a imagen). DOS regímenes salariales distintos coexisten en este convenio: (1) 'tablasAnexoI' = ANEXO I, SALARIO BASE MENSUAL POR NIVELES RETRIBUTIVOS (I, II-A, II-B, II-C, III, III-A, III-B, IV, V) según clase de empresa (A/B/C) o catering (D). Es el RÉGIMEN GENERAL, el salario por defecto de la mayoría de empresas del sector. (2) 'tablasSalariales2025' = ANEXO III, sistema HISTÓRICO de PARTICIPACIÓN EN EL PORCENTAJE DE SERVICIO (comedor inicial+garantizado, cocina, varios, catering, cafeterías sueldo inicial), aplicable SOLO a las empresas que mantienen ese sistema (ver 'sistemaPorcentajeServicio'). Para saber qué cobra un puesto concreto en el régimen general: mapea la ocupación a su nivel (ver 'tablasAnexoI.nivelesOcupaciones') y busca el importe por clase de empresa. Anexo I (págs. 41-44 BOCM), Anexo III (págs. 48-64), sistema de % de servicio, y permisos completos del Art. 19 verificados contra imagen.",
   "id": "madrid-hosteleria",
   "nombre": "Convenio Colectivo del Sector de Hostelería y Actividades Turísticas de la Comunidad de Madrid",
   "codigoRegcon": "28002085011981",
@@ -61,6 +61,83 @@
     "valorHoraOrdinaria": "(salarioGarantizadoMensual * 14 + plusesAnuales) / jornadaAnualHoras",
     "topeHorasExtraAnual": 80,
     "nota": "Tope 80 h/año del ET salvo que el convenio fije otro (verificar art. de horas extra del convenio)."
+  },
+  "tablasAnexoI": {
+    "$comment": "RÉGIMEN GENERAL (salario por defecto de la mayoría de empresas). ANEXO I 'TABLAS SALARIALES A EFECTOS RETRIBUTIVOS' del convenio 2023-2025 (BOCM nº82, 06-04-2024, págs. 41-44), verificado contra imagen. Salario BASE MENSUAL por NIVEL RETRIBUTIVO. Se transcriben los tres años del convenio (2023, 2024, 2025). En 2026 aplican las de 2025 por ultraactividad. La tabla general se cruza por CLASE DE EMPRESA (A/B/C); el catering (clase D) tiene su propia tabla de columna única con más niveles (II-C, III-A, III-B). Para el salario de un puesto: identifica su nivel en 'nivelesOcupaciones' y su clase de empresa en 'clasesEmpresa'.",
+    "anexo": "Anexo I",
+    "unidad": "EUR/mes (salario base mensual, 14 pagas)",
+    "clasesEmpresa": {
+      "$comment": "Anexo I apartado B) Clasificación de establecimientos a efectos retributivos (BOCM pág. 42-43).",
+      "A": "Restaurantes de 5 y 4 tenedores; Bar-Restaurante de 5 y 4 tenedores; Restaurante-Espectáculo; Salones de banquetes; Cafeterías de tres tazas; Discotecas y Salas de Baile; Salas de Fiesta; Servicios de comida y bebida en Casinos de 1ª y 2ª categoría.",
+      "B": "Restaurantes de 3 tenedores; Bar-Restaurante de 3 tenedores; Autoservicio de Restauración; Cafeterías de dos tazas; Bares Especiales (Pub y bares de copas, bares americanos y whisquerías); Cafés Espectáculo; Salas de Juventud; Salones de Juegos y Recreativos; Salones de Recreo y Diversión (Billares, Futbolines y similares); Servicios de comida y bebida en Casinos de 3ª y 4ª categoría.",
+      "C": "Restaurantes de 2 y 1 tenedor; Bar-Restaurante de 2 y 1 tenedor; Cafeterías de una taza; Chocolaterías, Heladerías, Salones de Té, Croisanterías y asimilables; Cafés-Bares; Bares; Tabernas; Bodegas.",
+      "D": "Catering (y establecimientos no recogidos literalmente en el Anexo, asimilados por actividad). Empresas que elaboran comidas para venta en máquinas expendedoras se asimilan a Clase C."
+    },
+    "nivelesOcupaciones": {
+      "$comment": "Anexo I apartado A) Niveles retributivos (BOCM pág. 41-42). Mapea cada ocupación a su nivel. La tabla general A/B/C usa niveles I, II-A, II-B, III, IV, V. La tabla de catering (D) usa I, II-A, II-B, II-C, III-A, III-B, IV, V (los niveles II-C, III-A y III-B son específicos del sector catering).",
+      "I": "Jefe/a de Administración (Contable General, Jefe/a de Contabilidad); Jefe/a Comercial; Jefe/a de Primera de Casinos; Jefe/a de Cocina; Jefe/a de Catering; Jefe/a de Restaurante o Sala (Jefe/a de Sala, Jefe/a de Comedor, Primer/a Maitre, Maestresala); Jefe/a de Operaciones Catering; Jefe/a de Servicios de Catering; Jefe/a de Servicios Técnicos.",
+      "II-A": "Jefe/a de Segunda de Casinos; Segundo/a Jefe/a de Cocina; Segundo/a Jefe/a de Restaurante o Sala (Segundo/a Jefe/a de Comedor, Primer/a Encargado/a de Mostrador de Cafeterías/Bares/Salas de Fiestas y Discotecas, Segundo/a Jefe/a de Sala).",
+      "II-B": "Jefe/a de Partida; Repostero/a de Catering; Jefe/a de Sala de Catering; Supervisor/a de Catering; Jefe/a de Sector; Segundo/a Encargado/a de Mostrador (Cafeterías, Bares y Salas de Fiestas y Discotecas); Sumiller; Barman/Barwoman.",
+      "II-C": "(Solo catering) Oficial/a de Repostero/a de Catering; Cocinero/a de Catering; Jefe/a de Equipo de Catering.",
+      "III": "Recepcionista, Administrativo/a (Tenedor/a de cuentas de clientes, Interventor/a, Contable, Oficial de 1ª, Facturista, Cajero/a); Relaciones Públicas; Comercial; Oficial/a de Primera de Casinos; Cocinero/a; Repostero/a; Encargado/a de Economato (y Bodega, Bodeguero/a, Encargado/a de Almacén); Camarero/a (Dependiente de Cafetería, Dependiente de Primera de Salas de Fiestas y Discotecas, Dependiente de 1ª de bares, Planchista, Cafetero/a, Cajero/a de Comedor, Segundo/a barman/barwoman); Conductor/a de Equipo de Catering; Ayudante de Supervisor/a; Encargado/a de Sección o Turno (Encargado/a de sala, de Lencería, de fregadores); Lencero/a, Planchador/a, Lavandero/a; Especialista de Mantenimiento y Servicios (Mecánico/a o Calefactor/a, Ebanista, Carpintero/a, Electricista, Albañil, Pintor/a, Conductor/a, Fontanero/a, Jardinero/a). En catering este nivel es 'III-A'.",
+      "III-B": "(Solo catering) Ayudante de Equipo de Catering; Especialista de Mantenimiento y Servicios Técnicos de Catering (de flota y de instalaciones y edificios).",
+      "IV": "Ayudante de Recepción (Intérprete, Conserje de Casino, Ayudante de Conserje, Ordenanza de Salón, Cobrador/a de Casinos); Ayudante Administrativo (Oficial de Contabilidad, Oficial de 2ª, Auxiliar de Oficina y Contabilidad, Auxiliar de Caja); Telefonista (1ª y 2ª); Oficial/a de Segunda de Casinos; Ayudante de Economato (y Bodega); Ayudante de Cocina (Ayudante de Repostero/a, Oficial/a de Repostero/a); Preparador/a o Montador/a de Catering; Ayudante de Camarero/a (Ayudante de Cafeterías, Dependiente de Segunda de Salas de Fiestas y Discotecas, Dependiente de Segunda de bares, Ayudante de Planchista, Ayudante de Barman/Barwoman, Ayudante de Cafetero/a); Ayudante de equipo de Catering; Repartidor.",
+      "V": "Portero/a, Aparcacoches, Portero/a de Coches, Recibidor/a de accesos y de servicios, Vigilante, Botones, Cobrador/a, Taquillero/a, Guardarropa, Auxiliar de Oficina, Auxiliar de Recepción, Auxiliar de Casinos, Aspirante de Casinos; Auxiliar de Cocina y Economato (Marmitón, Pinche, Fregador/a, Mozo de Almacén, Personal de Platería); Auxiliar de Preparación/Montaje de Catering; Auxiliar de Limpieza (Personal de Limpieza, Fregador/a, Limpiador/a, Mozo de Lavandería); Auxiliar de Mantenimiento y Servicios (Ayudante de Mecánico/a o Calefactor/a, de Ebanista, Carpintero/a, Electricista, Albañil y Pintor/a, Lavacoches, Mozo de Billar o Salón de Recreo, Guarda Exterior)."
+    },
+    "salariosBaseMensuales": {
+      "$comment": "Importes en EUR/mes por nivel. 'general' se cruza por clase de empresa A/B/C (Anexo I apartado C). 'catering' (clase D) es columna única. Verificado celda a celda contra imagen del PDF.",
+      "2023": {
+        "articulo": "Anexo I C) a) (1 enero a 31 diciembre 2023)",
+        "general": {
+          "I":    { "A": 1296.22, "B": 1251.02, "C": 1145.52 },
+          "II-A": { "A": 1205.79, "B": 1183.20, "C": 1115.37 },
+          "II-B": { "A": 1190.73, "B": 1160.56, "C": 1100.29 },
+          "III":  { "A": 1175.67, "B": 1145.52, "C": 1062.61 },
+          "IV":   { "A": 1115.37, "B": 1085.21, "C": 1032.44 },
+          "V":    { "A": 1055.09, "B": 1024.92, "C": 994.79 }
+        },
+        "catering": {
+          "I": 1336.95, "II-A": 1290.49, "II-B": 1242.47, "II-C": 1197.32,
+          "III-A": 1169.74, "III-B": 1122.14, "IV": 1095.91, "V": 1076.61
+        },
+        "manutencion": 52.95,
+        "plusConvenio": 175.11
+      },
+      "2024": {
+        "articulo": "Anexo I C) b) (1 enero a 31 diciembre 2024)",
+        "general": {
+          "I":    { "A": 1361.03, "B": 1313.57, "C": 1202.80 },
+          "II-A": { "A": 1266.08, "B": 1242.36, "C": 1171.14 },
+          "II-B": { "A": 1250.27, "B": 1218.59, "C": 1155.30 },
+          "III":  { "A": 1234.45, "B": 1202.80, "C": 1115.74 },
+          "IV":   { "A": 1171.14, "B": 1139.47, "C": 1084.06 },
+          "V":    { "A": 1107.84, "B": 1076.17, "C": 1044.53 }
+        },
+        "catering": {
+          "I": 1403.80, "II-A": 1355.01, "II-B": 1304.59, "II-C": 1257.19,
+          "III-A": 1228.23, "III-B": 1178.25, "IV": 1150.71, "V": 1130.44
+        },
+        "manutencion": 55.60,
+        "plusConvenio": 183.87
+      },
+      "2025": {
+        "articulo": "Anexo I C) c) (1 enero a 31 diciembre 2025). VIGENTE en 2026 por ultraactividad.",
+        "general": {
+          "I":    { "A": 1415.47, "B": 1366.11, "C": 1250.91 },
+          "II-A": { "A": 1316.72, "B": 1292.05, "C": 1217.99 },
+          "II-B": { "A": 1300.28, "B": 1267.33, "C": 1201.51 },
+          "III":  { "A": 1283.83, "B": 1250.91, "C": 1160.37 },
+          "IV":   { "A": 1217.99, "B": 1185.05, "C": 1127.42 },
+          "V":    { "A": 1152.15, "B": 1119.22, "C": 1086.31 }
+        },
+        "catering": {
+          "I": 1459.95, "II-A": 1409.21, "II-B": 1356.77, "II-C": 1307.48,
+          "III-A": 1277.36, "III-B": 1225.38, "IV": 1196.74, "V": 1175.66
+        },
+        "manutencion": 57.82,
+        "plusConvenio": 191.22
+      }
+    }
   },
   "tablasSalariales2025": {
     "$comment": "Salario mensual en euros. Sección tercera (restaurantes). Vigentes en 2026 por ultraactividad. Personal de comedor: 'inicial' (componente base) y 'garantizado' (salario garantizado total, el que se usa para el cálculo). Personal de cocina: valor fijo único. Columnas por categoría de establecimiento: lujo/primera/segunda/tercera/cuarta. '-' = categoría no contemplada.",
@@ -180,13 +257,12 @@
     "$comment": "Explica de dónde salen las tablas de 'tablasSalariales2025'. Sistema retributivo histórico de la antigua Ordenanza de Trabajo de Hostelería (derogada): parte del salario procedía del reparto entre la plantilla del 'porcentaje de servicio' cobrado a los clientes. Verificado contra imagen: ANEXO III (pág. 48 BOCM) + Disposición Transitoria Primera (págs. 38-39 BOCM).",
     "articulo": "Anexo III + Disposición Transitoria Primera",
     "vigencia": "Desde el 01-01-2004 el sistema quedó SIN aplicación con carácter general (sustituido por salario mensual). Solo lo mantienen las empresas que hubieran continuado aplicándolo tras el convenio de 2004; para el resto NO aplica.",
-    "aQuienAplica": "Exclusivamente empresas que conservan el sistema de participación en el porcentaje de servicio. Estas tablas del Anexo III son las únicas transcritas aquí; NO son el salario por defecto del sector (ese es el Anexo I por niveles retributivos, pendiente).",
+    "aQuienAplica": "Exclusivamente empresas que conservan el sistema de participación en el porcentaje de servicio. Estas tablas del Anexo III NO son el salario por defecto del sector: ese es el Anexo I por niveles retributivos (ver bloque 'tablasAnexoI', ya transcrito).",
     "mecanismo": "El salario se compone de un 'sueldo inicial' o 'salario fijo' (importe bajo de las tablas Anexo III) MÁS la participación en el porcentaje de servicio repartido. La empresa GARANTIZA que la suma alcance el 'garantizado'; si el % de servicio no llega, la empresa abona la diferencia hasta el garantizado.",
     "encuadreProfesional": "Las ocupaciones del Anexo III se encuadran en los Grupos Profesionales del Acuerdo Laboral de Ámbito Estatal (ALEH) vigente para el Sector de Hostelería.",
     "complementoPersonal": "A quienes se les suprimió el sistema en 2004 se les calculó un 'complemento personal de porcentaje de servicio' (promedio de los 12 meses previos menos 14 veces el salario base del Anexo III 2004); ese complemento no es compensable ni absorbible ni revisable salarialmente (Disp. Trans. Primera B)."
   },
   "pendiente": [
-    "Tablas por NIVELES RETRIBUTIVOS del ANEXO I (salario por defecto de la mayoría de empresas, sistema moderno por Nivel I/II-A/II-B/... en vez de por categoría/sección). NO transcritas todavía. Es el hueco más importante.",
     "Tablas 2023 y 2024 del Anexo III (históricas; solo tenemos 2025)",
     "Cafeterías SIN servicio de sala: verificado que en este BOCM NO se imprime como tabla independiente (solo se cita como garantía de mínimos). Confirmar si en alguna revisión posterior aparece."
   ],
@@ -247,6 +323,6 @@
   },
   "pendienteCondiciones": [],
   "estado": "verificado_2025_completo_con_condiciones",
-  "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen. Tablas 2025 = Anexo III (sistema % servicio). Arts. 14/26/27/28/29 (jornada, pagas, nocturnidad, pluses); condiciones sociales Arts. 18/19/33/34/39; Disposición Transitoria Primera (sistema % de servicio); Anexo III (págs. 48-64). Permisos Art. 19 completos (a-k) verificados en págs. 20-21.",
+  "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen. Anexo I = tablas por NIVELES RETRIBUTIVOS 2023/2024/2025 (régimen general, salario base mensual por clase de empresa A/B/C y catering D), verificado celda a celda en págs. 41-44. Anexo III = sistema histórico de % de servicio (tablas 2025), págs. 48-64. Arts. 14/26/27/28/29 (jornada, pagas, nocturnidad, pluses); condiciones sociales Arts. 18/19/33/34/39; Disposición Transitoria Primera (sistema % de servicio). Permisos Art. 19 completos (a-k) verificados en págs. 20-21.",
   "fechaVerificacion": "2026-07-08"
 }
