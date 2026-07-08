@@ -187,8 +187,6 @@
     "ESPECIAL": 39.38
   },
   "pendiente": [
-    "Matriz exacta de permisos por fallecimiento/enfermedad grave segun parentesco x ambito geografico (Art. 14): duraciones 2-6 dias, columnas desalineadas en la extraccion; verificar celda a celda contra la IMAGEN del PDF.",
-    "Escala de antiguedad Art. 19 (porcentajes y acumulado por anos de servicio): tabla desalineada en la extraccion, verificar celda a celda contra imagen.",
     "Importes 2026 de pluses no indexados (manutencion, desgaste herramientas, servicios extraordinarios): el articulado da cifras 2025; confirmar revision 2026.",
     "Tablas 2027 (aun no publicadas a julio-2026; revision pactada: IPC 2026 + 1,6 puntos, Art. 6)."
   ],
@@ -218,7 +216,34 @@
     "trasladoDomicilioHabitual": "1 dia.",
     "deberInexcusablePublicoYPersonal": "Por el tiempo indispensable (incluye ejercicio del sufragio activo). Si una norma fija un periodo determinado, se estara a lo que disponga.",
     "examenesPrenatalesYPreparacionAlParto": "Por el tiempo indispensable, tambien para adopcion/guarda/acogimiento (sesiones de informacion y preparacion e informes psicologicos/sociales previos a la declaracion de idoneidad), siempre que deban tener lugar dentro de la jornada.",
-    "matrizFallecimientoPorGeografia": "pendiente: la tabla del Art. 14 gradua la duracion (2 a 6 dias) segun parentesco Y ambito geografico; la matriz celda a celda no se ha podido reconstruir con fiabilidad desde la extraccion de texto (columnas desalineadas). Verificar contra la IMAGEN del PDF antes de dar cifras exactas por combinacion.",
+    "matrizFallecimientoPorGeografia": {
+      "$comment": "Art. 14, punto 4 (Fallecimiento). VERIFICADO celda a celda contra la IMAGEN del PDF (BOB nº81, 30-04-2025, pag. 9). La duracion se gradua por grado de parentesco y, para algunos grados, por ambito geografico (Bizkaia / provincia limitrofe / resto del Estado). Duraciones en dias naturales, retribuidos con arreglo al salario real. NOTA: 'abuelos/as y nietos/as' aparecen tanto en el grupo de 3/4/5 dias como en el grupo especifico 'Abuelos o abuelos politicos y nietos' de 2/4 dias; se transcribe literalmente ambos grupos tal y como figuran en el cuadro oficial.",
+      "unidad": "dias naturales",
+      "conyugeOParejaDeHecho": {
+        "dias": 6,
+        "dependeDeAmbitoGeografico": false
+      },
+      "padresMadresHijosHermanosAbuelosNietos": {
+        "$comment": "Grado: padres, madres, hijos/as, hermanos/as, abuelos/as y nietos/as.",
+        "dependeDeAmbitoGeografico": true,
+        "Bizkaia": 3,
+        "provinciaLimitrofe": 4,
+        "restoDelEstado": 5
+      },
+      "abuelosOAbuelosPoliticosYNietos": {
+        "$comment": "Grado: abuelos o abuelos politicos y nietos. En el cuadro oficial este grupo solo tiene dos filas (Bizkaia y resto del Estado); no figura fila de 'provincia limitrofe'.",
+        "dependeDeAmbitoGeografico": true,
+        "Bizkaia": 2,
+        "restoDelEstado": 4
+      }
+    },
+    "accidenteEnfermedadGraveHospitalizacionMatriz": {
+      "$comment": "Art. 14, punto 5. VERIFICADO contra la IMAGEN del PDF (pag. 9). A diferencia del fallecimiento, NO se gradua por ambito geografico: duracion unica.",
+      "dias": 5,
+      "dependeDeAmbitoGeografico": false,
+      "grado": "Conyuge o pareja de hecho, parientes hasta el segundo grado, asi como cualquier otra persona que conviva con la persona trabajadora en el mismo domicilio y que requiera el cuidado efectivo de aquella.",
+      "hechoCausante": "Accidente o enfermedad graves, hospitalizacion debidamente justificada, o intervencion quirurgica sin hospitalizacion que precise reposo domiciliario."
+    },
     "mejoraET": "Matrimonio 20 dias mejora ampliamente el ET (15 dias). Incluye parejas de hecho y asuntos propios retribuidos, no exigidos por el ET.",
     "articulo": "Art. 14."
   },
@@ -294,7 +319,19 @@
   "antiguedad": {
     "$comment": "Art. 19. Retribucion por permanencia calculada como porcentaje sobre el SALARIO BASE de tablas (ese es el modulo).",
     "modulo": "Salario base de las Tablas Salariales (Art. 19).",
-    "escala": "pendiente: la escala por anos de servicio (aprox. 3 anos 3%, 6 anos 5%, 9 anos 8%... hasta 24 anos) figura en el Art. 19 pero las columnas 'Porcentaje' y 'Acumulado' aparecen DESALINEADAS en la extraccion de texto; verificar celda a celda contra la IMAGEN del PDF antes de usar cifras.",
+    "escala": {
+      "$comment": "Art. 19. Retribucion por permanencia, calculada como porcentaje sobre el SALARIO BASE de tablas. 'porcentaje' es el tramo que se anade al alcanzar esos anos de servicio; 'acumulado' es el porcentaje total sobre el salario base a partir de ese tramo. VERIFICADO celda a celda contra la IMAGEN del PDF (BOB nº81, 30-04-2025, pag. 11). En el original el acumulado del primer tramo (3 anos) figura como guion '—'; equivale al 3% (los tramos siguientes cuadran: 3+5=8, 8+8=16, 16+10=26, 26+12=38, 38+7=45).",
+      "tramos": [
+        { "anosServicio": 3, "porcentaje": 3, "acumulado": 3, "acumuladoOriginal": "—" },
+        { "anosServicio": 6, "porcentaje": 5, "acumulado": 8 },
+        { "anosServicio": 9, "porcentaje": 8, "acumulado": 16 },
+        { "anosServicio": 14, "porcentaje": 10, "acumulado": 26 },
+        { "anosServicio": 19, "porcentaje": 12, "acumulado": 38 },
+        { "anosServicio": 24, "porcentaje": 7, "acumulado": 45 }
+      ],
+      "topeAcumulado": 45,
+      "unidad": "porcentaje sobre el salario base de tablas"
+    },
     "fijosDiscontinuos": "Los fijos-discontinuos computan su antiguedad por toda la duracion de la relacion laboral (no solo el tiempo efectivo), con reglas de 365/270 dias; mejora aplicable a periodos trabajados desde 01-07-2021 (Art. 19).",
     "articulo": "Art. 19."
   },
