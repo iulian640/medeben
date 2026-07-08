@@ -47,4 +47,4 @@ mvn test
 - Seguridad: `/api/v1/health` y `/actuator/health` son públicos; el resto
   requiere autenticación. JWT llegará después (ADR D13.4).
 
-Ver [docs/dev-setup.md](../docs/dev-setup.md) para el setup completo.
+Ver [docs/dev-setup.es.md](../docs/dev-setup.es.md) para el setup completo.

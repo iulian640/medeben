@@ -1,35 +1,37 @@
-# Levantar TeDeben en local
+# Running TeDeben locally
 
-## Requisitos
+> Lee esto en español → [dev-setup.es.md](dev-setup.es.md)
 
-| Herramienta | Versión | Para qué |
+## Requirements
+
+| Tool | Version | What for |
 |---|---|---|
-| JDK | 21+ (el proyecto compila con `--release 21`) | backend |
+| JDK | 21+ (the project compiles with `--release 21`) | backend |
 | Maven | 3.9+ | backend |
 | Node.js | 20+ | frontend |
-| Docker | cualquiera reciente | PostgreSQL local y tests de integración |
-| gh (GitHub CLI) | opcional | PRs |
+| Docker | any recent one | local PostgreSQL and integration tests |
+| gh (GitHub CLI) | optional | PRs |
 
-## 1. Base de datos (PostgreSQL 16)
+## 1. Database (PostgreSQL 16)
 
-Desde la raíz del repo:
+From the repo root:
 
 ```bash
 docker compose up -d
 ```
 
-Levanta un PostgreSQL 16 en `localhost:5432` con BD/usuario/contraseña
-`tedeben` y volumen persistente (`tedeben-pgdata`). Para pararlo:
-`docker compose down` (los datos se conservan).
+Starts a PostgreSQL 16 on `localhost:5432` with `tedeben` as database, user
+and password, and a persistent volume (`tedeben-pgdata`). To stop it:
+`docker compose down` (the data is kept).
 
 ## 2. Backend (Spring Boot)
 
 ```bash
 cd backend
-mvn spring-boot:run        # perfil por defecto: dev (postgres local)
+mvn spring-boot:run        # default profile: dev (local postgres)
 ```
 
-Comprobación: <http://localhost:8080/api/v1/health> → `{"status":"ok"}`.
+Check: <http://localhost:8080/api/v1/health> → `{"status":"ok"}`.
 
 Tests:
 
@@ -37,8 +39,8 @@ Tests:
 mvn test
 ```
 
-Los tests de integración usan Testcontainers (PostgreSQL real, sin H2) y
-**requieren Docker**; sin Docker se saltan solos y la build sigue verde.
+Integration tests use Testcontainers (real PostgreSQL, no H2) and **require
+Docker**; without Docker they skip themselves and the build stays green.
 
 ## 3. Frontend (Vue 3 + Vite)
 
@@ -48,19 +50,19 @@ npm install
 npm run dev                # http://localhost:5173
 ```
 
-El dev server proxya `/api` → `http://localhost:8080`, así que arranca el
-backend antes si quieres llamadas reales.
+The dev server proxies `/api` → `http://localhost:8080`, so start the backend
+first if you want real calls.
 
-Build de producción (type-check incluido):
+Production build (type-check included):
 
 ```bash
 npm run build
 ```
 
-## Orden completo
+## Full sequence
 
 ```bash
-docker compose up -d                      # 1. BD
-(cd backend && mvn spring-boot:run) &     # 2. API en :8080
-cd frontend && npm run dev                # 3. Web en :5173
+docker compose up -d                      # 1. DB
+(cd backend && mvn spring-boot:run) &     # 2. API on :8080
+cd frontend && npm run dev                # 3. Web on :5173
 ```
