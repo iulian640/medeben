@@ -1,0 +1,12 @@
+# Perfil LOCAL sin base de datos: para probar la API de convenios/cálculo en
+# máquinas sin Docker/Postgres (la capa de convenios vive en el classpath, no
+# necesita BD). Cuando lleguen las entidades de usuario, este perfil dejará de
+# cubrir esas rutas — es solo para consulta.
+#
+#   mvn spring-boot:run -Dspring-boot.run.profiles=local
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
