@@ -10,7 +10,7 @@
     "numero": 26,
     "fecha": "2023-02-07",
     "documento": "CSV BOPV-2023/01380",
-    "urlOficial": "https://bop.dival.es/bop",
+    "url": "https://bop.dival.es/bop",
     "notaUrl": "El portal bop.dival.es no da enlace PDF directo estable; el boletin se descarga navegando por CSV/fecha. El PDF verificado se obtuvo de la copia oficial (marcada BOP) publicada por UGT-FeSMC PV: https://www.fesmcugtcv.org (seccion Hosteleria Valencia). Es el mismo texto con sello de verificacion CSV BOPV-2023/01380.",
     "documentosRelacionados": [
       { "descripcion": "Acta 2/2024 comision paritaria (consulta plus transporte)", "boletin": "BOP Valencia nº192", "fecha": "2024-10-03", "csv": "BOPV-2024/13257" },

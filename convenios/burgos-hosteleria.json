@@ -6,7 +6,8 @@
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla y León", "provincias": ["Burgos"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {
-    "$comment": "Dos publicaciones oficiales: el articulado (convenio base 2023-2026) y las tablas salariales definitivas de 2026.",
+    "$comment": "Dos publicaciones oficiales: el articulado (convenio base 2023-2026) y las tablas salariales definitivas de 2026. 'url' aplana la del articulado (clave canónica que consume el motor).",
+    "url": "https://bopbur.diputaciondeburgos.es/sites/default/files/private/publicado/bopbur-2024-068/bopbur-2024-068-anuncio-202401704.pdf",
     "articulado": {
       "boletin": "BOP Burgos",
       "numero": 68,

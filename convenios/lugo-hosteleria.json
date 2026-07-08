@@ -6,6 +6,7 @@
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Galicia", "provincias": ["Lugo"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {
+    "url": "https://www.ccoo-servicios.es/archivos/galicia/CONVENIO%20HOSTELERIA%20Lugo%202021-24.pdf",
     "articulado": {
       "boletin": "BOP Lugo",
       "numero": 190,

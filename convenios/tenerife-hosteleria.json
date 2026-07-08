@@ -6,6 +6,7 @@
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Canarias", "provincias": ["Santa Cruz de Tenerife"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {
+    "url": "https://www.bopsantacruzdetenerife.es/boletines/2025/22-12-25/22-12-25.pdf",
     "articulado": {
       "boletin": "BOP Santa Cruz de Tenerife",
       "numero": 154,
