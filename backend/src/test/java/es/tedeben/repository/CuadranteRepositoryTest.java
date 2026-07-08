@@ -111,7 +111,9 @@ class CuadranteRepositoryTest {
         em.flush();
         em.clear();
 
-        UUID esperado = a.getId().compareTo(b.getId()) > 0 ? a.getId() : b.getId();
+        // Ojo: UUID.compareTo en Java compara con signo; Postgres ordena bytes sin
+        // signo. El hex en texto sí coincide con el orden de Postgres.
+        UUID esperado = a.getId().toString().compareTo(b.getId().toString()) > 0 ? a.getId() : b.getId();
         Cuadrante ganador = cuadrantes
                 .findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDescIdDesc(usuarioId, lunes)
                 .orElseThrow();
