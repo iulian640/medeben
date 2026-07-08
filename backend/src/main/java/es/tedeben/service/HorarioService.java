@@ -53,7 +53,7 @@ public class HorarioService {
     @Transactional
     public Cuadrante guardaSemanaTipo(UUID usuarioId, List<DiaCuadrante> dias) {
         validaSemana(dias);
-        return cuadrantes.save(new Cuadrante(usuarioId, null, dias));
+        return cuadrantes.save(new Cuadrante(usuarioId, null, dias, OffsetDateTime.now(reloj)));
     }
 
     @Transactional
@@ -69,7 +69,7 @@ public class HorarioService {
                     "Esa semana está a más de " + SEMANAS_FUTURO_MAX + " semanas vista; para el horario habitual usa la semana tipo");
         }
         validaSemana(dias);
-        return cuadrantes.save(new Cuadrante(usuarioId, lunes, dias));
+        return cuadrantes.save(new Cuadrante(usuarioId, lunes, dias, OffsetDateTime.now(reloj)));
     }
 
     @Transactional(readOnly = true)

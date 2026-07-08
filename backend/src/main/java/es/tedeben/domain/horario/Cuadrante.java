@@ -54,11 +54,17 @@ public class Cuadrante implements Persistable<UUID> {
         // requerido por JPA
     }
 
-    public Cuadrante(UUID usuarioId, LocalDate semanaInicio, List<DiaCuadrante> dias) {
+    /**
+     * @param creadoEn sello de creación, SIEMPRE del reloj inyectado del
+     *                 servicio (zona controlada): es el dato probatorio de la
+     *                 libreta (D38), no puede depender de la zona de la JVM.
+     */
+    public Cuadrante(UUID usuarioId, LocalDate semanaInicio, List<DiaCuadrante> dias, OffsetDateTime creadoEn) {
         this.id = UUID.randomUUID();
         this.usuarioId = usuarioId;
         this.semanaInicio = semanaInicio;
         this.dias = List.copyOf(dias);
+        this.creadoEn = java.util.Objects.requireNonNull(creadoEn, "creadoEn: el sello es obligatorio");
     }
 
     @Override
@@ -78,9 +84,11 @@ public class Cuadrante implements Persistable<UUID> {
     }
 
     @PrePersist
-    void selloDeCreacion() {
+    void exigeSello() {
         if (creadoEn == null) {
-            creadoEn = OffsetDateTime.now();
+            // Nunca rellenar aquí con el reloj del sistema: el sello legal
+            // viene del servicio con su Clock inyectado (review H2).
+            throw new IllegalStateException("Cuadrante sin sello de creación");
         }
     }
 

@@ -65,6 +65,13 @@ class HorarioServiceTest {
     }
 
     @Test
+    @DisplayName("el sello de creación sale del reloj inyectado, no del reloj del sistema (review H2: es el dato probatorio)")
+    void selloDelRelojInyectado() {
+        Cuadrante guardado = servicio.guardaSemanaTipo(USUARIO, semanaValida());
+        assertThat(guardado.getCreadoEn()).isEqualTo(OffsetDateTime.now(RELOJ));
+    }
+
+    @Test
     @DisplayName("una semana tiene 7 días, ni 6 ni 8")
     void semanaDeSeisDias() {
         assertThatIllegalArgumentException()
@@ -140,7 +147,8 @@ class HorarioServiceTest {
     @Test
     @DisplayName("una semana ya sellada (14 días tras su fin) no se puede editar (D38)")
     void semanaSellada() {
-        // Semana del 8 de junio: terminó el 14, se selló el 28 de junio. Hoy es 8 de julio.
+        // Semana del 8 de junio: acabó el domingo 14; ventana de confirmación del 15 al 28;
+        // sellada desde el 29 de junio a las 00:00. Hoy es 8 de julio → sellada.
         assertThatExceptionOfType(SemanaSelladaException.class)
                 .isThrownBy(() -> servicio.guardaSemana(USUARIO, LocalDate.of(2026, 6, 8), semanaValida()));
     }
@@ -163,7 +171,7 @@ class HorarioServiceTest {
     @DisplayName("horarioEfectivo prefiere la edición de esa semana sobre la semana tipo")
     void efectivoPrefiereEdicion() {
         LocalDate lunes = LocalDate.of(2026, 7, 6);
-        Cuadrante edicion = new Cuadrante(USUARIO, lunes, semanaValida());
+        Cuadrante edicion = new Cuadrante(USUARIO, lunes, semanaValida(), OffsetDateTime.now(RELOJ));
         when(repositorio.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDescIdDesc(USUARIO, lunes))
                 .thenReturn(Optional.of(edicion));
 
@@ -177,7 +185,7 @@ class HorarioServiceTest {
     @DisplayName("sin edición cae a la semana tipo vigente A FINAL de esa semana (una versión posterior no reescribe el pasado)")
     void efectivoUsaSemanaTipoDeLaEpoca() {
         LocalDate lunes = LocalDate.of(2026, 6, 29);
-        Cuadrante tipoDeEntonces = new Cuadrante(USUARIO, null, semanaValida());
+        Cuadrante tipoDeEntonces = new Cuadrante(USUARIO, null, semanaValida(), OffsetDateTime.now(RELOJ));
         when(repositorio.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDescIdDesc(USUARIO, lunes))
                 .thenReturn(Optional.empty());
         // El servicio debe pedir la última versión creada ANTES del fin de esa semana (lunes+7, 00:00 Madrid)

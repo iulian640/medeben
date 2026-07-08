@@ -38,6 +38,7 @@ class HorarioControllerTest {
 
     private static final UUID USUARIO = UUID.randomUUID();
     private static final LocalDate LUNES = LocalDate.of(2026, 7, 6);
+    private static final java.time.OffsetDateTime SELLO = java.time.OffsetDateTime.parse("2026-07-08T12:00:00+02:00");
 
     private static final String SEMANA_JSON = """
             {"dias":[
@@ -86,7 +87,7 @@ class HorarioControllerTest {
     @DisplayName("PUT guarda la semana tipo del usuario del token")
     void guardaSemanaTipo() throws Exception {
         when(horarioService.guardaSemanaTipo(eq(USUARIO), any()))
-                .thenReturn(new Cuadrante(USUARIO, null, semanaDominio()));
+                .thenReturn(new Cuadrante(USUARIO, null, semanaDominio(), SELLO));
 
         mockMvc.perform(put("/api/v1/horario").with(comoUsuario())
                         .contentType(MediaType.APPLICATION_JSON).content(SEMANA_JSON))
@@ -98,7 +99,7 @@ class HorarioControllerTest {
     @DisplayName("GET con semana tipo → 200")
     void conSemanaTipo() throws Exception {
         when(horarioService.semanaTipoActual(USUARIO))
-                .thenReturn(Optional.of(new Cuadrante(USUARIO, null, semanaDominio())));
+                .thenReturn(Optional.of(new Cuadrante(USUARIO, null, semanaDominio(), SELLO)));
 
         mockMvc.perform(get("/api/v1/horario").with(comoUsuario()))
                 .andExpect(status().isOk())
@@ -109,7 +110,7 @@ class HorarioControllerTest {
     @DisplayName("PUT de una semana concreta ancla la edición a su lunes")
     void editaSemana() throws Exception {
         when(horarioService.guardaSemana(eq(USUARIO), eq(LUNES), any()))
-                .thenReturn(new Cuadrante(USUARIO, LUNES, semanaDominio()));
+                .thenReturn(new Cuadrante(USUARIO, LUNES, semanaDominio(), SELLO));
 
         mockMvc.perform(put("/api/v1/horario/semana/2026-07-06").with(comoUsuario())
                         .contentType(MediaType.APPLICATION_JSON).content(SEMANA_JSON))
