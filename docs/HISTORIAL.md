@@ -5,6 +5,15 @@ Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
+- **PR #119** — Primera API REST pública: consulta de convenios (lista, detalle para el
+  visor D4, selección provincia+subsector D20) y cálculos anónimos (horas extra y salario
+  base) con citas. RFC 7807 en todos los errores, 500 saneado y testeado, Cache-Control en
+  datos estáticos. Revisada por java-reviewer (HIGH del contrato de errores corregido) y
+  security-reviewer (sin CRITICAL; @Digits anti-DoS aplicado; rate limiting trackeado para
+  antes del despliegue público).
+- **PR #117** — CI en GitHub Actions: backend con Docker (Testcontainers + validador del
+  corpus en cada PR) y frontend (lint + vitest + build). Verde a la primera.
+- **PR #118** — El lookup expone la `unidad` del hecho (Cuenca publica en EUR/año).
 - **Capa normalizada completa**: 10 agentes en paralelo derivan los 52 convenios restantes
   → **54/55 con capa derivada, ~8.760 hechos `salarioBase`**, todos con procedencia
   (`rutaCruda`) verificada por el validador del build. `aleh-estatal` sin fichero (correcto:
