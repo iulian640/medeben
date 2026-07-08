@@ -1,5 +1,5 @@
 {
-  "$comment": "Tablas 2025 DEFINITIVAS transcritas al milímetro del PDF oficial BOP Málaga nº70 (14-04-2026, CVE 20260414-01187-2026) — este es el documento ACTUAL (el BOP 90 de may-2025 traía 2025 provisionales, desfasado). Verificado leyendo imagen celda a celda. Pendiente: cafeterías (sección 4ª), secciones 5ª/6ª, y las tablas 2026 provisionales (págs 11-19).",
+  "$comment": "Tablas 2025 DEFINITIVAS transcritas al milímetro del PDF oficial BOP Málaga nº70 (14-04-2026, CVE 20260414-01187-2026) — este es el documento ACTUAL (el BOP 90 de may-2025 traía 2025 provisionales, desfasado). Verificado leyendo imagen celda a celda: TODAS las tablas salariales 2025 definitivas están cargadas (secciones 1ª-9ª, cafeterías sección 4ª incluida, cáterin y conceptos generales). Pendiente sólo: tablas 2026 provisionales (no se transcriben, regla D32). El BLOQUE NO SALARIAL (condiciones de trabajo: vacaciones, jornada, permisos, IT, disciplinario, sindical, etc.) se rellenó leyendo IMAGEN del texto ARTICULADO oficial del convenio 2018-2022 en vigor por prórroga (aehcos.es, arts 1º-78º + disposiciones + anexos), cada dato con su artículo. 2026-07-08.",
   "id": "malaga-hosteleria",
   "nombre": "Convenio colectivo del sector de Hostelería de la provincia de Málaga",
   "codigoRegcon": "29000945011981",
@@ -281,27 +281,130 @@
     }
   },
   "vacaciones": {
-    "$comment": "Sólo consta la 'bolsa de vacaciones anual' (retribución económica, art. 36). Los detalles del régimen de vacaciones (días, naturales/laborables, periodo de disfrute, fraccionamiento, retribución con complementos, baja durante vacaciones, festivos) NO figuran en esta publicación: el BOP nº70/2026 sólo publica las TABLAS SALARIALES, no el articulado del convenio. Requiere el texto consolidado del convenio (otra publicación).",
-    "bolsaVacacionesAnual": { "articulo": "Art. 36", "secciones1y2": 1557.90, "seccion7": 2076.38, "restoSecciones": 924.86 },
-    "dias": "pendiente",
-    "naturalesOLaborables": "pendiente",
-    "diasExtraPorAntiguedad": "pendiente",
-    "retribucion": "pendiente",
-    "periodoDisfrute": "pendiente",
-    "fijadasEmpresaOPactadas": "pendiente",
-    "fraccionamiento": "pendiente",
-    "bajaDuranteVacaciones": "pendiente",
-    "festivosDentroVacaciones": "pendiente"
+    "$comment": "Régimen de vacaciones leído en IMAGEN del texto articulado (art. 22º, con festivos en art. 23º). La 'bolsa de vacaciones' (art. 36º) es la retribución económica del plus de vacaciones, ya cargada en conceptosGenerales.",
+    "dias": 30,
+    "naturalesOLaborables": "naturales",
+    "articuloDias": "Art. 22º.1",
+    "diasExtraPorAntiguedad": { "valor": "no contempla", "nota": "El convenio no añade días de vacaciones por antigüedad. Existe aparte un régimen de 'licencia por extinción del contrato' (art. 24º) para quien cesa voluntariamente con 60+ años, que sí escala con la antigüedad — ver bloque licenciaPorExtincion." },
+    "retribucion": "pendiente (el art. 22º no detalla la fórmula de retribución de las vacaciones —salario base solo o promedio con complementos—; sólo consta el plus 'bolsa de vacaciones' del art. 36º. Duda para UGT)",
+    "periodoDisfrute": { "programacion": "La programación general de vacaciones se efectúa en diciembre por acuerdo entre empresa y representación legal; la concreción del periodo/periodos se fija de común acuerdo empresa-trabajador.", "articulo": "Art. 22º.2", "nota": "El articulado no bloquea meses concretos de temporada alta, aunque la distribución irregular de jornada (art. 18º.8) sí opera jun-sep." },
+    "fijadasEmpresaOPactadas": { "valor": "pactadas", "preavisoDias": 60, "nota": "El trabajador conocerá la fecha de disfrute al menos 2 meses antes del comienzo (art. 22º.3).", "articulo": "Art. 22º" },
+    "fraccionamiento": { "permitido": true, "condicion": "mediante acuerdo entre empresa y trabajador", "articulo": "Art. 22º.1" },
+    "bajaDuranteVacaciones": "pendiente (el art. 22º no regula expresamente la interrupción de las vacaciones por IT; aplica el art. 38.3 ET. El art. 23º sí prevé que la baja por IT interrumpe el disfrute de los DÍAS COMPENSATORIOS de festivos, que se reanudan tras el alta)",
+    "festivosDentroVacaciones": { "articulo": "Art. 23º", "regla": "Las empresas pueden exigir que los festivos legales no se disfruten en su fecha; se compensan (previo acuerdo) de una de tres formas: (1) abono al 175% del salario base; (2) disfrute en fecha distinta; (3) adición al periodo vacacional bajo la denominación 'festivos', computándose 14 festivos + 6 días de descanso semanal = 20 días (o la parte proporcional). Si un festivo coincide con las vacaciones NO se compensa, salvo que el sistema elegido sea el de adición al periodo vacacional. Los festivos que coincidan con baja por IT no se consideran trabajados y se descuentan del total a compensar. En caso de desacuerdo el trabajador puede elegir el pago del 50% de los días; en secciones 3ª-9ª (excepto catering/colectividades) el empresario puede optar por la forma de compensación." },
+    "bolsaVacacionesAnual": { "articulo": "Art. 36º", "secciones1y2": 1557.90, "seccion7": 2076.38, "restoSecciones": 924.86, "nota": "Importes 2025 (ya en conceptosGenerales). Plus salarial abonado en 12 mensualidades; el trabajador puede optar por cobro de una sola vez con preaviso de 15 días." },
+    "fuenteArticulado": { "documento": "Convenio Hostelería Málaga, texto articulado 2018-2022 en vigor por prórroga, arts. 22º, 23º y 24º", "url": "https://aehcos.es/wp-content/uploads/2018/07/CONVENIO-HOSTELERIA-2018-2022-definitivo-1.pdf" }
   },
-  "pagasExtraordinarias": "pendiente (nº de pagas y base no figuran en la publicación de tablas; requiere articulado del convenio, art. correspondiente por confirmar)",
-  "jornadaAnual": "pendiente (no figura en la publicación de tablas; requiere articulado del convenio)",
-  "nocturnidad": "pendiente (tramo horario y % o €/h no figuran en la publicación de tablas; requiere articulado del convenio)",
-  "horasExtraordinarias": "pendiente (precio/fórmula y tope anual no figuran en la publicación de tablas; requiere articulado del convenio)",
-  "antiguedad": "pendiente (escala y base no figuran en la publicación de tablas; requiere articulado del convenio)",
-  "permisosRetribuidos": "pendiente (matrimonio, fallecimiento/enfermedad grave, nacimiento, lactancia, mudanza, exámenes, deber inexcusable... no figuran en la publicación de tablas; requiere articulado del convenio)",
-  "complementoIT": "pendiente (complemento empresarial en baja médica —enfermedad común vs accidente laboral, % y días— no figura en la publicación de tablas; requiere articulado del convenio)",
-  "regimenDisciplinario": "pendiente (faltas leves/graves/muy graves, sanciones, procedimiento y prescripción del convenio no figuran en la publicación de tablas; requiere articulado del convenio. Base legal general: art. 58 ET)",
-  "representacionSindical": "pendiente (mejoras del convenio sobre crédito horario/garantías no figuran en la publicación de tablas; requiere articulado del convenio. Base legal general: arts. 62-68 ET, LOLS)",
+  "licenciaPorExtincion": {
+    "$comment": "Beneficio poco conocido (art. 24º): régimen de licencia RETRIBUIDA (exonerado de trabajar) para el trabajador con 60+ años que decide cesar voluntariamente, preavisando 7 meses. La duración escala con la antigüedad continuada en la misma empresa. Es independiente de las vacaciones anuales. También aplica al que se desvincule a los 65 años.",
+    "articulo": "Art. 24º",
+    "requisitos": { "edadMinima": 60, "preavisoMeses": 7, "cesionVoluntaria": true },
+    "escalaMesesLicencia": { "5anios": 2, "10anios": 3, "15anios": 4, "20anios": 5, "25anios_omas": 6 },
+    "retribucion": "Percibe lo que viniera percibiendo cada mensualidad + prorrata de gratificaciones; no devenga pluses variables ni descansos por vacaciones/fiestas durante la licencia."
+  },
+  "pagasExtraordinarias": {
+    "$comment": "Art. 31º Gratificaciones extraordinarias. Leído en imagen del articulado.",
+    "articulo": "Art. 31º",
+    "numero": 2,
+    "meses": ["julio", "diciembre"],
+    "base": "un mes de salario según tablas + complemento ad personam (el que sustituyó a la antigüedad, para quien lo tenga)",
+    "fechaAbono": "entre los días 15 y 20 del mes correspondiente",
+    "prorrateo": "Puede pactarse el prorrateo en las 12 mensualidades por acuerdo individual o de empresa. Las secciones 3ª-9ª (excepto catering y colectividades) pueden optar por prorratear mensualmente."
+  },
+  "jornadaAnual": {
+    "$comment": "Capítulo II del articulado (Tiempo de trabajo y descansos), arts. 18º-21º. Leído en imagen.",
+    "horas": 1800,
+    "articulo": "Art. 18º.1",
+    "horasSemanales": 40,
+    "distribucion": "en cómputo semanal (no cabe cómputo superior, salvo la distribución irregular del art. 18º.8)",
+    "maxHorasDiarias": 9,
+    "minHorasDiarias": 4,
+    "descansoEntreJornadasHoras": { "general": 12, "comedorBarCocina": 10, "nota": "Para el personal de comedor, bar y cocina el descanso entre jornadas puede calcularse en cómputo de hasta 4 semanas, no pudiendo ser inferior a 10 horas.", "articulo": "Art. 18º.4" },
+    "jornadaPartida": "Una única interrupción de 1 hora como mínimo; máximo 2 periodos de trabajo (art. 18º.5).",
+    "calendarioLaboral": "Antes del 15 de diciembre del año anterior. Cuadrantes de turnos/horarios/descansos: 2 semanas de antelación en jun-jul-ago-sep, 3 semanas el resto del año (art. 18º.6).",
+    "distribucionIrregular": { "maxHorasAnuales": 64, "meses": ["junio", "julio", "agosto", "septiembre"], "personal": "sólo fijos ordinarios y fijos discontinuos a tiempo completo; NO aplica a pisos, limpieza ni fregador de cocina (office)", "preavisoDias": 5, "compensacion": "por días completos de descanso, a partir de junio y hasta fin de año", "articulo": "Art. 18º.8" },
+    "descansoSemanal": { "dias": 2, "nota": "Descanso semanal de 2 días para todas las secciones (secciones 1ª/2ª ininterrumpidos, art. 69º; secciones 3ª/4ª/5ª art. 71º; sección 6ª art. 73º; secciones 7ª/8ª/9ª art. 77º)." },
+    "tiempoComida": { "minutos": 30, "consideracion": "tiempo de trabajo efectivo para el personal con derecho a manutención (art. 37º), en jornada de 40h/semana", "articulo": "Art. 21º" }
+  },
+  "nocturnidad": {
+    "$comment": "Art. 30º. Leído en imagen del articulado.",
+    "articulo": "Art. 30º",
+    "tramoHorario": "de 22:00 a 06:00 horas",
+    "incrementoPorcentaje": 25,
+    "baseCalculo": "salario base/hora del trabajador",
+    "excepcion": "No afecta a los trabajadores cuyo salario ya se estableció atendiendo a que su trabajo es nocturno por su propia naturaleza."
+  },
+  "horasExtraordinarias": {
+    "$comment": "Art. 19º. Leído en imagen del articulado.",
+    "articulo": "Art. 19º",
+    "compensacion": "A elección pactada de mutuo acuerdo empresa-trabajador, mediante UNA de estas dos formas: (a) abono de las horas incrementadas en un 75% sobre el valor del salario hora ordinaria; o (b) descanso: cada hora extraordinaria completa se compensa con 1 hora y 45 minutos de descanso.",
+    "incrementoAbonoPorcentaje": 75,
+    "equivalenciaDescansoPorHora": "1h 45min",
+    "topeAnual": "no fijado en el convenio (rige el tope general del art. 35.2 ET: 80 horas/año). El convenio sólo indica que se reducirán al mínimo indispensable.",
+    "iniciativa": "de la empresa, libremente aceptada por el trabajador"
+  },
+  "antiguedad": {
+    "$comment": "Art. 29º + Disposición Transitoria Segunda. La antigüedad como tal ESTÁ SUPRIMIDA en el sector desde el 31-03-1996 (art. 69 de la derogada Ordenanza Laboral de Hostelería). Leído en imagen.",
+    "articulo": "Art. 29º y D.T. Segunda",
+    "escala": "no existe escala de antigüedad vigente: el concepto quedó suprimido y no se consolidan nuevos tramos/trienios",
+    "sustituto": "complemento 'ad personam', congelado, que conservan sólo los trabajadores que ya lo percibían (los que a 31-03-1996 tenían cantidades de la antigüedad suprimida, más quienes estaban en curso de adquisición del primer tramo). Es NO absorbible ni compensable con ningún otro concepto y se revaloriza con los incrementos del art. 32º.",
+    "notaNuevoIngreso": "El personal de nuevo ingreso NO tiene derecho a antigüedad ni a consolidar tramos."
+  },
+  "permisosRetribuidos": {
+    "$comment": "Art. 20º Licencias. Matriz completa leída en imagen del articulado. Días naturales salvo indicación. Las parejas de hecho acreditadas se asemejan a los matrimonios en todos los permisos de situación familiar (art. 20º.5).",
+    "articulo": "Art. 20º",
+    "matrimonioOParejaHecho": { "dias": 15, "tipo": "naturales", "nota": "También aplica a la inscripción como pareja de hecho acreditada mediante registro. Letra d)." },
+    "nacimientoHijo": { "dias": 3, "tipo": "naturales", "nota": "Mismo apartado que fallecimiento/enfermedad grave (letra a). Puede fraccionarse. Suspensión por maternidad/paternidad se rige por la legislación vigente (art. 20º.4)." },
+    "fallecimientoAccidenteEnfermedadGraveHospitalizacion": { "dias": 3, "tipo": "naturales", "parentesco": "cónyuge y parientes de 1º y 2º grado de consanguinidad o afinidad (padres, suegros, hijos, yerno, nuera, abuelos, nietos, hermanos y cuñados)", "supuestos": "fallecimiento, accidente o enfermedad graves, hospitalización, o intervención quirúrgica sin hospitalización que precise reposo domiciliario", "ampliacionPorDesplazamiento": { "masDe30kmFueraLocalidad": 4, "fueraProvincia": 5, "fueraPeninsula": 6 }, "fraccionable": true, "letra": "a)" },
+    "enfermedadGraveOFallecimientoSobrinosYTios": { "dias": 2, "tipo": "naturales", "nota": "2 días por enfermedad grave (calificada por el médico) de sobrinos y tíos; 2 días por fallecimiento de sobrinos y tíos. Letra e)." },
+    "matrimonioHijoOHermano": { "mismaCiudad": 1, "otraLocalidadProvinciaMas30km": 2, "fueraProvincia": 3, "tipo": "días", "letra": "f)" },
+    "mudanzaTrasladoDomicilio": { "dias": 2, "tipo": "naturales", "letra": "b)" },
+    "deberInexcusablePublicoYPersonal": { "duracion": "el tiempo indispensable, según lo que dispongan las normas legales/convencionales aplicables", "letra": "c)" },
+    "lactancia": { "descripcion": "Hijo menor de 1 año: 1 hora de ausencia (divisible en 2 fracciones), o reducción de jornada de 1 hora, o acumulación en jornadas completas (máx. 28 días naturales, preaviso 15 días). Derecho individual del trabajador/a; sólo puede ejercerlo uno de los progenitores si ambos trabajan.", "letra": "g)" },
+    "asuntosPropios": { "dias": 1, "tipo": "día", "condicion": "trabajadores con contrato de 1 año o superior (y fijos discontinuos al cumplir un año de servicios). Solicitud por escrito con 15 días de antelación; no en fiesta laboral; no recuperable.", "letra": "h)" },
+    "cuestionesImprevistasEIndelegables": { "horasAnuales": 10, "condicion": "para atender a descendientes o ascendientes de 1º grado de consanguinidad menores de 18 o mayores de 65 años, debidamente justificadas", "articulo": "Art. 20º.3" },
+    "examenes": "no figura permiso específico por exámenes en el art. 20º (sí permiso de formación en art. 62º.3: retribuido al 50% de las horas del curso, una vez al año)"
+  },
+  "complementoIT": {
+    "$comment": "DATO ORO. Art. 60º Incapacidad Temporal por enfermedad o accidente. Leído en imagen del articulado. Distingue accidente de trabajo / hospitalización vs enfermedad común sin hospitalización.",
+    "articulo": "Art. 60º",
+    "accidenteTrabajo": { "complementoHasta": "100% del salario", "desde": "el primer día de la baja", "nota": "IT por accidente de trabajo debidamente acreditada." },
+    "enfermedadOAccidenteConHospitalizacion": { "complementoHasta": "100% del salario", "desde": "el primer día de la baja" },
+    "enfermedadComunOAccidenteSinHospitalizacion": {
+      "sustituidoPorInterino": { "complementoHasta": "100% del salario", "desde": "el día 31 de la baja" },
+      "noSustituidoConAntiguedadMin6Meses": { "complementoHasta": "100% del salario", "desde": "el primer día de la baja" },
+      "demasCasos": { "primeros20Dias": "60% del salario", "restoDeLaBaja": "75% del salario" }
+    },
+    "duracionMaxima": "18 meses a contar desde el día de la primera baja",
+    "seguros": {
+      "$comment": "Beneficios sociales del Capítulo VII, arts. 57º-59º.",
+      "indemnizacionViudedad": { "articulo": "Art. 57º", "segunAntiguedad": { "menos10anios": 2, "mas10": 3, "mas15": 4, "mas20": 5, "mas25": 6, "mas30": 7 }, "unidad": "mensualidades", "nota": "A viuda/o del trabajador fallecido; en su defecto a hijos menores/padres convivientes/hermanos dependientes." },
+      "indemnizacionIncapacidadPermanente": { "articulo": "Art. 58º", "segunAntiguedad": { "5anios": 2, "10anios": 3, "15anios": 4, "20anios": 5, "mas25": 6 }, "unidad": "mensualidades", "supuesto": "extinción del contrato por IP total, absoluta o gran invalidez" },
+      "seguroAccidente": { "articulo": "Art. 59º", "muerte": 6010, "incapacidadPermanenteTotalPorAccidente": 9015, "moneda": "EUR", "nota": "Póliza obligatoria para riesgos de muerte e IP total por accidente en la profesión habitual que conlleve pérdida del puesto." }
+    }
+  },
+  "regimenDisciplinario": {
+    "$comment": "El texto ARTICULADO del convenio provincial de Málaga (arts. 1º-78º, verificado en imagen completa) NO contiene un capítulo de régimen disciplinario (faltas y sanciones). Por el art. 7º (prelación de normas), en lo no previsto rige el ET y el ALEH V. Por tanto, las faltas leves/graves/muy graves, sanciones y procedimiento se rigen por el ALEH V (Acuerdo Laboral estatal de Hostelería) y el ET. La base legal general (VERIFICADA) se mantiene abajo para la app.",
+    "reguladoEnConvenioProvincial": false,
+    "remision": "ALEH V (régimen disciplinario del Acuerdo Laboral estatal de Hostelería) + Estatuto de los Trabajadores",
+    "baseLegalGeneral": {
+      "prohibidoSancionEconomica": "El empresario NO puede sancionar quitando dinero del sueldo ni recortando vacaciones/descansos (art. 58.3 ET). Descontar el tiempo NO trabajado por impuntualidad no es sanción.",
+      "procedimiento": "Faltas graves y muy graves requieren comunicación por escrito con fecha y hechos (art. 58 ET).",
+      "prescripcion": { "leves": "10 días", "graves": "20 días", "muyGraves": "60 días", "topeMaximo": "6 meses desde que se cometió" },
+      "revisable": "Toda sanción es revisable ante el Juzgado de lo Social."
+    }
+  },
+  "representacionSindical": {
+    "$comment": "Capítulo VI del articulado (Representación unitaria y sindical), arts. 53º-56º. El convenio MEJORA el crédito horario del ET. Leído en imagen.",
+    "articulo": "Arts. 53º-56º",
+    "creditoHorarioMensual": { "horas": 32, "articulo": "Art. 54º.1.a)", "nota": "MEJORA sobre el mínimo del art. 68.e) ET (15 h para ≤100 trabajadores). Cada representante legal dispone de 32 h mensuales retribuidas.", "variaciones": "En empresas de 50-250 trabajadores el resto de delegados disponen de 24 h/mes; en +250 según ET; en <50 trabajadores el miembro designado con disponibilidad plena tiene el 50% de la jornada efectiva (1 por centro)." },
+    "liberadosSindicales": "Las organizaciones sindicales más representativas del sector disponen de 14 miembros cada una con plena dedicación (relevados del trabajo sin merma de retribución), designados entre delegados de personal, miembros de comité o delegados sindicales (art. 54º.1.b)).",
+    "acumulacionHoras": "Acumulación de horas sindicales (art. 68 ET): máx. 2 trabajadores por centro; no en departamentos con menos de 5 trabajadores; no entre trabajadores de la misma función (art. 54º.2).",
+    "seccionesSindicales": { "articulo": "Art. 55º", "constitucion": "Sindicatos con al menos el 25% de afiliación de la plantilla, en empresas de más de 50 trabajadores. Empresas de 50-250 trabajadores: derecho a un delegado sindical.", "delegadoSindical": "mismos derechos y garantías que los representantes unitarios" },
+    "asambleas": "Preaviso mínimo de 48 horas a la dirección (art. 53º).",
+    "cuotaSindical": "La empresa descuenta la cuota en nómina a petición escrita del trabajador y la transfiere a la central sindical (mensual en empresas +50 trab., trimestral en el resto) (art. 56º).",
+    "baseLegalGeneral": "ET arts. 62-68 y LOLS: delegados de personal (6-49 trab.) o comité de empresa (50+); garantías del art. 68 ET (expediente contradictorio, prioridad de permanencia, no despido/sanción por actividad representativa durante el mandato y el año siguiente)."
+  },
   "periodoPrueba": {
     "$comment": "El articulado provincial NO fija días propios de periodo de prueba: el art. 38º.3 remite expresamente al ALEH V. Verificado leyendo imagen del articulado (Convenio de Hostelería de Málaga, texto 2018-2022 en vigor, Cap. V Contratación).",
     "articulo": "Artículo 38º.3 (Capítulo V — Contratación y Periodo de Prueba)",
@@ -313,18 +416,110 @@
       "url": "https://aehcos.es/wp-content/uploads/2018/07/CONVENIO-HOSTELERIA-2018-2022-definitivo-1.pdf"
     }
   },
-  "excedencias": "pendiente (requiere articulado del convenio)",
+  "excedencias": {
+    "$comment": "Art. 25º (Capítulo III). El convenio amplía la excedencia voluntaria sobre el régimen legal. Leído en imagen.",
+    "articulo": "Art. 25º",
+    "regimenBase": "el establecido en la normativa legal (ET art. 46), ampliado en la voluntaria",
+    "voluntariaObligatoria": "Concesión OBLIGATORIA de excedencia voluntaria cuando se fundamente en causas justificadas de orden familiar o terminación de estudios. La empresa debe contestar por escrito en 15 días naturales.",
+    "reingreso": "El trabajador debe comunicar el reingreso por escrito con al menos 1 mes de antelación al vencimiento; la empresa queda obligada a darle ocupación efectiva en su plaza y en la fecha solicitada.",
+    "reincorporacionAnticipada": "Si solicita reincorporarse antes del fin del periodo, la empresa —si el puesto no está cubierto— debe darle ocupación efectiva en el plazo de 1 mes desde la petición.",
+    "retribucion": "sin derecho a retribución; el tiempo de excedencia no se computa a ningún efecto",
+    "excedenciaForzosaYCuidado": "no reguladas específicamente en el convenio; rige el ET art. 46 (forzosa por cargo público, cuidado de hijos/familiares con reserva de puesto)"
+  },
+  "ascensos": {
+    "$comment": "El convenio no establece un sistema formal y detallado de ascensos por concurso/examen. Lo que consta: promoción económica de ayudantes (art. 32º.2) y consideración de titulaciones para ascensos (D.T. Primera). Leído en imagen.",
+    "articulo": "Art. 32º.2 y Disposición Transitoria Primera",
+    "promocionEconomicaAyudantes": "Los ayudantes de cocina y ayudantes de camarero contratados desde 01-01-2018, tras 12 meses de servicio (continuo o discontinuo) en la empresa, convergen salarialmente con el grupo superior (cocinero/camarero): percibían el 25% (2019), 50% (2020), 75% (2021) y 100% (desde 2022) del diferencial entre niveles. Los ayudantes de recepción quedaron encuadrados en el grupo salarial IV.",
+    "titulaciones": "Las titulaciones y cursos promovidos por la comisión de formación pueden tenerse en cuenta para los ascensos profesionales (D.T. Primera).",
+    "coberturaVacantes": "Para cubrir puestos fijos, preferencia de los fijos discontinuos más antiguos de cada departamento/especialidad (art. 44º)."
+  },
+  "polivalencia": {
+    "$comment": "El convenio provincial NO regula específicamente el trabajo de categoría/grupo superior ni la polivalencia funcional; rige la movilidad funcional del art. 39 ET (si se hacen funciones de grupo superior, derecho a la retribución superior). La única regla convencional próxima es la promoción económica de ayudantes del art. 32º.2 (ver bloque ascensos). Verificado leyendo el articulado completo.",
+    "reguladoEnConvenio": false,
+    "remision": "Art. 39 ET (movilidad funcional / trabajos de grupo superior e inferior)",
+    "notaConflictos": "Las discrepancias sobre clasificación profesional, movilidad funcional y trabajos de inferior/superior grupo se someten a mediación SERCLA (art. 15º) y comisión paritaria."
+  },
+  "contratacion": {
+    "$comment": "Capítulo V del articulado (arts. 38º-52º), con especial relevancia del contrato fijo-discontinuo (art. 45º), clave en hostelería. Leído en imagen.",
+    "articulo": "Arts. 38º-52º",
+    "periodoPrueba": "remitido al ALEH V (art. 38º.3) — ver bloque periodoPrueba",
+    "fijoDiscontinuo": {
+      "articulo": "Art. 45º",
+      "definicion": "Contratados para trabajos fijos y periódicos dentro del volumen normal de actividad, que no exigen prestación todos los días laborables del año. Los periodos no se conciertan por fechas ciertas, sino cuando la actividad lo requiere.",
+      "llamamiento": "Por orden de MAYOR ANTIGÜEDAD del trabajador en la empresa, dentro de cada especialidad, y siempre que haya necesidad de trabajo. Por escrito, con constancia fehaciente, con antelación NO inferior a 48 horas.",
+      "renuncia": "Se entiende que el trabajador renuncia a su puesto si no se incorpora en la fecha convocada.",
+      "sinContratoCadaVez": "No firman contrato cada vez que inician actividad; basta el alta en Seguridad Social.",
+      "proteccion": "No se pueden contratar eventuales para puestos que puedan ser ocupados por fijos discontinuos o fijos a tiempo parcial según el orden de llamamiento (art. 45º.6)."
+    },
+    "empleoIndefinido": {
+      "articulo": "Art. 43º",
+      "porcentajesIndefinidos": { "de9a20": "58%", "de21a29": "68%", "de30omas": "80%", "nota": "empresas de más de 8 trabajadores; % de contratos indefinidos (fijos + fijos discontinuos) sobre la plantilla" },
+      "porcentajesFijos": { "de9a20": "30%", "de21a29": "40%", "de30omas": "50%", "nota": "% que dentro de los indefinidos deben ser fijos ordinarios" },
+      "noAplica": "durante los 3 primeros años de actividad de la empresa"
+    },
+    "eventualCircunstanciasProduccion": { "articulo": "Art. 41º", "duracionMaxima": "12 meses dentro de un periodo de 18 meses" },
+    "formacionYAprendizaje": { "articulo": "Art. 39º", "duracionMinima": "6 meses", "salarioBase": "85% del salario mínimo del sector (art. 33º), en proporción al tiempo efectivo" },
+    "practicas": { "articulo": "Art. 40º", "salario": "85% de la retribución del puesto equivalente", "regimen": "cap. IV del ALEH V" },
+    "interinidad": { "articulo": "Art. 42º" },
+    "relevoYJubilacionParcial": { "articulo": "Art. 47º", "preaviso": "2 meses para comunicar la intención de jubilación parcial" },
+    "preavisoBajaVoluntaria": { "articulo": "Art. 49º", "jefes": "30 días naturales", "restoTrabajadores": "15 días naturales", "incumplimiento": "descuento de 1 día de salario por cada día de preaviso incumplido" },
+    "finiquitos": { "articulo": "Art. 50º", "regla": "El recibo de finiquito sólo es válido si, pasados 15 días naturales, el trabajador no ha manifestado disconformidad." },
+    "empresasTrabajoTemporal": { "articulo": "Art. 52º", "regla": "Contrato de puesta a disposición por acumulación de tareas: máx. 1 mes en el término de 1 año. El personal de la ETT goza de todos los derechos económicos y sociales del convenio." }
+  },
+  "formacion": {
+    "$comment": "Capítulo VIII del articulado (art. 62º) + comisión de formación. Leído en imagen.",
+    "articulo": "Art. 62º",
+    "comisionFormacion": "Comisión paritaria que determina necesidades formativas, planes, prioridades y criterios de selección.",
+    "asistenciaCursosEmpresa": "Obligatoria para los cursos programados por la empresa. Si no coinciden con la jornada, la empresa ofrece descanso compensatorio (mitad del tiempo empleado fuera de jornada) o modifica el horario.",
+    "permisoFormacionSectorial": { "retribucion": "50% de las horas de duración del curso", "frecuencia": "una vez al año", "articulo": "Art. 62º.3", "limite": "no en fechas de alta productividad estacional; máx. 5% de trabajadores ausentes a la vez" },
+    "permisosIndividualesFormacion": "acceso a los PIF regulados en los acuerdos sectoriales, salvo afectación a necesidades productivas"
+  },
+  "dietasYKilometraje": {
+    "$comment": "El convenio no fija dieta por comida/cena/pernocta ni €/km de desplazamiento como tales; lo más próximo es el 'plus de distancia' (art. 35º) y la manutención (art. 37º). Leído en imagen.",
+    "plusDistancia": { "articulo": "Art. 35º", "regla": "Cuando el centro de trabajo está fuera del casco urbano de la residencia, la empresa compensa el desplazamiento con el importe de los billetes del servicio público de transporte (autobús/tren) necesarios. Si el trabajo empieza/termina fuera del horario del transporte público, la empresa debe proveer medio de transporte hasta la residencia." },
+    "manutencion": { "articulo": "Art. 37º", "regla": "Derecho a una comida sana y suficiente en comedor de empresa; compensable en metálico (58,27 €/mes en 2025, ver conceptosGenerales). Durante vacaciones, si no come en la empresa, se compensa en metálico." },
+    "dietaKilometraje": "no fijados específicamente en el convenio"
+  },
+  "igualdadYAcoso": {
+    "$comment": "El convenio provincial NO incluye un protocolo específico de acoso, plan de igualdad ni permisos de violencia de género que mejoren el ET/LOI; rigen la Ley Orgánica 3/2007 (igualdad) y la normativa general. Lo que SÍ consta son medidas de protección puntuales. Verificado leyendo el articulado completo.",
+    "protocoloAcoso": "no regulado en el convenio (rige la normativa general y, en su caso, el ALEH V / LOI 3/2007)",
+    "planIgualdad": "no regulado en el convenio",
+    "violenciaGenero": "no mejorado en el convenio (rige el ET/normativa general)",
+    "proteccionEmbarazo": { "articulo": "Art. 66º", "regla": "Si el médico de la SS prescribe cambio de condiciones/tiempo de trabajo por el embarazo, la empresa debe realizar el cambio (si hay plaza compatible), respetando las condiciones económicas de la categoría anterior; en reducción de jornada, retribución proporcional." },
+    "contratoDiscapacidad": { "articulo": "Art. 67º", "regla": "Empresas de 50+ trabajadores de promedio: al menos 2% de trabajadores con discapacidad; si es posible, 1% con discapacidad del 65% o más." },
+    "adaptacionIncapacidadSobrevenida": { "articulo": "Art. 65º", "regla": "Las empresas realizarán los esfuerzos necesarios para readaptar al personal afectado por una incapacidad física sobrevenida." }
+  },
+  "clasificacionProfesional": {
+    "$comment": "Anexo III del articulado: puestos incluidos en cada grupo salarial por sección. Estructura de grupos leída en imagen (no se transcribe cada categoría porque las tablas salariales ya las recogen). Referencia para el comprobador de categoría.",
+    "fuente": "Anexo III del texto articulado 2018-2022",
+    "estructura": {
+      "seccion1": "Grupos I a V (Grupo I: jefe de administración, jefe de recepción, jefe de cocina, primer maitre, gobernante general con idiomas...; Grupo V: auxiliares, ayudantes, limpiadoras, botones... e incluye la categoría 'auxiliar de pisos', máx. 20% del personal del departamento de pisos)",
+      "seccion2": "Grupos I a V",
+      "seccion3": "Grupos I a VII (Grupo I: jefe de cocina/operaciones/administrativo/compras; Grupo VII: ayudantes de preparación y pinches menores de 18 años, aprendices)"
+    },
+    "nota": "El detalle categoría a categoría figura en las tablas salariales de cada sección (ya cargadas) y en el Anexo III."
+  },
   "ropaTrabajo": {
     "$comment": "El convenio abona plus de vestuario (art. 17) como compensación económica; el detalle de si la empresa entrega uniforme físico requiere el articulado.",
     "plusVestuario": { "articulo": "Art. 17", "secciones1y2_hoteles543": 58.27, "secciones1y2_resto": 29.13, "secciones3y4y5_lujoYcafeterias3tazas": 58.27, "secciones3y4y5_resto": 29.13, "seccion6": 29.13 },
-    "entregaUniformeFisico": "pendiente (requiere articulado del convenio)"
+    "entregaUniformeFisico": {
+      "articulo": "Art. 17º",
+      "obligacionEmpresa": "La empresa está obligada a entregar la ropa de trabajo y los uniformes cuando los exija para la prestación del servicio. Incluye zapatos/zapatillas (1 par al año). Al personal de cocina se le proporciona vestuario en número de 3 al año.",
+      "duracion": "la fija empresa y representantes; en desacuerdo, un vestuario de invierno y otro de verano.",
+      "opcionCompensacionMetalica": "La empresa puede sustituir la entrega por una compensación económica mensual (art. 17º.5). Importes históricos del articulado: hoteles/aptos 5-4-3* y restaurantes de lujo/cafetería 3 tazas 49,85 € (2018) hasta 55,02 € (2022); resto de establecimientos 24,89 € (2018) hasta 27,47 € (2022). El importe vigente 2025 figura en conceptosGenerales.vestuario.",
+      "uso": "el trabajador debe usarlo sólo dentro de las instalaciones y durante la jornada."
+    }
   },
   "pendiente": [
-    "TODO EL ARTICULADO: esta publicación (BOP nº70/2026) contiene SÓLO las tablas salariales (definitivas 2025 + provisionales 2026), no el texto normativo del convenio. Los siguientes bloques requieren el CONVENIO CONSOLIDADO (otra publicación): vacaciones (días/disfrute/fraccionamiento/retribución/baja), permisos retribuidos, complemento IT baja médica, régimen disciplinario, representación sindical, jornada anual, nocturnidad, horas extra, antigüedad, nº de pagas extraordinarias, periodo de prueba, excedencias, ascensos, polivalencia, contratación (fijo-discontinuo), igualdad y acoso.",
-    "Tablas 2026 PROVISIONALES (págs 12-20 del PDF): NO se transcriben (regla D32, sólo definitivas).",
+    "vacaciones.retribucion: el art. 22º no detalla si las vacaciones se retribuyen con salario base solo o con promedio de complementos (nocturnidad, festivos...). Duda para UGT.",
+    "vacaciones.bajaDuranteVacaciones: el art. 22º no regula expresamente la interrupción de vacaciones por IT (aplica art. 38.3 ET).",
+    "regimenDisciplinario: NO existe en el articulado provincial (arts. 1º-78º leídos íntegros); remitido al ALEH V + ET art. 58. Capturada la base legal general. Confirmar con UGT las faltas/sanciones concretas del ALEH V.",
+    "polivalencia / trabajos de categoría superior: NO regulados en el convenio provincial (rige art. 39 ET). Sólo consta la promoción económica de ayudantes (art. 32º.2).",
+    "igualdadYAcoso: el convenio provincial NO incluye protocolo de acoso, plan de igualdad ni mejoras de violencia de género (rige LOI 3/2007 y normativa general). Sólo protección de embarazo (art. 66º) y cuota de discapacidad (art. 67º).",
+    "Tablas 2026 PROVISIONALES (págs 12-20 del PDF de tablas): NO se transcriben (regla D32, sólo definitivas).",
     "Confirmar con UGT: 'Ayudante casado' (sección 6ª) — posible errata del boletín."
   ],
-  "estado": "tablasSalariales2025def_verificado_completo (articulado pendiente: la fuente es sólo tablas)",
-  "verificadoContra": "PDF oficial BOP Málaga nº70 (14-04-2026), CVE 20260414-01187-2026, renderizado a imagen (dpi 185) y leído celda a celda. Verificadas TODAS las tablas 2025 DEFINITIVAS: secciones 1ª/2ª (mes+hora), 3ª restaurantes (cocina+comedor+personal varios), cáterin, 4ª cafeterías (mostrador+sala y varios), 5ª bares americanos (barra+sala) y mostrador de cafés/bares (mostrador+varios+limpieza), 6ª casinos/salas de fiestas, 7ª tabernas, 8ª casinos (oficina+subalterno), 9ª billares, y conceptos económicos generales. El documento NO contiene articulado, por lo que los bloques no salariales quedan pendientes.",
+  "estado": "verificado_completo (tablas salariales 2025def + bloque no salarial del articulado 2018-2022 en vigor)",
+  "verificadoContra": "DOS fuentes oficiales, ambas leídas en IMAGEN (dpi 185), no en texto extraído: (1) TABLAS SALARIALES — PDF oficial BOP Málaga nº70 (14-04-2026), CVE 20260414-01187-2026, leído celda a celda: TODAS las tablas 2025 DEFINITIVAS (secciones 1ª/2ª mes+hora, 3ª restaurantes cocina+comedor+personal varios, cáterin, 4ª cafeterías, 5ª bares americanos y mostrador cafés/bares, 6ª casinos/salas fiestas, 7ª tabernas, 8ª casinos, 9ª billares, y conceptos económicos generales). (2) BLOQUE NO SALARIAL — texto ARTICULADO del Convenio de Hostelería de Málaga 2018-2022 (en vigor por prórroga; aehcos.es), arts. 1º-78º + disposiciones adicionales/transitorias + anexos I-III, leído página a página (49 págs). Rellenados con su artículo: jornada anual (art.18º), horas extra (art.19º), licencias/permisos (art.20º), tiempo comida (art.21º), vacaciones (art.22º), festivos (art.23º), licencia por extinción (art.24º), excedencias (art.25º), antigüedad suprimida→ad personam (art.29º + D.T.2ª), nocturnidad (art.30º), pagas extra (art.31º), promoción económica/ascensos (art.32º.2), plus distancia (art.35º), manutención (art.37º), contratación y fijo-discontinuo (arts.38º-52º), representación sindical (arts.53º-56º), indemnizaciones y seguros (arts.57º-59º), complemento IT (art.60º), formación (art.62º), protección embarazo/discapacidad (arts.66º-67º), ropa de trabajo (art.17º), clasificación profesional (anexo III). Periodo de prueba y régimen disciplinario: remitidos al ALEH V.",
   "fechaVerificacion": "2026-07-08"
 }
