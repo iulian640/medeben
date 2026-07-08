@@ -22,9 +22,32 @@ export class ApiError extends Error {
   }
 }
 
+/**
+ * Token de sesión SOLO en memoria (requisito de seguridad: nunca localStorage,
+ * sessionStorage ni cookies legibles por JS — un XSS no debe poder exfiltrar
+ * una credencial persistida). Al recargar la página se pierde y toca hacer
+ * login otra vez; aceptado para v1.
+ */
+let authToken: string | null = null
+
+/** Aviso de sesión inválida (401 con token). Lo registra main.ts para limpiar sesión y llevar a login. */
+let onUnauthorized: (() => void) | null = null
+
+export function setAuthToken(token: string | null) {
+  authToken = token
+}
+
+export function setOnUnauthorized(handler: (() => void) | null) {
+  onUnauthorized = handler
+}
+
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+
+  // Capturado antes del await: si la sesión cambia en vuelo, el 401 de esta
+  // respuesta solo dispara el handler si ESTA petición iba autenticada.
+  const tokenEnviado = authToken
 
   let response: Response
   try {
@@ -34,11 +57,18 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
       ...options,
       headers: {
         'Content-Type': 'application/json',
+        ...(tokenEnviado ? { Authorization: `Bearer ${tokenEnviado}` } : {}),
         ...options.headers,
       },
     })
   } finally {
     clearTimeout(timeout)
+  }
+
+  // 401 con token = sesión caducada o inválida. Sin token (p. ej. un login
+  // fallido) NO es una sesión caducada y no debe redirigir a nadie.
+  if (response.status === 401 && tokenEnviado !== null) {
+    onUnauthorized?.()
   }
 
   if (!response.ok) {
