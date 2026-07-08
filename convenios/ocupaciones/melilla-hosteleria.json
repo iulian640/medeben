@@ -1,71 +1,71 @@
 {
-  "$comment": "SIN MAPEOS POSIBLES: el convenio (Anexo II) define áreas funcionales y 3 grupos profesionales por área, pero la correspondencia categoría→grupo NO figura en el convenio provincial (se toma del ALEH y está marcada 'pendiente' en la transcripción). Mapear un puesto a un grupo sería inventar. Cuando se incorpore la clasificación del ALEH, los 16 puestos serán mapeables a {areaFuncional, grupoProfesional}.",
+  "$comment": "SIN MAPEO A GRUPO POSIBLE (verificado contra el PDF oficial completo BOME-A-2025-717, BOME nº 6291, págs. 2421-2433). El convenio estructura la retribución por 6 ÁREAS FUNCIONALES × 3 GRUPOS PROFESIONALES (Anexo II). El ÁREA FUNCIONAL de cada puesto SÍ es derivable y está citada en la nota de cada ocupación (Anexo II + Art. 2.c, que enumera 'camareras de pisos, personal de restaurante, cocina y recepción'). Lo que FALTA es la correspondencia categoría→GRUPO PROFESIONAL (Primero/Segundo/Tercero): el convenio provincial NO la enumera y la remite al ALEH estatal como derecho supletorio (Art. 6.b); además el Art. 23 trata los propios grupos profesionales como las 'Categorías' de la tabla, sin desglosarlos por ocupación. Sin el grupo no se puede fijar el salario (dentro de cada área el salario cambia por grupo, y el grupo Tercero de las áreas segunda/cuarta/quinta/sexta se retribuye a S.M.I. y no genera hecho). Fijar un grupo sería inventar (REGLA DE ORO: dato ausente > dato erróneo), así que las dimensiones quedan a null y el puesto cae en modo manual (el trabajador introduce su salario base desde la nómina). CUANDO SE TRANSCRIBA la clasificación categoría→grupo del ALEH, completar cada puesto con dimensiones {\"areaFuncional\": <la de su nota: primera|segunda|tercera|cuarta>, \"grupoProfesional\": \"grupoPrimero\"|\"grupoSegundo\"|\"grupoTercero\"}; el areaFuncional ya está resuelto en la nota. NUNCA inventar: si el ALEH tampoco clasificara un puesto, null y punto.",
   "id": "melilla-hosteleria",
-  "articulo": "Anexo II (áreas funcionales y grupos profesionales; detalle de categorías remitido al ALEH)",
+  "articulo": "Anexo II (áreas funcionales y grupos profesionales) + Art. 2.c (actividades funcionales); correspondencia categoría→grupo remitida al ALEH (Art. 6.b, Art. 23), pendiente de transcribir",
   "ocupaciones": {
     "jefe-cocina": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "segundo-jefe-cocina": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "jefe-partida": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "cocinero": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "repostero": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; la repostería se integra en cocina/economato). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "ayudante-cocina": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null. Ojo: el grupo Tercero del área segunda se retribuye a S.M.I. y no genera hecho."
     },
     "auxiliar-cocina": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null. Ojo: el grupo Tercero del área segunda se retribuye a S.M.I. y no genera hecho."
     },
     "jefe-sala": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering', Anexo II; Art. 2.c cita 'personal de restaurante'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "camarero": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering', Anexo II; Art. 2.c cita 'personal de restaurante'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "ayudante-camarero": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering', Anexo II; Art. 2.c cita 'personal de restaurante'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "barman": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares...', Anexo II; el bar se integra en el área tercera). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "sumiller": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares...', Anexo II; servicio de sala/restaurante). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "recepcionista": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'primera' ('Recepción-Conserjería, Relaciones Públicas, Administración y Gestión', Anexo II; Art. 2.c cita 'recepción'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "camarera-pisos": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'cuarta' ('Pisos y Limpieza', Anexo II; Art. 2.c cita 'camareras de pisos'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null. Ojo: el grupo Tercero del área cuarta se retribuye a S.M.I. y no genera hecho."
     },
     "administrativo": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'primera' ('Recepción-Conserjería, Relaciones Públicas, Administración y Gestión', Anexo II). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
     },
     "personal-limpieza": {
       "dimensiones": null,
-      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+      "nota": "Área funcional 'cuarta' ('Pisos y Limpieza', Anexo II). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null. Ojo: el grupo Tercero del área cuarta se retribuye a S.M.I. y no genera hecho."
     }
   }
 }
