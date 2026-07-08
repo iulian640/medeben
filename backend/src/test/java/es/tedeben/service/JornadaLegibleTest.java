@@ -138,7 +138,10 @@ class JornadaLegibleTest {
             var resultado = valorHora("tenerife-hosteleria", 2026);
 
             assertThat(resultado.valorHora()).isEqualByComparingTo(new BigDecimal("9.1853"));
-            assertThat(resultado.jornadaAnualHoras()).isEqualByComparingTo(new BigDecimal("1829"));
+            assertThat(resultado.divisorHoras()).isEqualByComparingTo(new BigDecimal("1829"));
+            // Clave para el frontend: NO es jornada anual (Tenerife no la fija) y
+            // el desglose no debe etiquetarlo como tal.
+            assertThat(resultado.esDivisorExplicito()).isTrue();
         }
 
         @Test
@@ -164,6 +167,7 @@ class JornadaLegibleTest {
                     sintetico, Year.of(2026), SALARIO_BASE, BigDecimal.ZERO).orElseThrow();
 
             assertThat(resultado.valorHora()).isEqualByComparingTo(new BigDecimal("8.4000"));
+            assertThat(resultado.esDivisorExplicito()).isTrue();
             assertThat(resultado.citas())
                     .anySatisfy(cita -> assertThat(cita.texto()).contains("Art. 99"))
                     .noneSatisfy(cita -> assertThat(cita.texto()).contains("Art. 10"));

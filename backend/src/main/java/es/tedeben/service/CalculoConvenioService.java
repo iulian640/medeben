@@ -84,7 +84,8 @@ public class CalculoConvenioService {
                 + " mensualidades al año (" + articulo(nodoPagas(convenio)) + " del convenio)",
                 convenio.fuenteUrl()));
         return Optional.of(new ValorHoraCalculado(
-                valorHora, salarioBaseMensual, mensualidades.get(), plusesAnuales, divisor.get(), citas));
+                valorHora, salarioBaseMensual, mensualidades.get(), plusesAnuales,
+                divisor.get(), divisorExplicito.isPresent(), citas));
     }
 
     /**

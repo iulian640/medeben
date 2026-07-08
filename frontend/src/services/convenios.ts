@@ -48,7 +48,9 @@ export interface DesgloseValorHora {
   salarioBaseMensual: number
   mensualidades: number
   plusesAnuales: number
-  jornadaAnualHoras: number
+  /** Divisor aplicado: jornada anual o divisor explícito del convenio (ver flag). */
+  divisorHoras: number
+  esDivisorExplicito: boolean
   valorHora: number
 }
 

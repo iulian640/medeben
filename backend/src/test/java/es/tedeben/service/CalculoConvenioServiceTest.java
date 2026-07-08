@@ -60,7 +60,9 @@ class CalculoConvenioServiceTest {
         assertThat(resultado.salarioBaseMensual()).isEqualByComparingTo(SALARIO_BASE_COCINERO_B_2025);
         assertThat(resultado.mensualidades()).isEqualByComparingTo(new BigDecimal("14"));
         assertThat(resultado.plusesAnuales()).isEqualByComparingTo(PLUSES_ANUALES_2025);
-        assertThat(resultado.jornadaAnualHoras()).isEqualByComparingTo(new BigDecimal("1800"));
+        assertThat(resultado.divisorHoras()).isEqualByComparingTo(new BigDecimal("1800"));
+        // Madrid divide por su jornada anual, no por un divisor explícito del convenio.
+        assertThat(resultado.esDivisorExplicito()).isFalse();
     }
 
     @Test
