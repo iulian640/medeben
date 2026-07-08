@@ -135,7 +135,7 @@ public class CalculoConvenioService {
      */
     private static Optional<BigDecimal> mensualidades(JsonNode pagasNodo) {
         JsonNode equivalentes = pagasNodo.path("mensualidadesEquivalentes");
-        if (equivalentes.isNumber()) {
+        if (equivalentes.isNumber() && equivalentes.decimalValue().compareTo(MINIMO_MENSUALIDADES) >= 0) {
             return Optional.of(equivalentes.decimalValue());
         }
         JsonNode cantidad = pagasNodo.path("cantidad");
