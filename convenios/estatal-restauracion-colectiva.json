@@ -3,7 +3,10 @@
   "id": "estatal-restauracion-colectiva",
   "nombre": "Convenio colectivo estatal de restauración colectiva",
   "codigoRegcon": "99100165012016",
-  "ambitoTerritorial": { "tipo": "estatal", "cobertura": "toda España" },
+  "ambitoTerritorial": {
+    "tipo": "estatal",
+    "cobertura": "toda España"
+  },
   "ambitoFuncional": "restauracion-colectiva",
   "ambitoFuncionalDescripcion": "Comedores de colegios, hospitales, residencias, empresas y colectividades. Convenio único estatal, pero con tablas salariales por provincia en sus anexos.",
   "fuente": {
@@ -13,9 +16,16 @@
     "documento": "BOE-A-2025-12598",
     "url": "https://www.boe.es/boe/dias/2025/06/20/pdfs/BOE-A-2025-12598.pdf"
   },
-  "vigencia": { "desde": "2025-01-01", "hasta": "2025-12-31", "nota": "Suscrito 30-12-2024, publicado 20-06-2025. Confirmar prórroga/ultraactividad para 2026." },
+  "vigencia": {
+    "desde": "2025-01-01",
+    "hasta": "2025-12-31",
+    "nota": "Suscrito 30-12-2024, publicado 20-06-2025. Confirmar prórroga/ultraactividad para 2026."
+  },
   "marcoNacional": {
-    "jornadaAnual": { "horas": 1800, "diariaMax": "9 h (excepcionalmente 10)" },
+    "jornadaAnual": {
+      "horas": 1800,
+      "diariaMax": "9 h (excepcionalmente 10)"
+    },
     "nocturnidad": {
       "$comment": "NO existe un porcentaje de nocturnidad uniforme a nivel estatal. El anterior 'nocturnidadPct: 25' era una sobregeneralización engañosa. La regulación general del Art. 22 (apartados 22.1 y 22.2) NO fija ninguna cuantía de nocturnidad; esta se remite al apartado 'Jornada especialidades' del propio Art. 22, que recoge reglas ESPECÍFICAS por provincia (condiciones más beneficiosas). Cada provincia fija su propia regla: un %, un importe de tabla, o remisión al convenio provincial de hostelería. Verificado visualmente en el PDF del BOE-A-2025-12598, págs. 82108-82114.",
       "articulo": "Artículo 22. Jornada laboral — apartado 'Jornada especialidades'",
@@ -66,24 +76,521 @@
       "fuentePagina": "BOE nº148, Sec. III pág. 82201",
       "salarioBase2025": {
         "$comment": "Salario base mensual €. Categorías agrupadas tal cual el convenio.",
-        "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gobernante o Encargado general / Responsable de servicio": 1044.00,
-        "2º jefe de cocina / 2º jefe de restaurante o sala / Gerente de centro / Recepcionista / Administrativo / Técnico / Encargado de economato / Supervisor de colectividades / Encargado de sección / Técnico de servicio": 1005.30,
+        "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gobernante o Encargado general / Responsable de servicio": 1044.0,
+        "2º jefe de cocina / 2º jefe de restaurante o sala / Gerente de centro / Recepcionista / Administrativo / Técnico / Encargado de economato / Supervisor de colectividades / Encargado de sección / Técnico de servicio": 1005.3,
         "Cocinero / Camarero / Especialista de mantenimiento y servicios auxiliares": 996.31,
         "Ayudante administrativo / de cocina / de economato / de camarero": 996.31,
         "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento / Monitor de colectividades": 996.31
       },
       "complementos": {
-        "pagasExtra": { "cantidad": 3, "meses": ["julio", "diciembre", "enero (paga de octubre)"], "base": "salario base + antigüedad" },
+        "pagasExtra": {
+          "cantidad": 3,
+          "meses": [
+            "julio",
+            "diciembre",
+            "enero (paga de octubre)"
+          ],
+          "base": "salario base + antigüedad"
+        },
         "seguroVida2025": 19298.58,
         "nacimientoHijo2025": 102.39,
         "kilometraje": "0,19 €/km descontando 2 km por recorrido",
         "premioJubilacion": "4 mensualidades",
-        "antiguedadConsolidada": { "3años": 3, "6años": 8, "9años": 16, "14años": 26, "19años": 38, "24años": 45, "27años": 55, "30años": 60, "$comment": "% sobre salario, solo personal antiguo con antigüedad consolidada a 31-12-2012" }
+        "antiguedadConsolidada": {
+          "3años": 3,
+          "6años": 8,
+          "9años": 16,
+          "14años": 26,
+          "19años": 38,
+          "24años": 45,
+          "27años": 55,
+          "30años": 60,
+          "$comment": "% sobre salario, solo personal antiguo con antigüedad consolidada a 31-12-2012"
+        }
+      }
+    },
+    "Almeria": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82164",
+      "salarioBase2025": {
+        "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala / Gerente de centro / Gobernante/a o Encargado/a general / Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud)": 1275.12,
+        "2.º Jefe/a de cocina / 2.º Jefe/a de restaurante o sala / Recepcionista / Administrativo / Técnico": 1194.53,
+        "Subgobernante o Encargado/a de sección / Encargado/a de economato / Supervisor/a de colectividades / Especialista de mantenimiento y servicios auxiliares / Auxiliar de mantenimiento y servicios auxiliares": 1149.73,
+        "Cocinero/a / Camarero/a / Conductor/a": 1105.14,
+        "Ayudante administrativo / de cocina / de economato / de camarero / Auxiliar de pisos y limpieza / de cocina / de colectividades / Monitor/a": 1059.9
+      },
+      "complementos": {
+        "nocturnidad": "De 22:00 a 7:00: >=55 horas/mes 122,46 EUR/mes; menos de 55 horas/mes 1,20 EUR/hora",
+        "pagasExtra": "3 (julio + diciembre y paga de abril; la paga de abril es de 30 dias de salario base)",
+        "seguroAccidentes2025": 26030.13,
+        "subsidioMatrimonio": 75.52,
+        "antiguedad": "3% a los 3 anios, 8% a los 6, 16% a los 9, 25% a los 14, 38% a los 19"
+      }
+    },
+    "Cadiz": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82165",
+      "salarioBase2025": {
+        "1.ª Jefe/a de recepción": 1752.62,
+        "2.º Jefe/a de cocina": 1617.65,
+        "3.º Recepcionista": 1487.74,
+        "Grupo 1": 1235.82,
+        "Grupo 2": 1210.72,
+        "Grupo 3": 1196.19,
+        "Grupo 4 y 5 (monitor de colectividades)": 1179.1
+      },
+      "complementos": {
+        "nocturnidad": "+25% sobre salario base",
+        "pagasExtra": "3 (julio, Navidad y paga de octubre)",
+        "seguroColectivo2025": "7.879,95 muerte natural / incapacidad; 15.759,89 muerte por accidente; 23.639,84 muerte por accidente de circulacion",
+        "ropaTrabajo": 23.93,
+        "quebrantoMoneda": 29.28,
+        "premioNatalidad": 139.04,
+        "antiguedad": "sobre base 615,44 EUR: 4% a los 5 anios, 8% a los 10, 12% a los 15, 16% a los 20, 20% a los 25"
+      }
+    },
+    "Cordoba": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82166",
+      "$comment": "El BOE imprime 3 tablas para Cordoba (5 estrellas, Tabla A, Tabla B). 'Tabla A - Nivel 1' aparece literalmente como '1.21,73' en el BOE (aparente errata del original, probablemente 1.321,73); transcrito tal cual, sin corregir. Verificado sobre imagen renderizada del PDF.",
+      "salarioBase2025": {
+        "5 estrellas - Nivel 1": 1349.35,
+        "5 estrellas - Nivel 2": 1323.89,
+        "5 estrellas - Nivel 3": 1246.9,
+        "5 estrellas - Nivel 4": 1221.65,
+        "5 estrellas - Nivel 5": 1211.38,
+        "Tabla A - Nivel 1": "1.21,73",
+        "Tabla A - Nivel 2": 1296.77,
+        "Tabla A - Nivel 3": 1221.67,
+        "Tabla A - Nivel 4": 1196.62,
+        "Tabla A - Nivel 5": 1186.58,
+        "Tabla B - Nivel 1": 1296.77,
+        "Tabla B - Nivel 2": 1271.66,
+        "Tabla B - Nivel 3": 1196.62,
+        "Tabla B - Nivel 4": 1186.58,
+        "Tabla B - Nivel 5 (Monitor/a)": 1176.64
+      },
+      "complementos": {
+        "nocturnidad": "No figura importe/porcentaje en el anexo de Cordoba; aplicar regla general Art. 22 / convenio provincial",
+        "pagasExtra": "2 completas (15 junio y 15 diciembre) + 2 de 15 dias (1 mayo y 15 septiembre)",
+        "seguroAccidentes": "24.000 EUR muerte por accidente; 27.000 EUR incapacidad permanente total/absoluta",
+        "subsidioDefuncion": 346.59,
+        "uniformidadCompleta": 17.33,
+        "antiguedad": "3% al cumplir 3 anios en la empresa"
+      }
+    },
+    "Granada": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82167",
+      "salarioBase2025": {
+        "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gerente de centro / Gobernante o encargado general": 1752.62,
+        "2.º Jefe de cocina / 2.º jefe de restaurante o sala / Responsable de servicio / Encargado de economato": 1617.42,
+        "Jefe de Partida / Jefe de Sector / 2.ª Jefe de Bar": 1493.25,
+        "Recepcionista / Administrativo / Técnico / Cocinero / Camarero / Supervisor de colectividades / Encargado de sección / Técnico de servicio": 1487.76,
+        "Ayudante de cocina / de economato / de camarero / Especialista de mantenimiento y servicios auxiliares / auxiliar de cocina / Monitora": 1440.04,
+        "Auxiliar de pisos y limpieza / de colectividades / de mantenimiento y servicios auxiliares": 1370.56
+      },
+      "complementos": {
+        "nocturnidad": "15% sobre salario base",
+        "premioMatrimonio": 168.69,
+        "premioNatalidad": 168.69,
+        "plusCultural": "370,91 EUR (solo septiembre)",
+        "antiguedad": "tope maximo 8% del SMI: 3% a los 3 anios, 8% a los 6"
+      }
+    },
+    "Malaga": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82171",
+      "salarioBase2025": {
+        "Jefe/a de comedor o maestro": 1414.04,
+        "Jefe/a de cocina": 1413.64,
+        "Segundo jefe/a de cocina": 1358.76,
+        "Segundo jefe/a comedor / Jefe de sector": 1353.51,
+        "Jefe/a partida / Encargado economato": 1353.5,
+        "Limpiador/a (jornada entera)": 1338.49,
+        "Cocinero/a / Pizzero/a / Dietista": 1338.45,
+        "Camarero/a": 1323.43,
+        "Ayudante camarero/a / Ayudante cocinero/a / Repartidor/a / Pinche / Fregadores / Personal plateria / Monitor/a": 1302.74,
+        "Limpiador/a (media jornada)": 669.33
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base/hora (Art. 22 marco, Malaga: trabajo de 22:00 a 06:00)",
+        "pagasExtra": "2 (julio y diciembre)",
+        "plusAyudaFamiliar": 27.93,
+        "seguroAccidentes": "6.010 EUR fallecimiento; 9.015 EUR incapacidad permanente total con perdida del puesto"
+      }
+    },
+    "Sevilla": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82173",
+      "salarioBase2025": {
+        "Nivel 1": 1299.79,
+        "Nivel 2": 1266.88,
+        "Nivel 3": 1235.9,
+        "Nivel 4 y 5 (Monitor/a)": 1157.48
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario/hora ordinario entre 22:00 y 06:00 para jornada parcialmente nocturna",
+        "pagasExtra": "3 (1 abril, 15 julio y 15 diciembre); salario base + antiguedad",
+        "plusNatalidad": 42.16,
+        "ayudaDiscapacitados": 117.29,
+        "seguroColectivo2025": 31268.65,
+        "plusConvenio": "20 dias al anio (salario base + antiguedad) en octubre",
+        "antiguedad": "congelada desde 01-01-1995: 3% 3 anios, 8% 6, 16% 9, 26% 14, 38% 19, 45% 24 (personal anterior)"
+      }
+    },
+    "Zaragoza": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82176",
+      "salarioBase2025": {
+        "Jefe/a de recepción / Jefe/a de cocina / Jefe/a restaurante o sala / Responsable de servicio": 1367.25,
+        "2.º Jefe/a de cocina / 2.º Jefe/a de restaurante o sala / Gerente de centro / Gobernante/a o Encargado/a general": 1324.31,
+        "Recepcionista / Administrativo/a / Técnico / Cocinero/a / Encargado de economato / Camarero/a / Supervisor/a de colectividades / Encargado/a de sección / Técnico de servicio": 1258.4,
+        "Ayudante administrativo/a / de cocina / de economato / de camarero/a / Especialista de mantenimiento y servicios auxiliares": 1151.99,
+        "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares / Monitor/a": 1150.85
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base",
+        "pagasExtra": "2 (julio y navidad, salario base + antiguedad) + paga extra 15 de octubre (1.259,23 EUR)",
+        "plusDomingosFestivos": "1,21 EUR/hora trabajada",
+        "ayudaFormacion": "156,20 EUR (100 horas/anio)",
+        "seguroFallecimientoInvalidez": 17297.5
+      }
+    },
+    "Asturias": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82177",
+      "salarioBase2025": {
+        "Jefe de recepción / jefe de restaurante o sala": 1539.26,
+        "Técnico de servicio (fisioterapeuta, dietista, otras ciencias salud) / 2.º jefe de restaurante o sala": 1485.84,
+        "Jefe de cocina / Conductor / administrativo / camarero": 1408.84,
+        "Gobernante o Encargado general / Supervisor de colectividades / Cocinero / 2.º jefe de cocina": 1355.37,
+        "Recepcionista": 1326.11,
+        "Técnico / Auxiliar de colectividades / Ayudante administrativo / encargado de economato / ayudante de camarero / Monitor/a": 1274.58,
+        "Subgobernante o Encargado de sección / Ayudante de cocina": 1220.31,
+        "Ayudante de economato / Especialista de mantenimiento y servicios auxiliares / Auxiliar de pisos y limpieza / Auxiliar de mantenimiento y servicios auxiliares": 1198.46
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base entre las 22:00 y las 8:00",
+        "pagasExtra": "2 (julio y diciembre) + paga extraordinaria Santa Marta (1.190,12 EUR)",
+        "complemento24y31Diciembre": "3,52 EUR/hora",
+        "seguroColectivo": "7.500 muerte natural; 15.325,81 muerte por accidente; 31.252,63 gran invalidez / incapacidad absoluta; 21.035,42 incapacidad total"
+      }
+    },
+    "Las Palmas": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82178",
+      "salarioBase2025": {
+        "Nivel I - Contable general / Jefe/a de administración / Jefe/a de cocina / Primer jefe/a de comedor / Jefe/a de sala / Encargado/a general o gobernanta de primera / Titulado grado medio o superior / Primer barman": 1578.44,
+        "Nivel II - Cajero/a general / Contable / Segundo/a jefe/a de cocina / Repostero/a Jefe / Encargado/a de economato o bodega / Segundo Jefe/a de comedor / Gobernanta de segunda / Supervisor de Catering / Dietista": 1470.73,
+        "Nivel III - Recepcionista / Jefe de partida / Oficial repostero/a / Jefe de sector / Subgobernanta / Encargado/a de almacén / Conserje / Chofer mas de 3.500 kg": 1426.94,
+        "Nivel IV - Cajero/a de comedor o bar / Cocinero/a / Camarero/a / Dependiente/a / Planchista / Auxiliar administrativo / Oficial de mantenimiento": 1396.33,
+        "Nivel V - Ayudantes no incluidos en el nivel IV / Marmiton / Pinche mayor de 18 anios / Fregaderos / Limpiadores/as / Auxiliar de mantenimiento": 1359.08
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base",
+        "pagasExtra": "2 (julio y navidad, una mensualidad)",
+        "seguroVidaIncapacidad": 12632.54,
+        "bolsaVacaciones": 1448.89,
+        "plusDesgasteUtiles": "8,90 EUR"
+      }
+    },
+    "Santa Cruz de Tenerife": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82180",
+      "salarioBase2025": {
+        "Jefe/a de cocina / Jefe/a de comedor / Primer Barman / Jefe/a de compras / Contable general / Jefe/a de sala / Gobernanta/e / Primer encargado de cafeteria / Jefe/a de operaciones / Supervisor/a / Titulados de grado medio y superior": 1422.64,
+        "Encargado/a de trabajo / Contable / Cajero/a general / Segundo/a Jefe/a de cocina / 2.º Jefe/a de comedor / 2.º Jefe/a de sala / 2.º Barman / Repostero/a / 2.º encargado/a de mostrador / 2.º jefe de sección": 1338.73,
+        "Jefe/a de partida / Jefe/a de sector / 2.º encargado/a de trabajos / Subgobernante/a / Oficial de contabilidad / Secretario/a / Encargado/a de economato y bodega / Relaciones publicas / Conductor de primera": 1271.89,
+        "Telefonista / Cafetero/a / Bodeguero/a / Camarero/a de comedor y bares / Cocinero/a / Sumiller / Cajeros/as / Auxiliar Administrativo / Preparador/a / Monitor/a-cuidador/a de colectividades": 1210.99,
+        "Ayudante en general / Mozos/as / Pinche de cocina / Fregador/a / Limpiador/a": 1104.34
+      },
+      "complementos": {
+        "nocturnidad": "No figura importe/porcentaje en el anexo de S.C. de Tenerife; remite al Convenio Provincial de Hosteleria de S.C. de Tenerife",
+        "natalidad": "86,68 EUR (padre y madre, salvo que ambos trabajen en la misma empresa)",
+        "seguroVidaIncapacidad": 15000,
+        "bolsaVacaciones": "1.380,05 EUR (30 dias naturales trabajando festivos), con tramos inferiores segun dias",
+        "desgasteUtiles": "7,66 EUR/mes"
+      }
+    },
+    "Barcelona": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82197",
+      "salarioBase2025": {
+        "NIV. 1 - Jefe/a cocina / Jefe/a de operaciones / Jefe/a de sala / Supervisor/a de explotaciones / Encargado/a general / Jefe/a de sector": 1792.12,
+        "NIV. 2 - Segundo/a jefe/a de cocina / Supervisor/a / Cajero/a administrativo / Jefe/a de sector / Jefe/a de compras / Encargado/a de explotación / Técnico/a de mantenimiento / Jefe/a de equipo / Secretario/a de dirección": 1677.26,
+        "NIV. 3 - Chofer 2.ª / Dependiente/a / Barman-barwoman / Camarero/a / Cocinero/a / Planchista / Cajero/a / Oficial 2.º contabilidad / Oficial mantenimiento / Operador/a informatica / Dietista titulado con 1 anio / Comercial": 1615.46,
+        "NIV. 4 - Ayudante/a dependiente/a / cocinero/a / camarero/a / Auxiliar de oficina / Ayudante/a supervisor/a / equipo / mantenimiento / Dependiente/a de autoservicio / Dietista sin experiencia / Auxiliar servicios colectividades / Monitor/a-cuidador": 1495.29,
+        "NIV. 5 - Marmitones / Mozo/a de limpieza / Fregador/a y limpiador/a / Mozo/a de almacen / Ayudante/a de economato / Preparador/a / Pinche mayor de 18 anios / Personal de limpieza": 1467.21,
+        "NIV. 5 BIS - primer empleo en el sector o sin experiencia profesional": 1307.06,
+        "NIV. 6 - Pinche de 16 y 17 anios / Aspirante administrativo/a (colectividades)": 1146.86
+      },
+      "complementos": {
+        "$comment": "El anexo de Barcelona recoge la tabla de salario base por niveles; no incluye bloque de complementos especifico en esta pagina del BOE."
+      }
+    },
+    "Girona": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82197",
+      "salarioBase2025": {
+        "NIV. 1 - Jefe/a de administración / comercial / cocina / sala": 1739.97,
+        "NIV. 2 - Segundo/a jefe/a de cocina / Jefe/a de catering / de operaciones de catering / Segundo/a jefe/a de sala / Gerente de centro / Encargado/a general": 1649.99,
+        "NIV. 3 - Administrativo/a / Comercial / Técnico PRL / Jefe/a de partida / de sala / de sector / Encargado/a de sección / Jefe/a de servicios de catering / Responsable de servicio / Técnico de servicio": 1553.64,
+        "NIV. 4 - Conserje / Administrativo/a / Ayudante Administrativo/a / Cocinero/a / Encargado/a de economato / Jefe/a de sala de catering / Camarero/a / Dependiente/a 1.ª / Supervisor de catering / Encargados y especialistas de mantenimiento": 1446.8,
+        "NIV. 5 - Ayudante/a de cocina / de camarero/a / cafeteria / Conductor/a de equipo de catering / Ayudante/a de equipo de catering / Preparador/a de restauración moderna / Especialistas de mantenimiento": 1335.42,
+        "NIV. 6 - Auxiliar de cocina / Marmitones-Pinches / Auxiliar de buffet / de preparación/montaje de catering / de restauración moderna / Monitor/a o cuidador/a de colectividades / ASL": 1319.68,
+        "NIV. 7 - Auxiliar de cocina / Auxiliar limpieza": 1270.84
+      },
+      "complementos": {
+        "$comment": "El anexo de Girona recoge la tabla de salario base por niveles; no incluye bloque de complementos especifico en esta pagina del BOE."
+      }
+    },
+    "A Coruna": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82202",
+      "salarioBase2025": {
+        "Gerente de Centro / Jefe/a de cocina": 1294.23,
+        "Jefe/a de restaurante o sala / jefe/a de recepción / supervisor/a de colectividades": 1293.93,
+        "2.ª Jefe/a de cocina": 1279.86,
+        "2.ª Jefe/a de restaurante o sala / Gobernanta o encargado/a general / Responsable de servicio / recepcionista / Administrativo/a / Técnico / Encargado/a de sección": 1285.93,
+        "Ayudante Administrativo": 1255.2,
+        "Camarero/a / Técnico de servicio / Especialista de servicio auxiliares": 1255.44,
+        "Encargado/a de economato y cocinero/a": 1234.55,
+        "Ayudante de cocina / de economato / de camarero/a": 1205.98,
+        "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios generales": 1179.26
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base",
+        "pagasExtra": "3 (navidad, julio y septiembre)",
+        "seguroVida": 12000,
+        "seguroAccidentes": "24.000 EUR (muerte o incapacidad permanente total/absoluta/gran invalidez)",
+        "matrimonio": 179.89
+      }
+    },
+    "Pontevedra": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82205",
+      "salarioBase2025": {
+        "Nivel 1": 1620.73,
+        "Nivel 2 - Jefe/a de cocina / de catering / de restaurante o sala": 1491.9,
+        "Nivel 3": 1410.71,
+        "Nivel 4 - 2.º jefe/a de cocina / Jefe/a de partida / de operaciones de catering / Segundo Jefe/a de restaurante o sala / de sector / de sala de catering": 1324.14,
+        "Nivel 5 - Cocinero/a / Camarero/a / Sumiller / Supervisor de catering / Jefe/a de equipo de catering / Supervisor/a de colectividades": 1232.11,
+        "Nivel 6": 1188.88,
+        "Nivel 7 - Jefe/a comercial / Repostero/a / Encargado/a de economato / Encargado/a general de limpieza / Jefe de servicios de catering / Encargado/a de mantenimiento": 1150.94,
+        "Nivel 8 - Administrativo / Relaciones publicas / Comercial / Ayudante de economato / Encargado/a de sección de limpieza / Especialistas de mantenimiento / Monitor/a-cuidador / Dietista / Técnico actividades fisicas": 1107.64,
+        "Nivel 9 - Ayudante administrativo / de cocina / Auxiliar de cocina / Ayudante de camarero/a / Preparador o montador de catering / Conductor/a y Ayudante de equipo de catering / Auxiliar de colectividades / de limpieza / de mantenimiento": 1042.68
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base",
+        "pagasExtra": "3 (julio, diciembre y septiembre)",
+        "antiguedad": "consolidada; desde 1995, 14,38 EUR por cada quinquenio",
+        "premiosPermanencia": "1 mensualidad (5-9 anios), 2 (10-14), 3 (15-19), 4 (a partir de 20 anios)"
+      }
+    },
+    "Islas Baleares": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82206",
+      "salarioBase2025": {
+        "Nivel I - Jefe/a de cocina / Encargado/a / Sup. Operaciones": 1881.25,
+        "Nivel II - 2.º Jefe/a de cocina / Resp. Dietistas": 1750.44,
+        "Nivel III - Dietista / Jefe/a de Partida": 1620.06,
+        "Nivel IV - Cocinero/a / Camarero/a / Conductor/a / Coordinador/a Servicios": 1497.22,
+        "Nivel V - Ayudantes / Auxiliares Colectividades / Auxiliares Administrativos": 1404.04,
+        "Nivel VI - Pinche / ASL / Rep. Vending / Mozo/a / Monitor/a": 1332.65
+      },
+      "complementos": {
+        "$comment": "El anexo de Islas Baleares recoge la tabla de salario base por niveles; no incluye bloque de complementos especifico en esta pagina del BOE.",
+        "nocturnidad": "No figura en el anexo; aplicar regla general Art. 22 / convenio provincial"
+      }
+    },
+    "La Rioja": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82206",
+      "salarioBase2025": {
+        "Jefe/a de cocina / Jefe/a de operaciones / Segundo jefe/a de cocina / Jefe/a de Administración": 1423.33,
+        "Jefe/a de sala / jefe/a de partida / supervisor/a": 1357.36,
+        "Cocinero/a / repostero/a / jefe/a de equipo": 1324.42,
+        "Ayudante de supervisor/a / conductor/a-repartidor/a": 1291.82,
+        "Administrativo/a": 1226.3,
+        "Monitor/a de catering/colectividades / ayudante de cocinero/a-repostero/a / ayudante de equipo": 1225.54,
+        "Ayudante administrativo / preparador/a / repartidor/a / limpiador/a": 1209.04
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base",
+        "noche24y31Diciembre": 50,
+        "pagasExtra": "2 (junio y diciembre)",
+        "seguroAccidentes": "30.000 EUR",
+        "antiguedad": "3% 3 anios, 8% 6, 16% 9, 26% 14, 38% 19, 45% 24"
+      }
+    },
+    "Madrid": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82207",
+      "salarioBase2025": {
+        "Dietista / Encargado de establecimiento / Jefe de cocina / Cocinero-Encargado": 1194.31,
+        "Responsable de auxiliares de servicio y limpieza / Cocinero": 1158.83,
+        "Ayudante de cocina / Camarero/a / Chofer / Mozo / Auxiliar administrativo de explotación": 1123.5,
+        "Auxiliar de servicio de limpieza / dependiente de barra / pinche / marmiton / vigilante de comedor y patio (monitor/a)": 1087.72
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base, de 22:00 a 8:00",
+        "pagasExtra": "2 (junio y diciembre)",
+        "gratificacionMatrimonioPareja": 940.39,
+        "quebrantoMoneda": 53.44,
+        "seguro": "14.000 EUR (incapacidad permanente total/absoluta, gran invalidez y fallecimiento; antiguedad minima 10 anios)",
+        "complementoPermanencia": "1 mensualidad (abonable en marzo) a partir de 58 anios y 10 de antiguedad",
+        "antiguedad": "3% 3 anios, 8% 6, 16% 9, 26% 14, 38% 19, 45% 24"
+      }
+    },
+    "Melilla": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82208",
+      "salarioBase2025": {
+        "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala / Gerente de centro": 1208.69,
+        "2.º jefe/a de cocina / 2.º jefe/a de restaurante o sala / Gobernante o Encargado/a general / Responsable de servicio / Administrativo/a / Técnico / Encargado/a de sección / Aydte. Administrativo/a": 1167.34,
+        "Cocinero/a / Encargado/a de economato / Camarero/a / Supervisor/a de colectividades / Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud)": 1146.31,
+        "Aydte. de cocina / de economato / de Camarero / Especialista de mantenimiento y servicios auxiliares / Monitor/a-cuidador/a": 1132.73,
+        "Recepcionista / Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares": 1112.15
+      },
+      "complementos": {
+        "nocturnidad": "27% sobre salario base; jornadas con mas de 4,5 h en 22:00-06:00 se consideran nocturnas por completo (Art. 22 marco)",
+        "pagasExtra": "3 (junio, septiembre y navidad)",
+        "subsidioMatrimonio": 619.11,
+        "quebrantoMoneda": 102.53,
+        "plusResidencia": "25% del salario base",
+        "seguro": 21656.02,
+        "antiguedad": "5% 3 anios, 9% 6, 17% 9, 25% 12, 30% 15, 40% 18, 50% 21"
+      }
+    },
+    "Murcia": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82209",
+      "salarioBase2025": {
+        "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala / Gerente de centro": 1036.36,
+        "2.º jefe/a de cocina / 2.º jefe/a de restaurante o sala": 1007.69,
+        "Gobernante/a o Encargado/a general": 998.54,
+        "Recepcionista / Administrativo/a / Técnico de servicio / Aydte. Administrativo": 998.54,
+        "Cocinero/a": 998.54,
+        "Encargado/a de economato / Aydte. de Camarero/a": 998.54,
+        "Camarero/a / Supervisor de colectividades / Encargado/a de sección": 998.54,
+        "Aydte. de cocina / de economato / Auxiliar de cocina": 998.54,
+        "Especialista de mantenimiento y servicios auxiliares": 998.54,
+        "Auxiliar de pisos y limpieza / de colectividades / de mantenimiento y servicios auxiliares / Monitor/a-cuidador/a": 998.54
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario base (22:00-06:00); 10% sobre salario base para trabajos nocturnos por su naturaleza",
+        "pagasExtra": "2 (junio y navidad)",
+        "matrimonio": 88.99,
+        "seguroAccidentes": 24040.48,
+        "premioVinculacion": "29 dias de salario base + ad personam, pagaderos el 15 de septiembre",
+        "fallecimientoTrabajador": "4 mensualidades"
+      }
+    },
+    "Alicante": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82212",
+      "salarioBase2025": {
+        "Nivel 1": 1377.53,
+        "Nivel 2": 1311.81,
+        "Nivel 3": 1283.33,
+        "Nivel 4": 1207.18,
+        "Nivel 5": 1173.37,
+        "Nivel 6": 1165.43
+      },
+      "complementos": {
+        "nocturnidad": "por hora: Nivel I 1,15 EUR; II 1,09 EUR; III 1,07 EUR; IV 1,00 EUR; V y VI 0,97 EUR",
+        "ayudaMatrimonio": 240.23,
+        "plusResponsabilidad": 56.12,
+        "gratificacionOctubre": 1126.67,
+        "plusPenosidad": "5% del salario base (personal en centros sanitarios)",
+        "plusPeligrosidad": "10% del salario base (empresas de catering, Art. 34 Convenio Hosteleria Alicante)"
+      }
+    },
+    "Valencia": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82215",
+      "salarioBase2025": {
+        "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gerente de centro / Responsable de servicio": 1484.81,
+        "2.º jefe de cocina / 2.º jefe de restaurante o sala / Gobernante o Encargado general / Administrativo / Técnico / Supervisor de colectividades / Técnico de servicio": 1430.21,
+        "Recepcionista / Cocinero / Encargado de economato / Camarero / Especialista de mantenimiento y servicios auxiliares": 1348.25,
+        "Aydte. de cocina / Administrativo / de economato / de Camarero / Auxiliar de colectividades": 1293.6,
+        "Auxiliar de pisos y limpieza / de cocina / de mantenimiento y servicios auxiliares / Monitor/a": 1221.31
+      },
+      "complementos": {
+        "nocturnidad": "20% sobre salario garantizado (trabajos no nocturnos por naturaleza)",
+        "pagasExtra": "3 (junio, navidad y paga de beneficios)",
+        "complementoPuestoTrabajo": "64,72 EUR (colectividades/restauración social con tareas de gestion; no aplica a Jefes/2.º Jefe/Jefe de Partida)",
+        "seguroAccidentes": "24.000 EUR",
+        "festivosAbonables": "por nivel: I 128,89; II 124,16; III 116,82; IV 112,26; V 105,85"
+      }
+    },
+    "Guipuzcoa": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82218",
+      "salarioBase2025": {
+        "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala": 1865.5,
+        "2.º jefe/a de cocina / 2.º jefe/a de restaurante o sala / Gerente de centro / Gobernante/a o Encargado/a general / Responsable de servicio / Administrativo/a / Técnico": 1753.49,
+        "Recepcionista / Cocinero/a / Encargado/a de economato / Camarero/a / Supervisor/a de colectividades / Encargado/a de sección / Técnico de servicio / Aydte. Administrativo/a": 1604.37,
+        "Aydte. de cocina / de economato / de Camarero/a / Especialista y Auxiliar de mantenimiento y servicios auxiliares": 1529.62,
+        "Auxiliar de pisos y limpieza / de colectividades": 1492.09,
+        "Auxiliar de cocina": 1478.03
+      },
+      "complementos": {
+        "nocturnidad": "25% sobre salario ordinario",
+        "pagasExtra": "2 (julio y septiembre)",
+        "antiguedad": "por trienios segun nivel: minimo 63,52 EUR, maximo 82,54 EUR",
+        "seguroColectivo": "8.017 muerte/incapacidad por enfermedad; 15.584 por accidente; 23.334 accidente de circulacion"
+      }
+    },
+    "Vizcaya": {
+      "estado": "verificado",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82218",
+      "salarioBase2025": {
+        "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala / Gerente de centro": 1755.86,
+        "2.º jefe/a cocina / 2.º jefe/a restaurante o sala / Gobernante/a o Encargado/a general / Administrativo/a / Encargado/a de economato / Encargado/a de sección / Especialista de mantenimiento y servicios auxiliares": 1667.48,
+        "Responsable de servicio / Recepcionista / Técnico / Cocinero/a / Camarero/a / Supervisor/a de colectividades / Técnico de servicio / Auxiliar de mantenimiento y servicios auxiliares": 1549.5,
+        "Aydte. Administrativo / de cocina / Auxiliar de colectividades / Aydte. de Camarero/a / Monitor/a": 1463.39,
+        "Aydte. de economato / Auxiliar de pisos y limpieza / de cocina": 1363.12
+      },
+      "complementos": {
+        "nocturnidad": "Se estara a lo dispuesto en el Convenio de Hosteleria de Vizcaya",
+        "pagasExtra": "3 (abril, julio y diciembre)",
+        "plusDesgasteHerramientas": "42,99 EUR/mes",
+        "seguroVida": "7.800 fallecimiento por enfermedad / incapacidad permanente; 15.600 fallecimiento por accidente; 23.400 accidente de circulacion",
+        "antiguedad": "3% 3 anios, 5% 6, 8% 9, 10% 14, 12% 19, 7% 24 (acumulado 8/16/26/38/45%)"
       }
     }
   },
-  "provinciasPendientes": "~50 provincias con tablas en los anexos del BOE (Lugo, Barcelona, Madrid, etc.). Carga incremental por población. Mientras tanto, modo configurable a mano.",
-  "estado": "verificado_marco_y_muestra",
-  "verificadoContra": "PDF oficial BOE-A-2025-12598 renderizado a imagen y leído visualmente (marco nacional + periodo de prueba + provincia de Cáceres).",
+  "provinciasPendientes": {
+    "$comment": "Provincias del BOE-A-2025-12598 cuyas tablas de anexo aun no se han transcrito. Cada una con su pagina del BOE (Sec. III) para la proxima pasada. Nunca inventar: leer la imagen/PDF oficial.",
+    "Huelva": "82168",
+    "Jaen": "82169",
+    "Huesca": "82174",
+    "Teruel": "82175",
+    "Cantabria": "82181",
+    "Albacete": "82182",
+    "Ciudad Real": "82182-82183",
+    "Cuenca": "82184",
+    "Guadalajara": "82185",
+    "Toledo": "82186",
+    "Avila": "82187",
+    "Burgos": "82188",
+    "Leon": "82189",
+    "Palencia": "82190",
+    "Salamanca": "82191",
+    "Segovia": "82192",
+    "Soria": "82193",
+    "Valladolid": "82194",
+    "Zamora": "82195",
+    "Lleida": "82198",
+    "Tarragona": "82199",
+    "Ceuta": "82199",
+    "Badajoz": "82200-82201",
+    "Lugo": "82203-82204 (tabla multi-columna por categoria de establecimiento: 5/4 tenedores, 3 tenedores, 1/2 tenedores, con Plus de Vestuario)",
+    "Ourense": "82204-82205"
+  },
+  "estado": "verificado_marco_y_24_provincias",
+  "verificadoContra": "PDF oficial BOE-A-2025-12598 renderizado a imagen y/o leido de la capa de texto del propio BOE (marco nacional + periodo de prueba + 24 provincias: Caceres, Almeria, Cadiz, Cordoba, Granada, Malaga, Sevilla, Zaragoza, Asturias, Las Palmas, S.C. de Tenerife, Barcelona, Girona, A Coruna, Pontevedra, Islas Baleares, La Rioja, Madrid, Melilla, Murcia, Alicante, Valencia, Guipuzcoa, Vizcaya). Resto pendiente.",
   "fechaVerificacion": "2026-07-08"
 }
