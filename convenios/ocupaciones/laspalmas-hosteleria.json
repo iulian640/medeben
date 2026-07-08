@@ -1,0 +1,84 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para laspalmas-hosteleria, derivado del Anexo II de la transcripción (niveles I, II, III, IV, IVbis, V del personal). La dimensión que falta (clasificacionEstablecimiento, 1-5 del Anexo I; bares-cafeterías y restaurantes = 5 desde 01-01-2024) la responde el usuario con la pregunta del tipo de establecimiento. OJO: las listas de categorías del Anexo II están ABREVIADAS en la transcripción (terminan en '...'), por lo que varios puestos quedan a null aunque el BOP probablemente los clasifique. NUNCA inventar.",
+  "id": "laspalmas-hosteleria",
+  "articulo": "Anexo II (categorías o niveles del personal)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "nota": "Anexo II: '2º jefe/a de cocina' está en el nivel II (no en el I, a diferencia de otros convenios)."
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "La transcripción del Anexo II (niveles del personal) es una lista ABREVIADA (termina en '...'); este puesto no aparece en lo transcrito y no se asigna nivel sin el Anexo II completo. Resolver vía opción 'otro' o completando la transcripción del Anexo II."
+    },
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "El nivel V incluye 'ayudantes no incluidos en nivel IV', pero la lista transcrita del nivel IV está abreviada ('...'), así que no puede determinarse si el ayudante de cocina cae en IV o en V sin el Anexo II completo. La transcripción del Anexo II (niveles del personal) es una lista ABREVIADA (termina en '...'); este puesto no aparece en lo transcrito y no se asigna nivel sin el Anexo II completo. Resolver vía opción 'otro' o completando la transcripción del Anexo II."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "nota": "Anexo II: 'marmitón, pinche, fregadero/platero' (nivel V)."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "La transcripción indica expresamente: para camarero/a de bar o restaurante, nivel IV (columna 5 de establecimiento desde 01-01-2024)."
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "El nivel V incluye 'ayudantes no incluidos en nivel IV', pero la lista transcrita del nivel IV está abreviada ('...'), así que no puede determinarse si el ayudante de camarero cae en IV o en V sin el Anexo II completo. La transcripción del Anexo II (niveles del personal) es una lista ABREVIADA (termina en '...'); este puesto no aparece en lo transcrito y no se asigna nivel sin el Anexo II completo. Resolver vía opción 'otro' o completando la transcripción del Anexo II."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "Ambiguo: la transcripción lista 'jefe/a de barras' (nivel I) y '2º barman' (nivel II), pero no una categoría llana de barman/barwoman. La transcripción del Anexo II (niveles del personal) es una lista ABREVIADA (termina en '...'); este puesto no aparece en lo transcrito y no se asigna nivel sin el Anexo II completo. Resolver vía opción 'otro' o completando la transcripción del Anexo II."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "La transcripción del Anexo II (niveles del personal) es una lista ABREVIADA (termina en '...'); este puesto no aparece en lo transcrito y no se asigna nivel sin el Anexo II completo. Resolver vía opción 'otro' o completando la transcripción del Anexo II."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "No aparece 'camarero/a de pisos' en lo transcrito; el nivel IVbis es 'Mozo/a de habitación', que podría ser el equivalente, pero sin el literal exacto no se asigna. La transcripción del Anexo II (niveles del personal) es una lista ABREVIADA (termina en '...'); este puesto no aparece en lo transcrito y no se asigna nivel sin el Anexo II completo. Resolver vía opción 'otro' o completando la transcripción del Anexo II."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "Lo transcrito lista 'oficial de contabilidad' (III) y 'auxiliar administrativo' (IV), pero no la categoría llana de administrativo/a. La transcripción del Anexo II (niveles del personal) es una lista ABREVIADA (termina en '...'); este puesto no aparece en lo transcrito y no se asigna nivel sin el Anexo II completo. Resolver vía opción 'otro' o completando la transcripción del Anexo II."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "nota": "Anexo II: 'limpiador/a' (nivel V)."
+    }
+  }
+}

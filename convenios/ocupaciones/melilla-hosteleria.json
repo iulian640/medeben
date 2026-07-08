@@ -1,0 +1,71 @@
+{
+  "$comment": "SIN MAPEOS POSIBLES: el convenio (Anexo II) define áreas funcionales y 3 grupos profesionales por área, pero la correspondencia categoría→grupo NO figura en el convenio provincial (se toma del ALEH y está marcada 'pendiente' en la transcripción). Mapear un puesto a un grupo sería inventar. Cuando se incorpore la clasificación del ALEH, los 16 puestos serán mapeables a {areaFuncional, grupoProfesional}.",
+  "id": "melilla-hosteleria",
+  "articulo": "Anexo II (áreas funcionales y grupos profesionales; detalle de categorías remitido al ALEH)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "jefe-partida": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "cocinero": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "jefe-sala": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "camarero": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    },
+    "personal-limpieza": {
+      "dimensiones": null,
+      "nota": "El convenio clasifica en 6 áreas funcionales × 3 grupos profesionales pero NO enumera qué categorías integran cada grupo (se remite al ALEH, marcado 'pendiente' en la transcripción para no inventar). Sin la correspondencia categoría→grupo no se puede fijar el salario."
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para ourense-hosteleria, derivado del Anexo III (gruposProfesionales de la transcripción), donde la correspondencia categoría→grupo profesional (1-6) es EXPLÍCITA. La dimensión que falta (categoriaEstablecimiento 1ª-4ª, Anexo IV) es del establecimiento y la responde el usuario con la pregunta del tipo de local. NUNCA inventar.",
+  "id": "ourense-hosteleria",
+  "articulo": "Anexo III (grupos profesionales) y Anexo IV (categorías de establecimiento); tablas Anexo V / BOP nº34-2026",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "grupo": "1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "grupo": "2"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "grupo": "3"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "grupo": "4"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "grupo": "4"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "grupo": "5"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "grupo": "6"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "grupo": "1"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "grupo": "4"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "grupo": "5"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "grupo": "4"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "grupo": "4"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "grupo": "4"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "grupo": "5"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "grupo": "3"
+      },
+      "nota": "El Anexo III sitúa al Administrativo/a en el Grupo 3 (por encima del Recepcionista, Grupo 4)."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "grupo": "6"
+      },
+      "nota": "Como 'Auxiliar de pisos y limpieza' (Anexo III, área cuarta, Grupo 6)."
+    }
+  }
+}

@@ -67,3 +67,19 @@ reales. Objetivo: confirmar cómo interpretar/aplicar bien los datos en la app.
 - ¿A UGT le interesaría estar en una app gratuita del lado del trabajador de
   hostelería (contactos, difusión, revisión de contenido)? (posible patrocinio /
   aval, ver ADR D1).
+
+## 12. Clasificaciones contradictorias o ambiguas detectadas al mapear puestos (2026-07-08)
+
+Pendientes de re-verificar contra el PDF oficial; si el boletín de verdad dice esto,
+¿cómo se interpreta?
+
+- **Sevilla:** el cuerpo del Anexo I lista "Camarero o Sumiller" en el Nivel 3, pero
+  la nota del mismo bloque dice que el camarero está en el Nivel 4. ¿Cuál rige?
+  (Es el puesto más común del sector.)
+- **Cádiz:** el grupo 4 incluye "Cocinero/a (ayte.)" y el grupo 5 "Ayudante de
+  Cocineros/as". ¿Son dos figuras distintas o una contradicción del texto?
+- **Valladolid:** el Anexo III lista al jefe de partida en DOS niveles (NS II y NS III)
+  del área segunda, sin criterio aparente para elegir.
+- **Ambigüedad recurrente en media España:** "administrativo/a" no existe como
+  categoría llana (solo oficial 1ª/2ª, auxiliar...). ¿Qué categoría se presume si el
+  contrato dice solo "administrativo"?

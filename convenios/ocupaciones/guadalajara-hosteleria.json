@@ -1,0 +1,91 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para guadalajara-hosteleria, derivado del Anexo II (bloque 'clasificacionProfesional' de la transcripción): categoría → nivel retributivo 1-5 por área funcional. La dimensión que falta (categoriaEstablecimiento A/B) la responde el usuario con la pregunta del tipo de establecimiento. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "guadalajara-hosteleria",
+  "articulo": "Anexo II (clasificación profesional) y Anexo III (tablas)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "nota": "El '2º jefe/a cocina' está en el mismo Nivel 1 que el Jefe/a de cocina."
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "5"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "5"
+      },
+      "nota": "Como 'Auxiliar cocina/economato' (Nivel 5, mismo nivel que el ayudante de cocina en este convenio)."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "nota": "Como 'Jefe/a restaurante o sala' (Nivel 1)."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "5"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "nota": "Como 'Auxiliar pisos y limpieza' (área cuarta, Nivel 4), única categoría de limpieza del Anexo II."
+    }
+  }
+}

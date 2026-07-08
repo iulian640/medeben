@@ -1,0 +1,120 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para acoruna-hosteleria. La clasificación sale de las propias táboas salariais 2024 (salariosBaseMensuales2024): cada fila es una función dentro de un grupo (I mandos / II técnicos / III asistentes) y un área funcional. Literales de 'funcion' en galego, EXACTOS a los hechos del normalizado. Las dimensiones que dependen del establecimiento (seccion y categoriaEstablecimiento) las responde el usuario aparte. Ojo: no todas las funciones existen en todas las secciones (p.ej. Barman solo en barras_americanas; Camarero/a de pisos solo en hoteis/pensións).",
+  "id": "acoruna-hosteleria",
+  "articulo": "Táboas salariais 2024 (BOP A Coruña nº241, 22-12-2022, anuncio 2022/8018)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional2_cocina",
+        "grupo": "grupoI_mandos",
+        "funcion": "Xefe/a de cociña"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional2_cocina",
+        "grupo": "grupoI_mandos",
+        "funcion": "2º xefe/a de cociña"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional2_cocina",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Xefe/a de partida"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional2_cocina",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Cociñeiro/a"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional2_cocina",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Reposteiro/a"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional2_cocina",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Axudante de cociña"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional2_cocina",
+        "grupo": "grupoIII_asistentes",
+        "funcion": "Auxiliar de cociña / economato"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional3_restaurante",
+        "grupo": "grupoI_mandos",
+        "funcion": "Xefe/a de restaurante ou sala"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional3_restaurante",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Camareiro/a"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional3_restaurante",
+        "grupo": "grupoIII_asistentes",
+        "funcion": "Axudante/a de camareiro"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional3_restaurante",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Barman/barwoman"
+      },
+      "nota": "Solo existe en la tabla de barras americanas."
+    },
+    "sumiller": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional3_restaurante",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Sumiller"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional1_recepcion",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Recepcionista"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional4_pisos",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Camarero/a de pisos"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional1_recepcion",
+        "grupo": "grupoII_tecnicos",
+        "funcion": "Administrativo/a"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "areaFuncional": "areaFuncional4_pisos",
+        "grupo": "grupoIII_asistentes",
+        "funcion": "Auxiliar pisos e limpeza"
+      }
+    }
+  }
+}

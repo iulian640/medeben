@@ -1,0 +1,93 @@
+{
+  "$comment": "Las tablas de Lugo van por sección (tipo de establecimiento) × departamento × puesto literal. 'seccion' y 'categoriaEstablecimiento' son dimensiones de establecimiento y quedan fuera; se mapea el literal exacto de puesto (y departamento cuando es consistente en todas las secciones donde existe). 'null' cuando el mismo puesto tiene literales distintos según la sección (imposible elegir sin conocer el establecimiento) o no existe. OJO: el normalizado tiene grafías inconsistentes entre secciones para la misma categoría (p.ej. 'Cocinero/a-repostero/a' vs 'Cocinero/a-Repostero/a'); eso fuerza varios null.",
+  "id": "lugo-hosteleria",
+  "articulo": "Tablas salariales por secciones (BOP Lugo nº 51, 03-03-2025; revisión 2024 con vigencia desde 01-01-2025)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "departamento": "cocina",
+        "puesto": "2º Jefe/a Cocina"
+      },
+      "nota": "Solo existe en hoteles (sección 1ª) y restaurantes/colectividades (sección 3ª)."
+    },
+    "jefe-partida": {
+      "dimensiones": null,
+      "nota": "No existe como categoría en las tablas de Lugo."
+    },
+    "cocinero": {
+      "dimensiones": null,
+      "nota": "La categoría es 'Cocinero/a-repostero/a' en hoteles/pensiones y 'Cocinero/a-Repostero/a' en restaurantes/cafés (grafías distintas por sección en el normalizado): imposible fijar el literal sin conocer el establecimiento. Unificar grafía en el normalizado y remapear."
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "En Lugo no hay categoría de repostero separada: está fusionada en 'Cocinero/a-repostero/a' / 'Cocinero/a-Repostero/a' (mismo problema de grafías por sección que 'cocinero')."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "departamento": "cocina",
+        "puesto": "Ayudante"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": null,
+      "nota": "Literal distinto por sección: 'Auxiliar-fregador/a' en hoteles (sección 1ª) vs 'Auxiliar' en restaurantes (sección 3ª). No se puede elegir sin conocer el establecimiento."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor"
+      },
+      "nota": "En discotecas/salas de fiesta la figura es 'Jefe/a Mostrador' y en casinos 'Encargado/a Salón': no cubiertas por este mapeo."
+    },
+    "camarero": {
+      "dimensiones": {
+        "puesto": "Camarero/a"
+      },
+      "nota": "Sin departamento porque varía por sección (comedor/mostrador/salonComedor) y el literal ya es único dentro de cada una. En cafeterías y cafés-bares (sección 4ª) la categoría es 'Dependiente/Camarero': no cubierta."
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "departamento": "comedor",
+        "puesto": "Ayudante"
+      },
+      "nota": "Cubre las secciones con departamento 'comedor' (hoteles, pensiones, restaurantes, cafeterías). El 'Ayudante' de mostrador (discotecas) y de salón-comedor (casinos) no casa con este mapeo."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "No existe como categoría en las tablas de Lugo."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "No existe como categoría en las tablas de Lugo (el 'Bodeguero/a' de cafés/discotecas es otra cosa)."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "departamento": "recepcionConserjeria",
+        "puesto": "Recepcionista"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "puesto": "Camarero/a pisos"
+      },
+      "nota": "Grafía de la sección 1ª (hoteles), el caso dominante. En pensiones/turismo rural (sección 2ª) el normalizado usa 'Camarero/a Pisos' (P mayúscula): no casa. Unificar grafía en el normalizado."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El convenio distingue grados ('Oficial administrativo/a', 'Auxiliar administrativo/a-Telefonista', y en casinos Oficial 1ª/2ª): el puesto genérico no permite elegir grado."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a"
+      },
+      "nota": "Cubre restaurantes, cafés, discotecas y casinos. En hoteles/pensiones la categoría es 'Auxiliar pisos-limpiador/a' / 'Auxiliar Pisos-Limpiador/a': no cubierta."
+    }
+  }
+}

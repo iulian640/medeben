@@ -1,0 +1,87 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para ceuta-hosteleria. Tabla única sin categorías de establecimiento: el puesto determina directamente el nivel económico I-IV (Anexo VI, asimilación de puestos a niveles). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "ceuta-hosteleria",
+  "articulo": "Anexo VI (relación de puestos asimilados a niveles económicos I-IV)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "El Anexo VI lo lista junto al camarero ('Camarero y Sumillers', Área Tercera, Grupo III)."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El Anexo VI no tiene categoría genérica 'Administrativo/a': solo 'Oficial de Contabilidad' (nivel II) y 'Auxiliar Administrativo' (nivel III). Ambiguo."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    }
+  }
+}

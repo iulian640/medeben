@@ -5,6 +5,14 @@ Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
+- **Mapeo puesto→nivel completo (D20)**: lista curada de 16 puestos + backend de
+  resolución (puesto → dimensiones fijas + preguntas pendientes con valores reales) +
+  endpoints GET /puestos y /convenios/{id}/puestos/{p}; 10 agentes mapearon los 54
+  convenios (~490 puestos fijados; el resto null documentado — nunca se adivina).
+  Validador cruzado en el build. Triaje de rarezas: 8 curiosidades nuevas al feed,
+  contradicciones (Sevilla camarero N3-vs-N4, Cádiz, Valladolid) a re-verificar contra
+  PDF + preguntas UGT, y huecos estructurales (mapeo condicional, colectiva por
+  provincia, transcripciones a completar) a revisiones-pendientes.
 - **PR #122** — Citas con enlace (pedido por Iulian): cada cita pasa a `{texto, url}` —
   las del convenio enlazan al PDF oficial del boletín y las del ET al BOE consolidado
   ("no me creas: compruébalo", D18/D34). **PR #121** — perfil `local` sin BD para probar

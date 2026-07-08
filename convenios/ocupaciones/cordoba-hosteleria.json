@@ -1,0 +1,90 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para cordoba-hosteleria. El puesto determina el nivel salarial 1-5 (Anexo I, mapeo categoría→grupo y nivel por área funcional); el 'tipoEstablecimiento' (e5/e43/resto) es de establecimiento y queda fuera. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "cordoba-hosteleria",
+  "articulo": "Art. 40 + Anexo I (adscripción de categorías a niveles salariales 1-5)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "nota": "Como 'Oficial Repostero' (Grupo II, nivel 3); el 'Jefe Repostero' es nivel 2 y el 'Ayudante de Repostería' nivel 5."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "5"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "5"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "1"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "nota": "El Anexo I lista 'Camarero/a Bar' y 'Camarero/a Sala de Fiesta', ambos Grupo II nivel 4."
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "5"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "nota": "Como 'Oficial Administrativo' (Grupo II, nivel 3); el 'Ayudante Administración' es nivel 5."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "5"
+      }
+    }
+  }
+}

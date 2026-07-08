@@ -1,0 +1,88 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para cantabria-hosteleria. La dimensión del trabajador es 'categoria' (literal de la tabla salarial anexa, con el nivel ALEH entre paréntesis). El 'tramo' retributivo lo determina la propia tabla a partir de la categoría, y 'antiguedadEmpresa' (menosDe6Meses) es una condición del trabajador que la app pregunta aparte; ambas quedan fuera del mapeo. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "cantabria-hosteleria",
+  "articulo": "Tabla salarial anexa 2025 (BOC nº 66, 04-04-2025); clasificación profesional por ALEH según Art. 12 y Disp. Adic. 5ª",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "categoria": "Jefe/a de Cocina (I)"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "categoria": "2º Jefe/a de Cocina (I)"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "categoria": "Jefe/a de Partida (II)"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "categoria": "Cocinero/a (II)"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "categoria": "Repostero/a (II)"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "categoria": "Ayudante/Auxiliar de Cocina (III)"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "categoria": "Ayudante/Auxiliar de Cocina (III)"
+      },
+      "nota": "La tabla de Cantabria fusiona ayudante y auxiliar de cocina en una sola categoría ('Ayudante/Auxiliar de Cocina'); pinche/marmitón/fregador quedan dentro de ella."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "categoria": "Jefe/a de Restaurante/Sala (I)"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "categoria": "Camarero/a (II)"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "categoria": "Ayudante de Camarero (III)"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "categoria": "Barman/Sumiller (II)"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "categoria": "Barman/Sumiller (II)"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "categoria": "Recepcionista (II)"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "categoria": "Camarero/a de Pisos (III)"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "categoria": "Administrativo/a (II)"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "categoria": "Auxiliar de Pisos/Limpieza (IV)"
+      }
+    }
+  }
+}

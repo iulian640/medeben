@@ -1,0 +1,106 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para huesca-hosteleria, derivado del Anexo I de la transcripción (estructuraSalarial.gruposProfesionales), donde la correspondencia ocupación→área funcional/grupo profesional es EXPLÍCITA. El salario NO depende de la categoría del establecimiento: las dimensiones del puesto (areaFuncional + grupoProfesional) determinan el hecho por sí solas. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "huesca-hosteleria",
+  "articulo": "Anexo I (clasificación por áreas funcionales y grupos profesionales)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "primero"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "primero"
+      },
+      "nota": "El Anexo I sitúa al 2º Jefe/a de cocina en el mismo grupo primero del área B que el Jefe/a de cocina."
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundoNivelB"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "tercero"
+      },
+      "nota": "Anexo I: 'Auxiliar cocina/economato' (grupo tercero del área B)."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "primero"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "tercero"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "segundo"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "tercero"
+      },
+      "nota": "Anexo I: 'Auxiliar pisos y limpieza' (grupo tercero del área D)."
+    }
+  }
+}

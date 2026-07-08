@@ -1,0 +1,84 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para huelva-hosteleria, derivado del Anexo III (bloque 'gruposProfesionales' de la transcripción): tabla de correspondencias ocupación → GRUPO retributivo 1-6 (ejemplos no exhaustivos; la clasificación completa se remite al ALEH, Art. 34). OJO: varias ocupaciones tienen variante 'Clase D' en un grupo inferior → el grupo depende del establecimiento y van a null. La dimensión que falta (categoriaEstablecimiento A/B/C/D) la responde el usuario con la pregunta del tipo de establecimiento. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "huelva-hosteleria",
+  "articulo": "Anexo III (correspondencias de ocupaciones por grupo, con remisión al ALEH en Art. 34) y Anexo I (tablas)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "grupo": "1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "grupo": "2"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "grupo": "3"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "grupo": "4"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "grupo": "4"
+      },
+      "nota": "Como 'Repostero/a oficial' (Grupo 4); el 'Jefe/a Repostero' (puesto distinto) está en el Grupo 3."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "grupo": "5"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "grupo": "6"
+      },
+      "nota": "Como 'Auxiliar de cocina/economato (Pinche)' y 'Fregador' (Grupo 6)."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "grupo": "1"
+      },
+      "nota": "Como 'Jefe/a de restaurante o sala (Jefe de Comedor/Sala)' (Grupo 1)."
+    },
+    "camarero": {
+      "dimensiones": {
+        "grupo": "4"
+      },
+      "nota": "'Camarero' y 'Camarero/a de Comedor' (Grupo 4)."
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "Depende del establecimiento: 'Ayudante de camarero/a' es Grupo 5 en general, pero Grupo 6 en establecimientos de Clase D."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "Depende del establecimiento: 'Barman/Barwoman en bares americanos y hoteles' Grupo 1, 'Barman/Barwoman' Grupo 2 y 'Barman/a' Grupo 4."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "No aparece en la tabla de correspondencias transcrita (lista no exhaustiva); sin correspondencia verificable."
+    },
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "Depende del establecimiento: 'Recepcionista' es Grupo 3, pero en Clase D la ocupación es 'Recepcionista-Conserje Clase D' (Grupo 5)."
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "Depende del establecimiento: 'Camarero/a de pisos' es Grupo 4 en general, pero Grupo 6 en establecimientos de Clase D."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "Ambiguo: 'Oficial Administrativo' (Grupo 3) frente a 'Auxiliar Administrativo' (Grupo 4); el grupo depende de la categoría personal, no determinable solo con el puesto."
+    },
+    "personal-limpieza": {
+      "dimensiones": null,
+      "nota": "Depende del establecimiento: 'Limpiador/a' es Grupo 5 en general, pero Grupo 6 ('Limpiadores/as Clase D') en establecimientos de Clase D."
+    }
+  }
+}

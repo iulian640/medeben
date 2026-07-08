@@ -1,0 +1,105 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para salamanca-hosteleria, derivado del Anexo II (gruposProfesionales de la transcripción), donde la correspondencia categoría→área funcional + nivel salarial (1-4) es EXPLÍCITA. La dimensión que falta (categoriaEstablecimiento: columnas '5-4' y '1-2-3', Anexo I) es del establecimiento y la responde el usuario con la pregunta del tipo de local. NUNCA inventar.",
+  "id": "salamanca-hosteleria",
+  "articulo": "Anexo II (clasificación profesional por área y nivel); tablas Anexo III / BOP nº44-2026",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel1"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel2"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel2"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel2"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel3"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel4"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel1"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel2"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel4"
+      },
+      "nota": "OJO: el Anexo II sitúa al Ayudante de camarero en el NIVEL 4 del área tercera (el nivel 3 de esa área es solo para catering/restauración moderna)."
+    },
+    "barman": {
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel2"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel2"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel2"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "area": "areaCuarta_pisosLimpieza",
+        "nivel": "nivel3"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel2"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "area": "areaCuarta_pisosLimpieza",
+        "nivel": "nivel4"
+      },
+      "nota": "Como 'Auxiliar de pisos y limpieza' (Anexo II, área cuarta, nivel 4)."
+    }
+  }
+}

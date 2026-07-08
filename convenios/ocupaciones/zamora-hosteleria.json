@@ -1,0 +1,88 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para zamora-hosteleria, derivado del Anexo salarial (Art. 34): 5 niveles retributivos comunes a las 6 áreas funcionales, con las categorías que engloba cada nivel leídas de las tablas (bloques 'salarios.niveles' y 'gruposProfesionales' de la transcripción). La única dimensión es nivel; el salario depende del puesto, no de la categoría del local. NUNCA inventar.",
+  "id": "zamora-hosteleria",
+  "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "N1_jefes"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "N2_segundosJefes"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "N2_segundosJefes"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "N1_jefes"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      },
+      "nota": "Mapeado como 'Auxiliar de Pisos y Limpieza' (área cuarta, GP III)."
+    }
+  }
+}

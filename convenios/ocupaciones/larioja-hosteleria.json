@@ -1,0 +1,91 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para larioja-hosteleria, derivado del cuadro de correspondencia de categorías de la transcripción (clasificacionProfesional.nivelesEjemplos, niveles I/II/III). NO hay categorías de establecimiento: el nivel determina el hecho por sí solo. OJO: en este convenio el Jefe/a de partidas está en el NIVEL I (jefaturas), a diferencia de otros convenios. 'dimensiones: null' = puesto no contemplado en el cuadro transcrito (camarera de pisos es del convenio de hospedaje de La Rioja, aparte). NUNCA inventar.",
+  "id": "larioja-hosteleria",
+  "articulo": "Cuadro de correspondencia de categorías (págs. 1625-1626) + Anexo de tablas salariales",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "nota": "El cuadro sitúa 'Jefe/a de partidas' entre las jefaturas del nivel I (a diferencia de otros convenios, donde va con el nivel del cocinero)."
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Cuadro: 'Ayudante de cocinero-repostero' (nivel III)."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": null,
+      "nota": "El cuadro transcrito (lista de ejemplos) no incluye explícitamente auxiliar de cocina/pinche/marmitón/fregador; el resumen sitúa 'ayudantes, limpiadores y auxiliares' en el nivel III, pero sin la categoría literal no se asigna. Resolver vía opción 'otro' con la lista completa del convenio."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "nota": "Cuadro: 'Jefe/a de restaurante o sala' y 'Encargado/a de sala' (nivel I)."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Cuadro: 'Ayudantes (de camarero/a)' (nivel III)."
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "El cuadro no tiene recepcionista de hotel (el hospedaje tiene convenio aparte); la categoría de este convenio es 'Telefonista-recepcionista' (nivel III)."
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "No contemplado: es un puesto de alojamiento y La Rioja tiene convenio propio de hospedaje (larioja-hospedaje); este convenio de hostelería no lo clasifica."
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Cuadro: 'Limpiador/a' (nivel III)."
+    }
+  }
+}

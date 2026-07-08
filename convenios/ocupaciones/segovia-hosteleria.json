@@ -1,0 +1,122 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para segovia-hosteleria, derivado de las tablas salariales del Art. 15 (BOP nº29, 08-03-2023), organizadas por ÁREA FUNCIONAL + GRUPO PROFESIONAL (I-III) + rótulo literal de categorías. No hay dimensión de establecimiento: las tres dimensiones son del trabajador. Los rótulos ('categorias') se usan EXACTAMENTE como en los hechos del normalizado (los de las tablas vigentes 2023-2026 cuando el boletín varía la redacción entre años). NUNCA inventar.",
+  "id": "segovia-hosteleria",
+  "articulo": "Art. 15 y tablas salariales 2022-2026 (BOP nº29, 08-03-2023)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Jefe/a de Cocina"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida"
+      },
+      "nota": "Rótulo de las tablas 2023-2026; la tabla de 2022 usa la variante 'Segundo Jefe/a de Cocina, Jefe/a de Partida'."
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida"
+      },
+      "nota": "Rótulo de las tablas 2023-2026; la tabla de 2022 usa la variante 'Segundo Jefe/a de Cocina, Jefe/a de Partida'."
+    },
+    "cocinero": {
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "II",
+        "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "II",
+        "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Ayudante de Economato, Ayudante de Cocina"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Auxiliar de Cocina"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Camarero/a, Barman, Sumiller"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "III",
+        "categorias": "Ayudante de Camarero/a, Riders"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Camarero/a, Barman, Sumiller"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Camarero/a, Barman, Sumiller"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "II",
+        "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "II",
+        "categorias": "Camarero/a de Pisos"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "II",
+        "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Pisos y Limpieza"
+      },
+      "nota": "Como 'Auxiliar de Pisos y Limpieza' (área cuarta, Grupo III)."
+    }
+  }
+}

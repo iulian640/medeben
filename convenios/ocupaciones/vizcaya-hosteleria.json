@@ -1,0 +1,88 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para vizcaya-hosteleria, derivado del Anexo II (clasificación del personal por escalas: categoría→calificación PRIMERA..QUINTA) recogido en clasificacionProfesional de la transcripción. La única dimensión es calificacion. 'null' = categoría no listada en el Anexo II (sumiller) o sin equivalencia unívoca (administrativo genérico). NUNCA inventar.",
+  "id": "vizcaya-hosteleria",
+  "articulo": "Anexo II (clasificación del personal por escalas) y Art. 36",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "calificacion": "PRIMERA"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "calificacion": "SEGUNDA"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "calificacion": "SEGUNDA"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "calificacion": "TERCERA"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "calificacion": "TERCERA"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "calificacion": "CUARTA"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "calificacion": "QUINTA"
+      },
+      "nota": "El Anexo II no lista 'auxiliar de cocina' como tal, pero sus ocupaciones equivalentes (pinche, marmitón, fregador/a) están todas en la calificación QUINTA."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "calificacion": "PRIMERA"
+      },
+      "nota": "'Jefe/a de sala' es calificación PRIMERA; la variante 'Jefe/a de sala (caterings)' es SEGUNDA."
+    },
+    "camarero": {
+      "dimensiones": {
+        "calificacion": "TERCERA"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "calificacion": "CUARTA"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "calificacion": "TERCERA"
+      }
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "El Anexo II del convenio de Bizkaia no lista la categoría de sumiller en ninguna calificación."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "calificacion": "TERCERA"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "calificacion": "CUARTA"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El Anexo II no tiene 'administrativo/a' genérico: hay 'Oficial de contabilidad' y 'Cajero/a administrativo/a' (SEGUNDA) y 'Auxiliar de oficina' (CUARTA); sin equivalencia unívoca."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "calificacion": "QUINTA"
+      },
+      "nota": "Mapeado como 'Mozo/a de limpieza y limpiador/a' (calificación QUINTA)."
+    }
+  }
+}

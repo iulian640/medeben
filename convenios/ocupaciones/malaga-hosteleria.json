@@ -1,0 +1,87 @@
+{
+  "$comment": "Málaga da tablas DISTINTAS por sección (tipo de establecimiento): hoteles/hostales por niveles I-V (la correspondencia puesto→nivel del Anexo III NO está transcrita puesto a puesto, solo ejemplos de los grupos I y V) y el resto de secciones por puesto literal. 'seccion' y 'categoriaEstablecimiento' son de establecimiento y quedan fuera. Se mapea el literal solo cuando es idéntico en todas las secciones donde aparece; los trabajadores de hotel NO casarán con esos mapeos (gap documentado en cada nota). 'null' cuando los valores difieren por sección o la categoría solo existe en hoteles.",
+  "id": "malaga-hosteleria",
+  "articulo": "Tablas salariales 2025 definitivas por secciones (BOP Málaga nº 70, 14-04-2026) + Anexo III del articulado 2018-2022 (clasificación profesional, parcial)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": null,
+      "nota": "Valores distintos según establecimiento: en hoteles/hostales es Grupo I del Anexo III (hechos por nivel 'I' de la sección 1ª-2ª); en restaurantes y mostrador de cafés-bares es la categoría literal 'Jefe de cocina'. El mapeo plano no puede condicionar por establecimiento."
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "puesto": "Segundo jefe de cocina"
+      },
+      "nota": "Solo transcrito en la sección 3ª (restaurantes). En hoteles la clasificación por niveles no está transcrita: no casarán."
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "puesto": "Jefe de partida"
+      },
+      "nota": "Solo transcrito en la sección 3ª (restaurantes). En hoteles la clasificación por niveles no está transcrita: no casarán."
+    },
+    "cocinero": {
+      "dimensiones": {
+        "puesto": "Cocinero"
+      },
+      "nota": "Literal idéntico en restaurantes, cafeterías y mostrador de cafés-bares. En hoteles/hostales la tabla va por niveles y la correspondencia no está transcrita: un cocinero de hotel no casará."
+    },
+    "repostero": {
+      "dimensiones": {
+        "puesto": "Repostero"
+      },
+      "nota": "Literal idéntico en restaurantes, cafeterías, mostrador de cafés-bares y casinos/salas de fiesta. Hoteles sin transcribir (niveles). El 'Oficial repostero' es otra categoría."
+    },
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "Grafías distintas por sección en el normalizado: 'Ayudante cocinero' (restaurantes, cafeterías) vs 'Ayudante de cocinero' (mostrador de cafés-bares). Unificar grafía y remapear. Hoteles sin transcribir."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": null,
+      "nota": "En restaurantes hay varias categorías con salario propio ('Pinche', 'Marmitón', 'Fregadores') y en cafeterías 'Fregadora-limpiadora': el puesto genérico no permite elegir. Hoteles sin transcribir."
+    },
+    "jefe-sala": {
+      "dimensiones": null,
+      "nota": "Tres denominaciones según establecimiento: 'primer maitre' (Grupo I, hoteles), 'Jefe de comedor o maestro' (restaurantes) y 'Jefe de sala' (bares americanos, casinos/salas de fiesta). No se puede decidir sin conocer el establecimiento."
+    },
+    "camarero": {
+      "dimensiones": {
+        "puesto": "Camarero"
+      },
+      "nota": "Literal idéntico en restaurantes y bares americanos. En cafeterías la categoría es 'Dependiente' y en tabernas 'Dependiente de primera/segunda' (no cubiertas); hoteles sin transcribir (niveles)."
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "puesto": "Ayudante camarero"
+      },
+      "nota": "Literal idéntico en restaurantes y bares americanos. Cafeterías ('Ayudante' genérico) y hoteles no cubiertos."
+    },
+    "barman": {
+      "dimensiones": {
+        "puesto": "Barman"
+      },
+      "nota": "Categoría de la sección 5ª (bares americanos). En casinos/salas de fiesta las categorías son 'Primer barman'/'Segundo barman' (no cubiertas); hoteles sin transcribir."
+    },
+    "sumiller": {
+      "dimensiones": {
+        "puesto": "Sumiller"
+      },
+      "nota": "Solo transcrito en la sección 3ª (restaurantes). Hoteles sin transcribir (niveles)."
+    },
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "La recepción solo existe en hoteles/hostales (sección 1ª-2ª), cuya tabla va por niveles I-V, y la correspondencia puesto→nivel del Anexo III no está transcrita (solo se sabe que el jefe de recepción es Grupo I)."
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "Solo existe en hoteles/hostales (sección 1ª-2ª, tabla por niveles). La correspondencia puesto→nivel no está transcrita (el Anexo III solo menciona 'auxiliar de pisos' en el Grupo V, que es otra categoría)."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El convenio distingue grados y literales por sección ('Auxiliar oficinas', 'Oficial contabilidad', 'Contable general', 'Contable', Oficial 1ª/2ª en casinos): el puesto genérico no permite elegir."
+    },
+    "personal-limpieza": {
+      "dimensiones": null,
+      "nota": "Literal distinto por sección: 'Limpiadora (jornada entera)'/'(media jornada)' en restaurantes, 'Fregadora-limpiadora' en cafeterías, 'Limpiadora' en casinos/salas de fiesta y 'Limpiadora jornada completa'/'media jornada' en la sección 8ª (casinos). Además depende de la jornada. No se puede fijar sin conocer el establecimiento."
+    }
+  }
+}
