@@ -197,6 +197,16 @@ class CalculoConvenioServiceTest {
         }
 
         @Test
+        @DisplayName("una 'cantidad' de pagas negativa dejaría el total bajo 12: sospechosa, no se calcula")
+        void cantidadNegativaNoCalcula() {
+            Convenio c = sintetico("""
+                    "jornadaAnual":{"horas":1800},"pagasExtraordinarias":{"cantidad":-3}""");
+
+            assertThat(servicio.valorHoraOrdinaria(c, Year.of(2026), new BigDecimal("1200"), BigDecimal.ZERO))
+                    .isEmpty();
+        }
+
+        @Test
         @DisplayName("jornada anual 0 es una errata: no se calcula (nada de dividir por cero)")
         void jornadaCeroNoCalcula() {
             Convenio c = sintetico("""
