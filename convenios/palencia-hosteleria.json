@@ -25,8 +25,8 @@
       "numero": 67,
       "fecha": "2024-06-03",
       "documento": "Acta de la Comisión Negociadora de 16-04-2024 relativa a las tablas salariales de 2024 (referencia según registro de convenios; no verificada en imagen en esta transcripción).",
-      "url": "pendiente",
-      "nota": "Referencia bibliográfica del registro de convenios; no leída en imagen. Las tablas base de 2024 sí constan en el BOP nº6/2023 (pp. 23-25) porque el convenio publicó de una vez todas las anualidades 2020-2026."
+      "url": "https://www.diputaciondepalencia.es/system/files/bop/2024/20240603-bop-67-Ordinario.pdf",
+      "nota": "Referencia bibliográfica del registro de convenios; URL del BOP localizada (HTTP 200), pero las tablas 2024 no se han leído en imagen. Las tablas base de 2024 sí constan en el BOP nº6/2023 (pp. 23-25) porque el convenio publicó de una vez todas las anualidades 2020-2026."
     }
   ],
   "vigencia": {
@@ -473,7 +473,7 @@
   "pendienteCondiciones": [
     "salariosBase por categoría de los años 2020-2025: sólo se ha transcrito íntegra la tabla VIGENTE 2026 (grupo único). Las tablas base 2020-2025 (grupos de establecimiento I/II/III) constan en imagen en el BOP nº6/2023 pp. 14-28 pero no se han volcado celda a celda por volumen y por estar superadas; las de 2025 fueron además corregidas al SMI (ver 'tablas2025_correccionSMI').",
     "tablas 'definitivas 2025' completas por categoría: van adjuntas al acta registrada; el BOP nº32/2026 sólo reprodujo valores concretos, no la tabla completa. Marcado como parcial.",
-    "BOP nº67/2024 (tablas 2024): referencia del registro no leída en imagen; URL pendiente."
+    "BOP nº67/2024 (tablas 2024): URL oficial del BOP ya localizada (HTTP 200); las tablas 2024 no se han leído celda a celda en imagen."
   ],
   "verificadoContra": "PDF oficial BOP Palencia nº6 (13-01-2023), https://www.diputaciondepalencia.es/system/files/bop/2023/20230113-bop-6-Ordinario.pdf — articulado en pp. 2-13 y tablas (imágenes escaneadas) en pp. 14-31, renderizadas a 185 dpi y leídas celda a celda (tabla 2026 en pp. 29-31). PDF oficial BOP Palencia nº32 (16-03-2026), https://www.diputaciondepalencia.es/system/files/bop/2026/20260316-bop-32-Ordinario.pdf — acta de la Comisión Negociadora (LGTBI + corrección SMI 2025) en pp. 12-15, leída en imagen a 185 dpi.",
   "fechaVerificacion": "2026-07-08"

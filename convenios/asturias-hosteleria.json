@@ -85,8 +85,8 @@
       "cafeterias": { "cocinero": 6, "camarero": 5, "barman": 5, "ayudanteCamarero": 8, "auxiliarLimpieza": 11 },
       "cafes_bares_cervecerias_especial": { "jefeCocina": 3, "cocinero": 5, "camarero": 5, "barman": 2, "escanciador": null, "ayudanteCamarero": 7, "auxiliarLimpieza": 11 },
       "cafes_bares_cervecerias_otros": { "jefeCocina": 4, "cocinero": 6, "camarero": 6, "barman": 3, "escanciador": 5, "ayudanteCamarero": 8, "auxiliarLimpieza": 11 },
-      "salas_fiesta_discotecas": { "jefeSala": 1, "camarero": 5, "ayudanteCamarero": 8, "auxiliarLimpieza": 11 },
-      "catering": { "jefeCatering": 4, "jefeOperacionesCatering": 1, "jefeSalaCatering": 2, "supervisorCatering": 3, "conductorEquipoCatering": 5, "preparadorMontadorCatering": 7, "ayudanteEquipoCatering": 6, "dietista": 4 },
+      "salas_fiesta_discotecas": { "administrativo": 6, "telefonista": 9, "ayudanteAdministrativo": 9, "auxiliarRecepcion": 8, "encargadoEconomato": 9, "jefeSala": 1, "segundoJefeSala": 2, "camarero": 5, "ayudanteCamarero": 8, "auxiliarLimpieza": 11 },
+      "catering": { "jefeCatering": 4, "jefeOperacionesCatering": 1, "jefeSalaCatering": 2, "supervisorCatering": 3, "conductorEquipoCatering": 5, "preparadorMontadorCatering": 7, "ayudanteEquipoCatering": 6, "auxiliarPreparadorMontadorCatering": 8, "dietista": 4 },
       "billares_salones_recreo": { "encargadoSala": 4, "dependienteSala": 9, "auxiliarLimpieza": 11, "especialistaMantenimiento": 5 },
       "colectividades": { "jefeCocina": 5, "cocinero": 6, "ayudanteCocina": 10, "supervisorColectividades": 6, "auxiliarColectividades": 8, "monitorCuidadorColectividades": 8, "dietista": 4 }
     }
@@ -505,6 +505,6 @@
   "pendienteCondiciones": [
     "salariosBaseMensuales 2024, 2025 y 2027: existen tablas en sus propias actas de la Comisión Paritaria pero NO se han transcrito aquí (a julio de 2026 rige la de 2026). No inventar.",
     "antiguedad (Anexo VII) 2026: el acta de 2026 solo actualizó tabla salarial y nocturnidad; los importes de antigüedad para 2026 no se republicaron. Se dan los de 2023. Duda para UGT: ¿se actualiza el Anexo VII con el % anual?",
-    "clasificacionProfesional.nivelesRetributivosPorOcupacion_Anexo_I: se recogen las ocupaciones más habituales por tipo de establecimiento; el Anexo I completo incluye más ocupaciones y tipos (colectividades, billares, salas de fiesta, etc.)."
+    "clasificacionProfesional.nivelesRetributivosPorOcupacion_Anexo_I: los tipos de establecimiento especiales de columna única (salas de fiesta/discotecas/tablaos/salones de baile, catering, billares y salones de recreo, colectividades) están transcritos COMPLETOS del Anexo I (BOPA nº55/2023, pp. 22-24), verificado en imagen a 185 dpi. Para hoteles y restaurantes (tablas por categoría de establecimiento) se recogen las ocupaciones más habituales, no la totalidad de las filas del Anexo I."
   ]
 }
