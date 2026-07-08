@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { PASSWORD_MAX, PASSWORD_MIN } from '../services/auth'
 import { destinoTrasLogin } from '../lib/navegacion'
+import { esEmailValido } from '../lib/validacion'
 
 const auth = useAuthStore()
 const route = useRoute()
@@ -14,14 +15,12 @@ const password = ref('')
 const repite = ref('')
 const errorCliente = ref<string | null>(null)
 
-const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
 /** Mismos límites que el backend (RegistroRequest): así el error sale al teclear, no tras el viaje. */
 function validar(): string | null {
   if (!email.value.trim() || !password.value || !repite.value) {
     return 'Rellena todos los campos.'
   }
-  if (!RE_EMAIL.test(email.value.trim())) {
+  if (!esEmailValido(email.value.trim())) {
     return 'Ese email no tiene pinta de email. Revísalo.'
   }
   if (password.value.length < PASSWORD_MIN) {

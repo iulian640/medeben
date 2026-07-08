@@ -83,7 +83,10 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   return {
-    token,
+    // Solo lectura hacia fuera: nadie puede tocar el token sin pasar por las
+    // acciones del store (que mantienen el cliente API sincronizado). El JWT
+    // que viaja lo gestiona services/api.ts.
+    token: computed(() => token.value),
     email,
     expiraEn,
     cargando,

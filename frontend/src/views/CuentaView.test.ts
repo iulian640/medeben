@@ -15,9 +15,15 @@ vi.mock('../services/convenios', () => ({
   getProvincias: vi.fn(),
   getPuestos: vi.fn(),
 }))
+vi.mock('../services/auth', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../services/auth')>()),
+  postLogin: vi.fn(),
+  postRegistro: vi.fn(),
+}))
 
 import { getPerfilUsuario, putPerfilUsuario } from '../services/perfilUsuario'
 import { getProvincias, getPuestos } from '../services/convenios'
+import { postLogin } from '../services/auth'
 
 const perfilServidor: PerfilGuardado = {
   provincia: 'Madrid',
@@ -45,9 +51,10 @@ function crearRouter(): Router {
 async function montar() {
   const pinia = createPinia()
   setActivePinia(pinia)
+  // El token es de solo lectura: la sesión de prueba se abre por la puerta de verdad.
+  vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
   const auth = useAuthStore()
-  auth.token = 'jwt-1'
-  auth.email = 'ana@example.com'
+  await auth.iniciarSesion('ana@example.com', 'superclave123')
   const router = crearRouter()
   await router.push('/cuenta')
   const wrapper = mount(CuentaView, { global: { plugins: [pinia, router] } })

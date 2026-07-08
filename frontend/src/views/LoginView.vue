@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { destinoTrasLogin } from '../lib/navegacion'
+import { esEmailValido } from '../lib/validacion'
 
 const auth = useAuthStore()
 const route = useRoute()
@@ -12,16 +13,13 @@ const email = ref('')
 const password = ref('')
 const errorCliente = ref<string | null>(null)
 
-/** Validación básica en cliente; la de verdad la hace el backend. */
-const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
 async function entrar() {
   errorCliente.value = null
   if (!email.value.trim() || !password.value) {
     errorCliente.value = 'Escribe tu email y tu contraseña.'
     return
   }
-  if (!RE_EMAIL.test(email.value.trim())) {
+  if (!esEmailValido(email.value.trim())) {
     errorCliente.value = 'Ese email no tiene pinta de email. Revísalo.'
     return
   }
