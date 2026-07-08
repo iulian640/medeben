@@ -44,14 +44,14 @@ class AuthServiceTest {
     @DisplayName("registro: guarda el email normalizado y el hash (nunca la contraseña en claro)")
     void registroGuardaHash() {
         when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.empty());
-        when(repositorio.save(any(Usuario.class))).thenAnswer(inv -> inv.getArgument(0));
+        when(repositorio.saveAndFlush(any(Usuario.class))).thenAnswer(inv -> inv.getArgument(0));
 
         Usuario usuario = servicio.registra("  Trabajador@Example.com ", PASSWORD);
 
         assertThat(usuario.getEmail()).isEqualTo(EMAIL);
         assertThat(usuario.getPasswordHash()).doesNotContain(PASSWORD);
         assertThat(passwordEncoder.matches(PASSWORD, usuario.getPasswordHash())).isTrue();
-        verify(repositorio).save(any(Usuario.class));
+        verify(repositorio).saveAndFlush(any(Usuario.class));
     }
 
     @Test

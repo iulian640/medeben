@@ -2,8 +2,9 @@ package es.tedeben.service;
 
 import es.tedeben.domain.usuario.Usuario;
 import es.tedeben.repository.UsuarioRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Profile;
+import es.tedeben.config.RequiereBaseDeDatos;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwsHeader;
@@ -25,7 +26,7 @@ import java.util.Optional;
  * también cuando el email no existe (coste constante, anti timing).
  */
 @Service
-@Profile("!local")
+@RequiereBaseDeDatos
 public class AuthService {
 
     static final int MIN_CARACTERES_PASSWORD = 10;
@@ -56,10 +57,20 @@ public class AuthService {
             throw new IllegalArgumentException(
                     "La contraseña debe tener al menos " + MIN_CARACTERES_PASSWORD + " caracteres");
         }
+        // BCrypt solo usa los primeros 72 BYTES (ojo tildes/eñes en UTF-8: 2 bytes)
+        if (password.getBytes(java.nio.charset.StandardCharsets.UTF_8).length > 72) {
+            throw new IllegalArgumentException("La contraseña es demasiado larga (máximo 72 bytes)");
+        }
         if (usuarios.findByEmail(emailNormalizado).isPresent()) {
             throw new EmailYaRegistradoException();
         }
-        return usuarios.save(new Usuario(emailNormalizado, passwordEncoder.encode(password)));
+        try {
+            return usuarios.saveAndFlush(new Usuario(emailNormalizado, passwordEncoder.encode(password)));
+        } catch (DataIntegrityViolationException e) {
+            // Carrera con otro registro simultáneo del mismo email: la restricción
+            // UNIQUE de la BD es la barrera real; el findByEmail solo da mejor mensaje.
+            throw new EmailYaRegistradoException();
+        }
     }
 
     @Transactional(readOnly = true)
