@@ -31,8 +31,12 @@
 
   "jornadaAnual": {
     "semanal": 40,
-    "horasReferenciaValorHora": 1829,
-    "nota": "Art. 22: jornada semanal máxima 40 horas de trabajo efectivo; diaria continuada o partida. El convenio NO fija una cifra de jornada anual en horas, pero para calcular el VALOR DE LA HORA ORDINARIA (nocturnidad y horas extra, Arts. 23 y 24) usa el divisor de 1.829 horas: valor hora = total devengado anual por todos los conceptos salariales / 1.829. Calendario laboral anual pactado empresa-representación; turnos expuestos con una semana de antelación."
+    "nota": "Art. 22: jornada semanal máxima 40 horas de trabajo efectivo; diaria continuada o partida. El convenio NO fija una cifra de jornada anual en horas; el divisor de 1.829 horas que usa para el valor de la hora ordinaria está en 'divisorValorHora'. Calendario laboral anual pactado empresa-representación; turnos expuestos con una semana de antelación."
+  },
+  "divisorValorHora": {
+    "horas": 1829,
+    "articulo": "Arts. 23 y 24",
+    "nota": "Divisor EXPLÍCITO del valor de la hora ordinaria fijado por el convenio (nocturnidad y horas extra, Arts. 23 y 24): valor hora = total devengado anual por todos los conceptos salariales / 1.829. Sustituye a la jornada anual como divisor porque el convenio no fija jornada anual en horas."
   },
   "descansos": {
     "articulo": "Art. 26",
