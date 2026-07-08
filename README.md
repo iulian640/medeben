@@ -41,6 +41,44 @@ cifra con su artículo y su boletín de origen. Un validador automático comprue
 en cada build que las capas derivadas coinciden con la transcripción. ¿Ves un
 error o falta tu provincia? Se corrige con un PR.
 
+## Cómo está hecho
+
+Lo de dentro importa tanto como lo de fuera:
+
+- **Transcripción contra la imagen del PDF oficial.** El texto extraído de los
+  boletines desalinea las columnas, así que cada tabla se lee renderizada a
+  imagen, celda a celda, y después una segunda pasada independiente la
+  re-verifica. Regla de oro: un dato erróneo es peor que un dato ausente. Lo
+  que no está publicado se marca como pendiente; no se rellena.
+- **Procedencia verificable.** Los números que usa la app viven en una capa
+  normalizada donde cada hecho lleva un puntero a la celda exacta de la
+  transcripción de la que sale. Un validador cruzado corre en cada build y lo
+  rompe si un solo importe diverge.
+- **Cada respuesta con su fuente.** Los cálculos citan el artículo del convenio
+  y enlazan al PDF del boletín (o al BOE, para el Estatuto de los Trabajadores).
+- **Calidad de código.** TDD en backend y frontend, revisión de código y de
+  seguridad en cada pieza importante, y una CI que ejecuta la suite completa en
+  cada PR, incluido el validador del corpus y tests contra PostgreSQL real.
+- **Las rarezas se apuntan.** Al transcribir aparecen cosas curiosas (un plus de
+  nocturnidad del 1%, un grupo que cobra más en 3ª categoría que en 2ª...):
+  están recogidas con su fuente en [convenios/curiosidades.md](convenios/curiosidades.md).
+
+## Hitos
+
+Construido en la primera semana de julio de 2026:
+
+1. **Corpus completo**: 55 convenios de hostelería transcritos y verificados,
+   con el 100% del territorio cubierto.
+2. **Capa normalizada**: ~8.800 hechos salariales con procedencia, vigencias
+   como rangos de fecha y validador cruzado en el build.
+3. **Motor de cálculo**: valor de la hora ordinaria, horas extra y salario
+   mínimo por puesto, con citas de artículo y regla de ultraactividad.
+4. **API pública de consulta** y **primera pantalla**: de "¿dónde trabajas y de
+   qué?" a tu salario mínimo con fuentes, en dos preguntas.
+5. **Cuentas de usuario** con JWT, endurecidas con auditoría de seguridad.
+
+El detalle día a día está en el [diario del proyecto](docs/HISTORIAL.md).
+
 ## Estado
 
 🚧 En desarrollo (v1). Decisiones del proyecto: [docs/ADR.md](docs/ADR.md).
