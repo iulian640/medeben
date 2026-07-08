@@ -32,7 +32,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/health", "/actuator/health").permitAll()
                         // Datos de convenios (boletines oficiales) y cálculos anónimos:
                         // públicos por diseño, sin datos personales de por medio.
-                        .requestMatchers(HttpMethod.GET, "/api/v1/provincias", "/api/v1/convenios/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/provincias", "/api/v1/puestos", "/api/v1/convenios/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/calculo/**").permitAll()
                         .anyRequest().authenticated())
                 // Stateless API: unauthenticated requests get a plain 401

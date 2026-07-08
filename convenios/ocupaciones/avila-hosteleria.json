@@ -1,0 +1,87 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para avila-hosteleria, derivado de las tablas salariales por área funcional y grupo (salariosBaseMensuales.porAreaYcategoria de la transcripción, Anexos I-III), donde cada categoría tiene asignado un nivel salarial A-D de forma EXPLÍCITA. El salario base es único por nivel (sin dimensión de establecimiento). 'personal-limpieza' se asigna vía la categoría 'Auxiliar de Pisos y Limpiezas' (área cuarta). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "avila-hosteleria",
+  "articulo": "Anexos I-III (tablas salariales por área funcional y grupo, niveles A-D)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "A"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "B"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "B"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "C"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "C"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "D"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "D"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "A"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "C"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "D"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "C"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "C"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "C"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "C"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "C"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "D"
+      }
+    }
+  }
+}

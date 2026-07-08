@@ -1,0 +1,84 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para baleares-hosteleria, derivado del Anexo I (nivelesRetributivos de la transcripción, lista de ejemplos representativos por nivel I-VI, aclarada por Acta Paritaria BOIB nº154). La dimensión que falta (categoriaEstablecimiento A/B/C) la responde el usuario con la pregunta del tipo de establecimiento. 'auxiliar-cocina' vía Pinche/Fregador/a/Marmitón/a (nivel VI); 'personal-limpieza' vía Limpiador/a (nivel VI); 'repostero' vía Oficial/a repostero/a (nivel IV); 'ayudante-camarero' vía Ayudante/a de comedor o bar / de sala o mostrador (nivel V). 'null' = puesto no clasificado explícitamente o ambiguo (ver nota). NUNCA inventar.",
+  "id": "baleares-hosteleria",
+  "articulo": "Anexo I (niveles retributivos I-VI) y Acta Paritaria (BOIB nº154)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "V"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "VI"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "V"
+      }
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "La categoría 'barman' no aparece en la lista de niveles de la transcripción (sí Jefe/a de bar=I, Segundo/a jefe/a de bar=II y Camarero/a de bar=IV); sin clasificación explícita del barman no se fija nivel."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "La categoría 'sumiller' no aparece en la lista de niveles de la transcripción."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El convenio separa Jefe/a administrativo (II), Oficial administrativo/a 1ª (III), Oficial administrativo/a 2ª (IV) y Auxiliar administrativo/a (V); el puesto genérico 'administrativo' no determina un único nivel."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "VI"
+      }
+    }
+  }
+}

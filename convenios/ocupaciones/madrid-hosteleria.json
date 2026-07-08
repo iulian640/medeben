@@ -1,0 +1,23 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para madrid-hosteleria, derivado del Anexo I apartado A) 'Niveles retributivos' de la transcripción (tablasAnexoI.nivelesOcupaciones), donde la correspondencia ocupación→nivel es EXPLÍCITA. La dimensión que falta (claseEmpresa) la responde el usuario con la pregunta del tipo de establecimiento. 'null' = puesto no contemplado en este convenio (camarera de pisos es de hospedaje). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "madrid-hosteleria",
+  "articulo": "Anexo I A) (niveles retributivos)",
+  "ocupaciones": {
+    "jefe-cocina": { "dimensiones": { "tabla": "general", "nivel": "I" } },
+    "segundo-jefe-cocina": { "dimensiones": { "tabla": "general", "nivel": "II-A" } },
+    "jefe-partida": { "dimensiones": { "tabla": "general", "nivel": "II-B" } },
+    "cocinero": { "dimensiones": { "tabla": "general", "nivel": "III" } },
+    "repostero": { "dimensiones": { "tabla": "general", "nivel": "III" } },
+    "ayudante-cocina": { "dimensiones": { "tabla": "general", "nivel": "IV" } },
+    "auxiliar-cocina": { "dimensiones": { "tabla": "general", "nivel": "V" } },
+    "jefe-sala": { "dimensiones": { "tabla": "general", "nivel": "I" } },
+    "camarero": { "dimensiones": { "tabla": "general", "nivel": "III" } },
+    "ayudante-camarero": { "dimensiones": { "tabla": "general", "nivel": "IV" } },
+    "barman": { "dimensiones": { "tabla": "general", "nivel": "II-B" } },
+    "sumiller": { "dimensiones": { "tabla": "general", "nivel": "II-B" } },
+    "recepcionista": { "dimensiones": { "tabla": "general", "nivel": "III" } },
+    "camarera-pisos": null,
+    "administrativo": { "dimensiones": { "tabla": "general", "nivel": "III" } },
+    "personal-limpieza": { "dimensiones": { "tabla": "general", "nivel": "V" } }
+  }
+}

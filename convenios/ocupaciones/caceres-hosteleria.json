@@ -1,0 +1,87 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para caceres-hosteleria, derivado del Anexo I (estructuraProfesional.gruposProfesionales de la transcripción): 3 grupos (1/2/3) con las categorías listadas EXPLÍCITAMENTE. El salario base es único por grupo (las categorías de establecimiento quedaron extinguidas el 31-12-2023). OJO: en este convenio el 'Ayudante cocina' está en el grupo 2 (no en el 3). 'personal-limpieza' se asigna vía 'Auxiliar pisos y limpieza' (grupo 3). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "caceres-hosteleria",
+  "articulo": "Anexo I y Disposición Transitoria Primera (grupos profesionales 1-3)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "1"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "3"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "grupoProfesional": "1"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "grupoProfesional": "3"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "grupoProfesional": "3"
+      }
+    }
+  }
+}

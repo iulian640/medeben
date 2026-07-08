@@ -1,0 +1,116 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para burgos-hosteleria, derivado del Art. 38 (clasificación por áreas funcionales y grupos I-III) y de las filas de las tablas salariales definitivas de 2026 (BOP nº54), donde cada fila lista EXPLÍCITAMENTE los puestos que incluye. La dimensión 'puestos' es el literal exacto de la fila de la tabla (varios puestos comparten fila y salario). No hay dimensión de establecimiento. 'null' = puesto no clasificado de forma inequívoca (ver nota). NUNCA inventar.",
+  "id": "burgos-hosteleria",
+  "articulo": "Art. 38 y tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "I",
+        "puestos": "Jefe de cocina, jefe de catering"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "I",
+        "puestos": "Segundo jefe de cocina, jefe de partida"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "I",
+        "puestos": "Segundo jefe de cocina, jefe de partida"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "II",
+        "puestos": "Cocinero, repostero, encargado de economato"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "II",
+        "puestos": "Cocinero, repostero, encargado de economato"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "III",
+        "puestos": "Ayudante de economato, ayudante de cocina, auxiliar de cocina"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "III",
+        "puestos": "Ayudante de economato, ayudante de cocina, auxiliar de cocina"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "I",
+        "puestos": "Jefe de restaurante, sala o catering"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "II",
+        "puestos": "Camarero, barman, sumiller, preparador montador de catering"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "III",
+        "puestos": "Ayudante de camarero, ayudante equipo catering, auxiliar preparación catering"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "II",
+        "puestos": "Camarero, barman, sumiller, preparador montador de catering"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "II",
+        "puestos": "Camarero, barman, sumiller, preparador montador de catering"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaRRPPAdministracion",
+        "grupo": "II",
+        "puestos": "Recepcionista, relaciones públicas"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosYLimpieza",
+        "grupo": "II",
+        "puestos": "Camarero/a de pisos"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "La tabla trae la fila 'Administrativo comercial' (área primera, grupo II) y 'Ayudante administrativo, telefonista' (grupo III); no queda claro si 'Administrativo comercial' es el administrativo genérico o un puesto distinto, así que no se fija."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosYLimpieza",
+        "grupo": "III",
+        "puestos": "Auxiliar de pisos y limpieza"
+      }
+    }
+  }
+}

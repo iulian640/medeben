@@ -1,0 +1,87 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para badajoz-hosteleria, derivado del cuadro de correspondencias de grupos profesionales (gruposProfesionales de la transcripción, DOE nº17): 3 grupos (I/II/III) con las categorías listadas EXPLÍCITAMENTE por área. El salario base es único por grupo (sin dimensión de establecimiento). OJO: en este convenio el 'Ayudante cocina' está en el grupo II (no en el III como en otros convenios). 'personal-limpieza' se asigna vía 'Auxiliar pisos y limpieza' (grupo III). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "badajoz-hosteleria",
+  "articulo": "Cuadro de correspondencias de grupos profesionales, anexo al convenio (DOE nº17, 27-01-2025)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "I"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "III"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "grupoProfesional": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "grupoProfesional": "III"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "grupoProfesional": "II"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "grupoProfesional": "III"
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para estatal-restauracion-colectiva. RESULTADO DEL ANÁLISIS (2026-07-08): NO existe mapeo único por puesto. La capa normalizada tiene 321 hechos salarioBase en 48 provincias con 296 literales DISTINTOS de `categoría` (cada anexo provincial del BOE define su propia tabla, normalmente agrupando varias ocupaciones en una sola fila). Ningún puesto tiene un literal consistente en todas las provincias donde aparece. Ejemplo real con 'cocinero': Cáceres='Cocinero / Camarero / Especialista de mantenimiento y servicios auxiliares', Almería='Cocinero/a / Camarero/a / Conductor/a', Albacete='Nivel 4 - Camarero/a / Barman / Sumiller / cocinero', A Coruña='Encargado/a de economato y cocinero/a'. Lo mismo con 'auxiliar de cocina' (72 literales en 36 provincias) o 'administrativo' (63 literales en 35). QUE HARIA FALTA: un fichero de mapeo puesto→literal POR PROVINCIA (16 puestos x 48 provincias, revisión manual anexo a anexo), fase posterior. Mientras tanto: null documentado > mapeo erróneo. 'null' a secas = puesto no contemplado en este convenio.",
+  "id": "estatal-restauracion-colectiva",
+  "articulo": "Anexos salariales provinciales (49 anexos, tablas salarioBase2025)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": null,
+      "nota": "existe en ~39/48 provincias, 54 literales distintos (p.ej. 'Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / ...'): los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": null,
+      "nota": "existe en ~15/48 provincias, 17 literales distintos: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "jefe-partida": {
+      "dimensiones": null,
+      "nota": "solo aparece en 3 provincias, con 3 literales distintos (p.ej. 'Grupo 2 - Jefe de Partida'): los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "cocinero": {
+      "dimensiones": null,
+      "nota": "existe en ~39/48 provincias, 44 literales distintos: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "solo aparece en 6 provincias, 9 literales distintos, siempre agrupado: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "existe en ~13/48 provincias como literal reconocible, 13 literales distintos: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": null,
+      "nota": "existe en ~36/48 provincias, 72 literales distintos (p.ej. 'Auxiliar de pisos y limpieza / de cocina / de colectividades / ...'): los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "jefe-sala": {
+      "dimensiones": null,
+      "nota": "aparece como 'Jefe de restaurante o sala' en ~9 provincias, siempre agrupado con otros jefes: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "camarero": {
+      "dimensiones": null,
+      "nota": "existe en ~39/48 provincias, 70 literales distintos: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "solo aparece en 4 provincias, 4 literales distintos: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "solo aparece en 7 provincias, 8 literales distintos, siempre agrupado: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "solo aparece en 5 provincias, 5 literales distintos, siempre agrupado: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "existe en ~27/48 provincias, 51 literales distintos: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "camarera-pisos": null,
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "existe en ~35/48 provincias, 63 literales distintos: los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    },
+    "personal-limpieza": {
+      "dimensiones": null,
+      "nota": "existe en ~35/48 provincias, 36 literales distintos (p.ej. 'Auxiliar de pisos y limpieza / ...', 'Limpiador/a (jornada entera)'): los anexos provinciales usan literales distintos (casi siempre agrupando varias ocupaciones en una sola categoría); requiere mapeo por provincia, fase posterior."
+    }
+  }
+}
