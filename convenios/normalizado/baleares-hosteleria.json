@@ -1,0 +1,708 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../baleares-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; el validador del backend comprueba en cada build que importe == valor en la transcripción. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre los Anexos I-II (nivel I-VI × categoría A/B/C). OJO: los periodos de vigencia van de abril a marzo, no por año natural.",
+  "id": "baleares-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 2221.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 2190.39,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 2155.16,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 2059.29,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/II/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 2038.07,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/II/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 2004.27,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/II/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1917.5,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1886.28,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1853.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1781.32,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1743.27,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1725.12,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1650.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1634.74,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1626.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1551.64,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/VI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1551.64,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/VI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2026-03-31",
+      "importe": 1551.64,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2025_26/VI/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 2309.92,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 2278.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 2241.36,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 2141.66,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/II/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 2119.59,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/II/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 2084.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/II/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1994.19,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1961.73,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1928.12,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1852.57,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1813.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1794.13,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1716.66,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1700.13,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1691.28,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1613.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/VI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1613.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/VI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2026-04-01",
+      "hasta": "2027-03-31",
+      "importe": 1613.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2026_27/VI/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 2390.77,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 2357.74,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 2319.81,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 2216.62,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/II/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 2193.78,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/II/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 2157.39,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/II/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 2063.99,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 2030.39,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1995.6,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1917.41,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1876.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1856.92,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1776.74,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1759.64,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1750.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1670.19,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/VI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1670.19,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/VI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2027-04-01",
+      "hasta": "2028-03-31",
+      "importe": 1670.19,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 24 / Anexos I-II",
+      "rutaCruda": "/salariosBaseMensuales/p2027_28/VI/C"
+    }
+  ]
+}

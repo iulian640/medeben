@@ -100,6 +100,13 @@
                     <include>*.json</include>
                 </includes>
             </resource>
+            <resource>
+                <directory>${project.basedir}/../convenios/normalizado</directory>
+                <targetPath>convenios/normalizado</targetPath>
+                <includes>
+                    <include>*.json</include>
+                </includes>
+            </resource>
         </resources>
         <plugins>
             <plugin>
