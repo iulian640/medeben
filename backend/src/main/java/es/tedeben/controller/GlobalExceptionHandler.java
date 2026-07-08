@@ -50,6 +50,11 @@ public class GlobalExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
     }
 
+    @ExceptionHandler(es.tedeben.service.DiaSelladoException.class)
+    public ProblemDetail diaSellado(es.tedeben.service.DiaSelladoException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ProblemDetail peticionInvalida(IllegalArgumentException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -67,7 +72,7 @@ public class GlobalExceptionHandler {
     public ProblemDetail errorInterno(IllegalStateException e) {
         log.error("Error interno de datos", e);
         return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR,
-                "Error interno de datos del convenio");
+                "Error interno de datos");
     }
 
     /** Red de seguridad explícita: nada inesperado sale con detalles internos. */
