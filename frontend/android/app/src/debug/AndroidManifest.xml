@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Manifest SOLO del build debug (se fusiona con el de main al compilar).
+
+  usesCleartextTraffic permite HTTP sin TLS para probar contra el backend
+  en la LAN (VITE_API_URL=http://192.168.1.XX:8080) durante el desarrollo.
+  Desde Android 9 el tráfico en claro está prohibido por defecto, y así debe
+  seguir en release: la app maneja datos laborales sensibles (RGPD) y todo
+  tráfico de producción va cifrado. Por eso este fichero vive en src/debug
+  y NUNCA debe moverse a src/main ni replicarse en release.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application android:usesCleartextTraffic="true" />
+
+</manifest>
