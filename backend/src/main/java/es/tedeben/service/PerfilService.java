@@ -27,6 +27,14 @@ import java.util.UUID;
 @RequiereBaseDeDatos
 public class PerfilService {
 
+    /**
+     * Topes de cada entrada de dimensiones (mismos que valida PerfilRequest en
+     * el borde): el valor real más largo del catálogo tiene 325 caracteres
+     * (estatal-restauracion-colectiva), de ahí el 400.
+     */
+    private static final int DIMENSION_CLAVE_MAX = 40;
+    private static final int DIMENSION_VALOR_MAX = 400;
+
     private final PerfilRepository perfiles;
     private final ConvenioCatalog convenios;
     private final OcupacionesCatalog ocupaciones;
@@ -52,10 +60,11 @@ public class PerfilService {
         }
         if (dimensiones != null) {
             for (Map.Entry<String, String> d : dimensiones.entrySet()) {
-                if (d.getKey() == null || d.getKey().length() > 40
-                        || d.getValue() == null || d.getValue().length() > 100) {
+                if (d.getKey() == null || d.getKey().length() > DIMENSION_CLAVE_MAX
+                        || d.getValue() == null || d.getValue().length() > DIMENSION_VALOR_MAX) {
                     throw new IllegalArgumentException(
-                            "Dimensión inválida: claves hasta 40 caracteres y valores hasta 100");
+                            "Dimensión inválida: claves hasta " + DIMENSION_CLAVE_MAX
+                                    + " caracteres y valores hasta " + DIMENSION_VALOR_MAX);
                 }
             }
         }

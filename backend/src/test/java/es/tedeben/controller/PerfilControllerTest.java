@@ -132,6 +132,26 @@ class PerfilControllerTest {
     }
 
     @Test
+    @DisplayName("PUT con un valor de dimensión gigante → 400 en el borde (validación del DTO)")
+    void dimensionConValorGigante() throws Exception {
+        mockMvc.perform(put("/api/v1/perfil").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"provincia\":\"Madrid\",\"subsector\":\"hosteleria\","
+                                + "\"dimensiones\":{\"nivel\":\"" + "x".repeat(401) + "\"}}"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("PUT con una clave de dimensión gigante → 400 en el borde (validación del DTO)")
+    void dimensionConClaveGigante() throws Exception {
+        mockMvc.perform(put("/api/v1/perfil").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"provincia\":\"Madrid\",\"subsector\":\"hosteleria\","
+                                + "\"dimensiones\":{\"" + "k".repeat(41) + "\":\"III\"}}"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
     @DisplayName("token con subject que no es UUID → 401 genérico, sin eco del valor")
     void subjectRaro() throws Exception {
         mockMvc.perform(get("/api/v1/perfil")

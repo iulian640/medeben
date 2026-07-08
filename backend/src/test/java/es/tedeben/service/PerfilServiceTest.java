@@ -103,7 +103,16 @@ class PerfilServiceTest {
     void dimensionKilometrica() {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> servicio.guarda(USUARIO, "Madrid", "hosteleria", null,
-                        Map.of("nivel", "x".repeat(101)), null, null));
+                        Map.of("nivel", "x".repeat(401)), null, null));
+    }
+
+    @Test
+    @DisplayName("el valor más largo del catálogo real (325 caracteres) sí cabe")
+    void valorLargoDelCatalogoCabe() {
+        Perfil perfil = servicio.guarda(USUARIO, "Madrid", "hosteleria", null,
+                Map.of("categoria", "x".repeat(325)), null, null);
+
+        assertThat(perfil.getDimensiones()).containsKey("categoria");
     }
 
     @Test
