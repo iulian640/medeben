@@ -5,6 +5,19 @@ Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
+- **Perfil laboral persistido** (provincia, puesto, dimensiones, salario real): el
+  servidor resuelve el convenio (nunca se confía en el del cliente) y el id de usuario
+  sale siempre del token (sin acceso cruzado, verificado por security-reviewer: cero
+  CRITICAL/HIGH). java-reviewer cazó dos finos de JPA (Persistable para evitar el
+  merge+SELECT, @Version contra pérdidas de actualización, actualizado_en que nunca
+  se actualizaba) — corregidos.
+- **El mínimo se explica solo**: desplegable "¿De dónde sale este mínimo?" con la
+  cuenta del usuario (base × pagas + pluses ÷ jornada, suelo del art. 35 ET).
+- **Escaparate suavizado** (decisión de Iulian, busca trabajo): README educativo con
+  la skill de escritura, secciones de ingeniería e hitos; el rename sigue en reposo
+  (finalistas verificados: Jornalia, MiConvenio, EnClaro, TusHoras).
+- **Grafo de código limpio**: solo fuentes reales, 183 nodos etiquetados (fuera el
+  ruido de configs que lo hacía espagueti).
 - **Registro/login con JWT (D13.4)**: primera migración Flyway (tabla usuarios, solo
   email+hash — minimización RGPD), BCrypt, HS256 con secreto por entorno, endpoints
   /auth/registro, /auth/login y /me. Revisado por java-reviewer (BLOCK: bin/ colado en
