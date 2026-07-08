@@ -1,0 +1,506 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../palencia-hosteleria.json. Salario base mensual (14 pagas) SOLO del año 2026, único transcrito íntegramente (tabla vigente, grupo único de establecimientos por Disposición Duodécima; BOP nº6/2023 pp. 29-31). Años 2020-2025 NO derivados: tablas no volcadas celda a celda en la transcripción (2025 además corregida parcialmente al SMI en BOP nº32/2026 sin tabla completa publicada). AVISO transcripción: algunas categorías 2026 quedan por debajo del SMI 2025 (1.184,00 €); rige el SMI como suelo legal. NO editar importes aquí.",
+  "id": "palencia-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalPrimera",
+        "grupoProfesional": "grupoI",
+        "categoria": "jefeDeRecepcion"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1385.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalPrimera/grupoI/jefeDeRecepcion/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalPrimera",
+        "grupoProfesional": "grupoI",
+        "categoria": "segundoJefeRecepcion_primerConserje_jefeAdministracion_jefeComercial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.31,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalPrimera/grupoI/segundoJefeRecepcion_primerConserje_jefeAdministracion_jefeComercial/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalPrimera",
+        "grupoProfesional": "grupoII",
+        "categoria": "administrativo_recepcionista_relacionesPublicas"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1256.06,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalPrimera/grupoII/administrativo_recepcionista_relacionesPublicas/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalPrimera",
+        "grupoProfesional": "grupoIII",
+        "categoria": "ayudantesAdministrativo_telefonista_ayudanteRecepcion_conserje_comercial_mozoEquipajes"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1160.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalPrimera/grupoIII/ayudantesAdministrativo_telefonista_ayudanteRecepcion_conserje_comercial_mozoEquipajes/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalPrimera",
+        "grupoProfesional": "grupoIV",
+        "categoria": "auxiliarRecepcion_auxiliarConserjeria"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1125.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalPrimera/grupoIV/auxiliarRecepcion_auxiliarConserjeria/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoI",
+        "categoria": "jefeDeCocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1628.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSegunda/grupoI/jefeDeCocina/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoI",
+        "categoria": "segundoJefeDeCocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1449.71,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSegunda/grupoI/segundoJefeDeCocina/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoII",
+        "categoria": "jefeDePartida"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1413.63,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSegunda/grupoII/jefeDePartida/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoII",
+        "categoria": "cocinero_repostero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1385.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSegunda/grupoII/cocinero_repostero/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoII",
+        "categoria": "encargadoDeEconomato"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1256.06,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSegunda/grupoII/encargadoDeEconomato/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoIII",
+        "categoria": "ayudanteReposteroYcocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1186.62,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSegunda/grupoIII/ayudanteReposteroYcocina/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoIII",
+        "categoria": "ayudanteDeEconomato"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1160.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSegunda/grupoIII/ayudanteDeEconomato/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoIV",
+        "categoria": "auxiliarDeCocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1125.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSegunda/grupoIV/auxiliarDeCocina/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoI",
+        "categoria": "jefeDeRestauranteOsala"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1385.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalTercera/grupoI/jefeDeRestauranteOsala/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoI",
+        "categoria": "segundoJefeRestauranteOsala_jefeDeSector"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.3,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalTercera/grupoI/segundoJefeRestauranteOsala_jefeDeSector/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoII",
+        "categoria": "camarero_barman_sumiller"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1256.06,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalTercera/grupoII/camarero_barman_sumiller/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoIII",
+        "categoria": "ayudanteDeCamarero_riders"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1186.34,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalTercera/grupoIII/ayudanteDeCamarero_riders/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "tablasClubesDiscotecasSalasBaileYfiestas",
+        "grupoProfesional": "grupoI",
+        "categoria": "encargado"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1460.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/tablasClubesDiscotecasSalasBaileYfiestas/grupoI/encargado/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "tablasClubesDiscotecasSalasBaileYfiestas",
+        "grupoProfesional": "grupoII",
+        "categoria": "camarero_barman_djPinchadiscos"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1296.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/tablasClubesDiscotecasSalasBaileYfiestas/grupoII/camarero_barman_djPinchadiscos/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "tablasClubesDiscotecasSalasBaileYfiestas",
+        "grupoProfesional": "grupoIII",
+        "categoria": "ayudanteCamareroObarman_taquillero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1188.05,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/tablasClubesDiscotecasSalasBaileYfiestas/grupoIII/ayudanteCamareroObarman_taquillero/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "tablasClubesDiscotecasSalasBaileYfiestas",
+        "grupoProfesional": "grupoIV",
+        "categoria": "personalDeLimpieza"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1143.3,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/tablasClubesDiscotecasSalasBaileYfiestas/grupoIV/personalDeLimpieza/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalCuarta",
+        "grupoProfesional": "grupoI",
+        "categoria": "encargadoGeneral"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.49,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalCuarta/grupoI/encargadoGeneral/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalCuarta",
+        "grupoProfesional": "grupoI",
+        "categoria": "encargadoDeSeccion"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1308.86,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalCuarta/grupoI/encargadoDeSeccion/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalCuarta",
+        "grupoProfesional": "grupoII",
+        "categoria": "camareroDePisos"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.04,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalCuarta/grupoII/camareroDePisos/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalCuarta",
+        "grupoProfesional": "grupoIII",
+        "categoria": "auxiliarDePisosYlimpieza"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1125.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalCuarta/grupoIII/auxiliarDePisosYlimpieza/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalQuinta",
+        "grupoProfesional": "grupoI",
+        "categoria": "encargadoMantenimientoYserviciosTecnicos_encargadoDeSeccion"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.63,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalQuinta/grupoI/encargadoMantenimientoYserviciosTecnicos_encargadoDeSeccion/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalQuinta",
+        "grupoProfesional": "grupoII",
+        "categoria": "especialistaMantenimientoYserviciosAuxiliares"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1256.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalQuinta/grupoII/especialistaMantenimientoYserviciosAuxiliares/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalQuinta",
+        "grupoProfesional": "grupoIII",
+        "categoria": "auxiliarMantenimientoYserviciosAuxiliares_monitor"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1125.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalQuinta/grupoIII/auxiliarMantenimientoYserviciosAuxiliares_monitor/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSexta",
+        "grupoProfesional": "grupoI",
+        "categoria": "responsableDeServicio"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1385.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSexta/grupoI/responsableDeServicio/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSexta",
+        "grupoProfesional": "grupoI",
+        "categoria": "tecnicoDeServicio_dietista_fisioterapeuta_tituladosSalud"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.3,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSexta/grupoI/tecnicoDeServicio_dietista_fisioterapeuta_tituladosSalud/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSexta",
+        "grupoProfesional": "grupoII",
+        "categoria": "especialistaDeServicios_socorrista_diskjockey_masajista_atencionCliente"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1256.06,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSexta/grupoII/especialistaDeServicios_socorrista_diskjockey_masajista_atencionCliente/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "areaFuncionalSexta",
+        "grupoProfesional": "grupoII",
+        "categoria": "auxiliarDeServicio_atencionCliente_auxiliarBalnearioOpiscina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1125.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/areaFuncionalSexta/grupoII/auxiliarDeServicio_atencionCliente_auxiliarBalnearioOpiscina/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "casinos",
+        "categoria": "conserje"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1283.28,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/casinos/conserje/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "casinos",
+        "categoria": "ordenanza"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1191.99,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/casinos/ordenanza/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "casinos",
+        "categoria": "personalDeLimpieza"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1121.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/casinos/personalDeLimpieza/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "casinos",
+        "categoria": "camarero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1283.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales año 2026, grupo único de establecimientos por Disposición Duodécima (BOP nº6/2023, pp. 29-31)",
+      "rutaCruda": "/salariosBase2026/casinos/camarero/mensual"
+    }
+  ]
+}

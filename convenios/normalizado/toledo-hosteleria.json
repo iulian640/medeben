@@ -1,0 +1,214 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../toledo-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre la tabla de salario base jul-dic 2025 (BOP Toledo nº205, efectos retroactivos al 1-07-2025, la más reciente): NIVEL SALARIAL (I-IV) × GRUPO DE ESTABLECIMIENTO (A-D). Las tablas provisionales ene-jun 2025 no están transcritas en detalle y 2026 está 'pendiente' — sin hechos, no se inventa. La antigüedad (art. 40) es otro concepto, fuera de v1.",
+  "id": "toledo-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "I",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1287.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "I",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1271.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "I",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1260.57,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "I",
+        "grupoEstablecimiento": "D"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1239.16,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/I/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "II",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1244.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/II/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "II",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1228.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/II/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "II",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1217.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/II/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "II",
+        "grupoEstablecimiento": "D"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/II/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "III",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1218.36,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "III",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1203.97,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "III",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "III",
+        "grupoEstablecimiento": "D"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1175.16,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/III/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "IV",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1201.78,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "IV",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1185.8,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "IV",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1175.16,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "IV",
+        "grupoEstablecimiento": "D"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1153.83,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 39 y tablas del BOP Toledo nº205 (efectos 01-07-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025_jul_dic/IV/D"
+    }
+  ]
+}

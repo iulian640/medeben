@@ -1,0 +1,222 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../pontevedra-hosteleria.json. Salario base mensual por NIVEL SALARIAL (1-9), años 2024-2025 (Anexo V ap. 2, BOPPO nº209 31-10-2025). La tabla '2023_referencia' NO se deriva: es referencia previa a la vigencia del convenio (2024-2025). Los importes anuales (×15 pagas) tampoco: derivados de los mensuales. La categoría concreta se traduce a nivel 1-9 vía el cuadro de correspondencia del Anexo V (tipo de establecimiento × sección). Convenio en ultraactividad desde 01-01-2026: tablas 2025 siguen aplicándose. NO editar importes aquí.",
+  "id": "pontevedra-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1685.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1559.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1480.24,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1395.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1306.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "6"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1263.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/6"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "7"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1226.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/7"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "8"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1184.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/8"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "9"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1121.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2024/9"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1752.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1621.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1539.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1451.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1358.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "6"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1314.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/6"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "7"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1275.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/7"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "8"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1232.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/8"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "9"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1166.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, apartado 2",
+      "rutaCruda": "/salariosBaseMensuales/2025/9"
+    }
+  ]
+}

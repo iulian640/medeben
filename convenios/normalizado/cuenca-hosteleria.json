@@ -1,0 +1,318 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../cuenca-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Concepto salarioBase = campo 'sb' del bloque salariosBaseYplusCompensatorio (el Plus Compensatorio 'pc' es otro concepto, no derivado en v1). OJO UNIDAD: importes ANUALES en 15 pagas (EUR/año), no mensuales. Años cubiertos: 2025 (tabla provisional +1,9%, vigente en 2026 por ultraactividad), 2024 y 2022 (esta última con efectos desde 01-10-2022 según la nota de la transcripción). 2023 no está transcrito celda a celda -> sin hechos.",
+  "id": "cuenca-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 16175.05,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Acta de actualización de tablas 2025 (Art. 53, BOP Cuenca nº67/2025)",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2025/A/I/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15812.03,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Acta de actualización de tablas 2025 (Art. 53, BOP Cuenca nº67/2025)",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2025/A/II/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15451.15,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Acta de actualización de tablas 2025 (Art. 53, BOP Cuenca nº67/2025)",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2025/A/III/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15279.04,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Acta de actualización de tablas 2025 (Art. 53, BOP Cuenca nº67/2025)",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2025/A/IV/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 16137.6,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Acta de actualización de tablas 2025 (Art. 53, BOP Cuenca nº67/2025)",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2025/B/I/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15735.14,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Acta de actualización de tablas 2025 (Art. 53, BOP Cuenca nº67/2025)",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2025/B/II/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15316.18,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Acta de actualización de tablas 2025 (Art. 53, BOP Cuenca nº67/2025)",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2025/B/III/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15156.61,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Acta de actualización de tablas 2025 (Art. 53, BOP Cuenca nº67/2025)",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2025/B/IV/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 15873.45,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2024/A/I/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 15517.2,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2024/A/II/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 15163.05,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2024/A/III/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 14994.15,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2024/A/IV/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 15836.7,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2024/B/I/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 15441.75,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2024/B/II/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 15030.6,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2024/B/III/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 14874.0,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2024/B/IV/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 14812.65,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2022/A/I/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 14480.25,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2022/A/II/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 14149.8,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2022/A/III/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 13992.15,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2022/A/IV/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 14778.3,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2022/B/I/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 14409.75,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2022/B/II/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 14026.2,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2022/B/III/sb"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 13880.1,
+      "unidad": "EUR/año",
+      "articulo": "Art. 52 y Anexo III",
+      "rutaCruda": "/salariosBaseYplusCompensatorio/2022/B/IV/sb"
+    }
+  ]
+}

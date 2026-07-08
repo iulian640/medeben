@@ -1,0 +1,1020 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../huesca-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre las tablas del Anexo II (2022-2024) por ÁREA FUNCIONAL (A-F) y GRUPO PROFESIONAL. 2025 y 2026 'pendiente' en la transcripción (D32): sin hechos. En ultraactividad aplica la tabla 2024.",
+  "id": "huesca-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1202.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/A/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1138.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/A/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1076.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/A/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 989.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/A/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1202.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/B/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1138.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/B/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1076.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/B/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 989.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/B/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1202.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/C/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1138.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/C/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1076.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/C/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1076.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/C/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "terceroNivelB"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 989.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/C/terceroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1202.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/D/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "primeroNivelB"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1170.34,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/D/primeroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1138.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/D/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 989.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/D/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1202.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/E/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "primeroNivelB"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1138.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/E/primeroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1138.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/E/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1076.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/E/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 989.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/E/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1202.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/F/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1138.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/F/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1076.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/F/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 989.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2022/F/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1250.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/A/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1183.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/A/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1119.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/A/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1029.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/A/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1250.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/B/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1183.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/B/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1119.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/B/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1029.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/B/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1250.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/C/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1183.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/C/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1119.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/C/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1119.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/C/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "terceroNivelB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1029.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/C/terceroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1250.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/D/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "primeroNivelB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1217.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/D/primeroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1183.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/D/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1029.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/D/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1250.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/E/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "primeroNivelB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1183.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/E/primeroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1183.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/E/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1119.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/E/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1029.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/E/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1250.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/F/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1183.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/F/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1119.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/F/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1029.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/F/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1288.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/A/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1219.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/A/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1153.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/A/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "A",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1059.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/A/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1288.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/B/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1219.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/B/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1153.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/B/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "B",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1059.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/B/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1288.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/C/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1219.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/C/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1153.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/C/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1153.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/C/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "C",
+        "grupoProfesional": "terceroNivelB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1059.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/C/terceroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1288.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/D/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "primeroNivelB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1253.66,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/D/primeroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1219.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/D/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "D",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1059.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/D/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1288.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/E/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "primeroNivelB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1219.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/E/primeroNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1219.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/E/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1153.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/E/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "E",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1059.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/E/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "primero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1288.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/F/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1219.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/F/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "segundoNivelB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1153.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/F/segundoNivelB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "F",
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1059.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/F/tercero"
+    }
+  ]
+}

@@ -1,0 +1,4036 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../lugo-hosteleria.json (la transcripción verificada es la fuente de verdad). Columna S.Base (salario base €/mes) de las Tablas salariales revisadas 2024 (BOP Lugo nº51, 03-03-2025), por sección de establecimiento, departamento, puesto y categoría. Vigencia desde 01-01-2025; hasta 31-12-2026 porque el convenio está en ultraactividad y la propia transcripción constata que estas tablas siguen siendo las aplicables en 2026 (sin incremento 2025/2026 pactado; re-derivar si se publica tabla nueva). El Plus de Convenio (columna P.Conv, Art. 11) NO es salarioBase y queda fuera del alcance v1. NO editar importes aquí: se corrige la transcripción y se re-deriva. [Corregido: hasta=2025-12-31, año natural de efectos; 2026 lo resuelve el motor por ultraactividad.]",
+  "id": "lugo-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Jefe/a Recepción",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1481.39,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Jefe~1a Recepción/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Jefe/a Recepción",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1424.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Jefe~1a Recepción/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Jefe/a Recepción",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1396.02,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Jefe~1a Recepción/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "2º Jefe/a Recepción",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/2º Jefe~1a Recepción/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "2º Jefe/a Recepción",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/2º Jefe~1a Recepción/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "2º Jefe/a Recepción",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/2º Jefe~1a Recepción/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Recepcionista",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Recepcionista/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Recepcionista",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Recepcionista/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Recepcionista",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Recepcionista/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Recepcionista",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1137.18,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Recepcionista/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Conserje",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1252.94,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Conserje/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Conserje",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1224.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Conserje/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Conserje",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Conserje/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Conserje",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Conserje/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Vigilante-conserje noche",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1224.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Vigilante-conserje noche/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Vigilante-conserje noche",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Vigilante-conserje noche/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Vigilante-conserje noche",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Vigilante-conserje noche/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Vigilante-conserje noche",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Vigilante-conserje noche/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Ayudante/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Ayudante/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Auxiliar/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Auxiliar/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Auxiliar/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/recepcionConserjeria/Auxiliar/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Jefe/a Administración",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1481.39,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Jefe~1a Administración/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Jefe/a Administración",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1424.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Jefe~1a Administración/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Jefe/a Administración",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1396.02,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Jefe~1a Administración/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1424.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Contable/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1396.02,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Contable/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Contable/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Contable/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial administrativo/a",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1224.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Oficial administrativo~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial administrativo/a",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Oficial administrativo~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial administrativo/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Oficial administrativo~1a/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial administrativo/a",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Oficial administrativo~1a/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1224.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Auxiliar administrativo~1a-Telefonista/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Auxiliar administrativo~1a-Telefonista/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Auxiliar administrativo~1a-Telefonista/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/administracionGestion/Auxiliar administrativo~1a-Telefonista/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1566.79,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Jefe~1a Cocina/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1509.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Jefe~1a Cocina/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1424.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Jefe~1a Cocina/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.68,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Jefe~1a Cocina/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "2º Jefe/a Cocina",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/2º Jefe~1a Cocina/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "2º Jefe/a Cocina",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/2º Jefe~1a Cocina/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "2º Jefe/a Cocina",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/2º Jefe~1a Cocina/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "2º Jefe/a Cocina",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1168.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/2º Jefe~1a Cocina/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Encargado/a Economato",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Encargado~1a Economato/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Encargado/a Economato",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Encargado~1a Economato/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Encargado/a Economato",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.88,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Encargado~1a Economato/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Encargado/a Economato",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1124.02,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Encargado~1a Economato/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-repostero/a",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Cocinero~1a-repostero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-repostero/a",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Cocinero~1a-repostero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-repostero/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Cocinero~1a-repostero~1a/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-repostero/a",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1124.02,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Cocinero~1a-repostero~1a/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1224.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Ayudante/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Ayudante/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Auxiliar-fregador/a",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Auxiliar-fregador~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Auxiliar-fregador/a",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Auxiliar-fregador~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Auxiliar-fregador/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Auxiliar-fregador~1a/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "cocina",
+        "puesto": "Auxiliar-fregador/a",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/cocina/Auxiliar-fregador~1a/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1566.79,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Jefe~1a Comedor/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1509.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Jefe~1a Comedor/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1424.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Jefe~1a Comedor/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Jefe~1a Comedor/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "2º Jefe/a Comedor",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/2º Jefe~1a Comedor/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "2º Jefe/a Comedor",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/2º Jefe~1a Comedor/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "2º Jefe/a Comedor",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.68,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/2º Jefe~1a Comedor/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "2º Jefe/a Comedor",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/2º Jefe~1a Comedor/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Camarero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Camarero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Camarero~1a/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1168.37,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Camarero~1a/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Ayudante/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/comedor/Ayudante/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a General",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Encargado~1a General/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a General",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Encargado~1a General/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a General",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Encargado~1a General/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a General",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1138.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Encargado~1a General/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Encargado~1a Sección/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Encargado~1a Sección/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Encargado~1a Sección/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Encargado~1a Sección/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Camarero/a pisos",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1123.8,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Camarero~1a pisos/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Camarero/a pisos",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Camarero~1a pisos/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Camarero/a pisos",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Camarero~1a pisos/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Camarero/a pisos",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Camarero~1a pisos/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Auxiliar pisos-limpiador/a",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Auxiliar pisos-limpiador~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Auxiliar pisos-limpiador/a",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Auxiliar pisos-limpiador~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Auxiliar pisos-limpiador/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Auxiliar pisos-limpiador~1a/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "pisosLimpieza",
+        "puesto": "Auxiliar pisos-limpiador/a",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/pisosLimpieza/Auxiliar pisos-limpiador~1a/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Encargado~1a Sección/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1223.37,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Encargado~1a Sección/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.9,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Encargado~1a Sección/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1138.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Encargado~1a Sección/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Especialista",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1252.94,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Especialista/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Especialista",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Especialista/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Especialista",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Especialista/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Especialista",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Especialista/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Auxiliar/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Auxiliar/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Auxiliar/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Auxiliar/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Chófer",
+        "categoriaEstablecimiento": "5 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Chófer/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Chófer",
+        "categoriaEstablecimiento": "4 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Chófer/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Chófer",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Chófer/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Chófer",
+        "categoriaEstablecimiento": "1 y 2 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1137.18,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/mantenimientoServiciosAuxiliares/Chófer/3/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "balnearios",
+        "puesto": "Director/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1424.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/balnearios/Director~1a/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "balnearios",
+        "puesto": "Coordinador/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/balnearios/Coordinador~1a/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "balnearios",
+        "puesto": "Fisioterapeuta"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/balnearios/Fisioterapeuta/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "balnearios",
+        "puesto": "Técnico balneario (1)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/balnearios/Técnico balneario (1)/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionPrimera_Hoteles",
+        "departamento": "balnearios",
+        "puesto": "Auxiliar balneario (2)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionPrimera_Hoteles/balnearios/Auxiliar balneario (2)/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Recepcionista",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/recepcionConserjeria/Recepcionista/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Recepcionista",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/recepcionConserjeria/Recepcionista/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Conserje-vigilante noche",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/recepcionConserjeria/Conserje-vigilante noche/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Conserje-vigilante noche",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/recepcionConserjeria/Conserje-vigilante noche/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/recepcionConserjeria/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "recepcionConserjeria",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/recepcionConserjeria/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial administrativo/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/administracionGestion/Oficial administrativo~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial administrativo/a",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/administracionGestion/Oficial administrativo~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/administracionGestion/Auxiliar administrativo~1a-Telefonista/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/administracionGestion/Auxiliar administrativo~1a-Telefonista/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.11,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/cocina/Jefe~1a Cocina/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1192.15,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/cocina/Jefe~1a Cocina/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-repostero/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1137.18,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/cocina/Cocinero~1a-repostero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-repostero/a",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/cocina/Cocinero~1a-repostero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/cocina/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/cocina/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1396.02,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/comedor/Jefe~1a Comedor/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.9,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/comedor/Jefe~1a Comedor/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/comedor/Camarero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/comedor/Camarero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/comedor/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/comedor/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/pisosLimpieza/Encargado~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/pisosLimpieza/Encargado~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/pisosLimpieza/Encargado~1a Sección/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "pisosLimpieza",
+        "puesto": "Encargado/a Sección",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/pisosLimpieza/Encargado~1a Sección/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "pisosLimpieza",
+        "puesto": "Camarero/a Pisos",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/pisosLimpieza/Camarero~1a Pisos/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "pisosLimpieza",
+        "puesto": "Camarero/a Pisos",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/pisosLimpieza/Camarero~1a Pisos/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "pisosLimpieza",
+        "puesto": "Auxiliar Pisos-Limpiador/a",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/pisosLimpieza/Auxiliar Pisos-Limpiador~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "pisosLimpieza",
+        "puesto": "Auxiliar Pisos-Limpiador/a",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/pisosLimpieza/Auxiliar Pisos-Limpiador~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Personal Mantenimiento",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/mantenimientoServiciosAuxiliares/Personal Mantenimiento/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Personal Mantenimiento",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/mantenimientoServiciosAuxiliares/Personal Mantenimiento/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Chófer",
+        "categoriaEstablecimiento": "3 Estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/mantenimientoServiciosAuxiliares/Chófer/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSegunda_PensionesTurismoRural",
+        "departamento": "mantenimientoServiciosAuxiliares",
+        "puesto": "Chófer",
+        "categoriaEstablecimiento": "1 y 2 estrellas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1137.18,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSegunda_PensionesTurismoRural/mantenimientoServiciosAuxiliares/Chófer/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/administracionGestion/Contable/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1223.37,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/administracionGestion/Contable/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1141.75,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/administracionGestion/Contable/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.04,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/administracionGestion/Auxiliar administrativo~1a-Telefonista/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/administracionGestion/Auxiliar administrativo~1a-Telefonista/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar administrativo/a-Telefonista",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/administracionGestion/Auxiliar administrativo~1a-Telefonista/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1538.31,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Jefe~1a Cocina/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1452.93,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Jefe~1a Cocina/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Jefe~1a Cocina/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "2º Jefe/a Cocina",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/2º Jefe~1a Cocina/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "2º Jefe/a Cocina",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/2º Jefe~1a Cocina/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "2º Jefe/a Cocina",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/2º Jefe~1a Cocina/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-Repostero/a",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Cocinero~1a-Repostero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-Repostero/a",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Cocinero~1a-Repostero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-Repostero/a",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.62,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Cocinero~1a-Repostero~1a/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Encargado/a Economato",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.04,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Encargado~1a Economato/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Encargado/a Economato",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Encargado~1a Economato/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Encargado/a Economato",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Encargado~1a Economato/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Ayudante/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Auxiliar/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Auxiliar/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "cocina",
+        "puesto": "Auxiliar",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/cocina/Auxiliar/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1538.31,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Jefe~1a Comedor/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1481.39,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Jefe~1a Comedor/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Jefe~1a Comedor/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "2º Jefe/a Comedor",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/2º Jefe~1a Comedor/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "2º Jefe/a Comedor",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.68,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/2º Jefe~1a Comedor/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "2º Jefe/a Comedor",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/2º Jefe~1a Comedor/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Camarero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1222.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Camarero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Camarero~1a/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1252.94,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/comedor/Ayudante/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "5 y 4 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/limpieza/Limpiador~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "3 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/limpieza/Limpiador~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionTercera_RestaurantesColectividadesCatering",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "1 y 2 Tenedores"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionTercera_RestaurantesColectividadesCatering/limpieza/Limpiador~1a/2/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "administracionGestion",
+        "puesto": "Encargado/a",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/administracionGestion/Encargado~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "administracionGestion",
+        "puesto": "Encargado/a",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/administracionGestion/Encargado~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1192.17,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/administracionGestion/Contable/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1141.75,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/administracionGestion/Contable/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar/Telefonista",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/administracionGestion/Auxiliar~1Telefonista/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar/Telefonista",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/administracionGestion/Auxiliar~1Telefonista/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/cocina/Jefe~1a Cocina/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "cocina",
+        "puesto": "Jefe/a Cocina",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1192.15,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/cocina/Jefe~1a Cocina/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-Repostero/a",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/cocina/Cocinero~1a-Repostero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "cocina",
+        "puesto": "Cocinero/a-Repostero/a",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1137.18,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/cocina/Cocinero~1a-Repostero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "cocina",
+        "puesto": "Bodeguero/a",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/cocina/Bodeguero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "cocina",
+        "puesto": "Bodeguero/a",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/cocina/Bodeguero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/cocina/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "cocina",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/cocina/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/comedor/Jefe~1a Comedor/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "comedor",
+        "puesto": "Jefe/a Comedor",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1192.15,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/comedor/Jefe~1a Comedor/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "comedor",
+        "puesto": "Dependiente/Camarero",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/comedor/Dependiente~1Camarero/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "comedor",
+        "puesto": "Dependiente/Camarero",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1137.18,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/comedor/Dependiente~1Camarero/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/comedor/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "comedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/comedor/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "3 y 2 Tazas / 1ª y 2ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/limpieza/Limpiador~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionCuarta_CafeteriasCafesBaresTabernas",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "1 Taza, 3ª, Tabernas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionCuarta_CafeteriasCafesBaresTabernas/limpieza/Limpiador~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "administracionGestion",
+        "puesto": "Encargado/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1481.39,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/administracionGestion/Encargado~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "administracionGestion",
+        "puesto": "Encargado/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1396.02,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/administracionGestion/Encargado~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/administracionGestion/Contable/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "administracionGestion",
+        "puesto": "Contable",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1163.71,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/administracionGestion/Contable/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar/Telefonista",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/administracionGestion/Auxiliar~1Telefonista/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar/Telefonista",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/administracionGestion/Auxiliar~1Telefonista/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "mostrador",
+        "puesto": "Jefe/a Mostrador",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1452.93,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/mostrador/Jefe~1a Mostrador/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "mostrador",
+        "puesto": "Jefe/a Mostrador",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/mostrador/Jefe~1a Mostrador/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "mostrador",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/mostrador/Camarero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "mostrador",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/mostrador/Camarero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "mostrador",
+        "puesto": "Bodeguero/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1309.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/mostrador/Bodeguero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "mostrador",
+        "puesto": "Bodeguero/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/mostrador/Bodeguero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "mostrador",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/mostrador/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "mostrador",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/mostrador/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Relaciones Públicas",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1366.78,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/serviciosAuxiliares/Relaciones Públicas/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Relaciones Públicas",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1309.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/serviciosAuxiliares/Relaciones Públicas/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Disc-Jockey",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1366.78,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/serviciosAuxiliares/Disc-Jockey/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Disc-Jockey",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1309.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/serviciosAuxiliares/Disc-Jockey/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Cajero/a-Guardarropa",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/serviciosAuxiliares/Cajero~1a-Guardarropa/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Cajero/a-Guardarropa",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/serviciosAuxiliares/Cajero~1a-Guardarropa/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Portero/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/serviciosAuxiliares/Portero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Portero/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/serviciosAuxiliares/Portero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/limpieza/Limpiador~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionQuinta_DiscotecasSalasFiesta",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1121.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionQuinta_DiscotecasSalasFiesta/limpieza/Limpiador~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Jefe/a 1ª",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1595.26,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Jefe~1a 1ª/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Jefe/a 1ª",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1424.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Jefe~1a 1ª/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Jefe/a 2ª",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1452.93,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Jefe~1a 2ª/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Jefe/a 2ª",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Jefe~1a 2ª/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial 1ª Advo/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1452.93,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Oficial 1ª Advo~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial 1ª Advo/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Oficial 1ª Advo~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial 2ª Advo/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Oficial 2ª Advo~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Oficial 2ª Advo/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Oficial 2ª Advo~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar Advo/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1309.92,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Auxiliar Advo~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "administracionGestion",
+        "puesto": "Auxiliar Advo/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/administracionGestion/Auxiliar Advo~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "conserjeria",
+        "puesto": "Conserje",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1452.93,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/conserjeria/Conserje/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "conserjeria",
+        "puesto": "Conserje",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1452.93,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/conserjeria/Conserje/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "conserjeria",
+        "puesto": "Ayudante conserje",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/conserjeria/Ayudante conserje/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "conserjeria",
+        "puesto": "Ayudante conserje",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/conserjeria/Ayudante conserje/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "conserjeria",
+        "puesto": "Joven/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.08,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/conserjeria/Joven~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "conserjeria",
+        "puesto": "Joven/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/conserjeria/Joven~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "salonComedor",
+        "puesto": "Encargado/a Salón",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/salonComedor/Encargado~1a Salón/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "salonComedor",
+        "puesto": "Encargado/a Salón",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/salonComedor/Encargado~1a Salón/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "salonComedor",
+        "puesto": "Ordenanza Salón",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.68,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/salonComedor/Ordenanza Salón/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "salonComedor",
+        "puesto": "Ordenanza Salón",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1168.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/salonComedor/Ordenanza Salón/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "salonComedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/salonComedor/Camarero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "salonComedor",
+        "puesto": "Camarero/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/salonComedor/Camarero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "salonComedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.08,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/salonComedor/Ayudante/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "salonComedor",
+        "puesto": "Ayudante",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/salonComedor/Ayudante/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Portero/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.68,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/serviciosAuxiliares/Portero~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Portero/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1168.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/serviciosAuxiliares/Portero~1a/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Vigilante Noche",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1338.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/serviciosAuxiliares/Vigilante Noche/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Vigilante Noche",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.08,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/serviciosAuxiliares/Vigilante Noche/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Xardinero/a (jardinero/a)",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1338.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/serviciosAuxiliares/Xardinero~1a (jardinero~1a)/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "serviciosAuxiliares",
+        "puesto": "Xardinero/a (jardinero/a)",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.08,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/serviciosAuxiliares/Xardinero~1a (jardinero~1a)/1/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "Lujo y 1ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.08,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/limpieza/Limpiador~1a/0/0"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "seccion": "seccionSexta_CasinosSociedadesRecreativas",
+        "departamento": "limpieza",
+        "puesto": "Limpiador/a",
+        "categoriaEstablecimiento": "2ª y 3ª"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales revisadas 2024 (BOP Lugo nº 51, 03-03-2025; vigencia desde 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/seccionSexta_CasinosSociedadesRecreativas/limpieza/Limpiador~1a/1/0"
+    }
+  ]
+}

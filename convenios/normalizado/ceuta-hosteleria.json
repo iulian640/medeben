@@ -1,0 +1,246 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../ceuta-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre la columna SALARIO BASE de los Anexos I-V (tablas definitivas 2025-2029, BOCCE nº 6.571, 05-12-2025) por NIVEL económico I-IV. OJO: en Ceuta el salario base es solo una parte de la retribución mensual garantizada — las tablas suman además residencia (25% SB), transporte, plus de vinculación (8% SB) y prorrateo de pagas extra; esos componentes NO son salarioBase y quedan para conceptos futuros. La asimilación puesto->nivel está en la transcripción (categoriasProfesionales, Anexo VI).",
+  "id": "ceuta-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1008.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 949.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 895.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 840.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1044.34,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2026)",
+      "rutaCruda": "/tablasSalariales/2026/I/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 983.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2026)",
+      "rutaCruda": "/tablasSalariales/2026/II/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 928.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2026)",
+      "rutaCruda": "/tablasSalariales/2026/III/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 870.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2026)",
+      "rutaCruda": "/tablasSalariales/2026/IV/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1081.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2027)",
+      "rutaCruda": "/tablasSalariales/2027/I/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1018.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2027)",
+      "rutaCruda": "/tablasSalariales/2027/II/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 961.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2027)",
+      "rutaCruda": "/tablasSalariales/2027/III/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 901.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2027)",
+      "rutaCruda": "/tablasSalariales/2027/IV/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1106.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2028)",
+      "rutaCruda": "/tablasSalariales/2028/I/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1041.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2028)",
+      "rutaCruda": "/tablasSalariales/2028/II/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 983.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2028)",
+      "rutaCruda": "/tablasSalariales/2028/III/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 921.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2028)",
+      "rutaCruda": "/tablasSalariales/2028/IV/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2029-01-01",
+      "hasta": "2029-12-31",
+      "importe": 1131.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2029)",
+      "rutaCruda": "/tablasSalariales/2029/I/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2029-01-01",
+      "hasta": "2029-12-31",
+      "importe": 1064.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2029)",
+      "rutaCruda": "/tablasSalariales/2029/II/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2029-01-01",
+      "hasta": "2029-12-31",
+      "importe": 1005.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2029)",
+      "rutaCruda": "/tablasSalariales/2029/III/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2029-01-01",
+      "hasta": "2029-12-31",
+      "importe": 942.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexos I-V (tabla 2029)",
+      "rutaCruda": "/tablasSalariales/2029/IV/salarioBase"
+    }
+  ]
+}

@@ -1,0 +1,4179 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../estatal-restauracion-colectiva.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; el validador del backend comprueba en cada build que importe == valor en la transcripción. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre las tablas salarioBase2025 de los anexos provinciales (salario base mensual, vigencia 2025). Excluidos: Córdoba 'Tabla A - Nivel 1' (errata del BOE, valor no numérico en la transcripción) y la provincia de Lugo entera (tabla multi-columna transcrita como strings 'S.Base (P.Vest.)' por categoría de establecimiento; no hay celdas numéricas a las que apuntar con rutaCruda).",
+  "id": "estatal-restauracion-colectiva",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Caceres",
+        "categoria": "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gobernante o Encargado general / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1044.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Caceres (BOE nº148, Sec. III pág. 82201)",
+      "rutaCruda": "/tablasPorProvincia/Caceres/salarioBase2025/Jefe de recepción ~1 Jefe de cocina ~1 Jefe de restaurante o sala ~1 Gobernante o Encargado general ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Caceres",
+        "categoria": "2º jefe de cocina / 2º jefe de restaurante o sala / Gerente de centro / Recepcionista / Administrativo / Técnico / Encargado de economato / Supervisor de colectividades / Encargado de sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1005.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Caceres (BOE nº148, Sec. III pág. 82201)",
+      "rutaCruda": "/tablasPorProvincia/Caceres/salarioBase2025/2º jefe de cocina ~1 2º jefe de restaurante o sala ~1 Gerente de centro ~1 Recepcionista ~1 Administrativo ~1 Técnico ~1 Encargado de economato ~1 Supervisor de colectividades ~1 Encargado de sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Caceres",
+        "categoria": "Cocinero / Camarero / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 996.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Caceres (BOE nº148, Sec. III pág. 82201)",
+      "rutaCruda": "/tablasPorProvincia/Caceres/salarioBase2025/Cocinero ~1 Camarero ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Caceres",
+        "categoria": "Ayudante administrativo / de cocina / de economato / de camarero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 996.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Caceres (BOE nº148, Sec. III pág. 82201)",
+      "rutaCruda": "/tablasPorProvincia/Caceres/salarioBase2025/Ayudante administrativo ~1 de cocina ~1 de economato ~1 de camarero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Caceres",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento / Monitor de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 996.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Caceres (BOE nº148, Sec. III pág. 82201)",
+      "rutaCruda": "/tablasPorProvincia/Caceres/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento ~1 Monitor de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Almeria",
+        "categoria": "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala / Gerente de centro / Gobernante/a o Encargado/a general / Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1275.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Almeria (BOE nº148, Sec. III pág. 82164)",
+      "rutaCruda": "/tablasPorProvincia/Almeria/salarioBase2025/Jefe~1a de recepción ~1 Jefe~1a de cocina ~1 Jefe~1a de restaurante o sala ~1 Gerente de centro ~1 Gobernante~1a o Encargado~1a general ~1 Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Almeria",
+        "categoria": "2.º Jefe/a de cocina / 2.º Jefe/a de restaurante o sala / Recepcionista / Administrativo / Técnico"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Almeria (BOE nº148, Sec. III pág. 82164)",
+      "rutaCruda": "/tablasPorProvincia/Almeria/salarioBase2025/2.º Jefe~1a de cocina ~1 2.º Jefe~1a de restaurante o sala ~1 Recepcionista ~1 Administrativo ~1 Técnico"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Almeria",
+        "categoria": "Subgobernante o Encargado/a de sección / Encargado/a de economato / Supervisor/a de colectividades / Especialista de mantenimiento y servicios auxiliares / Auxiliar de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1149.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Almeria (BOE nº148, Sec. III pág. 82164)",
+      "rutaCruda": "/tablasPorProvincia/Almeria/salarioBase2025/Subgobernante o Encargado~1a de sección ~1 Encargado~1a de economato ~1 Supervisor~1a de colectividades ~1 Especialista de mantenimiento y servicios auxiliares ~1 Auxiliar de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Almeria",
+        "categoria": "Cocinero/a / Camarero/a / Conductor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1105.14,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Almeria (BOE nº148, Sec. III pág. 82164)",
+      "rutaCruda": "/tablasPorProvincia/Almeria/salarioBase2025/Cocinero~1a ~1 Camarero~1a ~1 Conductor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Almeria",
+        "categoria": "Ayudante administrativo / de cocina / de economato / de camarero / Auxiliar de pisos y limpieza / de cocina / de colectividades / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1059.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Almeria (BOE nº148, Sec. III pág. 82164)",
+      "rutaCruda": "/tablasPorProvincia/Almeria/salarioBase2025/Ayudante administrativo ~1 de cocina ~1 de economato ~1 de camarero ~1 Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cadiz",
+        "categoria": "1.ª Jefe/a de recepción"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1752.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cadiz (BOE nº148, Sec. III pág. 82165)",
+      "rutaCruda": "/tablasPorProvincia/Cadiz/salarioBase2025/1.ª Jefe~1a de recepción"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cadiz",
+        "categoria": "2.º Jefe/a de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1617.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cadiz (BOE nº148, Sec. III pág. 82165)",
+      "rutaCruda": "/tablasPorProvincia/Cadiz/salarioBase2025/2.º Jefe~1a de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cadiz",
+        "categoria": "3.º Recepcionista"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1487.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cadiz (BOE nº148, Sec. III pág. 82165)",
+      "rutaCruda": "/tablasPorProvincia/Cadiz/salarioBase2025/3.º Recepcionista"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cadiz",
+        "categoria": "Grupo 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1235.82,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cadiz (BOE nº148, Sec. III pág. 82165)",
+      "rutaCruda": "/tablasPorProvincia/Cadiz/salarioBase2025/Grupo 1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cadiz",
+        "categoria": "Grupo 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1210.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cadiz (BOE nº148, Sec. III pág. 82165)",
+      "rutaCruda": "/tablasPorProvincia/Cadiz/salarioBase2025/Grupo 2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cadiz",
+        "categoria": "Grupo 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cadiz (BOE nº148, Sec. III pág. 82165)",
+      "rutaCruda": "/tablasPorProvincia/Cadiz/salarioBase2025/Grupo 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cadiz",
+        "categoria": "Grupo 4 y 5 (monitor de colectividades)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1179.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cadiz (BOE nº148, Sec. III pág. 82165)",
+      "rutaCruda": "/tablasPorProvincia/Cadiz/salarioBase2025/Grupo 4 y 5 (monitor de colectividades)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "5 estrellas - Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1349.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/5 estrellas - Nivel 1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "5 estrellas - Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1323.89,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/5 estrellas - Nivel 2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "5 estrellas - Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1246.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/5 estrellas - Nivel 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "5 estrellas - Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1221.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/5 estrellas - Nivel 4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "5 estrellas - Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1211.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/5 estrellas - Nivel 5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla A - Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1296.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla A - Nivel 2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla A - Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1221.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla A - Nivel 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla A - Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla A - Nivel 4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla A - Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1186.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla A - Nivel 5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla B - Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1296.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla B - Nivel 1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla B - Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1271.66,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla B - Nivel 2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla B - Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla B - Nivel 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla B - Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1186.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla B - Nivel 4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cordoba",
+        "categoria": "Tabla B - Nivel 5 (Monitor/a)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1176.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cordoba (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/salarioBase2025/Tabla B - Nivel 5 (Monitor~1a)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Granada",
+        "categoria": "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gerente de centro / Gobernante o encargado general"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1752.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Granada (BOE nº148, Sec. III pág. 82167)",
+      "rutaCruda": "/tablasPorProvincia/Granada/salarioBase2025/Jefe de recepción ~1 Jefe de cocina ~1 Jefe de restaurante o sala ~1 Gerente de centro ~1 Gobernante o encargado general"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Granada",
+        "categoria": "2.º Jefe de cocina / 2.º jefe de restaurante o sala / Responsable de servicio / Encargado de economato"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1617.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Granada (BOE nº148, Sec. III pág. 82167)",
+      "rutaCruda": "/tablasPorProvincia/Granada/salarioBase2025/2.º Jefe de cocina ~1 2.º jefe de restaurante o sala ~1 Responsable de servicio ~1 Encargado de economato"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Granada",
+        "categoria": "Jefe de Partida / Jefe de Sector / 2.ª Jefe de Bar"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1493.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Granada (BOE nº148, Sec. III pág. 82167)",
+      "rutaCruda": "/tablasPorProvincia/Granada/salarioBase2025/Jefe de Partida ~1 Jefe de Sector ~1 2.ª Jefe de Bar"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Granada",
+        "categoria": "Recepcionista / Administrativo / Técnico / Cocinero / Camarero / Supervisor de colectividades / Encargado de sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1487.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Granada (BOE nº148, Sec. III pág. 82167)",
+      "rutaCruda": "/tablasPorProvincia/Granada/salarioBase2025/Recepcionista ~1 Administrativo ~1 Técnico ~1 Cocinero ~1 Camarero ~1 Supervisor de colectividades ~1 Encargado de sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Granada",
+        "categoria": "Ayudante de cocina / de economato / de camarero / Especialista de mantenimiento y servicios auxiliares / auxiliar de cocina / Monitora"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1440.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Granada (BOE nº148, Sec. III pág. 82167)",
+      "rutaCruda": "/tablasPorProvincia/Granada/salarioBase2025/Ayudante de cocina ~1 de economato ~1 de camarero ~1 Especialista de mantenimiento y servicios auxiliares ~1 auxiliar de cocina ~1 Monitora"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Granada",
+        "categoria": "Auxiliar de pisos y limpieza / de colectividades / de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1370.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Granada (BOE nº148, Sec. III pág. 82167)",
+      "rutaCruda": "/tablasPorProvincia/Granada/salarioBase2025/Auxiliar de pisos y limpieza ~1 de colectividades ~1 de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Jefe/a de comedor o maestro"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1414.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Jefe~1a de comedor o maestro"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Jefe/a de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1413.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Jefe~1a de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Segundo jefe/a de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1358.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Segundo jefe~1a de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Segundo jefe/a comedor / Jefe de sector"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1353.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Segundo jefe~1a comedor ~1 Jefe de sector"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Jefe/a partida / Encargado economato"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1353.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Jefe~1a partida ~1 Encargado economato"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Limpiador/a (jornada entera)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1338.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Limpiador~1a (jornada entera)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Cocinero/a / Pizzero/a / Dietista"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1338.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Cocinero~1a ~1 Pizzero~1a ~1 Dietista"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Camarero/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1323.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Camarero~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Ayudante camarero/a / Ayudante cocinero/a / Repartidor/a / Pinche / Fregadores / Personal plateria / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1302.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Ayudante camarero~1a ~1 Ayudante cocinero~1a ~1 Repartidor~1a ~1 Pinche ~1 Fregadores ~1 Personal plateria ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Malaga",
+        "categoria": "Limpiador/a (media jornada)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 669.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Malaga (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/salarioBase2025/Limpiador~1a (media jornada)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Sevilla",
+        "categoria": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1299.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Sevilla (BOE nº148, Sec. III pág. 82173)",
+      "rutaCruda": "/tablasPorProvincia/Sevilla/salarioBase2025/Nivel 1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Sevilla",
+        "categoria": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Sevilla (BOE nº148, Sec. III pág. 82173)",
+      "rutaCruda": "/tablasPorProvincia/Sevilla/salarioBase2025/Nivel 2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Sevilla",
+        "categoria": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1235.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Sevilla (BOE nº148, Sec. III pág. 82173)",
+      "rutaCruda": "/tablasPorProvincia/Sevilla/salarioBase2025/Nivel 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Sevilla",
+        "categoria": "Nivel 4 y 5 (Monitor/a)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1157.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Sevilla (BOE nº148, Sec. III pág. 82173)",
+      "rutaCruda": "/tablasPorProvincia/Sevilla/salarioBase2025/Nivel 4 y 5 (Monitor~1a)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zaragoza",
+        "categoria": "Jefe/a de recepción / Jefe/a de cocina / Jefe/a restaurante o sala / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zaragoza (BOE nº148, Sec. III pág. 82176)",
+      "rutaCruda": "/tablasPorProvincia/Zaragoza/salarioBase2025/Jefe~1a de recepción ~1 Jefe~1a de cocina ~1 Jefe~1a restaurante o sala ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zaragoza",
+        "categoria": "2.º Jefe/a de cocina / 2.º Jefe/a de restaurante o sala / Gerente de centro / Gobernante/a o Encargado/a general"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1324.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zaragoza (BOE nº148, Sec. III pág. 82176)",
+      "rutaCruda": "/tablasPorProvincia/Zaragoza/salarioBase2025/2.º Jefe~1a de cocina ~1 2.º Jefe~1a de restaurante o sala ~1 Gerente de centro ~1 Gobernante~1a o Encargado~1a general"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zaragoza",
+        "categoria": "Recepcionista / Administrativo/a / Técnico / Cocinero/a / Encargado de economato / Camarero/a / Supervisor/a de colectividades / Encargado/a de sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1258.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zaragoza (BOE nº148, Sec. III pág. 82176)",
+      "rutaCruda": "/tablasPorProvincia/Zaragoza/salarioBase2025/Recepcionista ~1 Administrativo~1a ~1 Técnico ~1 Cocinero~1a ~1 Encargado de economato ~1 Camarero~1a ~1 Supervisor~1a de colectividades ~1 Encargado~1a de sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zaragoza",
+        "categoria": "Ayudante administrativo/a / de cocina / de economato / de camarero/a / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1151.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zaragoza (BOE nº148, Sec. III pág. 82176)",
+      "rutaCruda": "/tablasPorProvincia/Zaragoza/salarioBase2025/Ayudante administrativo~1a ~1 de cocina ~1 de economato ~1 de camarero~1a ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zaragoza",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1150.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zaragoza (BOE nº148, Sec. III pág. 82176)",
+      "rutaCruda": "/tablasPorProvincia/Zaragoza/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento y servicios auxiliares ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Asturias",
+        "categoria": "Jefe de recepción / jefe de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1539.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Asturias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/salarioBase2025/Jefe de recepción ~1 jefe de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Asturias",
+        "categoria": "Técnico de servicio (fisioterapeuta, dietista, otras ciencias salud) / 2.º jefe de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1485.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Asturias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/salarioBase2025/Técnico de servicio (fisioterapeuta, dietista, otras ciencias salud) ~1 2.º jefe de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Asturias",
+        "categoria": "Jefe de cocina / Conductor / administrativo / camarero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1408.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Asturias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/salarioBase2025/Jefe de cocina ~1 Conductor ~1 administrativo ~1 camarero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Asturias",
+        "categoria": "Gobernante o Encargado general / Supervisor de colectividades / Cocinero / 2.º jefe de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1355.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Asturias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/salarioBase2025/Gobernante o Encargado general ~1 Supervisor de colectividades ~1 Cocinero ~1 2.º jefe de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Asturias",
+        "categoria": "Recepcionista"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1326.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Asturias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/salarioBase2025/Recepcionista"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Asturias",
+        "categoria": "Técnico / Auxiliar de colectividades / Ayudante administrativo / encargado de economato / ayudante de camarero / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1274.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Asturias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/salarioBase2025/Técnico ~1 Auxiliar de colectividades ~1 Ayudante administrativo ~1 encargado de economato ~1 ayudante de camarero ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Asturias",
+        "categoria": "Subgobernante o Encargado de sección / Ayudante de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1220.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Asturias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/salarioBase2025/Subgobernante o Encargado de sección ~1 Ayudante de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Asturias",
+        "categoria": "Ayudante de economato / Especialista de mantenimiento y servicios auxiliares / Auxiliar de pisos y limpieza / Auxiliar de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1198.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Asturias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/salarioBase2025/Ayudante de economato ~1 Especialista de mantenimiento y servicios auxiliares ~1 Auxiliar de pisos y limpieza ~1 Auxiliar de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Las Palmas",
+        "categoria": "Nivel I - Contable general / Jefe/a de administración / Jefe/a de cocina / Primer jefe/a de comedor / Jefe/a de sala / Encargado/a general o gobernanta de primera / Titulado grado medio o superior / Primer barman"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1578.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Las Palmas (BOE nº148, Sec. III pág. 82178)",
+      "rutaCruda": "/tablasPorProvincia/Las Palmas/salarioBase2025/Nivel I - Contable general ~1 Jefe~1a de administración ~1 Jefe~1a de cocina ~1 Primer jefe~1a de comedor ~1 Jefe~1a de sala ~1 Encargado~1a general o gobernanta de primera ~1 Titulado grado medio o superior ~1 Primer barman"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Las Palmas",
+        "categoria": "Nivel II - Cajero/a general / Contable / Segundo/a jefe/a de cocina / Repostero/a Jefe / Encargado/a de economato o bodega / Segundo Jefe/a de comedor / Gobernanta de segunda / Supervisor de Catering / Dietista"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1470.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Las Palmas (BOE nº148, Sec. III pág. 82178)",
+      "rutaCruda": "/tablasPorProvincia/Las Palmas/salarioBase2025/Nivel II - Cajero~1a general ~1 Contable ~1 Segundo~1a jefe~1a de cocina ~1 Repostero~1a Jefe ~1 Encargado~1a de economato o bodega ~1 Segundo Jefe~1a de comedor ~1 Gobernanta de segunda ~1 Supervisor de Catering ~1 Dietista"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Las Palmas",
+        "categoria": "Nivel III - Recepcionista / Jefe de partida / Oficial repostero/a / Jefe de sector / Subgobernanta / Encargado/a de almacén / Conserje / Chofer mas de 3.500 kg"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1426.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Las Palmas (BOE nº148, Sec. III pág. 82178)",
+      "rutaCruda": "/tablasPorProvincia/Las Palmas/salarioBase2025/Nivel III - Recepcionista ~1 Jefe de partida ~1 Oficial repostero~1a ~1 Jefe de sector ~1 Subgobernanta ~1 Encargado~1a de almacén ~1 Conserje ~1 Chofer mas de 3.500 kg"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Las Palmas",
+        "categoria": "Nivel IV - Cajero/a de comedor o bar / Cocinero/a / Camarero/a / Dependiente/a / Planchista / Auxiliar administrativo / Oficial de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1396.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Las Palmas (BOE nº148, Sec. III pág. 82178)",
+      "rutaCruda": "/tablasPorProvincia/Las Palmas/salarioBase2025/Nivel IV - Cajero~1a de comedor o bar ~1 Cocinero~1a ~1 Camarero~1a ~1 Dependiente~1a ~1 Planchista ~1 Auxiliar administrativo ~1 Oficial de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Las Palmas",
+        "categoria": "Nivel V - Ayudantes no incluidos en el nivel IV / Marmiton / Pinche mayor de 18 anios / Fregaderos / Limpiadores/as / Auxiliar de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1359.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Las Palmas (BOE nº148, Sec. III pág. 82178)",
+      "rutaCruda": "/tablasPorProvincia/Las Palmas/salarioBase2025/Nivel V - Ayudantes no incluidos en el nivel IV ~1 Marmiton ~1 Pinche mayor de 18 anios ~1 Fregaderos ~1 Limpiadores~1as ~1 Auxiliar de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Santa Cruz de Tenerife",
+        "categoria": "Jefe/a de cocina / Jefe/a de comedor / Primer Barman / Jefe/a de compras / Contable general / Jefe/a de sala / Gobernanta/e / Primer encargado de cafeteria / Jefe/a de operaciones / Supervisor/a / Titulados de grado medio y superior"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1422.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Santa Cruz de Tenerife (BOE nº148, Sec. III pág. 82180)",
+      "rutaCruda": "/tablasPorProvincia/Santa Cruz de Tenerife/salarioBase2025/Jefe~1a de cocina ~1 Jefe~1a de comedor ~1 Primer Barman ~1 Jefe~1a de compras ~1 Contable general ~1 Jefe~1a de sala ~1 Gobernanta~1e ~1 Primer encargado de cafeteria ~1 Jefe~1a de operaciones ~1 Supervisor~1a ~1 Titulados de grado medio y superior"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Santa Cruz de Tenerife",
+        "categoria": "Encargado/a de trabajo / Contable / Cajero/a general / Segundo/a Jefe/a de cocina / 2.º Jefe/a de comedor / 2.º Jefe/a de sala / 2.º Barman / Repostero/a / 2.º encargado/a de mostrador / 2.º jefe de sección"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1338.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Santa Cruz de Tenerife (BOE nº148, Sec. III pág. 82180)",
+      "rutaCruda": "/tablasPorProvincia/Santa Cruz de Tenerife/salarioBase2025/Encargado~1a de trabajo ~1 Contable ~1 Cajero~1a general ~1 Segundo~1a Jefe~1a de cocina ~1 2.º Jefe~1a de comedor ~1 2.º Jefe~1a de sala ~1 2.º Barman ~1 Repostero~1a ~1 2.º encargado~1a de mostrador ~1 2.º jefe de sección"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Santa Cruz de Tenerife",
+        "categoria": "Jefe/a de partida / Jefe/a de sector / 2.º encargado/a de trabajos / Subgobernante/a / Oficial de contabilidad / Secretario/a / Encargado/a de economato y bodega / Relaciones publicas / Conductor de primera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1271.89,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Santa Cruz de Tenerife (BOE nº148, Sec. III pág. 82180)",
+      "rutaCruda": "/tablasPorProvincia/Santa Cruz de Tenerife/salarioBase2025/Jefe~1a de partida ~1 Jefe~1a de sector ~1 2.º encargado~1a de trabajos ~1 Subgobernante~1a ~1 Oficial de contabilidad ~1 Secretario~1a ~1 Encargado~1a de economato y bodega ~1 Relaciones publicas ~1 Conductor de primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Santa Cruz de Tenerife",
+        "categoria": "Telefonista / Cafetero/a / Bodeguero/a / Camarero/a de comedor y bares / Cocinero/a / Sumiller / Cajeros/as / Auxiliar Administrativo / Preparador/a / Monitor/a-cuidador/a de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1210.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Santa Cruz de Tenerife (BOE nº148, Sec. III pág. 82180)",
+      "rutaCruda": "/tablasPorProvincia/Santa Cruz de Tenerife/salarioBase2025/Telefonista ~1 Cafetero~1a ~1 Bodeguero~1a ~1 Camarero~1a de comedor y bares ~1 Cocinero~1a ~1 Sumiller ~1 Cajeros~1as ~1 Auxiliar Administrativo ~1 Preparador~1a ~1 Monitor~1a-cuidador~1a de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Santa Cruz de Tenerife",
+        "categoria": "Ayudante en general / Mozos/as / Pinche de cocina / Fregador/a / Limpiador/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1104.34,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Santa Cruz de Tenerife (BOE nº148, Sec. III pág. 82180)",
+      "rutaCruda": "/tablasPorProvincia/Santa Cruz de Tenerife/salarioBase2025/Ayudante en general ~1 Mozos~1as ~1 Pinche de cocina ~1 Fregador~1a ~1 Limpiador~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Barcelona",
+        "categoria": "NIV. 1 - Jefe/a cocina / Jefe/a de operaciones / Jefe/a de sala / Supervisor/a de explotaciones / Encargado/a general / Jefe/a de sector"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1792.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Barcelona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Barcelona/salarioBase2025/NIV. 1 - Jefe~1a cocina ~1 Jefe~1a de operaciones ~1 Jefe~1a de sala ~1 Supervisor~1a de explotaciones ~1 Encargado~1a general ~1 Jefe~1a de sector"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Barcelona",
+        "categoria": "NIV. 2 - Segundo/a jefe/a de cocina / Supervisor/a / Cajero/a administrativo / Jefe/a de sector / Jefe/a de compras / Encargado/a de explotación / Técnico/a de mantenimiento / Jefe/a de equipo / Secretario/a de dirección"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1677.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Barcelona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Barcelona/salarioBase2025/NIV. 2 - Segundo~1a jefe~1a de cocina ~1 Supervisor~1a ~1 Cajero~1a administrativo ~1 Jefe~1a de sector ~1 Jefe~1a de compras ~1 Encargado~1a de explotación ~1 Técnico~1a de mantenimiento ~1 Jefe~1a de equipo ~1 Secretario~1a de dirección"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Barcelona",
+        "categoria": "NIV. 3 - Chofer 2.ª / Dependiente/a / Barman-barwoman / Camarero/a / Cocinero/a / Planchista / Cajero/a / Oficial 2.º contabilidad / Oficial mantenimiento / Operador/a informatica / Dietista titulado con 1 anio / Comercial"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1615.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Barcelona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Barcelona/salarioBase2025/NIV. 3 - Chofer 2.ª ~1 Dependiente~1a ~1 Barman-barwoman ~1 Camarero~1a ~1 Cocinero~1a ~1 Planchista ~1 Cajero~1a ~1 Oficial 2.º contabilidad ~1 Oficial mantenimiento ~1 Operador~1a informatica ~1 Dietista titulado con 1 anio ~1 Comercial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Barcelona",
+        "categoria": "NIV. 4 - Ayudante/a dependiente/a / cocinero/a / camarero/a / Auxiliar de oficina / Ayudante/a supervisor/a / equipo / mantenimiento / Dependiente/a de autoservicio / Dietista sin experiencia / Auxiliar servicios colectividades / Monitor/a-cuidador"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1495.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Barcelona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Barcelona/salarioBase2025/NIV. 4 - Ayudante~1a dependiente~1a ~1 cocinero~1a ~1 camarero~1a ~1 Auxiliar de oficina ~1 Ayudante~1a supervisor~1a ~1 equipo ~1 mantenimiento ~1 Dependiente~1a de autoservicio ~1 Dietista sin experiencia ~1 Auxiliar servicios colectividades ~1 Monitor~1a-cuidador"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Barcelona",
+        "categoria": "NIV. 5 - Marmitones / Mozo/a de limpieza / Fregador/a y limpiador/a / Mozo/a de almacen / Ayudante/a de economato / Preparador/a / Pinche mayor de 18 anios / Personal de limpieza"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1467.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Barcelona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Barcelona/salarioBase2025/NIV. 5 - Marmitones ~1 Mozo~1a de limpieza ~1 Fregador~1a y limpiador~1a ~1 Mozo~1a de almacen ~1 Ayudante~1a de economato ~1 Preparador~1a ~1 Pinche mayor de 18 anios ~1 Personal de limpieza"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Barcelona",
+        "categoria": "NIV. 5 BIS - primer empleo en el sector o sin experiencia profesional"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1307.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Barcelona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Barcelona/salarioBase2025/NIV. 5 BIS - primer empleo en el sector o sin experiencia profesional"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Barcelona",
+        "categoria": "NIV. 6 - Pinche de 16 y 17 anios / Aspirante administrativo/a (colectividades)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1146.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Barcelona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Barcelona/salarioBase2025/NIV. 6 - Pinche de 16 y 17 anios ~1 Aspirante administrativo~1a (colectividades)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Girona",
+        "categoria": "NIV. 1 - Jefe/a de administración / comercial / cocina / sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1739.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Girona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Girona/salarioBase2025/NIV. 1 - Jefe~1a de administración ~1 comercial ~1 cocina ~1 sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Girona",
+        "categoria": "NIV. 2 - Segundo/a jefe/a de cocina / Jefe/a de catering / de operaciones de catering / Segundo/a jefe/a de sala / Gerente de centro / Encargado/a general"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1649.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Girona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Girona/salarioBase2025/NIV. 2 - Segundo~1a jefe~1a de cocina ~1 Jefe~1a de catering ~1 de operaciones de catering ~1 Segundo~1a jefe~1a de sala ~1 Gerente de centro ~1 Encargado~1a general"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Girona",
+        "categoria": "NIV. 3 - Administrativo/a / Comercial / Técnico PRL / Jefe/a de partida / de sala / de sector / Encargado/a de sección / Jefe/a de servicios de catering / Responsable de servicio / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1553.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Girona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Girona/salarioBase2025/NIV. 3 - Administrativo~1a ~1 Comercial ~1 Técnico PRL ~1 Jefe~1a de partida ~1 de sala ~1 de sector ~1 Encargado~1a de sección ~1 Jefe~1a de servicios de catering ~1 Responsable de servicio ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Girona",
+        "categoria": "NIV. 4 - Conserje / Administrativo/a / Ayudante Administrativo/a / Cocinero/a / Encargado/a de economato / Jefe/a de sala de catering / Camarero/a / Dependiente/a 1.ª / Supervisor de catering / Encargados y especialistas de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1446.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Girona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Girona/salarioBase2025/NIV. 4 - Conserje ~1 Administrativo~1a ~1 Ayudante Administrativo~1a ~1 Cocinero~1a ~1 Encargado~1a de economato ~1 Jefe~1a de sala de catering ~1 Camarero~1a ~1 Dependiente~1a 1.ª ~1 Supervisor de catering ~1 Encargados y especialistas de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Girona",
+        "categoria": "NIV. 5 - Ayudante/a de cocina / de camarero/a / cafeteria / Conductor/a de equipo de catering / Ayudante/a de equipo de catering / Preparador/a de restauración moderna / Especialistas de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1335.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Girona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Girona/salarioBase2025/NIV. 5 - Ayudante~1a de cocina ~1 de camarero~1a ~1 cafeteria ~1 Conductor~1a de equipo de catering ~1 Ayudante~1a de equipo de catering ~1 Preparador~1a de restauración moderna ~1 Especialistas de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Girona",
+        "categoria": "NIV. 6 - Auxiliar de cocina / Marmitones-Pinches / Auxiliar de buffet / de preparación/montaje de catering / de restauración moderna / Monitor/a o cuidador/a de colectividades / ASL"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1319.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Girona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Girona/salarioBase2025/NIV. 6 - Auxiliar de cocina ~1 Marmitones-Pinches ~1 Auxiliar de buffet ~1 de preparación~1montaje de catering ~1 de restauración moderna ~1 Monitor~1a o cuidador~1a de colectividades ~1 ASL"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Girona",
+        "categoria": "NIV. 7 - Auxiliar de cocina / Auxiliar limpieza"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1270.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Girona (BOE nº148, Sec. III pág. 82197)",
+      "rutaCruda": "/tablasPorProvincia/Girona/salarioBase2025/NIV. 7 - Auxiliar de cocina ~1 Auxiliar limpieza"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "Gerente de Centro / Jefe/a de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1294.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/Gerente de Centro ~1 Jefe~1a de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "Jefe/a de restaurante o sala / jefe/a de recepción / supervisor/a de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1293.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/Jefe~1a de restaurante o sala ~1 jefe~1a de recepción ~1 supervisor~1a de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "2.ª Jefe/a de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1279.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/2.ª Jefe~1a de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "2.ª Jefe/a de restaurante o sala / Gobernanta o encargado/a general / Responsable de servicio / recepcionista / Administrativo/a / Técnico / Encargado/a de sección"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1285.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/2.ª Jefe~1a de restaurante o sala ~1 Gobernanta o encargado~1a general ~1 Responsable de servicio ~1 recepcionista ~1 Administrativo~1a ~1 Técnico ~1 Encargado~1a de sección"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "Ayudante Administrativo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1255.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/Ayudante Administrativo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "Camarero/a / Técnico de servicio / Especialista de servicio auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1255.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/Camarero~1a ~1 Técnico de servicio ~1 Especialista de servicio auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "Encargado/a de economato y cocinero/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1234.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/Encargado~1a de economato y cocinero~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "Ayudante de cocina / de economato / de camarero/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1205.98,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/Ayudante de cocina ~1 de economato ~1 de camarero~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "A Coruna",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios generales"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1179.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial A Coruna (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento y servicios generales"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1620.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 2 - Jefe/a de cocina / de catering / de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1491.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 2 - Jefe~1a de cocina ~1 de catering ~1 de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1410.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 4 - 2.º jefe/a de cocina / Jefe/a de partida / de operaciones de catering / Segundo Jefe/a de restaurante o sala / de sector / de sala de catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1324.14,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 4 - 2.º jefe~1a de cocina ~1 Jefe~1a de partida ~1 de operaciones de catering ~1 Segundo Jefe~1a de restaurante o sala ~1 de sector ~1 de sala de catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 5 - Cocinero/a / Camarero/a / Sumiller / Supervisor de catering / Jefe/a de equipo de catering / Supervisor/a de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1232.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 5 - Cocinero~1a ~1 Camarero~1a ~1 Sumiller ~1 Supervisor de catering ~1 Jefe~1a de equipo de catering ~1 Supervisor~1a de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 6"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1188.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 6"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 7 - Jefe/a comercial / Repostero/a / Encargado/a de economato / Encargado/a general de limpieza / Jefe de servicios de catering / Encargado/a de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1150.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 7 - Jefe~1a comercial ~1 Repostero~1a ~1 Encargado~1a de economato ~1 Encargado~1a general de limpieza ~1 Jefe de servicios de catering ~1 Encargado~1a de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 8 - Administrativo / Relaciones publicas / Comercial / Ayudante de economato / Encargado/a de sección de limpieza / Especialistas de mantenimiento / Monitor/a-cuidador / Dietista / Técnico actividades fisicas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1107.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 8 - Administrativo ~1 Relaciones publicas ~1 Comercial ~1 Ayudante de economato ~1 Encargado~1a de sección de limpieza ~1 Especialistas de mantenimiento ~1 Monitor~1a-cuidador ~1 Dietista ~1 Técnico actividades fisicas"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Pontevedra",
+        "categoria": "Nivel 9 - Ayudante administrativo / de cocina / Auxiliar de cocina / Ayudante de camarero/a / Preparador o montador de catering / Conductor/a y Ayudante de equipo de catering / Auxiliar de colectividades / de limpieza / de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1042.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Pontevedra (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/salarioBase2025/Nivel 9 - Ayudante administrativo ~1 de cocina ~1 Auxiliar de cocina ~1 Ayudante de camarero~1a ~1 Preparador o montador de catering ~1 Conductor~1a y Ayudante de equipo de catering ~1 Auxiliar de colectividades ~1 de limpieza ~1 de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Islas Baleares",
+        "categoria": "Nivel I - Jefe/a de cocina / Encargado/a / Sup. Operaciones"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1881.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Islas Baleares (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/Islas Baleares/salarioBase2025/Nivel I - Jefe~1a de cocina ~1 Encargado~1a ~1 Sup. Operaciones"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Islas Baleares",
+        "categoria": "Nivel II - 2.º Jefe/a de cocina / Resp. Dietistas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1750.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Islas Baleares (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/Islas Baleares/salarioBase2025/Nivel II - 2.º Jefe~1a de cocina ~1 Resp. Dietistas"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Islas Baleares",
+        "categoria": "Nivel III - Dietista / Jefe/a de Partida"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1620.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Islas Baleares (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/Islas Baleares/salarioBase2025/Nivel III - Dietista ~1 Jefe~1a de Partida"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Islas Baleares",
+        "categoria": "Nivel IV - Cocinero/a / Camarero/a / Conductor/a / Coordinador/a Servicios"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1497.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Islas Baleares (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/Islas Baleares/salarioBase2025/Nivel IV - Cocinero~1a ~1 Camarero~1a ~1 Conductor~1a ~1 Coordinador~1a Servicios"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Islas Baleares",
+        "categoria": "Nivel V - Ayudantes / Auxiliares Colectividades / Auxiliares Administrativos"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1404.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Islas Baleares (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/Islas Baleares/salarioBase2025/Nivel V - Ayudantes ~1 Auxiliares Colectividades ~1 Auxiliares Administrativos"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Islas Baleares",
+        "categoria": "Nivel VI - Pinche / ASL / Rep. Vending / Mozo/a / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1332.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Islas Baleares (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/Islas Baleares/salarioBase2025/Nivel VI - Pinche ~1 ASL ~1 Rep. Vending ~1 Mozo~1a ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "La Rioja",
+        "categoria": "Jefe/a de cocina / Jefe/a de operaciones / Segundo jefe/a de cocina / Jefe/a de Administración"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1423.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial La Rioja (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/La Rioja/salarioBase2025/Jefe~1a de cocina ~1 Jefe~1a de operaciones ~1 Segundo jefe~1a de cocina ~1 Jefe~1a de Administración"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "La Rioja",
+        "categoria": "Jefe/a de sala / jefe/a de partida / supervisor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1357.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial La Rioja (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/La Rioja/salarioBase2025/Jefe~1a de sala ~1 jefe~1a de partida ~1 supervisor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "La Rioja",
+        "categoria": "Cocinero/a / repostero/a / jefe/a de equipo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1324.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial La Rioja (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/La Rioja/salarioBase2025/Cocinero~1a ~1 repostero~1a ~1 jefe~1a de equipo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "La Rioja",
+        "categoria": "Ayudante de supervisor/a / conductor/a-repartidor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1291.82,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial La Rioja (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/La Rioja/salarioBase2025/Ayudante de supervisor~1a ~1 conductor~1a-repartidor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "La Rioja",
+        "categoria": "Administrativo/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial La Rioja (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/La Rioja/salarioBase2025/Administrativo~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "La Rioja",
+        "categoria": "Monitor/a de catering/colectividades / ayudante de cocinero/a-repostero/a / ayudante de equipo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial La Rioja (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/La Rioja/salarioBase2025/Monitor~1a de catering~1colectividades ~1 ayudante de cocinero~1a-repostero~1a ~1 ayudante de equipo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "La Rioja",
+        "categoria": "Ayudante administrativo / preparador/a / repartidor/a / limpiador/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1209.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial La Rioja (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/La Rioja/salarioBase2025/Ayudante administrativo ~1 preparador~1a ~1 repartidor~1a ~1 limpiador~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Madrid",
+        "categoria": "Dietista / Encargado de establecimiento / Jefe de cocina / Cocinero-Encargado"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1194.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Madrid (BOE nº148, Sec. III pág. 82207)",
+      "rutaCruda": "/tablasPorProvincia/Madrid/salarioBase2025/Dietista ~1 Encargado de establecimiento ~1 Jefe de cocina ~1 Cocinero-Encargado"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Madrid",
+        "categoria": "Responsable de auxiliares de servicio y limpieza / Cocinero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1158.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Madrid (BOE nº148, Sec. III pág. 82207)",
+      "rutaCruda": "/tablasPorProvincia/Madrid/salarioBase2025/Responsable de auxiliares de servicio y limpieza ~1 Cocinero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Madrid",
+        "categoria": "Ayudante de cocina / Camarero/a / Chofer / Mozo / Auxiliar administrativo de explotación"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1123.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Madrid (BOE nº148, Sec. III pág. 82207)",
+      "rutaCruda": "/tablasPorProvincia/Madrid/salarioBase2025/Ayudante de cocina ~1 Camarero~1a ~1 Chofer ~1 Mozo ~1 Auxiliar administrativo de explotación"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Madrid",
+        "categoria": "Auxiliar de servicio de limpieza / dependiente de barra / pinche / marmiton / vigilante de comedor y patio (monitor/a)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1087.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Madrid (BOE nº148, Sec. III pág. 82207)",
+      "rutaCruda": "/tablasPorProvincia/Madrid/salarioBase2025/Auxiliar de servicio de limpieza ~1 dependiente de barra ~1 pinche ~1 marmiton ~1 vigilante de comedor y patio (monitor~1a)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Melilla",
+        "categoria": "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala / Gerente de centro"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1208.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Melilla (BOE nº148, Sec. III pág. 82208)",
+      "rutaCruda": "/tablasPorProvincia/Melilla/salarioBase2025/Jefe~1a de recepción ~1 Jefe~1a de cocina ~1 Jefe~1a de restaurante o sala ~1 Gerente de centro"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Melilla",
+        "categoria": "2.º jefe/a de cocina / 2.º jefe/a de restaurante o sala / Gobernante o Encargado/a general / Responsable de servicio / Administrativo/a / Técnico / Encargado/a de sección / Aydte. Administrativo/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.34,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Melilla (BOE nº148, Sec. III pág. 82208)",
+      "rutaCruda": "/tablasPorProvincia/Melilla/salarioBase2025/2.º jefe~1a de cocina ~1 2.º jefe~1a de restaurante o sala ~1 Gobernante o Encargado~1a general ~1 Responsable de servicio ~1 Administrativo~1a ~1 Técnico ~1 Encargado~1a de sección ~1 Aydte. Administrativo~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Melilla",
+        "categoria": "Cocinero/a / Encargado/a de economato / Camarero/a / Supervisor/a de colectividades / Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1146.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Melilla (BOE nº148, Sec. III pág. 82208)",
+      "rutaCruda": "/tablasPorProvincia/Melilla/salarioBase2025/Cocinero~1a ~1 Encargado~1a de economato ~1 Camarero~1a ~1 Supervisor~1a de colectividades ~1 Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Melilla",
+        "categoria": "Aydte. de cocina / de economato / de Camarero / Especialista de mantenimiento y servicios auxiliares / Monitor/a-cuidador/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1132.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Melilla (BOE nº148, Sec. III pág. 82208)",
+      "rutaCruda": "/tablasPorProvincia/Melilla/salarioBase2025/Aydte. de cocina ~1 de economato ~1 de Camarero ~1 Especialista de mantenimiento y servicios auxiliares ~1 Monitor~1a-cuidador~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Melilla",
+        "categoria": "Recepcionista / Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1112.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Melilla (BOE nº148, Sec. III pág. 82208)",
+      "rutaCruda": "/tablasPorProvincia/Melilla/salarioBase2025/Recepcionista ~1 Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala / Gerente de centro"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1036.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Jefe~1a de recepción ~1 Jefe~1a de cocina ~1 Jefe~1a de restaurante o sala ~1 Gerente de centro"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "2.º jefe/a de cocina / 2.º jefe/a de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1007.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/2.º jefe~1a de cocina ~1 2.º jefe~1a de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Gobernante/a o Encargado/a general"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 998.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Gobernante~1a o Encargado~1a general"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Recepcionista / Administrativo/a / Técnico de servicio / Aydte. Administrativo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 998.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Recepcionista ~1 Administrativo~1a ~1 Técnico de servicio ~1 Aydte. Administrativo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Cocinero/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 998.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Cocinero~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Encargado/a de economato / Aydte. de Camarero/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 998.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Encargado~1a de economato ~1 Aydte. de Camarero~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Camarero/a / Supervisor de colectividades / Encargado/a de sección"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 998.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Camarero~1a ~1 Supervisor de colectividades ~1 Encargado~1a de sección"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Aydte. de cocina / de economato / Auxiliar de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 998.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Aydte. de cocina ~1 de economato ~1 Auxiliar de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 998.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Murcia",
+        "categoria": "Auxiliar de pisos y limpieza / de colectividades / de mantenimiento y servicios auxiliares / Monitor/a-cuidador/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 998.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Murcia (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/salarioBase2025/Auxiliar de pisos y limpieza ~1 de colectividades ~1 de mantenimiento y servicios auxiliares ~1 Monitor~1a-cuidador~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Alicante",
+        "categoria": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1377.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Alicante (BOE nº148, Sec. III pág. 82212)",
+      "rutaCruda": "/tablasPorProvincia/Alicante/salarioBase2025/Nivel 1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Alicante",
+        "categoria": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1311.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Alicante (BOE nº148, Sec. III pág. 82212)",
+      "rutaCruda": "/tablasPorProvincia/Alicante/salarioBase2025/Nivel 2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Alicante",
+        "categoria": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1283.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Alicante (BOE nº148, Sec. III pág. 82212)",
+      "rutaCruda": "/tablasPorProvincia/Alicante/salarioBase2025/Nivel 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Alicante",
+        "categoria": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1207.18,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Alicante (BOE nº148, Sec. III pág. 82212)",
+      "rutaCruda": "/tablasPorProvincia/Alicante/salarioBase2025/Nivel 4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Alicante",
+        "categoria": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1173.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Alicante (BOE nº148, Sec. III pág. 82212)",
+      "rutaCruda": "/tablasPorProvincia/Alicante/salarioBase2025/Nivel 5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Alicante",
+        "categoria": "Nivel 6"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Alicante (BOE nº148, Sec. III pág. 82212)",
+      "rutaCruda": "/tablasPorProvincia/Alicante/salarioBase2025/Nivel 6"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valencia",
+        "categoria": "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gerente de centro / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1484.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valencia (BOE nº148, Sec. III pág. 82215)",
+      "rutaCruda": "/tablasPorProvincia/Valencia/salarioBase2025/Jefe de recepción ~1 Jefe de cocina ~1 Jefe de restaurante o sala ~1 Gerente de centro ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valencia",
+        "categoria": "2.º jefe de cocina / 2.º jefe de restaurante o sala / Gobernante o Encargado general / Administrativo / Técnico / Supervisor de colectividades / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1430.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valencia (BOE nº148, Sec. III pág. 82215)",
+      "rutaCruda": "/tablasPorProvincia/Valencia/salarioBase2025/2.º jefe de cocina ~1 2.º jefe de restaurante o sala ~1 Gobernante o Encargado general ~1 Administrativo ~1 Técnico ~1 Supervisor de colectividades ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valencia",
+        "categoria": "Recepcionista / Cocinero / Encargado de economato / Camarero / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1348.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valencia (BOE nº148, Sec. III pág. 82215)",
+      "rutaCruda": "/tablasPorProvincia/Valencia/salarioBase2025/Recepcionista ~1 Cocinero ~1 Encargado de economato ~1 Camarero ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valencia",
+        "categoria": "Aydte. de cocina / Administrativo / de economato / de Camarero / Auxiliar de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1293.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valencia (BOE nº148, Sec. III pág. 82215)",
+      "rutaCruda": "/tablasPorProvincia/Valencia/salarioBase2025/Aydte. de cocina ~1 Administrativo ~1 de economato ~1 de Camarero ~1 Auxiliar de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valencia",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de mantenimiento y servicios auxiliares / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1221.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valencia (BOE nº148, Sec. III pág. 82215)",
+      "rutaCruda": "/tablasPorProvincia/Valencia/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de mantenimiento y servicios auxiliares ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guipuzcoa",
+        "categoria": "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1865.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guipuzcoa (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Guipuzcoa/salarioBase2025/Jefe~1a de recepción ~1 Jefe~1a de cocina ~1 Jefe~1a de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guipuzcoa",
+        "categoria": "2.º jefe/a de cocina / 2.º jefe/a de restaurante o sala / Gerente de centro / Gobernante/a o Encargado/a general / Responsable de servicio / Administrativo/a / Técnico"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1753.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guipuzcoa (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Guipuzcoa/salarioBase2025/2.º jefe~1a de cocina ~1 2.º jefe~1a de restaurante o sala ~1 Gerente de centro ~1 Gobernante~1a o Encargado~1a general ~1 Responsable de servicio ~1 Administrativo~1a ~1 Técnico"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guipuzcoa",
+        "categoria": "Recepcionista / Cocinero/a / Encargado/a de economato / Camarero/a / Supervisor/a de colectividades / Encargado/a de sección / Técnico de servicio / Aydte. Administrativo/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1604.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guipuzcoa (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Guipuzcoa/salarioBase2025/Recepcionista ~1 Cocinero~1a ~1 Encargado~1a de economato ~1 Camarero~1a ~1 Supervisor~1a de colectividades ~1 Encargado~1a de sección ~1 Técnico de servicio ~1 Aydte. Administrativo~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guipuzcoa",
+        "categoria": "Aydte. de cocina / de economato / de Camarero/a / Especialista y Auxiliar de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1529.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guipuzcoa (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Guipuzcoa/salarioBase2025/Aydte. de cocina ~1 de economato ~1 de Camarero~1a ~1 Especialista y Auxiliar de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guipuzcoa",
+        "categoria": "Auxiliar de pisos y limpieza / de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1492.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guipuzcoa (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Guipuzcoa/salarioBase2025/Auxiliar de pisos y limpieza ~1 de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guipuzcoa",
+        "categoria": "Auxiliar de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1478.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guipuzcoa (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Guipuzcoa/salarioBase2025/Auxiliar de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Vizcaya",
+        "categoria": "Jefe/a de recepción / Jefe/a de cocina / Jefe/a de restaurante o sala / Gerente de centro"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1755.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Vizcaya (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Vizcaya/salarioBase2025/Jefe~1a de recepción ~1 Jefe~1a de cocina ~1 Jefe~1a de restaurante o sala ~1 Gerente de centro"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Vizcaya",
+        "categoria": "2.º jefe/a cocina / 2.º jefe/a restaurante o sala / Gobernante/a o Encargado/a general / Administrativo/a / Encargado/a de economato / Encargado/a de sección / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1667.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Vizcaya (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Vizcaya/salarioBase2025/2.º jefe~1a cocina ~1 2.º jefe~1a restaurante o sala ~1 Gobernante~1a o Encargado~1a general ~1 Administrativo~1a ~1 Encargado~1a de economato ~1 Encargado~1a de sección ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Vizcaya",
+        "categoria": "Responsable de servicio / Recepcionista / Técnico / Cocinero/a / Camarero/a / Supervisor/a de colectividades / Técnico de servicio / Auxiliar de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1549.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Vizcaya (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Vizcaya/salarioBase2025/Responsable de servicio ~1 Recepcionista ~1 Técnico ~1 Cocinero~1a ~1 Camarero~1a ~1 Supervisor~1a de colectividades ~1 Técnico de servicio ~1 Auxiliar de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Vizcaya",
+        "categoria": "Aydte. Administrativo / de cocina / Auxiliar de colectividades / Aydte. de Camarero/a / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1463.39,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Vizcaya (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Vizcaya/salarioBase2025/Aydte. Administrativo ~1 de cocina ~1 Auxiliar de colectividades ~1 Aydte. de Camarero~1a ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Vizcaya",
+        "categoria": "Aydte. de economato / Auxiliar de pisos y limpieza / de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1363.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Vizcaya (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Vizcaya/salarioBase2025/Aydte. de economato ~1 Auxiliar de pisos y limpieza ~1 de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo A - Primero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1651.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo A - Primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo A - Segundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1506.32,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo A - Segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo A - Tercero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1322.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo A - Tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo A - Cuarto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1276.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo A - Cuarto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo A - Quinto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1207.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo A - Quinto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo A - Sexto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1093.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo A - Sexto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo B - Primero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1552.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo B - Primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo B - Segundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1414.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo B - Segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo B - Tercero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.75,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo B - Tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo B - Cuarto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1207.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo B - Cuarto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo B - Quinto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1161.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo B - Quinto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo B - Sexto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1047.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo B - Sexto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo C - Primero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1460.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo C - Primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo C - Segundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1368.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo C - Segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo C - Tercero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1207.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo C - Tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo C - Cuarto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1161.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo C - Cuarto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo C - Quinto (Monitor/a)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1138.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo C - Quinto (Monitor~1a)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo C - Sexto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1024.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo C - Sexto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo D - Primero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1391.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo D - Primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo D - Segundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1299.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo D - Segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo D - Tercero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1138.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo D - Tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo D - Cuarto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1116.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo D - Cuarto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo D - Quinto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1093.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo D - Quinto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huelva",
+        "categoria": "Grupo D - Sexto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 996.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huelva (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/salarioBase2025/Grupo D - Sexto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Jaen",
+        "categoria": "Nivel 1.70 - Encargado/a General / Gerente de centro / Supervisor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1335.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Jaen (BOE nº148, Sec. III págs. 82170-82171)",
+      "rutaCruda": "/tablasPorProvincia/Jaen/salarioBase2025/Nivel 1.70 - Encargado~1a General ~1 Gerente de centro ~1 Supervisor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Jaen",
+        "categoria": "Nivel 1.65 - Jefe/a de recepción / cocina / restaurante o sala / Responsable de servicio / Supervisor/a de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1316.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Jaen (BOE nº148, Sec. III págs. 82170-82171)",
+      "rutaCruda": "/tablasPorProvincia/Jaen/salarioBase2025/Nivel 1.65 - Jefe~1a de recepción ~1 cocina ~1 restaurante o sala ~1 Responsable de servicio ~1 Supervisor~1a de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Jaen",
+        "categoria": "Nivel 1.60 - Gobernanta/e / 2.º jefe/a de cocina / restaurante o sala / Encargado/a de economato / de sección / Técnico de servicio / Jefe/a de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1289.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Jaen (BOE nº148, Sec. III págs. 82170-82171)",
+      "rutaCruda": "/tablasPorProvincia/Jaen/salarioBase2025/Nivel 1.60 - Gobernanta~1e ~1 2.º jefe~1a de cocina ~1 restaurante o sala ~1 Encargado~1a de economato ~1 de sección ~1 Técnico de servicio ~1 Jefe~1a de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Jaen",
+        "categoria": "Nivel 1.55 - Cocinero/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1236.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Jaen (BOE nº148, Sec. III págs. 82170-82171)",
+      "rutaCruda": "/tablasPorProvincia/Jaen/salarioBase2025/Nivel 1.55 - Cocinero~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Jaen",
+        "categoria": "Nivel 1.50 - Camarero/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1181.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Jaen (BOE nº148, Sec. III págs. 82170-82171)",
+      "rutaCruda": "/tablasPorProvincia/Jaen/salarioBase2025/Nivel 1.50 - Camarero~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Jaen",
+        "categoria": "Nivel 1.45 - Recepcionista / Ayudante de cocina / de Camarero/a / Vending / conductor/a / cajero/a / Administrativo/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1101.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Jaen (BOE nº148, Sec. III págs. 82170-82171)",
+      "rutaCruda": "/tablasPorProvincia/Jaen/salarioBase2025/Nivel 1.45 - Recepcionista ~1 Ayudante de cocina ~1 de Camarero~1a ~1 Vending ~1 conductor~1a ~1 cajero~1a ~1 Administrativo~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Jaen",
+        "categoria": "Nivel 1.40 - Ayudante de economato / Auxiliar de colectividades / Administrativo / de pisos y limpieza / de cocina / de mantenimiento / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1045.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Jaen (BOE nº148, Sec. III págs. 82170-82171)",
+      "rutaCruda": "/tablasPorProvincia/Jaen/salarioBase2025/Nivel 1.40 - Ayudante de economato ~1 Auxiliar de colectividades ~1 Administrativo ~1 de pisos y limpieza ~1 de cocina ~1 de mantenimiento ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huesca",
+        "categoria": "Jefe/a de recepción / de cocina / 2.º Jefe/a de cocina / de restaurante o sala / 2.º Jefe/a de restaurante o sala / Gerente de centro / Gobernante/a o Encargado/a general / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1280.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huesca (BOE nº148, Sec. III pág. 82174)",
+      "rutaCruda": "/tablasPorProvincia/Huesca/salarioBase2025/Jefe~1a de recepción ~1 de cocina ~1 2.º Jefe~1a de cocina ~1 de restaurante o sala ~1 2.º Jefe~1a de restaurante o sala ~1 Gerente de centro ~1 Gobernante~1a o Encargado~1a general ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huesca",
+        "categoria": "Recepcionista / Administrativo/a / Técnico / Cocinero/a / Encargado/a economato / Camarero/a / Supervisor/a colectividades / Encargado/a sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1211.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huesca (BOE nº148, Sec. III pág. 82174)",
+      "rutaCruda": "/tablasPorProvincia/Huesca/salarioBase2025/Recepcionista ~1 Administrativo~1a ~1 Técnico ~1 Cocinero~1a ~1 Encargado~1a economato ~1 Camarero~1a ~1 Supervisor~1a colectividades ~1 Encargado~1a sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huesca",
+        "categoria": "Ayudante Administrativo/a / de cocina / de economato / de Camarero/a / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1146.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huesca (BOE nº148, Sec. III pág. 82174)",
+      "rutaCruda": "/tablasPorProvincia/Huesca/salarioBase2025/Ayudante Administrativo~1a ~1 de cocina ~1 de economato ~1 de Camarero~1a ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Huesca",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1053.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Huesca (BOE nº148, Sec. III pág. 82174)",
+      "rutaCruda": "/tablasPorProvincia/Huesca/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento y servicios auxiliares ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Teruel",
+        "categoria": "Jefe/a de recepción / de cocina / 2.º Jefe/a de cocina / de restaurante o sala / 2.º Jefe/a de restaurante o sala / Gerente de centro / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1122.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Teruel (BOE nº148, Sec. III pág. 82175)",
+      "rutaCruda": "/tablasPorProvincia/Teruel/salarioBase2025/Jefe~1a de recepción ~1 de cocina ~1 2.º Jefe~1a de cocina ~1 de restaurante o sala ~1 2.º Jefe~1a de restaurante o sala ~1 Gerente de centro ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Teruel",
+        "categoria": "Gobernante/a o Encargado/a general / Recepcionista / Administrativo/a / Técnico / Cocinero/a / Encargado/a economato / Camarero/a / Supervisor/a colectividades / Encargado/a sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1071.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Teruel (BOE nº148, Sec. III pág. 82175)",
+      "rutaCruda": "/tablasPorProvincia/Teruel/salarioBase2025/Gobernante~1a o Encargado~1a general ~1 Recepcionista ~1 Administrativo~1a ~1 Técnico ~1 Cocinero~1a ~1 Encargado~1a economato ~1 Camarero~1a ~1 Supervisor~1a colectividades ~1 Encargado~1a sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Teruel",
+        "categoria": "Ayudante administrativo/a / de cocina / de economato / de Camarero/a / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1027.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Teruel (BOE nº148, Sec. III pág. 82175)",
+      "rutaCruda": "/tablasPorProvincia/Teruel/salarioBase2025/Ayudante administrativo~1a ~1 de cocina ~1 de economato ~1 de Camarero~1a ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Teruel",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 996.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Teruel (BOE nº148, Sec. III pág. 82175)",
+      "rutaCruda": "/tablasPorProvincia/Teruel/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento y servicios auxiliares ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cantabria",
+        "categoria": "Jefe/a de recepción / de administración / de catering / de cocina / de sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1490.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cantabria (BOE nº148, Sec. III págs. 82181-82182)",
+      "rutaCruda": "/tablasPorProvincia/Cantabria/salarioBase2025/Jefe~1a de recepción ~1 de administración ~1 de catering ~1 de cocina ~1 de sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cantabria",
+        "categoria": "Jefe/a de recepción 2 / primer conserje / 2.º jefe/a de cocina / jefe/a operaciones catering / 2.º jefe/a de sala / recepcionista / Administrativo/a / R. publicas / Comercial / Jefe/a de partida / Repostero/a / Encargado/a economato / jefe/a sector / jefe/a sala catering / encargado/a general / de sección / de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1367.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cantabria (BOE nº148, Sec. III págs. 82181-82182)",
+      "rutaCruda": "/tablasPorProvincia/Cantabria/salarioBase2025/Jefe~1a de recepción 2 ~1 primer conserje ~1 2.º jefe~1a de cocina ~1 jefe~1a operaciones catering ~1 2.º jefe~1a de sala ~1 recepcionista ~1 Administrativo~1a ~1 R. publicas ~1 Comercial ~1 Jefe~1a de partida ~1 Repostero~1a ~1 Encargado~1a economato ~1 jefe~1a sector ~1 jefe~1a sala catering ~1 encargado~1a general ~1 de sección ~1 de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cantabria",
+        "categoria": "Conserje / cocinero/a / jefe/a equipo / Ayudante Administrativo/a / Telefonista / Conductor/a catering / especialista mantenimiento / dietista / otros ciencias salud"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1245.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cantabria (BOE nº148, Sec. III págs. 82181-82182)",
+      "rutaCruda": "/tablasPorProvincia/Cantabria/salarioBase2025/Conserje ~1 cocinero~1a ~1 jefe~1a equipo ~1 Ayudante Administrativo~1a ~1 Telefonista ~1 Conductor~1a catering ~1 especialista mantenimiento ~1 dietista ~1 otros ciencias salud"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cantabria",
+        "categoria": "Camarero/a / barman / Ayudante recepción-conserje"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1195.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cantabria (BOE nº148, Sec. III págs. 82181-82182)",
+      "rutaCruda": "/tablasPorProvincia/Cantabria/salarioBase2025/Camarero~1a ~1 barman ~1 Ayudante recepción-conserje"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cantabria",
+        "categoria": "Ayudante-Auxiliar cocina / catering / Ayudante camarero/a / camarero/a pisos / Aux recepción-conserje / pisos-limpieza / mantenimiento y servicios"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1143.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cantabria (BOE nº148, Sec. III págs. 82181-82182)",
+      "rutaCruda": "/tablasPorProvincia/Cantabria/salarioBase2025/Ayudante-Auxiliar cocina ~1 catering ~1 Ayudante camarero~1a ~1 camarero~1a pisos ~1 Aux recepción-conserje ~1 pisos-limpieza ~1 mantenimiento y servicios"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Albacete",
+        "categoria": "Nivel 1 - Jefe/a de restaurante o sala / jefe de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1341.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Albacete (BOE nº148, Sec. III págs. 82182-82183)",
+      "rutaCruda": "/tablasPorProvincia/Albacete/salarioBase2025/Nivel 1 - Jefe~1a de restaurante o sala ~1 jefe de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Albacete",
+        "categoria": "Nivel 2 - 2.º Jefe/a de restaurante o sala / jefe/a operaciones catering / Gerente de centro / 2.º Jefe de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1270.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Albacete (BOE nº148, Sec. III págs. 82182-82183)",
+      "rutaCruda": "/tablasPorProvincia/Albacete/salarioBase2025/Nivel 2 - 2.º Jefe~1a de restaurante o sala ~1 jefe~1a operaciones catering ~1 Gerente de centro ~1 2.º Jefe de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Albacete",
+        "categoria": "Nivel 3 - Jefe/a de sector / sala de catering / Supervisor/a catering / colectividades / restauración moderna / preparador/a montador/a catering / conductor/a equipo catering / preparador/a restauración moderna / monitor/a-cuidador/a colectividades / jefe de catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1213.24,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Albacete (BOE nº148, Sec. III págs. 82182-82183)",
+      "rutaCruda": "/tablasPorProvincia/Albacete/salarioBase2025/Nivel 3 - Jefe~1a de sector ~1 sala de catering ~1 Supervisor~1a catering ~1 colectividades ~1 restauración moderna ~1 preparador~1a montador~1a catering ~1 conductor~1a equipo catering ~1 preparador~1a restauración moderna ~1 monitor~1a-cuidador~1a colectividades ~1 jefe de catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Albacete",
+        "categoria": "Nivel 4 - Camarero/a / Barman / Sumiller / cocinero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1159.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Albacete (BOE nº148, Sec. III págs. 82182-82183)",
+      "rutaCruda": "/tablasPorProvincia/Albacete/salarioBase2025/Nivel 4 - Camarero~1a ~1 Barman ~1 Sumiller ~1 cocinero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Albacete",
+        "categoria": "Nivel 5 - Ayudante equipo de catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1030.39,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Albacete (BOE nº148, Sec. III págs. 82182-82183)",
+      "rutaCruda": "/tablasPorProvincia/Albacete/salarioBase2025/Nivel 5 - Ayudante equipo de catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Albacete",
+        "categoria": "Nivel 6 - Asistente/a colectividades / preparador/a montador/a catering / restauración moderna / ayudante de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1007.39,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Albacete (BOE nº148, Sec. III págs. 82182-82183)",
+      "rutaCruda": "/tablasPorProvincia/Albacete/salarioBase2025/Nivel 6 - Asistente~1a colectividades ~1 preparador~1a montador~1a catering ~1 restauración moderna ~1 ayudante de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ciudad Real",
+        "categoria": "Nivel 1 - Jefe/a de restaurante o sala / Gerente de centro / Jefe/a operaciones catering / 2.º Jefe/a de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1143.32,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ciudad Real (BOE nº148, Sec. III págs. 82183-82184)",
+      "rutaCruda": "/tablasPorProvincia/Ciudad Real/salarioBase2025/Nivel 1 - Jefe~1a de restaurante o sala ~1 Gerente de centro ~1 Jefe~1a operaciones catering ~1 2.º Jefe~1a de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ciudad Real",
+        "categoria": "Nivel 2 - Jefe/a de sala de catering / Supervisor/a catering / colectividades / restauración moderna / Jefe/a de sector / Camarero/a / Barman/Barwoman / Sumiller"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ciudad Real (BOE nº148, Sec. III págs. 82183-82184)",
+      "rutaCruda": "/tablasPorProvincia/Ciudad Real/salarioBase2025/Nivel 2 - Jefe~1a de sala de catering ~1 Supervisor~1a catering ~1 colectividades ~1 restauración moderna ~1 Jefe~1a de sector ~1 Camarero~1a ~1 Barman~1Barwoman ~1 Sumiller"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ciudad Real",
+        "categoria": "Nivel 3 - Preparador/a montador/a catering / Conductor/a equipo catering / Preparador/a restauración moderna / Ayudante de camarero / Ayudante equipo catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1068.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ciudad Real (BOE nº148, Sec. III págs. 82183-82184)",
+      "rutaCruda": "/tablasPorProvincia/Ciudad Real/salarioBase2025/Nivel 3 - Preparador~1a montador~1a catering ~1 Conductor~1a equipo catering ~1 Preparador~1a restauración moderna ~1 Ayudante de camarero ~1 Ayudante equipo catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ciudad Real",
+        "categoria": "Nivel 4 - Asistente colectividades / preparador/montador catering / restauración moderna / monitor/a-cuidador/a colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1036.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ciudad Real (BOE nº148, Sec. III págs. 82183-82184)",
+      "rutaCruda": "/tablasPorProvincia/Ciudad Real/salarioBase2025/Nivel 4 - Asistente colectividades ~1 preparador~1montador catering ~1 restauración moderna ~1 monitor~1a-cuidador~1a colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cuenca",
+        "categoria": "Jefe de recepción / de cocina / 2.º Jefe de cocina / de restaurante o sala / 2.º Jefe de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1099.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cuenca (BOE nº148, Sec. III págs. 82184-82185)",
+      "rutaCruda": "/tablasPorProvincia/Cuenca/salarioBase2025/Jefe de recepción ~1 de cocina ~1 2.º Jefe de cocina ~1 de restaurante o sala ~1 2.º Jefe de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cuenca",
+        "categoria": "Gerente de centro / Gobernante o Encargado general / Responsable de servicio / Recepcionista / Administrativo / Técnico / Cocinero / Encargado economato / Camarero / Supervisor colectividades / Encargado sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1074.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cuenca (BOE nº148, Sec. III págs. 82184-82185)",
+      "rutaCruda": "/tablasPorProvincia/Cuenca/salarioBase2025/Gerente de centro ~1 Gobernante o Encargado general ~1 Responsable de servicio ~1 Recepcionista ~1 Administrativo ~1 Técnico ~1 Cocinero ~1 Encargado economato ~1 Camarero ~1 Supervisor colectividades ~1 Encargado sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cuenca",
+        "categoria": "Ayudante administrativo / de cocina / de economato / de Camarero / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1052.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cuenca (BOE nº148, Sec. III págs. 82184-82185)",
+      "rutaCruda": "/tablasPorProvincia/Cuenca/salarioBase2025/Ayudante administrativo ~1 de cocina ~1 de economato ~1 de Camarero ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Cuenca",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1038.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Cuenca (BOE nº148, Sec. III págs. 82184-82185)",
+      "rutaCruda": "/tablasPorProvincia/Cuenca/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento y servicios auxiliares ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guadalajara",
+        "categoria": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1474.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guadalajara (BOE nº148, Sec. III págs. 82185-82186)",
+      "rutaCruda": "/tablasPorProvincia/Guadalajara/salarioBase2025/Nivel 1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guadalajara",
+        "categoria": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1402.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guadalajara (BOE nº148, Sec. III págs. 82185-82186)",
+      "rutaCruda": "/tablasPorProvincia/Guadalajara/salarioBase2025/Nivel 2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guadalajara",
+        "categoria": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guadalajara (BOE nº148, Sec. III págs. 82185-82186)",
+      "rutaCruda": "/tablasPorProvincia/Guadalajara/salarioBase2025/Nivel 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guadalajara",
+        "categoria": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1253.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guadalajara (BOE nº148, Sec. III págs. 82185-82186)",
+      "rutaCruda": "/tablasPorProvincia/Guadalajara/salarioBase2025/Nivel 4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guadalajara",
+        "categoria": "Nivel 5 (Monitor/a)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1201.39,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guadalajara (BOE nº148, Sec. III págs. 82185-82186)",
+      "rutaCruda": "/tablasPorProvincia/Guadalajara/salarioBase2025/Nivel 5 (Monitor~1a)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Guadalajara",
+        "categoria": "Nivel 6"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1037.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Guadalajara (BOE nº148, Sec. III págs. 82185-82186)",
+      "rutaCruda": "/tablasPorProvincia/Guadalajara/salarioBase2025/Nivel 6"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Toledo",
+        "categoria": "Nivel I"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Toledo (BOE nº148, Sec. III pág. 82186)",
+      "rutaCruda": "/tablasPorProvincia/Toledo/salarioBase2025/Nivel I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Toledo",
+        "categoria": "Nivel II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1155.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Toledo (BOE nº148, Sec. III pág. 82186)",
+      "rutaCruda": "/tablasPorProvincia/Toledo/salarioBase2025/Nivel II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Toledo",
+        "categoria": "Nivel III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1134.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Toledo (BOE nº148, Sec. III pág. 82186)",
+      "rutaCruda": "/tablasPorProvincia/Toledo/salarioBase2025/Nivel III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Toledo",
+        "categoria": "Nivel IV (Monitor/a)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1114.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Toledo (BOE nº148, Sec. III pág. 82186)",
+      "rutaCruda": "/tablasPorProvincia/Toledo/salarioBase2025/Nivel IV (Monitor~1a)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Avila",
+        "categoria": "Jefe de recepción / de cocina / de restaurante o sala / Gerente de centro / Gobernante o Encargado general / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Avila (BOE nº148, Sec. III págs. 82187-82188)",
+      "rutaCruda": "/tablasPorProvincia/Avila/salarioBase2025/Jefe de recepción ~1 de cocina ~1 de restaurante o sala ~1 Gerente de centro ~1 Gobernante o Encargado general ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Avila",
+        "categoria": "2.º Jefe de cocina / de restaurante o sala / Técnico / Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Avila (BOE nº148, Sec. III págs. 82187-82188)",
+      "rutaCruda": "/tablasPorProvincia/Avila/salarioBase2025/2.º Jefe de cocina ~1 de restaurante o sala ~1 Técnico ~1 Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Avila",
+        "categoria": "Recepcionista / Administrativo / Cocinero / Encargado de economato / Camarero / Supervisor de colectividades / Ayudante administrativo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Avila (BOE nº148, Sec. III págs. 82187-82188)",
+      "rutaCruda": "/tablasPorProvincia/Avila/salarioBase2025/Recepcionista ~1 Administrativo ~1 Cocinero ~1 Encargado de economato ~1 Camarero ~1 Supervisor de colectividades ~1 Ayudante administrativo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Avila",
+        "categoria": "Encargado de sección / Ayudante de cocina / de economato / de Camarero / Especialista de mantenimiento / Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Avila (BOE nº148, Sec. III págs. 82187-82188)",
+      "rutaCruda": "/tablasPorProvincia/Avila/salarioBase2025/Encargado de sección ~1 Ayudante de cocina ~1 de economato ~1 de Camarero ~1 Especialista de mantenimiento ~1 Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Burgos",
+        "categoria": "Jefe de recepción / de cocina / de restaurante o sala / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1510.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Burgos (BOE nº148, Sec. III págs. 82188-82189)",
+      "rutaCruda": "/tablasPorProvincia/Burgos/salarioBase2025/Jefe de recepción ~1 de cocina ~1 de restaurante o sala ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Burgos",
+        "categoria": "2.º jefe de cocina / de restaurante o sala / Gerente de centro / Gobernante o Encargado general / Administrativo / Técnico / Supervisor de colectividades / Encargado de sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1328.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Burgos (BOE nº148, Sec. III págs. 82188-82189)",
+      "rutaCruda": "/tablasPorProvincia/Burgos/salarioBase2025/2.º jefe de cocina ~1 de restaurante o sala ~1 Gerente de centro ~1 Gobernante o Encargado general ~1 Administrativo ~1 Técnico ~1 Supervisor de colectividades ~1 Encargado de sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Burgos",
+        "categoria": "Recepcionista / Cocinero / Encargado de economato / Camarero / Aydte. Administrativo / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1211.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Burgos (BOE nº148, Sec. III págs. 82188-82189)",
+      "rutaCruda": "/tablasPorProvincia/Burgos/salarioBase2025/Recepcionista ~1 Cocinero ~1 Encargado de economato ~1 Camarero ~1 Aydte. Administrativo ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Burgos",
+        "categoria": "Aydte. de cocina / de economato / de Camarero / Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1153.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Burgos (BOE nº148, Sec. III págs. 82188-82189)",
+      "rutaCruda": "/tablasPorProvincia/Burgos/salarioBase2025/Aydte. de cocina ~1 de economato ~1 de Camarero ~1 Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Leon",
+        "categoria": "Jefe de recepción / de cocina / de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1571.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Leon (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/salarioBase2025/Jefe de recepción ~1 de cocina ~1 de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Leon",
+        "categoria": "2.º Jefe de cocina / de restaurante o sala / Gobernante o Encargado general / Recepcionista / Administrativo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1316.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Leon (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/salarioBase2025/2.º Jefe de cocina ~1 de restaurante o sala ~1 Gobernante o Encargado general ~1 Recepcionista ~1 Administrativo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Leon",
+        "categoria": "Cocinero / Encargado de economato / Camarero / Ayudante administrativo / Especialista de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1315.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Leon (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/salarioBase2025/Cocinero ~1 Encargado de economato ~1 Camarero ~1 Ayudante administrativo ~1 Especialista de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Leon",
+        "categoria": "Gerente de centro / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1250.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Leon (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/salarioBase2025/Gerente de centro ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Leon",
+        "categoria": "Ayudante de cocina / de economato / de Camarero / Auxiliar de pisos y limpieza / de cocina / de mantenimiento / Monitor-cuidador"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1197.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Leon (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/salarioBase2025/Ayudante de cocina ~1 de economato ~1 de Camarero ~1 Auxiliar de pisos y limpieza ~1 de cocina ~1 de mantenimiento ~1 Monitor-cuidador"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Leon",
+        "categoria": "Supervisor de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1192.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Leon (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/salarioBase2025/Supervisor de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Leon",
+        "categoria": "Técnico de servicio (fisioterapeuta, dietista, otras ciencias salud)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Leon (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/salarioBase2025/Técnico de servicio (fisioterapeuta, dietista, otras ciencias salud)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Leon",
+        "categoria": "Técnico / Auxiliar de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1116.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Leon (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/salarioBase2025/Técnico ~1 Auxiliar de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Grupo 1 - Jefe de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1641.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Grupo 1 - Jefe de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Grupo 1 - Segundo jefe de cocina / jefe de catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Grupo 1 - Segundo jefe de cocina ~1 jefe de catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Grupo 2 - Jefe de Partida"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1428.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Grupo 2 - Jefe de Partida"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Grupo 2 - Cocinero / repostero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1357.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Grupo 2 - Cocinero ~1 repostero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Grupo 2 - Encargado de Economato"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Grupo 2 - Encargado de Economato"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Grupo 2 - Bodeguero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1091.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Grupo 2 - Bodeguero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Grupo 3 - Ayudante de Economato / Mozo de Almacén"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1091.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Grupo 3 - Ayudante de Economato ~1 Mozo de Almacén"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Grupo 3 - Ayudante de cocina / de repostero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1160.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Grupo 3 - Ayudante de cocina ~1 de repostero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Area funcional 3.a - Grupo 1 - Jefe de sala / jefe operaciones catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1357.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Area funcional 3.a - Grupo 1 - Jefe de sala ~1 jefe operaciones catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Area funcional 3.a - Grupo 1 - 2.º Jefe Restaurante / jefe sector / jefe sala Catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1314.24,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Area funcional 3.a - Grupo 1 - 2.º Jefe Restaurante ~1 jefe sector ~1 jefe sala Catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Area funcional 3.a - Grupo 1 - Camarero / barman / sumiller / Supervisor catering / Supervisor colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Area funcional 3.a - Grupo 1 - Camarero ~1 barman ~1 sumiller ~1 Supervisor catering ~1 Supervisor colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Area funcional 3.a - Grupo 1 - Cafetero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1193.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Area funcional 3.a - Grupo 1 - Cafetero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Area funcional 3.a - Grupo 3 - Ayudante de camarero / Montador de catering / Ayudante equipo catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1091.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Area funcional 3.a - Grupo 3 - Ayudante de camarero ~1 Montador de catering ~1 Ayudante equipo catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Area funcional 3.a - Grupo 3 - Conductor Equipo Catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1160.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Area funcional 3.a - Grupo 3 - Conductor Equipo Catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Palencia",
+        "categoria": "Area funcional 3.a - Grupo 4 - ASL / Aux. Preparador-montador Catering / Monitor/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1091.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Palencia (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/salarioBase2025/Area funcional 3.a - Grupo 4 - ASL ~1 Aux. Preparador-montador Catering ~1 Monitor~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Salamanca",
+        "categoria": "Jefe de recepción / de cocina / 2.º Jefe de cocina / de restaurante o sala / 2.º Jefe de restaurante o sala / Gerente de centro / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1170.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Salamanca (BOE nº148, Sec. III págs. 82191-82192)",
+      "rutaCruda": "/tablasPorProvincia/Salamanca/salarioBase2025/Jefe de recepción ~1 de cocina ~1 2.º Jefe de cocina ~1 de restaurante o sala ~1 2.º Jefe de restaurante o sala ~1 Gerente de centro ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Salamanca",
+        "categoria": "Gobernante o Encargado general"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1157.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Salamanca (BOE nº148, Sec. III págs. 82191-82192)",
+      "rutaCruda": "/tablasPorProvincia/Salamanca/salarioBase2025/Gobernante o Encargado general"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Salamanca",
+        "categoria": "Recepcionista / Administrativo / Técnico / Cocinero / Encargado de economato / Camarero / Supervisor de colectividades / Encargado de sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1153.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Salamanca (BOE nº148, Sec. III págs. 82191-82192)",
+      "rutaCruda": "/tablasPorProvincia/Salamanca/salarioBase2025/Recepcionista ~1 Administrativo ~1 Técnico ~1 Cocinero ~1 Encargado de economato ~1 Camarero ~1 Supervisor de colectividades ~1 Encargado de sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Salamanca",
+        "categoria": "Ayudante Administrativo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1141.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Salamanca (BOE nº148, Sec. III págs. 82191-82192)",
+      "rutaCruda": "/tablasPorProvincia/Salamanca/salarioBase2025/Ayudante Administrativo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Salamanca",
+        "categoria": "Ayudante de cocina / de economato / de Camarero / Especialista de mantenimiento y servicios auxiliares / Monitor o Cuidador de Colectividad"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1137.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Salamanca (BOE nº148, Sec. III págs. 82191-82192)",
+      "rutaCruda": "/tablasPorProvincia/Salamanca/salarioBase2025/Ayudante de cocina ~1 de economato ~1 de Camarero ~1 Especialista de mantenimiento y servicios auxiliares ~1 Monitor o Cuidador de Colectividad"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Salamanca",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Salamanca (BOE nº148, Sec. III págs. 82191-82192)",
+      "rutaCruda": "/tablasPorProvincia/Salamanca/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Segovia",
+        "categoria": "AR. FUN. 3 EST. 1 - Ay. Camarero / Ay. Cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1099.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Segovia (BOE nº148, Sec. III pág. 82192)",
+      "rutaCruda": "/tablasPorProvincia/Segovia/salarioBase2025/AR. FUN. 3 EST. 1 - Ay. Camarero ~1 Ay. Cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Segovia",
+        "categoria": "AR. FUN. 2 EST. 1 - Cocinero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1154.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Segovia (BOE nº148, Sec. III pág. 82192)",
+      "rutaCruda": "/tablasPorProvincia/Segovia/salarioBase2025/AR. FUN. 2 EST. 1 - Cocinero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Segovia",
+        "categoria": "AR. FUN. 4 EST. 1 - Encargado General"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1203.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Segovia (BOE nº148, Sec. III pág. 82192)",
+      "rutaCruda": "/tablasPorProvincia/Segovia/salarioBase2025/AR. FUN. 4 EST. 1 - Encargado General"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Segovia",
+        "categoria": "AR. FUN. 2 EST. 1 - Auxiliar Cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Segovia (BOE nº148, Sec. III pág. 82192)",
+      "rutaCruda": "/tablasPorProvincia/Segovia/salarioBase2025/AR. FUN. 2 EST. 1 - Auxiliar Cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Segovia",
+        "categoria": "AR. FUN. 3 EST. 1 - Monitor / Auxiliar Colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1074.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Segovia (BOE nº148, Sec. III pág. 82192)",
+      "rutaCruda": "/tablasPorProvincia/Segovia/salarioBase2025/AR. FUN. 3 EST. 1 - Monitor ~1 Auxiliar Colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Soria",
+        "categoria": "Jefe de recepción / de cocina / de restaurante o sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1308.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Soria (BOE nº148, Sec. III pág. 82193)",
+      "rutaCruda": "/tablasPorProvincia/Soria/salarioBase2025/Jefe de recepción ~1 de cocina ~1 de restaurante o sala"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Soria",
+        "categoria": "2.º Jefe de cocina / de restaurante o sala / Gerente de centro / Gobernante o Encargado general / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1250.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Soria (BOE nº148, Sec. III pág. 82193)",
+      "rutaCruda": "/tablasPorProvincia/Soria/salarioBase2025/2.º Jefe de cocina ~1 de restaurante o sala ~1 Gerente de centro ~1 Gobernante o Encargado general ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Soria",
+        "categoria": "Recepcionista / Cocinero / Encargado de economato / Camarero / Supervisor de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1192.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Soria (BOE nº148, Sec. III pág. 82193)",
+      "rutaCruda": "/tablasPorProvincia/Soria/salarioBase2025/Recepcionista ~1 Cocinero ~1 Encargado de economato ~1 Camarero ~1 Supervisor de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Soria",
+        "categoria": "Especialista de mantenimiento y servicios auxiliares / Encargado de sección / Técnico de servicio / Ayudante Administrativo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1139.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Soria (BOE nº148, Sec. III pág. 82193)",
+      "rutaCruda": "/tablasPorProvincia/Soria/salarioBase2025/Especialista de mantenimiento y servicios auxiliares ~1 Encargado de sección ~1 Técnico de servicio ~1 Ayudante Administrativo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Soria",
+        "categoria": "Técnico / Administrativo / Ayudante de cocina / de economato / de Camarero / Auxiliar de cocina / de colectividades / de mantenimiento / Monitor-cuidador"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1116.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Soria (BOE nº148, Sec. III pág. 82193)",
+      "rutaCruda": "/tablasPorProvincia/Soria/salarioBase2025/Técnico ~1 Administrativo ~1 Ayudante de cocina ~1 de economato ~1 de Camarero ~1 Auxiliar de cocina ~1 de colectividades ~1 de mantenimiento ~1 Monitor-cuidador"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Soria",
+        "categoria": "Auxiliar de pisos y limpieza"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1083.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Soria (BOE nº148, Sec. III pág. 82193)",
+      "rutaCruda": "/tablasPorProvincia/Soria/salarioBase2025/Auxiliar de pisos y limpieza"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valladolid",
+        "categoria": "Jefe de recepción / de cocina / de restaurante o sala / Gobernante o Encargado general"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1410.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valladolid (BOE nº148, Sec. III pág. 82194)",
+      "rutaCruda": "/tablasPorProvincia/Valladolid/salarioBase2025/Jefe de recepción ~1 de cocina ~1 de restaurante o sala ~1 Gobernante o Encargado general"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valladolid",
+        "categoria": "Encargado de sección"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1410.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valladolid (BOE nº148, Sec. III pág. 82194)",
+      "rutaCruda": "/tablasPorProvincia/Valladolid/salarioBase2025/Encargado de sección"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valladolid",
+        "categoria": "2.º Jefe de cocina / de restaurante o sala / Encargado de economato / Técnico de servicio / Supervisor de Catering"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1296.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valladolid (BOE nº148, Sec. III pág. 82194)",
+      "rutaCruda": "/tablasPorProvincia/Valladolid/salarioBase2025/2.º Jefe de cocina ~1 de restaurante o sala ~1 Encargado de economato ~1 Técnico de servicio ~1 Supervisor de Catering"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valladolid",
+        "categoria": "Recepcionista / Administrativo / Supervisor de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1261.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valladolid (BOE nº148, Sec. III pág. 82194)",
+      "rutaCruda": "/tablasPorProvincia/Valladolid/salarioBase2025/Recepcionista ~1 Administrativo ~1 Supervisor de colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valladolid",
+        "categoria": "Auxiliar de colectividades / de mantenimiento y servicios auxiliares / Monitor-cuidador colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1211.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valladolid (BOE nº148, Sec. III pág. 82194)",
+      "rutaCruda": "/tablasPorProvincia/Valladolid/salarioBase2025/Auxiliar de colectividades ~1 de mantenimiento y servicios auxiliares ~1 Monitor-cuidador colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valladolid",
+        "categoria": "Cocinero / Especialista de mantenimiento y servicios auxiliares / Camarero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1211.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valladolid (BOE nº148, Sec. III pág. 82194)",
+      "rutaCruda": "/tablasPorProvincia/Valladolid/salarioBase2025/Cocinero ~1 Especialista de mantenimiento y servicios auxiliares ~1 Camarero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Valladolid",
+        "categoria": "Ayudante Administrativo / de cocina / de economato / de Camarero / Auxiliar de pisos y limpieza / de cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1090.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Valladolid (BOE nº148, Sec. III pág. 82194)",
+      "rutaCruda": "/tablasPorProvincia/Valladolid/salarioBase2025/Ayudante Administrativo ~1 de cocina ~1 de economato ~1 de Camarero ~1 Auxiliar de pisos y limpieza ~1 de cocina"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1277.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1153.39,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1146.98,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 4 (Monitor/a)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1142.75,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 4 (Monitor~1a)"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1128.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 6"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1124.82,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 6"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 7"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1119.32,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 7"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 8"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1072.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 8"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Zamora",
+        "categoria": "Nivel 9"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1072.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Zamora (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/salarioBase2025/Nivel 9"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Lleida",
+        "categoria": "NIV.1 - 1er/a Encargado/a / Jefe/a cocina / Contable general / Jefe/a de contratación"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1806.75,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Lleida (BOE nº148, Sec. III pág. 82198)",
+      "rutaCruda": "/tablasPorProvincia/Lleida/salarioBase2025/NIV.1 - 1er~1a Encargado~1a ~1 Jefe~1a cocina ~1 Contable general ~1 Jefe~1a de contratación"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Lleida",
+        "categoria": "NIV.2 - 2.º/a Jefe/a de cocina / Jefe/a compras / sector / partida / sala / Encargado/a explotación y catering / Supervisor/a / Técnico/a mantenimiento / Fisioterapeuta"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1634.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Lleida (BOE nº148, Sec. III pág. 82198)",
+      "rutaCruda": "/tablasPorProvincia/Lleida/salarioBase2025/NIV.2 - 2.º~1a Jefe~1a de cocina ~1 Jefe~1a compras ~1 sector ~1 partida ~1 sala ~1 Encargado~1a explotación y catering ~1 Supervisor~1a ~1 Técnico~1a mantenimiento ~1 Fisioterapeuta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Lleida",
+        "categoria": "NIV.3 - Cajero/a administrativo/a / comedor / Camareros/as y dependientes/as / Jefe/a equipo colectividades / Cocinero/a / Interventor/a / Profesor/a Ed. Física / Supervisor/a / Dietista con exp. / Comercial"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1446.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Lleida (BOE nº148, Sec. III pág. 82198)",
+      "rutaCruda": "/tablasPorProvincia/Lleida/salarioBase2025/NIV.3 - Cajero~1a administrativo~1a ~1 comedor ~1 Camareros~1as y dependientes~1as ~1 Jefe~1a equipo colectividades ~1 Cocinero~1a ~1 Interventor~1a ~1 Profesor~1a Ed. Física ~1 Supervisor~1a ~1 Dietista con exp. ~1 Comercial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Lleida",
+        "categoria": "NIV.4 - Cajero/a / Oficial/a 2 / Chófer primera / Aux. Servicio y Limpieza / Controlador/a de accesos / Monitor/a-cuidador/a colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Lleida (BOE nº148, Sec. III pág. 82198)",
+      "rutaCruda": "/tablasPorProvincia/Lleida/salarioBase2025/NIV.4 - Cajero~1a ~1 Oficial~1a 2 ~1 Chófer primera ~1 Aux. Servicio y Limpieza ~1 Controlador~1a de accesos ~1 Monitor~1a-cuidador~1a colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Lleida",
+        "categoria": "NIV.5 - Ayud. Equipo/Super colectividades / Ayudante cocinero/a / dependiente/a / mantenimiento / chofer / Auxiliar limpieza / Fregador/a limpiador/a / Marmitones / Friegaplatos / Chofer segunda / Dietista sin experiencia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1231.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Lleida (BOE nº148, Sec. III pág. 82198)",
+      "rutaCruda": "/tablasPorProvincia/Lleida/salarioBase2025/NIV.5 - Ayud. Equipo~1Super colectividades ~1 Ayudante cocinero~1a ~1 dependiente~1a ~1 mantenimiento ~1 chofer ~1 Auxiliar limpieza ~1 Fregador~1a limpiador~1a ~1 Marmitones ~1 Friegaplatos ~1 Chofer segunda ~1 Dietista sin experiencia"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Lleida",
+        "categoria": "NIV.5 BIS - primer empleo en el sector o sin experiencia profesional"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Lleida (BOE nº148, Sec. III pág. 82198)",
+      "rutaCruda": "/tablasPorProvincia/Lleida/salarioBase2025/NIV.5 BIS - primer empleo en el sector o sin experiencia profesional"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Lleida",
+        "categoria": "NIV.6 - Pinches / Marmitones menores 18"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Lleida (BOE nº148, Sec. III pág. 82198)",
+      "rutaCruda": "/tablasPorProvincia/Lleida/salarioBase2025/NIV.6 - Pinches ~1 Marmitones menores 18"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.1 - Jefe/a de comedor / de cocina / de sala / de servicios técnicos / administrativo/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1963.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.1 - Jefe~1a de comedor ~1 de cocina ~1 de sala ~1 de servicios técnicos ~1 administrativo~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.2 - 2.º/a Jefe/a de cocina / 2.º/a Encargado/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1874.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.2 - 2.º~1a Jefe~1a de cocina ~1 2.º~1a Encargado~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.3 - Jefe/a de sector / de partida / Contable general / Interventor/a / Fisioterapeuta"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1795.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.3 - Jefe~1a de sector ~1 de partida ~1 Contable general ~1 Interventor~1a ~1 Fisioterapeuta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.4 - Camarero/a / Oficial/a administrativo/a / Dependiente/a / Contable / Cajero/a / Cocinero/a / Dietista titulado/a con 1 anio exp. / Comercial"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1636.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.4 - Camarero~1a ~1 Oficial~1a administrativo~1a ~1 Dependiente~1a ~1 Contable ~1 Cajero~1a ~1 Cocinero~1a ~1 Dietista titulado~1a con 1 anio exp. ~1 Comercial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.5 - Chófer de 2.a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1548.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.5 - Chófer de 2.a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.6 - Auxiliar administrativo/a mayor de 21 anios"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1403.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.6 - Auxiliar administrativo~1a mayor de 21 anios"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.7 - Auxiliar administrativo/a menor de 21 / Aux. servicio y limpieza / Monitor/a-cuidador colectividades / Cajero/a / Mozo/a limpieza / Pinche mayor 18 / Limpiadores / Ayudante de cocina / Marmitón / Fregador/a / Ayudante de comedor / Dietista titulado/a sin exp."
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1354.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.7 - Auxiliar administrativo~1a menor de 21 ~1 Aux. servicio y limpieza ~1 Monitor~1a-cuidador colectividades ~1 Cajero~1a ~1 Mozo~1a limpieza ~1 Pinche mayor 18 ~1 Limpiadores ~1 Ayudante de cocina ~1 Marmitón ~1 Fregador~1a ~1 Ayudante de comedor ~1 Dietista titulado~1a sin exp."
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.7 BIS - primer empleo en el sector o sin experiencia profesional"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1080.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.7 BIS - primer empleo en el sector o sin experiencia profesional"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Tarragona",
+        "categoria": "NIV.8 - Aspirante administrativo/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Tarragona (BOE nº148, Sec. III pág. 82199)",
+      "rutaCruda": "/tablasPorProvincia/Tarragona/salarioBase2025/NIV.8 - Aspirante administrativo~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ceuta",
+        "categoria": "Jefe/a de recepción / de cocina / de restaurante o sala / Gerente de centro / Gobernante/a o Encargado/a general"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1071.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ceuta (BOE nº148, Sec. III págs. 82199-82200)",
+      "rutaCruda": "/tablasPorProvincia/Ceuta/salarioBase2025/Jefe~1a de recepción ~1 de cocina ~1 de restaurante o sala ~1 Gerente de centro ~1 Gobernante~1a o Encargado~1a general"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ceuta",
+        "categoria": "2.º Jefe/a de cocina / de restaurante o sala / Responsable de servicio / Administrativo/a / Técnico"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1008.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ceuta (BOE nº148, Sec. III págs. 82199-82200)",
+      "rutaCruda": "/tablasPorProvincia/Ceuta/salarioBase2025/2.º Jefe~1a de cocina ~1 de restaurante o sala ~1 Responsable de servicio ~1 Administrativo~1a ~1 Técnico"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ceuta",
+        "categoria": "Recepcionista / Cocinero/a / Encargado/a de economato / Camarero/a / Supervisor/a de colectividades / Encargado/a de sección / Técnico de servicio / Ayudante administrativo/a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 952.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ceuta (BOE nº148, Sec. III págs. 82199-82200)",
+      "rutaCruda": "/tablasPorProvincia/Ceuta/salarioBase2025/Recepcionista ~1 Cocinero~1a ~1 Encargado~1a de economato ~1 Camarero~1a ~1 Supervisor~1a de colectividades ~1 Encargado~1a de sección ~1 Técnico de servicio ~1 Ayudante administrativo~1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ceuta",
+        "categoria": "Ayudante de cocina / de economato / de Camarero/a / Especialista de mantenimiento y servicios auxiliares / Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 893.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ceuta (BOE nº148, Sec. III págs. 82199-82200)",
+      "rutaCruda": "/tablasPorProvincia/Ceuta/salarioBase2025/Ayudante de cocina ~1 de economato ~1 de Camarero~1a ~1 Especialista de mantenimiento y servicios auxiliares ~1 Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Badajoz",
+        "categoria": "Jefe de recepción / de cocina / 2.º jefe de cocina / de restaurante o sala / 2.º jefe de restaurante o sala / Gerente de centro / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1094.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Badajoz (BOE nº148, Sec. III págs. 82200-82201)",
+      "rutaCruda": "/tablasPorProvincia/Badajoz/salarioBase2025/Jefe de recepción ~1 de cocina ~1 2.º jefe de cocina ~1 de restaurante o sala ~1 2.º jefe de restaurante o sala ~1 Gerente de centro ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Badajoz",
+        "categoria": "Gobernante o Encargado general / Recepcionista / Administrativo / Técnico / Cocinero / Encargado de economato / Camarero / Supervisor de colectividades / Encargado de sección / Técnico de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1057.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Badajoz (BOE nº148, Sec. III págs. 82200-82201)",
+      "rutaCruda": "/tablasPorProvincia/Badajoz/salarioBase2025/Gobernante o Encargado general ~1 Recepcionista ~1 Administrativo ~1 Técnico ~1 Cocinero ~1 Encargado de economato ~1 Camarero ~1 Supervisor de colectividades ~1 Encargado de sección ~1 Técnico de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Badajoz",
+        "categoria": "Aydte. Administrativo / de cocina / de economato / de Camarero / Especialista de mantenimiento y servicios auxiliares / Monitor de catering y colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 996.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Badajoz (BOE nº148, Sec. III págs. 82200-82201)",
+      "rutaCruda": "/tablasPorProvincia/Badajoz/salarioBase2025/Aydte. Administrativo ~1 de cocina ~1 de economato ~1 de Camarero ~1 Especialista de mantenimiento y servicios auxiliares ~1 Monitor de catering y colectividades"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Badajoz",
+        "categoria": "Auxiliar de pisos y limpieza / de cocina / de colectividades / de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 996.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Badajoz (BOE nº148, Sec. III págs. 82200-82201)",
+      "rutaCruda": "/tablasPorProvincia/Badajoz/salarioBase2025/Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ourense",
+        "categoria": "Jefe de recepción / de cocina / de restaurante o sala / Responsable de servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1426.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ourense (BOE nº148, Sec. III págs. 82204-82205)",
+      "rutaCruda": "/tablasPorProvincia/Ourense/salarioBase2025/Jefe de recepción ~1 de cocina ~1 de restaurante o sala ~1 Responsable de servicio"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ourense",
+        "categoria": "2.º jefe de cocina / Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud) / Gobernante o Encargado general"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1320.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ourense (BOE nº148, Sec. III págs. 82204-82205)",
+      "rutaCruda": "/tablasPorProvincia/Ourense/salarioBase2025/2.º jefe de cocina ~1 Técnico de servicio (fisioterapeuta, dietista, otros ciencias salud) ~1 Gobernante o Encargado general"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ourense",
+        "categoria": "2.º jefe de restaurante o sala / Gerente de centro / Administrativo / Técnico / Encargado de sección / Auxiliar de mantenimiento y servicios auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1239.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ourense (BOE nº148, Sec. III págs. 82204-82205)",
+      "rutaCruda": "/tablasPorProvincia/Ourense/salarioBase2025/2.º jefe de restaurante o sala ~1 Gerente de centro ~1 Administrativo ~1 Técnico ~1 Encargado de sección ~1 Auxiliar de mantenimiento y servicios auxiliares"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ourense",
+        "categoria": "Recepcionista / Cocinero / Encargado de economato / Camarero / Supervisor de colectividades / Aydte. Administrativo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1133.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ourense (BOE nº148, Sec. III págs. 82204-82205)",
+      "rutaCruda": "/tablasPorProvincia/Ourense/salarioBase2025/Recepcionista ~1 Cocinero ~1 Encargado de economato ~1 Camarero ~1 Supervisor de colectividades ~1 Aydte. Administrativo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "provincia": "Ourense",
+        "categoria": "Aydte. de cocina / de economato / de Camarero / Especialista de mantenimiento y servicios auxiliares / Auxiliar de pisos y limpieza / de cocina / de colectividades / Monitor o cuidador de colectividades"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1067.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo salarial provincial Ourense (BOE nº148, Sec. III págs. 82204-82205)",
+      "rutaCruda": "/tablasPorProvincia/Ourense/salarioBase2025/Aydte. de cocina ~1 de economato ~1 de Camarero ~1 Especialista de mantenimiento y servicios auxiliares ~1 Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 Monitor o cuidador de colectividades"
+    }
+  ]
+}

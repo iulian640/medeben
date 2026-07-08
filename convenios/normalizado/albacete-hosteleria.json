@@ -1,0 +1,318 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../albacete-hosteleria.json (fuente de verdad). Cubre el Anexo III: salario base mensual (por 15 pagas) por nivel salarial I-VI × grupo de establecimiento A/B, en los dos tramos de 2025 (01-01 a 30-06 definitiva; 01-07 a 31-12 PROVISIONAL, revisable al IPC hasta +0,5% con efectos retroactivos, art. 60 — la tabla definitiva revisada no consta publicada: cuando se publique, corregir la transcripción y re-derivar). NO editar importes aquí.",
+  "id": "albacete-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1357.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1318.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1285.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelII/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1254.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelII/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1227.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelIII/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1200.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelIII/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1172.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelIV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1124.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelIV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1042.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1030.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1019.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelVI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-06-30",
+      "importe": 1019.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-01-01_a_2025-06-30/nivelVI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1395.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1354.66,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1320.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelII/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1288.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelII/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1261.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelIII/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1233.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelIII/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1205.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelIV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1155.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelIV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1071.24,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1059.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1047.34,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelVI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-07-01",
+      "hasta": "2025-12-31",
+      "importe": 1047.34,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (Art. 58 y 59)",
+      "rutaCruda": "/salariosBaseMensuales/periodo_2025-07-01_a_2025-12-31/nivelVI/B"
+    }
+  ]
+}

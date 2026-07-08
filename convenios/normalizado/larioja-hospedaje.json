@@ -1,0 +1,981 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../larioja-hospedaje.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí. Cubre el Anexo II: salario base mensual por GRUPO DE ACTIVIDAD (I-V, categoría del establecimiento por estrellas) y NIVEL profesional (IA, IB, II, III, IV), años 2023-2025. 2026 'pendiente' (convenio 2026-2028 firmado pero no publicado en el BOR, D32): sin hechos. Los salarios ANUALES del Anexo II (mensual x 14) no se derivan: redundantes con el mensual.",
+  "id": "larioja-hospedaje",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1906.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/I/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1727.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/I/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1639.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/I/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1578.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/I/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1578.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/I/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1817.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/II/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1647.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/II/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1563.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/II/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1505.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/II/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1505.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/II/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1434.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/III/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1333.07,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/III/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1303.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/III/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1280.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/III/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1280.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/III/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1341.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/IV/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1271.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/IV/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1272.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/IV/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1259.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/IV/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1259.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/IV/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1284.18,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/V/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1222.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/V/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1250.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/V/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1212.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/V/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1212.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2023/V/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1972.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/I/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1788.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/I/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1696.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/I/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1633.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/I/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1633.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/I/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1881.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/II/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1705.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/II/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1618.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/II/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1558.34,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/II/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1558.34,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/II/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1485.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/III/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1379.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/III/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1349.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/III/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1325.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/III/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1325.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/III/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1388.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/IV/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1315.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/IV/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1317.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/IV/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1303.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/IV/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1303.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/IV/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1329.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/V/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1264.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/V/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1294.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/V/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1254.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/V/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1254.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2024/V/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 2041.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1850.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1756.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1690.82,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1690.82,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1946.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1765.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1675.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1612.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1612.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1537.14,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1428.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1396.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1371.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1371.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1436.75,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1361.98,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1363.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1349.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1349.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1375.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/IA"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1309.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/IB"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1339.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1298.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1298.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/IV"
+    }
+  ]
+}

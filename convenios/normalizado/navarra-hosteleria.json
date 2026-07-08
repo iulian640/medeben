@@ -1,0 +1,246 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../navarra-hosteleria.json (la transcripción verificada es la fuente de verdad). Salario base mensual por NIVEL (I-V), años 2022-2025 (Art. 4). 2026 marcado 'pendiente' en la transcripción (ultraactividad, revisión IPC no publicada en BON) → sin hechos 2026. NO editar importes aquí: se corrige la transcripción y se re-deriva.",
+  "id": "navarra-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1551.16,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2022/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1341.66,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2022/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1194.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2022/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1152.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2022/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 859.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2022/V"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1613.21,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2023/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1395.33,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2023/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1242.76,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2023/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1199.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2023/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 893.86,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2023/V"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1661.6,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2024/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1437.19,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2024/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1280.04,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2024/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1235.06,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2024/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 920.67,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2024/V"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1711.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2025/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1480.3,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2025/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1318.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2025/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1272.11,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 948.29,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 4",
+      "rutaCruda": "/salariosBaseMensuales/2025/V"
+    }
+  ]
+}

@@ -1,0 +1,692 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../valencia-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el Anexo II (RÉGIMEN GENERAL): salario base mensual 2025 (tabla más reciente, vigente en 2026 por ultraactividad) por TABLA DE ESTABLECIMIENTO (apartados I-IX del BOP; el BOP repite 'VII' por errata, cada tabla se identifica por su descripción) × NIVEL retributivo (PRIMERO-QUINTO, más CONSERJE NOCHE y CAMARERO/A PISO en algunas tablas de hospedaje). El Anexo II BIS (ESPECIAL SIN EXPERIENCIA, art. 5.E) NO está derivado: es un régimen especial de salario reducido para nuevos ingresos sin experiencia, no el régimen general. Las columnas horaExtra y festivoAbonable son otros conceptos, fuera de v1.",
+  "id": "valencia-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "I",
+        "descripcion": "Cafeterias (especial/1ª/2ª); restaurantes (5 a 1 tenedor); cafes-bares; colectividades; restauracion moderna; comidas para llevar; discotecas; salas de baile; pizzerias; hamburgueserias; cervecerias; pubs; heladerias; chocolaterias; salones de te; casinos; cibercafes; etc.",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1337.87,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/0/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "I",
+        "descripcion": "Cafeterias (especial/1ª/2ª); restaurantes (5 a 1 tenedor); cafes-bares; colectividades; restauracion moderna; comidas para llevar; discotecas; salas de baile; pizzerias; hamburgueserias; cervecerias; pubs; heladerias; chocolaterias; salones de te; casinos; cibercafes; etc.",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1288.69,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/0/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "I",
+        "descripcion": "Cafeterias (especial/1ª/2ª); restaurantes (5 a 1 tenedor); cafes-bares; colectividades; restauracion moderna; comidas para llevar; discotecas; salas de baile; pizzerias; hamburgueserias; cervecerias; pubs; heladerias; chocolaterias; salones de te; casinos; cibercafes; etc.",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1214.84,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/0/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "I",
+        "descripcion": "Cafeterias (especial/1ª/2ª); restaurantes (5 a 1 tenedor); cafes-bares; colectividades; restauracion moderna; comidas para llevar; discotecas; salas de baile; pizzerias; hamburgueserias; cervecerias; pubs; heladerias; chocolaterias; salones de te; casinos; cibercafes; etc.",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1165.6,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/0/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "I",
+        "descripcion": "Cafeterias (especial/1ª/2ª); restaurantes (5 a 1 tenedor); cafes-bares; colectividades; restauracion moderna; comidas para llevar; discotecas; salas de baile; pizzerias; hamburgueserias; cervecerias; pubs; heladerias; chocolaterias; salones de te; casinos; cibercafes; etc.",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1100.46,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/0/rows/4/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "II",
+        "descripcion": "Hoteles de cinco y cuatro estrellas",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1415.47,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/1/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "II",
+        "descripcion": "Hoteles de cinco y cuatro estrellas",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1363.05,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/1/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "II",
+        "descripcion": "Hoteles de cinco y cuatro estrellas",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1284.43,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/1/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "II",
+        "descripcion": "Hoteles de cinco y cuatro estrellas",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1231.95,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/1/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "II",
+        "descripcion": "Hoteles de cinco y cuatro estrellas",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1162.48,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/1/rows/4/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "III",
+        "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1238.8,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/2/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "III",
+        "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1218.37,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/2/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "III",
+        "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.34,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/2/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "III",
+        "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1166.45,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/2/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "III",
+        "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1115.63,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/2/rows/4/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "III",
+        "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "CONSERJE NOCHE"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1199.36,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/2/rows/5/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "III",
+        "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "CAMARERO/A PISO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1186.09,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/2/rows/6/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "V",
+        "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1142.91,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/3/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "V",
+        "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1119.9,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/3/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "V",
+        "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1078.37,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/3/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "V",
+        "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1066.9,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/3/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "V",
+        "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1042.51,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/3/rows/4/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (1ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de una estrella, hostales de dos estrellas y resto de establecimientos de categoria inferior en hospedaje no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1108.99,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/4/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (1ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de una estrella, hostales de dos estrellas y resto de establecimientos de categoria inferior en hospedaje no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1093.82,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/4/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (1ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de una estrella, hostales de dos estrellas y resto de establecimientos de categoria inferior en hospedaje no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1066.88,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/4/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (1ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de una estrella, hostales de dos estrellas y resto de establecimientos de categoria inferior en hospedaje no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1058.58,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/4/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (1ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de una estrella, hostales de dos estrellas y resto de establecimientos de categoria inferior en hospedaje no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1040.93,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/4/rows/4/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VI",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas (tablas historicas de esa zona)",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1232.64,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/5/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VI",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas (tablas historicas de esa zona)",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1212.16,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/5/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VI",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas (tablas historicas de esa zona)",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.51,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/5/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VI",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas (tablas historicas de esa zona)",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1160.56,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/5/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VI",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas (tablas historicas de esa zona)",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1110.03,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/5/rows/4/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VI",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas (tablas historicas de esa zona)",
+        "nivel": "CONSERJE NOCHE"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1193.26,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/5/rows/5/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VI",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas (tablas historicas de esa zona)",
+        "nivel": "CAMARERO/A PISO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1179.76,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/5/rows/6/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (2ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de dos estrellas",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1125.04,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/6/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (2ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de dos estrellas",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1101.37,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/6/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (2ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de dos estrellas",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1061.16,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/6/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (2ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de dos estrellas",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1049.33,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/6/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VII (2ª aparicion, errata del BOP)",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de dos estrellas",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1025.32,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/6/rows/4/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VIII",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de una estrella",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1090.95,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/7/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VIII",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de una estrella",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1075.72,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/7/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VIII",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de una estrella",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1050.54,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/7/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VIII",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de una estrella",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1041.65,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/7/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "VIII",
+        "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de una estrella",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1023.74,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/7/rows/4/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "IX",
+        "descripcion": "Estaciones termales y/o balnearios con termalismo social",
+        "nivel": "PRIMERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1085.32,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/8/rows/0/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "IX",
+        "descripcion": "Estaciones termales y/o balnearios con termalismo social",
+        "nivel": "SEGUNDO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1063.82,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/8/rows/1/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "IX",
+        "descripcion": "Estaciones termales y/o balnearios con termalismo social",
+        "nivel": "TERCERO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1024.44,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/8/rows/2/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "IX",
+        "descripcion": "Estaciones termales y/o balnearios con termalismo social",
+        "nivel": "CUARTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1017.4,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/8/rows/3/salarioBaseMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "apartadoBOP": "IX",
+        "descripcion": "Estaciones termales y/o balnearios con termalismo social",
+        "nivel": "QUINTO"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 997.4,
+      "unidad": "EUR/mes",
+      "articulo": "art. 16 y Anexo II",
+      "rutaCruda": "/tablasSalariales/categorias/8/rows/4/salarioBaseMes"
+    }
+  ]
+}

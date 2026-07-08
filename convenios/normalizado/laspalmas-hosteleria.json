@@ -1,0 +1,396 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../laspalmas-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí. Cubre la ÚNICA tabla transcrita: salarios 2025 A PARTIR DE ABRIL 2025 (Acuerdo de 12-04-2025, BOP nº79 pág. 10870), por NIVEL (I-V más IVbis; Anexo II) y CLASIFICACIÓN DE ESTABLECIMIENTO (1-5; Anexo I — bares-cafeterías y restaurantes en la 5 desde 01-01-2024). Vigencia de los hechos: 01-04-2025 a 31-12-2025; ene-mar 2025 y años anteriores sin tabla transcrita → sin hechos. 2026 solo tiene pactado un +4% sin tabla en euros publicada (D32): sin hechos; en ultraactividad aplica esta tabla.",
+  "id": "laspalmas-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "clasificacionEstablecimiento": "1"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1820.06,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/I/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "clasificacionEstablecimiento": "2"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1777.79,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/I/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "clasificacionEstablecimiento": "3"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1694.87,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/I/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "clasificacionEstablecimiento": "4"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1607.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/I/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "clasificacionEstablecimiento": "5"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1497.02,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/I/5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "clasificacionEstablecimiento": "1"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1751.7,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/II/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "clasificacionEstablecimiento": "2"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1669.15,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/II/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "clasificacionEstablecimiento": "3"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1627.29,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/II/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "clasificacionEstablecimiento": "4"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1498.25,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/II/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "clasificacionEstablecimiento": "5"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1412.16,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/II/5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "clasificacionEstablecimiento": "1"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1665.87,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/III/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "clasificacionEstablecimiento": "2"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1612.88,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/III/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "clasificacionEstablecimiento": "3"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1559.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/III/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "clasificacionEstablecimiento": "4"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1453.65,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/III/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "clasificacionEstablecimiento": "5"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1389.64,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/III/5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "clasificacionEstablecimiento": "1"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1575.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IV/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "clasificacionEstablecimiento": "2"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1518.51,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IV/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "clasificacionEstablecimiento": "3"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1477.12,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IV/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "clasificacionEstablecimiento": "4"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1422.47,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IV/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "clasificacionEstablecimiento": "5"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1342.96,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IV/5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IVbis",
+        "clasificacionEstablecimiento": "1"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1512.42,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IVbis/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IVbis",
+        "clasificacionEstablecimiento": "2"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1473.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IVbis/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IVbis",
+        "clasificacionEstablecimiento": "3"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1443.73,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IVbis/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IVbis",
+        "clasificacionEstablecimiento": "4"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1400.14,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IVbis/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IVbis",
+        "clasificacionEstablecimiento": "5"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1323.72,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/IVbis/5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "clasificacionEstablecimiento": "1"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1449.02,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/V/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "clasificacionEstablecimiento": "2"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1429.49,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/V/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "clasificacionEstablecimiento": "3"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1410.37,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/V/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "clasificacionEstablecimiento": "4"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1377.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/V/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "clasificacionEstablecimiento": "5"
+      },
+      "desde": "2025-04-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.49,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo de 12-04-2025, tablas salariales 2025 desde abril (BOP Las Palmas nº79, 02-07-2025, pág. 10870)",
+      "rutaCruda": "/salariosBaseMensuales2025/V/5"
+    }
+  ]
+}

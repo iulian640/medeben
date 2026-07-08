@@ -1,0 +1,734 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../melilla-hosteleria.json (la transcripción verificada es la fuente de verdad). Columna SALARIO B. (salario base €/mes) del Anexo II (BOME nº6291, 11-07-2025), por área funcional (primera-sexta) y grupo profesional (Primero-Tercero), años 2025-2028. Las celdas 'S.M.I.' (grupo Tercero de las áreas segunda, cuarta, quinta y sexta) se retribuyen al Salario Mínimo Interprofesional legal vigente y NO generan hecho (importe no fijado en el convenio). El Plus de Residencia (25%), pagas extra prorrateadas, transporte y bonificación de Melilla son conceptos aparte, fuera del alcance v1. NO editar importes aquí: se corrige la transcripción y se re-deriva.",
+  "id": "melilla-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1161.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2025/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1102.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2025/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoTercero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1088.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2025/grupoTercero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1179.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2026/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1118.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2026/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoTercero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1104.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2026/grupoTercero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1196.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2027/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1135.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2027/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoTercero"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1121.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2027/grupoTercero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1202.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2028/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1141.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2028/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "primera",
+        "grupoProfesional": "grupoTercero"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1127.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/primera/2028/grupoTercero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "segunda",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 979.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/segunda/2025/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "segunda",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 929.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/segunda/2025/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "segunda",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1008.61,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/segunda/2026/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "segunda",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 956.89,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/segunda/2026/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "segunda",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1038.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/segunda/2027/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "segunda",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 985.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/segunda/2027/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "segunda",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1049.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/segunda/2028/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "segunda",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 995.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/segunda/2028/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 979.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2025/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 929.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2025/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoTercero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 917.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2025/grupoTercero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1008.61,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2026/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 956.89,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2026/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoTercero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 945.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2026/grupoTercero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1038.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2027/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 985.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2027/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoTercero"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 973.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2027/grupoTercero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1049.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2028/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 995.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2028/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "tercera",
+        "grupoProfesional": "grupoTercero"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 983.32,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/tercera/2028/grupoTercero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "cuarta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1102.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/cuarta/2025/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "cuarta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1088.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/cuarta/2025/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "cuarta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1118.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/cuarta/2026/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "cuarta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1104.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/cuarta/2026/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "cuarta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1135.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/cuarta/2027/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "cuarta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1121.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/cuarta/2027/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "cuarta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1141.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/cuarta/2028/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "cuarta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1127.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/cuarta/2028/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "quinta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1102.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/quinta/2025/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "quinta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1088.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/quinta/2025/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "quinta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1118.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/quinta/2026/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "quinta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1104.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/quinta/2026/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "quinta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1135.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/quinta/2027/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "quinta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1121.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/quinta/2027/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "quinta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1141.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/quinta/2028/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "quinta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1127.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/quinta/2028/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "sexta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1102.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/sexta/2025/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "sexta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1088.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/sexta/2025/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "sexta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1118.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/sexta/2026/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "sexta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1104.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/sexta/2026/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "sexta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1135.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/sexta/2027/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "sexta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1121.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/sexta/2027/grupoSegundo/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "sexta",
+        "grupoProfesional": "grupoPrimero"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1141.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/sexta/2028/grupoPrimero/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "sexta",
+        "grupoProfesional": "grupoSegundo"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1127.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/tablasSalariales/sexta/2028/grupoSegundo/salarioBase"
+    }
+  ]
+}

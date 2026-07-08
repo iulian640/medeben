@@ -1,0 +1,78 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../vizcaya-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el Anexo I de la revisión salarial 2026 (BOB nº38, 25-02-2026), por calificación PRIMERA..QUINTA + ESPECIAL. El importe es la columna GARANTIZADO (salario base + complementos = salario mínimo real mensual, en régimen de 15 pagas), no la columna 'salarioBase' contable de tablas. Solo hay tablas 2026 transcritas; las de 2027 están pendientes de publicación.",
+  "id": "vizcaya-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "calificacion": "PRIMERA"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1920.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas salariales 2026, BOB 38/2026)",
+      "rutaCruda": "/tablasSalariales2026/PRIMERA/garantizado"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "calificacion": "SEGUNDA"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1823.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas salariales 2026, BOB 38/2026)",
+      "rutaCruda": "/tablasSalariales2026/SEGUNDA/garantizado"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "calificacion": "TERCERA"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1694.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas salariales 2026, BOB 38/2026)",
+      "rutaCruda": "/tablasSalariales2026/TERCERA/garantizado"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "calificacion": "CUARTA"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1600.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas salariales 2026, BOB 38/2026)",
+      "rutaCruda": "/tablasSalariales2026/CUARTA/garantizado"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "calificacion": "QUINTA"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1490.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas salariales 2026, BOB 38/2026)",
+      "rutaCruda": "/tablasSalariales2026/QUINTA/garantizado"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "calificacion": "ESPECIAL"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1197.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas salariales 2026, BOB 38/2026)",
+      "rutaCruda": "/tablasSalariales2026/ESPECIAL/garantizado"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../almeria-hosteleria.json (fuente de verdad). Cubre la tabla de salario base mensual 2025 (art. 31) por nivel salarial I-VI (único año del convenio). El nivel VI (783,05 €) aplica SOLO a aprendices y botones menores de 18 años; la Disp. Adic. 4ª garantiza en todo caso el SMI proporcional. Vigencia mecánica del año natural 2025; OJO: el convenio sigue en ULTRAACTIVIDAD total (art. 6) y esta tabla es la vigente en 2026 — el motor debe decidir cómo extender la vigencia. NO editar importes aquí.",
+  "id": "almeria-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1365.7,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 31",
+      "rutaCruda": "/salariosBaseMensuales/2025/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1279.41,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 31",
+      "rutaCruda": "/salariosBaseMensuales/2025/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1231.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 31",
+      "rutaCruda": "/salariosBaseMensuales/2025/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1183.64,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 31",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.21,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 31",
+      "rutaCruda": "/salariosBaseMensuales/2025/V"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 783.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 31",
+      "rutaCruda": "/salariosBaseMensuales/2025/VI"
+    }
+  ]
+}

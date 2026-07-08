@@ -1,0 +1,3926 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../castellon-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el bloque SALARIO MENSUAL de las tablas 2026 (BOP Castellón nº 32, 14-03-2026): salario por CARGO (56 cargos en 4 grupos retributivos) x 5 categorías de establecimiento (especial/primera/segunda/tercera/cuarta). 2025 (publicadas con el texto, no transcritas) y 2027-2028 (sin tabla oficial): pendientes — no se derivan. Las anomalías del boletín (sumiller-tercera, ayudanteAdministrativo/telefonista-cuarta, auxiliarMantenimientoServTecnicosCatering-tercera) se conservan tal cual la transcripción.",
+  "id": "castellon-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRecepcion",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRecepcion/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRecepcion",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1326.02,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRecepcion/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRecepcion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRecepcion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRecepcion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRecepcion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRecepcion",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRecepcion/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRecepcion",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRecepcion/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRecepcion",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.09,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRecepcion/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRecepcion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRecepcion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRecepcion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1299.83,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRecepcion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRecepcion",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1299.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRecepcion/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeAdministracion",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeAdministracion/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeAdministracion",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1325.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeAdministracion/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeAdministracion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeAdministracion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeAdministracion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeAdministracion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeAdministracion",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeAdministracion/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeComercial",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeComercial/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeComercial",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1325.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeComercial/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeComercial",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeComercial/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeComercial",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeComercial/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeComercial",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeComercial/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "primerConserje",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/primerConserje/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "primerConserje",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.09,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/primerConserje/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "primerConserje",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/primerConserje/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "primerConserje",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1299.83,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/primerConserje/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "primerConserje",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1299.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/primerConserje/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCocina",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCocina/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCocina",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1325.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCocina/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCocina",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCocina/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCocina",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCocina/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCocina",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCocina/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeCocina",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeCocina/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeCocina",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.09,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeCocina/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeCocina",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeCocina/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeCocina",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1299.83,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeCocina/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeCocina",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1299.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeCocina/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeCatering/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRestauranteOSala",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRestauranteOSala/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRestauranteOSala",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1325.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRestauranteOSala/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRestauranteOSala",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRestauranteOSala/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRestauranteOSala",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRestauranteOSala/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "jefeRestauranteOSala",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/jefeRestauranteOSala/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRestauranteOSala",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRestauranteOSala/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRestauranteOSala",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.09,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRestauranteOSala/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRestauranteOSala",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRestauranteOSala/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRestauranteOSala",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1299.83,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRestauranteOSala/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "segundoJefeRestauranteOSala",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1299.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/segundoJefeRestauranteOSala/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "responsableServBalneariosYTermales",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/responsableServBalneariosYTermales/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "responsableServBalneariosYTermales",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1325.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/responsableServBalneariosYTermales/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "responsableServBalneariosYTermales",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/responsableServBalneariosYTermales/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "responsableServBalneariosYTermales",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/responsableServBalneariosYTermales/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "responsableServBalneariosYTermales",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/responsableServBalneariosYTermales/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "tecnicoNivelSuperiorPRL",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/tecnicoNivelSuperiorPRL/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "tecnicoNivelSuperiorPRL",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1325.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/tecnicoNivelSuperiorPRL/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "tecnicoNivelSuperiorPRL",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/tecnicoNivelSuperiorPRL/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "tecnicoNivelSuperiorPRL",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/tecnicoNivelSuperiorPRL/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "tecnicoNivelSuperiorPRL",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/tecnicoNivelSuperiorPRL/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "gerenteCentroRestauracionModerna",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/gerenteCentroRestauracionModerna/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "gerenteCentroRestauracionModerna",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1325.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/gerenteCentroRestauracionModerna/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "gerenteCentroRestauracionModerna",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/gerenteCentroRestauracionModerna/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "gerenteCentroRestauracionModerna",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/gerenteCentroRestauracionModerna/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "gerenteCentroRestauracionModerna",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/gerenteCentroRestauracionModerna/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "encargadoMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/encargadoMantenimientoServTecnicosCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "encargadoMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/encargadoMantenimientoServTecnicosCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "encargadoMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/encargadoMantenimientoServTecnicosCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "encargadoMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/encargadoMantenimientoServTecnicosCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoI",
+        "cargo": "encargadoMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoI/encargadoMantenimientoServTecnicosCatering/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "recepcionista",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/recepcionista/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "recepcionista",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/recepcionista/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "recepcionista",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/recepcionista/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "recepcionista",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/recepcionista/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "recepcionista",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/recepcionista/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "conserje",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/conserje/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "conserje",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1294.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/conserje/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "conserje",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/conserje/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "conserje",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1282.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/conserje/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "conserje",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1276.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/conserje/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "administrativo",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/administrativo/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "administrativo",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/administrativo/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "administrativo",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/administrativo/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "administrativo",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/administrativo/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "administrativo",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/administrativo/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "relacionesPublicas",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.77,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/relacionesPublicas/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "relacionesPublicas",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1266.54,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/relacionesPublicas/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "relacionesPublicas",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1263.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/relacionesPublicas/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "relacionesPublicas",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.25,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/relacionesPublicas/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "relacionesPublicas",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1255.02,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/relacionesPublicas/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "comercial",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.77,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/comercial/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "comercial",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1266.54,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/comercial/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "comercial",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1263.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/comercial/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "comercial",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.25,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/comercial/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "comercial",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1255.02,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/comercial/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefePartida",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.77,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefePartida/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefePartida",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefePartida/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefePartida",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.43,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefePartida/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefePartida",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.2,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefePartida/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefePartida",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.12,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefePartida/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "cocinero",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/cocinero/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "cocinero",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/cocinero/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "cocinero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/cocinero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "cocinero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/cocinero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "cocinero",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/cocinero/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repostero",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repostero/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repostero",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repostero/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repostero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repostero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repostero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repostero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repostero",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repostero/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoEconomato",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1266.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoEconomato/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoEconomato",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1266.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoEconomato/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoEconomato",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1266.14,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoEconomato/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoEconomato",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.87,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoEconomato/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoEconomato",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.61,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoEconomato/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeSector",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.77,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeSector/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeSector",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeSector/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeSector",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.43,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeSector/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeSector",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.2,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeSector/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeSector",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.12,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeSector/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "camarero",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/camarero/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "camarero",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/camarero/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "camarero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/camarero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "camarero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/camarero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "camarero",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/camarero/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repartidor",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repartidor/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repartidor",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repartidor/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repartidor",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repartidor/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repartidor",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repartidor/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "repartidor",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/repartidor/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "barman",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1332.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/barman/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "barman",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1325.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/barman/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "barman",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1319.63,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/barman/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "barman",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1313.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/barman/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "barman",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/barman/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "sumiller",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/sumiller/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "sumiller",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/sumiller/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "sumiller",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/sumiller/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "sumiller",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.2,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/sumiller/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "sumiller",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/sumiller/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorCatering/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoGeneral",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoGeneral/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoGeneral",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1294.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoGeneral/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoGeneral",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoGeneral/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoGeneral",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1282.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoGeneral/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoGeneral",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1276.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoGeneral/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoSeccion",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.96,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoSeccion/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoSeccion",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoSeccion/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoSeccion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoSeccion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoSeccion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoSeccion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoSeccion",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1267.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoSeccion/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoMantenimientoYServicios",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.77,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoMantenimientoYServicios/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoMantenimientoYServicios",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoMantenimientoYServicios/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoMantenimientoYServicios",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.43,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoMantenimientoYServicios/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoMantenimientoYServicios",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.2,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoMantenimientoYServicios/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "encargadoMantenimientoYServicios",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.12,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/encargadoMantenimientoYServicios/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeEquipoConductorCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeEquipoConductorCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeEquipoConductorCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeEquipoConductorCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeEquipoConductorCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeEquipoConductorCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeEquipoConductorCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeEquipoConductorCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "jefeEquipoConductorCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/jefeEquipoConductorCatering/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoServBalneariosYTermales",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoServBalneariosYTermales/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoServBalneariosYTermales",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1294.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoServBalneariosYTermales/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoServBalneariosYTermales",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoServBalneariosYTermales/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoServBalneariosYTermales",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1282.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoServBalneariosYTermales/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoServBalneariosYTermales",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1276.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoServBalneariosYTermales/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoNivelIntermedioPRL",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoNivelIntermedioPRL/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoNivelIntermedioPRL",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1294.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoNivelIntermedioPRL/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoNivelIntermedioPRL",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoNivelIntermedioPRL/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoNivelIntermedioPRL",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1282.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoNivelIntermedioPRL/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "tecnicoNivelIntermedioPRL",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1276.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/tecnicoNivelIntermedioPRL/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorRestauracionModerna",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorRestauracionModerna/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorRestauracionModerna",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1294.71,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorRestauracionModerna/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorRestauracionModerna",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorRestauracionModerna/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorRestauracionModerna",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1282.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorRestauracionModerna/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoII",
+        "cargo": "supervisorRestauracionModerna",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1276.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoII/supervisorRestauracionModerna/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteRecepcionYConserjeria",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteRecepcionYConserjeria/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteRecepcionYConserjeria",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.32,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteRecepcionYConserjeria/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteRecepcionYConserjeria",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1231.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteRecepcionYConserjeria/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteRecepcionYConserjeria",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1230.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteRecepcionYConserjeria/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteRecepcionYConserjeria",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1230.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteRecepcionYConserjeria/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteAdministrativo",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteAdministrativo/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteAdministrativo",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.32,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteAdministrativo/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteAdministrativo",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1231.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteAdministrativo/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteAdministrativo",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1230.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteAdministrativo/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteAdministrativo",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.04,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteAdministrativo/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "telefonista",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/telefonista/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "telefonista",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.32,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/telefonista/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "telefonista",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1231.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/telefonista/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "telefonista",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1230.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/telefonista/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "telefonista",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.04,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/telefonista/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteEconomato",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.59,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteEconomato/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteEconomato",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteEconomato/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteEconomato",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.3,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteEconomato/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteEconomato",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.15,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteEconomato/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteEconomato",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.03,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteEconomato/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCocinaOCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.59,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCocinaOCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCocinaOCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCocinaOCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCocinaOCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.3,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCocinaOCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCocinaOCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.15,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCocinaOCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCocinaOCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.03,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCocinaOCatering/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCamarero",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.59,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCamarero/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCamarero",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCamarero/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCamarero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.3,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCamarero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCamarero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.15,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCamarero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteCamarero",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.03,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteCamarero/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "camareroDePisos",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1233.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/camareroDePisos/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "camareroDePisos",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.93,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/camareroDePisos/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "camareroDePisos",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.66,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/camareroDePisos/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "camareroDePisos",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.66,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/camareroDePisos/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "camareroDePisos",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.5,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/camareroDePisos/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoYServicios",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.59,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoYServicios/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoYServicios",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoYServicios/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoYServicios",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.3,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoYServicios/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoYServicios",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.15,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoYServicios/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoYServicios",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1229.03,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoYServicios/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteJefeEquipoCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteJefeEquipoCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteJefeEquipoCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteJefeEquipoCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteJefeEquipoCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteJefeEquipoCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteJefeEquipoCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteJefeEquipoCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "ayudanteJefeEquipoCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/ayudanteJefeEquipoCatering/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaServBalneariosYTermales",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaServBalneariosYTermales/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaServBalneariosYTermales",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.32,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaServBalneariosYTermales/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaServBalneariosYTermales",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1231.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaServBalneariosYTermales/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaServBalneariosYTermales",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1230.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaServBalneariosYTermales/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaServBalneariosYTermales",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1230.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaServBalneariosYTermales/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "preparadorRestauracionModerna",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/preparadorRestauracionModerna/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "preparadorRestauracionModerna",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.32,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/preparadorRestauracionModerna/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "preparadorRestauracionModerna",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1231.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/preparadorRestauracionModerna/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "preparadorRestauracionModerna",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1230.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/preparadorRestauracionModerna/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "preparadorRestauracionModerna",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1230.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/preparadorRestauracionModerna/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoServTecnicosCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoServTecnicosCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoServTecnicosCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoServTecnicosCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIII",
+        "cargo": "especialistaMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1232.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIII/especialistaMantenimientoServTecnicosCatering/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRecepcionYConserjeria",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRecepcionYConserjeria/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRecepcionYConserjeria",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRecepcionYConserjeria/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRecepcionYConserjeria",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.26,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRecepcionYConserjeria/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRecepcionYConserjeria",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.17,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRecepcionYConserjeria/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRecepcionYConserjeria",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRecepcionYConserjeria/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarCocinaOCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarCocinaOCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarCocinaOCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.39,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarCocinaOCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarCocinaOCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.24,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarCocinaOCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarCocinaOCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.09,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarCocinaOCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarCocinaOCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1199.95,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarCocinaOCatering/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarPisosYLimpieza",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarPisosYLimpieza/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarPisosYLimpieza",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.39,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarPisosYLimpieza/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarPisosYLimpieza",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.24,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarPisosYLimpieza/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarPisosYLimpieza",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.09,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarPisosYLimpieza/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarPisosYLimpieza",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1199.95,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarPisosYLimpieza/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoYServicios",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoYServicios/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoYServicios",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.39,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoYServicios/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoYServicios",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.24,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoYServicios/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoYServicios",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1200.09,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoYServicios/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoYServicios",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1199.95,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoYServicios/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "animadorTuristicoTiempoLibre",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1220.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/animadorTuristicoTiempoLibre/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "animadorTuristicoTiempoLibre",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1220.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/animadorTuristicoTiempoLibre/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "animadorTuristicoTiempoLibre",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1220.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/animadorTuristicoTiempoLibre/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "animadorTuristicoTiempoLibre",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1220.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/animadorTuristicoTiempoLibre/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "animadorTuristicoTiempoLibre",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1220.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/animadorTuristicoTiempoLibre/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarServBalneariosYTermales",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarServBalneariosYTermales/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarServBalneariosYTermales",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarServBalneariosYTermales/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarServBalneariosYTermales",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.26,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarServBalneariosYTermales/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarServBalneariosYTermales",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.17,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarServBalneariosYTermales/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarServBalneariosYTermales",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarServBalneariosYTermales/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRestauracionModerna",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRestauracionModerna/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRestauracionModerna",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRestauracionModerna/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRestauracionModerna",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.26,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRestauracionModerna/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRestauracionModerna",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.17,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRestauracionModerna/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarRestauracionModerna",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.05,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarRestauracionModerna/cuarta"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "especial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoServTecnicosCatering/especial"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "primera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoServTecnicosCatering/primera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoServTecnicosCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.76,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoServTecnicosCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "grupoIV",
+        "cargo": "auxiliarMantenimientoServTecnicosCatering",
+        "categoriaEstablecimiento": "cuarta"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1202.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 17 y Anexo — Tablas salariales 2026 (BOP Castellón nº 32, 14-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/grupoIV/auxiliarMantenimientoServTecnicosCatering/cuarta"
+    }
+  ]
+}

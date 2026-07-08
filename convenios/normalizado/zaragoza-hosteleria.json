@@ -1,0 +1,981 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../zaragoza-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre los anexos II (2023), III (2024) y IV (2025): 5 grupos de actividad (I-V, por tipo de establecimiento) x 5 niveles retributivos (IA, IB, II, III, IV). Importe = salario base MENSUAL. NO hay hechos de 2026: el convenio está en ultraactividad y aplican las tablas de 2025, pero la revisión 2026 (Art. 43, condicionada a datos INE) está pendiente; el motor debe resolver la ultraactividad, no esta capa (regla: no se inventa ni se extrapola).",
+  "id": "zaragoza-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1367.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/I/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1314.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/I/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1249.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/I/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1194.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/I/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1129.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/I/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1444.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/II/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1369.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/II/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1271.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/II/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1163.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/II/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1161.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/II/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1444.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/III/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1369.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/III/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1271.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/III/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1212.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/III/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1173.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/III/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1338.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/IV/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1296.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/IV/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1231.66,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/IV/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1127.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/IV/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1126.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/IV/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1294.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/V/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1241.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/V/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1176.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/V/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1091.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/V/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1090.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II (tablas 2023)",
+      "rutaCruda": "/tablasSalariales/2023/V/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1422.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/I/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1367.14,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/I/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1299.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/I/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1241.98,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/I/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1175.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/I/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1502.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/II/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1424.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/II/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1322.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/II/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1210.24,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/II/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1207.89,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/II/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1502.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/III/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1424.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/III/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1322.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/III/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1261.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/III/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1220.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/III/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1391.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/IV/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1348.01,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/IV/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1280.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/IV/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1172.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/IV/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1171.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/IV/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1345.82,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/V/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1290.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/V/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1223.98,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/V/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1135.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/V/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tablas 2024)",
+      "rutaCruda": "/tablasSalariales/2024/V/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1478.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1421.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1351.82,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1291.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "I",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1222.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1562.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1481.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1375.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1258.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "II",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1256.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1562.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1481.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1375.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1311.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "III",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1269.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1447.39,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1401.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1332.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1219.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "IV",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1218.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IA"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1399.66,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/IA/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IB"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1342.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/IB/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1272.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1180.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoActividad": "V",
+        "nivelRetributivo": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1179.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV (tablas 2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/IV/mensual"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../teruel-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el Anexo I: salario base mensual por GRUPO PROFESIONAL (primero-cuarto, sin categoría de establecimiento), años 2022 y 2023 (los únicos publicados). 2024/2025/2026: 'pendiente' en la transcripción (negociación bloqueada desde 05-07-2024; ultraactividad con la tabla de 2023) — sin hechos, no se inventa. El contrato de formación (contratoFormacion) y el suelo del SMI (salarioMinimoGarantizado) quedan fuera de salarioBase.",
+  "id": "teruel-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "primero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1031.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I",
+      "rutaCruda": "/salariosBaseMensuales/2022/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 984.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I",
+      "rutaCruda": "/salariosBaseMensuales/2022/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 943.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I",
+      "rutaCruda": "/salariosBaseMensuales/2022/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "cuarto"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 899.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I",
+      "rutaCruda": "/salariosBaseMensuales/2022/cuarto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "primero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1056.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I",
+      "rutaCruda": "/salariosBaseMensuales/2023/primero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1008.75,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I",
+      "rutaCruda": "/salariosBaseMensuales/2023/segundo"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "tercero"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 967.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I",
+      "rutaCruda": "/salariosBaseMensuales/2023/tercero"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "cuarto"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 921.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I",
+      "rutaCruda": "/salariosBaseMensuales/2023/cuarto"
+    }
+  ]
+}

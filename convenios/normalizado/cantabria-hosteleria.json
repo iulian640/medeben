@@ -1,0 +1,624 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../cantabria-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre la tabla salarial 2025 (BOC nº 66, 04-04-2025): salario convenio mensual por TRAMO, expandido a las categorías que la transcripción asigna a cada tramo (dimensiones tramo + categoria). Los hechos con antiguedadEmpresa=menosDe6Meses recogen el suelo del SMI (1.184 EUR/mes en 14 pagas) del pie de tabla para el último tramo. 2026: pendiente (sin tablas publicadas, ultraactividad de las de 2025 — no se extrapola).",
+  "id": "cantabria-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo1",
+        "categoria": "Jefe/a de Recepción (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1507.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo1/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo1",
+        "categoria": "Jefe/a de Administración (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1507.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo1/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo1",
+        "categoria": "Jefe/a Comercial (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1507.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo1/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo1",
+        "categoria": "Jefe/a de Catering (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1507.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo1/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo1",
+        "categoria": "Jefe/a de Cocina (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1507.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo1/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo1",
+        "categoria": "Jefe/a de Restaurante/Sala (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1507.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo1/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Jefe/a de Recepción 2 (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Primer/a Conserje (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "2º Jefe/a de Cocina (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Jefe/a de Operaciones Catering (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "2º Jefe/a de Restaurante/Sala (I)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Recepcionista (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Administrativo/a (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Relaciones Públicas (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Comercial (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Jefe/a de Partida (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Repostero/a (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Encargado/a de Economato (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Jefe/a de Sector (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Jefe/a de Sala de Catering (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Encargado/a General (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Encargado/a de Sección (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo2",
+        "categoria": "Encargado/a de Mantenimiento/Servicios (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo2/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo3",
+        "categoria": "Conserje (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1260.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo3/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo3",
+        "categoria": "Cocinero/a (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1260.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo3/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo3",
+        "categoria": "Jefe/a de Equipo/Supervisor Catering (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1260.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo3/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo3",
+        "categoria": "Ayudante Administrativo (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1260.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo3/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo3",
+        "categoria": "Telefonista (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1260.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo3/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo3",
+        "categoria": "Conductor/a de Catering (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1260.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo3/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo3",
+        "categoria": "Especialista de Mantenimiento/Servicio (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1260.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo3/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo4",
+        "categoria": "Camarero/a (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1209.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo4/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo4",
+        "categoria": "Barman/Sumiller (II)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1209.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo4/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo4",
+        "categoria": "Ayudante de Recepción/Conserjería (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1209.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo4/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Ayudante/Auxiliar de Cocina (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1156.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Ayudante/Auxiliar de Catering (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1156.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Ayudante de Camarero (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1156.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Camarero/a de Pisos (III)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1156.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Auxiliar de Recepción/Conserjería (IV)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1156.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Auxiliar de Pisos/Limpieza (IV)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1156.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Auxiliar de Mantenimiento/Servicios (IV)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1156.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Ayudante/Auxiliar de Cocina (III)",
+        "antiguedadEmpresa": "menosDe6Meses"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025), pie de tabla (adecuación al SMI)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMesMenos6MesesAntiguedad"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Ayudante/Auxiliar de Catering (III)",
+        "antiguedadEmpresa": "menosDe6Meses"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025), pie de tabla (adecuación al SMI)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMesMenos6MesesAntiguedad"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Ayudante de Camarero (III)",
+        "antiguedadEmpresa": "menosDe6Meses"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025), pie de tabla (adecuación al SMI)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMesMenos6MesesAntiguedad"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Camarero/a de Pisos (III)",
+        "antiguedadEmpresa": "menosDe6Meses"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025), pie de tabla (adecuación al SMI)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMesMenos6MesesAntiguedad"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Auxiliar de Recepción/Conserjería (IV)",
+        "antiguedadEmpresa": "menosDe6Meses"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025), pie de tabla (adecuación al SMI)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMesMenos6MesesAntiguedad"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Auxiliar de Pisos/Limpieza (IV)",
+        "antiguedadEmpresa": "menosDe6Meses"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025), pie de tabla (adecuación al SMI)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMesMenos6MesesAntiguedad"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tramo": "tramo5",
+        "categoria": "Auxiliar de Mantenimiento/Servicios (IV)",
+        "antiguedadEmpresa": "menosDe6Meses"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo — Tablas salariales 2025 (BOC nº 66, 04-04-2025), pie de tabla (adecuación al SMI)",
+      "rutaCruda": "/salariosBaseMensuales/2025/tramo5/salarioMesMenos6MesesAntiguedad"
+    }
+  ]
+}

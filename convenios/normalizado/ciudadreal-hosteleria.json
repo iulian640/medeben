@@ -1,0 +1,246 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../ciudadreal-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre los salarios base mensuales por NIVEL retributivo (1-4, tabla de una sola columna, sin categorías de establecimiento): 2022 en dos tramos (ene-sep tablas 2021 mantenidas; oct-dic +3%), 2023, 2024 (Anexo I del convenio) y 2025 (tablas vigentes, BOP nº 35, 20-02-2025, verificadas en imagen). 2026: pendiente (sin tablas publicadas, ultraactividad — no se extrapola). El encuadramiento categoría->nivel está en la transcripción (nivelesSalariales / gruposYCategorias, Anexo II).",
+  "id": "ciudadreal-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-09-30",
+      "importe": 1042.61,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2022_ene_sep/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-09-30",
+      "importe": 1035.36,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2022_ene_sep/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-09-30",
+      "importe": 974.22,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2022_ene_sep/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-09-30",
+      "importe": 944.98,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2022_ene_sep/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 1073.89,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2022_oct_dic/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 1066.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2022_oct_dic/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 1003.45,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2022_oct_dic/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "desde": "2022-10-01",
+      "hasta": "2022-12-31",
+      "importe": 973.33,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2022_oct_dic/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1100.74,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2023/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1093.08,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2023/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1028.53,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2023/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 997.66,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2023/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1128.25,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2024/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1120.41,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2024/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1054.25,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2024/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1022.6,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 38 y Anexo I del convenio 2022-2024 (BOP Ciudad Real nº 95, 18-05-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2024/4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1162.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Acta de la Comisión Negociadora de 28-01-2025, BOP Ciudad Real nº 35, 20-02-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1154.02,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Acta de la Comisión Negociadora de 28-01-2025, BOP Ciudad Real nº 35, 20-02-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1085.88,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Acta de la Comisión Negociadora de 28-01-2025, BOP Ciudad Real nº 35, 20-02-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1053.28,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Acta de la Comisión Negociadora de 28-01-2025, BOP Ciudad Real nº 35, 20-02-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/4"
+    }
+  ]
+}

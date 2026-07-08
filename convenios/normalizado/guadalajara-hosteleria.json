@@ -1,0 +1,266 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../guadalajara-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Salario base mensual bruto (campo salarioMensual, 12 mensualidades; las 3 pagas extraordinarias van aparte, Art. 30) por nivel retributivo (1-5) x categoría de establecimiento (A/B), Anexo III (BOP Guadalajara 34/2026): tabla 2025 DEFINITIVA y tabla 2026 PROVISIONAL (sujeta a revisión si el IPC 2026 supera el 2%, Art. 27; si se publica la definitiva, re-derivar). La gratificación extraordinaria de septiembre es otro concepto (no derivado en v1).",
+  "id": "guadalajara-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1569.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/A/1/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1512.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/A/2/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1438.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/A/3/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1342.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/A/4/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1290.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/A/5/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1512.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/B/1/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1438.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/B/2/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1380.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/B/3/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1286.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/B/4/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1232.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2025/B/5/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1600.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/A/1/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1543.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/A/2/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1467.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/A/3/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1368.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/A/4/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1316.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/A/5/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1543.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/B/1/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1467.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/B/2/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1408.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/B/3/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1311.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/B/4/salarioMensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III",
+      "rutaCruda": "/salariosBaseMensuales/2026/B/5/salarioMensual"
+    }
+  ]
+}

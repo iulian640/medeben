@@ -1,0 +1,384 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../soria-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre las TABLAS SALARIALES DEFINITIVAS 2025 (BOP Soria nº18, 11-02-2026), tabla única por ÁREA FUNCIONAL (I-VI) × GRUPO PROFESIONAL (I-III) × CATEGORÍA, salario mensual (columna 'mes'; la columna 'anio' de 14 pagas no se deriva). Efectos económicos desde el 1-1-2026, por eso la vigencia es el año natural 2026 (convenio en ultraactividad).",
+  "id": "soria-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "I",
+        "categoria": "Jefe/a de Recepción, Jefe/a de Administración"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1377.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaI_recepcion_admin/I/Jefe~1a de Recepción, Jefe~1a de Administración/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "I",
+        "categoria": "2º Jefe/a de Recepción"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1321.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaI_recepcion_admin/I/2º Jefe~1a de Recepción/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "II",
+        "categoria": "Administrativo/a (Contable), Conserje"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1321.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaI_recepcion_admin/II/Administrativo~1a (Contable), Conserje/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "II",
+        "categoria": "Recepcionista, Ayudante de Conserje"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaI_recepcion_admin/II/Recepcionista, Ayudante de Conserje/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "II",
+        "categoria": "Ayudante Administrativo/a, Telefonista"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1197.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaI_recepcion_admin/II/Ayudante Administrativo~1a, Telefonista/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "II",
+        "categoria": "Ayudante de Recepción, Cajero/a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1167.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaI_recepcion_admin/II/Ayudante de Recepción, Cajero~1a/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "III",
+        "categoria": "Auxiliar de Recepción y Conserjería"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1137.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaI_recepcion_admin/III/Auxiliar de Recepción y Conserjería/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "I",
+        "categoria": "Jefe/a de Cocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1377.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaII_cocina_economato/I/Jefe~1a de Cocina/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "I",
+        "categoria": "Segundo Jefe/a de Cocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1321.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaII_cocina_economato/I/Segundo Jefe~1a de Cocina/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "II",
+        "categoria": "Repostero/a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1321.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaII_cocina_economato/II/Repostero~1a/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "II",
+        "categoria": "Cocinero/a, Encargado/a de Economato, Jefe/a de Partida"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaII_cocina_economato/II/Cocinero~1a, Encargado~1a de Economato, Jefe~1a de Partida/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "II",
+        "categoria": "Ayudante de Economato, Ayudante de Cocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1167.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaII_cocina_economato/II/Ayudante de Economato, Ayudante de Cocina/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "III",
+        "categoria": "Auxiliar de Cocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1137.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaII_cocina_economato/III/Auxiliar de Cocina/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "I",
+        "categoria": "Jefe/a de Restaurante o Sala"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1377.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaIII_restaurante_sala_bar/I/Jefe~1a de Restaurante o Sala/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "I",
+        "categoria": "Segundo Jefe/a de Restaurante o Sala"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1321.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaIII_restaurante_sala_bar/I/Segundo Jefe~1a de Restaurante o Sala/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "II",
+        "categoria": "Barman/Barwoman, Sumiller"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1321.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaIII_restaurante_sala_bar/II/Barman~1Barwoman, Sumiller/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "II",
+        "categoria": "Camarero/a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaIII_restaurante_sala_bar/II/Camarero~1a/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "III",
+        "categoria": "Ayudante de Camarero/a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1167.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaIII_restaurante_sala_bar/III/Ayudante de Camarero~1a/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaIV_pisos_limpieza",
+        "grupoProfesional": "I",
+        "categoria": "Encargado/a de Sección"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1197.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaIV_pisos_limpieza/I/Encargado~1a de Sección/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaIV_pisos_limpieza",
+        "grupoProfesional": "II",
+        "categoria": "Camarero/a de Pisos"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaIV_pisos_limpieza/II/Camarero~1a de Pisos/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaIV_pisos_limpieza",
+        "grupoProfesional": "III",
+        "categoria": "Auxiliar de Pisos y Limpieza"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1137.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaIV_pisos_limpieza/III/Auxiliar de Pisos y Limpieza/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaV_mantenimiento_auxiliares",
+        "grupoProfesional": "I",
+        "categoria": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaV_mantenimiento_auxiliares/I/Encargado~1a de Mantenimiento y Servicios Técnicos y~1o Auxiliares/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaV_mantenimiento_auxiliares",
+        "grupoProfesional": "II",
+        "categoria": "Especialista de Mantenimiento y Servicios Auxiliares"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1197.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaV_mantenimiento_auxiliares/II/Especialista de Mantenimiento y Servicios Auxiliares/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaVI_servicios_complementarios",
+        "grupoProfesional": "I",
+        "categoria": "Responsable de Servicio"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1377.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaVI_servicios_complementarios/I/Responsable de Servicio/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaVI_servicios_complementarios",
+        "grupoProfesional": "I",
+        "categoria": "Técnico/a de Servicio (Dietista, Fisioterapeuta y otras titulaciones de la Salud)"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1257.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaVI_servicios_complementarios/I/Técnico~1a de Servicio (Dietista, Fisioterapeuta y otras titulaciones de la Salud)/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaVI_servicios_complementarios",
+        "grupoProfesional": "II",
+        "categoria": "Especialista de Servicios (Socorrista, primeros auxilios, disjockey, masajista, quiromasajista, especialistas de atención al cliente)"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaVI_servicios_complementarios/II/Especialista de Servicios (Socorrista, primeros auxilios, disjockey, masajista, quiromasajista, especialistas de atención al cliente)/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaVI_servicios_complementarios",
+        "grupoProfesional": "II",
+        "categoria": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1197.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo tablas definitivas 2025 (BOP Soria 18/2026); estructura art. 37-38",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivas/areaVI_servicios_complementarios/II/Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)/mes"
+    }
+  ]
+}
