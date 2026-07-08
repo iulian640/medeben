@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.YearMonth;
 import java.time.ZoneId;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -30,6 +31,7 @@ import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -92,9 +94,16 @@ class ResumenMensualServiceTest {
         // Perfil por defecto: cocinero de Madrid, sin salario real (usa el mínimo).
         perfilConSalario(null);
         when(horarios.horarioEfectivo(eq(USUARIO), any())).thenReturn(Optional.of(SEMANA_8H));
-        when(fichajes.estadoDia(eq(USUARIO), any())).thenAnswer(inv -> {
-            LocalDate fecha = inv.getArgument(1);
-            return diario.getOrDefault(fecha, porDefecto.apply(fecha));
+        // El servicio pide el diario del periodo de una vez (una consulta, no una
+        // por día): el stub construye el mapa del rango con el diario simulado.
+        when(fichajes.estadosDelPeriodo(eq(USUARIO), any(), any())).thenAnswer(inv -> {
+            LocalDate desde = inv.getArgument(1);
+            LocalDate hasta = inv.getArgument(2);
+            Map<LocalDate, EstadoDia> estados = new LinkedHashMap<>();
+            for (LocalDate d = desde; !d.isAfter(hasta); d = d.plusDays(1)) {
+                estados.put(d, diario.getOrDefault(d, porDefecto.apply(d)));
+            }
+            return estados;
         });
         when(tablas.salarioBaseMinimo(eq("madrid-hosteleria"), any(), any())).thenReturn(
                 Optional.of(new SalarioBaseResuelto(MINIMO_CONVENIO, "EUR/mes",
@@ -149,6 +158,11 @@ class ResumenMensualServiceTest {
         assertThat(r.importe().citas())
                 .anySatisfy(c -> assertThat(c.texto()).contains("Salario base"))
                 .anySatisfy(c -> assertThat(c.texto()).contains("art. 35.1"));
+        // Sin salario real: la cita del mínimo del convenio SÍ es la base del
+        // importe, así que va sin etiqueta de "referencia".
+        assertThat(r.importe().citas())
+                .filteredOn(c -> c.texto().contains("Salario base"))
+                .allSatisfy(c -> assertThat(c.texto()).doesNotContain("Referencia de comparación"));
         assertThat(r.tope().horasTope()).isEqualTo(80);
         assertThat(r.tope().acumuladoAnioHoras()).isEqualByComparingTo("3.00");
         assertThat(r.avisos()).isEmpty();
@@ -219,6 +233,45 @@ class ResumenMensualServiceTest {
         ArgumentCaptor<BigDecimal> salarioUsado = ArgumentCaptor.forClass(BigDecimal.class);
         verify(calculo).importeHorasExtra(any(), any(), salarioUsado.capture(), any(), any());
         assertThat(salarioUsado.getValue()).isEqualByComparingTo("1400.00");
+    }
+
+    @Test
+    @DisplayName("D25/D34: con salario real, la cita del mínimo del convenio se marca como REFERENCIA, no como base del importe (review)")
+    void salarioRealEtiquetaLaCitaDelMinimoComoReferencia() {
+        perfilConSalario(new BigDecimal("1400.00")); // > 1250,91 → se usa el real
+        diario.put(LocalDate.of(2026, 7, 7), estado(LocalDate.of(2026, 7, 7), EstadoDia.Estado.COMPLETO, 540));
+
+        ResumenMensual r = servicio.delMes(USUARIO, JULIO);
+
+        assertThat(r.importe().salarioRealUsado()).isTrue();
+        // La cita del mínimo sigue presente (D18, compruébalo) PERO toda mención
+        // al mínimo del convenio va etiquetada como referencia de comparación,
+        // no como la fuente de la cifra aplicada.
+        assertThat(r.importe().citas())
+                .filteredOn(c -> c.texto().contains("Salario base mínimo"))
+                .isNotEmpty()
+                .allSatisfy(c -> assertThat(c.texto()).contains("Referencia de comparación"));
+    }
+
+    @Test
+    @DisplayName("mes futuro (aún no ha empezado) → 400, no un resumen a cero que se leería como 'no te deben nada' (review)")
+    void mesFuturoSeRechaza() {
+        YearMonth futuro = YearMonth.of(2027, 3); // el reloj fijo está en agosto de 2026
+
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> servicio.delMes(USUARIO, futuro))
+                .withMessageContaining("todavía no ha empezado");
+    }
+
+    @Test
+    @DisplayName("el mes en curso (mismo mes que 'hoy') SÍ se resume, recortado hasta hoy")
+    void mesEnCursoSeResume() {
+        YearMonth agosto = YearMonth.of(2026, 8); // 'hoy' es 15-ago-2026
+
+        // No debe lanzar: es el mes actual, se resume la parte transcurrida.
+        ResumenMensual r = servicio.delMes(USUARIO, agosto);
+
+        assertThat(r.mes()).isEqualTo(agosto);
     }
 
     @Test

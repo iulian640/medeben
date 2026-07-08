@@ -9,6 +9,7 @@ import es.tedeben.domain.horario.Tramo;
 import es.tedeben.domain.usuario.Perfil;
 import es.tedeben.repository.ConvenioCatalog;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -36,9 +37,10 @@ import java.util.UUID;
  * del convenio) no se estima nada: se lanza {@link ResumenIncompletoException}
  * (422) explicando QUÉ falta. Nunca se inventa una cifra (regla de oro).
  *
- * <p>Coste: recorre el año natural hasta el mes para el acumulado del tope, un
- * {@code estadoDia} por día. Es aceptable para v1; si pesa, se optimizará con
- * una consulta por rango.
+ * <p>Coste: recorre el año natural hasta el mes para el acumulado del tope. El
+ * diario del periodo se trae de una vez ({@link FichajeService#estadosDelPeriodo})
+ * y todo {@code delMes} corre en una única transacción de solo lectura, así que
+ * no hay un round-trip por día (se evita el N+1).
  */
 @Service
 @RequiereBaseDeDatos
@@ -74,7 +76,15 @@ public class ResumenMensualService {
         this.reloj = reloj;
     }
 
+    @Transactional(readOnly = true)
     public ResumenMensual delMes(UUID usuarioId, YearMonth mes) {
+        // Un mes futuro no tiene nada que resumir: mejor decirlo (400) que
+        // devolver un resumen a cero que se leería como "no te deben nada".
+        YearMonth mesActual = YearMonth.now(reloj);
+        if (mes.isAfter(mesActual)) {
+            throw new IllegalArgumentException(
+                    "El mes " + mes + " todavía no ha empezado: aún no hay nada que resumir");
+        }
         Perfil perfil = perfiles.busca(usuarioId).orElseThrow(() -> new ResumenIncompletoException(
                 "Todavía no has creado tu perfil: sin él no sé tu convenio ni tu salario"));
         Convenio convenio = convenios.porId(perfil.getConvenioId()).orElseThrow(
@@ -92,6 +102,9 @@ public class ResumenMensualService {
         LocalDate finMes = minimo(mes.atEndOfMonth(), hoy);
         LocalDate inicioAnio = mes.atDay(1).withDayOfYear(1);
 
+        // Todo el diario del año en UNA consulta (evita el N+1 día a día).
+        Map<LocalDate, EstadoDia> estados = fichajes.estadosDelPeriodo(usuarioId, inicioAnio, finMes);
+
         Agregado mesAgg = new Agregado();
         Map<EstadoDia.Estado, Integer> contadores = nuevoContador();
         int[] diasSinCalcular = {0};
@@ -99,7 +112,7 @@ public class ResumenMensualService {
 
         for (LocalDate dia = inicioAnio; !dia.isAfter(finMes); dia = dia.plusDays(1)) {
             boolean enElMes = YearMonth.from(dia).equals(mes);
-            EstadoDia estado = fichajes.estadoDia(usuarioId, dia);
+            EstadoDia estado = estados.get(dia);
             if (enElMes) {
                 contadores.merge(estado.estado(), 1, Integer::sum);
             }
@@ -177,10 +190,30 @@ public class ResumenMensualService {
                         "Tu convenio no tiene publicada la jornada anual o las pagas para "
                                 + mes.getYear() + ": no puedo valorar tus horas extra"));
 
-        List<Cita> citas = new ArrayList<>(salario.citasSalario());
+        List<Cita> citas = new ArrayList<>(citasSalario(salario));
         citas.addAll(calculada.citas());
         return new ImporteEstimadoMensual(horasExtra, calculada.precioHora(), calculada.importe(),
                 salario.importe(), salario.usaReal(), calculada.desglose(), citas);
+    }
+
+    /**
+     * Citas del salario para el importe (D25/D34). Si el importe sale del salario
+     * REAL autoinformado del perfil ({@code usaReal}), la cita del mínimo del
+     * convenio NO es la fuente de la cifra aplicada: se conserva (D18, "no me
+     * creas, compruébalo") pero etiquetada como REFERENCIA de comparación, para
+     * no dar soporte legal de convenio a un dato que declaró el propio usuario.
+     */
+    private static List<Cita> citasSalario(SalarioAplicado salario) {
+        if (!salario.usaReal()) {
+            return salario.citasSalario();
+        }
+        List<Cita> etiquetadas = new ArrayList<>(salario.citasSalario().size());
+        for (Cita c : salario.citasSalario()) {
+            etiquetadas.add(new Cita(
+                    "Referencia de comparación (no es la base del importe, que es tu salario declarado): "
+                            + c.texto(), c.url()));
+        }
+        return etiquetadas;
     }
 
     private TopeAnualResumen tope(Convenio convenio, YearMonth mes, long extraAnioMin) {
