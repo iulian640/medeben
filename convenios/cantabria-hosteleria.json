@@ -357,18 +357,13 @@
   "estadoNota": "Articulado completo (Arts. 1-41 + disposiciones + tabla anexa) transcrito de la imagen del PDF oficial del BOC nº 204 (24-10-2022), y tablas salariales VIGENTES de 2025 transcritas celda a celda de la imagen del BOC nº 66 (04-04-2025). Régimen disciplinario y excedencias NO regulados en detalle por el convenio: se remiten al ALEH estatal / ET (Disp. Adic. 3ª). No hay tablas de 2026 publicadas en el BOC (ultraactividad).",
   "pendienteCondiciones": [
     "salariosBaseMensuales.2026 y salarioMinimoConvenio.2026: NO hay tablas de 2026 publicadas en el BOC (rigen las de 2025 por ultraactividad). No inventar.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio → tomar del ALEH estatal.",
-    "excedencias (voluntaria, cuidado de menores/dependientes, forzosa): el convenio remite a la legislación (ET), sin detalle propio.",
-    "vacaciones.festivosDentroVacaciones: el Art. 16 no lo regula expresamente. DUDA para UGT.",
     "pluses.manutencion: importe 18,47 €/mes tomado del articulado 2022; no aparece actualizado por separado en el acta de tablas 2025. DUDA para UGT sobre su valor 2025.",
-    "antiguedad: la base de cálculo de los porcentajes (3%/8%) es implícita (salario convenio) y solo se cuantifican los tramos hasta 6 años. DUDA menor para UGT.",
-    "quienRepresentaYeleccion (representación): escala general de delegados/comité no detallada en el convenio → ET arts. 62-68 y LOLS."
+    "antiguedad: la base de cálculo de los porcentajes (3%/8%) es implícita (salario convenio) y solo se cuantifican los tramos hasta 6 años. DUDA menor para UGT."
   ],
   "dudasParaUGT": [
     "El pie de las tablas 2025 dice que el salario del SMI (1.184 €) para altas con menos de 6 meses se aplica 'según art. 32 del convenio colectivo', pero el art. 32 del texto articulado de 2022 regula las gratificaciones extraordinarias. ¿Hay una renumeración de artículos o es una errata del acta? ¿A qué artículo se refiere realmente?",
     "¿Se están negociando ya las tablas de 2026 / un convenio 2025-2028? Varias webs de terceros lo mencionan pero no hay publicación en el BOC. ¿Fecha prevista?",
     "Manutención (Art. 34): ¿importe actualizado a 2025? (el articulado de 2022 fija 18,47 €/mes y no aparece en el acta de tablas 2025).",
-    "Vacaciones: ¿cómo se computan los festivos que caen dentro de las vacaciones (Art. 16 no lo aclara)?",
     "Complemento IT por accidente laboral (Art. 28): ¿el tope de 12 meses aplica también a este supuesto o es indefinido mientras dure la IT?"
   ],
   "curiosidades": [

@@ -416,19 +416,11 @@
   "estadoNota": "Tablas salariales 2026 (BOP nº32, 14-03-2026) leídas en IMAGEN celda a celda (salario mensual completo por cargo y categoría; valores de hora extra/festivo/nocturna tabulados en el Anexo II, no volcados aquí en su totalidad por volumen — se recogen las fórmulas y los pluses). Condiciones no salariales extraídas del ARTICULADO oficial (BOP nº112, 18-09-2025), leído artículo por artículo. Régimen disciplinario y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal (art. 47).",
   "pendienteCondiciones": [
     "salariosBaseMensuales de 2025, 2027 y 2028: 2025 no volcado (se prioriza el año vigente 2026); 2027 y 2028 SIN tabla oficial publicada (regla D32).",
-    "vacaciones.retribucion.base: el Art. 16 no especifica la base de cálculo de la retribución de vacaciones. Duda para UGT.",
     "pluses.alojamiento.importe2026: no aislado en la nota de conceptos 2026 leída; figura en el anexo de tablas. Marcado pendiente.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio → ALEH estatal.",
-    "periodoPrueba: duraciones por grupo/categoría NO reguladas en el convenio → ALEH estatal (capítulo tercero).",
-    "representacionSindical.quienRepresentaYeleccion: no detallado → ET arts. 62-68 y LOLS.",
     "contratacion.topeTemporalidad: no verificado un porcentaje explícito en imagen.",
     "valores €/hora de hora extra, día festivo y nocturnidad por cargo/categoría (Anexo II tablas 2026): leídos en imagen pero no volcados fila a fila por volumen; disponibles en el PDF si se necesitan."
   ],
-  "dudasParaUGT": [
-    "Las tablas 2026 llevan rótulos heredados de la plantilla 2025 ('salario anual 2025', título '(3,5%)', 'sumando un 3,5%'). El acta (acuerdo SEGUNDO, 23-01-2026) confirma que son las tablas del AÑO 2026. ¿Confirmáis que los importes mensuales publicados en el BOP nº32 son efectivamente los de 2026 (con el incremento IPC+0,5/+1 aplicado) y no una copia de 2025 con cabecera errónea?",
-    "El anexo de conceptos 2026 rotula la ropa de trabajo como 'ART.29' y la póliza de seguros como 'ART.25', mientras que el articulado las regula en el Art. 28 y el Art. 24 respectivamente. ¿Errata del anexo?",
-    "Retribución de vacaciones (Art. 16): no se fija base de cálculo. ¿Promedio de retribución ordinaria de qué periodo?"
-  ],
+  "dudasParaUGT": [],
   "curiosidades": [
     "El periodo nocturno se ADELANTA progresivamente cada año: 2025 desde 00:30, 2026 desde 23:30, 2027 desde 23:00 y 2028 desde 22:00 (recuperando el estándar legal del ET). Trabajar de 22:00 a 23:30 se paga como nocturno en 2028 pero no en 2026.",
     "La antigüedad está 'a extinguir': quien no la cobraba ya, no la genera.",

@@ -399,12 +399,7 @@
 
   "estado": "condiciones_no_salariales_verificadas",
   "estadoNota": "Tablas 2025-2028 ya verificadas en imagen (sin cambios). Añadidas en esta revisión las condiciones no salariales del articulado (vacaciones, permisos, complemento IT, excedencias, representación sindical, contratación, formación, igualdad/acoso y otras condiciones económicas), extraídas del texto oficial del articulado. Régimen disciplinario y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal.",
-  "pendienteCondiciones": [
-    "vacaciones.tipoDias: el Art. 24 no especifica naturales/laborables (por defecto ET = 30 naturales). Duda para UGT.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio provincial → tomar del ALEH estatal.",
-    "periodoPrueba: duraciones por grupo/categoría NO reguladas en el convenio → tomar del ALEH estatal.",
-    "representacionSindical.quienRepresentaYeleccion y garantiasYfuero: no detallados en el convenio → base legal ET arts. 62-68 y LOLS."
-  ],
+  "pendienteCondiciones": [],
   "verificadoContra": "PDF oficial BOP Cádiz nº153 (12-08-2025). Tablas (Anexo III/IV) verificadas previamente en imagen (185 dpi) celda a celda. Condiciones no salariales de esta revisión extraídas del ARTICULADO completo (Arts. 1-50, páginas 2-9) leído del texto oficial: Art. 24 (vacaciones), Art. 25 y 27 (permisos y lactancia), Art. 26 (excedencias), Art. 28 (complemento IT), Art. 35 (representación sindical), Art. 36 (periodo de prueba → ALEH), Arts. 39-41 y 46 (contratación y preaviso), Art. 47 (formación), Disp. Adic. y protocolos (igualdad/acoso), Arts. 29-31, 42, 45 (otras condiciones económicas). Verificado que el articulado NO contiene régimen disciplinario propio (tras la Disp. Novena pasa al Anexo I).",
   "fechaVerificacion": "2026-07-08"
 }
