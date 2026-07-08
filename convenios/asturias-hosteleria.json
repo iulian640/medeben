@@ -6,6 +6,7 @@
   "ambitoTerritorial": { "tipo": "autonomico", "comunidad": "Principado de Asturias", "provincias": ["Asturias"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {
+    "url": "https://miprincipado.asturias.es/bopa/2023/03/21/2023-02029.pdf",
     "articulado": {
       "boletin": "BOPA",
       "numero": 55,

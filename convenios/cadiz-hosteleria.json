@@ -2,6 +2,7 @@
   "$comment": "Convenio Colectivo provincial de Hostelería de Cádiz 2025-2028. Transcrito VISUALMENTE del PDF oficial del BOP de Cádiz nº153 (12-08-2025), Resolución de inscripción y publicación, anuncio nº122.302. Convenio multi-año: tablas definitivas de los 4 años (2025-2028) publicadas de una vez, cada año con incremento del 4,5%. A julio de 2026 es la publicación MÁS RECIENTE y vigente. A diferencia de Alicante, este convenio NO fija euros/hora de nocturnidad: la nocturnidad es un porcentaje (25% sobre salario base) y la hora extra otro (75% sobre hora ordinaria).",
   "id": "cadiz-hosteleria",
   "nombre": "Convenio colectivo provincial de Hostelería de Cádiz 2025-2028",
+  "codigoRegcon": "11000065011981",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Andalucía", "provincias": ["Cádiz"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {

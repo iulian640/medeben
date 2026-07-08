@@ -24,10 +24,11 @@ import java.util.Optional;
  * trabajador puede cobrar su salario real (D25); la búsqueda del mínimo en las
  * tablas del convenio es una pieza aparte.
  *
- * <p>Pendiente conocido: las pagas de CUANTÍA FIJA (bonus de octubre de Álava,
- * Santa Marta de Asturias, paga de octubre de Zaragoza, gratificación de octubre
- * de Alicante...) no entran aún en el valor hora; esos convenios declaran
- * `mensualidadesEquivalentes` solo con las pagas proporcionales.
+ * <p>Pendiente conocido: las pagas de CUANTÍA FIJA o menores que una mensualidad
+ * (bonus de octubre de Álava, Santa Marta de Asturias, paga de octubre de
+ * Zaragoza, gratificación de octubre de Alicante, Santa Marta de Lugo —7 días—...)
+ * no entran aún en el valor hora; esos convenios declaran
+ * `mensualidadesEquivalentes` solo con las pagas de mensualidad completa.
  */
 @Service
 public class CalculoConvenioService {
@@ -42,8 +43,11 @@ public class CalculoConvenioService {
 
     /**
      * Valor de la hora ordinaria: (salario base × mensualidades totales + pluses
-     * anuales) / jornada anual. Vacío si el convenio no tiene publicadas jornada
-     * o pagas para ese año.
+     * anuales) / divisor de horas. El divisor es la jornada anual salvo que el
+     * convenio fije explícitamente otro (`divisorValorHora.horas`, p. ej. las
+     * 1.829 h de Tenerife): el divisor explícito es un dato del convenio y tiene
+     * prioridad. Vacío si el convenio no tiene publicados divisor o pagas para
+     * ese año.
      */
     public Optional<ValorHoraCalculado> valorHoraOrdinaria(
             Convenio convenio, Year anio, BigDecimal salarioBaseMensual, BigDecimal plusesAnuales) {
@@ -56,23 +60,32 @@ public class CalculoConvenioService {
             throw new IllegalArgumentException("Los pluses anuales no pueden ser negativos");
         }
 
-        Optional<BigDecimal> jornada = convenio.jornadaAnual(anio);
+        JsonNode divisorNodo = convenio.raw().path("divisorValorHora");
+        Optional<BigDecimal> divisorExplicito = ValoresPorAnio.resuelve(divisorNodo.path("horas"), anio);
+        Optional<BigDecimal> divisor = divisorExplicito.or(() -> convenio.jornadaAnual(anio));
         Optional<BigDecimal> mensualidades = mensualidades(nodoPagas(convenio));
-        if (jornada.isEmpty() || mensualidades.isEmpty()) {
+        if (divisor.isEmpty() || mensualidades.isEmpty()) {
             return Optional.empty();
         }
 
         BigDecimal retribucionAnual = salarioBaseMensual.multiply(mensualidades.get()).add(plusesAnuales);
-        BigDecimal valorHora = retribucionAnual.divide(jornada.get(), DECIMALES_VALOR_HORA, RoundingMode.HALF_UP);
+        BigDecimal valorHora = retribucionAnual.divide(divisor.get(), DECIMALES_VALOR_HORA, RoundingMode.HALF_UP);
 
         List<Cita> citas = new ArrayList<>();
-        citas.add(new Cita("Jornada anual de " + jornada.get().stripTrailingZeros().toPlainString()
-                + " h (" + articuloJornada(convenio) + " del convenio)", convenio.fuenteUrl()));
+        if (divisorExplicito.isPresent()) {
+            citas.add(new Cita("Divisor de valor hora de " + divisor.get().stripTrailingZeros().toPlainString()
+                    + " h fijado por el convenio (" + articulo(divisorNodo) + " del convenio)",
+                    convenio.fuenteUrl()));
+        } else {
+            citas.add(new Cita("Jornada anual de " + divisor.get().stripTrailingZeros().toPlainString()
+                    + " h (" + articuloJornada(convenio) + " del convenio)", convenio.fuenteUrl()));
+        }
         citas.add(new Cita(mensualidades.get().stripTrailingZeros().toPlainString()
                 + " mensualidades al año (" + articulo(nodoPagas(convenio)) + " del convenio)",
                 convenio.fuenteUrl()));
         return Optional.of(new ValorHoraCalculado(
-                valorHora, salarioBaseMensual, mensualidades.get(), plusesAnuales, jornada.get(), citas));
+                valorHora, salarioBaseMensual, mensualidades.get(), plusesAnuales,
+                divisor.get(), divisorExplicito.isPresent(), citas));
     }
 
     /**

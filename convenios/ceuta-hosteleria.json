@@ -2,6 +2,7 @@
   "$comment": "Convenio Colectivo de Hostelería de la Ciudad Autónoma de CEUTA para el periodo 2025-2029. Transcrito VISUALMENTE del PDF oficial del BOCCE nº 6.571 (viernes 5 de diciembre de 2025), Resolución de la Delegación del Gobierno de 26/11/2025. Convenio suscrito el 24-11-2025 (acta firmada el 22-10-2025) entre la Confederación de Empresarios de Ceuta y los sindicatos UGT y CCOO. A julio de 2026 es la publicación MÁS RECIENTE y vigente. PARTICULARIDADES DE CEUTA: (1) las tablas salariales NO se dividen por categoría de establecimiento (A/B/C) ni por estrellas, sino en 4 NIVELES económicos (I-IV) únicos; los puestos se asimilan a esos niveles en el Anexo VI. (2) Plus de RESIDENCIA del 25% sobre salario base (indemnización por residencia en Ceuta). (3) Plus de vinculación a la bonificación del 8% sobre salario base (ligado a la bonificación a la Seg. Social empresarial de Ceuta, RD-ley 1/2023). (4) Plus de condiciones especiales en Centros de Estancia y Acogida de Inmigrantes (+10% SB). (5) Posibilidad de sustituir festivos por festividades islámicas (Idu al-Fitr, fin del Ramadán). Tablas 2025-2029 verificadas en imagen a 185 dpi, celda a celda.",
   "id": "ceuta-hosteleria",
   "nombre": "Convenio colectivo del sector de Hostelería de la Ciudad Autónoma de Ceuta 2025-2029",
+  "codigoRegcon": "pendiente",
   "ambitoTerritorial": { "tipo": "ciudad_autonoma", "comunidad": "Ceuta", "provincias": ["Ceuta"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {

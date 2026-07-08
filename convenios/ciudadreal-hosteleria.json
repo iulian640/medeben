@@ -6,6 +6,7 @@
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla-La Mancha", "provincias": ["Ciudad Real"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {
+    "url": "https://se1.dipucr.es:4443/SIGEM_BuscadorDocsWeb/getDocument.do?entidad=005&doc=5739882",
     "textoConvenio": {
       "boletin": "BOP Ciudad Real",
       "numero": 95,

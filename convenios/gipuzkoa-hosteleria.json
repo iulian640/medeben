@@ -2,7 +2,7 @@
   "$comment": "Convenio Colectivo de EMPRESAS DE RESTAURACIÓN de Gipuzkoa 2023-2026 (código 20104585012023). En Gipuzkoa la hostelería está partida en DOS convenios provinciales: 'Restauración' (bares, restaurantes, cafeterías, catering, colectividades, discotecas, riders — ESTE) y 'Alojamientos/Hospedaje' (código 20100035012014, hoteles). Para la app lado-trabajador de bar/restaurante, el aplicable es este de Restauración. Tablas salariales AÑO 2026 verificadas VISUALMENTE (render 185 dpi, celda a celda) contra el PDF oficial del BOG nº29 (13-02-2026, GAO-I-2026-00525). El articulado (jornada, vacaciones, permisos, IT, régimen disciplinario, etc.) se ha leído del texto oficial del BOG nº117 (19-06-2023, GAO-I-2023-04299). A julio-2026 esta es la publicación MÁS RECIENTE con tablas (revisión 2026 = IPC 2025 2,9% + 3% = 5,9%). El convenio expira 31-12-2026; las tablas 2027 aún no existen.",
   "id": "gipuzkoa-hosteleria",
   "nombre": "Convenio Colectivo de Empresas de Restauración de Gipuzkoa 2023-2026",
-  "codigoConvenio": "20104585012023",
+  "codigoRegcon": "20104585012023",
   "ambitoTerritorial": {
     "tipo": "provincial",
     "comunidad": "País Vasco",

@@ -2,7 +2,7 @@
   "$comment": "Convenio Colectivo de ALOJAMIENTOS de Gipuzkoa 2025-2028 (código 20100035012014). Es el convenio del SECTOR HOSPEDAJE (hoteles, hostales, pensiones, campings, apartamentos turísticos...) de Gipuzkoa: el que cubre a los trabajadores de HOTEL. En Gipuzkoa la hostelería está partida en DOS convenios provinciales: 'Empresas de Restauración' (código 20104585012023, bares/restaurantes → fichero gipuzkoa-hosteleria.json) y ESTE, 'Alojamientos/Hospedaje'. Articulado (Arts. 1-59 + anexos I-IX) transcrito VISUALMENTE del PDF oficial del BOG nº125 (02-07-2025, GAO-I-2025-04779), texto íntegro del convenio 2025-2028. Tablas salariales del AÑO 2026 (las vigentes a julio-2026) transcritas del BOG nº30 (16-02-2026, GAO-I-2026-00553), revisión salarial. Se conservan también las tablas 2025 del texto íntegro. A julio-2026 esta es la publicación MÁS RECIENTE con tablas. Los años 2027 y 2028 NO tienen tablas publicadas (solo fórmula pactada IPC del año anterior + 2,5%): quedan 'pendiente'. Novedad de este convenio: se ELIMINA el nivel salarial V (medida antiprecariedad), quedando 4 niveles (I-IV); las categorías del antiguo nivel V pasan al IV.",
   "id": "gipuzkoa-hospedaje",
   "nombre": "Convenio Colectivo de Alojamientos de Gipuzkoa 2025-2028",
-  "codigoConvenio": "20100035012014",
+  "codigoRegcon": "20100035012014",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "País Vasco", "provincias": ["Gipuzkoa"] },
   "ambitoFuncional": "hospedaje",
   "ambitoFuncionalNota": "Art. 2: hoteles, hostales, hoteles-residencias, hostales-residencias, albergues, paradores, hoteles-apartamentos, residencias-apartamentos, moteles, ciudades de vacaciones y campings; pensiones, fondas, casas de huéspedes y posadas; viviendas comercializadas con fines turísticos y apartamentos; restaurantes y cafeterías SIEMPRE que estén dentro del ámbito organizacional de la empresa de alojamiento afectada. Excluidos: alta dirección y meros consejeros/administradores (Art. 3). NO cubre bares/restaurantes independientes (van por el convenio de Empresas de Restauración de Gipuzkoa, código 20104585012023).",
@@ -34,9 +34,9 @@
   },
 
   "jornadaAnual": {
-    "$comment": "Art. 13. Jornada anual ordinaria de trabajo continuada. Las camareras de piso tienen jornada REDUCIDA por sus particularidades preventivas (Art. 45).",
+    "$comment": "Art. 13. Jornada anual ordinaria de trabajo continuada. La clave canónica 'horas' recoge la jornada del colectivo GENERAL; las camareras de piso tienen jornada REDUCIDA por sus particularidades preventivas (Art. 45), conservada en 'camarerasDePiso'.",
     "articulo": "Art. 13",
-    "general": { "2025": 1723, "2026": 1719, "2027": 1714, "2028": 1709, "unidad": "horas/año" },
+    "horas": { "2025": 1723, "2026": 1719, "2027": 1714, "2028": 1709, "unidad": "horas/año" },
     "camarerasDePiso": { "2025": 1709, "2026": 1705, "2027": 1700, "2028": 1695, "unidad": "horas/año", "nota": "Jornada anual menor para el personal de pisos." },
     "descansoSemanal": "Día y medio efectivo. Descanso de 2 días consecutivos en empresas de más de 30 trabajadores (con excepciones por horario de funcionamiento).",
     "descansoJornadaContinuada": "15 minutos ininterrumpidos computables como trabajo efectivo (Art. 13).",

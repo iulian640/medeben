@@ -43,8 +43,22 @@ class CalculoControllerTest {
                 .andExpect(jsonPath("$.importe").value(54.49))
                 .andExpect(jsonPath("$.desglose.valorHora").value(10.8979))
                 .andExpect(jsonPath("$.desglose.mensualidades").value(14))
-                .andExpect(jsonPath("$.desglose.jornadaAnualHoras").value(1800))
+                .andExpect(jsonPath("$.desglose.divisorHoras").value(1800))
+                .andExpect(jsonPath("$.desglose.esDivisorExplicito").value(false))
                 .andExpect(jsonPath("$.citas").isNotEmpty());
+    }
+
+    @Test
+    @DisplayName("horas-extra con divisor explícito (Tenerife): el desglose lo marca para no venderlo como jornada anual")
+    void horasExtraDivisorExplicito() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"tenerife-hosteleria","anio":2026,
+                                 "salarioBaseMensual":1200,"plusesAnuales":0,"horas":5}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.desglose.divisorHoras").value(1829))
+                .andExpect(jsonPath("$.desglose.esDivisorExplicito").value(true));
     }
 
     @Test

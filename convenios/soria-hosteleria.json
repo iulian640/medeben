@@ -30,8 +30,7 @@
   },
 
   "jornadaAnual": {
-    "horas2022a2024": 1785,
-    "horas2025": 1780,
+    "horas": { "2022": 1785, "2023": 1785, "2024": 1785, "2025": 1780 },
     "semanal": 40,
     "articulo": "Art. 6",
     "nota": "Art. 6: jornada máxima 40 h/semana. Jornada anual 1.785 h en 2022, 2023 y 2024; 1.780 h en 2025. La jornada laboral diaria no puede dividirse en más de DOS períodos. Horario fijado anualmente por la empresa previo informe del Comité/Delegados. Posibilidad de bolsa de horas anual sin superar el máximo de horas extra del art. 35 ET."

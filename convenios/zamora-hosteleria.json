@@ -2,6 +2,7 @@
   "$comment": "Convenio Colectivo provincial de Hostelería, Cafés-Bares y similares de Zamora 2020-2026. Transcrito VISUALMENTE del PDF oficial del BOP de Zamora nº67 (08-06-2022), Resolución de 3 de junio de 2022 de la Oficina Territorial de Trabajo (anuncio R-202201718). Convenio multi-año: las tablas definitivas de los 6 tramos (2020-2021, 2022, 2023, 2024, 2025 y 2026) se publicaron TODAS de una vez en 2022, con incremento aprox. 3% anual. A julio de 2026 es la publicación oficial MÁS RECIENTE y vigente (norma D32): no se han publicado revisiones posteriores porque los incrementos ya venían pactados y cerrados en esta publicación. Peculiaridades de Zamora frente a Cádiz: (1) vacaciones muy generosas, 34 días naturales (34 > 30 ET); (2) complemento de IT excepcional, HASTA EL 100% del salario convenio y por CUALQUIER causa, durante 18 meses (art. 23); (3) el convenio NO tipifica régimen disciplinario ni periodo de prueba (se remiten al ALEH); (4) nocturnidad y pluses son PORCENTAJES sobre salario base, no euros/hora.",
   "id": "zamora-hosteleria",
   "nombre": "Convenio colectivo para la actividad de Hostelería, Cafés-Bares y similares de la provincia de Zamora 2020-2026",
+  "codigoRegcon": "49001205011981",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla y León", "provincias": ["Zamora"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {

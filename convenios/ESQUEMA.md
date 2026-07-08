@@ -37,6 +37,7 @@ esquema en sus instrucciones.
 - [ ] Tablas salariales por nivel/grupo × categoría de establecimiento, del año vigente (+ anexo). Verificadas en IMAGEN, celda a celda.
 - [ ] `nocturnidad`: % o €/hora, **tramo horario exacto** (varía mucho), artículo
 - [ ] `horasExtraordinarias`: precio €/hora o fórmula, tope anual, artículo
+- [ ] `divisorValorHora.horas` SOLO si el convenio fija explícitamente un divisor de valor hora distinto de la jornada anual (p. ej. las 1.829 h de Tenerife, Arts. 23-24) (+ artículo). El motor lo usa con PRIORIDAD sobre `jornadaAnual.horas`; admite número o mapa por año. No inventarlo: si el convenio no lo fija, se omite.
 - [ ] `antiguedad` (escala + base) si existe (+ artículo)
 - [ ] `pluses` (transporte, manutención, alojamiento, ropa, quebranto...) con artículo
 - [ ] Compensación de festivos trabajados (+ artículo)

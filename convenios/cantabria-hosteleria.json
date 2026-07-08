@@ -6,6 +6,7 @@
   "ambitoTerritorial": { "tipo": "autonomico-uniprovincial", "comunidad": "Cantabria", "provincias": ["Cantabria"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {
+    "url": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=377101",
     "articulado": {
       "boletin": "BOC (Boletín Oficial de Cantabria)",
       "numero": 204,

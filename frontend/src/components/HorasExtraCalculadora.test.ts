@@ -53,7 +53,10 @@ describe('HorasExtraCalculadora — prellenado del salario', () => {
 })
 
 describe('HorasExtraCalculadora — desglose del mínimo', () => {
-  it('explica de dónde sale el mínimo con los números del convenio', async () => {
+  async function calcularCon(desglose: {
+    divisorHoras: number
+    esDivisorExplicito: boolean
+  }) {
     vi.mocked(postHorasExtra).mockResolvedValue({
       precioHora: 10.8979,
       importe: 54.49,
@@ -61,8 +64,8 @@ describe('HorasExtraCalculadora — desglose del mínimo', () => {
         salarioBaseMensual: 1250.91,
         mensualidades: 14,
         plusesAnuales: 2103.42,
-        jornadaAnualHoras: 1800,
         valorHora: 10.8979,
+        ...desglose,
       },
       citas: [],
     })
@@ -70,12 +73,28 @@ describe('HorasExtraCalculadora — desglose del mínimo', () => {
     await wrapper.findAll('input')[0].setValue('5')
     await wrapper.get('button.boton').trigger('click')
     await flushPromises()
+    return wrapper
+  }
+
+  it('explica de dónde sale el mínimo con los números del convenio', async () => {
+    const wrapper = await calcularCon({ divisorHoras: 1800, esDivisorExplicito: false })
 
     const desglose = wrapper.get('.desglose')
     expect(desglose.text()).toContain('¿De dónde sale este mínimo?')
     expect(desglose.text()).toContain('1.250,91')
     expect(desglose.text()).toContain('14 pagas')
     expect(desglose.text()).toContain('1.800')
+    expect(desglose.text()).toContain('jornada anual')
     expect(desglose.text()).toContain('art. 35')
+  })
+
+  it('con divisor explícito del convenio (Tenerife) NO lo vende como jornada anual', async () => {
+    // Tenerife no fija jornada anual: divide por las 1.829 h de sus Arts. 23 y 24.
+    const wrapper = await calcularCon({ divisorHoras: 1829, esDivisorExplicito: true })
+
+    const desglose = wrapper.get('.desglose')
+    expect(desglose.text()).toContain('1.829')
+    expect(desglose.text()).toContain('divisor de valor hora que fija tu convenio')
+    expect(desglose.text()).not.toContain('jornada anual')
   })
 })

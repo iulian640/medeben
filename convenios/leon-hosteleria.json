@@ -2,6 +2,7 @@
   "$comment": "Convenio Colectivo Provincial de Hostelería y Turismo de León, años 2023-2024-2025. Transcrito VISUALMENTE del PDF oficial del BOP de León nº 139 (viernes 21-07-2023, anuncio nº 31304), Resolución de la Oficina Territorial de Trabajo de la Delegación Territorial de León (Junta de Castilla y León). Código de convenio 24002505011979. A julio de 2026 SIGUE SIENDO la publicación MÁS RECIENTE con tablas para la provincia de León: el convenio venció el 31-12-2025 pero está en ultraactividad y se aplica ÍNTEGRAMENTE (Art. 3) desde el 01-01-2026 hasta que entre en vigor el nuevo, cuya negociación comenzó en enero de 2026 pero NO se ha publicado todavía en el BOP. Por tanto la tabla salarial VIGENTE es la de 2025. NO existe convenio ni tabla 2026 de León publicada (verificado julio 2026; las 'tablas 2026' que aparecen en buscadores son de Salamanca y Ourense, NO de León). Estructura salarial: 6 áreas funcionales x 3 categorías de establecimiento (Lujo y 1ª clase / Segunda clase / Tercera y sucesivas), asimiladas al VI ALEH. NO hay antigüedad viva (se congeló en 2016 como 'Plus Ad Personam'). Nocturnidad y horas extra son PORCENTAJES, no euros/hora.",
   "id": "leon-hosteleria",
   "nombre": "Convenio colectivo provincial de Hostelería y Turismo de León 2023-2025",
+  "codigoRegcon": "24002505011979",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Castilla y León", "provincias": ["León"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {

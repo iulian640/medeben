@@ -141,9 +141,14 @@ async function calcular() {
           >
             , más {{ formatearImporte(resultado.desglose.plusesAnuales) }} € de pluses anuales
           </template>.
+          <!-- El divisor no siempre es jornada anual: Tenerife no la fija y usa
+               un divisor de valor hora propio (Arts. 23 y 24). Etiquetarlo mal
+               contradiría la cita de fuente de justo debajo. -->
           Repartido entre las
-          <strong>{{ formatearImporte(resultado.desglose.jornadaAnualHoras) }} horas</strong>
-          de jornada anual, tu hora ordinaria sale a
+          <strong>{{ formatearImporte(resultado.desglose.divisorHoras) }} horas</strong>
+          {{ resultado.desglose.esDivisorExplicito
+            ? 'del divisor de valor hora que fija tu convenio'
+            : 'de jornada anual' }}, tu hora ordinaria sale a
           <strong>{{ formatearImporte(resultado.desglose.valorHora) }} €</strong>.
           La ley no permite pagar la hora extra por debajo de tu hora ordinaria
           (art. 35 del Estatuto de los Trabajadores).
