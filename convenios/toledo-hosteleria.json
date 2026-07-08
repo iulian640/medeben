@@ -381,16 +381,9 @@
   "estadoNota": "Tablas salariales jul-dic 2025 (salario base art. 39, antigüedad art. 40 secciones A-D, otros complementos) LEÍDAS EN IMAGEN del PDF oficial del BOP Toledo nº205 (185 dpi), celda a celda. Articulado completo (jornada, vacaciones, permisos, complemento IT al 100%, disciplinario, excedencias, representación sindical, contratación, formación, igualdad, periodo de prueba, clasificación) extraído del texto oficial del BOP Toledo nº1 (2-01-2023). Incorporadas las dos modificaciones del Acta de 30-07-2025 (art. 34.1.c ampliado a 5 días laborables; derogación del art. 38 bis).",
   "pendienteCondiciones": [
     "salariosBaseMensuales.2026 y antiguedad.2026: NO hay tablas 2026 publicadas a julio de 2026 (convenio en prórroga/ultraactividad, cláusula de revisión derogada). No se inventan (regla D32).",
-    "salariosBaseMensuales.2025_ene_jun: existen tablas provisionales ene-jun 2025 (BOP nº54, 20-03-2025) con valores inferiores; no transcritas (la vigente es la jul-dic 2025).",
-    "vacaciones.preaviso: el Art. 33 no fija preaviso concreto del calendario de vacaciones (por defecto 2 meses, art. 38.3 ET). Duda para UGT.",
-    "vacaciones.bajaDuranteVacaciones_IT: no regulado expresamente en el convenio; aplica art. 38.3 ET. Duda para UGT.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio (Art. 51 remite al ALEH estatal).",
-    "excedencia voluntaria y sindical/forzosa: no detalladas en el convenio → base legal ET art. 46 y LOLS.",
-    "representacionSindical.quienRepresentaYeleccion y garantiasYfuero: no detallados en el convenio → base legal ET arts. 62-68 y LOLS."
+    "salariosBaseMensuales.2025_ene_jun: existen tablas provisionales ene-jun 2025 (BOP nº54, 20-03-2025) con valores inferiores; no transcritas (la vigente es la jul-dic 2025)."
   ],
   "dudasUGT": [
-    "¿Preaviso del calendario de vacaciones? El Art. 33 no lo fija; ¿se aplican los 2 meses del art. 38.3 ET o hay uso de empresa distinto?",
-    "IT durante las vacaciones: ¿reconoce el sector la interrupción y recuperación (art. 38.3 ET) pese a no estar en el Art. 33?",
     "Complemento de nocturnidad (Art. 43): exige 2/3 de jornada nocturna Y empresa con ciclo de 24 h; ¿cómo se aplica en bares/discotecas de temporada que no tienen ciclo de 24 h? Parece excluir a mucha nocturnidad real del sector.",
     "El importe del seguro de accidentes (17.000 €, Art. 48) es del texto de 2022 y no se actualiza en las tablas anuales: ¿sigue vigente ese capital o hay póliza mejorada?"
   ],

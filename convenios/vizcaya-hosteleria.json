@@ -189,10 +189,7 @@
   "pendiente": [
     "Matriz exacta de permisos por fallecimiento/enfermedad grave segun parentesco x ambito geografico (Art. 14): duraciones 2-6 dias, columnas desalineadas en la extraccion; verificar celda a celda contra la IMAGEN del PDF.",
     "Escala de antiguedad Art. 19 (porcentajes y acumulado por anos de servicio): tabla desalineada en la extraccion, verificar celda a celda contra imagen.",
-    "Tramo horario exacto del periodo nocturno (Art. 22 no lo explicita; por defecto ET 22:00-06:00).",
     "Importes 2026 de pluses no indexados (manutencion, desgaste herramientas, servicios extraordinarios): el articulado da cifras 2025; confirmar revision 2026.",
-    "Regimen disciplinario detallado (faltas/sanciones) y grupos profesionales generales: remitidos al ALEH, no transcritos aqui.",
-    "Periodo de prueba: remitido al ALEH / art. 14 ET, no regulado en el convenio.",
     "Tablas 2027 (aun no publicadas a julio-2026; revision pactada: IPC 2026 + 1,6 puntos, Art. 6)."
   ],
   "estado": "tablas_2026_verificadas",

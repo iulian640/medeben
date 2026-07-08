@@ -319,13 +319,7 @@
 
   "estado": "verificado",
   "estadoNota": "Tablas salariales 2025 (tres columnas de equiparación) y 2026 (tabla única) VERIFICADAS EN IMAGEN (185 dpi) celda a celda del BOP oficial nº2021/247, así como el Anexo II de manutención (PDF 2021 y su corrección de 2025). El articulado completo (Arts. 1-49, Disposiciones y Anexos I, II, IV) se ha leído del texto oficial del mismo PDF. Incorporada la corrección oficial posterior (BOP nº2025/132, 14-07-2025): Anexo II de manutención corregido (2026 = 600€/año) y nuevo Anexo V (protocolo LGTBI).",
-  "pendienteCondiciones": [
-    "vacaciones.retribucion: el Art. 6 no detalla si las vacaciones se pagan a salario base o a promedio con complementos. Duda para UGT.",
-    "vacaciones.fraccionamiento: no regulado expresamente (más allá de la garantía de 15 días estivales en caso de cierre).",
-    "periodoPrueba: el convenio no fija duraciones propias → ALEH estatal y art. 14 ET.",
-    "representacionSindical: sistema de elección y garantías/fuero (art. 68 ET) no detallados en el convenio → ET arts. 62-68 y LOLS.",
-    "regimenDisciplinario: aunque el convenio lo regula (Arts. 37-44), el acta de 2025 lo declara materia reservada a la negociación estatal (art. 10.7 VI ALEH); vigilar futura sustitución por el ALEH."
-  ],
+  "pendienteCondiciones": [],
   "curiosidades": [
     "Convenio de NUEVE años (2018-2026), el más largo del set. Durante 2018-2021 NO hubo subida salarial (se aplicaron tablas de 2017); la compensación fue una 'prima de demora' única de 600€.",
     "EQUIPARACIÓN progresiva: hasta 2025 conviven tres columnas salariales (Grupo I/II/III, herencia de las antiguas categorías de establecimiento); en 2026 se funden en UNA sola tabla para todo el sector.",
