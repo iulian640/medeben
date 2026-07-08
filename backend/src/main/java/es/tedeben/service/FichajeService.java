@@ -41,6 +41,9 @@ public class FichajeService {
     private static final int MOTIVO_MAX = 200;
     private static final int MINUTOS_DIA = 24 * 60;
 
+    /** Cota inferior de fecha: más atrás no hay reclamación viva que defender (higiene de datos). */
+    static final int ANIOS_ATRAS_MAX = 2;
+
     private final ApunteRepository apuntes;
     private final Clock reloj;
 
@@ -55,6 +58,10 @@ public class FichajeService {
         LocalDate hoy = LocalDate.now(reloj);
         if (fecha == null || fecha.isAfter(hoy)) {
             throw new IllegalArgumentException("No se puede fichar el futuro");
+        }
+        if (fecha.isBefore(hoy.minusYears(ANIOS_ATRAS_MAX))) {
+            throw new IllegalArgumentException(
+                    "No se aceptan apuntes de hace más de " + ANIOS_ATRAS_MAX + " años");
         }
         validaSegunTipo(tipo, hora, motivo);
 
@@ -132,6 +139,11 @@ public class FichajeService {
                 throw new IllegalArgumentException("El motivo no puede pasar de " + MOTIVO_MAX + " caracteres");
             }
             return;
+        }
+        if (motivo != null) {
+            // Minimización RGPD (art. 25): el texto libre —que puede ser dato de
+            // salud, art. 9— solo existe donde hace falta, en las ausencias.
+            throw new IllegalArgumentException("El motivo solo se admite en las ausencias");
         }
         if (hora == null || !HORA.matcher(hora).matches()) {
             throw new IllegalArgumentException("Hora inválida — usa HH:mm entre 00:00 y 23:59");

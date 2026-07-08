@@ -61,7 +61,7 @@ class GlobalExceptionHandlerTest {
                                 {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
                                  "dimensiones":{"nivel":"III"}}"""))
                 .andExpect(status().isInternalServerError())
-                .andExpect(jsonPath("$.detail").value("Error interno de datos del convenio"))
+                .andExpect(jsonPath("$.detail").value("Error interno de datos"))
                 .andExpect(content().string(not(org.hamcrest.Matchers.containsString("secreto"))));
     }
 }

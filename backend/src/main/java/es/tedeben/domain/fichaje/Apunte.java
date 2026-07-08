@@ -45,7 +45,12 @@ public class Apunte implements Persistable<UUID> {
     @Column(length = 5)
     private String hora;
 
-    /** Solo ausencias: por qué no fue (opcional). */
+    /**
+     * Solo ausencias: por qué no fue (opcional). OJO RGPD: texto libre que puede
+     * ser dato de salud (art. 9; base: defensa de derechos, art. 9.2.f). Nunca
+     * loguearlo ni añadir un toString() que lo incluya; en el frontend, jamás
+     * renderizarlo con v-html.
+     */
     @Column(length = 200)
     private String motivo;
 

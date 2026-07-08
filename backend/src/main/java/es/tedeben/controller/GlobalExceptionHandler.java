@@ -72,7 +72,7 @@ public class GlobalExceptionHandler {
     public ProblemDetail errorInterno(IllegalStateException e) {
         log.error("Error interno de datos", e);
         return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR,
-                "Error interno de datos del convenio");
+                "Error interno de datos");
     }
 
     /** Red de seguridad explícita: nada inesperado sale con detalles internos. */

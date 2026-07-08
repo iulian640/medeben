@@ -144,6 +144,21 @@ class FichajeServiceTest {
                 .isThrownBy(() -> servicio.apunta(USUARIO, HOY, TipoApunte.AUSENCIA, null, "x".repeat(201), false));
     }
 
+    @Test
+    @DisplayName("el motivo solo existe en las ausencias: minimización RGPD, un fichaje no lleva texto libre (review)")
+    void motivoSoloEnAusencias() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> servicio.apunta(USUARIO, HOY, TipoApunte.SALIDA, "23:00", "me encontraba mal", false));
+    }
+
+    @Test
+    @DisplayName("no se aceptan fechas de hace más de 2 años (higiene de datos, review)")
+    void fechaDemasiadoAntigua() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> servicio.apunta(USUARIO, HOY.minusYears(2).minusDays(1),
+                        TipoApunte.SALIDA, "23:00", null, true));
+    }
+
     // --- estado del día derivado del diario ---
 
     @Test
