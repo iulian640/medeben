@@ -7,15 +7,12 @@ el JSON y se borra la línea.
 
 ## codigoRegcon
 
-- **ceuta-hosteleria**: el código REGCON no consta en el anuncio transcrito
-  (BOCCE nº6571, 05-12-2025, anuncio 777). Buscarlo en el registro REGCON
-  (expediente de la Delegación del Gobierno en Ceuta, resolución de 26-11-2025)
-  y volcarlo en `codigoRegcon` (hoy `"pendiente"`).
-
-Nota de la pasada 2026-07-08: de los 4 ficheros que no tenían `codigoRegcon`,
-en 3 el código SÍ estaba ya transcrito dentro de `fuente.documento` y solo se
-aplanó a la clave canónica (sin inventar nada): cadiz `11000065011981`,
-leon `24002505011979`, zamora `49001205011981`.
+(Sección cerrada. Nota de la pasada 2026-07-08: de los 4 ficheros que no tenían
+`codigoRegcon`, en 3 el código SÍ estaba ya transcrito dentro de
+`fuente.documento` y solo se aplanó a la clave canónica (sin inventar nada):
+cadiz `11000065011981`, leon `24002505011979`, zamora `49001205011981`. El
+cuarto, ceuta-hosteleria, se cerró después verificando `51100205012025` en la
+consulta pública oficial del REGCON.)
 
 ## Jornada anual ilegible para el motor (dato ausente en la fuente, no re-estructurable)
 
