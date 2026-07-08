@@ -2,6 +2,7 @@ package es.tedeben.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -29,6 +30,10 @@ public class SecurityConfig {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/health", "/actuator/health").permitAll()
+                        // Datos de convenios (boletines oficiales) y cálculos anónimos:
+                        // públicos por diseño, sin datos personales de por medio.
+                        .requestMatchers(HttpMethod.GET, "/api/v1/provincias", "/api/v1/convenios/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/calculo/**").permitAll()
                         .anyRequest().authenticated())
                 // Stateless API: unauthenticated requests get a plain 401
                 // (no redirect to a login page).
