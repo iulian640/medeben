@@ -200,8 +200,214 @@
       }
     ],
     "rangoSalarioBase2025": { "min": 997.40, "max": 1415.47, "nota": "min = QUINTO de balnearios/termalismo; max = PRIMERO de hoteles 5*/4*. El rango 1.100,46-1.415,47 de fuentes secundarias solo miraba la tabla general I; el minimo real del convenio es 997,40." },
-    "notaAnexoIIBis": "Existe ademas un Anexo II BIS (ESPECIAL SIN EXPERIENCIA, art. 5.E) con importes inferiores para nuevos ingresos sin experiencia; NO transcrito aqui (pendiente si la app lo necesita).",
+    "notaAnexoIIBis": "Existe ademas un Anexo II BIS (ESPECIAL SIN EXPERIENCIA, art. 5.E) con importes inferiores para nuevos ingresos sin experiencia. YA TRANSCRITO en el campo 'anexoIIBis' (tablas 2025, ambos bloques).",
     "verificado": true
+  },
+  "anexoIIBis": {
+    "$comment": "ANEXO II BIS (ESPECIAL SIN EXPERIENCIA) en aplicacion del art. 5.E (contrato para el fomento de la contratacion indefinida). Tablas de salario REDUCIDO para nuevos ingresos SIN EXPERIENCIA. Transcrito celda a celda de la imagen (fitz 185 dpi) del BOP Valencia nº26 (07-02-2023, CSV BOPV-2023/01380), copia sellada UGT-FeSMC PV. Se transcriben las tablas de 2025 por ser las mas recientes (regla D32; vigentes en 2026 por ultraactividad). El Anexo II BIS tiene DOS bloques: (1) 'todasLasEmpresas' que replica la estructura del Anexo II (apartados I-IX, con la MISMA errata de numeracion romana del BOP: repite VII y desordena VI/VII/VIII); (2) 'planDeEtapas' = regimen transitorio para empresas de alojamiento afectadas por el Plan de Etapas del Anexo III, en funcionamiento antes de la entrada en vigor del convenio (apartados III-IX, distinguiendo hoteles de mas / de 50 o menos habitaciones). Importante: en el BIS solo se reduce el SALARIO BASE MES; las columnas HORAS EXTRAS y FESTIVOS ABONABLES coinciden practicamente con las del Anexo II. Cada tabla tiene 5 niveles (PRIMERO a QUINTO); algunas de hospedaje añaden CONSERJE NOCHE y CAMARERO/A PISO.",
+    "anio": 2025,
+    "articulo": "art. 5.E y Anexo II BIS",
+    "unidad": "euros/mes (salarioBaseMes) y euros (horaExtra, festivoAbonable)",
+    "bloques": [
+      {
+        "bloque": "todasLasEmpresas",
+        "titulo": "ANEXO II BIS (ESPECIAL SIN EXPERIENCIA) - TABLAS DE APLICACION PARA TODAS LAS EMPRESAS COMPRENDIDAS EN EL AMBITO DE ESTE CONVENIO - 2025",
+        "categorias": [
+          {
+            "apartadoBOP": "I",
+            "descripcion": "Cafeterias (especial/1ª/2ª); restaurantes (5 a 1 tenedor); cafes-bares (especial A/B, 1ª, 2ª, 3ª, 4ª); colectividades; restauracion moderna; comidas para llevar; discotecas; salas de baile; cruasanterias; zumerias; bingos; salones recreativos; billares; pizzerias; hamburgueserias; bocadillerias; creperias; cervecerias; tabernas; freidurias; chiringuitos de playa; pubs; terrazas de veladores; quioscos; heladerias; chocolaterias; salones de te; ambigus; cafes-teatro; tablaos; casinos; cibercafes.",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 1070.30, "horaExtra": 15.70, "festivoAbonable": 116.16 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 1030.95, "horaExtra": 15.15, "festivoAbonable": 111.90 },
+              { "nivel": "TERCERO", "salarioBaseMes": 971.87, "horaExtra": 14.21, "festivoAbonable": 105.27 },
+              { "nivel": "CUARTO", "salarioBaseMes": 932.48, "horaExtra": 13.69, "festivoAbonable": 101.16 },
+              { "nivel": "QUINTO", "salarioBaseMes": 880.37, "horaExtra": 12.91, "festivoAbonable": 95.40 }
+            ]
+          },
+          {
+            "apartadoBOP": "II",
+            "descripcion": "Hoteles de cinco y cuatro estrellas",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 1132.38, "horaExtra": 16.77, "festivoAbonable": 124.08 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 1090.44, "horaExtra": 16.15, "festivoAbonable": 119.49 },
+              { "nivel": "TERCERO", "salarioBaseMes": 1027.54, "horaExtra": 15.20, "festivoAbonable": 112.47 },
+              { "nivel": "CUARTO", "salarioBaseMes": 985.56, "horaExtra": 14.64, "festivoAbonable": 108.05 },
+              { "nivel": "QUINTO", "salarioBaseMes": 929.98, "horaExtra": 13.78, "festivoAbonable": 101.88 }
+            ]
+          },
+          {
+            "apartadoBOP": "III",
+            "descripcion": "Hoteles de tres estrellas y viviendas turisticas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 991.04, "horaExtra": 13.86, "festivoAbonable": 102.64 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 974.70, "horaExtra": 13.69, "festivoAbonable": 101.42 },
+              { "nivel": "TERCERO", "salarioBaseMes": 952.27, "horaExtra": 12.72, "festivoAbonable": 94.19 },
+              { "nivel": "CUARTO", "salarioBaseMes": 933.16, "horaExtra": 12.64, "festivoAbonable": 93.51 },
+              { "nivel": "QUINTO", "salarioBaseMes": 892.50, "horaExtra": 12.14, "festivoAbonable": 89.50 },
+              { "nivel": "CONSERJE NOCHE", "salarioBaseMes": 959.49, "horaExtra": 12.99, "festivoAbonable": 96.15 },
+              { "nivel": "CAMARERO/A PISO", "salarioBaseMes": 948.87, "horaExtra": 12.71, "festivoAbonable": 94.07 }
+            ]
+          },
+          {
+            "apartadoBOP": "V",
+            "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 914.33, "horaExtra": 12.16, "festivoAbonable": 89.62 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 895.92, "horaExtra": 11.97, "festivoAbonable": 88.20 },
+              { "nivel": "TERCERO", "salarioBaseMes": 862.70, "horaExtra": 11.40, "festivoAbonable": 84.11 },
+              { "nivel": "CUARTO", "salarioBaseMes": 853.52, "horaExtra": 11.32, "festivoAbonable": 83.56 },
+              { "nivel": "QUINTO", "salarioBaseMes": 834.01, "horaExtra": 11.08, "festivoAbonable": 81.40 }
+            ]
+          },
+          {
+            "apartadoBOP": "VII (1ª aparicion, errata del BOP)",
+            "descripcion": "Hoteles de una estrella, hostales de dos estrellas y resto de establecimientos de categoria inferior en hospedaje no sujetos al regimen transitorio (Plan de Etapas) del Anexo III",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 887.19, "horaExtra": 11.56, "festivoAbonable": 85.28 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 875.06, "horaExtra": 11.43, "festivoAbonable": 84.41 },
+              { "nivel": "TERCERO", "salarioBaseMes": 853.50, "horaExtra": 11.03, "festivoAbonable": 81.82 },
+              { "nivel": "CUARTO", "salarioBaseMes": 846.86, "horaExtra": 10.98, "festivoAbonable": 81.37 },
+              { "nivel": "QUINTO", "salarioBaseMes": 832.74, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+            ]
+          },
+          {
+            "apartadoBOP": "VI",
+            "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de tres estrellas",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 986.11, "horaExtra": 13.74, "festivoAbonable": 101.94 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 969.73, "horaExtra": 13.59, "festivoAbonable": 100.59 },
+              { "nivel": "TERCERO", "salarioBaseMes": 947.61, "horaExtra": 12.70, "festivoAbonable": 93.97 },
+              { "nivel": "CUARTO", "salarioBaseMes": 928.45, "horaExtra": 12.55, "festivoAbonable": 92.86 },
+              { "nivel": "QUINTO", "salarioBaseMes": 888.02, "horaExtra": 12.05, "festivoAbonable": 88.88 },
+              { "nivel": "CONSERJE NOCHE", "salarioBaseMes": 954.61, "horaExtra": 12.93, "festivoAbonable": 95.01 },
+              { "nivel": "CAMARERO/A PISO", "salarioBaseMes": 943.81, "horaExtra": 12.63, "festivoAbonable": 93.47 }
+            ]
+          },
+          {
+            "apartadoBOP": "VII (2ª aparicion, errata del BOP)",
+            "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de dos estrellas",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 900.03, "horaExtra": 12.15, "festivoAbonable": 89.62 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 881.10, "horaExtra": 11.97, "festivoAbonable": 88.20 },
+              { "nivel": "TERCERO", "salarioBaseMes": 848.93, "horaExtra": 11.39, "festivoAbonable": 84.11 },
+              { "nivel": "CUARTO", "salarioBaseMes": 839.46, "horaExtra": 11.32, "festivoAbonable": 83.55 },
+              { "nivel": "QUINTO", "salarioBaseMes": 820.26, "horaExtra": 11.08, "festivoAbonable": 81.40 }
+            ]
+          },
+          {
+            "apartadoBOP": "VIII",
+            "descripcion": "Hoteles de la zona de Gandia y La Safor con categoria de una estrella",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 872.76, "horaExtra": 11.56, "festivoAbonable": 85.28 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 860.58, "horaExtra": 11.42, "festivoAbonable": 84.41 },
+              { "nivel": "TERCERO", "salarioBaseMes": 840.43, "horaExtra": 11.02, "festivoAbonable": 81.82 },
+              { "nivel": "CUARTO", "salarioBaseMes": 833.32, "horaExtra": 10.97, "festivoAbonable": 81.37 },
+              { "nivel": "QUINTO", "salarioBaseMes": 818.99, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+            ]
+          },
+          {
+            "apartadoBOP": "IX",
+            "descripcion": "Estaciones termales y/o balnearios con termalismo social",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 868.26, "horaExtra": 11.54, "festivoAbonable": 85.20 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 851.06, "horaExtra": 11.43, "festivoAbonable": 84.41 },
+              { "nivel": "TERCERO", "salarioBaseMes": 819.55, "horaExtra": 11.02, "festivoAbonable": 81.78 },
+              { "nivel": "CUARTO", "salarioBaseMes": 813.92, "horaExtra": 10.98, "festivoAbonable": 81.37 },
+              { "nivel": "QUINTO", "salarioBaseMes": 797.92, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+            ]
+          }
+        ]
+      },
+      {
+        "bloque": "planDeEtapas",
+        "titulo": "ANEXO II BIS (ESPECIAL SIN EXPERIENCIA) - REGIMEN TRANSITORIO EMPRESAS DE ALOJAMIENTO AFECTADAS POR PLAN DE ETAPAS 2025 (establecimientos de alojamiento de las categorias indicadas, en funcionamiento antes de la entrada en vigor del convenio)",
+        "categorias": [
+          {
+            "apartadoBOP": "III",
+            "descripcion": "Hoteles de tres estrellas de mas de 50 habitaciones",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 991.04, "horaExtra": 13.86, "festivoAbonable": 102.64 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 974.70, "horaExtra": 13.69, "festivoAbonable": 101.42 },
+              { "nivel": "TERCERO", "salarioBaseMes": 952.27, "horaExtra": 12.72, "festivoAbonable": 94.19 },
+              { "nivel": "CUARTO", "salarioBaseMes": 933.16, "horaExtra": 12.64, "festivoAbonable": 93.51 },
+              { "nivel": "QUINTO", "salarioBaseMes": 892.50, "horaExtra": 12.14, "festivoAbonable": 89.50 },
+              { "nivel": "CONSERJE NOCHE", "salarioBaseMes": 959.49, "horaExtra": 12.99, "festivoAbonable": 96.15 },
+              { "nivel": "CAMARERO/A PISO", "salarioBaseMes": 948.87, "horaExtra": 12.71, "festivoAbonable": 94.07 }
+            ]
+          },
+          {
+            "apartadoBOP": "IV",
+            "descripcion": "Hoteles de tres estrellas de 50 habitaciones o menos",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 987.32, "horaExtra": 13.79, "festivoAbonable": 100.97 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 971.06, "horaExtra": 13.64, "festivoAbonable": 99.84 },
+              { "nivel": "TERCERO", "salarioBaseMes": 945.30, "horaExtra": 12.72, "festivoAbonable": 93.11 },
+              { "nivel": "CUARTO", "salarioBaseMes": 927.24, "horaExtra": 12.64, "festivoAbonable": 92.37 },
+              { "nivel": "QUINTO", "salarioBaseMes": 885.98, "horaExtra": 12.14, "festivoAbonable": 87.99 },
+              { "nivel": "CONSERJE NOCHE", "salarioBaseMes": 943.89, "horaExtra": 12.85, "festivoAbonable": 93.98 },
+              { "nivel": "CAMARERO/A PISO", "salarioBaseMes": 942.97, "horaExtra": 12.70, "festivoAbonable": 93.04 }
+            ]
+          },
+          {
+            "apartadoBOP": "V",
+            "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas de mas de 50 habitaciones",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 914.33, "horaExtra": 12.16, "festivoAbonable": 89.62 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 895.92, "horaExtra": 11.97, "festivoAbonable": 88.20 },
+              { "nivel": "TERCERO", "salarioBaseMes": 862.70, "horaExtra": 11.40, "festivoAbonable": 84.11 },
+              { "nivel": "CUARTO", "salarioBaseMes": 853.52, "horaExtra": 11.32, "festivoAbonable": 83.56 },
+              { "nivel": "QUINTO", "salarioBaseMes": 834.01, "horaExtra": 11.08, "festivoAbonable": 81.40 }
+            ]
+          },
+          {
+            "apartadoBOP": "VI",
+            "descripcion": "Hoteles de dos estrellas y hostales de tres estrellas de 50 o menos habitaciones",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 910.51, "horaExtra": 12.14, "festivoAbonable": 89.50 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 891.98, "horaExtra": 11.96, "festivoAbonable": 88.20 },
+              { "nivel": "TERCERO", "salarioBaseMes": 859.01, "horaExtra": 11.40, "festivoAbonable": 84.07 },
+              { "nivel": "CUARTO", "salarioBaseMes": 849.78, "horaExtra": 11.32, "festivoAbonable": 83.56 },
+              { "nivel": "QUINTO", "salarioBaseMes": 830.34, "horaExtra": 11.08, "festivoAbonable": 81.40 }
+            ]
+          },
+          {
+            "apartadoBOP": "VII",
+            "descripcion": "Hoteles de una estrella y hostales de dos estrellas de mas de 50 habitaciones y resto de establecimientos de categoria inferior en hospedaje de mas de 50 habitaciones",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 887.19, "horaExtra": 11.56, "festivoAbonable": 85.28 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 875.06, "horaExtra": 11.43, "festivoAbonable": 84.41 },
+              { "nivel": "TERCERO", "salarioBaseMes": 853.50, "horaExtra": 11.03, "festivoAbonable": 81.82 },
+              { "nivel": "CUARTO", "salarioBaseMes": 846.86, "horaExtra": 10.98, "festivoAbonable": 81.37 },
+              { "nivel": "QUINTO", "salarioBaseMes": 832.74, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+            ]
+          },
+          {
+            "apartadoBOP": "VIII",
+            "descripcion": "Hoteles de una estrella y hostales de dos estrellas de 50 o menos habitaciones y resto de establecimientos de categoria inferior en hospedaje de 50 o menos habitaciones",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 883.39, "horaExtra": 11.54, "festivoAbonable": 85.20 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 871.21, "horaExtra": 11.43, "festivoAbonable": 84.41 },
+              { "nivel": "TERCERO", "salarioBaseMes": 849.82, "horaExtra": 11.02, "festivoAbonable": 81.78 },
+              { "nivel": "CUARTO", "salarioBaseMes": 843.15, "horaExtra": 10.98, "festivoAbonable": 81.37 },
+              { "nivel": "QUINTO", "salarioBaseMes": 829.08, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+            ]
+          },
+          {
+            "apartadoBOP": "IX",
+            "descripcion": "Estaciones termales y/o balnearios",
+            "rows": [
+              { "nivel": "PRIMERO", "salarioBaseMes": 883.39, "horaExtra": 11.54, "festivoAbonable": 85.20 },
+              { "nivel": "SEGUNDO", "salarioBaseMes": 871.21, "horaExtra": 11.43, "festivoAbonable": 84.41 },
+              { "nivel": "TERCERO", "salarioBaseMes": 849.82, "horaExtra": 11.02, "festivoAbonable": 81.78 },
+              { "nivel": "CUARTO", "salarioBaseMes": 843.15, "horaExtra": 10.98, "festivoAbonable": 81.37 },
+              { "nivel": "QUINTO", "salarioBaseMes": 829.08, "horaExtra": 10.80, "festivoAbonable": 79.83 }
+            ]
+          }
+        ]
+      }
+    ],
+    "verificado": true,
+    "verificadoContra": "BOP Valencia nº26 (07-02-2023, CSV BOPV-2023/01380), copia sellada UGT-FeSMC PV. Bloque 'todasLasEmpresas' 2025 en paginas BOP 59-61; bloque 'planDeEtapas' 2025 en paginas BOP 51-52. Leidas celda a celda a 185 dpi."
   },
   "antiguedad": {
     "articulo": "art. 17",
@@ -389,6 +595,6 @@
     "Manutencion: coexisten la valoracion en especie de 25 € (art. 20, a efectos de cotizacion) y el complemento salarial del Anexo IV (41,32-44,13 €/mes 2025). Confirmar cual aplica al calculo de 'te deben'."
   ],
   "estado": "verificado",
-  "verificadoContra": "PDF oficial BOP Valencia nº26 (07-02-2023, CSV BOPV-2023/01380), copia sellada de UGT-FeSMC PV. Leido en imagen (fitz dpi 185): texto articulado (arts. 1-52) y tablas salariales 2025 celda a celda (Anexo II, apartados I-IX) + pluses 2025 (Anexo IV-1/IV-2). Actas de la comision paritaria 2024 (BOP nº192) y 2025 (BOP nº215) revisadas. Pendientes marcados: Anexo II BIS, escala de antiguedad del Anexo V (solo consolidados), periodo de prueba y regimen disciplinario (remitidos al V ALEH estatal).",
+  "verificadoContra": "PDF oficial BOP Valencia nº26 (07-02-2023, CSV BOPV-2023/01380), copia sellada de UGT-FeSMC PV. Leido en imagen (fitz dpi 185): texto articulado (arts. 1-52) y tablas salariales 2025 celda a celda (Anexo II, apartados I-IX) + Anexo II BIS 2025 celda a celda (ambos bloques: todasLasEmpresas I-IX y planDeEtapas III-IX) + pluses 2025 (Anexo IV-1/IV-2). Actas de la comision paritaria 2024 (BOP nº192) y 2025 (BOP nº215) revisadas. Pendientes marcados: escala de antiguedad del Anexo V (solo consolidados), periodo de prueba y regimen disciplinario (remitidos al V ALEH estatal).",
   "fechaVerificacion": "2026-07-08"
 }

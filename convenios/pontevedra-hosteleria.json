@@ -97,59 +97,200 @@
   },
 
   "correspondenciaCategoriaNivel": {
-    "$comment": "Anexo V, apartado 3 (cuadro 'CATEGORÍAS ACUERDO LABORAL'). Traduce cada categoría profesional a un NIVEL salarial (1-9) en función del TIPO de establecimiento y la Sección. El cuadro completo es muy extenso (páginas 50-52 del BOPPO nº209); aquí se transcriben ejemplos verificados de las categorías más comunes en bares/restaurantes/hoteles. Para categorías no listadas, consultar el cuadro completo del Anexo V. Las columnas TIPO A son por estrellas/tenedores/tazas (5,4,3,2,1); TIPO B por categoría (1ª y 2ª / 3ª y 4ª); TIPO C por (Especial, Primera, 2ª y tabernas, 3ª y 4ª); TIPO D (Secc. 6ª y 8).",
-    "camarero": {
-      "categoria": "Camarero/a (incluye Camarero/a, Dependiente/a de 1ª, Dependiente/a, Cafetero/a, Cajero/a de comedor, Camarero/a en pisos, Planchista). Grupo Profesional II, Área Funcional Tercera.",
-      "tipoA_por_estrellas": { "5": 4, "4": 4, "3": 4, "2": 5, "1": 7 },
-      "tipoC": { "especial": 5, "primera": 6, "segunda_y_tabernas": 7, "tercera_y_cuarta": 8 },
-      "tipoD": 4
+    "$comment": "Anexo V, apartado 3 — cuadro COMPLETO 'CATEGORÍAS ACUERDO LABORAL' (BOPPO nº209, páginas 50-52, versión castellana) transcrito celda a celda desde la imagen a 185 dpi. Traduce cada categoría profesional a un NIVEL salarial (1-9) en función del TIPO de establecimiento y la Sección. Organizado por ÁREA FUNCIONAL (Primera a Quinta) y GRUPO PROFESIONAL (I a IV), como en el boletín. Entre paréntesis, las categorías del convenio equivalentes. La clasificación en áreas/grupos se hace conforme al ALEH.",
+    "columnas": {
+      "tipoA": "Estrellas/Tenedores/Tazas (Secciones 1ª a 4ª): claves '5','4','3','2','1'.",
+      "tipoB": "Casinos, sociedades y salones recreativos (Sección 7ª): '1a_y_2a' (1ª y 2ª) y '3a_y_4a' (3ª y 4ª).",
+      "tipoC": "Bares, cafés, pubs, tabernas sin comidas (Sección 5ª): 'especial', 'primera', '2a_y_tabernas' (2ª y tabernas) y '3a_y_4a' (3ª y 4ª).",
+      "tipoD": "Salas de fiestas/discotecas (Secc. 6ª) y billares (Secc. 8): nivel único.",
+      "nota": "Solo se incluyen las columnas con valor; una columna ausente = casilla vacía en el cuadro (categoría no aplicable a ese tipo/sección)."
     },
-    "barman": {
-      "categoria": "Barman (Barman y 2º Barman). Grupo Profesional II, Área Tercera.",
-      "tipoC": { "especial": 3 }
-    },
-    "cocinero": {
-      "categoria": "Cocinero/a (Cocinero/a y 1º Cocinero/a). Grupo Profesional II, Área Segunda (Cocina).",
-      "tipoA_por_estrellas": { "5": 4, "4": 4, "3": 4, "2": 5, "1": 7 },
-      "tipoC": { "primera": 7, "segunda_y_tabernas": 7, "tercera_y_cuarta": 8 }
-    },
-    "jefeCocina": {
-      "categoria": "Jefe/a de Cocina. Grupo Profesional I, Área Segunda.",
-      "tipoA_por_estrellas": { "5": 1, "4": 1, "3": 2, "2": 2, "1": 5 }
-    },
-    "ayudanteCamarero": {
-      "categoria": "Ayudante de Camarero (Ayte. camarero, Ayte. planchista, Ayte. barman, Ayte. cafetero, Ayte. dependiente, Ayte. de pisos, Ayudante en general). Grupo Profesional III, Área Tercera.",
-      "tipoA_por_estrellas": { "5": 8, "4": 9, "3": 9, "2": 9, "1": 9 },
-      "tipoB": { "primera_y_segunda": 8, "tercera_y_cuarta": 9 },
-      "tipoC": { "especial": 8, "primera": 9, "segunda_y_tabernas": 9, "tercera_y_cuarta": 9 },
-      "tipoD": 6
-    },
-    "ayudanteCocina": {
-      "categoria": "Ayudante de Cocina (Ayte. de cocina, Ayte. de repostería). Grupo Profesional III, Área Segunda.",
-      "tipoA_por_estrellas": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 },
-      "tipoC": { "primera": 9, "segunda_y_tabernas": 9, "tercera_y_cuarta": 9 }
-    },
-    "auxiliarCocina": {
-      "categoria": "Auxiliar de Cocina (Marmitón/a, Pinche, Fregador/a, Encargado/a de fregador, Personal de Platería). Grupo Profesional IV, Área Segunda.",
-      "tipoA_por_estrellas": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 },
-      "tipoC": { "primera": 9, "segunda_y_tabernas": 9, "tercera_y_cuarta": 9 }
-    },
-    "recepcionista": {
-      "categoria": "Recepcionista (Recepcionista y cajero/a Secc. 1ª y 2ª). Grupo Profesional II, Área Primera.",
-      "tipoA_por_estrellas": { "5": 5, "4": 5, "3": 6, "2": 7, "1": 8 }
-    },
-    "camareraPisos": {
-      "categoria": "Camarero/a de Pisos (Camarero/a de pisos, Costurero/a, Zurcidor/a, Lencero/a, Planchador/a, Lavandero/a). Grupo Profesional III, Área Cuarta (Pisos y Limpieza).",
-      "tipoA_por_estrellas": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 },
-      "notaAscenso": "A partir de enero de 2027, en hoteles de 3, 4 y 5 estrellas, las Camareras de Pisos con más de 36 meses en la misma empresa promocionan automáticamente al nivel salarial 8 (Art. 10)."
-    },
-    "auxiliarLimpieza": {
-      "categoria": "Auxiliar de Pisos y Limpieza (Personal de limpieza, Limpiador/a, Mozo/a de habitación, Mozo/a de lavandería, Mozo/a de limpieza). Grupo Profesional IV, Área Cuarta.",
-      "tipoA_por_estrellas": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 },
-      "tipoB": { "primera_y_segunda": 9, "tercera_y_cuarta": 9 },
-      "tipoC": { "especial": 9, "primera": 9, "segunda_y_tabernas": 9, "tercera_y_cuarta": 9 },
-      "tipoD": 9
-    }
+    "areas": [
+      {
+        "area": "PRIMERA",
+        "descripcion": "Recepción, Conserjería, RR.PP., Administración y Gestión",
+        "grupos": [
+          {
+            "grupo": "I",
+            "categorias": [
+              { "categoria": "Jefe/a de Recepción", "tipoA": { "5": 2, "4": 2, "3": 3 } },
+              { "categoria": "Segundo Jefe/a de Recepción", "tipoA": { "5": 4, "4": 5, "3": 5 } },
+              { "categoria": "Jefe/a de Administración (Contable General, Jefe/a de Primera, Jefe/a de Segunda, Gerente, Jefe/a de Administración)", "tipoA": { "5": 2, "4": 2, "3": 3, "2": 8, "1": 8 }, "tipoB": { "1a_y_2a": 3, "3a_y_4a": 4 }, "tipoD": 4 },
+              { "categoria": "Jefe/a Comercial", "tipoA": { "5": 4, "4": 5, "3": 5, "2": 7, "1": 8 }, "tipoD": 4 },
+              { "categoria": "Primer Conserje (Primer conserje de día y segundo Conserje de día)", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 8, "1": 8 } }
+            ]
+          },
+          {
+            "grupo": "II",
+            "categorias": [
+              { "categoria": "Recepcionista (Recepcionista y cajero/a Secc. 1ª y 2ª)", "tipoA": { "5": 5, "4": 5, "3": 6, "2": 7, "1": 8 } },
+              { "categoria": "Conserje (Conserje de noche y conserje)", "tipoA": { "5": 6, "4": 7, "3": 8, "2": 8, "1": 9 }, "tipoB": { "1a_y_2a": 5, "3a_y_4a": 7 } },
+              { "categoria": "Administrativo/a (Tenedor/a de cuentas clientes, Interventor/a, Contable, Oficial 1ª y 2ª, Facturista, Cajero/a secc. 4ª y 4ª, Oficial Administrativo)", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 8, "1": 9 }, "tipoB": { "1a_y_2a": 6, "3a_y_4a": 8 }, "tipoC": { "primera": 5, "2a_y_tabernas": 6, "3a_y_4a": 8 } },
+              { "categoria": "Relaciones Públicas", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 8, "1": 9 }, "tipoB": { "1a_y_2a": 6, "3a_y_4a": 8 }, "tipoC": { "especial": 6, "primera": 7, "2a_y_tabernas": 8, "3a_y_4a": 9 }, "tipoD": 6 },
+              { "categoria": "Comercial", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 8, "1": 9 }, "tipoB": { "1a_y_2a": 6, "3a_y_4a": 8 }, "tipoC": { "especial": 6, "primera": 7, "2a_y_tabernas": 8, "3a_y_4a": 9 } }
+            ]
+          },
+          {
+            "grupo": "III",
+            "categorias": [
+              { "categoria": "Ayudante de Recepción y Conserjería (Ayte. Recepción, Ayte. Conserje, Intérprete)", "tipoA": { "5": 6, "4": 7, "3": 8, "2": 8, "1": 9 } },
+              { "categoria": "Ayudante Administrativo (Oficial de Contabilidad, Auxiliar de Oficina y Contabilidad, Auxiliar de Caja, Auxiliar, Auxiliar Administrativo)", "tipoA": { "5": 7, "4": 8, "3": 9, "2": 9, "1": 9 }, "tipoB": { "1a_y_2a": 6, "3a_y_4a": 9 }, "tipoD": 9 }
+            ]
+          },
+          {
+            "grupo": "IV",
+            "categorias": [
+              { "categoria": "Auxiliar de Recepción y Conserjería (Portero/a de coches, de recibidor, de acceso o de servicios, Vigilante de noche, Ordenanza de salón, Ascensorista, Botones mayor de 18 años, Cobrador/a, Taquillero/a, Guardarropa, Mozo/a de equipajes, Auxiliar de oficina)", "tipoA": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 }, "tipoB": { "1a_y_2a": 7, "3a_y_4a": 9 }, "tipoC": { "primera": 9, "2a_y_tabernas": 9, "3a_y_4a": 9 }, "tipoD": 7 },
+              { "categoria": "Relaciones Públicas", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 8, "1": 9 }, "tipoB": { "1a_y_2a": 6, "3a_y_4a": 8 }, "tipoC": { "especial": 6, "primera": 7, "2a_y_tabernas": 8, "3a_y_4a": 9 }, "tipoD": 6 },
+              { "categoria": "Comercial", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 8, "1": 9 }, "tipoB": { "1a_y_2a": 6, "3a_y_4a": 8 }, "tipoC": { "especial": 6, "primera": 7, "2a_y_tabernas": 8, "3a_y_4a": 9 } }
+            ]
+          }
+        ]
+      },
+      {
+        "area": "SEGUNDA",
+        "descripcion": "Cocina y Economato",
+        "grupos": [
+          {
+            "grupo": "I",
+            "categorias": [
+              { "categoria": "Jefe/a de Cocina", "tipoA": { "5": 1, "4": 1, "3": 2, "2": 2, "1": 5 } },
+              { "categoria": "2º Jefe/a de Cocina (2º jefe/a cocina y 2º jefe/a salsero)", "tipoA": { "5": 3, "4": 3, "3": 3, "2": 4, "1": 5 } },
+              { "categoria": "Jefe/a de Catering", "tipoA": { "2": 2 } }
+            ]
+          },
+          {
+            "grupo": "II",
+            "categorias": [
+              { "categoria": "Jefe/a de Partida", "tipoA": { "5": 3, "4": 4, "3": 4, "2": 4, "1": 5 } },
+              { "categoria": "Cocinero/a (Cocinero/a y 1º Cocinero/a)", "tipoA": { "5": 4, "4": 4, "3": 4, "2": 5, "1": 7 }, "tipoC": { "primera": 7, "2a_y_tabernas": 7, "3a_y_4a": 8 } },
+              { "categoria": "Repostero/a (Repostero/a y Oficial Repostero)", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 7, "1": 9 }, "tipoC": { "primera": 7, "2a_y_tabernas": 7, "3a_y_4a": 8 } },
+              { "categoria": "Encargado/a de Economato (Encargado/a economato y bodega, Bodeguero/a, Encargado/a Almacén, Jefe/a de Economato)", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 7, "1": 8 }, "tipoC": { "primera": 9, "2a_y_tabernas": 9, "3a_y_4a": 9 } }
+            ]
+          },
+          {
+            "grupo": "III",
+            "categorias": [
+              { "categoria": "Ayudante de Economato (Ayte. de economato y bodega, Mozo/a de almacén, Almacenero)", "tipoA": { "5": 6, "4": 7, "3": 8, "2": 8, "1": 9 }, "tipoC": { "primera": 9, "2a_y_tabernas": 9, "3a_y_4a": 9 }, "tipoD": 9 },
+              { "categoria": "Ayudante de Cocina (Ayte. de cocina, Ayte. de repostería)", "tipoA": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 }, "tipoC": { "primera": 9, "2a_y_tabernas": 9, "3a_y_4a": 9 } }
+            ]
+          },
+          {
+            "grupo": "IV",
+            "categorias": [
+              { "categoria": "Auxiliar de Cocina (Marmitón/a, Pinche, Fregador/a, Encargado/a de fregador, Personal de Platería)", "tipoA": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 }, "tipoC": { "primera": 9, "2a_y_tabernas": 9, "3a_y_4a": 9 } }
+            ]
+          }
+        ]
+      },
+      {
+        "area": "TERCERA",
+        "descripcion": "Restaurante, Bar y Similares; Pista para Catering",
+        "grupos": [
+          {
+            "grupo": "I",
+            "categorias": [
+              { "categoria": "Jefe/a de Restaurante o Sala (Encargado/a de barra, 2º encargado/a, 1º Encargado/a de mostrador, Jefe/a de comedor o Maître, 1º Jefe/a o Encargado/a de sala)", "tipoA": { "5": 1, "4": 1, "3": 1, "2": 2, "1": 5 }, "tipoC": { "especial": 3, "primera": 4, "2a_y_tabernas": 5, "3a_y_4a": 5 }, "tipoD": 2 },
+              { "categoria": "Jefe/a de Operaciones de Catering", "tipoA": { "2": 4 } },
+              { "categoria": "Segundo Jefe/a de Restaurante o Sala (2º Jefe/a de comedor, 2º Encargado/a de mostrador, 2º Encargado/a, 2º Jefe de sala, Mayordomo/a de pisos)", "tipoA": { "5": 3, "4": 3, "3": 3, "2": 4, "1": 6 }, "tipoC": { "primera": 5, "2a_y_tabernas": 6, "3a_y_4a": 7 } }
+            ]
+          },
+          {
+            "grupo": "II",
+            "categorias": [
+              { "categoria": "Jefe/a de Sector", "tipoA": { "5": 3, "4": 4, "3": 4, "2": 4, "1": 5 } },
+              { "categoria": "Jefe/a de Sala de Catering", "tipoA": { "2": 4 } },
+              { "categoria": "Camarero/a (Camarero/a, Dependiente/a de 1ª, Dependiente/a, Cafetero/a, Cajero/a de comedor, Camarero/a en pisos, Planchista)", "tipoA": { "5": 4, "4": 4, "3": 4, "2": 5, "1": 7 }, "tipoC": { "especial": 5, "primera": 6, "2a_y_tabernas": 7, "3a_y_4a": 8 }, "tipoD": 4 },
+              { "categoria": "Barman (Barman y 2º Barman)", "tipoC": { "especial": 3 } },
+              { "categoria": "Sumiller", "tipoA": { "5": 4, "4": 4, "3": 4, "2": 5, "1": 7 } },
+              { "categoria": "Supervisor/a de Catering (Supervisor/a y Ayte. de supervisor)", "tipoA": { "2": 5 } },
+              { "categoria": "Jefe/a de Equipo de Catering", "tipoA": { "2": 5 } },
+              { "categoria": "Supervisor/a de Colectividades", "tipoA": { "2": 5 } }
+            ]
+          },
+          {
+            "grupo": "III",
+            "categorias": [
+              { "categoria": "Ayudante de Camarero (Ayte. de camarero, Ayudante de planchista, Ayte. de barman, Ayte. de cafetero, Ayte. de dependiente, Ayte. de Pisos, Ayudante en general)", "tipoA": { "5": 8, "4": 9, "3": 9, "2": 9, "1": 9 }, "tipoB": { "1a_y_2a": 8, "3a_y_4a": 9 }, "tipoC": { "especial": 8, "primera": 9, "2a_y_tabernas": 9, "3a_y_4a": 9 }, "tipoD": 6 },
+              { "categoria": "Preparador/a o Montador/a de Catering", "tipoA": { "2": 9 } },
+              { "categoria": "Conductor/a de Equipo Catering", "tipoA": { "2": 9 } },
+              { "categoria": "Ayudante de Equipo de Catering", "tipoA": { "2": 9 } }
+            ]
+          },
+          {
+            "grupo": "IV",
+            "categorias": [
+              { "categoria": "Auxiliar de Colectividades", "tipoA": { "2": 9 } },
+              { "categoria": "Auxiliar Preparación / Montaje Catering", "tipoA": { "2": 9 } }
+            ]
+          }
+        ]
+      },
+      {
+        "area": "CUARTA",
+        "descripcion": "Pisos y Limpieza",
+        "grupos": [
+          {
+            "grupo": "II",
+            "categorias": [
+              { "categoria": "Encargado/a General (Gobernanta)", "tipoA": { "5": 4, "4": 5, "3": 5, "2": 7, "1": 7 } },
+              { "categoria": "Encargado/a de Sección (Gobernanta de 2ª, Encargado/a de lencería o lavadero, Subgobernanta, Encargado/a de pisos)", "tipoA": { "5": 7, "4": 7, "3": 8, "2": 8, "1": 8 } }
+            ]
+          },
+          {
+            "grupo": "III",
+            "categorias": [
+              { "categoria": "Camarero/a de Pisos (Camarero/a de pisos, Costurero/a, Zurcidor/a, Lencero/a, Planchador/a, Lavandero/a)", "tipoA": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 }, "notaAscenso": "A partir de enero de 2027, en hoteles de 3, 4 y 5 estrellas, las Camareras de Pisos con más de 36 meses en la misma empresa promocionan automáticamente al nivel salarial 8 (Art. 10)." }
+            ]
+          },
+          {
+            "grupo": "IV",
+            "categorias": [
+              { "categoria": "Auxiliar de Pisos y Limpieza (Personal de limpieza, Limpiador/a, Mozo/a de habitación, Mozo/a de lavandería, Mozo/a de limpieza)", "tipoA": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 }, "tipoB": { "1a_y_2a": 9, "3a_y_4a": 9 }, "tipoC": { "especial": 9, "primera": 9, "2a_y_tabernas": 9, "3a_y_4a": 9 }, "tipoD": 9 }
+            ]
+          }
+        ]
+      },
+      {
+        "area": "QUINTA",
+        "descripcion": "Servicios de Mantenimiento y Servicios Auxiliares",
+        "grupos": [
+          {
+            "grupo": "I",
+            "categorias": [
+              { "categoria": "Jefe/a de Servicios de Catering (Jefe/a de mantenimiento de catering)", "tipoA": { "2": 7 } },
+              { "categoria": "Médico/a", "tipoA": { "5": 1, "4": 1, "3": 1, "2": 1, "1": 1 } }
+            ]
+          },
+          {
+            "grupo": "II",
+            "categorias": [
+              { "categoria": "Enc. de Mantenimiento y Servicios (Encargado/a de trabajos)", "tipoA": { "5": 5, "4": 5, "3": 6, "2": 7, "1": 7 } },
+              { "categoria": "D.U.E. y Fisioterapeuta", "tipoA": { "5": 5, "4": 5, "3": 6, "2": 7, "1": 8 } },
+              { "categoria": "Encargado/a de Sección (Encargado/a de sala)", "tipoD": 7 },
+              { "categoria": "Coordinador/a de balneario", "tipoA": { "5": 5, "4": 5, "3": 7, "2": 8, "1": 9 } }
+            ]
+          },
+          {
+            "grupo": "III",
+            "categorias": [
+              { "categoria": "Espec. de mantenimiento y servicios (Mecánico/a o calefactor/a, Ebanista, Carpintero/a, Electricista, Albañil, Pintor/a, Conductor/a, Fontanero/a, Jardinero/a, Montadiscos, Bibliotecario/a, Personal de mantenimiento)", "tipoA": { "5": 6, "4": 7, "3": 7, "2": 8, "1": 9 }, "tipoB": { "1a_y_2a": 7, "3a_y_4a": 9 }, "tipoD": 6 },
+              { "categoria": "Espec. de mantenimiento y servicios de Catering", "tipoA": { "2": 8 } },
+              { "categoria": "Monitor/a / ciudador/a de colectividades", "tipoA": { "2": 8 } },
+              { "categoria": "Dietista", "tipoA": { "2": 8 } },
+              { "categoria": "Técnico/a masajista, Tec. Esteticista, Tec. en actividades físicas, Recepcionista del balneario", "tipoA": { "5": 5, "4": 6, "3": 7, "2": 8, "1": 9 } }
+            ]
+          },
+          {
+            "grupo": "IV",
+            "categorias": [
+              { "categoria": "Auxiliar de Mantenimiento y Servicios (Ayte. de mecánico o calefactor, Ayudante, Ayte. de Ebanista, Carpintero, Electricista, Albañil, Pintor; Guarda del exterior, Mozo/a de billar o salón de recreo)", "tipoA": { "5": 9, "4": 9, "3": 9, "2": 9, "1": 9 }, "tipoD": 9 },
+              { "categoria": "Auxiliar de (Clínica, Esteticista, Masajista, Actividades físicas, Recepción y Baños)", "tipoA": { "5": 6, "4": 7, "3": 8, "2": 8, "1": 9 } }
+            ]
+          }
+        ]
+      }
+    ]
   },
 
   "nocturnidad": {
@@ -393,11 +534,10 @@
   },
 
   "estado": "verificado",
-  "estadoNota": "Transcrito íntegramente de las imágenes (185 dpi) del articulado en castellano (Arts. 1-43, páginas 27-43 del BOPPO nº209) y de los Anexos I-V (páginas 44-52), incluyendo la tabla salarial por niveles (Anexo V) leída celda a celda. Estructura salarial por NIVEL 1-9 (no por categoría × establecimiento). Régimen disciplinario general y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal. El cuadro completo de correspondencia categoría→nivel (Anexo V) es muy extenso; se transcriben ejemplos verificados de las categorías más comunes.",
+  "estadoNota": "Transcrito íntegramente de las imágenes (185 dpi) del articulado en castellano (Arts. 1-43, páginas 27-43 del BOPPO nº209) y de los Anexos I-V (páginas 44-52), incluyendo la tabla salarial por niveles (Anexo V) leída celda a celda. Estructura salarial por NIVEL 1-9 (no por categoría × establecimiento). Régimen disciplinario general y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal. El cuadro completo de correspondencia categoría→nivel (Anexo V, páginas 50-52) queda transcrito celda a celda (5 áreas funcionales, grupos I-IV, todas las categorías).",
   "pendienteCondiciones": [
     "salariosBaseMensuales.revisionIPC: el Art. 29 prevé revisión de la tabla 2025 si el IPC real 2024+2025 supera el 7% pactado; a fecha de esta transcripción no se ha localizado tabla revisada publicada en el BOPPO. Duda para UGT: ¿se activó la cláusula y hay tabla nueva 2025?",
-    "horasExtraordinarias: sin precio/recargo tasado; el convenio remite a compensación en tiempo libre o abono de mutuo acuerdo (Art. 14). Duda para UGT: criterio de valoración.",
-    "correspondenciaCategoriaNivel: transcritos ejemplos representativos; el cuadro completo del Anexo V (páginas 50-52) contiene todas las categorías por TIPO/Sección."
+    "horasExtraordinarias: sin precio/recargo tasado; el convenio remite a compensación en tiempo libre o abono de mutuo acuerdo (Art. 14). Duda para UGT: criterio de valoración."
   ],
   "verificadoContra": "PDF oficial BOPPO nº209 (31-10-2025), renderizado a PNG 185 dpi. Articulado en castellano leído en imagen: p27 (Arts. 1-4), p28 (Arts. 5-7), p29 (Arts. 8-10), p30 (Art. 10 fijo-discontinuo), p32 (Arts. 11-13), p33 (Arts. 14-16), p34 (Art. 16 licencias b-m), p35 (Arts. 17-18), p36 (Arts. 19-21), p37 (Art. 21 in fine, Arts. 22-25), p38 (Arts. 26-29), p39 (Art. 29 fórmulas, Arts. 30-32), p40 (Arts. 32-37), p41 (Art. 37 IT, Arts. 38-41), p42 (Arts. 41-42 con tabla complementos), p43 (Art. 43 LGTBI). Anexos: p44-45 (Anexo I protocolo LGTBI), p46-47 (Anexo II casinos), p48 (Anexos III y IV modelos cese/finiquito), p49 (Anexo V secciones), p50 (Anexo V tabla salarial por niveles + pluses + inicio cuadro correspondencia), p51-52 (cuadro correspondencia categorías). Tabla salarial y pluses verificados celda a celda.",
   "fechaVerificacion": "2026-07-08"
