@@ -3,7 +3,7 @@
  * abierta sigue ejecutando el JS antiguo y sus import() dinámicos (rutas
  * lazy) apuntan a chunks con hash viejo que ya no existen — la única salida
  * es recargar para traer el index.html nuevo. Lógica pura y testeable; el
- * cableado con window vive en router/index.ts.
+ * cableado con el router vive en router/recargaPorChunk.ts.
  */
 
 /** Marca en sessionStorage para recargar UNA sola vez y no entrar en bucle. */
