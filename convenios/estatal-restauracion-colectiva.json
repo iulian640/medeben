@@ -31,6 +31,32 @@
         "provinciasQueRemitenAConvenioProvincial": "Muchas provincias remiten la nocturnidad y su retribución específica a su respectivo Convenio Provincial de Hostelería de procedencia (p. ej. Ceuta, Las Palmas de Gran Canaria, Albacete, Ciudad Real)."
       },
       "nota": "Antes de aplicar nocturnidad hay que leer la regla de la provincia concreta en 'Jornada especialidades' del Art. 22: NO hay un 25 % estatal uniforme. El porcentaje o importe varía por provincia (10 %, 15 %, 25 %, 27 %, importe de tabla) y en numerosos casos se remite al convenio provincial de hostelería."
+    },
+    "periodoPrueba": {
+      "$comment": "IMPORTANTE: este convenio estatal de restauración colectiva NO fija una tabla propia de días de prueba por grupo profesional. Su Art. 20 remite EXPRESAMENTE al Acuerdo Laboral Estatal de Hostelería (ALEH) vigente en cada momento. Es decir, aunque el sector es distinto de la hostelería tradicional, para el periodo de prueba el propio convenio adopta los plazos del ALEH. Por tanto NO se transcribe una tabla de días inexistente en el texto (regla: nunca inventar). Verificado visualmente en el PDF del BOE-A-2025-12598: Art. 20 (pág. 82107), Art. 17.3 (pág. 82106) y Principios generales del Capítulo III (pág. 82105).",
+      "articulo": "Artículo 20. Periodo de prueba",
+      "fuentePagina": "BOE nº148, Sec. III pág. 82107",
+      "tienTablaPropia": false,
+      "remiteA": "ALEH (Acuerdo Laboral Estatal de Hostelería) vigente en cada momento",
+      "textoLiteral": "Podrá pactarse un periodo de prueba en los términos regulados en el Acuerdo Laboral Estatal de Hostelería (ALEH) vigente en cada momento.",
+      "reglasAdicionales": {
+        "contratosTiempoParcial": {
+          "articulo": "Artículo 17.3. Contratos a tiempo parcial",
+          "fuentePagina": "BOE nº148, Sec. III pág. 82106",
+          "regla": "En los contratos a tiempo parcial se podrá concertar un período de prueba con sujeción a los períodos contemplados en el ALEH vigente en cada momento."
+        },
+        "trabajadoresRecontratados": {
+          "articulo": "Capítulo III — Principios generales de contratación, apartado k)",
+          "fuentePagina": "BOE nº148, Sec. III pág. 82105",
+          "regla": "Las personas trabajadoras contratadas en más de una ocasión en la misma empresa y en el mismo puesto de trabajo NO tendrán periodo de prueba."
+        },
+        "sustitutosDeFijoNoReincorporado": {
+          "articulo": "Artículo 17.4.2. Contrato para la sustitución de una persona trabajadora",
+          "fuentePagina": "BOE nº148, Sec. III pág. 82106",
+          "regla": "Quien ocupe un puesto mediante contrato de sustitución de una persona trabajadora fija que no se reincorpore una vez finalizado el plazo, pasa a ser fijo indefinido con independencia del periodo de prueba."
+        }
+      },
+      "nota": "Para saber los días concretos de prueba hay que consultar el ALEH vigente (que fija los plazos por grupo profesional). Este convenio no los reproduce: se limita a remitir a dicho Acuerdo. El Art. 21 (dimisión/preaviso) confirma que la referencia es al V ALEH (grupos 1 y 2 → preaviso de un mes; resto de grupos → 15 días)."
     }
   },
   "tablasPorProvincia": {
@@ -58,6 +84,6 @@
   },
   "provinciasPendientes": "~50 provincias con tablas en los anexos del BOE (Lugo, Barcelona, Madrid, etc.). Carga incremental por población. Mientras tanto, modo configurable a mano.",
   "estado": "verificado_marco_y_muestra",
-  "verificadoContra": "PDF oficial BOE-A-2025-12598 renderizado a imagen y leído visualmente (marco nacional + provincia de Cáceres).",
-  "fechaVerificacion": "2026-07-07"
+  "verificadoContra": "PDF oficial BOE-A-2025-12598 renderizado a imagen y leído visualmente (marco nacional + periodo de prueba + provincia de Cáceres).",
+  "fechaVerificacion": "2026-07-08"
 }
