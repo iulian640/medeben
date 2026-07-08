@@ -302,7 +302,17 @@
   "complementoIT": "pendiente (complemento empresarial en baja médica —enfermedad común vs accidente laboral, % y días— no figura en la publicación de tablas; requiere articulado del convenio)",
   "regimenDisciplinario": "pendiente (faltas leves/graves/muy graves, sanciones, procedimiento y prescripción del convenio no figuran en la publicación de tablas; requiere articulado del convenio. Base legal general: art. 58 ET)",
   "representacionSindical": "pendiente (mejoras del convenio sobre crédito horario/garantías no figuran en la publicación de tablas; requiere articulado del convenio. Base legal general: arts. 62-68 ET, LOLS)",
-  "periodoPrueba": "pendiente (requiere articulado del convenio)",
+  "periodoPrueba": {
+    "$comment": "El articulado provincial NO fija días propios de periodo de prueba: el art. 38º.3 remite expresamente al ALEH V. Verificado leyendo imagen del articulado (Convenio de Hostelería de Málaga, texto 2018-2022 en vigor, Cap. V Contratación).",
+    "articulo": "Artículo 38º.3 (Capítulo V — Contratación y Periodo de Prueba)",
+    "remision": "ALEH V (V Acuerdo Laboral estatal para el sector de Hostelería)",
+    "diasPropiosConvenio": null,
+    "textoLiteral": "En materia de periodo de prueba será de aplicación lo dispuesto en el ALEH V.",
+    "fuenteArticulado": {
+      "documento": "Convenio Colectivo de Hostelería para la provincia de Málaga — texto articulado 2018-2022 (en vigor), art. 38º",
+      "url": "https://aehcos.es/wp-content/uploads/2018/07/CONVENIO-HOSTELERIA-2018-2022-definitivo-1.pdf"
+    }
+  },
   "excedencias": "pendiente (requiere articulado del convenio)",
   "ropaTrabajo": {
     "$comment": "El convenio abona plus de vestuario (art. 17) como compensación económica; el detalle de si la empresa entrega uniforme físico requiere el articulado.",
