@@ -152,7 +152,7 @@
     },
     "computo": "El periodo de prueba se computa siempre como días naturales."
   },
-  "pendienteCondiciones": ["régimen disciplinario (faltas/sanciones) — probablemente remite al ALEH estatal", "excedencias (mencionadas, sin transcribir)", "dietas/kilometraje"],
+  "pendienteCondiciones": ["dietas/kilometraje"],
   "estado": "verificado_contra_fuente_con_condiciones",
   "verificadoContra": "PDF oficial del BOCM nº121 (23-05-2026). Tablas verificadas en imagen; condiciones (vacaciones Art.18, permisos Art.19, complemento IT Art.34, seguro vida Art.27, representación Arts.38-39) extraídas del articulado con su artículo (D33/D34).",
   "fechaVerificacion": "2026-07-08"

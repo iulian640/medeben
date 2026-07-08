@@ -426,10 +426,7 @@
   "pendienteCondiciones": [
     "salariosBaseMensuales.2026 y demás conceptos 2026: no publicados en BON; convenio en ultraactividad indefinida. La revisión IPC del Art. 4 se aplica desde enero 2026 pero no consta tabla oficial → duda para UGT.",
     "vacaciones.retribucion: el Art. 16 no especifica cómo se retribuyen las vacaciones (salario base vs promedio con complementos) → rige el ET; duda para UGT.",
-    "jornadaAnual.semanal: el convenio no fija jornada semanal máxima explícita (solo 1.724 h/año); 38 h/semana es una asimilación solo para calcular parciales.",
-    "regimenDisciplinario: faltas leves/graves y escala de sanciones NO reguladas en el convenio (salvo acoso, Art. 39) → tomar del ALEH estatal.",
-    "nocturnidad: errata en el BON (fila del Nivel III rotulada 'NIVEL II'); valores asignados por secuencia lógica → confirmar con UGT.",
-    "representacionSindical: elección y garantías/fuero no detallados en el convenio → base legal ET arts. 62-68 y LOLS."
+    "nocturnidad: errata en el BON (fila del Nivel III rotulada 'NIVEL II'); valores asignados por secuencia lógica → confirmar con UGT."
   ],
   "verificadoContra": "PDF oficial BON nº 211 (10-10-2023), 30 páginas, Resolución 2C/2023. Renderizado a PNG con PyMuPDF (fitz) a 185 dpi. Verificadas EN IMAGEN celda a celda: Art. 4 salarios base (pág. 3), Art. 7 antigüedad y Art. 9 plus convenio (pág. 5), Art. 28 nocturnidad (pág. 16), Anexo II precio-hora (pág. 29). Articulado y anexos restantes leídos del texto oficial del mismo PDF. Régimen disciplinario: verificado que el articulado NO lo regula (solo Art. 39 sobre acoso).",
   "fechaVerificacion": "2026-07-08"

@@ -396,12 +396,8 @@
   "estadoNota": "Transcrito íntegramente de las imágenes (185 dpi) del articulado en castellano (Arts. 1-43, páginas 27-43 del BOPPO nº209) y de los Anexos I-V (páginas 44-52), incluyendo la tabla salarial por niveles (Anexo V) leída celda a celda. Estructura salarial por NIVEL 1-9 (no por categoría × establecimiento). Régimen disciplinario general y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal. El cuadro completo de correspondencia categoría→nivel (Anexo V) es muy extenso; se transcriben ejemplos verificados de las categorías más comunes.",
   "pendienteCondiciones": [
     "salariosBaseMensuales.revisionIPC: el Art. 29 prevé revisión de la tabla 2025 si el IPC real 2024+2025 supera el 7% pactado; a fecha de esta transcripción no se ha localizado tabla revisada publicada en el BOPPO. Duda para UGT: ¿se activó la cláusula y hay tabla nueva 2025?",
-    "regimenDisciplinario: faltas leves/graves/muy graves y sanciones NO reguladas en el convenio (salvo acoso sexual y pluriempleo) → tomar del ALEH estatal.",
-    "periodoPrueba: duraciones por grupo/categoría NO reguladas → tomar del ALEH estatal.",
     "horasExtraordinarias: sin precio/recargo tasado; el convenio remite a compensación en tiempo libre o abono de mutuo acuerdo (Art. 14). Duda para UGT: criterio de valoración.",
-    "fiestasTrabajadas: sin recargo económico tasado; solo acumulación a vacaciones (Art. 21).",
-    "correspondenciaCategoriaNivel: transcritos ejemplos representativos; el cuadro completo del Anexo V (páginas 50-52) contiene todas las categorías por TIPO/Sección.",
-    "representacionSindical.quienRepresentaYeleccion: no detallado en el convenio → base legal ET arts. 62-68 y LOLS."
+    "correspondenciaCategoriaNivel: transcritos ejemplos representativos; el cuadro completo del Anexo V (páginas 50-52) contiene todas las categorías por TIPO/Sección."
   ],
   "verificadoContra": "PDF oficial BOPPO nº209 (31-10-2025), renderizado a PNG 185 dpi. Articulado en castellano leído en imagen: p27 (Arts. 1-4), p28 (Arts. 5-7), p29 (Arts. 8-10), p30 (Art. 10 fijo-discontinuo), p32 (Arts. 11-13), p33 (Arts. 14-16), p34 (Art. 16 licencias b-m), p35 (Arts. 17-18), p36 (Arts. 19-21), p37 (Art. 21 in fine, Arts. 22-25), p38 (Arts. 26-29), p39 (Art. 29 fórmulas, Arts. 30-32), p40 (Arts. 32-37), p41 (Art. 37 IT, Arts. 38-41), p42 (Arts. 41-42 con tabla complementos), p43 (Art. 43 LGTBI). Anexos: p44-45 (Anexo I protocolo LGTBI), p46-47 (Anexo II casinos), p48 (Anexos III y IV modelos cese/finiquito), p49 (Anexo V secciones), p50 (Anexo V tabla salarial por niveles + pluses + inicio cuadro correspondencia), p51-52 (cuadro correspondencia categorías). Tabla salarial y pluses verificados celda a celda.",
   "fechaVerificacion": "2026-07-08"

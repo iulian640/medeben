@@ -486,19 +486,13 @@
   "estadoNota": "Convenio único vigente en León a julio de 2026 (2023-2025, en ultraactividad; no hay convenio ni tabla 2026 publicados). Tablas salariales del año 2025 (tabla aplicable) verificadas en IMAGEN celda a celda (BOP nº 139, páginas 71-76, 185 dpi), las 6 áreas funcionales x 3 categorías de establecimiento. Articulado completo (Arts. 1-42 + Disposiciones Adicionales) leído de la imagen del PDF oficial. Régimen disciplinario, ascensos, planes de igualdad/acoso, periodo de prueba y trabajos de categoría superior/inferior NO los regula el convenio: se remiten al VI ALEH.",
   "pendienteCondiciones": [
     "NO existe convenio ni tabla salarial 2026 de León publicada en el BOP a julio de 2026 (negociación iniciada en enero 2026). La tabla 2025 sigue vigente por ultraactividad. Vigilar el BOP de León para la nueva publicación.",
-    "regimenDisciplinario: faltas, graduación, procedimiento, sanciones y prescripción NO regulados en el convenio provincial → tomar del VI ALEH.",
-    "periodoPrueba: duraciones NO reguladas en el convenio → tomar del VI ALEH.",
-    "ascensos y trabajos de categoría superior/inferior (polivalencia): salvo la promoción automática de ayudante de camarero (Disp. Ad. 2ª), se remiten al VI ALEH.",
-    "planesIgualdad y acoso (Arts. 28-31): remitidos al VI ALEH.",
-    "representacionSindical.quienRepresentaYeleccion y garantiasYfuero: no detallados → base legal ET arts. 62-68 y LOLS.",
     "vacaciones.retribucion: el Art. 24 no fija el módulo retributivo (salario base vs promedio con complementos). Duda para UGT.",
     "complementoIT (Art. 35): el complemento hasta el 100% de la base de cotización está CONDICIONADO a que las funciones del trabajador de baja las asuman sus compañeros; con interino solo aplica a partir de 10 años de antigüedad, desde el día 8 y durante 1 mes. Contrastar interpretación práctica con UGT."
   ],
   "dudasUGT": [
     "¿Se ha publicado ya en el BOP de León el convenio o la tabla salarial de 2026? ¿Con qué incremento y qué atrasos?",
     "Art. 24 (vacaciones): ¿cuál es el módulo retributivo de las vacaciones en la práctica leonesa (salario base solo o promedio con complementos: nocturnidad, plus asistencia, manutención)?",
-    "Art. 35 (complemento IT): ¿cómo se acredita e interpreta el requisito de que 'los compañeros asuman las funciones'? ¿Es exigible en la práctica el complemento hasta el 100% de la base de cotización?",
-    "Art. 23.B bis (fallecimiento): comparativa exacta con el ET vigente tras el RD-ley 5/2023 (¿mejora o iguala el convenio los días de fallecimiento sin desplazamiento?)."
+    "Art. 35 (complemento IT): ¿cómo se acredita e interpreta el requisito de que 'los compañeros asuman las funciones'? ¿Es exigible en la práctica el complemento hasta el 100% de la base de cotización?"
   ],
   "verificadoContra": "PDF oficial del BOP de León nº 139 (viernes 21-07-2023), anuncio nº 31304, páginas 42-76. Renderizado a PNG a 185 dpi y leído celda a celda. Articulado (Arts. 1-42 y Disposiciones Adicionales 1ª-3ª) leído de la imagen: Art. 3 (vigencia/ultraactividad), Art. 5 (modalidades y fijo-discontinuo), Arts. 9-13 (retribuciones: incremento, plus asistencia, gratificaciones, manutención, plus ad personam), Art. 14 (premio vinculación), Art. 15 (salario mínimo anual), Art. 19 (jornada 1790 h), Art. 20 (horas extra 62% y nocturnidad 25%), Arts. 21-22 (descansos), Art. 23 (permisos A-P), Art. 24 (vacaciones 31 naturales), Art. 25 (festivos trabajados), Art. 34 (excedencias), Art. 35 (complemento IT/enfermedad), Art. 36 (disciplinario → ALEH), Arts. 37-38 (representación, crédito 24 h/mes), Art. 40 (seguridad y salud), Art. 41 (ropa de trabajo), Art. 42 (comisión paritaria/SERLA), Disp. Ad. 2ª (promoción ayudante camarero) y 3ª (póliza accidentes). Tablas del año 2025 (Anexo I) verificadas en imagen. Fuente del PDF: copia oficial del BOP de León (dipuleon.es/bop).",
   "fechaVerificacion": "2026-07-08"
