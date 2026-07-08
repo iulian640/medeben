@@ -195,6 +195,18 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
   - **Jornada partida:** algunos convenios la compensan.
 - Campos por convenio: `descansoEntreJornadasHoras`, `vacacionesDias`, reglas de jornada partida.
 
+### D37 — Capa derivada normalizada: se normaliza también el almacenamiento (Iulian + Claude, 2026-07-08)
+Revisa la concreción de D24 ("normalizar la búsqueda, no el almacenamiento"). Detonante: las rarezas reales del corpus (periodos abril→marzo de Baleares, 4 nombres de campo para las pagas con 2 semánticas distintas) obligaban al motor a acumular lógica por convenio — la fuente del CRITICAL cazado en la PR #113.
+
+- **Las transcripciones (`convenios/*.json`) quedan intactas** como fuente de verdad: espejo del boletín, verificadas celda a celda, auditables contra el PDF, y con todo lo que no son números (reglas de nocturnidad, disciplinario, permisos...) para el visor (D4), los tags (D35) y D29/D33.
+- **Nueva capa derivada `convenios/normalizado/<id>.json`**: los mismos números como *hechos* planos uniformes — `concepto + dimensiones + desde/hasta (rango de fechas) + importe + articulo + rutaCruda`. Es lo ÚNICO que lee el motor: una sola lógica de búsqueda para los 55. Las vigencias como rango absorben las rarezas (abril→marzo = un rango más).
+- **`rutaCruda` (JSON Pointer) = procedencia obligatoria** de cada importe, apuntando a la celda exacta de la transcripción.
+- **Validador cruzado como test del build** (`CapaNormalizadaValidadorTest`): cada importe debe ser igual a la celda que cita su rutaCruda; sin solapes de vigencia; hechos completos. Si la capa diverge de la transcripción, el build rompe → la duplicación no puede divergir en silencio.
+- **Regla de mantenimiento:** un importe NUNCA se corrige en la capa derivada; se corrige la transcripción (contra el PDF) y se re-deriva.
+- Encaja con D24-Postgres: el hecho normalizado es literalmente la fila del seed (columnas fijas + dimensiones JSONB) y el bundle offline.
+- Analogía que usamos: transcripción = código fuente; capa normalizada = compilado; validador = compilador.
+- Estado: pilotos madrid-hosteleria (78 hechos, Anexo I) y baleares-hosteleria (54) en PR #114. Los 53 restantes: derivación mecánica por agentes, incremental.
+
 ### D36 — Los donantes pueden pedir funciones + extender a otras profesiones (Iulian 2026-07-08)
 - **Donantes solicitan funciones:** en la sección de donaciones (D16), quien apoya el proyecto puede **proponer/solicitar features**. No es "pagar por desbloquear" (eso rompe D1); es dar voz en el roadmap a quien sostiene el proyecto. Transparente, tipo lista de deseos votada.
 - **Extender a OTRAS PROFESIONES:** toda la arquitectura (convenios como JSON con su ESQUEMA, calculadora "te deben X€", condiciones, feed de curiosidades, denuncias) es **agnóstica del sector** — hostelería es solo la primera vertical. Los mismos problemas (horas extra no pagadas, convenios que nadie entiende, bajas mal cobradas) existen en comercio, limpieza, construcción, transporte, sanidad privada, teleoperadoras... El modelo se replica: mismo esquema, otro conjunto de convenios. Visión: de "app del trabajador de hostelería" a "app del trabajador" a secas.
