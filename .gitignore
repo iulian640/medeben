@@ -23,3 +23,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# graphify knowledge graph output (local tooling)
+graphify-out/

@@ -87,6 +87,20 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <!-- Los convenios viven en la raíz del repo (fuente de verdad, D24);
+                 se empaquetan en el classpath para el seed y el motor de cálculo -->
+            <resource>
+                <directory>${project.basedir}/../convenios</directory>
+                <targetPath>convenios</targetPath>
+                <includes>
+                    <include>*.json</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
