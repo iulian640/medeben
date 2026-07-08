@@ -275,11 +275,7 @@
   },
   "estadoCondiciones": "verificado_articulado_BOP15_2023",
   "verificadoCondicionesContra": "Texto articulado del convenio 2020-2025 (BOP Las Palmas nº15, 03-02-2023, REGCON 35000975011981), PDF de la CCELPA que reproduce el anuncio del BOP. Leídos y transcritos con su artículo: vacaciones (art. 25), fiestas no recuperables (art. 26), complemento IT/baja (art. 28), licencias/permisos (art. 29), maternidad y lactancia (art. 30), formación (art. 31), excedencias (art. 32), contratación y fijo-discontinuo (art. 33), movilidad funcional (art. 34), garantías y representación sindical (arts. 40-45), uniforme (art. 14), seguro de vida (art. 19), transporte (art. 20), jornada/descansos (arts. 23-24).",
-  "pendienteCondiciones": [
-    "Régimen disciplinario (faltas leves/graves/muy graves y catálogo de sanciones): el convenio provincial NO lo tipifica, remite al ALEH V (art. 46). Capturar del ALEH V si se quiere el detalle sectorial estatal.",
-    "Periodo de prueba: no regulado en el convenio provincial; remitido al ALEH V / art. 14 ET.",
-    "Fraccionamiento de los 30 días de vacaciones (número de periodos): el art. 25 no lo detalla expresamente."
-  ],
+  "pendienteCondiciones": [],
   "estado": "tablas_2025_desde_abril_verificadas",
   "verificadoContra": "PDF oficial BOP Las Palmas nº79 (02-07-2025), pág. 10870, renderizado a imagen (dpi 185) y leído visualmente celda a celda: tabla salarial 2025-desde-abril (niveles I-V bis × clasificaciones 1-5), complementos Art.12-15 y servicios extraordinarios Art.17. Jornada (1.819 h), nocturnidad (Art.22), horas extra, pagas (Art.11) y clasificación/niveles (Anexos I y II) tomados del texto articulado del convenio base (BOP nº15, 03-02-2023).",
   "pendiente": [

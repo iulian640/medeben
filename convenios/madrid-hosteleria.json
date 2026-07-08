@@ -211,7 +211,7 @@
     "textoLiteral": "Se estará a la legislación vigente y a lo dispuesto en el Acuerdo Laboral de Ámbito Estatal vigente para el Sector de Hostelería.",
     "nota": "Título II - Contratación. Consultar la tabla de periodo de prueba por grupos del ALEH para el dato numérico."
   },
-  "pendienteCondiciones": ["resto de permisos del Art.19 (fallecimiento, traslado, deber inexcusable)", "régimen disciplinario", "excedencias", "representación sindical", "seguro de vida si existe"],
+  "pendienteCondiciones": ["seguro de vida si existe"],
   "estado": "verificado_2025_completo_con_condiciones",
   "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen (tablas 2025 sec 3ª, arts. 14/26/27/28/29). Condiciones (vacaciones Art.18, permisos Art.19, complemento IT Art.39) extraídas del articulado con su artículo (D33/D34).",
   "fechaVerificacion": "2026-07-08"
