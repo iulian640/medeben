@@ -4,6 +4,7 @@ import { setAuthToken } from '../services/api'
 import { postLogin, postRegistro } from '../services/auth'
 import { mensajeDeError } from '../lib/formato'
 import { useCuentaStore } from './cuenta'
+import { useFichajesStore } from './fichajes'
 
 /**
  * Sesión del usuario. REQUISITO DE SEGURIDAD: el JWT vive SOLO aquí, en
@@ -66,10 +67,11 @@ export const useAuthStore = defineStore('auth', () => {
   /**
    * Punto central de limpieza: por aquí pasan tanto el logout manual
    * (cerrarSesion) como la expulsión por 401 (sesionCaducada). Además del
-   * token se vacía el store de cuenta — es un singleton y, en un dispositivo
-   * compartido, el siguiente usuario no debe heredar los datos salariales del
-   * anterior. La dependencia va en un solo sentido (auth → cuenta; cuenta no
-   * importa auth), así que no hay ciclo entre stores.
+   * token se vacían los stores de cuenta y de fichajes — son singletons y, en
+   * un dispositivo compartido, el siguiente usuario no debe heredar ni los
+   * datos salariales ni la libreta del anterior. La dependencia va en un solo
+   * sentido (auth → cuenta/fichajes; ninguno importa auth), así que no hay
+   * ciclo entre stores.
    */
   function limpiarSesion() {
     token.value = null
@@ -77,6 +79,7 @@ export const useAuthStore = defineStore('auth', () => {
     expiraEn.value = null
     setAuthToken(null)
     useCuentaStore().limpiar()
+    useFichajesStore().limpiar()
   }
 
   /** Logout voluntario. */
