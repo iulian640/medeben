@@ -1,11 +1,13 @@
 {
-  "$comment": "Málaga da tablas DISTINTAS por sección (tipo de establecimiento): hoteles/hostales por niveles I-V (la correspondencia puesto→nivel del Anexo III NO está transcrita puesto a puesto, solo ejemplos de los grupos I y V) y el resto de secciones por puesto literal. 'seccion' y 'categoriaEstablecimiento' son de establecimiento y quedan fuera. Se mapea el literal solo cuando es idéntico en todas las secciones donde aparece; los trabajadores de hotel NO casarán con esos mapeos (gap documentado en cada nota). 'null' cuando los valores difieren por sección o la categoría solo existe en hoteles.",
+  "$comment": "Mapeo puesto→dimensiones para malaga-hosteleria. ESTRUCTURA DE LAS TABLAS (BOP Málaga nº 70, 14-04-2026): cada sección es un tipo de establecimiento y tiene su propia tabla. Las secciones 3ª-9ª y catering indexan por LITERAL de puesto (dimensión 'puesto'); las secciones 1ª-2ª (hoteles/hostales) van por NIVEL I-V y la correspondencia puesto→nivel del Anexo III NO está transcrita puesto a puesto (solo se sabe que jefe de cocina, jefe de recepción y primer maître son Grupo I y 'auxiliar de pisos' Grupo V). CONCLUSIÓN sobre condicionalidad: al contrario que Cataluña (nivel condicional a la zona → bloque condicionalPorZona), Málaga NO necesita condicionar el formato plano en las secciones por literal. Se fija el literal EXACTO del puesto y 'seccion'/'departamento'/'categoriaEstablecimiento' (todas propiedades del establecimiento) quedan como preguntas pendientes que el resolver calcula contra los hechos (PerfilOcupacionService.pendientes) con los valores reales de cada tabla. Se fija el literal cuando es IDÉNTICO en las secciones que lo comparten (patrón ya usado en cocinero/camarero/barman); las secciones que nombran el mismo rol con otro literal, y los hoteles (por nivel, sin transcribir), se documentan como hueco en la 'nota' del puesto (no casarán). 'dimensiones': null cuando el rol es AMBIGUO dentro de una misma sección (varias categorías con salario propio: pinche/marmitón/fregador, grados administrativos, limpieza por jornada) o solo existe en hoteles: dato ausente > dato erróneo, NUNCA inventar.",
   "id": "malaga-hosteleria",
   "articulo": "Tablas salariales 2025 definitivas por secciones (BOP Málaga nº 70, 14-04-2026) + Anexo III del articulado 2018-2022 (clasificación profesional, parcial)",
   "ocupaciones": {
     "jefe-cocina": {
-      "dimensiones": null,
-      "nota": "Valores distintos según establecimiento: en hoteles/hostales es Grupo I del Anexo III (hechos por nivel 'I' de la sección 1ª-2ª); en restaurantes y mostrador de cafés-bares es la categoría literal 'Jefe de cocina'. El mapeo plano no puede condicionar por establecimiento."
+      "dimensiones": {
+        "puesto": "Jefe de cocina"
+      },
+      "nota": "Literal 'Jefe de cocina' idéntico en restaurantes (3ª, dpto. cocina) y mostrador de cafés-bares (5ª, dpto. personalVarios); 'seccion'/'departamento'/'categoriaEstablecimiento' se preguntan. En hoteles/hostales (1ª-2ª) la tabla va por niveles y el Anexo III (jefe de cocina = Grupo I) no da la equivalencia puesto→nivel transcrita: un jefe de cocina de hotel no casará."
     },
     "segundo-jefe-cocina": {
       "dimensiones": {
@@ -32,16 +34,20 @@
       "nota": "Literal idéntico en restaurantes, cafeterías, mostrador de cafés-bares y casinos/salas de fiesta. Hoteles sin transcribir (niveles). El 'Oficial repostero' es otra categoría."
     },
     "ayudante-cocina": {
-      "dimensiones": null,
-      "nota": "Grafías distintas por sección en el normalizado: 'Ayudante cocinero' (restaurantes, cafeterías) vs 'Ayudante de cocinero' (mostrador de cafés-bares). Unificar grafía y remapear. Hoteles sin transcribir."
+      "dimensiones": {
+        "puesto": "Ayudante cocinero"
+      },
+      "nota": "Literal 'Ayudante cocinero' idéntico en restaurantes (3ª, cocina) y cafeterías (4ª, personalVarios). En mostrador de cafés-bares (5ª) la grafía transcrita del mismo rol es 'Ayudante de cocinero' (posible inconsistencia de grafía a verificar contra el PDF): con este literal no casa. Hoteles por niveles, sin transcribir: no casarán."
     },
     "auxiliar-cocina": {
       "dimensiones": null,
-      "nota": "En restaurantes hay varias categorías con salario propio ('Pinche', 'Marmitón', 'Fregadores') y en cafeterías 'Fregadora-limpiadora': el puesto genérico no permite elegir. Hoteles sin transcribir."
+      "nota": "Sin categoría genérica única: en restaurantes (3ª) hay 'Pinche', 'Marmitón' y 'Fregadores' con salarios propios distintos; en cafeterías (4ª) 'Fregadora-limpiadora' (mezcla limpieza) y en mostrador de cafés-bares (5ª) 'Vigilante noche y fregadores' (mezcla vigilancia). El puesto genérico no permite elegir una sin inventar; ni siquiera condicionar por sección lo resuelve (sigue siendo ambiguo dentro de cada sección). Hoteles por niveles, sin transcribir."
     },
     "jefe-sala": {
-      "dimensiones": null,
-      "nota": "Tres denominaciones según establecimiento: 'primer maitre' (Grupo I, hoteles), 'Jefe de comedor o maestro' (restaurantes) y 'Jefe de sala' (bares americanos, casinos/salas de fiesta). No se puede decidir sin conocer el establecimiento."
+      "dimensiones": {
+        "puesto": "Jefe de sala"
+      },
+      "nota": "Literal 'Jefe de sala' idéntico en bares americanos (5ª, dpto. sala) y casinos/salas de fiesta/discotecas (6ª); 'seccion'/'departamento'/'categoriaEstablecimiento' se preguntan. El mismo rol se llama 'Jefe de comedor o maestro' en restaurantes (3ª, comedor) y 'primer maître' (Grupo I) en hoteles (1ª-2ª, por niveles, sin transcribir): esas secciones no casan con este literal. 'Segundo jefe de sala' (6ª) es un rol distinto y no casa (igualdad exacta)."
     },
     "camarero": {
       "dimensiones": {
@@ -69,19 +75,19 @@
     },
     "recepcionista": {
       "dimensiones": null,
-      "nota": "La recepción solo existe en hoteles/hostales (sección 1ª-2ª), cuya tabla va por niveles I-V, y la correspondencia puesto→nivel del Anexo III no está transcrita (solo se sabe que el jefe de recepción es Grupo I)."
+      "nota": "La recepción solo existe en hoteles/hostales (1ª-2ª), cuya tabla va por niveles I-V, y la correspondencia puesto→nivel del Anexo III no está transcrita (solo se sabe que el jefe de recepción es Grupo I, que no es el recepcionista raso). Sin hecho por literal: null."
     },
     "camarera-pisos": {
       "dimensiones": null,
-      "nota": "Solo existe en hoteles/hostales (sección 1ª-2ª, tabla por niveles). La correspondencia puesto→nivel no está transcrita (el Anexo III solo menciona 'auxiliar de pisos' en el Grupo V, que es otra categoría)."
+      "nota": "Solo existe en hoteles/hostales (1ª-2ª, tabla por niveles). La correspondencia puesto→nivel no está transcrita; el Anexo III solo menciona 'auxiliar de pisos' en el Grupo V, que es otra categoría. null."
     },
     "administrativo": {
       "dimensiones": null,
-      "nota": "El convenio distingue grados y literales por sección ('Auxiliar oficinas', 'Oficial contabilidad', 'Contable general', 'Contable', Oficial 1ª/2ª en casinos): el puesto genérico no permite elegir."
+      "nota": "El convenio distingue grados y literales por sección con salarios propios: 'Auxiliar oficinas' y 'Oficial contabilidad'/'Contable general' en restaurantes (3ª), 'Contable'/'Oficial contabilidad' en cafeterías (4ª) y mostrador (5ª), y 'Jefe de primera'/'Jefe de segunda'/'Oficial primera'/'Oficial segunda' en casinos (8ª). El puesto genérico no permite elegir uno sin inventar. null."
     },
     "personal-limpieza": {
       "dimensiones": null,
-      "nota": "Literal distinto por sección: 'Limpiadora (jornada entera)'/'(media jornada)' en restaurantes, 'Fregadora-limpiadora' en cafeterías, 'Limpiadora' en casinos/salas de fiesta y 'Limpiadora jornada completa'/'media jornada' en la sección 8ª (casinos). Además depende de la jornada. No se puede fijar sin conocer el establecimiento."
+      "nota": "Literal y jornada distintos por sección: 'Limpiadora (jornada entera)'/'(media jornada)' en restaurantes (3ª), 'Fregadora-limpiadora' en cafeterías (4ª), 'Jornada completa'/'Media jornada' (dpto. limpieza) en mostrador de cafés-bares (5ª), 'Limpiadora' en casinos/salas de fiesta (6ª), 'Limpiadora jornada completa'/'media jornada' en casinos (8ª) y 'Jornada completa'/'Media jornada' en billares/salones (9ª). Depende de la sección Y de la jornada; el genérico no permite elegir sin inventar. null."
     }
   }
 }
