@@ -1,6 +1,7 @@
 package es.tedeben.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import es.tedeben.repository.ConvenioCatalog;
 import es.tedeben.repository.HechosCatalog;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -22,7 +23,8 @@ class TablaSalarialServiceTest {
 
     @BeforeAll
     static void arranque() {
-        servicio = new TablaSalarialService(new HechosCatalog(new ObjectMapper()));
+        ObjectMapper mapper = new ObjectMapper();
+        servicio = new TablaSalarialService(new HechosCatalog(mapper), new ConvenioCatalog(mapper));
     }
 
     @Test
@@ -32,7 +34,7 @@ class TablaSalarialServiceTest {
                 "madrid-hosteleria", COCINERO_MADRID_B, LocalDate.of(2025, 6, 1)).orElseThrow();
 
         assertThat(resultado.importe()).isEqualByComparingTo(new BigDecimal("1250.91"));
-        assertThat(resultado.citas()).anySatisfy(c -> assertThat(c).contains("Anexo I C) c)"));
+        assertThat(resultado.citas()).anySatisfy(c -> assertThat(c.texto()).contains("Anexo I C) c)"));
     }
 
     @Test
@@ -42,7 +44,7 @@ class TablaSalarialServiceTest {
                 "madrid-hosteleria", COCINERO_MADRID_B, LocalDate.of(2026, 7, 8)).orElseThrow();
 
         assertThat(resultado.importe()).isEqualByComparingTo(new BigDecimal("1250.91"));
-        assertThat(resultado.citas()).anySatisfy(c -> assertThat(c).contains("ultraactividad"));
+        assertThat(resultado.citas()).anySatisfy(c -> assertThat(c.texto()).contains("ultraactividad"));
     }
 
     @Test

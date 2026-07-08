@@ -5,6 +5,10 @@ Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
+- **PR #122** — Citas con enlace (pedido por Iulian): cada cita pasa a `{texto, url}` —
+  las del convenio enlazan al PDF oficial del boletín y las del ET al BOE consolidado
+  ("no me creas: compruébalo", D18/D34). **PR #121** — perfil `local` sin BD para probar
+  la API sin Docker.
 - **PR #119** — Primera API REST pública: consulta de convenios (lista, detalle para el
   visor D4, selección provincia+subsector D20) y cálculos anónimos (horas extra y salario
   base) con citas. RFC 7807 en todos los errores, 500 saneado y testeado, Cache-Control en

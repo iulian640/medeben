@@ -9,7 +9,7 @@ import java.util.List;
  * publican en otra unidad (Cuenca: "EUR/año") — el consumidor debe comprobarla
  * antes de operar con el importe.
  */
-public record SalarioBaseResuelto(BigDecimal importe, String unidad, List<String> citas) {
+public record SalarioBaseResuelto(BigDecimal importe, String unidad, List<Cita> citas) {
 
     public SalarioBaseResuelto {
         citas = List.copyOf(citas);
