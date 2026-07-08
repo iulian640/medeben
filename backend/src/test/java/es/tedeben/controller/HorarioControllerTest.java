@@ -141,6 +141,13 @@ class HorarioControllerTest {
     }
 
     @Test
+    @DisplayName("fecha rota en la URL → 400, no 500 (review M2)")
+    void fechaRota() throws Exception {
+        mockMvc.perform(get("/api/v1/horario/semana/no-es-una-fecha").with(comoUsuario()))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
     @DisplayName("PUT con 6 días → 400 (validación del DTO)")
     void seisDias() throws Exception {
         mockMvc.perform(put("/api/v1/horario").with(comoUsuario())

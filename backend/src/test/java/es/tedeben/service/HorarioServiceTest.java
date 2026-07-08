@@ -153,11 +153,18 @@ class HorarioServiceTest {
     }
 
     @Test
+    @DisplayName("no se puede editar una semana a más de 8 semanas vista (higiene de datos, review M1)")
+    void semanaDemasiadoFutura() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> servicio.guardaSemana(USUARIO, LocalDate.of(2026, 9, 7), semanaValida()));
+    }
+
+    @Test
     @DisplayName("horarioEfectivo prefiere la edición de esa semana sobre la semana tipo")
     void efectivoPrefiereEdicion() {
         LocalDate lunes = LocalDate.of(2026, 7, 6);
         Cuadrante edicion = new Cuadrante(USUARIO, lunes, semanaValida());
-        when(repositorio.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDesc(USUARIO, lunes))
+        when(repositorio.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDescIdDesc(USUARIO, lunes))
                 .thenReturn(Optional.of(edicion));
 
         Optional<HorarioEfectivo> efectivo = servicio.horarioEfectivo(USUARIO, lunes);
@@ -171,27 +178,27 @@ class HorarioServiceTest {
     void efectivoUsaSemanaTipoDeLaEpoca() {
         LocalDate lunes = LocalDate.of(2026, 6, 29);
         Cuadrante tipoDeEntonces = new Cuadrante(USUARIO, null, semanaValida());
-        when(repositorio.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDesc(USUARIO, lunes))
+        when(repositorio.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDescIdDesc(USUARIO, lunes))
                 .thenReturn(Optional.empty());
         // El servicio debe pedir la última versión creada ANTES del fin de esa semana (lunes+7, 00:00 Madrid)
         OffsetDateTime corte = lunes.plusDays(7).atStartOfDay(ZoneId.of("Europe/Madrid")).toOffsetDateTime();
-        when(repositorio.findTopByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDesc(
+        when(repositorio.findTopByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
                 eq(USUARIO), eq(corte))).thenReturn(Optional.of(tipoDeEntonces));
 
         Optional<HorarioEfectivo> efectivo = servicio.horarioEfectivo(USUARIO, lunes);
 
         assertThat(efectivo).isPresent();
         assertThat(efectivo.get().origen()).isEqualTo(OrigenHorario.SEMANA_TIPO);
-        verify(repositorio).findTopByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDesc(
+        verify(repositorio).findTopByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
                 eq(USUARIO), eq(corte));
     }
 
     @Test
     @DisplayName("sin semana tipo ni edición → vacío (la app pedirá crear el horario)")
     void efectivoSinNada() {
-        when(repositorio.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDesc(eq(USUARIO), any()))
+        when(repositorio.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDescIdDesc(eq(USUARIO), any()))
                 .thenReturn(Optional.empty());
-        when(repositorio.findTopByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDesc(
+        when(repositorio.findTopByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
                 eq(USUARIO), any())).thenReturn(Optional.empty());
 
         assertThat(servicio.horarioEfectivo(USUARIO, LocalDate.of(2026, 7, 6))).isEmpty();

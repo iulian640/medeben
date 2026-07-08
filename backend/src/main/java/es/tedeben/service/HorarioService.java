@@ -35,6 +35,9 @@ public class HorarioService {
     /** Días desde el FIN de la semana hasta que se sella (D38: ventana de confirmación). */
     static final int DIAS_VENTANA_SELLADO = 14;
 
+    /** Hasta cuántas semanas de antelación se puede editar una semana concreta. */
+    static final int SEMANAS_FUTURO_MAX = 8;
+
     private static final Pattern HORA = Pattern.compile("^([01]\\d|2[0-3]):[0-5]\\d$");
     private static final int DIAS_SEMANA = 7;
     private static final int MAX_TRAMOS_POR_DIA = 2;
@@ -59,6 +62,12 @@ public class HorarioService {
         if (estaSellada(lunes)) {
             throw new SemanaSelladaException(lunes);
         }
+        // Hacia atrás acota el sellado; hacia delante, un tope razonable: los
+        // cuadrantes reales se conocen con días o semanas de antelación, no meses.
+        if (lunes.isAfter(LocalDate.now(reloj).plusWeeks(SEMANAS_FUTURO_MAX))) {
+            throw new IllegalArgumentException(
+                    "Esa semana está a más de " + SEMANAS_FUTURO_MAX + " semanas vista; para el horario habitual usa la semana tipo");
+        }
         validaSemana(dias);
         return cuadrantes.save(new Cuadrante(usuarioId, lunes, dias));
     }
@@ -67,7 +76,7 @@ public class HorarioService {
     public Optional<HorarioEfectivo> horarioEfectivo(UUID usuarioId, LocalDate lunes) {
         exigeLunes(lunes);
         Optional<Cuadrante> edicion =
-                cuadrantes.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDesc(usuarioId, lunes);
+                cuadrantes.findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDescIdDesc(usuarioId, lunes);
         if (edicion.isPresent()) {
             Cuadrante c = edicion.get();
             return Optional.of(new HorarioEfectivo(c.getDias(), OrigenHorario.SEMANA_EDITADA, c.getCreadoEn()));
@@ -76,13 +85,13 @@ public class HorarioService {
         // no aplica retroactivamente (el pasado no se reescribe, D38).
         OffsetDateTime finDeSemana = lunes.plusDays(DIAS_SEMANA).atStartOfDay(ZONA).toOffsetDateTime();
         return cuadrantes
-                .findTopByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDesc(usuarioId, finDeSemana)
+                .findTopByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(usuarioId, finDeSemana)
                 .map(c -> new HorarioEfectivo(c.getDias(), OrigenHorario.SEMANA_TIPO, c.getCreadoEn()));
     }
 
     @Transactional(readOnly = true)
     public Optional<Cuadrante> semanaTipoActual(UUID usuarioId) {
-        return cuadrantes.findTopByUsuarioIdAndSemanaInicioIsNullOrderByCreadoEnDesc(usuarioId);
+        return cuadrantes.findTopByUsuarioIdAndSemanaInicioIsNullOrderByCreadoEnDescIdDesc(usuarioId);
     }
 
     private boolean estaSellada(LocalDate lunes) {
