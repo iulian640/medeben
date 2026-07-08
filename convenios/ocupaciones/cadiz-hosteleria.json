@@ -29,8 +29,10 @@
       }
     },
     "ayudante-cocina": {
-      "dimensiones": null,
-      "nota": "Clasificación contradictoria en la transcripción: el grupo 4 lista 'Cocinero/a (ayte.)' y el grupo 5 lista 'Ayudante de Cocineros/as'; sin resolver esa contradicción no se fija grupo."
+      "dimensiones": {
+        "grupoProfesional": "5"
+      },
+      "nota": "Verificado contra la imagen del PDF del BOP nº153 (Anexo II): 'Ayudante de Cocineros/as' está en el 5.º Grupo; la entrada 'Cocinero/a (ayte.)' del grupo 4 era un error de transcripción, eliminado."
     },
     "auxiliar-cocina": {
       "dimensiones": {

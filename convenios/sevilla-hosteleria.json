@@ -261,7 +261,7 @@
   },
 
   "clasificacionProfesional": {
-    "$comment": "Anexo I. Niveles 1 a 5 (con Nivel 3º Bis para camarera/o de pisos). Ejemplos por nivel, no exhaustivo. El camarero/a está en el Nivel 4º; camarera/o de pisos en el Nivel 3º Bis.",
+    "$comment": "Anexo I. Niveles 1 a 5 (con Nivel 3º Bis para camarera/o de pisos). Ejemplos por nivel, no exhaustivo. El camarero/a está en el Nivel 3.º ('Camarero o Sumiller'); el Ayudante de Camarero es Nivel 4.º [corregido 2026-07-08 re-verificando la pág. 22 del PDF del BOP nº102 a imagen: el comentario anterior decía Nivel 4 por confusión con el ayudante]; camarera/o de pisos en el Nivel 3º Bis.",
     "articulo": "Anexo I",
     "Nivel 1": "Jefe de 1ª Casinos, Jefe de Recepción, Contable General, Jefe de Cocina, Primer Jefe de Comedor, Jefe de Sala, Primer Encargado de Mostrador, Primer Barman, Encargado General o Gobernanta, Primer Conserje de Día, Dietista Titulado en Hospitales",
     "Nivel 2": "Cajero, Oficial Contable, Interventor, Segundo Encargado de Mostrador, Segundo Barman, Segundo Jefe de Sala, Segundo Jefe de Cocina, Segundo Jefe de Recepción, Repostero, Jefe de Sector, Subgobernante, Mayordomo de Pisos, Recepcionista, Relaciones Públicas",
