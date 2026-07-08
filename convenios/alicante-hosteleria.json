@@ -1,5 +1,5 @@
 {
-  "$comment": "Tabla 2026 (VIGENTE en 2026, regla D32) VERIFICADA visualmente contra el PDF oficial del BOP de Alicante nº29, 12-02-2026, anuncio 819/2026 (RESOLUCIÓN tablas salariales año 2026, Dir. Territorial de Trabajo y Labora, 5-02-2026; código convenio 03000425011982). Es el último año del calendario pactado (3% 2024, 3% 2025, 2% 2026). Se preservan las tablas 2025 (BOP nº33, 18-02-2025, anuncio 971/2025) como histórico. Pendiente del TEXTO del convenio (otra publicación, 2023-2026): jornada anual, tramo horario de nocturnidad, mapeo categoría→nivel, y todo el bloque de condiciones no salariales (permisos, complemento IT, disciplinario, sindical, vacaciones).",
+  "$comment": "Tabla 2026 (VIGENTE en 2026, regla D32) VERIFICADA visualmente contra el PDF oficial del BOP de Alicante nº29, 12-02-2026, anuncio 819/2026 (RESOLUCIÓN tablas salariales año 2026, Dir. Territorial de Trabajo y Labora, 5-02-2026; código convenio 03000425011982). Es el último año del calendario pactado (3% 2024, 3% 2025, 2% 2026). Se preservan las tablas 2025 (BOP nº33, 18-02-2025, anuncio 971/2025) como histórico. Del TEXTO del convenio (otra publicación, BOP nº200 18-10-2023, ver fuenteTexto) ya están transcritos: jornada anual, nocturnidad (tramo), mapeo puesto→nivel (Anexo II, ver mapeoCategoriaNivel) y el bloque de condiciones no salariales (permisos, complemento IT, disciplinario, sindical, vacaciones).",
   "id": "alicante-hosteleria",
   "nombre": "Convenio colectivo del sector de Hostelería de la provincia de Alicante",
   "codigoRegcon": "03000425011982",
@@ -271,8 +271,95 @@
     "verificado": true
   },
   "mapeoCategoriaNivel": {
-    "estado": "pendiente",
-    "nota": "Las tablas salariales usan niveles retributivos 1 a 6 (Anexo III) y grupos de establecimiento A/B/C (Anexo I). La correspondencia categoría profesional → nivel retributivo NO figura en el articulado provincial: el art. 15 remite la clasificación profesional a los capítulos 2 y 3 del ALEH VI (grupos profesionales I/II/III y áreas funcionales 1ª-6ª). Transcripción del mapeo pendiente del ALEH VI. Duda para UGT sobre la equivalencia exacta grupos ALEH → niveles 1-6 del Anexo III.",
+    "estado": "verificado",
+    "articulo": "Anexo II — Clasificación de los niveles de los puestos de trabajo a efectos retributivos (BOP nº200, 18-10-2023, anuncio 8879/2023, págs. 60-63)",
+    "$comment": "CORRECCIÓN 2026-07-08: la nota anterior ('la correspondencia categoría→nivel NO figura en el articulado provincial') era ERRÓNEA. El art. 15 remite al ALEH VI solo la clasificación PROFESIONAL (grupos I-III y áreas funcionales); los niveles RETRIBUTIVOS 1-6 de las tablas están en el ANEXO II de la misma publicación del texto (BOP nº200). Leído en IMAGEN (fitz, dpi 185) página a página. El nivel es único por puesto (NO varía con el grupo de establecimiento A/B/C: ese grupo solo elige la columna de la tabla salarial del Anexo III). Queda cerrada la duda que se iba a elevar a UGT.",
+    "nivelesPuestos": {
+      "1": [
+        "Jefe/a de recepción",
+        "Jefe/a de administración",
+        "Jefe/a de cocina",
+        "Jefe/a de restaurante o sala",
+        "Jefe/a de operaciones de catering",
+        "Jefe/a de servicios de catering",
+        "Gobernante/a o Encargado/a general (1)",
+        "Encargado/a de mantenimiento y servicios auxiliares (2)"
+      ],
+      "2": [
+        "Jefe/a comercial",
+        "Segundo/a jefe/a de recepción (3)",
+        "Primer/a conserje",
+        "Segundo/a jefe/a de cocina",
+        "Jefe/a de catering",
+        "Segundo/a jefe/a de restaurante o sala",
+        "Jefe/a de sala de catering",
+        "Encargado/a general (área cuarta)",
+        "Encargado/a de mantenimiento y servicios auxiliares",
+        "Subgobernante/a (4)"
+      ],
+      "3": [
+        "Segundo/a jefe/a de recepción",
+        "Jefe/a de partida",
+        "Encargado/a de economato",
+        "Jefe/a de sector",
+        "Barman/Barwoman",
+        "Supervisor/a de catering",
+        "Supervisor/a de colectividades",
+        "Encargado/a de sección (lencería)",
+        "Encargado/a de sección (área quinta ALEH VI) (5) (*)",
+        "Encargado/a de mantenimiento y servicios técnicos de catering: de flota y de instalaciones y edificios"
+      ],
+      "4": [
+        "Recepcionista",
+        "Conserje",
+        "Administrativo/a",
+        "Relaciones públicas",
+        "Comercial",
+        "Cocinero/a",
+        "Repostero/a",
+        "Camarero/a",
+        "Sumiller/a",
+        "Camarero/a de pisos",
+        "Conductor/a de equipo de catering",
+        "Encargado/a de sección (área quinta ALEH VI)",
+        "Especialista de mantenimiento y servicios auxiliares",
+        "Especialista de mantenimiento y servicios técnicos de catering: de flota y de instalaciones y edificios (*)",
+        "Animador/a turístico o de tiempo libre",
+        "Técnico/a de prevención",
+        "Técnico/a de servicio (Fisioterapeuta; ATS/DUE; Técnico/a superior de dietética y resto de profesiones complementarias, incluidas las de turismo activo, que exijan la obtención de títulos, diplomaturas o licenciaturas)"
+      ],
+      "5": [
+        "Ayudante/a de recepción y/o conserjería",
+        "Telefonista",
+        "Ayudante/a administrativo",
+        "Ayudante/a de cocina",
+        "Ayudante/a de economato",
+        "Ayudante/a de camarero/a",
+        "Preparador/a-montador/a de catering",
+        "Ayudante/a de equipo de catering",
+        "Especialista de servicio"
+      ],
+      "6": [
+        "Auxiliar de recepción y conserjería",
+        "Auxiliar de cocina",
+        "Auxiliar de colectividades",
+        "Auxiliar de preparador/a-montador/a de catering",
+        "Auxiliar de pisos y limpieza",
+        "Auxiliar de mantenimiento y servicios (**)",
+        "Monitor/a cuidador/a de colectividades"
+      ]
+    },
+    "notasAlPie": {
+      "(1)": "Se incorpora a este nivel retributivo la ocupación de Gobernante/a o Encargado/a general, con esta nueva nomenclatura.",
+      "(2)": "Se incorpora a este nivel retributivo la ocupación de Encargado/a de mantenimiento y servicios auxiliares.",
+      "(3)": "Se incorpora a este nivel retributivo la ocupación de Segundo/a jefe/a de recepción, reclasificación.",
+      "(4)": "Se incorpora a este nivel la ocupación o puesto de trabajo de Subgobernante/a.",
+      "(5)": "Se incorpora a este nivel la ocupación o puesto de trabajo de Encargado/a de sección (área quinta ALEH VI).",
+      "(*) nivel 3": "Las personas trabajadoras con esta ocupación o puesto de trabajo con una antigüedad en la empresa de al menos 10 años de servicio y 10 años de experiencia en estas mismas funciones, a partir del día 1 de enero de 2018 pasarán a estar clasificados en el nivel retributivo 2.",
+      "(*) nivel 4": "Se incluye quienes presten servicios en «salones recreativos y billares».",
+      "(**) nivel 6": "Según lo dispuesto en el ALEH VI, corresponde a este puesto de trabajo realizar las funciones incluidas en el «especialista de mantenimiento y servicios auxiliares» sin poseer la titulación o cualificación requerida."
+    },
+    "duplicadosTalCualPublicados": "El Anexo II lista 'Segundo/a jefe/a de recepción' en el nivel 2 (con nota (3), reclasificación) Y en el nivel 3, y 'Encargado/a de mantenimiento y servicios auxiliares' en el nivel 1 (con nota (2)) Y en el nivel 2. Se transcriben tal cual: las notas (1)-(5) indican que esas ocupaciones se INCORPORAN al nivel superior con el texto 2023-2026 (las entradas del nivel inferior parecen restos de la estructura anterior). Ninguno de los 16 puestos canónicos de la app se ve afectado.",
     "gruposEstablecimiento": "Anexo I clasifica los establecimientos en grupos salariales A (superior: hoteles 4/4sup/5/5GL estrellas, campings 4-5*, apartoteles y viviendas turísticas de categoría superior...), B (intermedio) y C (inferior: restaurantes de 1 tenedor, catering/colectividades y comedores escolares, bares, heladerías, chocolaterías, salones recreativos, boleras y billares)."
   },
   "seguroAccidentes": {
@@ -289,6 +376,6 @@
     "verificado": true
   },
   "estado": "verificado",
-  "verificadoContra": "DOS publicaciones verificadas en IMAGEN (fitz, dpi 185): (1) TABLAS — BOP Alicante nº29 (12-02-2026, anuncio 819/2026) para las tablas 2026 y BOP nº33 (18-02-2025) para el histórico 2025, leídas celda a celda; (2) TEXTO/ARTICULADO — BOP Alicante nº200 (18-10-2023, anuncio 8879/2023), convenio 2023-2026, del que se ha leído el articulado para el bloque de condiciones no salariales (D33): jornada anual art. 21, vacaciones art. 27, permisos art. 28, excedencias art. 30, gratificaciones art. 38, revisión salarial art. 39, IT art. 40, ayuda matrimonio art. 48, representación colectiva art. 49, preaviso art. 16, clasificación art. 15, y periodo de prueba del Anexo VI (reproducción del ALEH VI). Nocturnidad tramo 22:00-06:00 (art. 34). Régimen disciplinario NO regulado en el convenio (remite al ALEH VI y al ET). Pendientes: mapeo categoría→nivel (remitido al ALEH VI), detalle de faltas/sanciones del ALEH VI, importe del seguro del art. 47, y festivos dentro de vacaciones.",
+  "verificadoContra": "DOS publicaciones verificadas en IMAGEN (fitz, dpi 185): (1) TABLAS — BOP Alicante nº29 (12-02-2026, anuncio 819/2026) para las tablas 2026 y BOP nº33 (18-02-2025) para el histórico 2025, leídas celda a celda; (2) TEXTO/ARTICULADO — BOP Alicante nº200 (18-10-2023, anuncio 8879/2023), convenio 2023-2026, del que se ha leído el articulado para el bloque de condiciones no salariales (D33): jornada anual art. 21, vacaciones art. 27, permisos art. 28, excedencias art. 30, gratificaciones art. 38, revisión salarial art. 39, IT art. 40, ayuda matrimonio art. 48, representación colectiva art. 49, preaviso art. 16, clasificación art. 15, y periodo de prueba del Anexo VI (reproducción del ALEH VI). Nocturnidad tramo 22:00-06:00 (art. 34). Régimen disciplinario NO regulado en el convenio (remite al ALEH VI y al ET). Mapeo puesto→nivel retributivo VERIFICADO contra el Anexo II del mismo BOP nº200 (págs. 60-63, leído en imagen): el nivel es único por puesto, no depende del grupo de establecimiento. Pendientes: detalle de faltas/sanciones del ALEH VI, importe del seguro del art. 47, y festivos dentro de vacaciones.",
   "fechaVerificacion": "2026-07-08"
 }
