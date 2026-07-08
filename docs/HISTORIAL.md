@@ -5,6 +5,14 @@ Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
+- **Registro/login con JWT (D13.4)**: primera migración Flyway (tabla usuarios, solo
+  email+hash — minimización RGPD), BCrypt, HS256 con secreto por entorno, endpoints
+  /auth/registro, /auth/login y /me. Revisado por java-reviewer (BLOCK: bin/ colado en
+  git + carrera TOCTOU del registro → arreglados) y security-reviewer (sin CRITICAL;
+  mitigaciones anti-enumeración/anti-timing VERIFICADAS; H1 arreglado: barrera fail-fast
+  que impide arrancar fuera de dev/test con los secretos de juguete del repo; tope 72
+  bytes de BCrypt). Trackeado pre-despliegue: rate limiting en auth, y el token del
+  frontend SOLO en memoria (nunca localStorage) — guía del security-reviewer.
 - **Pantalla de perfil v0 (Vue)**: flujo provincia → tipo de sitio → puesto →
   "tu salario mínimo" con citas enlazadas + calculadora de horas extra. Construida por
   agente, revisada por vue-reviewer (BLOCK inicial por 2 bugs de corrección — carreras

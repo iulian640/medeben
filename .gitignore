@@ -26,3 +26,6 @@ Thumbs.db
 
 # graphify knowledge graph output (local tooling)
 graphify-out/
+
+# Eclipse/IDE output
+bin/
