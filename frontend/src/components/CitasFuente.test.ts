@@ -37,6 +37,29 @@ describe('CitasFuente', () => {
     expect(wrapper.text()).toContain('Cita con url maliciosa')
   })
 
+  it('dos citas con el mismo texto se renderizan ambas con su propio enlace (key por índice)', async () => {
+    const wrapper = mount(CitasFuente, {
+      props: {
+        citas: [
+          { texto: 'Plus de nocturnidad (Art. 30)', url: 'https://boe.es/a' },
+          { texto: 'Plus de nocturnidad (Art. 30)', url: 'https://boe.es/b' },
+        ],
+      },
+    })
+    // Reemplazo completo de la lista (como cada respuesta del backend).
+    await wrapper.setProps({
+      citas: [
+        { texto: 'Plus de nocturnidad (Art. 30)', url: 'https://boe.es/b' },
+        { texto: 'Plus de nocturnidad (Art. 30)', url: 'https://boe.es/a' },
+      ],
+    })
+
+    const enlaces = wrapper.findAll('a')
+    expect(enlaces).toHaveLength(2)
+    expect(enlaces[0].attributes('href')).toBe('https://boe.es/b')
+    expect(enlaces[1].attributes('href')).toBe('https://boe.es/a')
+  })
+
   it('no pinta enlace si la cita viene sin url', () => {
     const wrapper = mount(CitasFuente, {
       props: { citas: [{ texto: 'Aplicada por ultraactividad', url: null }] },
