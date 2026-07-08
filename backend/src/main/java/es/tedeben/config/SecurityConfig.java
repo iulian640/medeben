@@ -34,9 +34,12 @@ public class SecurityConfig {
                         // públicos por diseño, sin datos personales de por medio.
                         .requestMatchers(HttpMethod.GET, "/api/v1/provincias", "/api/v1/puestos", "/api/v1/convenios/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/calculo/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/registro", "/api/v1/auth/login").permitAll()
                         .anyRequest().authenticated())
                 // Stateless API: unauthenticated requests get a plain 401
                 // (no redirect to a login page).
+                // Los endpoints autenticados validan un JWT Bearer (HS256, JwtConfig)
+                .oauth2ResourceServer(oauth -> oauth.jwt(org.springframework.security.config.Customizer.withDefaults()))
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(
                         new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)));
         return http.build();

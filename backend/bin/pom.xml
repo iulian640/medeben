@@ -38,10 +38,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <dependency>
@@ -107,13 +103,6 @@
             <resource>
                 <directory>${project.basedir}/../convenios/normalizado</directory>
                 <targetPath>convenios/normalizado</targetPath>
-                <includes>
-                    <include>*.json</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>${project.basedir}/../convenios/ocupaciones</directory>
-                <targetPath>convenios/ocupaciones</targetPath>
                 <includes>
                     <include>*.json</include>
                 </includes>

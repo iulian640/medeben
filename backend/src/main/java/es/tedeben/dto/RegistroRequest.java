@@ -1,0 +1,11 @@
+package es.tedeben.dto;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public record RegistroRequest(
+        @NotBlank @Email @Size(max = 320) String email,
+        @NotBlank @Size(min = 10, max = 200) String password
+) {
+}

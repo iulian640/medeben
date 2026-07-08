@@ -30,6 +30,16 @@ public class GlobalExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
     }
 
+    @ExceptionHandler(es.tedeben.service.EmailYaRegistradoException.class)
+    public ProblemDetail emailYaRegistrado(es.tedeben.service.EmailYaRegistradoException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
+    }
+
+    @ExceptionHandler(es.tedeben.service.CredencialesInvalidasException.class)
+    public ProblemDetail credencialesInvalidas(es.tedeben.service.CredencialesInvalidasException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED, e.getMessage());
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ProblemDetail peticionInvalida(IllegalArgumentException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());

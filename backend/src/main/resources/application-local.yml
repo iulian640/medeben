@@ -10,3 +10,11 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
       - org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
+
+# Secreto JWT SOLO para el modo local sin BD (los endpoints de auth no existen
+# en este perfil, pero la cadena de seguridad necesita un decoder).
+tedeben:
+  seguridad:
+    jwt:
+      secreto: "secreto-local-solo-para-consultar-convenios-32-bytes!!"

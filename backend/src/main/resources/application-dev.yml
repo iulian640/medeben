@@ -4,3 +4,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/tedeben
     username: tedeben
     password: tedeben
+
+# Secreto JWT SOLO PARA DESARROLLO LOCAL (jamás en producción: allí viene de
+# la variable de entorno TEDEBEN_SEGURIDAD_JWT_SECRETO).
+tedeben:
+  seguridad:
+    jwt:
+      secreto: "secreto-de-desarrollo-no-usar-en-produccion-32-bytes!"
