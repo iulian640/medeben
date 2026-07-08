@@ -29,6 +29,7 @@ const convenioMadrid: ConvenioResumen = {
   provincias: ['Madrid'],
   vigenciaDesde: '2024-01-01',
   vigenciaHasta: '2025-12-31',
+  fuenteUrl: 'https://www.bocm.es/ejemplo.pdf',
   estado: 'vigente',
 }
 

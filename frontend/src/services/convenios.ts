@@ -18,6 +18,7 @@ export interface ConvenioResumen {
   provincias: string[]
   vigenciaDesde: string
   vigenciaHasta: string
+  fuenteUrl: string | null
   estado: string | null
 }
 

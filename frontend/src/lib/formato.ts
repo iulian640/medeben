@@ -97,3 +97,22 @@ export function hoyIso(): string {
   const dia = String(hoy.getDate()).padStart(2, '0')
   return `${hoy.getFullYear()}-${mes}-${dia}`
 }
+
+const RE_FECHA_ISO = /^\d{4}-\d{2}-\d{2}$/
+
+/**
+ * La vigencia de un convenio, dicha en cristiano. Clave: un convenio "vencido"
+ * NO está caducado — sigue aplicando por ultraactividad hasta que se publique
+ * el nuevo. Enseñar fechas pasadas a pelo parece un dato erróneo (feedback de
+ * Iulian); aquí se explica sin tecnicismos.
+ */
+export function describeVigencia(desde: string, hasta: string, hoyIsoStr: string): string {
+  if (!RE_FECHA_ISO.test(hasta) || !RE_FECHA_ISO.test(desde)) {
+    return 'Vigencia según su publicación oficial'
+  }
+  if (hasta >= hoyIsoStr) {
+    return `En vigor hasta el ${formatearFecha(hasta)}`
+  }
+  const anio = hasta.slice(0, 4)
+  return `Sigue en vigor: mientras no se publique el nuevo convenio, se aplican las últimas tablas (de ${anio})`
+}
