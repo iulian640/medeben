@@ -33,10 +33,33 @@ class DimensionesCatalogoValidatorTest {
     }
 
     @Test
-    @DisplayName("un subconjunto de dimensiones válidas también pasa (validación por clave/valor, no exige la terna completa)")
-    void subconjuntoValido() {
-        assertThatCode(() -> validador.valida("madrid-hosteleria", Map.of("nivel", "II-A")))
+    @DisplayName("la terna COMPLETA de catering (tabla + nivel, sin claseEmpresa) también resuelve tabla → no lanza")
+    void ternaCompletaCatering() {
+        assertThatCode(() -> validador.valida("madrid-hosteleria", Map.of("tabla", "catering", "nivel", "I")))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    @DisplayName("un subconjunto de dimensiones (solo nivel) NO resuelve tabla → 422 diciendo qué claves faltan (review HIGH)")
+    void subconjuntoNoResuelveTabla() {
+        // TablaSalarialService exige igualdad exacta del mapa: {nivel: II-A} jamás
+        // casaría con un hecho (usan tabla+nivel[+claseEmpresa]). Antes pasaba y
+        // dejaba el resumen roto para siempre; ahora se rechaza al guardar.
+        assertThatExceptionOfType(DimensionDesconocidaException.class)
+                .isThrownBy(() -> validador.valida("madrid-hosteleria", Map.of("nivel", "II-A")))
+                .withMessageContaining("faltan")
+                .withMessageContaining("tabla");
+    }
+
+    @Test
+    @DisplayName("combinación de valores válidos por separado pero no publicada juntos (catering + claseEmpresa) → 422")
+    void combinacionNoPublicada() {
+        // 'catering' es un tabla válido y 'A' un claseEmpresa válido (en general),
+        // pero ningún hecho de catering lleva claseEmpresa → no resuelve tabla.
+        assertThatExceptionOfType(DimensionDesconocidaException.class)
+                .isThrownBy(() -> validador.valida("madrid-hosteleria",
+                        Map.of("tabla", "catering", "claseEmpresa", "A")))
+                .withMessageContaining("no corresponde a ninguna tabla");
     }
 
     @Test

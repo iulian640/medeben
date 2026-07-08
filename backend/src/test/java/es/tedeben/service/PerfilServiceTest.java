@@ -70,7 +70,8 @@ class PerfilServiceTest {
         when(repositorio.findById(USUARIO)).thenReturn(Optional.of(existente));
 
         Perfil guardado = servicio.guarda(USUARIO, "Madrid", "hosteleria", "camarero",
-                Map.of("nivel", "II-A"), new BigDecimal("1500"), null);
+                Map.of("tabla", "general", "nivel", "II-A", "claseEmpresa", "A"),
+                new BigDecimal("1500"), null);
 
         assertThat(guardado).isSameAs(existente);
         assertThat(guardado.getPuestoId()).isEqualTo("camarero");
@@ -116,17 +117,19 @@ class PerfilServiceTest {
     void valorLargoDelCatalogoCabe() {
         // El validador de dimensiones no puede rechazar valores largos por ser
         // largos: el corpus real tiene categorías de cientos de caracteres. Se
-        // toma el valor real más largo de la capa derivada y debe aceptarse.
-        String categoriaLarga = new HechosCatalog(new ObjectMapper())
+        // toma el HECHO real con la categoría más larga y se usan SUS dimensiones
+        // completas (categoria + provincia), que sí resuelven tabla.
+        Map<String, String> dimsLargas = new HechosCatalog(new ObjectMapper())
                 .deConvenio("estatal-restauracion-colectiva").stream()
                 .filter(h -> "salarioBase".equals(h.concepto()))
-                .map(h -> h.dimensiones().get("categoria"))
-                .filter(java.util.Objects::nonNull)
-                .max(java.util.Comparator.comparingInt(String::length))
+                .map(h -> h.dimensiones())
+                .filter(dims -> dims.get("categoria") != null)
+                .max(java.util.Comparator.comparingInt(dims -> dims.get("categoria").length()))
                 .orElseThrow();
+        String categoriaLarga = dimsLargas.get("categoria");
 
         Perfil perfil = servicio.guarda(USUARIO, "Madrid", "restauracion-colectiva", null,
-                Map.of("categoria", categoriaLarga), null, null);
+                dimsLargas, null, null);
 
         assertThat(categoriaLarga.length()).isGreaterThan(100);
         assertThat(perfil.getConvenioId()).isEqualTo("estatal-restauracion-colectiva");
@@ -169,7 +172,8 @@ class PerfilServiceTest {
                 .thenAnswer(inv -> inv.getArgument(0));
 
         Perfil guardado = servicio.guarda(USUARIO, "Madrid", "hosteleria", "camarero",
-                Map.of("nivel", "II-A"), new BigDecimal("1500"), null);
+                Map.of("tabla", "general", "nivel", "II-A", "claseEmpresa", "A"),
+                new BigDecimal("1500"), null);
 
         assertThat(guardado).isSameAs(creadoPorLaOtraPeticion);
         assertThat(guardado.getPuestoId()).isEqualTo("camarero");

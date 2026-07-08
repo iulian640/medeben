@@ -82,12 +82,14 @@ class PerfilServiceIntegracionTest {
     @DisplayName("crear → actualizar → segunda actualización: la fila se sobrescribe, sin choque de PK")
     void segundaActualizacionNoViolaLaPk() {
         servicio.guarda(usuarioId, "Madrid", "hosteleria", "cocinero",
-                Map.of("nivel", "III"), new BigDecimal("1400"), null);
+                Map.of("tabla", "general", "nivel", "III", "claseEmpresa", "B"),
+                new BigDecimal("1400"), null);
         em.flush();
         em.clear();
 
         servicio.guarda(usuarioId, "Madrid", "hosteleria", "camarero",
-                Map.of("nivel", "II-A"), new BigDecimal("1500"), null);
+                Map.of("tabla", "general", "nivel", "II-A", "claseEmpresa", "A"),
+                new BigDecimal("1500"), null);
         em.flush();
         em.clear();
 
@@ -126,7 +128,8 @@ class PerfilServiceIntegracionTest {
         try {
             // La "otra petición" gana la carrera e inserta el perfil.
             servicio.guarda(usuarioId, "Madrid", "hosteleria", "cocinero",
-                    Map.of("nivel", "III"), new BigDecimal("1400"), null);
+                    Map.of("tabla", "general", "nivel", "III", "claseEmpresa", "B"),
+                    new BigDecimal("1400"), null);
 
             // Repositorio con lectura rancia: la primera findById() no ve la
             // fila recién creada; el resto de llamadas van al repositorio real.
@@ -141,7 +144,8 @@ class PerfilServiceIntegracionTest {
                     Clock.fixed(AHORA.toInstant(), ZoneId.of("Europe/Madrid")));
 
             Perfil guardado = servicioEnCarrera.guarda(usuarioId, "Alicante", "hosteleria",
-                    "camarero", Map.of("nivel", "2"), new BigDecimal("1500"), null);
+                    "camarero", Map.of("grupoEstablecimiento", "A", "nivel", "2"),
+                    new BigDecimal("1500"), null);
 
             assertThat(guardado.getConvenioId()).isEqualTo("alicante-hosteleria");
             Perfil recargado = perfiles.findById(usuarioId).orElseThrow();
