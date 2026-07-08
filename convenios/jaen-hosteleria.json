@@ -3,8 +3,13 @@
   "id": "jaen-hosteleria",
   "nombre": "Convenio Colectivo Provincial de Hosteleria de Jaen",
   "codigoRegcon": "23000425011983",
-  "ambitoTerritorial": "Provincia de Jaen (Andalucia)",
-  "ambitoFuncional": "Empresas y personas trabajadoras del sector de Hosteleria: las incluidas en el ambito del ALEH (Acuerdo Laboral de ambito Estatal para el sector de Hosteleria), incluidas viviendas con fines turisticos y apartamentos turisticos (Art. 2).",
+  "ambitoTerritorial": {
+    "tipo": "provincial",
+    "comunidad": "Andalucía",
+    "provincias": ["Jaén"]
+  },
+  "ambitoFuncional": "hosteleria",
+  "ambitoFuncionalDescripcion": "Empresas y personas trabajadoras del sector de Hosteleria: las incluidas en el ambito del ALEH (Acuerdo Laboral de ambito Estatal para el sector de Hosteleria), incluidas viviendas con fines turisticos y apartamentos turisticos (Art. 2).",
   "fuente": {
     "boletin": "BOP Jaen",
     "numero": 157,

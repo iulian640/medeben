@@ -1,6 +1,6 @@
 {
   "$comment": "Verificado contra el BOCM nº121 (23-05-2026). Tablas y condiciones extraídas del articulado oficial, cada dato con su artículo. Ver campos 'estado' y 'verificadoContra'.",
-  "id": "es-madrid-hospedaje",
+  "id": "madrid-hospedaje",
   "nombre": "Convenio colectivo del Sector Hospedaje de la Comunidad de Madrid",
   "codigoRegcon": "28009435011996",
   "ambitoTerritorial": {
