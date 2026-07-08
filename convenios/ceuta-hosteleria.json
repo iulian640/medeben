@@ -442,12 +442,8 @@
   "pendienteCondiciones": [
     "vacaciones.tipoDias: el Art. 12 no especifica naturales/laborables (por defecto ET = 30 naturales). Duda para UGT.",
     "vacaciones.diasExtraTemporadaAlta: el texto literal dice '1 días más' por no disfrutar en junio-septiembre; se interpreta 1 día. Confirmar alcance con UGT.",
-    "vacaciones.retribucion.base: el convenio no especifica la base de cálculo de la retribución de vacaciones. Duda para UGT.",
     "vacaciones.fraccionamiento y bajaDuranteVacaciones_IT: no regulados expresamente; rige el ET.",
     "jornada.jornadaAnualHoras: el convenio no fija cómputo anual, solo 40 h/semana.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio (Art. 57) → tomar del ALEH estatal.",
-    "periodoPrueba: duraciones NO reguladas en el convenio (Art. 50) → tomar del ALEH estatal.",
-    "representacionSindical.creditoHorario: no mejorado en el convenio → base legal art. 68 ET.",
     "plusVinculacionBonificacion: el 8% está condicionado a la vigencia de la bonificación empresarial a la Seg. Social (RD-ley 1/2023); confirmar situación actual con UGT."
   ],
   "verificadoContra": "PDF oficial del BOCCE nº 6.571 (05-12-2025), páginas 10-30. Tablas salariales Anexos I-V (retribuciones 2025-2029) verificadas en IMAGEN renderizada a 185 dpi, celda a celda. Categorías profesionales Anexo VI (5 áreas funcionales) leídas en imagen. Articulado (Título I a VIII, Arts. 1-57 + Disposición Transitoria) leído del texto oficial. Verificado que el convenio remite expresamente al ALEH para periodo de prueba (Art. 50) y régimen disciplinario (Art. 57).",

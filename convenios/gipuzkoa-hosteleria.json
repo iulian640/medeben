@@ -421,10 +421,6 @@
   "estado": "verificado",
   "estadoNota": "Tablas salariales AÑO 2026 (Anexo III: niveles 1-5 + Aux. hostelería), valor del trienio (Anexo IV), nocturnidad (Anexo V), manutención (Anexo VI) y seguro colectivo (Anexo VII) VERIFICADOS visualmente celda a celda contra el PDF oficial (BOG 29/2026, render 185 dpi). Condiciones no salariales (jornada, pagas, antigüedad, festivos, IT, ropa, periodo de prueba, ceses, vacaciones, permisos, régimen disciplinario completo, representación sindical, formación, igualdad/acoso) extraídas del articulado oficial del texto 2023 (BOG 117/2023). Mapeo ocupación→nivel salarial resuelto vía Anexo II.",
   "pendienteCondiciones": [
-    "vacaciones.retribucion: el Art. 32 no especifica la base de cálculo (salario base vs. promedio con complementos). Duda para UGT.",
-    "nocturnidad.tramoHorario: el Art. 18 no fija el período nocturno; por defecto ET art. 36.2 (22:00–06:00).",
-    "excedencias: no reguladas en el convenio → art. 46 ET.",
-    "horasExtraordinarias: sin precio €/hora ni recargo fijado; se compensan preferentemente con descanso (Art. 16).",
     "vigencia: el convenio expira 31-12-2026; tablas 2027 aún no publicadas (procede negociar convenio nuevo)."
   ],
   "curiosidades": [
