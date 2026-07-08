@@ -1,0 +1,1074 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../madrid-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; el validador del backend comprueba en cada build que importe == valor en la transcripción. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el Anexo I (régimen general por niveles retributivos, el salario por defecto del sector); el Anexo III (% de servicio histórico) NO está derivado: solo aplica a empresas que lo conservan.",
+  "id": "madrid-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1296.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1251.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1145.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1205.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/II-A/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1183.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/II-A/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1115.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/II-A/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1190.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/II-B/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1160.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/II-B/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1100.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/II-B/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1175.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1145.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1062.61,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1115.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1085.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1032.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1055.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1024.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 994.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/general/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "I"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1336.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/catering/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1290.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/catering/II-A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1242.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/catering/II-B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1197.32,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/catering/II-C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "III-A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1169.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/catering/III-A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "III-B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1122.14,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/catering/III-B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "IV"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1095.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/catering/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "V"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1076.61,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) a)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2023/catering/V"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1361.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1313.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1202.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/II-A/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1242.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/II-A/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1171.14,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/II-A/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1250.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/II-B/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1218.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/II-B/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1155.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/II-B/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1234.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1202.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1115.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1171.14,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1139.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1084.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1107.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1076.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1044.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/general/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "I"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1403.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/catering/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1355.01,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/catering/II-A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1304.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/catering/II-B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1257.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/catering/II-C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "III-A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1228.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/catering/III-A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "III-B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1178.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/catering/III-B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "IV"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1150.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/catering/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "V"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1130.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) b)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2024/catering/V"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1415.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1366.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "I",
+        "claseEmpresa": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1250.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1316.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/II-A/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1292.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/II-A/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-A",
+        "claseEmpresa": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1217.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/II-A/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1300.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/II-B/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1267.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/II-B/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "II-B",
+        "claseEmpresa": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1201.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/II-B/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1283.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1250.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "III",
+        "claseEmpresa": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1160.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1217.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1185.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "IV",
+        "claseEmpresa": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1127.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1152.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1119.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "general",
+        "nivel": "V",
+        "claseEmpresa": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1086.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/general/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "I"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1459.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/catering/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1409.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/catering/II-A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1356.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/catering/II-B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "II-C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1307.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/catering/II-C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "III-A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1277.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/catering/III-A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "III-B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/catering/III-B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1196.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/catering/IV"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tabla": "catering",
+        "nivel": "V"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1175.66,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I C) c)",
+      "rutaCruda": "/tablasAnexoI/salariosBaseMensuales/2025/catering/V"
+    }
+  ]
+}
