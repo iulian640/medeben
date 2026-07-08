@@ -9,6 +9,12 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    {
+      path: '/perfil',
+      name: 'perfil',
+      // Lazy: la Home carga ligera; el flujo de perfil se trae al navegar.
+      component: () => import('../views/PerfilView.vue'),
+    },
   ],
 })
 
