@@ -131,6 +131,28 @@ async function calcular() {
       <p class="detalle">
         Cada hora extra vale como mínimo {{ formatearImporte(resultado.precioHora) }} €.
       </p>
+      <details class="desglose">
+        <summary>¿De dónde sale este mínimo?</summary>
+        <p>
+          Tu convenio fija un salario base de
+          <strong>{{ formatearImporte(resultado.desglose.salarioBaseMensual) }} € al mes</strong>
+          y <strong>{{ resultado.desglose.mensualidades }} pagas</strong> al año<template
+            v-if="resultado.desglose.plusesAnuales > 0"
+          >
+            , más {{ formatearImporte(resultado.desglose.plusesAnuales) }} € de pluses anuales
+          </template>.
+          Repartido entre las
+          <strong>{{ formatearImporte(resultado.desglose.jornadaAnualHoras) }} horas</strong>
+          de jornada anual, tu hora ordinaria sale a
+          <strong>{{ formatearImporte(resultado.desglose.valorHora) }} €</strong>.
+          La ley no permite pagar la hora extra por debajo de tu hora ordinaria
+          (art. 35 del Estatuto de los Trabajadores).
+        </p>
+        <p v-if="resultado.precioHora > resultado.desglose.valorHora">
+          Además, tu convenio fija un precio de hora extra mejor:
+          <strong>{{ formatearImporte(resultado.precioHora) }} €</strong>. Se aplica el más alto.
+        </p>
+      </details>
       <CitasFuente :citas="resultado.citas" />
     </div>
   </section>
@@ -195,6 +217,20 @@ h2 {
 .error {
   color: #c0392b;
   font-size: 0.9rem;
+}
+
+.desglose {
+  margin: 0.75rem 0;
+  font-size: 0.95rem;
+}
+.desglose summary {
+  cursor: pointer;
+  color: var(--color-primario, #1a5fb4);
+  font-weight: 600;
+}
+.desglose p {
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
 }
 
 .resultado {

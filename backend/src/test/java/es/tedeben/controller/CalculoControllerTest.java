@@ -41,6 +41,9 @@ class CalculoControllerTest {
                                  "salarioBaseMensual":1250.91,"plusesAnuales":2103.42,"horas":5}"""))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.importe").value(54.49))
+                .andExpect(jsonPath("$.desglose.valorHora").value(10.8979))
+                .andExpect(jsonPath("$.desglose.mensualidades").value(14))
+                .andExpect(jsonPath("$.desglose.jornadaAnualHoras").value(1800))
                 .andExpect(jsonPath("$.citas").isNotEmpty());
     }
 
