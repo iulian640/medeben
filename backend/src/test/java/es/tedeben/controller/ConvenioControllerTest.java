@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -83,5 +84,21 @@ class ConvenioControllerTest {
         mockMvc.perform(get("/api/v1/convenios/para-trabajador")
                         .param("provincia", "Narnia").param("subsector", "hosteleria"))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @DisplayName("para-trabajador sin parámetros → 400 en formato RFC 7807")
+    void paraTrabajadorSinParametros() throws Exception {
+        mockMvc.perform(get("/api/v1/convenios/para-trabajador"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.status").value(400));
+    }
+
+    @Test
+    @DisplayName("los GET de datos estáticos llevan Cache-Control público")
+    void cacheControlEnDatosEstaticos() throws Exception {
+        mockMvc.perform(get("/api/v1/convenios/madrid-hosteleria"))
+                .andExpect(status().isOk())
+                .andExpect(header().string("Cache-Control", org.hamcrest.Matchers.containsString("max-age")));
     }
 }

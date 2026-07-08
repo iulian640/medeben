@@ -74,6 +74,16 @@ class CalculoControllerTest {
     }
 
     @Test
+    @DisplayName("JSON malformado → 400 en formato RFC 7807 (mismo contrato que el resto de errores)")
+    void jsonMalformado() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{esto no es json"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.status").value(400));
+    }
+
+    @Test
     @DisplayName("POST /api/v1/calculo/salario-base: cocinero de Madrid en 2026 → 1.250,91 (ultraactividad)")
     void salarioBaseMadrid() throws Exception {
         mockMvc.perform(post("/api/v1/calculo/salario-base")

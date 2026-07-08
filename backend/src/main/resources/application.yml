@@ -3,6 +3,11 @@ spring:
     name: tedeben-backend
   profiles:
     default: dev
+  mvc:
+    problemdetails:
+      # Errores del framework (JSON malformado, parametro ausente...) tambien
+      # como RFC 7807, igual que los del GlobalExceptionHandler
+      enabled: true
   jpa:
     hibernate:
       ddl-auto: validate

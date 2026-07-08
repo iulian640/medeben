@@ -49,4 +49,11 @@ public class GlobalExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR,
                 "Error interno de datos del convenio");
     }
+
+    /** Red de seguridad explícita: nada inesperado sale con detalles internos. */
+    @ExceptionHandler(Exception.class)
+    public ProblemDetail inesperado(Exception e) {
+        log.error("Error inesperado", e);
+        return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, "Error interno");
+    }
 }
