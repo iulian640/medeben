@@ -366,15 +366,9 @@
   "estado": "verificado",
   "estadoNota": "Convenio leído íntegramente en IMAGEN del PDF oficial (BOP Huelva nº138/24, 16-07-2024) a 185 dpi: resolución (pág. resolución), articulado completo Arts. 1-37 + Disposiciones Adicionales 1ª-2ª (pág. convenio 1-16) y Anexos I (tablas 2024-2027), II (clasificación de establecimientos) y III (clasificación profesional y tabla de correspondencias por áreas funcionales). Tablas salariales verificadas celda a celda. Régimen disciplinario, periodo de prueba y excedencias NO los regula el convenio (van al ALEH/ET). La clasificación profesional (definición de grupos) se remite al ALEH; se transcriben ejemplos de ocupaciones por grupo de la tabla de correspondencias del Anexo III.",
   "pendienteCondiciones": [
-    "nocturnidad.tramoHorario: el Art. 18 no define el tramo del periodo nocturno (por defecto ET 22:00-06:00). Duda para UGT.",
     "complementoIT.enfermedadProfesional: el Art. 26 cita 'enfermedad o accidente de trabajo' sin mencionar expresamente la enfermedad profesional. Duda para UGT.",
     "fiestasTrabajadas: el convenio no fija recargo económico por festivo efectivamente trabajado (solo regula festivos coincidentes con descanso). Duda para UGT.",
-    "vacaciones.retribucion: 'las retribuciones a que tengan derecho' sin detallar si es promedio con complementos. Duda para UGT.",
-    "vacaciones preaviso/calendario: no fijado en el convenio (por defecto ET, 2 meses).",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio → tomar del ALEH estatal.",
-    "periodoPrueba: duraciones NO reguladas en el convenio → tomar del ALEH estatal.",
-    "excedencias: NO reguladas en el convenio → ET (arts. 45-46) y ALEH.",
-    "representacionSindical: crédito horario propio no cuantificado (aplica el mínimo del art. 68.e ET); quién representa, elección y garantías/fuero no detallados (ET arts. 62-68 y LOLS)."
+    "vacaciones preaviso/calendario: no fijado en el convenio (por defecto ET, 2 meses)."
   ],
   "verificadoContra": "PDF oficial BOP Huelva nº138/24 (16-07-2024), 25 páginas, renderizado a PNG 185 dpi y leído en imagen. Resolución de la Delegación Territorial de Empleo (Junta de Andalucía en Huelva), expediente 21/01/0088/2024, código 21000585011981, convenio suscrito 21-06-2024. Verificado que el documento es hostelería de Huelva (no otro sector) y que es la publicación con tablas 2024-2027 (vigente en julio 2026). Articulado Arts. 1-37, Disp. Adic. 1ª y 2ª, y Anexos I/II/III leídos página a página.",
   "fechaVerificacion": "2026-07-08"

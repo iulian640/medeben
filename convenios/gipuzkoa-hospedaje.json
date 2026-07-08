@@ -453,7 +453,6 @@
   "estadoNota": "Convenio de ALOJAMIENTOS/HOSPEDAJE de Gipuzkoa (hoteles), distinto del de Restauración (bares). Articulado completo (Arts. 1-59) y anexos I-IX leídos del texto oficial (BOG 125, 02-07-2025). Tablas 2025 (texto íntegro) y 2026 (revisión BOG 30, 16-02-2026) verificadas celda a celda en imagen del PDF oficial (render 185 dpi). 2027 y 2028 sin tablas (solo fórmula IPC+2,5%) → pendiente. Novedad: eliminación del nivel salarial V (absorbido por el IV).",
   "pendienteCondiciones": [
     "salariosBaseMensuales 2027 y 2028: sin tablas publicadas (solo fórmula IPC del año anterior + 2,5%). Se publicarán en revisiones anuales del BOG.",
-    "vacaciones.retribucion: el Art. 17 no especifica la base de cálculo (salario base vs promedio con complementos). Duda para UGT.",
     "periodoPrueba: el Art. 31 usa 'niveles 4 y 5' pero el nivel salarial V fue eliminado (anexo I). Posible desalineación de escala. Duda para UGT.",
     "plusTransporte: no tiene importe tabulado (= coste real del transporte público, 2 viajes/día). No cuantificable en tabla.",
     "ropaTrabajo: la compensación en metálico no está tabulada en el convenio.",

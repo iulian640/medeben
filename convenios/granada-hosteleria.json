@@ -393,10 +393,6 @@
   "estado": "verificado",
   "estadoNota": "Tabla salarial vigente (2025, Anexo IV) verificada VISUALMENTE celda a celda en el PDF oficial (185 dpi), incluidos los 6 niveles + Nivel IV BIS y todos los 'otros conceptos retributivos'. Articulado completo (Arts. 1-57) leído del texto oficial. Régimen disciplinario y duraciones de periodo de prueba NO los regula el convenio: se remiten al ALEH estatal. Retribución exacta de las vacaciones no especificada en el convenio (duda para UGT).",
   "pendienteCondiciones": [
-    "vacaciones.retribucion: el Art. 16 no especifica si las vacaciones se pagan a salario base o por promedio con complementos. Duda para UGT.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio provincial → tomar del ALEH estatal.",
-    "periodoPrueba: duraciones por grupo/categoría NO reguladas en el convenio → tomar del ALEH estatal.",
-    "representacionSindical.quienRepresentaYeleccion: sistema de elección no detallado en el convenio → base legal ET arts. 62-68 y LOLS.",
     "pluses.plusAltura: importe 2025 = 9,22 € pero el Anexo no especifica la unidad temporal (¿mensual?). Duda menor.",
     "camarerasDePisos.2026: la equiparación al Nivel IV pleno el 1-1-2026 está pactada en el convenio, pero no hay tabla 2026 publicada (ultraactividad); se aplican importes 2025 pero cobrando como Nivel IV."
   ],

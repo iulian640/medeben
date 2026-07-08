@@ -461,11 +461,7 @@
   "estado": "verificado",
   "estadoNota": "Convenio 2024-2026 leído íntegramente en IMAGEN (185 dpi) del PDF oficial BOP Córdoba nº192 (04-10-2024), páginas 11541-11603 (articulado completo Arts. 1-69 + disposición adicional única + Anexo I tablas 2024/2025/2026). Tablas salariales por nivel y tipo de establecimiento verificadas celda a celda para los tres años. Condiciones no salariales extraídas del articulado. Régimen disciplinario y periodo de prueba NO los regula el convenio: remiten al ALEH estatal.",
   "pendienteCondiciones": [
-    "vacaciones.retribucion: el Art. 27 no especifica la base de cálculo (salario base vs promedio con complementos). Duda para UGT.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio (Art. 68 remite al Cap. VIII del ALEH estatal).",
-    "periodoPrueba: duraciones NO reguladas en el convenio (Art. 21 remite al Cap. V del ALEH).",
-    "salariosBaseMensualesPorNivel.notaRedondeo: descuadres de céntimo entre áreas en algún nivel (p. ej. 1.213,03 vs 1.213,04); se usaron los valores mayoritarios.",
-    "representacionSindical.cuotaSindical y quienRepresentaYeleccion: no detallados en el convenio → base legal ET arts. 62-68 y LOLS."
+    "salariosBaseMensualesPorNivel.notaRedondeo: descuadres de céntimo entre áreas en algún nivel (p. ej. 1.213,03 vs 1.213,04); se usaron los valores mayoritarios."
   ],
   "verificadoContra": "PDF oficial BOP Córdoba nº192 (04-10-2024), anuncio BOP-A-2024-3899, código convenio 14000355011982. Renderizado con PyMuPDF (fitz) a 185 dpi y leído página a página (63 páginas). Articulado (Arts. 1-69, pp. 11542-11585) y Anexo I con tablas salariales de 2024 (pp. 11586-11591), 2025 (pp. 11592-11597) y 2026 (pp. 11598-11603). Cada dato lleva su artículo.",
   "fechaVerificacion": "2026-07-08"

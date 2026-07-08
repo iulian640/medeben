@@ -364,16 +364,10 @@
   "estadoNota": "Convenio completo verificado en imagen (185 dpi, celda a celda): articulado (Arts. 1-33 + disposiciones adicionales, páginas 16399-16410), Anexo I de clasificación (16411-16412) y Anexo II con las tablas salariales de 2023, 2024 y 2025 (16413-16415). Es la publicación MÁS RECIENTE CON TABLAS a julio 2026 (el convenio 2026-2028 está firmado pero no publicado). El convenio NO regula periodo de prueba ni régimen disciplinario: se remiten al ALEH estatal (Disposición complementaria).",
   "pendienteCondiciones": [
     "salariosBaseMensuales.2026: 'pendiente' — convenio 2026-2028 firmado (09-03-2026, +5% para 2026) pero sin tablas publicadas en el BOR a julio 2026; además posible revisión IPC del Art. 8 aplicable solo a 2026. No se inventa.",
-    "vacaciones.retribucion: el Art. 16 no detalla si se pagan a salario base o por promedio con complementos. Duda para UGT.",
-    "vacaciones.fraccionamiento: no regulado expresamente en el Art. 16. Duda para UGT.",
-    "periodoPrueba: duraciones por grupo/nivel NO reguladas en el convenio → tomar del ALEH estatal. Duda para UGT.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio → tomar del ALEH estatal.",
-    "representacionSindical.quienRepresentaYeleccion y garantiasYfuero: no detallados en el convenio → base legal ET arts. 62-68 y LOLS."
+    "vacaciones.fraccionamiento: no regulado expresamente en el Art. 16. Duda para UGT."
   ],
   "dudasParaUGT": [
     "Confirmar que el convenio 2026-2028 (firmado 09-03-2026) sigue sin publicar en el BOR y, cuando se publique, incorporar las tablas 2026-2028.",
-    "Retribución de vacaciones: ¿salario base o promedio con complementos (nocturnidad, plus de 24/31 dic...)?",
-    "Duración del periodo de prueba aplicable vía ALEH para hospedaje, por nivel profesional.",
     "¿Se aplicó finalmente la revisión salarial del Art. 8 (exceso de IPC >11,40%, tope 2,10%) a las tablas 2026?"
   ],
   "verificadoContra": "PDF oficial del BOR nº172 (24-08-2023, páginas 16399-16415), Resolución 40/2023, código de convenio 26000225011981, código de verificación electrónica BOR-A-20230824-III-3034. Leído íntegramente en imagen a 185 dpi (17 páginas renderizadas con PyMuPDF): identificación y ámbitos (Arts. 1-2), vigencia/denuncia/comisión paritaria (Arts. 3-6), condiciones retributivas (Arts. 7-12: salarios, revisión, pagas, antigüedad, nocturnidad, transporte), tiempo de trabajo (Arts. 13-15), vacaciones/permisos/excedencias (Arts. 16-19), mejora de prestaciones (Arts. 20-24: jubilación parcial, uniformidad, manutención, enfermedad/IT, póliza accidente), contratación (Arts. 25-28), aspectos sindicales (Arts. 29-30), asuntos sociales (Arts. 31-33), disposiciones adicionales, Anexo I (clasificación) y Anexo II (tablas 2023/2024/2025). Verificado que el articulado NO contiene periodo de prueba ni régimen disciplinario (remitidos al ALEH por la Disposición complementaria).",
