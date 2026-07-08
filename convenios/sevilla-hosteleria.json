@@ -2,7 +2,7 @@
   "$comment": "Convenio del sector de Hostelería de Sevilla 2025-2028. Transcrito VISUALMENTE del PDF oficial (BOP Sevilla nº102, 30-05-2025, CVE BOP-SE-2025-102031), 26 páginas renderizadas a imagen 185 dpi y leídas celda a celda. Convenio multi-año: todas las tablas de los 4 años (2025-2028) publicadas de una vez. Incrementos: 4% (2025 sobre 2024), 5% (2026), 4% (2027), 4% (2028); no aplican a la antigüedad (art. 10). El convenio NO tiene régimen disciplinario ni artículo propio de permisos retribuidos ni periodo de prueba/excedencias/ascensos: en todo lo no previsto remite al VI Acuerdo Laboral de ámbito Estatal para el Sector de Hostelería (ALEH) — Disposición final.",
   "id": "sevilla-hosteleria",
   "nombre": "Convenio del sector de Hostelería de Sevilla para el período 2025-2028",
-  "codigoRegcon": "pendiente",
+  "codigoRegcon": "41001465011981",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Andalucía", "provincias": ["Sevilla"] },
   "ambitoFuncional": "hosteleria",
   "ambitoPersonal": {
@@ -400,7 +400,6 @@
   },
 
   "pendiente": [
-    "codigoRegcon (código de convenio / REGCON) — no aparece en las páginas del articulado leídas",
     "Dietas y kilometraje por desplazamiento — no aparecen en el convenio"
   ],
   "estado": "verificado",
