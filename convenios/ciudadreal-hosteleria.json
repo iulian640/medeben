@@ -46,7 +46,7 @@
   },
 
   "pagasExtraordinarias": {
-    "total": 3,
+    "cantidad": 3,
     "articulo": "Art. 42",
     "detalle": "Tres pagas extraordinarias: MARZO (abono 1ª quincena de marzo), VERANO (1ª quincena de julio) y NAVIDAD (22 de diciembre). Verano y Navidad: una mensualidad del salario garantizado + antigüedad cada una. MARZO: solo 30 días de salario (sin el complemento de antigüedad). El personal temporal cobra la parte proporcional al finalizar.",
     "$comment": "Ojo: 12 mensualidades + 3 pagas = 15 percepciones al año, pero la de marzo es reducida (30 días de salario, sin antigüedad)."

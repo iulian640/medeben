@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import java.math.BigDecimal;
 import java.time.Year;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -48,13 +46,7 @@ public record Convenio(
                 horas = jornada.path("jornadaAnualHoras");
             }
         }
-        if (horas.isNumber()) {
-            return Optional.of(horas.decimalValue());
-        }
-        if (horas.isObject()) {
-            return ultimaEntradaPorAnio(horas, anio);
-        }
-        return Optional.empty();
+        return ValoresPorAnio.resuelve(horas, anio);
     }
 
     /**
@@ -106,26 +98,4 @@ public record Convenio(
         return valor;
     }
 
-    private static Optional<BigDecimal> ultimaEntradaPorAnio(JsonNode porAnio, Year anio) {
-        int tope = anio.getValue();
-        int mejorAnio = Integer.MIN_VALUE;
-        BigDecimal mejorValor = null;
-        for (Iterator<Map.Entry<String, JsonNode>> it = porAnio.fields(); it.hasNext(); ) {
-            Map.Entry<String, JsonNode> entrada = it.next();
-            if (!entrada.getValue().isNumber()) {
-                continue;
-            }
-            int anioEntrada;
-            try {
-                anioEntrada = Integer.parseInt(entrada.getKey());
-            } catch (NumberFormatException e) {
-                continue;
-            }
-            if (anioEntrada <= tope && anioEntrada > mejorAnio) {
-                mejorAnio = anioEntrada;
-                mejorValor = entrada.getValue().decimalValue();
-            }
-        }
-        return Optional.ofNullable(mejorValor);
-    }
 }

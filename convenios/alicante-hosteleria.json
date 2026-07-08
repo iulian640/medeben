@@ -198,6 +198,8 @@
     "verificado": true
   },
   "pagasExtraordinarias": {
+    "mensualidadesEquivalentes": 14,
+    "mensualidadesEquivalentesNota": "14 mensualidades proporcionales al salario (12 + verano + navidad). La gratificación de octubre es de CUANTÍA FIJA igual para todos los niveles y NO entra en este multiplicador (pendiente de motor: pagas fijas).",
     "cantidad": 3,
     "articulo": "art. 38",
     "resumen": "3 gratificaciones extraordinarias: verano, navidad y octubre. Las de verano y navidad son de una mensualidad de salario base (+ ad personam de antigüedad en su caso) cada una; la de octubre es de cuantía FIJA e igual para todos los niveles salariales. Equivale aproximadamente a 14 mensualidades de salario base + una gratificación fija de octubre.",

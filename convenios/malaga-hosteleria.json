@@ -303,6 +303,8 @@
     "retribucion": "Percibe lo que viniera percibiendo cada mensualidad + prorrata de gratificaciones; no devenga pluses variables ni descansos por vacaciones/fiestas durante la licencia."
   },
   "pagasExtraordinarias": {
+    "mensualidadesEquivalentes": 14,
+    "mensualidadesEquivalentesNota": "12 mensualidades + 2 gratificaciones de una mensualidad cada una (julio y diciembre) = 14.",
     "$comment": "Art. 31º Gratificaciones extraordinarias. Leído en imagen del articulado.",
     "articulo": "Art. 31º",
     "numero": 2,
