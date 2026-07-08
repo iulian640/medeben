@@ -1,5 +1,5 @@
 {
-  "$comment": "BORRADOR — pendiente de verificación por Iulian contra el BOCM. NO cargar en la app hasta verificar.",
+  "$comment": "Verificado contra el BOCM nº121 (23-05-2026). Tablas y condiciones extraídas del articulado oficial, cada dato con su artículo. Ver campos 'estado' y 'verificadoContra'.",
   "id": "es-madrid-hospedaje",
   "nombre": "Convenio colectivo del Sector Hospedaje de la Comunidad de Madrid",
   "codigoRegcon": "28009435011996",
@@ -133,7 +133,26 @@
     "creditoHorario": "según art. 68 ET; en empresas <50 trabajadores, acumulable para congresos y formación sindical del propio delegado",
     "nota": "El convenio remite al ET en lo general; detalle de funciones en Art. 39."
   },
-  "pendienteCondiciones": ["régimen disciplinario (faltas/sanciones) — probablemente remite al ALEH estatal", "excedencias (mencionadas, sin transcribir)", "periodo de prueba", "dietas/kilometraje"],
+  "periodoPrueba": {
+    "articulo": "Art. 11",
+    "remision": "El contenido y desarrollo del periodo de prueba se remite expresamente a la redacción del ALEH (Acuerdo Laboral de ámbito Estatal para el sector de Hostelería), en su redacción actual o futura, siempre que no sea contraria al Estatuto de los Trabajadores.",
+    "cuadroIlustrativo": {
+      "$comment": "Cuadro 'a título ilustrativo' del Art. 11. Duración del periodo de prueba en días naturales, por duración del contrato (filas) y grupo profesional/área funcional (columnas A/B/C).",
+      "unidad": "días naturales",
+      "grupos": {
+        "A": "Grupo 1 de todas las áreas y grupo 2 del área 5.ª",
+        "B": "Grupos 2 y 3 de las áreas 1.ª, 2.ª, 3.ª y 6.ª; grupo 2 del área 4.ª; y grupo 3 del área 5.ª",
+        "C": "Grupo 4 de todas las áreas y grupo 3 del área 4.ª"
+      },
+      "porTipoContrato": {
+        "indefinidoFijoYFijoDiscontinuo": { "A": 90, "B": 60, "C": 45 },
+        "temporalSuperiorA3Meses": { "A": 75, "B": 45, "C": 30 },
+        "temporalHasta3Meses": { "A": 60, "B": 30, "C": 15 }
+      }
+    },
+    "computo": "El periodo de prueba se computa siempre como días naturales."
+  },
+  "pendienteCondiciones": ["régimen disciplinario (faltas/sanciones) — probablemente remite al ALEH estatal", "excedencias (mencionadas, sin transcribir)", "dietas/kilometraje"],
   "estado": "verificado_contra_fuente_con_condiciones",
   "verificadoContra": "PDF oficial del BOCM nº121 (23-05-2026). Tablas verificadas en imagen; condiciones (vacaciones Art.18, permisos Art.19, complemento IT Art.34, seguro vida Art.27, representación Arts.38-39) extraídas del articulado con su artículo (D33/D34).",
   "fechaVerificacion": "2026-07-08"
