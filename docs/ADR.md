@@ -195,6 +195,21 @@ Contexto de Iulian: la gente de hostelería sale reventada, no sigue costumbres 
   - **Jornada partida:** algunos convenios la compensan.
 - Campos por convenio: `descansoEntreJornadasHoras`, `vacacionesDias`, reglas de jornada partida.
 
+### D38 — Horario y fichajes: la libreta sellada (Iulian + Claude, 2026-07-08)
+Concreta D5 (la app te persigue) y D6 (cuadrantes con historial) para la fase de fichajes. Decisiones de producto cerradas con Iulian:
+
+- **Estructura del día:** libre, turno seguido (1 tramo) o partido (2 tramos, máximo). Cubre la realidad de hostelería sin complicar pantalla ni notificaciones.
+- **Estructura del horario:** semana tipo que se repite sola + ediciones por semana concreta cuando te cambian el turno. Cada versión editada queda en historial con fecha (prueba de cambios de última hora, D6).
+- **Entrada manual primero:** la foto del cuadrante (guardada con fecha) llega en una iteración posterior, junto con su análisis RGPD (salen compañeros).
+- **Nada se auto-asume:** si el usuario no confirma un día, NO se guarda como trabajado. Mismo principio que los convenios: dato ausente > dato inventado. Un registro que se auto-rellena es fácil de atacar en juicio y contamina toda la libreta.
+- **Ventana de confirmación de 14 días (idea de Iulian):** cada día queda "pendiente" hasta que el usuario lo confirma o reconstruye. Dentro de la ventana se puede corregir, guardando historial. A los 14 días el día se **sella**.
+- **Rectificación tardía (idea de Iulian):** después del sello se puede rectificar, pero la rectificación va a un **registro propio** con su sello de fecha; el valor original sellado nunca se altera y sigue visible. En el informe PDF aparecen ambos, separados. Modelo contable: no se borra, se rectifica con apunte nuevo. En la UI lleva fricción y aviso explícito.
+- **Origen de cada registro** (jerarquía probatoria): `confirmado` (fichado al momento, sello de hora del servidor — lo que más vale), `reconstruido` (confirmado dentro de la ventana, días después), `rectificacion_tardia` (tras el sello — vale poco, pero es honesto). Lo nunca confirmado = hueco permanente; un diario real tiene huecos, un diario perfecto canta.
+- **Por qué (razón probatoria):** el sello de hora responde a "¿cuándo lo apuntó?" (contemporaneidad) y el sellado a 14 días responde a "¿pudo manipularlo cuando ya olía a juicio?" (consistencia). Las dos preguntas que un juez le haría al registro.
+- **Modelo interno: diario de eventos append-only.** Nunca se edita ni borra nada; fichajes, correcciones, sellados y rectificaciones son apuntes nuevos con sello de servidor. El estado del día se deriva del diario.
+- **Comunicación al usuario (obligatoria, Iulian: "hay que explicárselo muy bien"):** onboarding de la libreta (fichar al momento vale más / 14 días y se sella / los huecos son normales y dan credibilidad), microcopy de sellado al fichar ("✓ sellado a las 23:47"), contador de cierre ("el martes 12 se sella en 3 días"), y entrada del feed (D27) explicando por qué una libreta con huecos vale más que una perfecta.
+- **Notificaciones: Capacitor entra ya en esta fase** (decisión de Iulian): notificaciones locales reales en Android en cuanto la mecánica esté; implica instalar Android SDK.
+
 ### D37 — Capa derivada normalizada: se normaliza también el almacenamiento (Iulian + Claude, 2026-07-08)
 Revisa la concreción de D24 ("normalizar la búsqueda, no el almacenamiento"). Detonante: las rarezas reales del corpus (periodos abril→marzo de Baleares, 4 nombres de campo para las pagas con 2 semánticas distintas) obligaban al motor a acumular lógica por convenio — la fuente del CRITICAL cazado en la PR #113.
 

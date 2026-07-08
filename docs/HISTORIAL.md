@@ -3,6 +3,29 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-08 — noche · Horario: arranca la libreta sellada (D38)
+
+- **Decisiones de producto cerradas con Iulian (ADR D38):** día = libre / seguido /
+  partido (máx. 2 tramos); semana tipo que se repite + ediciones por semana con
+  historial fechado; nada se auto-asume (sin confirmación no hay dato); ventana de
+  14 días para confirmar y el día se **sella**; después del sello solo rectificación
+  tardía en registro propio (idea de Iulian: como la contabilidad, no se borra, se
+  rectifica con apunte nuevo); los huecos se quedan huecos. Razón probatoria: el sello
+  de hora responde "¿cuándo lo apuntó?" y el sellado "¿pudo manipularlo después?".
+- **Backend del horario (TDD, 24 tests nuevos, 136 en total):** entidad `Cuadrante`
+  append-only (el repositorio ni siquiera expone borrar), resolución del horario
+  efectivo por semana usando la versión vigente ENTONCES (el pasado no se reescribe),
+  turno de cierre que cruza medianoche solo en el último tramo, guarda de semana
+  sellada → 409, reloj inyectable (`RelojConfig`, zona peninsular; Canarias pendiente).
+  Endpoints: GET/PUT `/api/v1/horario` y `/api/v1/horario/semana/{lunes}`.
+- **README bilingüe (PR #132, agente):** `README.md` en inglés por defecto +
+  `README.es.md`, `docs/dev-setup` igual; términos legales españoles con glosa;
+  pasado por la skill avoid-ai-writing. Docs internos siguen en castellano.
+- En vuelo: agente de frontend auth (login/registro/perfil, token solo en memoria).
+- Siguiente: el diario de fichajes (apuntes append-only sobre este horario) y el
+  "te deben este mes". Capacitor entra ya (decisión de Iulian); Android Studio
+  instalándose en su máquina.
+
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
 - **Frontend de autenticación + cuenta (Vue)**: pantallas de login y registro
