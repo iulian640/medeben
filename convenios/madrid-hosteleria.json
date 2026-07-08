@@ -203,7 +203,15 @@
     "hospitalizacionCirugia": { "porcentaje": 100, "desdeDia": 1 },
     "duracionMaxima": "18 meses"
   },
-  "pendienteCondiciones": ["resto de permisos del Art.19 (fallecimiento, traslado, deber inexcusable)", "régimen disciplinario", "excedencias", "periodo de prueba", "representación sindical", "seguro de vida si existe"],
+  "periodoPrueba": {
+    "articulo": "Art. 8",
+    "fijaDiasPropios": false,
+    "remision": "ALEH",
+    "regla": "El convenio de Madrid no fija días propios de periodo de prueba: remite a la legislación vigente (Estatuto de los Trabajadores) y al Acuerdo Laboral de ámbito Estatal para el Sector de Hostelería (ALEH). Los días concretos por grupo profesional los fija el ALEH vigente, no este convenio.",
+    "textoLiteral": "Se estará a la legislación vigente y a lo dispuesto en el Acuerdo Laboral de Ámbito Estatal vigente para el Sector de Hostelería.",
+    "nota": "Título II - Contratación. Consultar la tabla de periodo de prueba por grupos del ALEH para el dato numérico."
+  },
+  "pendienteCondiciones": ["resto de permisos del Art.19 (fallecimiento, traslado, deber inexcusable)", "régimen disciplinario", "excedencias", "representación sindical", "seguro de vida si existe"],
   "estado": "verificado_2025_completo_con_condiciones",
   "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen (tablas 2025 sec 3ª, arts. 14/26/27/28/29). Condiciones (vacaciones Art.18, permisos Art.19, complemento IT Art.39) extraídas del articulado con su artículo (D33/D34).",
   "fechaVerificacion": "2026-07-08"
