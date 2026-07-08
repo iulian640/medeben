@@ -28,4 +28,4 @@ En dev, las llamadas a `/api` se redirigen al backend Spring Boot local
 
 Los iconos PWA (`public/pwa-*.png`) son placeholders — pendiente diseño real.
 
-Ver [docs/dev-setup.md](../docs/dev-setup.md) para el setup completo.
+Ver [docs/dev-setup.es.md](../docs/dev-setup.es.md) para el setup completo.
