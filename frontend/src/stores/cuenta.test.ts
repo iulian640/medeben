@@ -212,6 +212,80 @@ describe('cuenta store', () => {
     expect(cuenta.cargando).toBe(false)
   })
 
+  it('limpiar descarta un guardado en vuelo: la respuesta tardía del PUT no repuebla el formulario', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+    let resolverPut!: (p: PerfilGuardado) => void
+    vi.mocked(putPerfilUsuario).mockReturnValue(
+      new Promise((resolve) => {
+        resolverPut = resolve
+      }),
+    )
+    const guardadoEnVuelo = cuenta.guardar()
+
+    cuenta.limpiar()
+    resolverPut({ ...perfilServidor, salarioBaseMensual: 1600 })
+    await guardadoEnVuelo
+
+    expect(cuenta.provincia).toBeNull()
+    expect(cuenta.salarioBaseMensual).toBeNull()
+    expect(cuenta.guardado).toBe(false)
+    expect(cuenta.guardando).toBe(false)
+  })
+
+  it('dispositivo compartido: el PUT tardío de A no pisa el perfil recién cargado de B', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+    let resolverPut!: (p: PerfilGuardado) => void
+    vi.mocked(putPerfilUsuario).mockReturnValue(
+      new Promise((resolve) => {
+        resolverPut = resolve
+      }),
+    )
+    const guardadoDeA = cuenta.guardar()
+
+    // A cierra sesión con su PUT aún en vuelo; B entra y carga su propio perfil.
+    cuenta.limpiar()
+    vi.mocked(getPerfilUsuario).mockResolvedValue({
+      ...perfilServidor,
+      provincia: 'Cuenca',
+      convenioId: 'cuenca-hosteleria',
+      salarioBaseMensual: 1400,
+    })
+    await cuenta.cargar()
+
+    // Llega tarde la respuesta del PUT de A: los datos de B quedan intactos.
+    resolverPut({ ...perfilServidor, salarioBaseMensual: 9999 })
+    await guardadoDeA
+
+    expect(cuenta.provincia).toBe('Cuenca')
+    expect(cuenta.convenioId).toBe('cuenca-hosteleria')
+    expect(cuenta.salarioBaseMensual).toBe(1400)
+    expect(cuenta.guardado).toBe(false)
+  })
+
+  it('un error tardío del PUT tras limpiar no se muestra al siguiente usuario', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+    let rechazarPut!: (e: unknown) => void
+    vi.mocked(putPerfilUsuario).mockReturnValue(
+      new Promise((_resolve, reject) => {
+        rechazarPut = reject
+      }),
+    )
+    const guardadoEnVuelo = cuenta.guardar()
+
+    cuenta.limpiar()
+    rechazarPut(new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }))
+    await guardadoEnVuelo
+
+    expect(cuenta.error).toBeNull()
+    expect(cuenta.guardando).toBe(false)
+  })
+
   it('editar un campo tras guardar retira la marca de guardado', async () => {
     vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
     vi.mocked(putPerfilUsuario).mockResolvedValue(perfilServidor)

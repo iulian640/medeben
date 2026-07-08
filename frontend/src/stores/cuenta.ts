@@ -140,6 +140,11 @@ export const useCuentaStore = defineStore('cuenta', () => {
       error.value = 'Elige al menos tu provincia y el tipo de sitio antes de guardar.'
       return
     }
+    // Mismo guard que en cargar(): si limpiar() corre con el PUT en vuelo
+    // (logout con red lenta), la respuesta tardía no debe repoblar el
+    // formulario — repondría los datos salariales del usuario que se fue, o
+    // pisaría los del siguiente que ya haya cargado su perfil.
+    const miId = nuevaPeticion()
     guardando.value = true
     error.value = null
     guardado.value = false
@@ -159,13 +164,20 @@ export const useCuentaStore = defineStore('cuenta', () => {
         salarioBaseMensual: salarioBaseMensual.value,
         plusesAnuales: plusesAnuales.value,
       })
+      if (!sigueVigente(miId)) {
+        return
+      }
       aplicarPerfil(resultado)
       sinPerfil.value = false
       guardado.value = true
     } catch (e) {
-      error.value = mensajeDeError(e)
+      if (sigueVigente(miId)) {
+        error.value = mensajeDeError(e)
+      }
     } finally {
-      guardando.value = false
+      if (sigueVigente(miId)) {
+        guardando.value = false
+      }
     }
   }
 
