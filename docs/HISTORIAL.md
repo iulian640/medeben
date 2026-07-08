@@ -3,6 +3,44 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-08 — noche · Auditoría integral + ola de fixes en 5 frentes
+
+- **Auditoría integral pedida por Iulian** (43 agentes: 8 auditores en paralelo sobre TODO
+  el repo, verificación adversarial de cada hallazgo y crítico de completitud): 16/16
+  arreglos de reviews pasadas siguen en su sitio (cero regresiones), CI verde reproducida
+  en local, 2 CRITICAL y 3 HIGH nuevos confirmados. El informe detallado queda fuera del
+  repo (es público y listaba vulnerabilidades entonces sin arreglar).
+- **PR #140 — seguridad y perfil:** la barrera del secreto JWT de juguete ignoraba el caso
+  exacto que decía proteger (sin `SPRING_PROFILES_ACTIVE`, el fallback a los perfiles por
+  defecto la saltaba) → ahora solo mira perfiles activos; el PUT de perfil ya es upsert
+  real con reintento anti-carrera (antes la segunda edición daba 500 por PK duplicada);
+  401 sin token en RFC 7807 (`ProblemDetailEntryPoint`); `toString()` de los DTO de
+  fichaje redacta el motivo (art. 9 RGPD); migración V5 con CHECKs de vocabulario; tope
+  de valores de dimensiones subido a 400 (el de 100 rechazaba ~250 valores legítimos del
+  catálogo, el más largo con 325 caracteres).
+- **PR #136 — turno partido:** `estadoDia()` se quedaba solo con la última entrada/salida →
+  un partido fichado (12-16 y 20-23) contaba 3 h en vez de 7, en silencio. Reescrito con
+  emparejado secuencial de tramos (ampliación de D38); los reviewers bloquearon la primera
+  versión y de ahí salieron el techo de cordura de 16 h/tramo y la corrección simétrica
+  de entradas.
+- **PR #138 — frontend:** cerrar sesión limpia también el store de cuenta e invalida las
+  peticiones en vuelo (en un dispositivo compartido el siguiente usuario veía los datos
+  salariales del anterior); recarga controlada del service worker en cada deploy y
+  `router.onError` con anti-bucle para los chunks huérfanos tras un deploy.
+- **PR #139 — corpus legible:** el valor hora ya resuelve para 49 de 55 convenios (antes
+  44); jornadas de Cataluña/Gipuzkoa/Soria y pagas de Lugo re-expresadas bajo claves
+  canónicas sin tocar un solo valor; Tenerife estrena `divisorValorHora` con soporte en
+  el motor y copy propio en la calculadora. Los 6 restantes tienen el dato genuinamente
+  ausente en la fuente (documentado en `convenios/revisiones-pendientes.md`).
+- **PR #137 — cobertura y CI:** JaCoCo (backend 91,4 % de líneas) y coverage de Vitest
+  (frontend 80,5 %) con gate al 80 %; artifacts de test en la CI, acciones pineadas por
+  SHA, dependabot, y Mockito registrado como agente (adiós al warning de JDK 21).
+- Pendientes que deja la auditoría: rate limiting transversal (blocker pre-deploy, ya
+  conocido), cabeceras de seguridad al desplegar el frontend, PK UUIDv4 en tablas
+  append-only (decisión de diseño pendiente), id de tramo para correcciones dirigidas
+  (decisión de producto), y qué hacer con los docs personales del repo público
+  (decisión de Iulian).
+
 ## 2026-07-08 — noche · Horario: arranca la libreta sellada (D38)
 
 - **Decisiones de producto cerradas con Iulian (ADR D38):** día = libre / seguido /
