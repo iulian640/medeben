@@ -1,5 +1,5 @@
 {
-  "$comment": "Tablas 2025 (en ultraactividad para 2026) transcritas y VERIFICADAS visualmente contra el PDF del BOCM (páginas renderizadas a imagen). Sección tercera (restaurantes), áreas comedor y cocina. Pendiente: cafeterías (sección cuarta), catering, sistema de porcentaje de servicio (Anexo III), y tablas 2023/2024.",
+  "$comment": "Tablas 2025 (en ultraactividad para 2026) transcritas y VERIFICADAS visualmente contra el PDF del BOCM (páginas renderizadas a imagen). IMPORTANTE: las tablas de 'tablasSalariales2025' (comedor inicial+garantizado, cocina, varios, catering, cafeterías sueldo inicial) son las del ANEXO III, es decir, las del SISTEMA DE PARTICIPACIÓN EN EL PORCENTAJE DE SERVICIO, aplicable SOLO a las empresas que mantienen ese sistema histórico (ver campo 'sistemaPorcentajeServicio'). El salario por defecto para la mayoría de empresas son las tablas por niveles retributivos del ANEXO I, aún NO transcritas (ver 'pendiente'). Cafeterías, catering, sistema de % de servicio y permisos completos del Art. 19 verificados contra imagen (D33/D34).",
   "id": "madrid-hosteleria",
   "nombre": "Convenio Colectivo del Sector de Hostelería y Actividades Turísticas de la Comunidad de Madrid",
   "codigoRegcon": "28002085011981",
@@ -147,7 +147,7 @@
       }
     },
     "seccionCuartaCafeterias": {
-      "$comment": "Cafeterías con servicio de mostrador y sala. Los importes son SUELDO INICIAL: se completan con la participación en el porcentaje de servicio hasta alcanzar (o superar) el cuadro de cafeterías sin servicio de sala. NO usar el inicial como salario total. Columnas por tamaño: 3 tazas / 2 tazas / 1 taza.",
+      "$comment": "Cafeterías con servicio de mostrador y sala (ANEXO III, sistema de % de servicio). Los importes son SUELDO INICIAL: se completan con la participación en el porcentaje de servicio hasta alcanzar (o superar) el cuadro de cafeterías sin servicio de sala. NO usar el inicial como salario total. Columnas por tamaño: 3 tazas / 2 tazas / 1 taza. NOTA (verificado 2026-07-08, pág. 64 BOCM): en este BOCM el ANEXO III solo IMPRIME la tabla 'con servicios de mostrador y sala'; el 'cuadro de cafeterías sin servicio de sala' se cita como GARANTÍA DE MÍNIMOS (la empresa completa hasta él) pero NO aparece como tabla independiente. El plus convenio de cafeterías son 191,22 €/11 meses; el salario de Aprendiz es por 30 h semanales.",
       "conServicioMostradorYSala_sueldoInicial": {
         "Primer encargado/a": { "3tazas": 450.59, "2tazas": 436.06, "1taza": 403.51 },
         "Segundo encargado/a": { "3tazas": 420.41, "2tazas": 408.45, "1taza": 376.16 },
@@ -176,10 +176,19 @@
       }
     }
   },
+  "sistemaPorcentajeServicio": {
+    "$comment": "Explica de dónde salen las tablas de 'tablasSalariales2025'. Sistema retributivo histórico de la antigua Ordenanza de Trabajo de Hostelería (derogada): parte del salario procedía del reparto entre la plantilla del 'porcentaje de servicio' cobrado a los clientes. Verificado contra imagen: ANEXO III (pág. 48 BOCM) + Disposición Transitoria Primera (págs. 38-39 BOCM).",
+    "articulo": "Anexo III + Disposición Transitoria Primera",
+    "vigencia": "Desde el 01-01-2004 el sistema quedó SIN aplicación con carácter general (sustituido por salario mensual). Solo lo mantienen las empresas que hubieran continuado aplicándolo tras el convenio de 2004; para el resto NO aplica.",
+    "aQuienAplica": "Exclusivamente empresas que conservan el sistema de participación en el porcentaje de servicio. Estas tablas del Anexo III son las únicas transcritas aquí; NO son el salario por defecto del sector (ese es el Anexo I por niveles retributivos, pendiente).",
+    "mecanismo": "El salario se compone de un 'sueldo inicial' o 'salario fijo' (importe bajo de las tablas Anexo III) MÁS la participación en el porcentaje de servicio repartido. La empresa GARANTIZA que la suma alcance el 'garantizado'; si el % de servicio no llega, la empresa abona la diferencia hasta el garantizado.",
+    "encuadreProfesional": "Las ocupaciones del Anexo III se encuadran en los Grupos Profesionales del Acuerdo Laboral de Ámbito Estatal (ALEH) vigente para el Sector de Hostelería.",
+    "complementoPersonal": "A quienes se les suprimió el sistema en 2004 se les calculó un 'complemento personal de porcentaje de servicio' (promedio de los 12 meses previos menos 14 veces el salario base del Anexo III 2004); ese complemento no es compensable ni absorbible ni revisable salarialmente (Disp. Trans. Primera B)."
+  },
   "pendiente": [
-    "Cafeterías SIN servicio de sala (cuadro con salario completo, no solo inicial)",
-    "Sistema de participación de porcentaje de servicio (Anexo III) — tablas alternativas",
-    "Tablas 2023 y 2024 (históricas)"
+    "Tablas por NIVELES RETRIBUTIVOS del ANEXO I (salario por defecto de la mayoría de empresas, sistema moderno por Nivel I/II-A/II-B/... en vez de por categoría/sección). NO transcritas todavía. Es el hueco más importante.",
+    "Tablas 2023 y 2024 del Anexo III (históricas; solo tenemos 2025)",
+    "Cafeterías SIN servicio de sala: verificado que en este BOCM NO se imprime como tabla independiente (solo se cita como garantía de mínimos). Confirmar si en alguna revisión posterior aparece."
   ],
   "vacaciones": {
     "articulo": "Art. 18",
@@ -189,10 +198,20 @@
     "nota": "Ininterrumpidas, dentro del año natural. Menos de 1 año: proporcional."
   },
   "permisosRetribuidos": {
+    "$comment": "Art. 19 Licencias COMPLETO (apartados a-k), verificado contra imagen (págs. 20-21 BOCM). Previo aviso y justificación.",
     "articulo": "Art. 19 (Licencias)",
-    "matrimonioOParejaHecho": { "dias": 15, "tipo": "naturales", "nota": "Pareja de hecho requiere 1 año de antigüedad; disfrutables 15 días antes/después." },
-    "accidenteEnfermedadGraveHospitalizacionFamiliar": { "dias": 5 },
-    "nota": "Lista completa en Art. 19 (fallecimiento, traslado, deber inexcusable... — pendiente detallar el resto)."
+    "matrimonioOParejaHecho": { "letra": "a", "dias": 15, "tipo": "naturales", "nota": "Matrimonio o constitución de pareja de hecho inscrita en el registro. A opción del trabajador, dentro de los 15 días anteriores o posteriores al hecho causante. Pareja de hecho requiere 1 año de antigüedad." },
+    "accidenteEnfermedadGraveHospitalizacionFamiliar": { "letra": "b", "dias": 5, "nota": "Accidente o enfermedad graves, hospitalización, intervención quirúrgica (con o sin hospitalización que precise reposo domiciliario) del cónyuge, pareja de hecho o parientes hasta 2º grado de consanguinidad o afinidad, o de cualquier conviviente en el mismo domicilio que requiera su cuidado. Ampliables descontándose de vacaciones y/o fiestas abonables." },
+    "fallecimientoFamiliar": { "letra": "b.bis", "dias": 2, "diasAdicionalesPorDesplazamiento": 2, "nota": "Fallecimiento del cónyuge, pareja de hecho o parientes hasta 2º grado de consanguinidad o afinidad. +2 días si se necesita desplazamiento." },
+    "trasladoDomicilio": { "letra": "c", "dias": 1, "nota": "Por traslado del domicilio habitual." },
+    "deberInexcusablePublicoPersonal": { "letra": "d", "dias": null, "nota": "El tiempo indispensable para el cumplimiento de un deber inexcusable de carácter público y personal. Si supone imposibilidad de trabajar en más del 20% de horas en 3 meses, la empresa puede pasar a excedencia (art. 46.1 ET). Se descuenta del salario cualquier indemnización percibida por el cargo." },
+    "funcionesSindicalesRepresentacion": { "letra": "e", "dias": null, "nota": "Para realizar funciones sindicales o de representación del personal, en los términos legales o convencionales." },
+    "matrimonioHijoOHermano": { "letra": "f", "dias": 1, "nota": "Por matrimonio de un hijo/a o hermano/a. A descontar de vacaciones o fiestas abonables." },
+    "asuntosPropios": { "letra": "g", "dias": 2, "tipo": "anuales", "nota": "Previa comunicación con mínimo 24 horas. A descontar de vacaciones, fiestas abonables o salario, a opción del trabajador." },
+    "guardaLegalReduccionJornada": { "letra": "h", "dias": null, "nota": "Guarda legal de menor de 12 años o persona con discapacidad física/psíquica/sensorial que no desempeñe otra actividad retribuida: reducción de jornada de entre 1/8 y 1/2, con reducción proporcional de salario." },
+    "examenesTituloAcademico": { "letra": "i", "dias": null, "nota": "Tiempo indispensable para concurrir a exámenes de cualquier título académico, universitario o de FP. Comunicar la fecha con 6 días de antelación." },
+    "examenesPrenatalesPreparacionParto": { "letra": "j", "dias": null, "nota": "Tiempo indispensable para exámenes prenatales y técnicas de preparación al parto, previo aviso y justificación de que deben realizarse dentro de la jornada." },
+    "citaMedicoEspecialista": { "letra": "k", "dias": null, "nota": "Tiempo indispensable para acudir a cita del médico especialista (Servicios Públicos de Salud o Mutua Patronal), aportando la citación y el justificante de asistencia." }
   },
   "complementoIT": {
     "$comment": "DATO CLAVE (baja médica). Mejor que hospedaje: 100% desde día 1 también en la 1ª baja por enfermedad del año.",
@@ -211,8 +230,23 @@
     "textoLiteral": "Se estará a la legislación vigente y a lo dispuesto en el Acuerdo Laboral de Ámbito Estatal vigente para el Sector de Hostelería.",
     "nota": "Título II - Contratación. Consultar la tabla de periodo de prueba por grupos del ALEH para el dato numérico."
   },
-  "pendienteCondiciones": ["seguro de vida si existe"],
+  "seguroIncapacidadFallecimiento": {
+    "$comment": "Resuelve el antiguo 'pendienteCondiciones: seguro de vida'. Verificado contra imagen (pág. 27 BOCM, Art. 34).",
+    "articulo": "Art. 34 (Incapacidad Permanente y Fallecimiento)",
+    "importe": 18000,
+    "moneda": "EUR",
+    "antiguedadMinimaAnios": 4,
+    "coberturas": ["incapacidad permanente total", "incapacidad permanente absoluta", "gran invalidez", "fallecimiento"],
+    "nota": "Importe no revisable anualmente. Si la empresa no suscribió el seguro (teniendo el trabajador la antigüedad mínima) o la aseguradora no cubre el total, la empresa responde directamente del pago al trabajador o sus causahabientes."
+  },
+  "gratificacionMatrimonioParejaHecho": {
+    "$comment": "Dato extra verificado (pág. 27 BOCM, Art. 33). Pago único, no es la licencia del Art. 19.",
+    "articulo": "Art. 33",
+    "2023": 927.10, "2024": 973.46, "2025": 1012.40,
+    "requisitos": "Permanencia mínima de 4 años en la empresa y continuar 6 meses tras el matrimonio/constitución de pareja de hecho. Si causa baja voluntaria antes de esos 6 meses, se descuenta de la liquidación. Pareja de hecho: máximo una vez cada 7 años."
+  },
+  "pendienteCondiciones": [],
   "estado": "verificado_2025_completo_con_condiciones",
-  "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen (tablas 2025 sec 3ª, arts. 14/26/27/28/29). Condiciones (vacaciones Art.18, permisos Art.19, complemento IT Art.39) extraídas del articulado con su artículo (D33/D34).",
+  "verificadoContra": "PDF oficial BOCM-20240406-2 renderizado a imagen. Tablas 2025 = Anexo III (sistema % servicio). Arts. 14/26/27/28/29 (jornada, pagas, nocturnidad, pluses); condiciones sociales Arts. 18/19/33/34/39; Disposición Transitoria Primera (sistema % de servicio); Anexo III (págs. 48-64). Permisos Art. 19 completos (a-k) verificados en págs. 20-21.",
   "fechaVerificacion": "2026-07-08"
 }
