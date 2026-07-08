@@ -72,6 +72,20 @@ class TablaSalarialServiceTest {
     }
 
     @Test
+    @DisplayName("la unidad del hecho se expone: Cuenca publica salarios en EUR/año, Madrid en EUR/mes")
+    void unidadExpuesta() {
+        var madrid = servicio.salarioBaseMinimo(
+                "madrid-hosteleria", COCINERO_MADRID_B, LocalDate.of(2025, 6, 1)).orElseThrow();
+        assertThat(madrid.unidad()).isEqualTo("EUR/mes");
+
+        var cuenca = servicio.salarioBaseMinimo(
+                "cuenca-hosteleria", Map.of("nivel", "I", "grupoEstablecimiento", "A"),
+                LocalDate.of(2025, 6, 1)).orElseThrow();
+        assertThat(cuenca.unidad()).isEqualTo("EUR/año");
+        assertThat(cuenca.importe()).isEqualByComparingTo(new BigDecimal("16175.05"));
+    }
+
+    @Test
     @DisplayName("dimensiones que no existen en el convenio → vacío, no se inventa")
     void dimensionesInexistentes() {
         assertThat(servicio.salarioBaseMinimo("madrid-hosteleria",

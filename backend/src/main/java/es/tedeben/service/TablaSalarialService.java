@@ -48,7 +48,7 @@ public class TablaSalarialService {
         Optional<Hecho> vigente = unico(candidatos.stream().filter(h -> h.vigenteEn(fecha)).toList(), fecha);
         if (vigente.isPresent()) {
             Hecho h = vigente.get();
-            return Optional.of(new SalarioBaseResuelto(h.importe(), List.of(cita(h))));
+            return Optional.of(new SalarioBaseResuelto(h.importe(), unidad(h), List.of(cita(h))));
         }
 
         // Ultraactividad: la última tabla publicada antes de la fecha sigue aplicando
@@ -64,10 +64,14 @@ public class TablaSalarialService {
                     "Capa derivada ambigua: varias tablas terminan en " + ultima.get().hasta()
                             + " para " + ultima.get().dimensiones());
         }
-        return ultima.map(h -> new SalarioBaseResuelto(h.importe(), List.of(
+        return ultima.map(h -> new SalarioBaseResuelto(h.importe(), unidad(h), List.of(
                 cita(h),
                 "Tabla vigente hasta " + FECHA.format(h.hasta())
                         + ", aplicada por ultraactividad: sigue en vigor hasta que se publique la nueva")));
+    }
+
+    private static String unidad(Hecho h) {
+        return h.unidad() == null ? "EUR/mes" : h.unidad();
     }
 
     private static Optional<Hecho> unico(List<Hecho> vigentes, LocalDate fecha) {
