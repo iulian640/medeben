@@ -25,8 +25,7 @@
   },
   "jornadaAnual": {
     "articulo": "Art. 28",
-    "2025": 1791,
-    "2026": 1783, "2027": 1783, "2028": 1783,
+    "horas": { "2025": 1791, "2026": 1783, "2027": 1783, "2028": 1783 },
     "horasSemanales": 40,
     "nota": "Jornada máxima anual de trabajo efectivo. Continuada: descanso de 20 min computable como jornada en jornadas > 5 h (si se usa para comer y excede, el exceso lo recupera el trabajador). Partida: turnos máx 5 h y mín 3 h, descanso entre turnos mín 1 h 30 min. MENOR que las 1.800 h de Madrid.",
     "verificado": true

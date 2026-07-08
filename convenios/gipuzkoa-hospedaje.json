@@ -34,9 +34,9 @@
   },
 
   "jornadaAnual": {
-    "$comment": "Art. 13. Jornada anual ordinaria de trabajo continuada. Las camareras de piso tienen jornada REDUCIDA por sus particularidades preventivas (Art. 45).",
+    "$comment": "Art. 13. Jornada anual ordinaria de trabajo continuada. La clave canónica 'horas' recoge la jornada del colectivo GENERAL; las camareras de piso tienen jornada REDUCIDA por sus particularidades preventivas (Art. 45), conservada en 'camarerasDePiso'.",
     "articulo": "Art. 13",
-    "general": { "2025": 1723, "2026": 1719, "2027": 1714, "2028": 1709, "unidad": "horas/año" },
+    "horas": { "2025": 1723, "2026": 1719, "2027": 1714, "2028": 1709, "unidad": "horas/año" },
     "camarerasDePiso": { "2025": 1709, "2026": 1705, "2027": 1700, "2028": 1695, "unidad": "horas/año", "nota": "Jornada anual menor para el personal de pisos." },
     "descansoSemanal": "Día y medio efectivo. Descanso de 2 días consecutivos en empresas de más de 30 trabajadores (con excepciones por horario de funcionamiento).",
     "descansoJornadaContinuada": "15 minutos ininterrumpidos computables como trabajo efectivo (Art. 13).",

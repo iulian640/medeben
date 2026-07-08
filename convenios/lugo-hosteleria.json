@@ -42,7 +42,9 @@
   },
 
   "pagasExtraordinarias": {
-    "total": "2 pagas de mensualidad completa + 1 paga de 7 días (equivale aprox. a 14 pagas + 7 días de salario base al año); en casinos y sociedades recreativas hay 1 paga adicional",
+    "mensualidadesEquivalentes": 14,
+    "notaMensualidades": "12 mensualidades + 2 pagas de UNA MENSUALIDAD COMPLETA de salario base + antigüedad (julio y Navidad, Art. 12) = 14. La paga de Santa Marta (7 días de salario base + antigüedad, Art. 12) NO es una mensualidad completa y no entra en el multiplicador (mismo tratamiento que las pagas menores de Álava/Zaragoza: pendiente conocido del motor); la paga de casinos (Art. 13) tampoco (solo aplica a casinos y sociedades recreativas).",
+    "descripcion": "2 pagas de mensualidad completa + 1 paga de 7 días (equivale aprox. a 14 pagas + 7 días de salario base al año); en casinos y sociedades recreativas hay 1 paga adicional",
     "articulo": "Art. 12 (general) y Art. 13 (casinos)",
     "detalle": {
       "pagaJulio": "Una mensualidad de salario base + antigüedad. Se abona el 15 de julio. Devengo anual (o semestral si la empresa lo venía haciendo).",
