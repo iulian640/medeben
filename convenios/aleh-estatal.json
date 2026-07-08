@@ -1,0 +1,189 @@
+{
+  "$comment": "ACUERDO MARCO estatal del sector de Hostelería (ALEH VI). NO es un convenio con tablas salariales: es el marco al que REMITEN muchos convenios provinciales cuando NO regulan por su cuenta el periodo de prueba o el régimen disciplinario ('en lo no previsto, se estará al ALEH'). Este fichero resuelve esas remisiones colgantes. Verificado leyendo la IMAGEN del PDF oficial del BOE, artículo a artículo.",
+  "id": "aleh-estatal",
+  "nombre": "VI Acuerdo Laboral de ámbito estatal para el sector de Hostelería (ALEH VI)",
+  "tipo": "marco-referencia",
+  "codigoRegcon": "99010365011900",
+  "ambitoTerritorial": { "tipo": "estatal", "cobertura": "toda España" },
+  "ambitoFuncional": "hosteleria",
+  "ambitoFuncionalDescripcion": "Acuerdo marco sectorial estatal (naturaleza de acuerdo sobre materias concretas del art. 83.3 ET). Fija clasificación profesional, periodo de prueba, contratos formativos, formación, régimen disciplinario y solución de conflictos para todo el sector de hostelería. Los convenios provinciales/autonómicos se articulan bajo él y muchos remiten a él en las materias que no regulan.",
+  "fuente": {
+    "boletin": "BOE",
+    "numero": 59,
+    "fecha": "2023-03-10",
+    "documento": "BOE-A-2023-6344",
+    "descripcion": "Resolución de 20 de enero de 2023 de la Dirección General de Trabajo, por la que se registra y publica el VI Acuerdo Laboral de ámbito estatal para el sector de Hostelería (ALEH VI).",
+    "url": "https://www.boe.es/boe/dias/2023/03/10/pdfs/BOE-A-2023-6344.pdf"
+  },
+  "vigencia": {
+    "desde": "2023",
+    "hasta": "pendiente",
+    "nota": "ALEH VI publicado 10-03-2023. Es un acuerdo marco con vocación de permanencia y prórroga tácita. IMPORTANTE (regla D32): existe una MODIFICACIÓN del VI ALEH firmada el 13-04-2026 por FeSMC-UGT, CCOO Servicios, Hostelería de España y CEHAT, con efectos desde la firma, que a fecha de captura (jul-2026) seguía PENDIENTE de publicación oficial en el BOE. Ver campo 'modificacion2026Pendiente'."
+  },
+  "clasificacionProfesional": {
+    "$comment": "Capítulo II, arts. 11-14. Base sobre la que se apoyan el periodo de prueba y las tablas de los provinciales. Tres GRUPOS profesionales x seis ÁREAS funcionales.",
+    "articulo": "arts. 11 a 14",
+    "grupos": {
+      "primero": {
+        "nombre": "Grupo Profesional Primero. Mandos",
+        "articulo": "art. 12.2.a",
+        "descripcion": "Mandos (incluido el mando intermedio): con iniciativa propia planifican, organizan, dirigen, coordinan y controlan las actividades de la empresa. Alto grado de conocimiento, autonomía, iniciativa y responsabilidad completa de una o varias áreas funcionales. Formación equivalente a estudios de grado alto o medio con dilatada experiencia."
+      },
+      "segundo": {
+        "nombre": "Grupo Profesional Segundo. Técnicos y Especialistas",
+        "articulo": "art. 12.3.a",
+        "descripcion": "Trabajos de ejecución autónoma que exigen tareas cualificadas con iniciativa y conocimiento del oficio o puesto; ejecución de operaciones bajo supervisión directa que requieren conocimientos profesionales y aptitudes técnicas y prácticas. Formación equivalente a graduado escolar o formación profesional."
+      },
+      "tercero": {
+        "nombre": "Grupo Profesional Tercero. Asistentes",
+        "articulo": "art. 12.4.a",
+        "descripcion": "Tareas que se ejecutan según instrucciones concretas, bajo dependencia y supervisión de otras personas trabajadoras. Principalmente (no necesariamente) requieren esfuerzo físico y atención. Necesita la formación específica del puesto."
+      }
+    },
+    "areasFuncionales": {
+      "articulo": "art. 14",
+      "primera": "Recepción-Conserjería, Relaciones públicas, Administración y Gestión",
+      "segunda": "Cocina y Economato",
+      "tercera": "Restaurante, Sala, Bar y similares; Colectividades y Pista para Catering (incluye reparto de comidas y bebidas, también por plataformas digitales)",
+      "cuarta": "Pisos y Limpieza",
+      "quinta": "Mantenimiento y Servicios auxiliares",
+      "sexta": "Servicios Complementarios"
+    },
+    "factoresEncuadramiento": "autonomía, formación, iniciativa, mando, responsabilidad y complejidad (art. 13)"
+  },
+  "periodoPrueba": {
+    "$comment": "Capítulo V, arts. 21-24 (BOE pág. 35926). Debe pactarse SIEMPRE por escrito. Se computa siempre en DÍAS NATURALES. Durante el periodo de prueba pueden cesar el contrato sin indemnización. La duración depende del GRUPO profesional y, en un caso, del ÁREA (área quinta = Mantenimiento y Servicios auxiliares).",
+    "articulo": "art. 21",
+    "unidad": "días naturales",
+    "formaPacto": "obligatoriamente por escrito",
+    "tablaDias": {
+      "indefinidoFijoOrdinarioYFijoDiscontinuo": {
+        "grupoPrimeroTodasAreas_y_grupoSegundoAreaQuinta": 90,
+        "grupoSegundoTodasAreasExceptoQuinta": 60,
+        "grupoTerceroTodasAreas": 45
+      },
+      "temporalSuperiorA3Meses": {
+        "grupoPrimeroTodasAreas_y_grupoSegundoAreaQuinta": 75,
+        "grupoSegundoTodasAreasExceptoQuinta": 45,
+        "grupoTerceroTodasAreas": 30
+      },
+      "temporalHasta3Meses": {
+        "grupoPrimeroTodasAreas_y_grupoSegundoAreaQuinta": 60,
+        "grupoSegundoTodasAreasExceptoQuinta": 30,
+        "grupoTerceroTodasAreas": 15
+      }
+    },
+    "personalDirectivo": {
+      "articulo": "art. 22",
+      "indefinidoFijoOrdinarioOFijoDiscontinuo": "6 meses",
+      "temporalODuracionDeterminada": "4 meses",
+      "nota": "Para puestos directivos que no encajen en uno de los grupos profesionales del art. 16."
+    },
+    "nulidad": "Es nulo el pacto de periodo de prueba si la persona ya desempeñó antes las mismas funciones en la empresa y lo superó (art. 23).",
+    "tiempoParcial": "Los contratos a tiempo parcial se rigen por los mismos periodos anteriores (art. 24)."
+  },
+  "regimenDisciplinario": {
+    "$comment": "Capítulo VIII, arts. 35-42 (BOE págs. 35931-35935). Este es el bloque al que remiten la mayoría de convenios provinciales que no tipifican faltas por su cuenta. PROHIBIDA la sanción económica / multa de haber (art. 58.3 ET). Toda sanción es revisable ante el Juzgado de lo Social (art. 35).",
+    "articulo": "arts. 35 a 42",
+    "graduacion": "Toda falta se califica como leve, grave o muy grave según su importancia, trascendencia o intencionalidad (art. 36).",
+    "faltasLeves": {
+      "articulo": "art. 38",
+      "ejemplos": [
+        "Descuido, error o demora en la ejecución de un trabajo que no produzca perturbación importante del servicio",
+        "De 1 a 3 faltas de puntualidad injustificadas de hasta 30 minutos en un periodo de 30 días (sin graves perjuicios)",
+        "No comunicar con la mayor celeridad el motivo de la ausencia (IT u otro motivo justificado)",
+        "Abandono sin causa justificada por breve tiempo, o terminar antes con antelación inferior a 30 minutos (sin graves perjuicios)",
+        "Pequeños descuidos en la conservación de géneros o material",
+        "No comunicar a la empresa un cambio de domicilio",
+        "Discusiones con otras personas trabajadoras dentro de la empresa fuera de la presencia del público",
+        "Llevar la uniformidad o ropa de trabajo de forma descuidada",
+        "Falta de aseo ocasional durante el servicio"
+      ]
+    },
+    "faltasGraves": {
+      "articulo": "art. 39",
+      "ejemplos": [
+        "Más de 3 faltas de puntualidad injustificadas en 30 días, o una sola de más de 30 minutos, o la que provoque retraso en el inicio de un servicio al público",
+        "Faltar 1 o 2 días al trabajo en 30 días sin autorización o causa justificada",
+        "Abandono o terminación anticipada sin causa por más de 30 minutos, de 1 a 3 veces en 30 días",
+        "No comunicar puntualmente cambios en los familiares a cargo que afecten a retenciones fiscales (mala fe -> muy grave)",
+        "Incumplir órdenes e instrucciones de la empresa en el ejercicio regular de sus facultades directivas (incl. prevención de riesgos)",
+        "Descuido importante en la conservación de géneros, artículos y materiales del establecimiento",
+        "Simular la presencia de otra persona trabajadora fichando o firmando por ella",
+        "Provocar o mantener discusiones con otras personas trabajadoras en presencia del público",
+        "Emplear para uso propio artículos, enseres o prendas de la empresa sin autorización",
+        "Asistir o permanecer en el trabajo bajo los efectos del alcohol o las drogas, o consumirlos en horario de trabajo",
+        "Inobservancia durante el servicio de la uniformidad o ropa de trabajo exigida",
+        "No atender al público con la corrección y diligencia debidas (sin especial perjuicio)",
+        "No cumplir instrucciones en materia de servicio o no cumplimentar los partes de trabajo",
+        "Inobservancia de las normas de Seguridad y Salud, manipulación de alimentos u otras medidas administrativas",
+        "Imprudencia durante el trabajo con riesgo de accidente o de avería/daño material",
+        "Uso habitual de palabras irrespetuosas o injuriosas durante el servicio",
+        "Falta de aseo y limpieza que produzca queja justificada, mediando advertencia o sanción",
+        "Reincidencia en faltas leves (aunque de distinta naturaleza) en un trimestre mediando advertencia o sanción",
+        "Uso privado abusivo de los medios informáticos/telemáticos facilitados por la empresa"
+      ]
+    },
+    "faltasMuyGraves": {
+      "articulo": "art. 40",
+      "ejemplos": [
+        "3 o más faltas de asistencia sin justificar en 30 días, 10 en 6 meses o 20 en un año",
+        "Fraude, deslealtad o abuso de confianza en las gestiones encomendadas; competencia por cuenta propia sin autorización",
+        "Hacer desaparecer, inutilizar o causar desperfectos en materiales, útiles, herramientas, instalaciones, edificios o documentos de la empresa",
+        "El robo, hurto o malversación cometidos en el ámbito de la empresa",
+        "Violar el secreto de la correspondencia o datos reservados de la empresa, o revelarlos a terceros",
+        "Malos tratos de palabra u obra, abuso de autoridad o falta grave de respeto al empresario, personas delegadas, trabajadores y público",
+        "Disminución voluntaria y continuada del rendimiento de trabajo normal o pactado",
+        "Provocar u originar frecuentes riñas y pendencias con las demás personas trabajadoras",
+        "Simulación de enfermedad o accidente para no asistir; realizar trabajos por cuenta propia o ajena durante la IT o conductas que prolonguen la baja",
+        "Daños a personas o a la empresa por inobservancia de las medidas de prevención y protección de seguridad",
+        "Reincidencia en falta grave o muy grave (aunque de distinta naturaleza) en 6 meses, mediando advertencia o sanción",
+        "Conducta que atente contra la intimidad y dignidad sexual (ofensa física o verbal); prevalerse de posición jerárquica es agravante",
+        "El acoso moral, sexual y por razón de sexo, así como por origen racial/étnico, religión, discapacidad, edad u orientación sexual o género"
+      ]
+    },
+    "sanciones": {
+      "articulo": "art. 41",
+      "porFaltasLeves": ["Amonestación", "Suspensión de empleo y sueldo de hasta 2 días"],
+      "porFaltasGraves": ["Suspensión de empleo y sueldo de 3 a 15 días"],
+      "porFaltasMuyGraves": ["Suspensión de empleo y sueldo de 16 a 60 días", "Despido disciplinario"],
+      "plazoMaximoCumplimientoSuspension": {
+        "hasta2dias": "2 meses desde el día siguiente a su imposición",
+        "de3a15dias": "4 meses",
+        "de16a60dias": "6 meses",
+        "nota": "En la comunicación escrita la empresa debe fijar las fechas de cumplimiento de la suspensión."
+      }
+    },
+    "procedimiento": {
+      "articulo": "art. 37",
+      "descripcion": "La notificación de las faltas requiere comunicación ESCRITA a la persona trabajadora con la fecha y los hechos que la motivan, que deberá acusar recibo o firmar el enterado. La representación legal o sindical debe ser informada de todas las sanciones por faltas GRAVES y MUY GRAVES. A la persona afiliada, los delegados sindicales han de ser oídos antes de un despido o sanción cuando conste su afiliación."
+    },
+    "prescripcion": {
+      "articulo": "art. 42",
+      "leves": "10 días",
+      "graves": "20 días",
+      "muyGraves": "60 días",
+      "computo": "Desde la fecha en que la empresa tuvo conocimiento de su comisión y, en todo caso, a los 6 meses de haberse cometido.",
+      "nota": "En faltas por reiteración de impuntualidad, ausencias o abandonos en 30 días, el plazo se cuenta desde la última falta."
+    },
+    "limitesLegalesRecordatorio": {
+      "$comment": "No están en el ALEH sino en el ET, pero se anotan para no perder la protección del trabajador (ya verificados en ESQUEMA.md).",
+      "sancionEconomicaProhibida": "PROHIBIDA la multa de haber / sanción económica: la empresa no puede sancionar quitando dinero del sueldo ni recortando vacaciones o descansos (art. 58.3 ET).",
+      "revisionJudicial": "Toda sanción es revisable ante el Juzgado de lo Social (art. 35 ALEH)."
+    }
+  },
+  "modificacion2026Pendiente": {
+    "estado": "pendiente",
+    "descripcion": "Modificación del VI ALEH firmada el 13-04-2026 por FeSMC-UGT, CCOO Servicios, Hostelería de España y CEHAT, con efectos desde la firma. A fecha de captura (jul-2026) PENDIENTE de publicación oficial en el BOE; no verificada contra imagen del BOE (regla de oro: no se incorpora al articulado hasta tener el texto oficial).",
+    "cambiosAnunciados": [
+      "Régimen disciplinario: obligación de AUDIENCIA PREVIA antes de ejecutar un despido disciplinario (alineado con la STS 18-11-2024). La empresa informa al trabajador de los hechos imputados y su posible calificación; el trabajador dispone de 2 días para responder, incluso a través de la representación sindical. Su incumplimiento puede implicar la improcedencia del despido.",
+      "Medidas sobre trabajo en episodios de olas de calor",
+      "Medidas de igualdad LGTBI"
+    ],
+    "accion": "Cuando se publique en el BOE, releer la imagen oficial y actualizar 'regimenDisciplinario.procedimiento' con la audiencia previa y actualizar 'fuente'/'vigencia'."
+  },
+  "remisionDesdeProvinciales": "Muchos convenios provinciales de hostelería NO tipifican periodo de prueba ni régimen disciplinario y remiten expresamente al ALEH ('en lo no regulado, se estará a lo dispuesto en el ALEH'). En esos casos, aplicar directamente los bloques 'periodoPrueba' y 'regimenDisciplinario' de este fichero. Si el provincial SÍ los regula, prevalece el provincial (norma más específica).",
+  "estado": "verificado",
+  "verificadoContra": "PDF oficial BOE-A-2023-6344 renderizado a imagen (dpi 185) y leído visualmente: Cap. II clasificación profesional (arts. 11-14, págs. 35907-35909), Cap. V periodo de prueba (arts. 21-24, pág. 35926) y Cap. VIII régimen disciplinario (arts. 35-42, págs. 35931-35935). La modificación 2026 NO se ha verificado (aún no publicada en BOE).",
+  "fechaVerificacion": "2026-07-08"
+}
