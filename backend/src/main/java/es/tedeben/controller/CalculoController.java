@@ -3,6 +3,7 @@ package es.tedeben.controller;
 import es.tedeben.domain.convenio.Convenio;
 import es.tedeben.dto.CalculoHorasExtraRequest;
 import es.tedeben.dto.CalculoHorasExtraResponse;
+import es.tedeben.dto.DesgloseValorHora;
 import es.tedeben.dto.SalarioBaseRequest;
 import es.tedeben.dto.SalarioBaseResponse;
 import es.tedeben.repository.ConvenioCatalog;
@@ -50,7 +51,8 @@ public class CalculoController {
                         "El convenio no tiene publicados los datos necesarios (jornada anual o pagas) para "
                                 + peticion.anio()));
 
-        return new CalculoHorasExtraResponse(resultado.precioHora(), resultado.importe(), resultado.citas());
+        return new CalculoHorasExtraResponse(resultado.precioHora(), resultado.importe(),
+                DesgloseValorHora.desde(resultado.desglose()), resultado.citas());
     }
 
     @PostMapping("/salario-base")

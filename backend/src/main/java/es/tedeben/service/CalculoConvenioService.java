@@ -71,7 +71,8 @@ public class CalculoConvenioService {
         citas.add(new Cita(mensualidades.get().stripTrailingZeros().toPlainString()
                 + " mensualidades al año (" + articulo(nodoPagas(convenio)) + " del convenio)",
                 convenio.fuenteUrl()));
-        return Optional.of(new ValorHoraCalculado(valorHora, citas));
+        return Optional.of(new ValorHoraCalculado(
+                valorHora, salarioBaseMensual, mensualidades.get(), plusesAnuales, jornada.get(), citas));
     }
 
     /**
@@ -101,7 +102,7 @@ public class CalculoConvenioService {
             }
 
             BigDecimal importe = precio.multiply(horas).setScale(DECIMALES_IMPORTE, RoundingMode.HALF_UP);
-            return new HorasExtraCalculadas(precio, importe, citas);
+            return new HorasExtraCalculadas(precio, importe, valorHora, citas);
         });
     }
 

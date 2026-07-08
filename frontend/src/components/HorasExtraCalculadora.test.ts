@@ -1,4 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
+import { flushPromises } from '@vue/test-utils'
+import { postHorasExtra } from '../services/convenios'
 import { mount } from '@vue/test-utils'
 import HorasExtraCalculadora from './HorasExtraCalculadora.vue'
 
@@ -47,5 +49,33 @@ describe('HorasExtraCalculadora — prellenado del salario', () => {
     await wrapper.setProps({ salarioMensualSugerido: 1580.25 })
 
     expect(inputSalario(wrapper).element.value).toBe('1600')
+  })
+})
+
+describe('HorasExtraCalculadora — desglose del mínimo', () => {
+  it('explica de dónde sale el mínimo con los números del convenio', async () => {
+    vi.mocked(postHorasExtra).mockResolvedValue({
+      precioHora: 10.8979,
+      importe: 54.49,
+      desglose: {
+        salarioBaseMensual: 1250.91,
+        mensualidades: 14,
+        plusesAnuales: 2103.42,
+        jornadaAnualHoras: 1800,
+        valorHora: 10.8979,
+      },
+      citas: [],
+    })
+    const wrapper = montar(1250.91)
+    await wrapper.findAll('input')[0].setValue('5')
+    await wrapper.get('button.boton').trigger('click')
+    await flushPromises()
+
+    const desglose = wrapper.get('.desglose')
+    expect(desglose.text()).toContain('¿De dónde sale este mínimo?')
+    expect(desglose.text()).toContain('1.250,91')
+    expect(desglose.text()).toContain('14 pagas')
+    expect(desglose.text()).toContain('1.800')
+    expect(desglose.text()).toContain('art. 35')
   })
 })

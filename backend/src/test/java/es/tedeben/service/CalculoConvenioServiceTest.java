@@ -52,6 +52,18 @@ class CalculoConvenioServiceTest {
     }
 
     @Test
+    @DisplayName("el resultado expone el desglose: base, mensualidades, pluses y jornada (para explicar la cuenta)")
+    void valorHoraExponeDesglose() {
+        var resultado = servicio.valorHoraOrdinaria(
+                madrid(), Year.of(2026), SALARIO_BASE_COCINERO_B_2025, PLUSES_ANUALES_2025).orElseThrow();
+
+        assertThat(resultado.salarioBaseMensual()).isEqualByComparingTo(SALARIO_BASE_COCINERO_B_2025);
+        assertThat(resultado.mensualidades()).isEqualByComparingTo(new BigDecimal("14"));
+        assertThat(resultado.plusesAnuales()).isEqualByComparingTo(PLUSES_ANUALES_2025);
+        assertThat(resultado.jornadaAnualHoras()).isEqualByComparingTo(new BigDecimal("1800"));
+    }
+
+    @Test
     @DisplayName("el resultado cita jornada y pagas con su artículo del convenio")
     void valorHoraCitaArticulos() {
         var resultado = servicio.valorHoraOrdinaria(

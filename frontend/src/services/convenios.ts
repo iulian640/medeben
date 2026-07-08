@@ -44,9 +44,18 @@ export interface SalarioBase {
   citas: Cita[]
 }
 
+export interface DesgloseValorHora {
+  salarioBaseMensual: number
+  mensualidades: number
+  plusesAnuales: number
+  jornadaAnualHoras: number
+  valorHora: number
+}
+
 export interface HorasExtra {
   precioHora: number
   importe: number
+  desglose: DesgloseValorHora
   citas: Cita[]
 }
 
