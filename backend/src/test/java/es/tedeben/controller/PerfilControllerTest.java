@@ -24,6 +24,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -49,9 +50,31 @@ class PerfilControllerTest {
     }
 
     @Test
-    @DisplayName("sin token → 401 (el perfil es privado)")
+    @DisplayName("sin token → 401 RFC 7807 (el perfil es privado)")
     void sinToken() throws Exception {
-        mockMvc.perform(get("/api/v1/perfil")).andExpect(status().isUnauthorized());
+        mockMvc.perform(get("/api/v1/perfil"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                .andExpect(jsonPath("$.title").value("Unauthorized"))
+                .andExpect(jsonPath("$.status").value(401))
+                .andExpect(jsonPath("$.detail").value("Autenticación requerida"))
+                .andExpect(jsonPath("$.instance").value("/api/v1/perfil"));
+    }
+
+    @Test
+    @DisplayName("token inválido → el mismo 401 neutro que sin token (no se filtra el porqué)")
+    void tokenInvalido() throws Exception {
+        when(jwtDecoder.decode("basura")).thenThrow(
+                new org.springframework.security.oauth2.jwt.BadJwtException("firma incorrecta"));
+
+        mockMvc.perform(get("/api/v1/perfil").header("Authorization", "Bearer basura"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                .andExpect(jsonPath("$.title").value("Unauthorized"))
+                .andExpect(jsonPath("$.status").value(401))
+                .andExpect(jsonPath("$.detail").value("Autenticación requerida"))
+                .andExpect(content().string(
+                        org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("firma"))));
     }
 
     @Test
