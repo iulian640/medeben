@@ -401,10 +401,6 @@
   "estado": "verificado",
   "estadoNota": "Tablas salariales por grupo (2024 / 2025 definitivo / 2026 provisional) y tabla de pluses leídas celda a celda de la IMAGEN del PDF oficial del DOE nº95 (185 dpi). Condiciones no salariales (jornada, vacaciones, permisos, complemento IT, excedencias, ascensos, contratación, representación sindical, igualdad/acoso, otras condiciones económicas) extraídas del texto oficial del articulado (Arts. 1-46 + Disposiciones Adicionales) del DOE nº17 (27-01-2025). Régimen disciplinario y periodo de prueba NO los regula el convenio con carácter general: se remiten al ALEH estatal y al ET.",
   "pendienteCondiciones": [
-    "vacaciones.retribucion.base: el Art. 14 no especifica qué conceptos integran la paga de vacaciones (plus transporte y salario en especie NO se perciben en vacaciones). Duda para UGT.",
-    "regimenDisciplinario: faltas y sanciones (salvo acoso LGTBI = muy grave) NO reguladas en el convenio provincial → tomar del ALEH estatal.",
-    "periodoPrueba: duraciones por grupo/categoría NO reguladas en el convenio → tomar del ALEH estatal.",
-    "representacionSindical.creditoHorario: el convenio da 'hasta 250 trabajadores 28 h' sin desglosar un tramo 101-250; verificar aplicación práctica del tramo intermedio con UGT.",
     "2026 es PROVISIONAL (incremento inicial 2,35% sobre 2025 definitivo; podría subir hasta el IPC 2026 con tope 3,25%). Revisar si se publica tabla definitiva de 2026."
   ],
   "verificadoContra": "PDF oficial DOE nº95 (20-05-2026), ref. 2026061210: páginas de tablas (grupos I, II, III) y tabla de pluses verificadas en imagen a 185 dpi celda a celda; acta e incrementos leídos de las páginas de texto. Articulado (condiciones no salariales) leído del PDF oficial DOE nº17 (27-01-2025), ref. 2025060132, Arts. 1-46 y Disposiciones Adicionales Primera a Tercera. La Disposición Adicional Tercera (garantía SMI) procede del Acta del DOE nº95.",

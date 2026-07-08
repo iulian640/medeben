@@ -566,9 +566,6 @@
   "verificadoContra": "PDF oficial BOP A Coruña nº241 (22-12-2022, anuncio 2022/8018) renderizado a imaxe (185 dpi) e lido visualmente celda a celda, cotexado co texto extraído (coincidentes). Táboas 2024 de todas as seccións (1-8 + catering + barras americanas), xornada, nocturnidade, horas extra, servizos extraordinarios, pagas, manutención/aloxamento e plus formación verificados. Vixencia das táboas 2024 confirmada coas actas paritarias posteriores (BOP 60/2025 e BOP 231/2025). Condicións non salariais (vacacións, permisos, IT/baixa, excedencias, representación sindical, período de proba, contratación, seguros, roupa, preaviso, formación) engadidas 2026-07-08 lendo o articulado (arts. 13-39) do mesmo PDF; cada dato leva o seu artigo. Réxime disciplinario e período de proba NON se regulan no convenio (remitidos ao ALEH, art.36/art.18).",
   "fechaVerificacion": "2026-07-08",
   "pendiente": [
-    "Base de cálculo da retribución de vacacións (art.13 non a detalla): confirmar se é salario garantido só ou promedio con complementos.",
-    "Escala de faltas e sancións e duración do período de proba: remitidos ao ALEH (arts.36 e 18); verificar contra o texto vixente do ALEH.",
-    "Contía do plus de limpeza/mantemento da roupa de traballo (art.30 non a fixa).",
-    "Confirmar mapeo función→nivel se a app usa niveis numéricos (aquí a estrutura oficial é sección×área funcional×grupo×función×categoría de establecemento, non nivel numérico)."
+    "Contía do plus de limpeza/mantemento da roupa de traballo (art.30 non a fixa)."
   ]
 }

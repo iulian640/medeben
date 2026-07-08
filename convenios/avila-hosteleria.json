@@ -463,16 +463,7 @@
 
   "estado": "verificado",
   "estadoNota": "Convenio ÍNTEGRO verificado en imagen (185 dpi) del PDF oficial: articulado completo (Arts. 1-42 y Disposiciones Adicionales, páginas BOP 4-24) y las tres tablas salariales (Anexos I-III, 2023/2024/2025, páginas BOP 25-33) leídas celda a celda. Nocturnidad y hora extra son porcentuales/fórmula (no €/hora). Complemento de IT hasta el 100% del salario real (mejora destacable). Régimen disciplinario y periodo de prueba NO regulados: remitidos al V ALEH estatal. Convenio anterior al RD-ley 5/2023: algunos permisos (cuidado de familiar) quedan por debajo del ET vigente, que prevalece.",
-  "pendienteCondiciones": [
-    "fiestasTrabajadas.recargoEconomico: el convenio regula compensación en descanso (disfrute como vacaciones) pero NO un recargo económico del festivo trabajado. Duda para UGT.",
-    "vacaciones.fraccionamiento: no regulado en el convenio (nº de periodos / mínimo de días seguidos). Duda para UGT.",
-    "vacaciones.bajaDuranteVacaciones_IT: no regulado expresamente → art. 38.3 ET.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio provincial (Art. 37 remite al V ALEH estatal, Cap. VII arts. 35-42).",
-    "periodoPrueba: duraciones por grupo/categoría NO reguladas (Art. 7.A remite al V ALEH, arts. 20-27).",
-    "excedencias: sin artículo propio → régimen general del art. 46 ET.",
-    "representacionSindical.garantiasYfuero: no detallado → art. 68 ET y LOLS.",
-    "permisosRetribuidos: convenio de feb-2023 anterior al RD-ley 5/2023; el permiso por accidente/enfermedad grave de familiar (2 días conv.) queda por debajo del ET vigente (5 días) y no recoge el permiso de fuerza mayor familiar de 4 días. Prevalece la ley."
-  ],
+  "pendienteCondiciones": [],
   "verificadoContra": "PDF oficial BOP Ávila nº33 (17-02-2023), anuncio 0379/23, código convenio 05000065011982. Articulado completo (Arts. 1-42 y Disposiciones Adicionales 1ª-2ª) leído en imagen a 185 dpi: Art. 1-5 (ámbito, vigencia, ultraactividad), Art. 6 (igualdad), Art. 7 (contratación, ascensos, polivalencia, periodo de prueba→ALEH, cese voluntario), Art. 8-9 (eventual, sustitución, fijo-discontinuo y llamamiento), Arts. 17-20 (retribuciones, antigüedad, pagas, manutención), Arts. 21-26 (quebranto, nocturnidad, horas extra, anticipos, premio natalidad, fidelidad), Art. 27 (complemento IT), Art. 28 (seguro accidentes), Art. 29 (inaplicación), Arts. 30-35 (jornada, vacaciones, licencias, conciliación, consultas médicas, fiesta patronal), Art. 36 (subrogación→ALEH), Art. 37 (régimen disciplinario→ALEH), Arts. 38-40 (garantías y permisos sindicales), Art. 41 (comisión paritaria), Art. 42 (legislación). Tablas salariales Anexos I (2023), II (2024) y III (2025) verificadas celda a celda por las 6 áreas funcionales y sus grupos profesionales.",
   "fechaVerificacion": "2026-07-08"
 }

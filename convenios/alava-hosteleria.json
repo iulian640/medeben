@@ -403,8 +403,6 @@
   "estadoNota": "Convenio completo (articulado arts. 1-42 + Disposiciones adicionales + Anexo I subrogación + Anexo II homogeneización + Anexo III tablas 2025-2026 + Anexo IV LGTBI) transcrito de la IMAGEN del PDF oficial del BOTHA a 185 dpi, página a página. Tablas del Anexo III verificadas celda a celda. Régimen disciplinario y clasificación profesional (grupos) remitidos al VI ALEH estatal por el propio convenio. Tablas de 2027 y 2028 no publicadas (ligadas al IPC, art. 21) → pendiente.",
   "pendienteCondiciones": [
     "salariosBaseMensuales 2027 y 2028: NO publicados. Incremento 2027 = IPC estatal 2026 + 1,5; 2028 = IPC estatal 2027 + 1,6 (Art. 21). Sin tabla oficial no se calculan.",
-    "regimenDisciplinario: faltas y sanciones NO tipificadas en el convenio → Capítulo VIII del VI ALEH estatal (Art. 41).",
-    "representacionSindical.quienRepresentaYeleccion: no detallado → ET arts. 62-68 y LOLS.",
     "vacaciones.proporcionalidad y representacionSindical.seccionesSindicales.cuotaSindical: no especificados en el convenio."
   ],
   "verificadoContra": "PDF oficial BOTHA núm. 20 de 16-02-2026, anuncio 2026-00378 (31 páginas), descargado y renderizado a PNG 185 dpi con PyMuPDF. Leídas en imagen las 31 páginas: portada/resolución (p1), articulado Capítulos I-IV arts. 1-42 y Disposiciones adicionales (pp2-20), Anexo I subrogación ALEH arts. 57-66 (pp21-25), Anexo II homogeneización de categorías→niveles (pp26-29), Anexo III tablas salariales 2025 y 2026 (p30), Anexo IV medidas LGTBI (p31). Firma electrónica de la Diputación Foral de Álava verificada en p31.",
@@ -418,8 +416,7 @@
   "dudasUGT": [
     "vacaciones: el suelo de retribución incluye 'alojamiento en su caso' pero las tablas no fijan importe de alojamiento separado. ¿Cómo se cuantifica para quien lo tiene?",
     "IT: el Art. 26 exige que la prestación 'sea otorgada por la Seguridad Social' para complementar; ¿qué ocurre con los 3 primeros días de enfermedad común (sin prestación) — no hay complemento hasta el 4º día?",
-    "Bonus 31 octubre a jornada parcial: se calcula sobre el % del 'parte de alta inicial'; ¿qué pasa si la jornada ha aumentado después respecto a la inicial?",
-    "Periodo de prueba: el convenio reproduce el ALEH por grupos; conviene confirmar la correspondencia grupo↔nivel para cada categoría concreta (comprobador de categoría)."
+    "Bonus 31 octubre a jornada parcial: se calcula sobre el % del 'parte de alta inicial'; ¿qué pasa si la jornada ha aumentado después respecto a la inicial?"
   ],
   "fechaVerificacion": "2026-07-08"
 }

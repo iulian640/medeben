@@ -359,12 +359,7 @@
   "estado": "verificado",
   "estadoNota": "Convenio COMPLETO transcrito. Tablas salariales 2025 (salario base art. 31 y antigüedad art. 32) verificadas en IMAGEN del PDF oficial del BOP Almería nº 109 (185 dpi), celda a celda, y contrastadas idénticas con la copia de CCOO. Articulado completo (arts. 1-70), disposiciones adicionales y anexo de grupos profesionales leídos en imagen. Régimen disciplinario y periodo de prueba NO los regula el convenio: remitidos al ALEH estatal. El complemento de IT SÍ está regulado (art. 43). Convenio de un solo año (2025), vigente por ultraactividad a julio de 2026.",
   "pendienteCondiciones": [
-    "jornadaAnual.horas: el convenio solo fija 40 h/semana (art. 21), no una jornada anual en horas. Duda para UGT.",
-    "vacaciones.retribucion: el art. 24 no especifica la fórmula de retribución de vacaciones (¿salario base o promedio con complementos?). Rige el ET por defecto. Duda para UGT.",
-    "vacaciones.bajaDuranteVacaciones_IT: no recogido expresamente en el convenio (rige art. 38.3 ET).",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio provincial (art. 67) → tomar del ALEH estatal (Cap. VIII, arts. 35-42).",
-    "periodoPrueba: duraciones por grupo/categoría NO reguladas (art. 14) → tomar del ALEH (arts. 21-27).",
-    "regimenDisciplinario.notaConvenio: el art. 69 remite a un 'artículo 72' inexistente (el convenio acaba en el art. 70): referencia cruzada heredada del ALEH. Duda para UGT."
+    "jornadaAnual.horas: el convenio solo fija 40 h/semana (art. 21), no una jornada anual en horas. Duda para UGT."
   ],
   "verificadoContra": "PDF oficial BOP Almería nº 109 (10-06-2025), páginas 35-44, anuncio 1527/25 (arts. 1-35, incluidas las tablas de salario base y antigüedad 2025, leídas en imagen a 185 dpi celda a celda). Arts. 36-70, Disposiciones Adicionales 1ª-5ª y Anexo de Grupos Profesionales leídos en imagen de la copia de CCOO (reproducción fiel del mismo texto oficial: las tablas de salario base art. 31 y antigüedad art. 32 coinciden EXACTAMENTE con el BOP oficial, validando la fidelidad de la copia para el resto del articulado). Descartado el documento de la Junta de Andalucía (descargarDocumento) por devolver por error el convenio de Sevilla.",
   "fechaVerificacion": "2026-07-08"

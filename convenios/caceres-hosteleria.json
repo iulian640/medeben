@@ -284,15 +284,7 @@
   "estado": "verificado",
   "estadoNota": "Tablas salariales DEFINITIVAS de 2025 verificadas en IMAGEN del DOE nº59 (26-03-2026) a 185 dpi, celda a celda: salario base único por grupo (G1 1.077,59 €; G2 1.054,50 €; G3 1.013,07 €), plus nocturno 54,48 €, plus extrasalarial 162,56 €, matrimonio 185,65 €, vivienda 290,50 €, jubilación 63 años 2.474,41 € y 64 años 1.238,33 €. Condiciones no salariales extraídas del ARTICULADO completo (Arts. 1-38 + anexos) del texto oficial del DOE nº33 (17-02-2022). Régimen disciplinario, periodo de prueba, movilidad funcional, contratos formativos y formación NO los regula el convenio: se remiten al ALEH estatal (Arts. 16, 17, 29, 33, 37).",
   "pendienteCondiciones": [
-    "vacaciones.retribucion: el Art. 19.A no especifica la base de cálculo de la paga de vacaciones (base vs promedio con complementos). Duda para UGT.",
-    "antiguedad.baseCalculo: el Art. 34 da porcentajes sin nombrar la magnitud base (se asume salario base). Duda para UGT.",
-    "complementoIT: el Art. 20 no fija tope de días del complemento del 100%. Duda para UGT: ¿cubre toda la duración legal de la IT?",
-    "permisosRetribuidos: el convenio (enero-2022) no recoge las mejoras del RD-ley 5/2023 (hospitalización/accidente grave 5 días; fuerza mayor familiar 4 días/año). Prevalece el ET por ser más favorable; pendiente de actualizar en negociación.",
-    "horasExtraordinarias: no reguladas en el convenio → ALEH/ET. Duda para UGT.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio provincial → tomar del ALEH estatal.",
-    "periodoPrueba: duraciones NO reguladas en el convenio → tomar del ALEH estatal.",
-    "contratacion.fijoDiscontinuo: orden de llamamiento y preavisos no detallados → art. 16 ET y ALEH.",
-    "representacionSindical.quienRepresentaYeleccion y garantiasYfuero: no detallados → ET arts. 62-68 y LOLS."
+    "antiguedad.baseCalculo: el Art. 34 da porcentajes sin nombrar la magnitud base (se asume salario base). Duda para UGT."
   ],
   "verificadoContra": "PDF oficial DOE nº59 (26-03-2026), páginas 11286-11291: Resolución + Acta de 20-02-2026 con tablas DEFINITIVAS de 2025. Todas las páginas de la tabla y de los conceptos económicos (plus extrasalarial, matrimonio, vivienda, jubilación, plus nocturno, salario base por grupo) leídas en IMAGEN a 185 dpi celda a celda. Articulado (condiciones no salariales) verificado contra el texto oficial del PDF DOE nº33 (17-02-2022), páginas 8309-8340, Arts. 1-38 y Anexos I-III (extracción de texto del PDF oficial, no re-mecanografiado). Confirmado que el articulado NO contiene régimen disciplinario ni periodo de prueba propios (Arts. 16, 33 y 37 remiten al ALEH).",
   "fechaVerificacion": "2026-07-08"
