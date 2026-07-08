@@ -161,9 +161,27 @@ public class FichajeService {
             // Salida sin entrada: el día sigue a medias, la app pedirá completarlo.
             estado = EstadoDia.Estado.PENDIENTE;
         }
-        int minutos = tramos.isEmpty() ? -1
-                : tramos.stream().mapToInt(t -> minutosEntre(t.entrada(), t.salida())).sum();
-        return new EstadoDia(fecha, estado, sellado, selladoDesde(fecha), minutos, diario);
+        return new EstadoDia(fecha, estado, sellado, selladoDesde(fecha), calculaMinutos(tramos), diario);
+    }
+
+    /**
+     * Suma de los tramos cerrados, o -1 (sin total) si no hay ninguno o si
+     * algún tramo supera el techo de cordura {@link #TRAMO_MAX_MINUTOS}: mejor
+     * "sin total" que un día inflado a ~24h por una corrección mal dirigida.
+     */
+    private static int calculaMinutos(List<Tramo> tramos) {
+        if (tramos.isEmpty()) {
+            return -1;
+        }
+        int total = 0;
+        for (Tramo t : tramos) {
+            int minutos = minutosEntre(t.entrada(), t.salida());
+            if (minutos > TRAMO_MAX_MINUTOS) {
+                return -1;
+            }
+            total += minutos;
+        }
+        return total;
     }
 
     /** Un tramo cerrado del día (entrada y salida); un turno partido tiene dos. */
@@ -207,10 +225,17 @@ public class FichajeService {
         }
     }
 
-    /** Minutos de un tramo declarado; si la salida es ≤ la entrada, cruza la medianoche. */
+    /**
+     * Minutos de un tramo declarado; si la salida es anterior a la entrada,
+     * cruza la medianoche. Entrada y salida iguales cuentan 0 (doble toque o
+     * corrección errónea), no un día entero.
+     */
     private static int minutosEntre(String entrada, String salida) {
         int e = minutosDelDia(entrada);
         int s = minutosDelDia(salida);
+        if (s == e) {
+            return 0;
+        }
         return s > e ? s - e : MINUTOS_DIA - e + s;
     }
 
