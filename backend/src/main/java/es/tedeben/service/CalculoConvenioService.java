@@ -144,7 +144,12 @@ public class CalculoConvenioService {
         }
         JsonNode cantidad = pagasNodo.path("cantidad");
         if (cantidad.isNumber()) {
-            return Optional.of(MENSUALIDADES_ORDINARIAS.add(cantidad.decimalValue()));
+            BigDecimal total = MENSUALIDADES_ORDINARIAS.add(cantidad.decimalValue());
+            // Mismo suelo de 12 que las demás ramas: una 'cantidad' negativa
+            // (errata) desinflaría el valor hora en contra del trabajador.
+            if (total.compareTo(MINIMO_MENSUALIDADES) >= 0) {
+                return Optional.of(total);
+            }
         }
         for (String campo : new String[]{"total", "totalPagas", "pagasAnualesTotales"}) {
             JsonNode n = pagasNodo.path(campo);

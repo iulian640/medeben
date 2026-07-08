@@ -19,4 +19,15 @@ public record ApunteRequest(
         @Size(max = 200) String motivo,
         boolean rectificacionTardiaConfirmada
 ) {
+
+    /**
+     * El toString autogenerado de un record volcaría el motivo (posible dato
+     * de salud, art. 9 RGPD) en cualquier log accidental: aquí se redacta.
+     */
+    @Override
+    public String toString() {
+        return "ApunteRequest[fecha=" + fecha + ", tipo=" + tipo + ", hora=" + hora
+                + ", motivo=" + (motivo == null ? null : "<redactado>")
+                + ", rectificacionTardiaConfirmada=" + rectificacionTardiaConfirmada + "]";
+    }
 }

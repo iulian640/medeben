@@ -24,6 +24,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -32,6 +33,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class PerfilControllerTest {
 
     private static final UUID USUARIO = UUID.randomUUID();
+    private static final java.time.OffsetDateTime SELLO =
+            java.time.OffsetDateTime.parse("2026-07-08T10:15:00+02:00");
 
     @Autowired
     private MockMvc mockMvc;
@@ -47,9 +50,31 @@ class PerfilControllerTest {
     }
 
     @Test
-    @DisplayName("sin token → 401 (el perfil es privado)")
+    @DisplayName("sin token → 401 RFC 7807 (el perfil es privado)")
     void sinToken() throws Exception {
-        mockMvc.perform(get("/api/v1/perfil")).andExpect(status().isUnauthorized());
+        mockMvc.perform(get("/api/v1/perfil"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                .andExpect(jsonPath("$.title").value("Unauthorized"))
+                .andExpect(jsonPath("$.status").value(401))
+                .andExpect(jsonPath("$.detail").value("Autenticación requerida"))
+                .andExpect(jsonPath("$.instance").value("/api/v1/perfil"));
+    }
+
+    @Test
+    @DisplayName("token inválido → el mismo 401 neutro que sin token (no se filtra el porqué)")
+    void tokenInvalido() throws Exception {
+        when(jwtDecoder.decode("basura")).thenThrow(
+                new org.springframework.security.oauth2.jwt.BadJwtException("firma incorrecta"));
+
+        mockMvc.perform(get("/api/v1/perfil").header("Authorization", "Bearer basura"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                .andExpect(jsonPath("$.title").value("Unauthorized"))
+                .andExpect(jsonPath("$.status").value(401))
+                .andExpect(jsonPath("$.detail").value("Autenticación requerida"))
+                .andExpect(content().string(
+                        org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("firma"))));
     }
 
     @Test
@@ -65,7 +90,7 @@ class PerfilControllerTest {
     @DisplayName("PUT guarda el perfil del usuario del token (el id nunca viene del body)")
     void guardaPerfil() throws Exception {
         Perfil guardado = new Perfil(USUARIO, "Madrid", "hosteleria", "madrid-hosteleria",
-                "cocinero", Map.of("nivel", "III"), null, null);
+                "cocinero", Map.of("nivel", "III"), null, null, SELLO);
         when(perfilService.guarda(eq(USUARIO), anyString(), anyString(), any(), any(), any(), any()))
                 .thenReturn(guardado);
 
@@ -82,7 +107,7 @@ class PerfilControllerTest {
     @DisplayName("GET con perfil existente → 200 con el perfil serializado")
     void getConPerfil() throws Exception {
         Perfil existente = new Perfil(USUARIO, "Madrid", "hosteleria", "madrid-hosteleria",
-                "cocinero", Map.of("nivel", "III"), new java.math.BigDecimal("1400.00"), null);
+                "cocinero", Map.of("nivel", "III"), new java.math.BigDecimal("1400.00"), null, SELLO);
         when(perfilService.busca(USUARIO)).thenReturn(Optional.of(existente));
 
         mockMvc.perform(get("/api/v1/perfil").with(comoUsuario()))
@@ -103,6 +128,26 @@ class PerfilControllerTest {
         mockMvc.perform(put("/api/v1/perfil").with(comoUsuario())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"provincia\":\"Madrid\",\"subsector\":\"hosteleria\",\"dimensiones\":{" + dims + "}}"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("PUT con un valor de dimensión gigante → 400 en el borde (validación del DTO)")
+    void dimensionConValorGigante() throws Exception {
+        mockMvc.perform(put("/api/v1/perfil").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"provincia\":\"Madrid\",\"subsector\":\"hosteleria\","
+                                + "\"dimensiones\":{\"nivel\":\"" + "x".repeat(401) + "\"}}"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("PUT con una clave de dimensión gigante → 400 en el borde (validación del DTO)")
+    void dimensionConClaveGigante() throws Exception {
+        mockMvc.perform(put("/api/v1/perfil").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"provincia\":\"Madrid\",\"subsector\":\"hosteleria\","
+                                + "\"dimensiones\":{\"" + "k".repeat(41) + "\":\"III\"}}"))
                 .andExpect(status().isBadRequest());
     }
 

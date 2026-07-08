@@ -56,14 +56,13 @@ public class JwtConfig {
     }
 
     private static SecretKeySpec clave(String secreto, Environment entorno) {
-        // Barrera fail-fast (hallazgo H1 del security-review): si un despliegue
-        // arranca sin SPRING_PROFILES_ACTIVE, Spring cae al perfil dev y usaría
-        // el secreto de juguete del repo → cualquiera podría firmar tokens.
-        // Fuera de dev/local/test, los secretos conocidos del repo tumban el arranque.
-        boolean perfilNoProductivo = java.util.Arrays.stream(
-                        entorno.getActiveProfiles().length > 0
-                                ? entorno.getActiveProfiles()
-                                : entorno.getDefaultProfiles())
+        // Barrera fail-fast (hallazgo H1 del security-review): solo cuentan los
+        // perfiles ACTIVOS, jamás los por defecto. application.yml fija
+        // spring.profiles.default=dev, así que un despliegue sin
+        // SPRING_PROFILES_ACTIVE "parecería" dev por defecto y firmaría tokens
+        // con el secreto público del repo. Sin perfil activo explícito la
+        // barrera APLICA: los secretos conocidos del repo tumban el arranque.
+        boolean perfilNoProductivo = java.util.Arrays.stream(entorno.getActiveProfiles())
                 .anyMatch(PERFILES_NO_PRODUCTIVOS::contains);
         if (!perfilNoProductivo && SECRETOS_DE_JUGUETE.contains(secreto)) {
             throw new IllegalStateException(

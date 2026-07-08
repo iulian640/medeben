@@ -21,4 +21,15 @@ public record ApunteResponse(
         return new ApunteResponse(a.getFecha(), a.getTipo(), a.getHora(), a.getMotivo(),
                 a.getOrigen(), a.getRegistradoEn());
     }
+
+    /**
+     * El toString autogenerado de un record volcaría el motivo (posible dato
+     * de salud, art. 9 RGPD) en cualquier log accidental: aquí se redacta.
+     */
+    @Override
+    public String toString() {
+        return "ApunteResponse[fecha=" + fecha + ", tipo=" + tipo + ", hora=" + hora
+                + ", motivo=" + (motivo == null ? null : "<redactado>")
+                + ", origen=" + origen + ", registradoEn=" + registradoEn + "]";
+    }
 }
