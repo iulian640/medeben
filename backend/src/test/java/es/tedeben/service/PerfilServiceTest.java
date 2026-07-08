@@ -3,6 +3,7 @@ package es.tedeben.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import es.tedeben.domain.usuario.Perfil;
 import es.tedeben.repository.ConvenioCatalog;
+import es.tedeben.repository.HechosCatalog;
 import es.tedeben.repository.OcupacionesCatalog;
 import es.tedeben.repository.PerfilRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,7 +43,8 @@ class PerfilServiceTest {
         repositorio = mock(PerfilRepository.class);
         ObjectMapper mapper = new ObjectMapper();
         servicio = new PerfilService(repositorio, new ConvenioCatalog(mapper),
-                new OcupacionesCatalog(mapper), RELOJ_FIJO);
+                new OcupacionesCatalog(mapper),
+                new DimensionesCatalogoValidator(new HechosCatalog(mapper)), RELOJ_FIJO);
         when(repositorio.save(any(Perfil.class))).thenAnswer(inv -> inv.getArgument(0));
     }
 
@@ -68,11 +70,11 @@ class PerfilServiceTest {
         when(repositorio.findById(USUARIO)).thenReturn(Optional.of(existente));
 
         Perfil guardado = servicio.guarda(USUARIO, "Madrid", "hosteleria", "camarero",
-                Map.of("nivel", "II"), new BigDecimal("1500"), null);
+                Map.of("nivel", "II-A"), new BigDecimal("1500"), null);
 
         assertThat(guardado).isSameAs(existente);
         assertThat(guardado.getPuestoId()).isEqualTo("camarero");
-        assertThat(guardado.getDimensiones()).containsEntry("nivel", "II");
+        assertThat(guardado.getDimensiones()).containsEntry("nivel", "II-A");
         assertThat(guardado.getSalarioBaseMensual()).isEqualByComparingTo("1500");
         assertThat(guardado.getActualizadoEn()).isEqualTo(AHORA);
     }
@@ -110,12 +112,44 @@ class PerfilServiceTest {
     }
 
     @Test
-    @DisplayName("el valor más largo del catálogo real (325 caracteres) sí cabe")
+    @DisplayName("el valor real más largo del catálogo (categoría de restauración colectiva, cientos de caracteres) sí cabe y valida")
     void valorLargoDelCatalogoCabe() {
-        Perfil perfil = servicio.guarda(USUARIO, "Madrid", "hosteleria", null,
-                Map.of("categoria", "x".repeat(325)), null, null);
+        // El validador de dimensiones no puede rechazar valores largos por ser
+        // largos: el corpus real tiene categorías de cientos de caracteres. Se
+        // toma el valor real más largo de la capa derivada y debe aceptarse.
+        String categoriaLarga = new HechosCatalog(new ObjectMapper())
+                .deConvenio("estatal-restauracion-colectiva").stream()
+                .filter(h -> "salarioBase".equals(h.concepto()))
+                .map(h -> h.dimensiones().get("categoria"))
+                .filter(java.util.Objects::nonNull)
+                .max(java.util.Comparator.comparingInt(String::length))
+                .orElseThrow();
 
-        assertThat(perfil.getDimensiones()).containsKey("categoria");
+        Perfil perfil = servicio.guarda(USUARIO, "Madrid", "restauracion-colectiva", null,
+                Map.of("categoria", categoriaLarga), null, null);
+
+        assertThat(categoriaLarga.length()).isGreaterThan(100);
+        assertThat(perfil.getConvenioId()).isEqualTo("estatal-restauracion-colectiva");
+        assertThat(perfil.getDimensiones()).containsEntry("categoria", categoriaLarga);
+    }
+
+    @Test
+    @DisplayName("dimensión con clave inexistente en el convenio → 422 (no se guarda basura que no resolvería tabla)")
+    void claveDeDimensionDesconocida() {
+        assertThatExceptionOfType(es.tedeben.controller.DimensionDesconocidaException.class)
+                .isThrownBy(() -> servicio.guarda(USUARIO, "Madrid", "hosteleria", null,
+                        Map.of("sector", "restaurante"), null, null))
+                .withMessageContaining("sector");
+    }
+
+    @Test
+    @DisplayName("dimensión con valor inexistente para una clave válida → 422 con clave y valor en el mensaje")
+    void valorDeDimensionDesconocido() {
+        assertThatExceptionOfType(es.tedeben.controller.DimensionDesconocidaException.class)
+                .isThrownBy(() -> servicio.guarda(USUARIO, "Madrid", "hosteleria", null,
+                        Map.of("nivel", "ZZ"), null, null))
+                .withMessageContaining("nivel")
+                .withMessageContaining("ZZ");
     }
 
     @Test
@@ -135,7 +169,7 @@ class PerfilServiceTest {
                 .thenAnswer(inv -> inv.getArgument(0));
 
         Perfil guardado = servicio.guarda(USUARIO, "Madrid", "hosteleria", "camarero",
-                Map.of("nivel", "II"), new BigDecimal("1500"), null);
+                Map.of("nivel", "II-A"), new BigDecimal("1500"), null);
 
         assertThat(guardado).isSameAs(creadoPorLaOtraPeticion);
         assertThat(guardado.getPuestoId()).isEqualTo("camarero");

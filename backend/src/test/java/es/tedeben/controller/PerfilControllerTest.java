@@ -152,6 +152,26 @@ class PerfilControllerTest {
     }
 
     @Test
+    @DisplayName("PUT con dimensión que no existe en el convenio → 422 RFC 7807 con el detalle del validador")
+    void dimensionDesconocida() throws Exception {
+        when(perfilService.guarda(eq(USUARIO), anyString(), anyString(), any(), any(), any(), any()))
+                .thenThrow(new DimensionDesconocidaException(
+                        "El valor 'ZZ' no existe para la dimensión 'nivel' del convenio 'madrid-hosteleria'"));
+
+        mockMvc.perform(put("/api/v1/perfil").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"provincia":"Madrid","subsector":"hosteleria","dimensiones":{"nivel":"ZZ"}}"""))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                .andExpect(jsonPath("$.status").value(422))
+                .andExpect(jsonPath("$.detail").value(
+                        org.hamcrest.Matchers.allOf(
+                                org.hamcrest.Matchers.containsString("nivel"),
+                                org.hamcrest.Matchers.containsString("ZZ"))));
+    }
+
+    @Test
     @DisplayName("token con subject que no es UUID → 401 genérico, sin eco del valor")
     void subjectRaro() throws Exception {
         mockMvc.perform(get("/api/v1/perfil")

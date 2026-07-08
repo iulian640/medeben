@@ -30,6 +30,16 @@ public class GlobalExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
     }
 
+    @ExceptionHandler(DimensionDesconocidaException.class)
+    public ProblemDetail dimensionDesconocida(DimensionDesconocidaException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
+    }
+
+    @ExceptionHandler(ResumenIncompletoException.class)
+    public ProblemDetail resumenIncompleto(ResumenIncompletoException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
+    }
+
     @ExceptionHandler(es.tedeben.service.EmailYaRegistradoException.class)
     public ProblemDetail emailYaRegistrado(es.tedeben.service.EmailYaRegistradoException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());

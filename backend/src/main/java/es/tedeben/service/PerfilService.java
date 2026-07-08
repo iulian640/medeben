@@ -39,13 +39,16 @@ public class PerfilService {
     private final PerfilRepository perfiles;
     private final ConvenioCatalog convenios;
     private final OcupacionesCatalog ocupaciones;
+    private final DimensionesCatalogoValidator dimensionesValidator;
     private final Clock reloj;
 
     public PerfilService(PerfilRepository perfiles, ConvenioCatalog convenios,
-                         OcupacionesCatalog ocupaciones, Clock reloj) {
+                         OcupacionesCatalog ocupaciones,
+                         DimensionesCatalogoValidator dimensionesValidator, Clock reloj) {
         this.perfiles = perfiles;
         this.convenios = convenios;
         this.ocupaciones = ocupaciones;
+        this.dimensionesValidator = dimensionesValidator;
         this.reloj = reloj;
     }
 
@@ -77,6 +80,9 @@ public class PerfilService {
                 }
             }
         }
+        // Tras el tope de almacenamiento (borde), el catálogo: cada clave/valor
+        // debe existir en las tablas del convenio resuelto, o no se guarda (422).
+        dimensionesValidator.valida(convenio.id(), dimensiones);
         if (salarioBaseMensual != null && salarioBaseMensual.signum() <= 0) {
             throw new IllegalArgumentException("El salario base mensual debe ser positivo");
         }

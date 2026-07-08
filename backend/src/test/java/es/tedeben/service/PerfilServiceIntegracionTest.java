@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import es.tedeben.domain.usuario.Perfil;
 import es.tedeben.domain.usuario.Usuario;
 import es.tedeben.repository.ConvenioCatalog;
+import es.tedeben.repository.HechosCatalog;
 import es.tedeben.repository.OcupacionesCatalog;
 import es.tedeben.repository.PerfilRepository;
 import es.tedeben.repository.UsuarioRepository;
@@ -71,6 +72,7 @@ class PerfilServiceIntegracionTest {
         ObjectMapper mapper = new ObjectMapper();
         servicio = new PerfilService(perfiles, new ConvenioCatalog(mapper),
                 new OcupacionesCatalog(mapper),
+                new DimensionesCatalogoValidator(new HechosCatalog(mapper)),
                 Clock.fixed(AHORA.toInstant(), ZoneId.of("Europe/Madrid")));
         usuarioId = usuarios.saveAndFlush(
                 new Usuario("perfil-" + UUID.randomUUID() + "@example.com", "{noop}hash")).getId();
@@ -85,7 +87,7 @@ class PerfilServiceIntegracionTest {
         em.clear();
 
         servicio.guarda(usuarioId, "Madrid", "hosteleria", "camarero",
-                Map.of("nivel", "II"), new BigDecimal("1500"), null);
+                Map.of("nivel", "II-A"), new BigDecimal("1500"), null);
         em.flush();
         em.clear();
 
@@ -135,10 +137,11 @@ class PerfilServiceIntegracionTest {
             PerfilService servicioEnCarrera = new PerfilService(conLecturaRancia,
                     new ConvenioCatalog(new ObjectMapper()),
                     new OcupacionesCatalog(new ObjectMapper()),
+                    new DimensionesCatalogoValidator(new HechosCatalog(new ObjectMapper())),
                     Clock.fixed(AHORA.toInstant(), ZoneId.of("Europe/Madrid")));
 
             Perfil guardado = servicioEnCarrera.guarda(usuarioId, "Alicante", "hosteleria",
-                    "camarero", Map.of("nivel", "II"), new BigDecimal("1500"), null);
+                    "camarero", Map.of("nivel", "2"), new BigDecimal("1500"), null);
 
             assertThat(guardado.getConvenioId()).isEqualTo("alicante-hosteleria");
             Perfil recargado = perfiles.findById(usuarioId).orElseThrow();
