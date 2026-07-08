@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import es.tedeben.domain.convenio.Convenio;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +20,7 @@ import java.util.Optional;
  * empaquetados en el classpath. Carga y valida todo el corpus en el arranque —
  * un convenio malformado tumba la app a propósito (D24: el seed valida).
  */
-@Repository
+@Component
 public class ConvenioCatalog {
 
     private static final String PATRON_CONVENIOS = "classpath*:convenios/*.json";

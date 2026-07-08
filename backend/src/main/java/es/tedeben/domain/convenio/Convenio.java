@@ -13,6 +13,9 @@ import java.util.Optional;
  * tipados; el resto (tablas salariales con dimensiones propias de cada convenio,
  * condiciones, pluses...) queda accesible en {@link #raw()} para el motor de
  * cálculo genérico (D24: se normaliza la búsqueda, no el almacenamiento).
+ *
+ * <p>{@code raw} debe tratarse como SOLO LECTURA: la instancia se comparte entre
+ * todos los consumidores del catálogo durante toda la vida del proceso.
  */
 public record Convenio(
         String id,
@@ -21,68 +24,22 @@ public record Convenio(
         Subsector subsector,
         AmbitoTerritorial ambitoTerritorial,
         Vigencia vigencia,
-        BigDecimal jornadaAnualHoras,
         JsonNode raw
 ) {
 
     /** Jornada anual aplicable hoy; vacío si el convenio la deja pendiente o no la fija. */
     public Optional<BigDecimal> jornadaAnual() {
-        return Optional.ofNullable(jornadaAnualHoras);
+        return jornadaAnual(Year.now());
     }
 
     /**
-     * Construye y valida un convenio desde su JSON. Falla en el arranque si el
-     * fichero incumple el mínimo del ESQUEMA: un dato malo es peor que ninguno.
+     * Jornada anual aplicable en el año dado. La jornada aparece de varias formas
+     * en el corpus: `jornadaAnual.horas` como número, como mapa por año o como
+     * "pendiente"/null, y en dos convenios dentro de un bloque `jornada`
+     * alternativo. Un mapa por año se resuelve a la última entrada publicada
+     * ≤ año pedido (la que aplica por ultraactividad).
      */
-    public static Convenio desdeJson(String nombreFichero, JsonNode raw) {
-        String stem = nombreFichero.endsWith(".json")
-                ? nombreFichero.substring(0, nombreFichero.length() - ".json".length())
-                : nombreFichero;
-
-        String id = textoObligatorio(raw, "id", nombreFichero);
-        if (!id.equals(stem)) {
-            throw new IllegalArgumentException(
-                    nombreFichero + ": el id '" + id + "' no coincide con el nombre del fichero");
-        }
-        String nombre = textoObligatorio(raw, "nombre", nombreFichero);
-        Subsector subsector = Subsector.desdeClave(textoObligatorio(raw, "ambitoFuncional", nombreFichero));
-
-        JsonNode ambitoNodo = raw.path("ambitoTerritorial");
-        if (!ambitoNodo.isObject()) {
-            throw new IllegalArgumentException(nombreFichero + ": falta ambitoTerritorial o no es un objeto");
-        }
-        JsonNode vigenciaNodo = raw.path("vigencia");
-        if (!vigenciaNodo.isObject() || vigenciaNodo.path("desde").asText(null) == null) {
-            throw new IllegalArgumentException(nombreFichero + ": falta vigencia.desde");
-        }
-
-        return new Convenio(
-                id,
-                nombre,
-                raw.path("codigoRegcon").asText(null),
-                subsector,
-                AmbitoTerritorial.desdeJson(ambitoNodo),
-                Vigencia.desdeJson(vigenciaNodo),
-                extraeJornadaAnual(raw),
-                raw);
-    }
-
-    private static String textoObligatorio(JsonNode raw, String campo, String nombreFichero) {
-        String valor = raw.path(campo).asText(null);
-        if (valor == null || valor.isBlank()) {
-            throw new IllegalArgumentException(nombreFichero + ": falta el campo obligatorio '" + campo + "'");
-        }
-        return valor;
-    }
-
-    /**
-     * La jornada anual aparece de varias formas en el corpus: `jornadaAnual.horas`
-     * como número, como mapa por año o como "pendiente"/null, y en dos convenios
-     * dentro de un bloque `jornada` alternativo. Se resuelve al valor numérico
-     * aplicable al año en curso (mapa por año → última entrada publicada ≤ hoy,
-     * que es la que aplica por ultraactividad).
-     */
-    private static BigDecimal extraeJornadaAnual(JsonNode raw) {
+    public Optional<BigDecimal> jornadaAnual(Year anio) {
         JsonNode horas = raw.path("jornadaAnual").path("horas");
         if (horas.isMissingNode() || horas.isNull()) {
             JsonNode jornada = raw.path("jornada");
@@ -92,16 +49,65 @@ public record Convenio(
             }
         }
         if (horas.isNumber()) {
-            return horas.decimalValue();
+            return Optional.of(horas.decimalValue());
         }
         if (horas.isObject()) {
-            return ultimaEntradaPorAnio(horas);
+            return ultimaEntradaPorAnio(horas, anio);
         }
-        return null;
+        return Optional.empty();
     }
 
-    private static BigDecimal ultimaEntradaPorAnio(JsonNode porAnio) {
-        int anioActual = Year.now().getValue();
+    /**
+     * Construye y valida un convenio desde su JSON. Falla en el arranque si el
+     * fichero incumple el mínimo del ESQUEMA: un dato malo es peor que ninguno.
+     */
+    public static Convenio desdeJson(String nombreFichero, JsonNode json) {
+        String stem = nombreFichero.endsWith(".json")
+                ? nombreFichero.substring(0, nombreFichero.length() - ".json".length())
+                : nombreFichero;
+
+        String id = textoObligatorio(json, "id", nombreFichero);
+        if (!id.equals(stem)) {
+            throw new IllegalArgumentException(
+                    nombreFichero + ": el id '" + id + "' no coincide con el nombre del fichero");
+        }
+        String nombre = textoObligatorio(json, "nombre", nombreFichero);
+        Subsector subsector = Subsector.desdeClave(textoObligatorio(json, "ambitoFuncional", nombreFichero));
+
+        JsonNode ambitoNodo = json.path("ambitoTerritorial");
+        if (!ambitoNodo.isObject()) {
+            throw new IllegalArgumentException(nombreFichero + ": falta ambitoTerritorial o no es un objeto");
+        }
+        JsonNode provinciasNodo = ambitoNodo.path("provincias");
+        if (!provinciasNodo.isMissingNode() && !provinciasNodo.isArray()) {
+            throw new IllegalArgumentException(nombreFichero + ": ambitoTerritorial.provincias no es una lista");
+        }
+        JsonNode vigenciaNodo = json.path("vigencia");
+        String vigenciaDesde = vigenciaNodo.path("desde").asText(null);
+        if (!vigenciaNodo.isObject() || vigenciaDesde == null || vigenciaDesde.isBlank()) {
+            throw new IllegalArgumentException(nombreFichero + ": falta vigencia.desde");
+        }
+
+        return new Convenio(
+                id,
+                nombre,
+                json.path("codigoRegcon").asText(null),
+                subsector,
+                AmbitoTerritorial.desdeJson(ambitoNodo),
+                Vigencia.desdeJson(vigenciaNodo),
+                json.deepCopy());
+    }
+
+    private static String textoObligatorio(JsonNode json, String campo, String nombreFichero) {
+        String valor = json.path(campo).asText(null);
+        if (valor == null || valor.isBlank()) {
+            throw new IllegalArgumentException(nombreFichero + ": falta el campo obligatorio '" + campo + "'");
+        }
+        return valor;
+    }
+
+    private static Optional<BigDecimal> ultimaEntradaPorAnio(JsonNode porAnio, Year anio) {
+        int tope = anio.getValue();
         int mejorAnio = Integer.MIN_VALUE;
         BigDecimal mejorValor = null;
         for (Iterator<Map.Entry<String, JsonNode>> it = porAnio.fields(); it.hasNext(); ) {
@@ -109,17 +115,17 @@ public record Convenio(
             if (!entrada.getValue().isNumber()) {
                 continue;
             }
-            int anio;
+            int anioEntrada;
             try {
-                anio = Integer.parseInt(entrada.getKey());
+                anioEntrada = Integer.parseInt(entrada.getKey());
             } catch (NumberFormatException e) {
                 continue;
             }
-            if (anio <= anioActual && anio > mejorAnio) {
-                mejorAnio = anio;
+            if (anioEntrada <= tope && anioEntrada > mejorAnio) {
+                mejorAnio = anioEntrada;
                 mejorValor = entrada.getValue().decimalValue();
             }
         }
-        return mejorValor;
+        return Optional.ofNullable(mejorValor);
     }
 }
