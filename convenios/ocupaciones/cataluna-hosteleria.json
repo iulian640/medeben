@@ -1,5 +1,5 @@
 {
-  "$comment": "Mapeo puesto→dimensiones para cataluna-hosteleria. Cada zona (Barcelona, Maresme, Tarragona, Girona) tiene su PROPIA clasificación puesto→nivel (Anexo II A.2/B.2/C.2.1); la dimensión 'zona' es de establecimiento y queda fuera, igual que 'categoriaEstablecimiento'. Solo se fija el nivel cuando es EL MISMO en las 4 zonas; si difiere entre zonas → null con nota. NUNCA inventar.",
+  "$comment": "Mapeo puesto→dimensiones para cataluna-hosteleria. ANÁLISIS: cada zona (Barcelona, Maresme, Tarragona, Girona) tiene su PROPIA clasificación puesto→nivel (Anexo II: A.2 Barcelona —aplica también a Maresme salvo camarera de pisos—, B.2 Tarragona, C.2.1 Girona; transcrita en clasificacionNiveles.mapaCompletoPuestoNivel), y los hechos salarioBase llevan TRES dimensiones: zona + nivel + categoriaEstablecimiento. 'zona' y 'categoriaEstablecimiento' son propiedades del establecimiento que responde el usuario (valores exactos de la capa normalizada — zona: barcelona|maresme|tarragona|girona; categoriaEstablecimiento: A-E en Barcelona, A-D en Maresme, A-F en Tarragona, Ai|A|B|C|D|E en Girona). El formato actual (dimensiones planas puesto→valor fijo; OcupacionesCatalog solo lee 'dimensiones') únicamente permite fijar el nivel cuando es EL MISMO en las 4 zonas; para 12 de los 13 puestos restantes el nivel es CONDICIONAL a la zona y su mapeo completo verificado está en el campo 'condicionalPorZona' de cada puesto, que el backend actual IGNORA (hueco estructural nº 1 de docs/revisiones-pendientes.md: 'requiere extender el formato de mapeo con condiciones, o preguntar el establecimiento ANTES del puesto'). SEMÁNTICA PROPUESTA de 'condicionalPorZona': el resolver pregunta primero la zona (dimensión de establecimiento), aplica las dimensiones del objeto correspondiente ({nivel: ...}) o cae a modo manual si el valor es null (puesto no mapeable en esa zona), y calcula las preguntas restantes (categoriaEstablecimiento) contra los hechos igual que hoy (PerfilOcupacionService.pendientes). Mientras el formato no lo soporte, 'dimensiones' queda null (modo manual): dato ausente > dato erróneo. NUNCA inventar.",
   "id": "cataluna-hosteleria",
   "articulo": "Anexo II (A.2 Barcelona/Maresme, B.2 Tarragona, C.2.1 Girona) — correspondencia puesto→nivel retributivo",
   "ocupaciones": {
@@ -15,23 +15,53 @@
     },
     "jefe-partida": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: II en Barcelona/Maresme, III en Tarragona y Girona. Hace falta la zona del establecimiento para fijarlo."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Jefe/a de partida' es nivel II en A.2 (Barcelona/Maresme) y nivel III en B.2 (Tarragona) y C.2.1 (Girona, ambas columnas).",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "II" },
+        "maresme": { "nivel": "II" },
+        "tarragona": { "nivel": "III" },
+        "girona": { "nivel": "III" }
+      }
     },
     "cocinero": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: III en Barcelona/Maresme, IV en Tarragona y Girona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Cocinero/a' es nivel III en A.2 (Barcelona/Maresme) y nivel IV en B.2 (Tarragona) y C.2.1 (Girona).",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "III" },
+        "maresme": { "nivel": "III" },
+        "tarragona": { "nivel": "IV" },
+        "girona": { "nivel": "IV" }
+      }
     },
     "repostero": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: III en Barcelona/Maresme (repostero oficial) y Tarragona, IV en Girona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Repostero/a (oficial)' es nivel III en A.2 (Barcelona/Maresme), 'Repostero/a' nivel III en B.2 (Tarragona) y nivel IV en C.2.1 (Girona).",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "III" },
+        "maresme": { "nivel": "III" },
+        "tarragona": { "nivel": "III" },
+        "girona": { "nivel": "IV" }
+      }
     },
     "ayudante-cocina": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: IV en Barcelona/Maresme, VII en Tarragona, V en Girona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Ayudante/a cocinero/a' es nivel IV en A.2 (Barcelona/Maresme), 'Ayudante/a de cocina' nivel VII en B.2 (Tarragona) y 'Ayudante cocinero/a'/'Ayudante de cocina' nivel V en C.2.1 (Girona).",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "IV" },
+        "maresme": { "nivel": "IV" },
+        "tarragona": { "nivel": "VII" },
+        "girona": { "nivel": "V" }
+      }
     },
     "auxiliar-cocina": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: V en Barcelona/Maresme (marmitón/fregador/pinche mayor de 18), VII en Tarragona, VI-VII en Girona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): marmitón/fregador/pinche mayor de 18 es nivel V en A.2 (Barcelona/Maresme) y nivel VII en B.2 (Tarragona). En Girona (C.2.1) es AMBIGUO incluso sabiendo la zona: 'Auxiliares de cocina' y 'Marmitones - Pinches' figuran en nivel VI pero 'Marmitones Pinches más de 18 años' y 'Lavaplatos' en nivel VII (la columna ALEH lista 'Auxiliar de cocina' en VI y en VII) → null en girona, no inventar.",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "V" },
+        "maresme": { "nivel": "V" },
+        "tarragona": { "nivel": "VII" },
+        "girona": null
+      }
     },
     "jefe-sala": {
       "dimensiones": {
@@ -40,35 +70,77 @@
     },
     "camarero": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: III en Barcelona/Maresme, IV en Tarragona y Girona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Camarero/a' es nivel III en A.2 (Barcelona/Maresme) y nivel IV en B.2 (Tarragona) y C.2.1 (Girona).",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "III" },
+        "maresme": { "nivel": "III" },
+        "tarragona": { "nivel": "IV" },
+        "girona": { "nivel": "IV" }
+      }
     },
     "ayudante-camarero": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: IV en Barcelona/Maresme, VII en Tarragona (ayudante de comedor), V en Girona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Ayudante/a de camarero/a' es nivel IV en A.2 (Barcelona/Maresme) y 'Ayudante camarero/a' nivel V en C.2.1 (Girona). En B.2 (Tarragona) no existe ese literal; el equivalente 'Ayudante/a de comedor' es nivel VII.",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "IV" },
+        "maresme": { "nivel": "IV" },
+        "tarragona": { "nivel": "VII" },
+        "girona": { "nivel": "V" }
+      }
     },
     "barman": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: III en Barcelona/Maresme, IV en Girona; en Tarragona no aparece listado como tal."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Barman/barwoman' es nivel III en A.2 (Barcelona/Maresme) y nivel IV en C.2.1 (Girona). En B.2 (Tarragona) NO aparece listado como tal en ningún nivel → null en tarragona, no inventar.",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "III" },
+        "maresme": { "nivel": "III" },
+        "tarragona": null,
+        "girona": { "nivel": "IV" }
+      }
     },
     "sumiller": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: III en Barcelona/Maresme, IV en Tarragona y Girona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Sommelier' es nivel III en A.2 (Barcelona/Maresme) y nivel IV en B.2 (Tarragona) y C.2.1 (Girona, 'Somelier').",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "III" },
+        "maresme": { "nivel": "III" },
+        "tarragona": { "nivel": "IV" },
+        "girona": { "nivel": "IV" }
+      }
     },
     "recepcionista": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: III en Barcelona/Maresme y Girona, IV en Tarragona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Recepcionista' es nivel III en A.2 (Barcelona/Maresme) y C.2.1 (Girona), y nivel IV en B.2 (Tarragona).",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "III" },
+        "maresme": { "nivel": "III" },
+        "tarragona": { "nivel": "IV" },
+        "girona": { "nivel": "III" }
+      }
     },
     "camarera-pisos": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: IV en Barcelona, V en Maresme, VII en Tarragona (IV si área funcional bar/comedor) y VII en Girona."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Camarero/a de pisos' es nivel IV en Barcelona pero nivel V en la subzona Maresme (A.2 lista 'Camarero/a de pisos (zona Maresme)' en el nivel 5), nivel VII en B.2 (Tarragona) y C.2.1 (Girona). OJO Tarragona: B.2 también lista 'Camarero/a de pisos (área funcional bar/comedor del ALEH)' en nivel IV; el VII es el general de pisos.",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "IV" },
+        "maresme": { "nivel": "V" },
+        "tarragona": { "nivel": "VII" },
+        "girona": { "nivel": "VII" }
+      }
     },
     "administrativo": {
       "dimensiones": null,
-      "nota": "Sin categoría genérica única: Barcelona no lista 'Administrativo/a' (oficiales de contabilidad en II/III, auxiliar de oficina IV); en Girona 'Administrativo/a' (columna ALEH) aparece en niveles III y IV. Ambiguo y distinto por zona."
+      "nota": "Sin categoría genérica única NI SIQUIERA condicionada a la zona: A.2 (Barcelona/Maresme) no lista 'Administrativo/a' (oficiales de contabilidad en II/III, auxiliar de oficina en IV); B.2 (Tarragona) tampoco ('Oficial/a administrativo/a' IV, 'Auxiliar administrativo/a' VI/VII según edad); en C.2.1 (Girona) la columna ALEH lista 'Administrativo/a' en nivel III Y en nivel IV a la vez. Ambiguo en todas las zonas → null, no inventar."
     },
     "personal-limpieza": {
       "dimensiones": null,
-      "nota": "Nivel distinto por zona: V en Barcelona/Maresme (personal de limpieza), VII en Tarragona y Girona (limpiadores/as)."
+      "nota": "Nivel condicional a la zona (formato actual no lo expresa): 'Personal de limpieza' es nivel V en A.2 (Barcelona/Maresme), 'Limpiadores/as' nivel VII en B.2 (Tarragona) y 'Limpiador/a - Fregador/a' nivel VII en C.2.1 (Girona).",
+      "condicionalPorZona": {
+        "barcelona": { "nivel": "V" },
+        "maresme": { "nivel": "V" },
+        "tarragona": { "nivel": "VII" },
+        "girona": { "nivel": "VII" }
+      }
     }
   }
 }
