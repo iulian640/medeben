@@ -88,6 +88,17 @@ ni lo repliques en release**: la app maneja datos laborales sensibles (RGPD)
 y en producción todo el tráfico va cifrado (HTTPS). Un release nunca debe
 poder degradarse a HTTP en claro.
 
+## Backup del sistema: desactivado
+
+El manifest de `src/main` lleva `android:allowBackup="false"` (el scaffold de
+Capacitor trae `true`). Con backup activo, Android subiría el directorio de
+datos de la app — incluido el del WebView (cookies, IndexedDB, caché del
+Service Worker) — a la cuenta de Google del usuario, o lo expondría vía
+`adb backup`. Datos laborales sensibles (RGPD) fuera de backups: si algún día
+hace falta backup selectivo, usar `android:dataExtractionRules` excluyendo el
+WebView. Hay un guard test en `frontend/android-manifest.test.ts` que fija
+esta decisión (y que el cleartext no se mueva de debug).
+
 ## Notificaciones locales
 
 El plugin `@capacitor/local-notifications` (8.2.0) ya está instalado y
