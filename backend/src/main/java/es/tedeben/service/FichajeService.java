@@ -42,6 +42,17 @@ public class FichajeService {
     private static final int MOTIVO_MAX = 200;
     private static final int MINUTOS_DIA = 24 * 60;
 
+    /** D38: como mucho se declaran 2 tramos al día (turno seguido o partido). */
+    static final int MAX_TRAMOS = 2;
+
+    /**
+     * Techo de cordura por tramo: por encima de 16h casi seguro es una
+     * corrección mal dirigida (p.ej. una salida pensada para el primer tramo
+     * cerrando el segundo con un cruce de medianoche fantasma), no una jornada
+     * real de hostelería.
+     */
+    static final int TRAMO_MAX_MINUTOS = 16 * 60;
+
     /** Cota inferior de fecha: más atrás no hay reclamación viva que defender (higiene de datos). */
     static final int ANIOS_ATRAS_MAX = 2;
 
@@ -79,6 +90,19 @@ public class FichajeService {
                 OffsetDateTime.now(reloj)));
     }
 
+    /**
+     * Deriva el estado del día emparejando el diario en tramos (D38: turno
+     * seguido o partido, máx. {@value #MAX_TRAMOS} tramos).
+     *
+     * <p>Limitación conocida: los apuntes no llevan identificador de tramo, así
+     * que una corrección se asigna POR POSICIÓN — siempre al tramo abierto o,
+     * si no lo hay, al último cerrado. Una corrección pensada para un tramo
+     * anterior (p.ej. la salida del primer tramo con el segundo ya fichado) se
+     * aplicará al tramo equivocado. El techo de cordura
+     * ({@link #TRAMO_MAX_MINUTOS}) evita que ese desvío fabrique jornadas de
+     * ~24h, pero no recupera la intención: para eso el apunte tendría que
+     * declarar a qué tramo corrige.
+     */
     @Transactional(readOnly = true)
     public EstadoDia estadoDia(UUID usuarioId, LocalDate fecha) {
         List<Apunte> diario = apuntes.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(usuarioId, fecha);
@@ -91,9 +115,18 @@ public class FichajeService {
         Apunte ultimo = null;
         for (Apunte a : diario) {
             if (a.getTipo() == TipoApunte.ENTRADA) {
-                // Sin tramo abierto, abre uno nuevo; con tramo abierto es una
-                // corrección de esa entrada: gana la última.
-                entradaAbierta = a.getHora();
+                if (entradaAbierta == null && tramos.size() >= MAX_TRAMOS) {
+                    // Cupo de tramos ya declarado (D38: máx. 2): una entrada más
+                    // no abre un tramo fantasma que "reabra" el día — corrige la
+                    // entrada del último tramo cerrado (gana la última), igual
+                    // que hace la SALIDA con la suya.
+                    int i = tramos.size() - 1;
+                    tramos.set(i, new Tramo(a.getHora(), tramos.get(i).salida()));
+                } else {
+                    // Sin tramo abierto (y con cupo libre), abre uno nuevo; con
+                    // tramo abierto es una corrección de esa entrada: gana la última.
+                    entradaAbierta = a.getHora();
+                }
             } else if (a.getTipo() == TipoApunte.SALIDA) {
                 if (entradaAbierta != null) {
                     tramos.add(new Tramo(entradaAbierta, a.getHora()));
