@@ -5,6 +5,14 @@ Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
+- **Pantalla de perfil v0 (Vue)**: flujo provincia → tipo de sitio → puesto →
+  "tu salario mínimo" con citas enlazadas + calculadora de horas extra. Construida por
+  agente, revisada por vue-reviewer (BLOCK inicial por 2 bugs de corrección — carreras
+  async y prellenado congelado — arreglados con TDD y re-verificados: APPROVE). 42 tests.
+- **PR #124** — Re-verificación contra PDF oficial de las 4 contradicciones del mapeo:
+  Sevilla y Cádiz eran errores nuestros (corregidos: camarero Sevilla = Nivel 3);
+  Valladolid es errata del propio BOP (duda UGT); la celda del BOE de Córdoba estaba
+  bien tratada (errata del BOE sin corrección publicada).
 - **Mapeo puesto→nivel completo (D20)**: lista curada de 16 puestos + backend de
   resolución (puesto → dimensiones fijas + preguntas pendientes con valores reales) +
   endpoints GET /puestos y /convenios/{id}/puestos/{p}; 10 agentes mapearon los 54
