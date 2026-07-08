@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import { guardiaSesion } from './guardia'
+import { instalarRecargaPorChunk } from './recargaPorChunk'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,5 +37,12 @@ const router = createRouter({
 })
 
 router.beforeEach(guardiaSesion)
+
+// Recuperación ante deploys (chunks lazy con hash viejo): el cableado vive en
+// recargaPorChunk.ts, testeado con un router de memoria; aquí solo se inyecta
+// el mundo real (sessionStorage y location.assign).
+instalarRecargaPorChunk(router, window.sessionStorage, (destino) =>
+  window.location.assign(destino),
+)
 
 export default router

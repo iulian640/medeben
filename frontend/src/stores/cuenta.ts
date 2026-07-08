@@ -55,6 +55,37 @@ export const useCuentaStore = defineStore('cuenta', () => {
     puestoIdCargado.value = p.puestoId
   }
 
+  /** Vacía TODOS los campos del formulario: como recién creado, sin datos de nadie. */
+  function limpiarFormulario() {
+    provincia.value = null
+    subsector.value = null
+    puestoId.value = null
+    salarioBaseMensual.value = null
+    plusesAnuales.value = null
+    convenioId.value = null
+    dimensionesCargadas.value = null
+    puestoIdCargado.value = null
+  }
+
+  /**
+   * Reset completo al cerrar sesión: el store es un singleton y en un
+   * dispositivo compartido (caso real en hostelería) el siguiente usuario no
+   * debe ver — ni poder guardar como suyos — los datos salariales del
+   * anterior. Invalida también las peticiones en vuelo para que una respuesta
+   * tardía no repueble el formulario después del logout.
+   */
+  function limpiar() {
+    nuevaPeticion()
+    limpiarFormulario()
+    provincias.value = []
+    puestos.value = []
+    sinPerfil.value = false
+    cargando.value = false
+    guardando.value = false
+    guardado.value = false
+    error.value = null
+  }
+
   async function cargar() {
     const miId = nuevaPeticion()
     cargando.value = true
@@ -81,6 +112,10 @@ export const useCuentaStore = defineStore('cuenta', () => {
       provincias.value = listaProvincias
       puestos.value = listaPuestos
       if (perfil === null) {
+        // Sin perfil en el servidor: el formulario se vacía del todo. Si
+        // venía relleno (p. ej. de la cuenta anterior en un dispositivo
+        // compartido), esos datos NO son de este usuario.
+        limpiarFormulario()
         sinPerfil.value = true
       } else {
         sinPerfil.value = false
@@ -105,6 +140,11 @@ export const useCuentaStore = defineStore('cuenta', () => {
       error.value = 'Elige al menos tu provincia y el tipo de sitio antes de guardar.'
       return
     }
+    // Mismo guard que en cargar(): si limpiar() corre con el PUT en vuelo
+    // (logout con red lenta), la respuesta tardía no debe repoblar el
+    // formulario — repondría los datos salariales del usuario que se fue, o
+    // pisaría los del siguiente que ya haya cargado su perfil.
+    const miId = nuevaPeticion()
     guardando.value = true
     error.value = null
     guardado.value = false
@@ -124,13 +164,20 @@ export const useCuentaStore = defineStore('cuenta', () => {
         salarioBaseMensual: salarioBaseMensual.value,
         plusesAnuales: plusesAnuales.value,
       })
+      if (!sigueVigente(miId)) {
+        return
+      }
       aplicarPerfil(resultado)
       sinPerfil.value = false
       guardado.value = true
     } catch (e) {
-      error.value = mensajeDeError(e)
+      if (sigueVigente(miId)) {
+        error.value = mensajeDeError(e)
+      }
     } finally {
-      guardando.value = false
+      if (sigueVigente(miId)) {
+        guardando.value = false
+      }
     }
   }
 
@@ -156,5 +203,6 @@ export const useCuentaStore = defineStore('cuenta', () => {
     cargar,
     guardar,
     marcarEdicion,
+    limpiar,
   }
 })

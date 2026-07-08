@@ -5,14 +5,18 @@ import { esUrlSegura } from '../lib/formato'
 // Texto SIEMPRE interpolado ({{ }}), nunca v-html: las citas vienen del
 // backend pero la regla de seguridad es no interpretar HTML jamás (D34).
 // Y solo se enlazan URLs http(s) — esUrlSegura bloquea javascript:, data:...
+//
+// Key del v-for por índice: una Cita no tiene id y su texto es libre (dos
+// citas pueden repetirlo, y las keys duplicadas rompen el diff de Vue). La
+// lista se reemplaza entera con cada respuesta, así que el índice es estable.
 defineProps<{ citas: Cita[] }>()
 </script>
 
 <template>
   <ul class="citas">
     <li
-      v-for="cita in citas"
-      :key="cita.texto"
+      v-for="(cita, indice) in citas"
+      :key="indice"
       class="cita"
     >
       <span class="cita-texto">{{ cita.texto }}</span>

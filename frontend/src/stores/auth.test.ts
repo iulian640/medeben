@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
 import { ApiError } from '../services/api'
 import { useAuthStore } from './auth'
+import { useCuentaStore } from './cuenta'
 
 vi.mock('../services/auth', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../services/auth')>()),
@@ -98,6 +99,42 @@ describe('auth store', () => {
     expect(auth.autenticado).toBe(false)
     expect(setAuthToken).toHaveBeenLastCalledWith(null)
     expect(auth.aviso).toMatch(/sesión/i)
+  })
+
+  it('cerrarSesion vacía también el store de cuenta (dispositivo compartido)', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    const cuenta = useCuentaStore()
+    cuenta.provincia = 'Madrid'
+    cuenta.subsector = 'hosteleria'
+    cuenta.puestoId = 'cocinero'
+    cuenta.salarioBaseMensual = 1500
+    cuenta.plusesAnuales = 600
+    cuenta.convenioId = 'madrid-hosteleria'
+
+    auth.cerrarSesion()
+
+    expect(cuenta.provincia).toBeNull()
+    expect(cuenta.subsector).toBeNull()
+    expect(cuenta.puestoId).toBeNull()
+    expect(cuenta.salarioBaseMensual).toBeNull()
+    expect(cuenta.plusesAnuales).toBeNull()
+    expect(cuenta.convenioId).toBeNull()
+  })
+
+  it('la expulsión por 401 (sesionCaducada) también vacía el store de cuenta', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    const cuenta = useCuentaStore()
+    cuenta.provincia = 'Madrid'
+    cuenta.salarioBaseMensual = 1500
+
+    auth.sesionCaducada()
+
+    expect(cuenta.provincia).toBeNull()
+    expect(cuenta.salarioBaseMensual).toBeNull()
   })
 
   it('un login nuevo limpia el aviso de sesión caducada anterior', async () => {
