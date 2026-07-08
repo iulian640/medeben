@@ -124,6 +124,31 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- Expone la ruta del jar de mockito-core como propiedad
+                 (${org.mockito:mockito-core:jar}) para registrarlo como
+                 agente de Java en Surefire, según la recomendación oficial
+                 de Mockito para JDK 21+ (la carga dinámica de agentes
+                 quedará prohibida en futuras versiones del JDK) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- @{argLine} conserva el agente de JaCoCo (prepare-agent);
+                         -Xshare:off evita el aviso de CDS al añadir agentes -->
+                    <argLine>@{argLine} -javaagent:${org.mockito:mockito-core:jar} -Xshare:off</argLine>
+                </configuration>
+            </plugin>
             <!-- Cobertura: informe + gate en verify. Gate solo de LÍNEAS al 80%
                  (hoy 91,4%); las ramas (78,5%) quedan sin gate hasta subirlas,
                  para no romper la CI -->
