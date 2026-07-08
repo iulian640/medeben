@@ -336,12 +336,7 @@
   "estadoNota": "Tablas salariales 2020-2026 (6 tramos, 6 áreas funcionales, 5 niveles) verificadas en IMAGEN a 185 dpi celda a celda (BOP nº67 págs. 18-29). Articulado completo (Arts. 1-43 + Disposiciones Finales) leído del texto oficial (págs. 5-17). Régimen disciplinario y periodo de prueba NO los regula el convenio: se remiten al ALEH estatal. Quedan como 'pendiente' honesto varios datos que el convenio no fija (jornada anual en horas, retribución de vacaciones, valor de la hora extra, día de inicio del complemento de IT).",
   "pendienteCondiciones": [
     "jornadaAnual.horas: el Art. 16 solo fija 40 h/semana, no da cómputo anual. Duda para UGT.",
-    "vacaciones.retribucion.base: el Art. 19 no dice si se pagan a salario base o por promedio. Por defecto Art. 38 ET. Duda para UGT.",
-    "horasExtraordinarias: el convenio no fija precio/recargo (Art. 8 remite al ET y pone tope 80 h/año). Duda para UGT.",
-    "complementoIT.desdeDia: el Art. 23 no indica desde qué día empieza el complemento del 100%. Duda menor para UGT.",
-    "regimenDisciplinario: faltas y sanciones NO reguladas en el convenio provincial → tomar del ALEH estatal.",
-    "periodoPrueba: duraciones NO reguladas en el convenio → tomar del ALEH/ET.",
-    "representacionSindical: no mejorada por el convenio (Art. 28 remite a ET/LOLS)."
+    "complementoIT.desdeDia: el Art. 23 no indica desde qué día empieza el complemento del 100%. Duda menor para UGT."
   ],
   "verificadoContra": "PDF oficial BOP Zamora nº67 (08-06-2022), anuncio R-202201718, descargado de diputaciondezamora.es. Tablas salariales de los 6 tramos (2020-2021, 2022, 2023, 2024, 2025, 2026) x 6 áreas funcionales leídas en imagen renderizada a 185 dpi, celda a celda (págs. 18-29 del boletín). Articulado (Arts. 1 a 43 y Disposiciones Finales Primera y Segunda) leído del texto oficial (págs. 5-17): Art. 5 y Disp. Final 2ª (vigencia/ultraactividad), Art. 8 (horas extra), Art. 11 (descanso), Art. 12 (festivos), Art. 13 (idiomas), Art. 14-15 (ropa/manutención en especie), Art. 16 (jornada), Art. 18 (nocturnidad), Art. 19 (vacaciones), Art. 20 (preaviso), Art. 21 (licencias), Art. 22 (ascensos), Art. 23 (complemento IT), Art. 25 (jubilación parcial), Art. 27 (viudedad), Art. 28 (sindical), Art. 31 (excedencias), Art. 34 (salarios), Art. 35 (antigüedad), Art. 36 (pagas extra), Art. 38 (póliza), Art. 39 (toxicidad), Art. 40 (paritaria), Art. 41 (subrogación). Verificado que el articulado NO contiene régimen disciplinario propio.",
   "fechaVerificacion": "2026-07-08"
