@@ -280,7 +280,7 @@
     "$comment": "El articulado NO fija un precio ni recargo específico de la hora extraordinaria ordinaria. Solo regula el valor de la hora extra DENTRO de los servicios extraordinarios de restauración (Art. 33), cuyo importe figura en las tablas anexas. Para la hora extra ordinaria se está a la legislación general (ET) y al ALEH estatal.",
     "articulo": "Art. 33 (solo servicios extraordinarios); no hay tarifa de hora extra ordinaria en el convenio",
     "precioHoraOrdinaria": "pendiente — no regulado en el convenio (remisión al ET/ALEH)",
-    "horaExtraServiciosExtraordinarios": "El importe de la hora extra en servicios extraordinarios figura en las tablas salariales anexas (no reproducido aquí: la tabla revisada 2024 del BOP nº51 detalla el salario del día de servicio extraordinario y el importe de la hora extra en dichos servicios; ver 'serviciosExtraordinarios'). Duda para UGT: confirmar el importe exacto vigente 2024/2025 del día de servicio extraordinario y de su hora extra."
+    "horaExtraServiciosExtraordinarios": "El importe de la hora extra dentro de los servicios extraordinarios figura en la tabla 'Salario Servicios Extraordinarios.- Art. 33 do Convenio' del anexo salarial. Último importe OFICIALMENTE publicado: 12,26 €/hora (tablas 2022, BOP Lugo nº190). Ver 'serviciosExtraordinarios' para el detalle y para el aviso de que las tablas revisadas 2024 del BOP nº51 NO republicaron esta línea."
   },
 
   "serviciosExtraordinarios": {
@@ -291,7 +291,13 @@
     "menosDe3Horas": "Se abonan al valor de la hora extraordinaria establecida para los servicios extraordinarios.",
     "comida": "La empresa facilita la comida al personal en servicios de almuerzo y cena (en los 15 min anteriores al servicio, que forman parte de la jornada).",
     "uniforme": "Lo aporta el propio trabajador (chaquetilla negra, camisa blanca, pantalón negro, calcetines y zapatos negros, lazo negro) y herramientas básicas (sacacorchos).",
-    "importes": "El salario del día de servicio extraordinario y el importe de su hora extra figuran en las tablas anexas al convenio (revisadas 2024). Pendiente de leer celda a celda si se necesita el importe exacto."
+    "importes": {
+      "$comment": "Art. 33 remite a la tabla 'Salario Servicios Extraordinarios' anexa al convenio, cuyo importe resulta de aplicar cada año los incrementos del Art. 8. AVISO DE FUENTE VERIFICADO: las tablas salariales REVISADAS 2024 del BOP Lugo nº51 (03-03-2025) NO republican esta línea — solo contienen las tablas por Sección (Primera a Sexta) con S. Base y P. Conv.; la tabla de servicios extraordinarios termina en la publicación original del convenio. Por tanto, el importe vigente 2024/2025 NO está oficialmente publicado y se marca pendiente (no se inventa). Los últimos importes OFICIALES publicados son los de las tablas 2021 y 2022 del BOP Lugo nº190 (20-08-2022), transcritos celda a celda de la imagen.",
+      "fuente": "BOP Lugo nº190 (20-08-2022), anexo salarial, tabla 'Salario Servicios Extraordinarios.- Art. 33 do Convenio'.",
+      "tabla2021": { "salarioDiaServicioExtraordinario": 50.78, "horaExtraServicioExtraordinario": 11.85, "unidad": "€ brutos", "vigencia": "01/01/2021-31/12/2021" },
+      "tabla2022": { "salarioDiaServicioExtraordinario": 52.56, "horaExtraServicioExtraordinario": 12.26, "unidad": "€ brutos", "vigencia": "01/01/2022-31/12/2022" },
+      "revisado2024": "pendiente — NO publicado. Las tablas revisadas 2024 del BOP nº51 omiten la línea de servicios extraordinarios. Aplicando la cláusula del Art. 8, debería existir un importe revisado 2023 y 2024, pero no consta en boletín. Confirmar con UGT/APEHL el importe vigente."
+    }
   },
 
   "antiguedad": {
@@ -520,11 +526,12 @@
   "estadoNota": "Tablas salariales revisadas 2024 (BOP nº51, 03-03-2025) verificadas en IMAGEN a 185 dpi, celda a celda, para las 6 secciones. Articulado (BOP nº190, 20-08-2022, en gallego) leído íntegro (Arts. 1-39 + disposiciones) del texto oficial: jornada, pagas, nocturnidad, antigüedad, pluses, permisos, IT, vacaciones, seguro, premio jubilación, periodo de prueba, contratación, igualdad/acoso. NO regulados en el convenio y remitidos a ALEH/ET: régimen disciplinario (salvo acoso = muy grave), excedencias, representación sindical/crédito horario, precio hora extra ordinaria, lactancia. Convenio en ULTRAACTIVIDAD (venció 31-12-2024); tablas 2025/2026 aún no pactadas (D32: no se inventan).",
   "pendienteCondiciones": [
     "Incremento salarial 2025 (y 2026): NO pactado ni publicado. Las tablas vigentes son las revisadas 2024. Regla D32: no inventar.",
-    "horasExtraordinarias: precio de la hora extra ORDINARIA no fijado en el convenio → ET/ALEH. Importe del día de servicio extraordinario y su hora extra (Art. 33) figuran en tablas pero no se han transcrito celda a celda."
+    "horasExtraordinarias: precio de la hora extra ORDINARIA no fijado en el convenio → ET/ALEH.",
+    "serviciosExtraordinarios (Art. 33): importes 2021 (50,78 €/día; 11,85 €/hora extra) y 2022 (52,56 €/día; 12,26 €/hora extra) transcritos del BOP nº190. El importe REVISADO 2024/2025 NO está publicado: las tablas revisadas 2024 del BOP nº51 omiten esta línea. Confirmar el vigente."
   ],
   "dudasUGT": [
     "¿Se ha pactado ya el incremento 2025 (y 2026) del convenio, o sigue aplicándose la tabla revisada 2024? ¿Hay negociación de un nuevo convenio en marcha?",
-    "Importe exacto vigente del salario del día de servicio extraordinario y de su hora extra (Art. 33) en la tabla revisada 2024."
+    "Servicios extraordinarios (Art. 33): las tablas revisadas 2024 (BOP nº51) NO republican el 'Salario Servicios Extraordinarios'. ¿Cuál es el importe vigente 2024/2025 del salario/día (últimos oficiales: 52,56 € en 2022) y de la hora extra (12,26 € en 2022)? ¿Se revisó al IPC como el resto de tablas?"
   ],
   "verificadoContra": "TABLAS: PDF oficial BOP Lugo nº51 (03-03-2025), páginas 1-7, renderizadas a 185 dpi y leídas celda a celda (Secciones Primera a Sexta). ARTICULADO: PDF oficial BOP Lugo nº190 (20-08-2022), Arts. 1-39 y disposiciones adicionales/finales, leído del texto oficial (copia CCOO del BOP). Código de convenio 27000325011982 confirmado en ambas publicaciones. Verificado que es HOSTELERÍA provincial (hoteles/restaurantes/bares/cafeterías/discotecas/casinos), NO restauración colectiva.",
   "fechaVerificacion": "2026-07-08"
