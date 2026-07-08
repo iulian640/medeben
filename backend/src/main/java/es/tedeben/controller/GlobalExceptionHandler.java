@@ -50,6 +50,11 @@ public class GlobalExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
     }
 
+    @ExceptionHandler(es.tedeben.service.DiaSelladoException.class)
+    public ProblemDetail diaSellado(es.tedeben.service.DiaSelladoException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ProblemDetail peticionInvalida(IllegalArgumentException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());

@@ -21,10 +21,26 @@ Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 - **README bilingüe (PR #132, agente):** `README.md` en inglés por defecto +
   `README.es.md`, `docs/dev-setup` igual; términos legales españoles con glosa;
   pasado por la skill avoid-ai-writing. Docs internos siguen en castellano.
-- En vuelo: agente de frontend auth (login/registro/perfil, token solo en memoria).
-- Siguiente: el diario de fichajes (apuntes append-only sobre este horario) y el
-  "te deben este mes". Capacitor entra ya (decisión de Iulian); Android Studio
-  instalándose en su máquina.
+- **Diario de fichajes (TDD, 22 tests nuevos):** apuntes append-only (entrada /
+  salida / ausencia con motivo) con **origen probatorio** — CONFIRMADO si se ficha
+  antes del mediodía siguiente (cubre el turno de cierre fichado de madrugada),
+  RECONSTRUIDO dentro de la ventana de 14 días, RECTIFICACION_TARDIA tras el sello
+  (solo con confirmación explícita; sin ella → 409). Estado del día derivado del
+  diario (pendiente / en curso / completo / ausencia / hueco), minutos trabajados
+  con cruce de medianoche, y `selladoDesde` para el contador de la UI. Endpoints:
+  POST /api/v1/fichajes y GET /api/v1/fichajes/dia/{fecha}.
+- **Docker en la máquina de Iulian**: Docker Desktop instalado; Testcontainers no
+  arrancaba (Docker 29 rechaza API < 1.40 y el docker-java de Testcontainers 1.21
+  cae a 1.32) → `docker-java.properties` con `api.version=1.44` + tubería correcta
+  en `~/.testcontainers.properties`. Los tests de integración ya corren en local.
+- **PR #134 mergeada** tras Approve de java-reviewer (re-verificación) y CI verde.
+  El CI cazó de verdad: el test del desempate comparaba UUIDs al estilo Java y
+  Postgres los ordena como bytes sin signo — arreglado comparando el hex.
+- Frontend auth **mergeado (PR #133, agente)**: login/registro, token solo en
+  memoria, guard de router, cuenta con perfil del servidor; ambos reviewers APPROVE;
+  frontend de 46 a 93 tests.
+- Siguiente: agregado "te deben este mes" (horario efectivo vs diario → motor de
+  cálculo) y Capacitor (Android Studio ya instalado en la máquina de Iulian).
 
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
