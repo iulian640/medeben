@@ -8,6 +8,7 @@ import es.tedeben.repository.PerfilRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import java.math.BigDecimal;
 import java.time.Clock;
@@ -22,6 +23,8 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @DisplayName("PerfilService — guardar dónde y de qué trabaja el usuario")
@@ -113,6 +116,46 @@ class PerfilServiceTest {
                 Map.of("categoria", "x".repeat(325)), null, null);
 
         assertThat(perfil.getDimensiones()).containsKey("categoria");
+    }
+
+    @Test
+    @DisplayName("carrera de creación: si el insert choca con la PK, reintenta como actualización")
+    void carreraDeCreacionReintentaComoActualizacion() {
+        Perfil creadoPorLaOtraPeticion = new Perfil(USUARIO, "Madrid", "hosteleria",
+                "madrid-hosteleria", "cocinero", Map.of("nivel", "III"),
+                new BigDecimal("1400"), null, AHORA.minusMinutes(1));
+        // Primera lectura: el perfil aún no existe. Segunda (tras el choque de
+        // PK): la petición concurrente ya lo había insertado.
+        when(repositorio.findById(USUARIO))
+                .thenReturn(Optional.empty())
+                .thenReturn(Optional.of(creadoPorLaOtraPeticion));
+        when(repositorio.save(any(Perfil.class)))
+                .thenThrow(new DataIntegrityViolationException(
+                        "duplicate key value violates unique constraint \"perfiles_pkey\""))
+                .thenAnswer(inv -> inv.getArgument(0));
+
+        Perfil guardado = servicio.guarda(USUARIO, "Madrid", "hosteleria", "camarero",
+                Map.of("nivel", "II"), new BigDecimal("1500"), null);
+
+        assertThat(guardado).isSameAs(creadoPorLaOtraPeticion);
+        assertThat(guardado.getPuestoId()).isEqualTo("camarero");
+        assertThat(guardado.getSalarioBaseMensual()).isEqualByComparingTo("1500");
+        assertThat(guardado.getActualizadoEn()).isEqualTo(AHORA);
+        verify(repositorio, times(2)).save(any(Perfil.class));
+    }
+
+    @Test
+    @DisplayName("si el reintento también choca, se propaga: un solo reintento, nunca bucle")
+    void elReintentoNoSeRepiteEnBucle() {
+        when(repositorio.findById(USUARIO)).thenReturn(Optional.empty());
+        when(repositorio.save(any(Perfil.class)))
+                .thenThrow(new DataIntegrityViolationException("choque persistente"));
+
+        assertThatExceptionOfType(DataIntegrityViolationException.class)
+                .isThrownBy(() -> servicio.guarda(USUARIO, "Madrid", "hosteleria", null,
+                        Map.of(), null, null));
+
+        verify(repositorio, times(2)).save(any(Perfil.class));
     }
 
     @Test

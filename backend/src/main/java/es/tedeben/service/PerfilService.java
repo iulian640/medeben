@@ -8,6 +8,7 @@ import es.tedeben.domain.usuario.Perfil;
 import es.tedeben.repository.ConvenioCatalog;
 import es.tedeben.repository.OcupacionesCatalog;
 import es.tedeben.repository.PerfilRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,7 +49,15 @@ public class PerfilService {
         this.reloj = reloj;
     }
 
-    @Transactional
+    /**
+     * Sin {@code @Transactional} a propósito: cada llamada al repositorio corre
+     * en su propia transacción. Si la PRIMERA creación del perfil choca con una
+     * petición concurrente del mismo usuario (doble clic, reintento de red),
+     * ambas pueden ver findById() vacío y ambas hacer persist() → violación de
+     * la PK usuario_id. Con una transacción envolvente PostgreSQL la marcaría
+     * como abortada y no se podría reintentar; así, la transacción del insert
+     * fallido ya está cerrada y el catch de abajo reintenta como actualización.
+     */
     public Perfil guarda(UUID usuarioId, String provincia, String subsector, String puestoId,
                          Map<String, String> dimensiones, BigDecimal salarioBaseMensual,
                          BigDecimal plusesAnuales) {
@@ -74,18 +83,37 @@ public class PerfilService {
         if (plusesAnuales != null && plusesAnuales.signum() < 0) {
             throw new IllegalArgumentException("Los pluses anuales no pueden ser negativos");
         }
-        // El perfil es una fila mutable 1:1 por usuario (NO append-only):
-        // si ya existe se actualiza in situ. Crear siempre uno nuevo haría
-        // persist() (Persistable.isNew()=true) y la segunda actualización
-        // violaría la PK usuario_id → 500 para el usuario.
         OffsetDateTime ahora = OffsetDateTime.now(reloj);
+        try {
+            return creaOActualiza(usuarioId, provincia, subsector, convenio.id(), puestoId,
+                    dimensiones, salarioBaseMensual, plusesAnuales, ahora);
+        } catch (DataIntegrityViolationException e) {
+            // Carrera de creación: otra petición concurrente insertó el perfil
+            // entre nuestro findById() y el save(). La fila ya existe, así que
+            // el reintento la encuentra y la actualiza in situ (un solo
+            // reintento: si vuelve a fallar, ya no es la carrera y se propaga).
+            return creaOActualiza(usuarioId, provincia, subsector, convenio.id(), puestoId,
+                    dimensiones, salarioBaseMensual, plusesAnuales, ahora);
+        }
+    }
+
+    /**
+     * El perfil es una fila mutable 1:1 por usuario (NO append-only): si ya
+     * existe se actualiza in situ. Crear siempre uno nuevo haría persist()
+     * (Persistable.isNew()=true) y la segunda actualización violaría la PK
+     * usuario_id → 500 para el usuario.
+     */
+    private Perfil creaOActualiza(UUID usuarioId, String provincia, String subsector,
+                                  String convenioId, String puestoId, Map<String, String> dimensiones,
+                                  BigDecimal salarioBaseMensual, BigDecimal plusesAnuales,
+                                  OffsetDateTime ahora) {
         Perfil perfil = perfiles.findById(usuarioId)
                 .map(existente -> {
-                    existente.actualiza(provincia, subsector, convenio.id(), puestoId,
+                    existente.actualiza(provincia, subsector, convenioId, puestoId,
                             dimensiones, salarioBaseMensual, plusesAnuales, ahora);
                     return existente;
                 })
-                .orElseGet(() -> new Perfil(usuarioId, provincia, subsector, convenio.id(),
+                .orElseGet(() -> new Perfil(usuarioId, provincia, subsector, convenioId,
                         puestoId, dimensiones, salarioBaseMensual, plusesAnuales, ahora));
         return perfiles.save(perfil);
     }
