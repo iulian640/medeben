@@ -7,6 +7,8 @@ import es.tedeben.dto.EstadoDiaResponse;
 import es.tedeben.service.FichajeService;
 import jakarta.validation.Valid;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,7 @@ public class FichajeController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ApunteResponse apunta(@AuthenticationPrincipal Jwt jwt,
                                  @Valid @RequestBody ApunteRequest peticion) {
         return ApunteResponse.desde(fichajes.apunta(UsuarioAutenticado.id(jwt),

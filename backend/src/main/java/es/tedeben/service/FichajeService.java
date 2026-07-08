@@ -91,6 +91,11 @@ public class FichajeService {
                 ultimaEntrada = a;
             } else if (a.getTipo() == TipoApunte.SALIDA) {
                 ultimaSalida = a;
+            } else if (a.getTipo() == TipoApunte.AUSENCIA) {
+                // La ausencia es una frontera: invalida los fichajes anteriores.
+                // Corregir después "sí entré" no resucita una salida vieja.
+                ultimaEntrada = null;
+                ultimaSalida = null;
             }
             ultimo = a;
         }

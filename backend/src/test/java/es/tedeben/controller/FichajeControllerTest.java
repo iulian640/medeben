@@ -70,7 +70,7 @@ class FichajeControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {"fecha":"2026-07-08","tipo":"SALIDA","hora":"23:45"}"""))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.origen").value("CONFIRMADO"))
                 .andExpect(jsonPath("$.registradoEn").exists());
     }

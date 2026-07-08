@@ -17,8 +17,4 @@ public interface ApunteRepository extends Repository<Apunte, UUID> {
 
     /** El diario de un día, en orden de registro (el último de cada tipo gana). */
     List<Apunte> findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(UUID usuarioId, LocalDate fecha);
-
-    /** El diario de un rango (semana, mes) para los agregados. */
-    List<Apunte> findByUsuarioIdAndFechaBetweenOrderByFechaAscRegistradoEnAscIdAsc(
-            UUID usuarioId, LocalDate desde, LocalDate hasta);
 }

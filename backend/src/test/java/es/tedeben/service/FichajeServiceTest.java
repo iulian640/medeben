@@ -225,6 +225,43 @@ class FichajeServiceTest {
     }
 
     @Test
+    @DisplayName("una AUSENCIA invalida los fichajes anteriores: corregir después 'sí entré' NO resucita la salida vieja (review HIGH)")
+    void ausenciaEsFrontera() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "09:00", "2026-07-08T09:01"),
+                        apunte(TipoApunte.SALIDA, "17:00", "2026-07-08T17:02"),
+                        apunte(TipoApunte.AUSENCIA, null, "2026-07-08T18:00"),
+                        apunte(TipoApunte.ENTRADA, "08:00", "2026-07-08T19:00")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("AUSENCIA después de un día completo → el día queda AUSENCIA (la corrección gana)")
+    void ausenciaTrasDiaCompleto() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "09:00", "2026-07-08T09:01"),
+                        apunte(TipoApunte.SALIDA, "17:00", "2026-07-08T17:02"),
+                        apunte(TipoApunte.AUSENCIA, null, "2026-07-08T18:00")));
+
+        assertThat(servicio.estadoDia(USUARIO, HOY).estado()).isEqualTo(EstadoDia.Estado.AUSENCIA);
+    }
+
+    @Test
+    @DisplayName("salida sin entrada → el día sigue PENDIENTE de completar")
+    void salidaSinEntrada() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(apunte(TipoApunte.SALIDA, "17:00", "2026-07-08T17:02")));
+
+        assertThat(servicio.estadoDia(USUARIO, HOY).estado()).isEqualTo(EstadoDia.Estado.PENDIENTE);
+    }
+
+    @Test
     @DisplayName("si el último apunte es AUSENCIA, el día queda AUSENCIA (registrada, con motivo)")
     void diaAusencia() {
         when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
