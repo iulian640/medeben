@@ -1,0 +1,89 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para navarra-hosteleria, derivado del Anexo I (niveles.puestosPorNivel de la transcripción), donde la correspondencia puesto→nivel salarial (I-V) es EXPLÍCITA. Las tablas van por nivel único para toda Navarra (sin dimensión de establecimiento). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "navarra-hosteleria",
+  "articulo": "Anexo I (áreas funcionales y niveles salariales I-V); tablas Art. 4",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "El Anexo I clasifica 'Auxiliar cocina/economato' en el Nivel IV (el Nivel V no lista puestos específicos)."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "Como 'Auxiliar pisos y limpieza' (Anexo I, Nivel IV). El Nivel V de las tablas no lista puestos específicos."
+    }
+  }
+}

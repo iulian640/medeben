@@ -1,0 +1,119 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para soria-hosteleria, derivado de la tabla salarial definitiva 2025 (área funcional I-VI → grupo profesional I-III → categoría; estructura del art. 37-38). Soria tiene TABLA ÚNICA para todos los establecimientos: no hay dimensión de establecimiento. Los valores de 'categoria' son las filas literales de la tabla (algunas agrupan varias ocupaciones en una fila). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "soria-hosteleria",
+  "articulo": "Art. 37-38 (estructura de clasificación) + Anexo tablas definitivas 2025 (BOP Soria 18/2026)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "I",
+        "categoria": "Jefe/a de Cocina"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "I",
+        "categoria": "Segundo Jefe/a de Cocina"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "II",
+        "categoria": "Cocinero/a, Encargado/a de Economato, Jefe/a de Partida"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "II",
+        "categoria": "Cocinero/a, Encargado/a de Economato, Jefe/a de Partida"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "II",
+        "categoria": "Repostero/a"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "II",
+        "categoria": "Ayudante de Economato, Ayudante de Cocina"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaII_cocina_economato",
+        "grupoProfesional": "III",
+        "categoria": "Auxiliar de Cocina"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "I",
+        "categoria": "Jefe/a de Restaurante o Sala"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "II",
+        "categoria": "Camarero/a"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "III",
+        "categoria": "Ayudante de Camarero/a"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "II",
+        "categoria": "Barman/Barwoman, Sumiller"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "areaFuncional": "areaIII_restaurante_sala_bar",
+        "grupoProfesional": "II",
+        "categoria": "Barman/Barwoman, Sumiller"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "II",
+        "categoria": "Recepcionista, Ayudante de Conserje"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "areaFuncional": "areaIV_pisos_limpieza",
+        "grupoProfesional": "II",
+        "categoria": "Camarero/a de Pisos"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "areaFuncional": "areaI_recepcion_admin",
+        "grupoProfesional": "II",
+        "categoria": "Administrativo/a (Contable), Conserje"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "areaFuncional": "areaIV_pisos_limpieza",
+        "grupoProfesional": "III",
+        "categoria": "Auxiliar de Pisos y Limpieza"
+      }
+    }
+  }
+}

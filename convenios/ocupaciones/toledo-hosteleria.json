@@ -1,0 +1,87 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para toledo-hosteleria, derivado del Art. 52 y Anexo I (niveles salariales I-IV que corresponden a los grupos profesionales del ALEH: I=jefaturas/grupo 1º; II=grupo 2º; III=ayudantes; IV=auxiliares/grupo 3º). La dimensión grupoEstablecimiento (A-D, Anexo III) es del establecimiento y la responde el usuario. 'segundo-jefe-cocina' y 'administrativo' no aparecen literalmente en los ejemplos del Anexo I, pero su nivel se deriva de la regla explícita 'nivel = grupo del ALEH' (2º jefe de cocina = grupo 1º ALEH; administrativo/a = grupo 2º ALEH). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "toledo-hosteleria",
+  "articulo": "Art. 52 y Anexo I (niveles salariales por grupo profesional del ALEH)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivelSalarial": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivelSalarial": "I"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivelSalarial": "II"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivelSalarial": "II"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivelSalarial": "II"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivelSalarial": "III"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivelSalarial": "IV"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivelSalarial": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivelSalarial": "II"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivelSalarial": "III"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivelSalarial": "II"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivelSalarial": "II"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivelSalarial": "II"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivelSalarial": "III"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivelSalarial": "II"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivelSalarial": "IV"
+      }
+    }
+  }
+}

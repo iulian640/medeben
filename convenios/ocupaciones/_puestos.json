@@ -1,0 +1,21 @@
+{
+  "$comment": "LISTA CURADA de puestos comunes de hostelería (D20/D15): lo que ve el usuario en el desplegable '¿de qué trabajas?'. Los ids son estables (los usan los mapeos por convenio en esta carpeta). Nombres basados en la clasificación del ALEH VI. Los puestos raros se cubrirán con la opción 'otro' (lista completa del convenio) en el frontend.",
+  "puestos": [
+    { "id": "jefe-cocina", "etiqueta": "Jefe/a de cocina" },
+    { "id": "segundo-jefe-cocina", "etiqueta": "Segundo/a jefe/a de cocina" },
+    { "id": "jefe-partida", "etiqueta": "Jefe/a de partida" },
+    { "id": "cocinero", "etiqueta": "Cocinero/a" },
+    { "id": "repostero", "etiqueta": "Repostero/a" },
+    { "id": "ayudante-cocina", "etiqueta": "Ayudante de cocina" },
+    { "id": "auxiliar-cocina", "etiqueta": "Auxiliar de cocina (pinche, marmitón, fregador/a)" },
+    { "id": "jefe-sala", "etiqueta": "Jefe/a de sala / maître" },
+    { "id": "camarero", "etiqueta": "Camarero/a" },
+    { "id": "ayudante-camarero", "etiqueta": "Ayudante de camarero/a" },
+    { "id": "barman", "etiqueta": "Barman / barwoman" },
+    { "id": "sumiller", "etiqueta": "Sumiller" },
+    { "id": "recepcionista", "etiqueta": "Recepcionista" },
+    { "id": "camarera-pisos", "etiqueta": "Camarero/a de pisos" },
+    { "id": "administrativo", "etiqueta": "Administrativo/a" },
+    { "id": "personal-limpieza", "etiqueta": "Personal de limpieza" }
+  ]
+}

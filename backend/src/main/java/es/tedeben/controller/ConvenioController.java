@@ -4,6 +4,9 @@ import es.tedeben.domain.convenio.Subsector;
 import es.tedeben.dto.ConvenioDetalleDto;
 import es.tedeben.dto.ConvenioResumenDto;
 import es.tedeben.repository.ConvenioCatalog;
+import es.tedeben.service.OcupacionResuelta;
+import es.tedeben.service.PerfilOcupacionService;
+import es.tedeben.service.Puesto;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +27,11 @@ import java.util.List;
 public class ConvenioController {
 
     private final ConvenioCatalog catalog;
+    private final PerfilOcupacionService perfilOcupacion;
 
-    public ConvenioController(ConvenioCatalog catalog) {
+    public ConvenioController(ConvenioCatalog catalog, PerfilOcupacionService perfilOcupacion) {
         this.catalog = catalog;
+        this.perfilOcupacion = perfilOcupacion;
     }
 
     // Datos estáticos (cambian solo con un despliegue): cacheables en cliente/proxy.
@@ -53,6 +58,20 @@ public class ConvenioController {
                 .map(ConvenioResumenDto::desde)
                 .orElseThrow(() -> new RecursoNoEncontradoException(
                         "No hay convenio para la provincia '" + provincia + "' y subsector '" + subsector + "'"));
+    }
+
+    /** Lista curada del desplegable "¿de qué trabajas?" (D20/D15). */
+    @GetMapping("/puestos")
+    public ResponseEntity<List<Puesto>> puestos() {
+        return ResponseEntity.ok().cacheControl(CACHE_DATOS_ESTATICOS).body(perfilOcupacion.puestos());
+    }
+
+    /** Qué determina el puesto en este convenio y qué falta por preguntar al usuario. */
+    @GetMapping("/convenios/{id}/puestos/{puestoId}")
+    public OcupacionResuelta resuelvePuesto(@PathVariable String id, @PathVariable String puestoId) {
+        return perfilOcupacion.resuelve(id, puestoId)
+                .orElseThrow(() -> new RecursoNoEncontradoException(
+                        "El puesto '" + puestoId + "' no está mapeado en el convenio '" + id + "'"));
     }
 
     @GetMapping("/convenios/{id}")

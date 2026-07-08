@@ -1,0 +1,88 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para albacete-hosteleria, del Anexo I (categorías por área funcional → nivel salarial I-VI, con correcciones BOP 121 y 143: Camarero/a de Pisos IV→V). La dimensión grupoEstablecimiento (A/B, Anexo II) depende del establecimiento y la responde el usuario aparte.",
+  "id": "albacete-hosteleria",
+  "articulo": "Anexo I (corregido por BOP 121 y BOP 143)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "VI"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "VI"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "VI"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "V"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "VI"
+      },
+      "nota": "Mapeado como 'Auxiliar de Pisos y Limpieza' (área funcional 4ª), la única categoría de limpieza del Anexo I."
+    }
+  }
+}

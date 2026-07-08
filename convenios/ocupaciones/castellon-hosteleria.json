@@ -1,0 +1,103 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para castellon-hosteleria. La retribución va por CARGO literal (56 cargos en las tablas del Anexo); cada cargo está encuadrado en un grupo retributivo (I-IV). Se incluyen ambas dimensiones del trabajador ('cargo' y 'grupo', relación 1:1 verificada en los hechos). La 'categoriaEstablecimiento' (especial/primera/segunda/tercera/cuarta) es de establecimiento y queda fuera. NUNCA inventar.",
+  "id": "castellon-hosteleria",
+  "articulo": "Art. 17 + Anexo (tablas salariales por cargo; tablas 2026 en BOP nº32, 14-03-2026)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "cargo": "jefeCocina",
+        "grupo": "grupoI"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "cargo": "segundoJefeCocina",
+        "grupo": "grupoI"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "cargo": "jefePartida",
+        "grupo": "grupoII"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "cargo": "cocinero",
+        "grupo": "grupoII"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "cargo": "repostero",
+        "grupo": "grupoII"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "cargo": "ayudanteCocinaOCatering",
+        "grupo": "grupoIII"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "cargo": "auxiliarCocinaOCatering",
+        "grupo": "grupoIV"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "cargo": "jefeRestauranteOSala",
+        "grupo": "grupoI"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "cargo": "camarero",
+        "grupo": "grupoII"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "cargo": "ayudanteCamarero",
+        "grupo": "grupoIII"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "cargo": "barman",
+        "grupo": "grupoII"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "cargo": "sumiller",
+        "grupo": "grupoII"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "cargo": "recepcionista",
+        "grupo": "grupoII"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "cargo": "camareroDePisos",
+        "grupo": "grupoIII"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "cargo": "administrativo",
+        "grupo": "grupoII"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "cargo": "auxiliarPisosYLimpieza",
+        "grupo": "grupoIV"
+      }
+    }
+  }
+}

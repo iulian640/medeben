@@ -170,6 +170,65 @@ Reliquias de otra época que siguen siendo dinero real que reclamar.
 - **Fuente:** Murcia Art. 21 (BORM nº157); Cádiz Art. 31 (BOP nº153); Madrid hospedaje (BOCM nº121).
 - **Gancho:** "Tres convenios distintos, tres regalos por casarte o tener hijos que casi nadie reclama. ¿Está el tuyo entre ellos?"
 
+## 17. En Extremadura el ayudante de cocina es "personal cualificado"
+
+**Dato:** Badajoz y Cáceres clasifican al ayudante de cocina en el grupo II/2
+(cualificados), cuando en casi toda España está un escalón por debajo del cocinero.
+**Fuente:** Convenio de Hostelería de Badajoz (cuadro de correspondencias, DOE nº17)
+y de Cáceres (Anexo I). **Gancho:** "¿Ayudante de cocina en Extremadura? Tu convenio
+te considera personal cualificado — y tu nómina debería notarlo."
+
+## 18. En Granada el repostero cobra más que el cocinero
+
+**Dato:** el repostero está en el nivel II y el cocinero en el IV del convenio de
+Granada. En Almería igual: repostero en el II, cocinero y camarero en el IV.
+**Fuente:** Convenio de Hostelería de Granada (Anexo IV) y de Almería (Art. 31).
+**Gancho:** "En Granada, el que hace los postres gana más que el que hace los guisos."
+
+## 19. La camarera de pisos de Guadalajara cobra como el cocinero
+
+**Dato:** en Guadalajara la camarera de pisos está en el nivel 3, el mismo que
+camarero y cocinero — una equiparación poco común en el sector.
+**Fuente:** Convenio de Hostelería de Guadalajara (Anexo III).
+**Gancho:** "Un convenio donde hacer habitaciones vale lo mismo que llevar la sartén."
+
+## 20. En Córdoba el barman gana más que el camarero
+
+**Dato:** barman en nivel 3, camarero en nivel 4 (Anexo I, Art. 40). Y en el
+hospedaje de Gipuzkoa el barman está en el nivel I, por encima del jefe de partida.
+**Fuente:** Convenio de Hostelería de Córdoba; Convenio de Hospedaje de Gipuzkoa (Anexo II).
+**Gancho:** "Servir copas puede valer más que servir mesas — depende de tu provincia."
+
+## 21. En Ciudad Real los ayudantes caen a niveles distintos
+
+**Dato:** camarero y cocinero comparten nivel 2, pero el ayudante de camarero cae al
+nivel 4 y el de cocina al 3: mismo escalón de origen, distinto castigo salarial.
+**Fuente:** Convenio de Hostelería de Ciudad Real (Anexo I).
+**Gancho:** "¿Ayudante de camarero o de cocinero? En Ciudad Real la diferencia son dos niveles."
+
+## 22. En Ourense el administrativo va por delante del recepcionista
+
+**Dato:** administrativo en grupo 3, recepcionista en grupo 4 (Anexo III) — la cara
+visible del hotel cobra menos que la oficina.
+**Fuente:** Convenio de Hostelería de Ourense.
+**Gancho:** "En Ourense, la sonrisa de recepción vale un grupo menos que el papeleo."
+
+## 23. El mismo puesto, nivel distinto según los tenedores del restaurante
+
+**Dato:** en Asturias un cocinero es nivel V en un hotel de 5 estrellas pero nivel VII
+en un restaurante de un tenedor; en Jaén el nivel (1,35-1,70) depende del tipo y
+categoría del local; en Huelva la "Clase D" baja de grupo a media plantilla.
+**Fuente:** Convenios de Hostelería de Asturias (Anexo I), Jaén (Anexo VII) y Huelva (Anexo III).
+**Gancho:** "En media España tu categoría no depende solo de lo que haces, sino de dónde lo haces."
+
+## 24. Cataluña: mismo trabajo, nivel distinto según la comarca
+
+**Dato:** un cocinero es nivel III en Barcelona pero IV en Tarragona y Girona; la
+camarera de pisos va del IV al VII según la zona del mismo convenio interprovincial.
+**Fuente:** Convenio de Hostelería de Cataluña (estructuras A.3, A.7, B.4, C.2.2).
+**Gancho:** "Cruzar de comarca puede costarte un nivel entero del convenio."
+
 ---
 
 _Añadir más conforme se transcriben convenios._
+

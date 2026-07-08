@@ -1,0 +1,59 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para asturias-hosteleria: TODO null porque en este convenio el nivel retributivo (I-XI) de cada ocupación DEPENDE del tipo y categoría del establecimiento (Anexo I: el mismo puesto es nivel V en hotel 5/4* y VII en restaurante de 1 tenedor). Los hechos del normalizado solo tienen la dimensión nivel, así que el puesto por sí solo no determina ninguna dimensión. Para resolverlo la app necesitaría cruzar puesto x tipo de establecimiento con la tabla del Anexo I (transcrita parcialmente en clasificacionProfesional.nivelesRetributivosPorOcupacion_Anexo_I: 'ocupaciones más habituales').",
+  "id": "asturias-hosteleria",
+  "articulo": "Anexo I (niveles retributivos por ocupación y tipo de establecimiento) y Art. 53",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel I en hoteles 5/4* y restaurantes 5 tenedores, hasta V en colectividades."
+    },
+    "segundo-jefe-cocina": null,
+    "jefe-partida": null,
+    "cocinero": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel V en hoteles 5/4/3*, VI en cafeterías, VII en restaurantes 2/1 tenedores."
+    },
+    "repostero": null,
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel X en las tablas transcritas (hoteles 5/4* y 3*, colectividades); resto de tablas sin transcribir."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel XI en hoteles 5/4*; resto de tablas sin transcribir."
+    },
+    "jefe-sala": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel I en hoteles 5/4* y restaurantes 5/4 tenedores, V en restaurantes 3 tenedores."
+    },
+    "camarero": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel V en hoteles 5/4* y cafeterías, VII en restaurantes 2/1 tenedores."
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: va del VII (cafés-bares especiales) al IX (hoteles 2/1*, restaurantes 3/2/1 tenedores)."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel V en hoteles 5/4* y cafeterías, II-III en cafés-bares."
+    },
+    "sumiller": null,
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel V en hoteles 5/4/3*, VI en 2* y VII en 1*."
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel X en hoteles 5/4*; resto de tablas sin transcribir."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: solo transcrito para salas de fiesta/discotecas (nivel VI)."
+    },
+    "personal-limpieza": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel XI en todas las tablas transcritas, pero la transcripción del Anexo I es parcial ('ocupaciones más habituales')."
+    }
+  }
+}

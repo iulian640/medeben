@@ -1,0 +1,86 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para almeria-hosteleria, del Anexo de grupos profesionales (Grupo Primero..Sexto = niveles I..VI del art. 31). El listado del Anexo es 'extracto representativo, no exhaustivo'. Sin dimensiones de establecimiento (tabla única por nivel). Rarezas del convenio: Cocinero/a y Camarero/a en Grupo Cuarto (nivel IV) mientras Repostero/a está en el Segundo (nivel II); Recepcionista aparece en tres grupos según idiomas/turno.",
+  "id": "almeria-hosteleria",
+  "articulo": "Anexo (grupos profesionales) y Art. 31 (Grupo Primero=Nivel I ... Grupo Sexto=Nivel VI)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "V"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "nota": "Marmitón y Fregador/a están en el Grupo Quinto; 'pinche' no aparece en el extracto."
+    },
+    "jefe-sala": {
+      "dimensiones": null,
+      "nota": "Ambiguo: 'Jefe/a de comedor o Primer Maitre' está en el Grupo Primero (nivel I) pero 'Jefe/a de sala' y 'Segundo/a Maitre' en el Segundo (nivel II)."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "V"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "Ambiguo: 'Recepcionista' en Grupo Segundo, 'Recepcionista con idiomas / de noche' en el Tercero y 'Recepcionista sin idiomas' en el Cuarto."
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "Ambiguo: 'Oficial contable y administrativo/a' en Grupo Tercero (III) y 'Auxiliar administrativo/a' en el Cuarto (IV)."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "nota": "Limpiador/a y Mozo/a de limpieza están en el Grupo Quinto."
+    }
+  }
+}

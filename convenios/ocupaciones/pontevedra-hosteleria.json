@@ -1,0 +1,79 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para pontevedra-hosteleria. Los hechos salarioBase solo tienen la dimensión nivel (1-9), y el nivel se obtiene cruzando la categoría profesional con el TIPO de establecimiento y su sección/categoría (cuadro del Anexo V, ap. 3). Solo se mapean los puestos cuya categoría tiene el MISMO nivel en TODAS las casillas del cuadro; el resto queda null porque el nivel depende del establecimiento. NUNCA inventar.",
+  "id": "pontevedra-hosteleria",
+  "articulo": "Anexo V, apartado 3 (cuadro de correspondencia categoría→nivel salarial 1-9)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": null,
+      "nota": "Nivel 1 a 5 según estrellas/tenedores del establecimiento (Tipo A: 5★=1 … 1★=5). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": null,
+      "nota": "Nivel 3 a 5 según el establecimiento. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "jefe-partida": {
+      "dimensiones": null,
+      "nota": "Nivel 3 a 5 según el establecimiento. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "cocinero": {
+      "dimensiones": null,
+      "nota": "Nivel 4 a 8 según el establecimiento (Tipo A: 4-7; Tipo C bares: 7-8). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "Nivel 5 a 9 según el establecimiento. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "9"
+      },
+      "nota": "Nivel 9 en todas las casillas del cuadro donde existe la categoría (Tipos A y C)."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "9"
+      },
+      "nota": "Nivel 9 en todas las casillas del cuadro donde existe la categoría (Tipos A y C)."
+    },
+    "jefe-sala": {
+      "dimensiones": null,
+      "nota": "Nivel 1 a 5 según el establecimiento (Tipo A: 1-5; Tipo C: 3-5; Tipo D: 2). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "camarero": {
+      "dimensiones": null,
+      "nota": "Nivel 4 a 8 según el establecimiento (Tipo A: 4-7; Tipo C: 5-8; Tipo D: 4). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "Nivel 6 a 9 según el establecimiento (Tipo A: 8-9; Tipos B/C: 8-9; Tipo D: 6). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "La categoría 'Barman' solo existe en el cuadro para la Sección 5ª (bares americanos, whiskerías...) de categoría Especial, con nivel 3; en el resto de establecimientos se aplica la categoría Camarero/a, cuyo nivel depende del local. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "Nivel 4 a 7 según estrellas/tenedores (Tipo A). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "Nivel 5 a 8 según estrellas (Tipo A). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "9"
+      },
+      "nota": "Nivel 9 en todas las casillas del cuadro (Tipo A). OJO: desde enero de 2027, en hoteles de 3-5 estrellas, con más de 36 meses en la misma empresa se promociona automáticamente al nivel 8 (Art. 10)."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "Nivel 5 a 9 según tipo y categoría del establecimiento (Tipos A, B y C). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "9"
+      },
+      "nota": "Como 'Auxiliar de Pisos y Limpieza (Personal de limpieza, Limpiador/a...)': nivel 9 en todas las casillas del cuadro (Tipos A, B, C y D)."
+    }
+  }
+}

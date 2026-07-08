@@ -20,7 +20,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * los endpoints de consulta no requieren autenticación.
  */
 @WebMvcTest(ConvenioController.class)
-@Import({SecurityConfig.class, GlobalExceptionHandler.class, ConvenioCatalog.class})
+@Import({SecurityConfig.class, GlobalExceptionHandler.class, ConvenioCatalog.class,
+        es.tedeben.repository.HechosCatalog.class, es.tedeben.repository.OcupacionesCatalog.class,
+        es.tedeben.service.PerfilOcupacionService.class})
 class ConvenioControllerTest {
 
     @Autowired
@@ -92,6 +94,32 @@ class ConvenioControllerTest {
         mockMvc.perform(get("/api/v1/convenios/para-trabajador"))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.status").value(400));
+    }
+
+    @Test
+    @DisplayName("GET /api/v1/puestos es público y devuelve la lista curada")
+    void puestos() throws Exception {
+        mockMvc.perform(get("/api/v1/puestos"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(16)))
+                .andExpect(jsonPath("$[?(@.id == 'cocinero')].etiqueta").value("Cocinero/a"));
+    }
+
+    @Test
+    @DisplayName("GET /convenios/{id}/puestos/{puesto}: cocinero en Madrid → nivel III + pregunta pendiente")
+    void resuelvePuesto() throws Exception {
+        mockMvc.perform(get("/api/v1/convenios/madrid-hosteleria/puestos/cocinero"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.dimensiones.nivel").value("III"))
+                .andExpect(jsonPath("$.pendientes[0].dimension").value("claseEmpresa"))
+                .andExpect(jsonPath("$.pendientes[0].valores", hasSize(3)));
+    }
+
+    @Test
+    @DisplayName("puesto no mapeado en el convenio → 404")
+    void puestoNoMapeado() throws Exception {
+        mockMvc.perform(get("/api/v1/convenios/madrid-hosteleria/puestos/camarera-pisos"))
+                .andExpect(status().isNotFound());
     }
 
     @Test

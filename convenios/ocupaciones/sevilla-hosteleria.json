@@ -1,0 +1,85 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para sevilla-hosteleria, derivado del Anexo I (clasificacionProfesional) de la transcripción: listas de ejemplos por Nivel 1-5 (+ Nivel 3 Bis para camarera/o de pisos, art. 10). La dimensión tipoEstablecimiento es del establecimiento y la responde el usuario. OJO: Nivel 3 Bis solo existe en las tablas de hoteles/apartamentos y moteles; tabernas sin comidas y billares solo tienen niveles 3-5. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "sevilla-hosteleria",
+  "articulo": "Anexo I (clasificación profesional por niveles) y Art. 10 (Nivel 3 Bis)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "Nivel 1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "Nivel 2"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "Nivel 3"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "Nivel 3"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "Nivel 2"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "Nivel 4"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "Nivel 5"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "Nivel 1"
+      }
+    },
+    "camarero": {
+      "dimensiones": null,
+      "nota": "CONTRADICCIÓN interna en la transcripción: el cuerpo del Anexo I lista 'Camarero o Sumiller' en el Nivel 3, pero el $comment del mismo bloque dice que el camarero/a está en el Nivel 4. Resolver contra el PDF del BOP antes de mapear; no se inventa."
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "Nivel 4"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "Nivel 3"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "Nivel 3"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "Nivel 2"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "Nivel 3 Bis"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El Anexo I no lista 'Administrativo/a': lo más parecido es 'Auxiliar de Oficina' (Nivel 3), 'Oficial Contable' (Nivel 2) o 'Contable General' (Nivel 1). Ambiguo; no se inventa."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "Nivel 5"
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para valladolid-hosteleria, derivado del Anexo III (categoriasPorAreaYnivel2026: asignación categoría→nivel salarial por área funcional, verificada en imagen pág. 64 del BOP). La única dimensión del puesto es nivelSalarial; las columnas Grupo I/II/III de la tabla 2025 son tramos de categoría de ESTABLECIMIENTO en equiparación (Art. 9), no del trabajador, por eso quedan fuera. 'null' = puesto no asignable con la transcripción: el área cuarta (Pisos y Limpieza, Disp. Trans. 3ª) no aparece en la tabla de niveles transcrita. NUNCA inventar.",
+  "id": "valladolid-hosteleria",
+  "articulo": "Anexo III (asignación de categorías a niveles salariales, tabla única 2026)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivelSalarial": "NS_I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivelSalarial": "NS_II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": null,
+      "nota": "La tabla del Anexo III lista 'Jefe/a de Partida' en DOS niveles del área segunda: NS_II (junto al 2º Jefe de Cocina) y NS_III (solo). El convenio no da criterio para elegir; ambiguo."
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivelSalarial": "NS_IV"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivelSalarial": "NS_IV"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivelSalarial": "NS_V"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivelSalarial": "NS_V"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivelSalarial": "NS_I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivelSalarial": "NS_IV"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivelSalarial": "NS_V"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivelSalarial": "NS_IV"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivelSalarial": "NS_IV"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivelSalarial": "NS_IV"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "El área cuarta (Pisos y Limpieza) no aparece en la tabla de niveles transcrita del Anexo III. Los Arts. 9 y 19 describen una senda propia (plus de intensidad integrado, +2,84%/año) que equipara al NS IV solo en 2026; no hay asignación explícita de nivel en la tabla."
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivelSalarial": "NS_IV"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": null,
+      "nota": "El 'Auxiliar de Pisos y Limpiezas' pertenece al área cuarta (Disp. Trans. 3ª), que no aparece en la tabla de niveles transcrita del Anexo III; sin asignación explícita de nivel salarial."
+    }
+  }
+}

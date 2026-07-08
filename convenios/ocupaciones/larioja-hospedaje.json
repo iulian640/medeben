@@ -1,0 +1,92 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para larioja-hospedaje, derivado del Anexo I de la transcripción (clasificacionProfesional.nivelesEjemplos: cuadro de correspondencia de categorías→niveles IA/IB/II/III/IV). La dimensión que falta (grupoActividad, I-V según estrellas del establecimiento) la responde el usuario con la pregunta del tipo de establecimiento. 'dimensiones: null' = puesto no contemplado o ambiguo en el cuadro transcrito. NUNCA inventar.",
+  "id": "larioja-hospedaje",
+  "articulo": "Anexo I (cuadro de correspondencia de categorías) + Anexo II (tablas)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "IA"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "IB"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "El cuadro de correspondencia transcrito (Anexo I) no contempla la categoría de repostero/a: en cocina solo lista Jefe/a de cocina (IA), 2º Jefe/a (IB), Jefe/a de partida y Cocinero/a (II), Ayudante de cocinero (III) y Pinche/Fregador (IV)."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Anexo I: 'Ayudante de cocinero' (nivel III)."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "Anexo I: 'Pinche (Auxiliar de cocina)' y 'Fregadoras/es (Auxiliar de cocina)', ambos en el nivel IV."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "IA"
+      },
+      "nota": "Anexo I: 'Primer jefe de comedor / Jefe de sala (Jefe/a de restaurante o sala)' (nivel IA)."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Anexo I: 'Ayudante de camarero de comedor' (nivel III)."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "Ambiguo: el Anexo I distingue 'Primer barman' (nivel IA, como responsable de servicio) y 'Segundo barman' (nivel IB); no hay una categoría llana de barman/barwoman a la que asignar nivel. Resolver vía opción 'otro' con la lista completa del convenio."
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "nota": "Anexo I: 'Camarero/a de pisos' figura expresamente en el nivel II."
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "nota": "Anexo I: 'Contable y oficial de contabilidad (Administrativo/a)' (nivel II)."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "Anexo I: 'Limpiadoras/es (Auxiliar de pisos y limpieza)' (nivel IV)."
+    }
+  }
+}

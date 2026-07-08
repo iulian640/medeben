@@ -1,0 +1,74 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para alava-hosteleria, del Anexo II (homogeneización categoría→nivel salarial I-IV; la clasificación profesional es la del ALEH VI, art. 22). La transcripción recoge el mapeo como EXTRACTO ('ejemplos del Anexo II'): puesto no listado en ese extracto = null, aunque el Anexo II completo pueda contemplarlo. Sin dimensiones de establecimiento en este convenio (tabla única por nivel).",
+  "id": "alava-hosteleria",
+  "articulo": "Anexo II (categoría → nivel salarial); Art. 22 y Anexo I (clasificación ALEH VI)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "El extracto del Anexo II solo lista 'Jefe repostero' (nivel II); el repostero/a raso no aparece."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "sumiller": null,
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "administrativo": null,
+    "personal-limpieza": null
+  }
+}

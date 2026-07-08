@@ -1,0 +1,106 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para leon-hosteleria. Las tablas del Anexo I van por CATEGORÍA literal (78 categorías) dentro de cada ÁREA funcional: la dimensión del trabajador es (areaFuncional + categoria), con las claves EXACTAS del normalizado. La dimensión que falta (categoriaEstablecimiento: lujo1a/segunda/tercera) la responde el usuario con la pregunta del tipo de establecimiento. 'dimensiones: null' = puesto ambiguo entre varias categorías con salarios distintos. NUNCA inventar.",
+  "id": "leon-hosteleria",
+  "articulo": "Anexo I (tablas salariales por categoría y área funcional)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "jefeCocina"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "segundoJefeCocina"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "jefePartida"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "cocinero"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "oficialRepostero"
+      },
+      "nota": "La tabla distingue 'Repostero jefe' y 'Oficial repostero'; el puesto llano de repostero/a corresponde al oficial (el jefe es jefatura, como el jefe de cocina)."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteCocinero"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "pinche"
+      },
+      "nota": "La tabla tiene 'pinche' y 'fregador' como categorías separadas con importes idénticos en 2025; se mapea a 'pinche' (primer literal de la etiqueta del puesto)."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeDeSala"
+      },
+      "nota": "También existe 'primerJefeComedor' con los mismos importes 2025."
+    },
+    "camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "camarero"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudanteCamarero"
+      }
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "Ambiguo: la tabla distingue 'Primer barman/barwoman' (barras americanas, salario de jefatura) y 'Segundo barman/barwoman', con importes muy distintos; no hay categoría llana de barman. Resolver vía opción 'otro' con la lista completa del convenio."
+    },
+    "sumiller": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "sumiller"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "recepcionista"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "camareraDeHabitacion"
+      },
+      "nota": "Literal del convenio: 'Camarera de habitación' (área cuarta, pisos y limpieza)."
+    },
+    "administrativo": {
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "oficialAdministrativo"
+      },
+      "nota": "La tabla distingue 'Oficial administrativo' y 'Auxiliar administrativo'; el puesto llano de administrativo/a corresponde al oficial."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "limpiador"
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para teruel-hosteleria, derivado del Anexo 1 (clasificación profesional, 4 grupos; el art. 13 remite al ALEH). No hay categoría de establecimiento: tabla única por grupo profesional. El propio $comment de la transcripción confirma que el/la camarero/a está en el grupo SEGUNDO. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "teruel-hosteleria",
+  "articulo": "Anexo 1 (clasificación profesional) y art. 13 (remisión al ALEH)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "primero"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "primero"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "tercero"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "cuarto"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "grupoProfesional": "primero"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "grupoProfesional": "tercero"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "grupoProfesional": "tercero"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "grupoProfesional": "segundo"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "grupoProfesional": "cuarto"
+      }
+    }
+  }
+}

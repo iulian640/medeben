@@ -1,0 +1,84 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para cadiz-hosteleria, derivado del Anexo II (gruposProfesionales de la transcripción, lista de ejemplos NO exhaustiva de categorías por grupo 1-5). La dimensión que falta (categoriaEstablecimiento A/B/C) la responde el usuario con la pregunta del tipo de establecimiento. 'jefe-sala' vía Primer/ra Jefe/a de Comedor (grupo 1); 'repostero' vía Repostero/a oficial (grupo 4); 'auxiliar-cocina' vía Pinche/Fregador/a (grupo 5); 'personal-limpieza' vía Limpiadores/as (grupo 5). 'null' = puesto no clasificado explícitamente o con clasificación contradictoria (ver nota). NUNCA inventar.",
+  "id": "cadiz-hosteleria",
+  "articulo": "Anexo II (grupos profesionales 1-5)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "2"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "grupoProfesional": "3"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "grupoProfesional": "3"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "grupoProfesional": "4"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "Clasificación contradictoria en la transcripción: el grupo 4 lista 'Cocinero/a (ayte.)' y el grupo 5 lista 'Ayudante de Cocineros/as'; sin resolver esa contradicción no se fija grupo."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "grupoProfesional": "5"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "grupoProfesional": "1"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "grupoProfesional": "4"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "grupoProfesional": "5"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "grupoProfesional": "4"
+      }
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "La categoría 'sumiller' no aparece en la lista (no exhaustiva) del Anexo II de la transcripción."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "grupoProfesional": "3"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "grupoProfesional": "4"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El puesto genérico 'administrativo' no aparece; solo variantes con grupos distintos (Oficial de Contabilidad=4, Auxiliar Administrativo=5, Contable=3), así que no se fija."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "grupoProfesional": "5"
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para gipuzkoa-hosteleria, derivado del Art. 10-11 y Anexo II (bloque 'clasificacionProfesional.mapeoOcupacionNivel' de la transcripción): ocupación → nivel salarial 1-5 (en los hechos, valores '1'-'5') más la calificación de ingreso 'auxiliarHosteleria'. No hay dimensión de establecimiento en este convenio. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "gipuzkoa-hosteleria",
+  "articulo": "Art. 10-11 y Anexo II (clasificación profesional)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "5"
+      },
+      "nota": "Pinche, Marmitón, Fregador/a y Auxiliar de cocina/economato están en el Nivel V."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "nota": "Como 'Jefe/a de restaurante o sala' (Nivel I)."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "No contemplado: este convenio (hostelería) no tiene área de pisos; sus áreas funcionales son administración, cocina/economato, restaurante-sala-bar y mantenimiento. El personal de pisos es del convenio de hospedaje de Gipuzkoa."
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "nota": "'Administrativo/a' está en el Nivel II; el 'Auxiliar administrativo/a' (puesto distinto) estaría en el III."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "5"
+      }
+    }
+  }
+}

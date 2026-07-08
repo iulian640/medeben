@@ -107,6 +107,13 @@
                     <include>*.json</include>
                 </includes>
             </resource>
+            <resource>
+                <directory>${project.basedir}/../convenios/ocupaciones</directory>
+                <targetPath>convenios/ocupaciones</targetPath>
+                <includes>
+                    <include>*.json</include>
+                </includes>
+            </resource>
         </resources>
         <plugins>
             <plugin>

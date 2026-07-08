@@ -1,0 +1,88 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para zaragoza-hosteleria, derivado del Anexo I (correspondencia ocupación→nivel retributivo IA/IB/II/III/IV, clasificación ALEH). La única dimensión del puesto es nivelRetributivo; la dimensión grupoActividad de las tablas es del ESTABLECIMIENTO (tipo de local, Anexos II-IV) y la responde el usuario con la pregunta del tipo de establecimiento, por eso queda fuera. NUNCA inventar.",
+  "id": "zaragoza-hosteleria",
+  "articulo": "Anexo I (niveles retributivos, clasificación ALEH)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivelRetributivo": "IA"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivelRetributivo": "IB"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivelRetributivo": "II"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivelRetributivo": "II"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivelRetributivo": "II"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivelRetributivo": "III"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivelRetributivo": "IV"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivelRetributivo": "IA"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivelRetributivo": "II"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivelRetributivo": "III"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivelRetributivo": "II"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivelRetributivo": "II"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivelRetributivo": "II"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivelRetributivo": "III"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivelRetributivo": "II"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivelRetributivo": "IV"
+      },
+      "nota": "Mapeado como 'auxiliar de pisos y limpieza' (nivel IV del Anexo I)."
+    }
+  }
+}

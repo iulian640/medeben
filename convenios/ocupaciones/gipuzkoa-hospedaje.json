@@ -1,0 +1,95 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para gipuzkoa-hospedaje, derivado del Anexo I (bloque 'nivelesSalariales' de la transcripción): adscripción de categorías a niveles salariales I-IV. El nivel V fue eliminado por el convenio 2025-2028 (absorbido por el IV). No hay dimensión de establecimiento en este convenio. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "gipuzkoa-hospedaje",
+  "articulo": "Anexo I (niveles salariales)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Categoría conjunta 'Jefe/a de partida/Cocinero/a' (Nivel III)."
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Categoría conjunta 'Jefe/a de partida/Cocinero/a' (Nivel III)."
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "Marmitón y Pinche están en el Nivel IV (que absorbió el antiguo Nivel V desde 2025)."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "nota": "Como 'Jefe/a de Comedor o Maestresala' (Nivel I)."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Categoría 'Camarero/a/Dependiente/a' (Nivel III)."
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "nota": "Rareza de este convenio: el Barman está en el Nivel I (el 'Segundo/a Barman' en el II y el 'Ayudante de Barman' en el III)."
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Categoría 'Recepcionista/Cajero/a' (Nivel III)."
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "Desde el convenio 2025-2028 todo el colectivo es 'Camarero/a de pisos' Nivel IV (desaparece la distinción por antigüedad de menos/más de 24 meses)."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "Ambiguo: el convenio distingue 'Administrativo/a de 1.ª' (Nivel II) y 'Administrativo/a de 2.ª' (Nivel III); el nivel depende de la categoría personal, no determinable solo con el puesto."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "'Personal de limpieza' está en el Nivel IV (que absorbió el antiguo Nivel V desde 2025)."
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$comment": "Mapeo puesto→nivel del ANNEX I punto 7 (clasificacionNiveles de la transcripción, mapa completo y verificado). La dimensión que falta (categoriaEstablecimiento A-D) es de establecimiento y la responde el usuario. 'null' = el puesto no aparece en la clasificación transcrita. NUNCA inventar.",
+  "id": "lleida-hosteleria",
+  "articulo": "ANNEX I, punto 7 (clasificación de niveles)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "No aparece como categoría en la clasificación del ANNEX I punto 7 (no hay repostero/pastelero en ningún nivel transcrito)."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "V"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "V"
+      },
+      "nota": "Fregador/limpiaplatos y marmitón son nivel V; los marmitones menores de 18 años son nivel VI."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "nota": "Literal 'jefe de sala' = nivel II. OJO: el '1r jefe de comedor' (maître) es nivel I."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "V"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "nota": "Barman raso = nivel III; el '1r encargado barman' es nivel I."
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "En el convenio figura como 'sommelier', nivel IV."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "Sin categoría administrativa genérica en la clasificación transcrita; solo aparece 'contable general' (nivel I)."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "V"
+      }
+    }
+  }
+}

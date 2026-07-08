@@ -1,0 +1,89 @@
+{
+  "$comment": "Mapeo puesto→nivel retributivo del Anexo II (campo 'clasificacion' de la transcripción; solo recoge categorías de cocina/sala/pisos, el anexo completo tiene más). La dimensión que falta (grupoEstablecimiento A-D) es de establecimiento y la responde el usuario. 'null' = categoría no recogida en la transcripción. NUNCA inventar.",
+  "id": "madrid-hospedaje",
+  "articulo": "Anexo II (categoría profesional → nivel retributivo)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "1A"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "1B"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "1B"
+      },
+      "nota": "El Anexo II sitúa 'Repostero/a o jefe/a de repostería' en 1B; el oficial repostero/a es nivel 3 y el ayudante de repostero nivel 4."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "5"
+      },
+      "nota": "Pinche, marmitón/a, auxiliar de cocina y fregador/a: todos nivel 5."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "1A"
+      },
+      "nota": "'Primer/a maitre - jefe/a de comedor - jefe/a de sala' = 1A; el segundo/a maitre es 1B."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El Anexo II transcrito solo recoge categorías de cocina/sala/pisos; las administrativas no están transcritas (el anexo completo del BOCM tiene más)."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "5"
+      }
+    }
+  }
+}

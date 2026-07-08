@@ -1,0 +1,102 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para tenerife-hosteleria, derivado del Anexo I (tablas por clasificación 1-4). Los valores de 'puesto' y 'areaFuncional' son literales de la capa normalizada y son IDÉNTICOS en las 4 clasificaciones (verificado): la ocupación determina puesto+areaFuncional, y las dimensiones 'clasificacion' + 'grupoEstablecimiento'/'establecimiento' son del establecimiento (las responde el usuario). No todas las ocupaciones existen en las 4 clasificaciones (p. ej. camarero/a de pisos no existe en la Clasificación 4, club privado/colectividades/catering). NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "tenerife-hosteleria",
+  "articulo": "Anexo I (tablas salariales por clasificación 1-4, ocupaciones por área funcional)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "AF2_cocina_economato",
+        "puesto": "Jefe/a de cocina"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "AF2_cocina_economato",
+        "puesto": "2ª jefe de cocina"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "areaFuncional": "AF2_cocina_economato",
+        "puesto": "Jefe/a de partida / encargado de economato"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "areaFuncional": "AF2_cocina_economato",
+        "puesto": "Cocinero/a"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "areaFuncional": "AF2_cocina_economato",
+        "puesto": "Repostero/a"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "areaFuncional": "AF2_cocina_economato",
+        "puesto": "Ayudante/a cocina/economato"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "areaFuncional": "AF2_cocina_economato",
+        "puesto": "Auxiliar de cocina / economato"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "areaFuncional": "AF3_restaurante_sala_bar_colectividades_catering",
+        "puesto": "Jefe/a de restaurante o sala"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "areaFuncional": "AF3_restaurante_sala_bar_colectividades_catering",
+        "puesto": "Camarero/a"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "areaFuncional": "AF3_restaurante_sala_bar_colectividades_catering",
+        "puesto": "Ayudante/a de camarero"
+      }
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "El Anexo I no tiene 'Barman' genérico: distingue 'Primer barman/barwoman' y 'Segundo barman/barwoman' (AF3), con salarios distintos. El nivel depende del rango dentro del bar, no solo del puesto; ambiguo, no se inventa."
+    },
+    "sumiller": {
+      "dimensiones": {
+        "areaFuncional": "AF3_restaurante_sala_bar_colectividades_catering",
+        "puesto": "Sumiller"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "areaFuncional": "AF1_recepcion_conserjeria_rrpp_admon_gestion",
+        "puesto": "Recepcionista"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "areaFuncional": "AF4_pisos_limpieza",
+        "puesto": "Camarero/a de pisos"
+      },
+      "nota": "Existe en las Clasificaciones 1-3; NO existe en la Clasificación 4 (club privado, colectividades y catering)."
+    },
+    "administrativo": {
+      "dimensiones": {
+        "areaFuncional": "AF1_recepcion_conserjeria_rrpp_admon_gestion",
+        "puesto": "Administrativo/a"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "areaFuncional": "AF4_pisos_limpieza",
+        "puesto": "Auxiliar pisos y limpieza (limpiador/a)"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para alicante-hosteleria: TODO null porque la correspondencia categoría→nivel retributivo (1-6, Anexo III) NO figura en el articulado provincial. El art. 15 remite la clasificación profesional al ALEH VI y la transcripción marca el mapeo como 'pendiente' (duda abierta para UGT). Cuando se transcriba la equivalencia, rellenar con la dimensión nivel ('1'..'6'); grupoEstablecimiento (A/B/C, Anexo I) es del establecimiento y la responde el usuario aparte.",
+  "id": "alicante-hosteleria",
+  "articulo": "pendiente — Art. 15 (remite al ALEH VI) y Anexo III (niveles 1-6); sin mapeo categoría→nivel en la transcripción",
+  "ocupaciones": {
+    "jefe-cocina": null,
+    "segundo-jefe-cocina": null,
+    "jefe-partida": null,
+    "cocinero": null,
+    "repostero": null,
+    "ayudante-cocina": null,
+    "auxiliar-cocina": null,
+    "jefe-sala": null,
+    "camarero": null,
+    "ayudante-camarero": null,
+    "barman": null,
+    "sumiller": null,
+    "recepcionista": null,
+    "camarera-pisos": null,
+    "administrativo": null,
+    "personal-limpieza": null
+  }
+}

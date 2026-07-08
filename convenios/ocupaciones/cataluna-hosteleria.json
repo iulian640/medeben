@@ -1,0 +1,74 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para cataluna-hosteleria. Cada zona (Barcelona, Maresme, Tarragona, Girona) tiene su PROPIA clasificación puesto→nivel (Anexo II A.2/B.2/C.2.1); la dimensión 'zona' es de establecimiento y queda fuera, igual que 'categoriaEstablecimiento'. Solo se fija el nivel cuando es EL MISMO en las 4 zonas; si difiere entre zonas → null con nota. NUNCA inventar.",
+  "id": "cataluna-hosteleria",
+  "articulo": "Anexo II (A.2 Barcelona/Maresme, B.2 Tarragona, C.2.1 Girona) — correspondencia puesto→nivel retributivo",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: II en Barcelona/Maresme, III en Tarragona y Girona. Hace falta la zona del establecimiento para fijarlo."
+    },
+    "cocinero": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: III en Barcelona/Maresme, IV en Tarragona y Girona."
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: III en Barcelona/Maresme (repostero oficial) y Tarragona, IV en Girona."
+    },
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: IV en Barcelona/Maresme, VII en Tarragona, V en Girona."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: V en Barcelona/Maresme (marmitón/fregador/pinche mayor de 18), VII en Tarragona, VI-VII en Girona."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "camarero": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: III en Barcelona/Maresme, IV en Tarragona y Girona."
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: IV en Barcelona/Maresme, VII en Tarragona (ayudante de comedor), V en Girona."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: III en Barcelona/Maresme, IV en Girona; en Tarragona no aparece listado como tal."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: III en Barcelona/Maresme, IV en Tarragona y Girona."
+    },
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: III en Barcelona/Maresme y Girona, IV en Tarragona."
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: IV en Barcelona, V en Maresme, VII en Tarragona (IV si área funcional bar/comedor) y VII en Girona."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "Sin categoría genérica única: Barcelona no lista 'Administrativo/a' (oficiales de contabilidad en II/III, auxiliar de oficina IV); en Girona 'Administrativo/a' (columna ALEH) aparece en niveles III y IV. Ambiguo y distinto por zona."
+    },
+    "personal-limpieza": {
+      "dimensiones": null,
+      "nota": "Nivel distinto por zona: V en Barcelona/Maresme (personal de limpieza), VII en Tarragona y Girona (limpiadores/as)."
+    }
+  }
+}

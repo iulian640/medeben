@@ -1,0 +1,88 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para ciudadreal-hosteleria. Tabla única sin categorías de establecimiento: el puesto determina directamente el nivel salarial 1-4 (Anexo II, encuadramiento ALEH por áreas funcionales y grupos profesionales). Ojo: camarero/a y cocinero/a son nivel 2 pero el ayudante de camarero cae a nivel 4 y el ayudante de cocina a nivel 3. NUNCA inventar.",
+  "id": "ciudadreal-hosteleria",
+  "articulo": "Anexo II + Disposición Adicional Única (encuadramiento categoría→nivel salarial 1-4)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "1"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "1"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "nivel": "4"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "nivel": "3"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "nivel": "2"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "nota": "Encuadrado como 'Auxiliar de pisos y limpieza' (nivel 4)."
+    }
+  }
+}

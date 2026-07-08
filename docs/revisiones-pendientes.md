@@ -208,3 +208,32 @@ Ya cubren hasta 2026/2027/2028/2029. Solo revisar al acercarse su vencimiento.
   y se indica el boletín donde aparecerá.
 - **Boletines por tipo:** BOE (estatal), DOE/DOGC/BOC/BON/BOR/BOIB/BOTHA/BOPA
   (autonómicos), BOP/BOG/BOB/BOPZ/BOPPO/BOME/BOCCE (provinciales/ciudades autónomas).
+
+---
+
+## Huecos estructurales del mapeo puesto→nivel (añadido 2026-07-08)
+
+Detectados al construir `convenios/ocupaciones/` (los usuarios de estos casos caen
+al modo manual mientras tanto; nada bloquea la v1):
+
+1. **Mapeo condicional por establecimiento** — el nivel del puesto depende del tipo
+   o categoría del local: Jaén (Anexo VII), Asturias (Anexo I), Huelva (Clase D),
+   Pontevedra (Anexo V ap. 3), Cataluña (13 de 16 puestos varían por zona),
+   Málaga (hoteles por niveles sin correspondencia transcrita). Requiere extender el
+   formato de mapeo con condiciones, o preguntar el establecimiento ANTES del puesto.
+2. **Mapeo por provincia en restauración colectiva** — 296 literales de categoría
+   distintos entre los 48 anexos provinciales, con agrupaciones diferentes por
+   provincia. Requiere tabla puesto→literal por provincia (16×48, revisión manual).
+3. **Transcripciones a completar** (imposible mapear sin inventar):
+   - Valencia: la clasificación ocupación→nivel remite al V ALEH, no transcrito.
+   - Melilla: grupos sin enumerar categorías (remite al ALEH).
+   - Alicante: correspondencia categoría→nivel no está en el articulado (ya es duda UGT).
+   - Las Palmas: listas del Anexo II abreviadas ("...") en la transcripción.
+   - Málaga: Anexo III puesto→nivel de hoteles (secciones 1ª-2ª) sin transcribir.
+   - Lugo (colectiva estatal): tabla multi-columna transcrita como strings.
+4. **Grafías inconsistentes en la capa normalizada** (unificar EN LA TRANSCRIPCIÓN
+   verificando contra el PDF, y re-derivar): Lugo ("Cocinero/a-repostero/a" vs
+   "-Repostero/a"; "Camarero/a pisos" vs "Pisos"), Málaga ("Ayudante cocinero" vs
+   "Ayudante de cocinero").
+5. **Mapeos con vigencia**: Granada mueve a la camarera de pisos de IV_BIS (2025) a
+   IV (2026); el formato de mapeo estático no lo expresa (hoy: null + nota).

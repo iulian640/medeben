@@ -1,0 +1,71 @@
+{
+  "$comment": "Mapeo puesto→dimensiones para jaen-hosteleria. TODOS los puestos van a null: la única dimensión de los hechos salarioBase es 'nivel' (1.35-1.70), y el Anexo VII asigna el nivel a cada categoría SEGÚN el tipo y la categoría del establecimiento (hoteles por estrellas, restaurantes por tenedores, cafeterías por tazas, pensiones, catering, otros). Un mismo puesto (p. ej. cocinero/a) puede ir de 1.40 a 1.60 según dónde trabaje. La resolución puesto→nivel exige la respuesta de establecimiento y la tabla del Anexo VII (transcripción: asignacionNivelPorCategoria). NUNCA inventar.",
+  "id": "jaen-hosteleria",
+  "articulo": "Anexo VII (asignación de nivel a cada categoría según tipo y categoría de establecimiento)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "jefe-partida": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "cocinero": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "jefe-sala": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "camarero": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "barman": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "recepcionista": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    },
+    "personal-limpieza": {
+      "dimensiones": null,
+      "nota": "El nivel retributivo (1.35-1.70) NO lo determina el puesto por sí solo: depende del TIPO de establecimiento (hotel/restaurante/cafetería/pensión/catering/otros) y de su CATEGORÍA (estrellas/tenedores/tazas), según el Anexo VII (asignacionNivelPorCategoria de la transcripción). La app debe resolverlo preguntando por el establecimiento y consultando ese Anexo."
+    }
+  }
+}

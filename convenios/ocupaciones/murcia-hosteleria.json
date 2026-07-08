@@ -1,0 +1,112 @@
+{
+  "$comment": "Las tablas de Murcia van por área funcional × grupo profesional × puesto literal × tipo de establecimiento. 'tipoEstablecimiento' es de establecimiento y queda fuera; (areaFuncional, grupoProfesional) es único y consistente para cada puesto en todos los tipos, así que se incluye junto al literal exacto. 'null' = sin categoría equivalente exacta (no inventar).",
+  "id": "murcia-hosteleria",
+  "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Cocina"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Cocina"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Partida"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Cocinero"
+      }
+    },
+    "repostero": {
+      "dimensiones": null,
+      "nota": "Solo existe 'Jefe Repostero' (grupo II del área 2ª), que es una jefatura, no el repostero raso: mapearlo sería inventar."
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Cocinero"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Marmitón"
+      },
+      "nota": "La única categoría auxiliar de cocina en Murcia es 'Marmitón' (grupo IV); no existen pinche ni fregador/a como categorías separadas."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Sala"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarero"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Camarero"
+      }
+    },
+    "barman": {
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Barman"
+      },
+      "nota": "Las tablas solo lo recogen en cafeterías-bares y casinos (dimensión de establecimiento)."
+    },
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "Solo existe 'Jefe de Sumiller' (grupo II del área 3ª), que es una jefatura, no el sumiller raso: mapearlo sería inventar."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Recepcionista"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarera de Pisos"
+      }
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "Sin categoría administrativa genérica: existen 'Contable General' (grupo I), 'Tenedor de cuentas' (grupo II), 'Oficial de Contabilidad' y 'Telefonista de 1ª' (grupo III); el puesto genérico no permite elegir."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Auxiliar de Pisos y Limpieza (Personal de Limpieza)"
+      }
+    }
+  }
+}

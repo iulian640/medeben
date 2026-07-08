@@ -1,0 +1,88 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para granada-hosteleria, derivado del bloque 'nivelesProfesionales' de la transcripción (ejemplos de categorías por nivel I-VI + IV_BIS; la propia transcripción avisa de que la lista NO es exhaustiva, de ahí varios null). La dimensión que falta (categoriaEstablecimiento A/B/C/D) la responde el usuario con la pregunta del tipo de establecimiento. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
+  "id": "granada-hosteleria",
+  "articulo": "Clasificación por niveles profesionales (bloque 'nivelesProfesionales' de la transcripción, sin artículo citado) y Anexo IV (tablas); camareras de pisos: Art. 1.Segundo y Art. 28.2.d",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "nivel": "I"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "nivel": "II"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "nota": "'Repostero/a' está en el Nivel II; el 'Oficial de Repostería' (puesto distinto) está en el IV."
+    },
+    "ayudante-cocina": {
+      "dimensiones": null,
+      "nota": "No aparece en los ejemplos de categorías por nivel transcritos (lista no exhaustiva); sin correspondencia verificable."
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "nivel": "VI"
+      },
+      "nota": "Marmitón y Fregador/a están en el Nivel VI."
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "nota": "Como 'Jefe/a de Comedor' (Nivel I)."
+    },
+    "camarero": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "ayudante-camarero": {
+      "dimensiones": null,
+      "nota": "No aparece en los ejemplos de categorías por nivel transcritos (lista no exhaustiva); el 'Ayudante de Sector' (Nivel V) no es verificable como equivalente."
+    },
+    "barman": {
+      "dimensiones": {
+        "nivel": "III"
+      }
+    },
+    "sumiller": {
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "nota": "Aparece como 'Someliers' en el Nivel IV."
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "nivel": "IV"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": null,
+      "nota": "Depende de la fecha, no expresable en un mapeo estático: durante 2025 cobran por el Nivel IV_BIS (creado ad hoc, Art. 28.2.d) y desde el 01-01-2026 por el Nivel IV pleno (con los importes de la tabla 2025 por ultraactividad)."
+    },
+    "administrativo": {
+      "dimensiones": null,
+      "nota": "No aparece como tal en los ejemplos transcritos (lista no exhaustiva); lo más cercano es 'Contable / Oficial de Contabilidad' (Nivel IV), no verificable como equivalente."
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "nivel": "VI"
+      },
+      "nota": "Como 'Limpiador/a' (Nivel VI)."
+    }
+  }
+}

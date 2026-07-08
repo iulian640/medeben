@@ -1,0 +1,123 @@
+{
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para palencia-hosteleria, derivado de la tabla salarial 2026 (BOP nº6/2023, pp. 29-31; grupo único de establecimientos por Disp. Duodécima) cuyas filas son área funcional + grupo profesional + categoría literal; la clasificación profesional se rige por el ALEH (Art. 11). Las tablas de 'clubes/discotecas/salas de baile y fiestas' y 'casinos' son del TIPO de local (dimensión de establecimiento) y se dejan fuera: se mapea contra las áreas funcionales generales. NUNCA inventar.",
+  "id": "palencia-hosteleria",
+  "articulo": "Tablas salariales 2026 (BOP nº6/2023, pp. 29-31); clasificación profesional según ALEH (Art. 11)",
+  "ocupaciones": {
+    "jefe-cocina": {
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoI",
+        "categoria": "jefeDeCocina"
+      }
+    },
+    "segundo-jefe-cocina": {
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoI",
+        "categoria": "segundoJefeDeCocina"
+      }
+    },
+    "jefe-partida": {
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoII",
+        "categoria": "jefeDePartida"
+      }
+    },
+    "cocinero": {
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoII",
+        "categoria": "cocinero_repostero"
+      }
+    },
+    "repostero": {
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoII",
+        "categoria": "cocinero_repostero"
+      }
+    },
+    "ayudante-cocina": {
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoIII",
+        "categoria": "ayudanteReposteroYcocina"
+      }
+    },
+    "auxiliar-cocina": {
+      "dimensiones": {
+        "tabla": "areaFuncionalSegunda",
+        "grupoProfesional": "grupoIV",
+        "categoria": "auxiliarDeCocina"
+      }
+    },
+    "jefe-sala": {
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoI",
+        "categoria": "jefeDeRestauranteOsala"
+      }
+    },
+    "camarero": {
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoII",
+        "categoria": "camarero_barman_sumiller"
+      },
+      "nota": "En clubes, discotecas, salas de baile/fiestas y casinos rigen tablas propias por tipo de local (dimensión de establecimiento); este mapeo usa la tabla general por área funcional."
+    },
+    "ayudante-camarero": {
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoIII",
+        "categoria": "ayudanteDeCamarero_riders"
+      },
+      "nota": "En clubes, discotecas, salas de baile/fiestas y casinos rigen tablas propias por tipo de local (dimensión de establecimiento); este mapeo usa la tabla general por área funcional."
+    },
+    "barman": {
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoII",
+        "categoria": "camarero_barman_sumiller"
+      },
+      "nota": "En clubes, discotecas, salas de baile/fiestas y casinos rigen tablas propias por tipo de local (dimensión de establecimiento); este mapeo usa la tabla general por área funcional."
+    },
+    "sumiller": {
+      "dimensiones": {
+        "tabla": "areaFuncionalTercera",
+        "grupoProfesional": "grupoII",
+        "categoria": "camarero_barman_sumiller"
+      }
+    },
+    "recepcionista": {
+      "dimensiones": {
+        "tabla": "areaFuncionalPrimera",
+        "grupoProfesional": "grupoII",
+        "categoria": "administrativo_recepcionista_relacionesPublicas"
+      }
+    },
+    "camarera-pisos": {
+      "dimensiones": {
+        "tabla": "areaFuncionalCuarta",
+        "grupoProfesional": "grupoII",
+        "categoria": "camareroDePisos"
+      }
+    },
+    "administrativo": {
+      "dimensiones": {
+        "tabla": "areaFuncionalPrimera",
+        "grupoProfesional": "grupoII",
+        "categoria": "administrativo_recepcionista_relacionesPublicas"
+      }
+    },
+    "personal-limpieza": {
+      "dimensiones": {
+        "tabla": "areaFuncionalCuarta",
+        "grupoProfesional": "grupoIII",
+        "categoria": "auxiliarDePisosYlimpieza"
+      },
+      "nota": "En la tabla general el personal de limpieza figura como 'Auxiliar de pisos y limpieza' (clasificación ALEH). En clubes, discotecas, salas de baile/fiestas y casinos rigen tablas propias por tipo de local (dimensión de establecimiento); este mapeo usa la tabla general por área funcional."
+    }
+  }
+}
