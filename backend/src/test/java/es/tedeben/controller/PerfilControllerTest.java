@@ -79,6 +79,43 @@ class PerfilControllerTest {
     }
 
     @Test
+    @DisplayName("GET con perfil existente → 200 con el perfil serializado")
+    void getConPerfil() throws Exception {
+        Perfil existente = new Perfil(USUARIO, "Madrid", "hosteleria", "madrid-hosteleria",
+                "cocinero", Map.of("nivel", "III"), new java.math.BigDecimal("1400.00"), null);
+        when(perfilService.busca(USUARIO)).thenReturn(Optional.of(existente));
+
+        mockMvc.perform(get("/api/v1/perfil").with(comoUsuario()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.convenioId").value("madrid-hosteleria"))
+                .andExpect(jsonPath("$.dimensiones.nivel").value("III"))
+                .andExpect(jsonPath("$.salarioBaseMensual").value(1400.00));
+    }
+
+    @Test
+    @DisplayName("PUT con más de 10 dimensiones → 400")
+    void demasiadasDimensiones() throws Exception {
+        StringBuilder dims = new StringBuilder();
+        for (int i = 0; i < 11; i++) {
+            if (i > 0) dims.append(',');
+            dims.append("\"d").append(i).append("\":\"v\"");
+        }
+        mockMvc.perform(put("/api/v1/perfil").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"provincia\":\"Madrid\",\"subsector\":\"hosteleria\",\"dimensiones\":{" + dims + "}}"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("token con subject que no es UUID → 401 genérico, sin eco del valor")
+    void subjectRaro() throws Exception {
+        mockMvc.perform(get("/api/v1/perfil")
+                        .with(jwt().jwt(j -> j.subject("no-soy-un-uuid"))))
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.detail").value("Token inválido"));
+    }
+
+    @Test
     @DisplayName("PUT sin provincia → 400 (validación)")
     void validacion() throws Exception {
         mockMvc.perform(put("/api/v1/perfil").with(comoUsuario())

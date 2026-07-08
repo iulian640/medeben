@@ -46,6 +46,15 @@ public class PerfilService {
         if (puestoId != null && ocupaciones.puestos().stream().noneMatch(p -> p.id().equals(puestoId))) {
             throw new IllegalArgumentException("Puesto desconocido: " + puestoId);
         }
+        if (dimensiones != null) {
+            for (Map.Entry<String, String> d : dimensiones.entrySet()) {
+                if (d.getKey() == null || d.getKey().length() > 40
+                        || d.getValue() == null || d.getValue().length() > 100) {
+                    throw new IllegalArgumentException(
+                            "Dimensión inválida: claves hasta 40 caracteres y valores hasta 100");
+                }
+            }
+        }
         if (salarioBaseMensual != null && salarioBaseMensual.signum() <= 0) {
             throw new IllegalArgumentException("El salario base mensual debe ser positivo");
         }

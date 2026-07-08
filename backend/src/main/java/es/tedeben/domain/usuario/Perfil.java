@@ -3,7 +3,14 @@ package es.tedeben.domain.usuario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.PostLoad;
+import jakarta.persistence.PostPersist;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
+import org.springframework.data.domain.Persistable;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -20,7 +27,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "perfiles")
-public class Perfil {
+public class Perfil implements Persistable<UUID> {
 
     @Id
     @Column(name = "usuario_id")
@@ -48,8 +55,15 @@ public class Perfil {
     @Column(name = "pluses_anuales", precision = 9, scale = 2)
     private BigDecimal plusesAnuales;
 
-    @Column(name = "actualizado_en", nullable = false, insertable = false, updatable = false)
+    @Version
+    private long version;
+
+    @Column(name = "actualizado_en", nullable = false)
     private OffsetDateTime actualizadoEn;
+
+    /** true hasta que la entidad se persiste o se carga: save() hace persist(), no merge+SELECT. */
+    @Transient
+    private boolean nuevo = true;
 
     protected Perfil() {
         // requerido por JPA
@@ -66,6 +80,28 @@ public class Perfil {
         this.dimensiones = dimensiones == null ? new LinkedHashMap<>() : new LinkedHashMap<>(dimensiones);
         this.salarioBaseMensual = salarioBaseMensual;
         this.plusesAnuales = plusesAnuales;
+    }
+
+    @Override
+    public UUID getId() {
+        return usuarioId;
+    }
+
+    @Override
+    public boolean isNew() {
+        return nuevo;
+    }
+
+    @PostLoad
+    @PostPersist
+    void yaPersistido() {
+        this.nuevo = false;
+    }
+
+    @PrePersist
+    @PreUpdate
+    void marcaActualizacion() {
+        this.actualizadoEn = OffsetDateTime.now();
     }
 
     public UUID getUsuarioId() {
@@ -89,7 +125,7 @@ public class Perfil {
     }
 
     public Map<String, String> getDimensiones() {
-        return dimensiones;
+        return Map.copyOf(dimensiones);
     }
 
     public BigDecimal getSalarioBaseMensual() {

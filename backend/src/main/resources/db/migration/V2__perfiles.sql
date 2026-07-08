@@ -10,5 +10,6 @@ CREATE TABLE perfiles (
     dimensiones           JSONB,
     salario_base_mensual  NUMERIC(9, 2),
     pluses_anuales        NUMERIC(9, 2),
+    version               BIGINT       NOT NULL DEFAULT 0,
     actualizado_en        TIMESTAMPTZ  NOT NULL DEFAULT now()
 );

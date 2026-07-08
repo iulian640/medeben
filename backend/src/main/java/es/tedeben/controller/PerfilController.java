@@ -46,6 +46,11 @@ public class PerfilController {
     }
 
     private static UUID usuarioId(Jwt jwt) {
-        return UUID.fromString(jwt.getSubject());
+        try {
+            return UUID.fromString(jwt.getSubject());
+        } catch (IllegalArgumentException e) {
+            // Identidad rara en un token válido: 401 genérico, sin eco del valor.
+            throw new TokenInvalidoException();
+        }
     }
 }

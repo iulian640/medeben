@@ -74,6 +74,14 @@ class PerfilServiceTest {
     }
 
     @Test
+    @DisplayName("dimensión con valor kilométrico → IllegalArgument (tope de almacenamiento)")
+    void dimensionKilometrica() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> servicio.guarda(USUARIO, "Madrid", "hosteleria", null,
+                        Map.of("nivel", "x".repeat(101)), null, null));
+    }
+
+    @Test
     @DisplayName("busca el perfil por usuario")
     void buscaPorUsuario() {
         Perfil existente = new Perfil(USUARIO, "Madrid", "hosteleria", "madrid-hosteleria",
