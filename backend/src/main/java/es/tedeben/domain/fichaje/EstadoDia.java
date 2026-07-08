@@ -8,7 +8,10 @@ import java.util.List;
  * se calcula siempre desde los apuntes, que son la única verdad.
  *
  * @param minutosTrabajados suma de los tramos cerrados (turno partido incluido,
- *                          D38); -1 si no hay ninguno.
+ *                          D38); -1 si no hay ninguno o si algún tramo supera el
+ *                          techo de cordura. OJO: no va ligado al estado — un día
+ *                          EN_CURSO con su primer tramo cerrado ya trae minutos,
+ *                          y un COMPLETO anómalo puede traer -1.
  * @param selladoDesde      cuándo se sella (o se selló) el día: para el
  *                          contador de la UI ("se sella en 3 días").
  */
