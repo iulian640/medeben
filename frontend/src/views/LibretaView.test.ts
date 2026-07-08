@@ -195,6 +195,20 @@ describe('LibretaView — fichar', () => {
     )
   })
 
+  it('en el panel de hora manual, Intro (submit del form) ficha una ENTRADA', async () => {
+    vi.mocked(postApunte).mockResolvedValue({ ...apunteEntrada, hora: '09:00' })
+    const wrapper = await montar()
+
+    await boton(wrapper, '¿A otra hora?').trigger('click')
+    await wrapper.find('#hora-manual').setValue('09:00')
+    await wrapper.find('form').trigger('submit')
+    await flushPromises()
+
+    expect(postApunte).toHaveBeenCalledWith(
+      expect.objectContaining({ tipo: 'ENTRADA', hora: '09:00' }),
+    )
+  })
+
   it('doble submit: con el POST en vuelo los botones quedan deshabilitados', async () => {
     let resolverPost!: (a: ApunteGuardado) => void
     vi.mocked(postApunte).mockReturnValue(
@@ -231,7 +245,8 @@ describe('LibretaView — ausencia', () => {
 
     expect(wrapper.text()).toContain('El motivo es opcional; si lo escribes, queda en tu libreta.')
 
-    await boton(wrapper, 'Registrar ausencia').trigger('click')
+    // El panel es un <form>: registrar (botón submit o Intro) dispara el submit.
+    await wrapper.find('form').trigger('submit')
     await flushPromises()
 
     expect(postApunte).toHaveBeenCalledWith({
@@ -254,7 +269,7 @@ describe('LibretaView — ausencia', () => {
 
     await boton(wrapper, 'No he ido').trigger('click')
     await wrapper.find('#motivo').setValue('  médico  ')
-    await boton(wrapper, 'Registrar ausencia').trigger('click')
+    await wrapper.find('form').trigger('submit')
     await flushPromises()
 
     expect(postApunte).toHaveBeenCalledWith(expect.objectContaining({ motivo: 'médico' }))

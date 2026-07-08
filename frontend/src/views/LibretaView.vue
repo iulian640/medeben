@@ -3,6 +3,9 @@ import { onMounted, ref } from 'vue'
 import { useFichajesStore } from '../stores/fichajes'
 import type { ApuntePeticion, TipoApunte } from '../services/fichajes'
 import LibretaOnboarding from '../components/LibretaOnboarding.vue'
+import PanelHoraManual from '../components/PanelHoraManual.vue'
+import PanelAusencia from '../components/PanelAusencia.vue'
+import PanelRectificacionSellado from '../components/PanelRectificacionSellado.vue'
 import { formatearFecha, hoyIso } from '../lib/formato'
 import {
   ETIQUETAS_ESTADO,
@@ -24,7 +27,6 @@ const mostrarHoraManual = ref(false)
 const mostrarAusencia = ref(false)
 const horaManual = ref('')
 const motivo = ref('')
-const confirmaRectificacion = ref(false)
 
 /** La última petición enviada: si el día resulta estar sellado (409), se reenvía confirmada. */
 let ultimaPeticion: ApuntePeticion | null = null
@@ -48,7 +50,6 @@ async function envia(peticion: ApuntePeticion) {
     mostrarAusencia.value = false
     horaManual.value = ''
     motivo.value = ''
-    confirmaRectificacion.value = false
     ultimaPeticion = null
   }
 }
@@ -94,7 +95,7 @@ function registraAusencia() {
 }
 
 function reenviaConfirmada() {
-  if (!ultimaPeticion || !confirmaRectificacion.value) {
+  if (!ultimaPeticion) {
     return
   }
   envia({ ...ultimaPeticion, rectificacionTardiaConfirmada: true })
@@ -159,9 +160,10 @@ function reenviaConfirmada() {
             v-if="fichajes.dia.apuntes.length > 0"
             class="apuntes"
           >
+            <!-- registradoEn es el sello del servidor: único por apunte y estable. -->
             <li
-              v-for="(a, i) in fichajes.dia.apuntes"
-              :key="i"
+              v-for="a in fichajes.dia.apuntes"
+              :key="a.registradoEn"
             >
               <strong>{{ ETIQUETAS_TIPO[a.tipo] }}</strong>
               <template v-if="a.hora">
@@ -222,75 +224,19 @@ function reenviaConfirmada() {
             Salgo ahora
           </button>
 
-          <button
-            type="button"
-            class="secundario"
-            :aria-expanded="mostrarHoraManual"
-            @click="mostrarHoraManual = !mostrarHoraManual"
-          >
-            ¿A otra hora?
-          </button>
-          <div
-            v-if="mostrarHoraManual"
-            class="panel"
-          >
-            <label for="hora-manual">¿A qué hora?</label>
-            <input
-              id="hora-manual"
-              v-model="horaManual"
-              type="time"
-            >
-            <div class="panel-botones">
-              <button
-                type="button"
-                class="secundario"
-                :disabled="fichajes.fichando || horaManual === ''"
-                @click="fichaManual('ENTRADA')"
-              >
-                Entrada a esa hora
-              </button>
-              <button
-                type="button"
-                class="secundario"
-                :disabled="fichajes.fichando || horaManual === ''"
-                @click="fichaManual('SALIDA')"
-              >
-                Salida a esa hora
-              </button>
-            </div>
-          </div>
+          <PanelHoraManual
+            v-model:abierto="mostrarHoraManual"
+            v-model:hora="horaManual"
+            :fichando="fichajes.fichando"
+            @fichar="fichaManual"
+          />
 
-          <button
-            type="button"
-            class="secundario"
-            :aria-expanded="mostrarAusencia"
-            @click="mostrarAusencia = !mostrarAusencia"
-          >
-            No he ido
-          </button>
-          <div
-            v-if="mostrarAusencia"
-            class="panel"
-          >
-            <label for="motivo">Motivo (opcional)</label>
-            <input
-              id="motivo"
-              v-model="motivo"
-              type="text"
-              maxlength="200"
-            >
-            <p class="privacidad">
-              El motivo es opcional; si lo escribes, queda en tu libreta.
-            </p>
-            <button
-              type="button"
-              class="secundario"
-              :disabled="fichajes.fichando"
-              @click="registraAusencia"
-            >
-              Registrar ausencia
-            </button>
-          </div>
+          <PanelAusencia
+            v-model:abierto="mostrarAusencia"
+            v-model:motivo="motivo"
+            :fichando="fichajes.fichando"
+            @registrar="registraAusencia"
+          />
         </section>
 
         <p
@@ -301,41 +247,11 @@ function reenviaConfirmada() {
           {{ fichajes.error }}
         </p>
 
-        <section
+        <PanelRectificacionSellado
           v-if="fichajes.conflictoSellado"
-          class="rectificacion"
-          aria-labelledby="rectificacion-titulo"
-        >
-          <h3 id="rectificacion-titulo">
-            Este día ya está sellado
-          </h3>
-          <p>
-            Pasados 14 días, cada día de tu libreta se sella: lo apuntado queda
-            fijado como prueba y ya no se cambia.
-          </p>
-          <p>
-            Aun así puedes registrarlo como <strong>rectificación tardía</strong>:
-            se guarda aparte, con su propia fecha, y lo sellado no se toca. Como
-            prueba vale menos que lo fichado al momento, pero es honesto y queda
-            en tu libreta.
-          </p>
-          <label class="confirmar">
-            <input
-              v-model="confirmaRectificacion"
-              type="checkbox"
-            >
-            Entiendo que quedará registrado como rectificación tardía, separado
-            del día sellado
-          </label>
-          <button
-            type="button"
-            class="secundario"
-            :disabled="!confirmaRectificacion || fichajes.fichando"
-            @click="reenviaConfirmada"
-          >
-            Registrar la rectificación
-          </button>
-        </section>
+          :fichando="fichajes.fichando"
+          @confirmar="reenviaConfirmada"
+        />
       </template>
 
       <button
@@ -436,8 +352,7 @@ h1 {
   cursor: pointer;
 }
 
-.principal:disabled,
-.secundario:disabled {
+.principal:disabled {
   opacity: 0.55;
   cursor: default;
 }
@@ -452,59 +367,8 @@ h1 {
   cursor: pointer;
 }
 
-.panel {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border-left: 3px solid color-mix(in srgb, var(--color-text) 20%, transparent);
-  padding-left: 0.75rem;
-}
-
-.panel label {
-  font-weight: 600;
-}
-
-.panel input {
-  font: inherit;
-  padding: 0.65rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.panel-botones {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.privacidad {
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
-
 .error {
   color: #c0392b;
-}
-
-.rectificacion {
-  border: 1px solid color-mix(in srgb, var(--color-text) 25%, transparent);
-  border-radius: 0.75rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.rectificacion h3 {
-  font-size: 1.05rem;
-}
-
-.confirmar {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
 }
 
 .cargando {

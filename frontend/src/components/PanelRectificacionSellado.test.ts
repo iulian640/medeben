@@ -1,0 +1,34 @@
+import { describe, expect, it } from 'vitest'
+import { mount } from '@vue/test-utils'
+import PanelRectificacionSellado from './PanelRectificacionSellado.vue'
+
+describe('PanelRectificacionSellado', () => {
+  it('explica en cristiano el sellado y la rectificación tardía', () => {
+    const wrapper = mount(PanelRectificacionSellado, { props: { fichando: false } })
+
+    expect(wrapper.text()).toContain('Este día ya está sellado')
+    expect(wrapper.text()).toContain('rectificación tardía')
+    expect(wrapper.text()).toContain('lo sellado no se toca')
+  })
+
+  it('solo deja confirmar tras marcar la casilla, con su fricción', async () => {
+    const wrapper = mount(PanelRectificacionSellado, { props: { fichando: false } })
+
+    const boton = wrapper.get('button')
+    expect(boton.attributes('disabled')).toBeDefined()
+
+    await wrapper.find('input[type="checkbox"]').setValue(true)
+    expect(boton.attributes('disabled')).toBeUndefined()
+
+    await boton.trigger('click')
+    expect(wrapper.emitted('confirmar')).toHaveLength(1)
+  })
+
+  it('con un apunte en vuelo (fichando) el botón sigue deshabilitado aunque esté marcada', async () => {
+    const wrapper = mount(PanelRectificacionSellado, { props: { fichando: true } })
+
+    await wrapper.find('input[type="checkbox"]').setValue(true)
+
+    expect(wrapper.get('button').attributes('disabled')).toBeDefined()
+  })
+})
