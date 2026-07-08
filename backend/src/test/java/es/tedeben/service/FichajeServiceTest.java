@@ -252,6 +252,188 @@ class FichajeServiceTest {
         assertThat(servicio.estadoDia(USUARIO, HOY).estado()).isEqualTo(EstadoDia.Estado.AUSENCIA);
     }
 
+    // --- turno partido (D38: hasta 2 tramos declarados) ---
+
+    @Test
+    @DisplayName("turno partido completo → COMPLETO con la SUMA de los dos tramos, no solo el último")
+    void turnoPartidoCompleto() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:02")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(7 * 60);
+    }
+
+    @Test
+    @DisplayName("turno partido a mitad del segundo tramo → EN_CURSO con los minutos del primer tramo (no 20h fantasma)")
+    void turnoPartidoEnCurso() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(4 * 60);
+    }
+
+    @Test
+    @DisplayName("corrección de salida tras turno partido completo: la última salida corrige el segundo tramo, no abre otro")
+    void correccionDeSalidaEnTurnoPartido() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:02"),
+                        apunte(TipoApunte.SALIDA, "23:30", "2026-07-08T23:35")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        // Primer tramo intacto (240) + segundo tramo corregido a 20:00→23:30 (210).
+        assertThat(estado.minutosTrabajados()).isEqualTo(240 + 210);
+        assertThat(estado.apuntes()).hasSize(5);
+    }
+
+    @Test
+    @DisplayName("turno partido con cierre de madrugada: el cruce de medianoche se calcula por tramo")
+    void turnoPartidoConCruceDeMedianoche() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.SALIDA, "01:00", "2026-07-09T01:03")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(240 + 300);
+    }
+
+    @Test
+    @DisplayName("la AUSENCIA sigue siendo frontera con turno partido: invalida el tramo anterior, cuenta solo lo posterior")
+    void ausenciaFronteraConTurnoPartido() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "09:00", "2026-07-08T09:01"),
+                        apunte(TipoApunte.SALIDA, "13:00", "2026-07-08T13:02"),
+                        apunte(TipoApunte.AUSENCIA, null, "2026-07-08T14:00"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:02")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(3 * 60);
+    }
+
+    @Test
+    @DisplayName("corrección de entrada con el día ya completo: corrige el último tramo cerrado, NO reabre el día (review HIGH)")
+    void correccionDeEntradaConDiaCompletoNoReabre() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:02"),
+                        apunte(TipoApunte.ENTRADA, "19:45", "2026-07-08T23:40")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        // Cupo D38 (2 tramos) cubierto: la última entrada no abre un tercer
+        // tramo fantasma, corrige la entrada del segundo (19:45→23:00 = 195).
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(240 + 195);
+        assertThat(estado.apuntes()).hasSize(5);
+    }
+
+    @Test
+    @DisplayName("con un tramo abierto, una nueva entrada corrige ESA entrada (gana la última) sin tocar tramos cerrados")
+    void correccionDeEntradaConTramoAbierto() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.ENTRADA, "20:15", "2026-07-08T20:20"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:02")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        // Primer tramo intacto (240) + segundo con la entrada corregida
+        // 20:15→23:00 (165). Limitación documentada: una corrección pensada
+        // para el primer tramo también caería aquí (no hay id de tramo).
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(240 + 165);
+    }
+
+    @Test
+    @DisplayName("salida mal dirigida que cierra el tramo abierto con >16h: el total queda sin calcular, no infla el día (review HIGH)")
+    void correccionDeSalidaMalDirigidaConTramoAbierto() {
+        // El usuario quería corregir la salida del PRIMER tramo (16:00→16:30),
+        // pero como el segundo está abierto, su apunte lo cierra: 20:00→16:30
+        // "cruza la medianoche" (1230 min). El techo de cordura lo detecta.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.SALIDA, "16:30", "2026-07-08T20:30")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        // Limitación documentada: el EN_CURSO real se pierde (no hay id de
+        // tramo), pero el día NO se reporta con ~24,5h trabajadas.
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("salida mal dirigida con los dos tramos ya cerrados: el techo de cordura evita las ~24h fantasma (review HIGH)")
+    void correccionDeSalidaMalDirigidaConTramosCerrados() {
+        // Quería decir "el primer tramo acabó a las 16:30", pero la corrección
+        // cae por posición en el último tramo cerrado: 20:00→16:30 = 1230 min.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:02"),
+                        apunte(TipoApunte.SALIDA, "16:30", "2026-07-08T23:40")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("tramo con entrada == salida (doble toque) cuenta 0 minutos, no 24h (review MEDIUM)")
+    void entradaIgualQueSalidaCuentaCero() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01"),
+                        apunte(TipoApunte.SALIDA, "16:00", "2026-07-08T16:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:02")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        // El tramo degenerado suma 0; el primero se conserva (240).
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(240);
+    }
+
     @Test
     @DisplayName("salida sin entrada → el día sigue PENDIENTE de completar")
     void salidaSinEntrada() {
