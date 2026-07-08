@@ -65,11 +65,12 @@ public class CalculoConvenioService {
         BigDecimal retribucionAnual = salarioBaseMensual.multiply(mensualidades.get()).add(plusesAnuales);
         BigDecimal valorHora = retribucionAnual.divide(jornada.get(), DECIMALES_VALOR_HORA, RoundingMode.HALF_UP);
 
-        List<String> citas = new ArrayList<>();
-        citas.add("Jornada anual de " + jornada.get().stripTrailingZeros().toPlainString()
-                + " h (" + articuloJornada(convenio) + " del convenio)");
-        citas.add(mensualidades.get().stripTrailingZeros().toPlainString() + " mensualidades al año ("
-                + articulo(nodoPagas(convenio)) + " del convenio)");
+        List<Cita> citas = new ArrayList<>();
+        citas.add(new Cita("Jornada anual de " + jornada.get().stripTrailingZeros().toPlainString()
+                + " h (" + articuloJornada(convenio) + " del convenio)", convenio.fuenteUrl()));
+        citas.add(new Cita(mensualidades.get().stripTrailingZeros().toPlainString()
+                + " mensualidades al año (" + articulo(nodoPagas(convenio)) + " del convenio)",
+                convenio.fuenteUrl()));
         return Optional.of(new ValorHoraCalculado(valorHora, citas));
     }
 
@@ -86,16 +87,17 @@ public class CalculoConvenioService {
         }
 
         return valorHoraOrdinaria(convenio, anio, salarioBaseMensual, plusesAnuales).map(valorHora -> {
-            List<String> citas = new ArrayList<>(valorHora.citas());
+            List<Cita> citas = new ArrayList<>(valorHora.citas());
             BigDecimal precio = valorHora.valorHora();
-            citas.add("La hora extra no puede pagarse por debajo de la hora ordinaria (art. 35.1 ET)");
+            citas.add(Cita.delEstatuto(
+                    "La hora extra no puede pagarse por debajo de la hora ordinaria (art. 35.1 ET)"));
 
             JsonNode horasExtraNodo = convenio.raw().path("horasExtraordinarias");
             Optional<BigDecimal> precioConvenio = ValoresPorAnio.resuelve(horasExtraNodo.path("importe"), anio);
             if (precioConvenio.isPresent() && precioConvenio.get().compareTo(precio) > 0) {
                 precio = precioConvenio.get();
-                citas.add("Precio de hora extra fijado en " + precio.toPlainString() + " €/h ("
-                        + articulo(horasExtraNodo) + " del convenio)");
+                citas.add(new Cita("Precio de hora extra fijado en " + precio.toPlainString()
+                        + " €/h (" + articulo(horasExtraNodo) + " del convenio)", convenio.fuenteUrl()));
             }
 
             BigDecimal importe = precio.multiply(horas).setScale(DECIMALES_IMPORTE, RoundingMode.HALF_UP);
@@ -113,11 +115,12 @@ public class CalculoConvenioService {
         if (tope.isPresent()) {
             int horas = tope.get().intValue();
             return new TopeHorasExtra(horas,
-                    List.of("Tope de " + horas + " h/año según el convenio ("
-                            + articulo(horasExtraNodo) + ")"));
+                    List.of(new Cita("Tope de " + horas + " h/año según el convenio ("
+                            + articulo(horasExtraNodo) + ")", convenio.fuenteUrl())));
         }
         return new TopeHorasExtra(TOPE_HORAS_EXTRA_ET,
-                List.of("Tope de " + TOPE_HORAS_EXTRA_ET + " h extraordinarias al año (art. 35.2 ET)"));
+                List.of(Cita.delEstatuto(
+                        "Tope de " + TOPE_HORAS_EXTRA_ET + " h extraordinarias al año (art. 35.2 ET)")));
     }
 
     /** El corpus usa `pagasExtraordinarias` casi siempre; tres convenios usan `pagas`. */

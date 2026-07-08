@@ -25,6 +25,11 @@ public record Convenio(
         JsonNode raw
 ) {
 
+    /** URL del documento oficial (boletín) del que sale la transcripción; null si falta. */
+    public String fuenteUrl() {
+        return raw.path("fuente").path("url").asText(null);
+    }
+
     /** Jornada anual aplicable hoy; vacío si el convenio la deja pendiente o no la fija. */
     public Optional<BigDecimal> jornadaAnual() {
         return jornadaAnual(Year.now());

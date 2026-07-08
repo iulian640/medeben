@@ -1,6 +1,7 @@
 package es.tedeben.service;
 
 import es.tedeben.domain.convenio.Hecho;
+import es.tedeben.repository.ConvenioCatalog;
 import es.tedeben.repository.HechosCatalog;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +27,11 @@ public class TablaSalarialService {
     private static final DateTimeFormatter FECHA = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     private final HechosCatalog hechos;
+    private final ConvenioCatalog convenios;
 
-    public TablaSalarialService(HechosCatalog hechos) {
+    public TablaSalarialService(HechosCatalog hechos, ConvenioCatalog convenios) {
         this.hechos = hechos;
+        this.convenios = convenios;
     }
 
     public Optional<SalarioBaseResuelto> salarioBaseMinimo(
@@ -45,10 +48,12 @@ public class TablaSalarialService {
             return Optional.empty();
         }
 
+        String fuenteUrl = convenios.porId(convenioId).map(c -> c.fuenteUrl()).orElse(null);
         Optional<Hecho> vigente = unico(candidatos.stream().filter(h -> h.vigenteEn(fecha)).toList(), fecha);
         if (vigente.isPresent()) {
             Hecho h = vigente.get();
-            return Optional.of(new SalarioBaseResuelto(h.importe(), unidad(h), List.of(cita(h))));
+            return Optional.of(new SalarioBaseResuelto(h.importe(), unidad(h),
+                    List.of(new Cita(cita(h), fuenteUrl))));
         }
 
         // Ultraactividad: la última tabla publicada antes de la fecha sigue aplicando
@@ -65,9 +70,10 @@ public class TablaSalarialService {
                             + " para " + ultima.get().dimensiones());
         }
         return ultima.map(h -> new SalarioBaseResuelto(h.importe(), unidad(h), List.of(
-                cita(h),
-                "Tabla vigente hasta " + FECHA.format(h.hasta())
-                        + ", aplicada por ultraactividad: sigue en vigor hasta que se publique la nueva")));
+                new Cita(cita(h), fuenteUrl),
+                new Cita("Tabla vigente hasta " + FECHA.format(h.hasta())
+                        + ", aplicada por ultraactividad: sigue en vigor hasta que se publique la nueva",
+                        fuenteUrl))));
     }
 
     private static String unidad(Hecho h) {

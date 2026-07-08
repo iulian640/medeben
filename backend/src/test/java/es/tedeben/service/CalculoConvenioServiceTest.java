@@ -58,8 +58,23 @@ class CalculoConvenioServiceTest {
                 madrid(), Year.of(2026), SALARIO_BASE_COCINERO_B_2025, PLUSES_ANUALES_2025).orElseThrow();
 
         assertThat(resultado.citas())
-                .anySatisfy(cita -> assertThat(cita).contains("Art. 14"))   // jornada 1800 h
-                .anySatisfy(cita -> assertThat(cita).contains("Art. 26"));  // 2 pagas extraordinarias
+                .anySatisfy(cita -> assertThat(cita.texto()).contains("Art. 14"))   // jornada 1800 h
+                .anySatisfy(cita -> assertThat(cita.texto()).contains("Art. 26"));  // 2 pagas extraordinarias
+    }
+
+    @Test
+    @DisplayName("las citas llevan enlace: al boletín oficial las del convenio, al BOE las del ET")
+    void citasConEnlace() {
+        var valorHora = servicio.valorHoraOrdinaria(
+                madrid(), Year.of(2026), SALARIO_BASE_COCINERO_B_2025, PLUSES_ANUALES_2025).orElseThrow();
+        assertThat(valorHora.citas())
+                .allSatisfy(c -> assertThat(c.url()).contains("bocm.es"));
+
+        var horasExtra = servicio.importeHorasExtra(
+                madrid(), Year.of(2026), SALARIO_BASE_COCINERO_B_2025, PLUSES_ANUALES_2025,
+                new BigDecimal("5")).orElseThrow();
+        assertThat(horasExtra.citas())
+                .anySatisfy(c -> assertThat(c.url()).isEqualTo(Cita.URL_ESTATUTO_TRABAJADORES));
     }
 
     @Test
@@ -84,7 +99,7 @@ class CalculoConvenioServiceTest {
         assertThat(resultado.orElseThrow().importe())
                 .isEqualByComparingTo(new BigDecimal("54.49"));
         assertThat(resultado.orElseThrow().citas())
-                .anySatisfy(cita -> assertThat(cita).contains("art. 35"));
+                .anySatisfy(cita -> assertThat(cita.texto()).contains("art. 35"));
     }
 
     @Test
@@ -101,7 +116,7 @@ class CalculoConvenioServiceTest {
         assertThat(resultado.precioHora()).isEqualByComparingTo(new BigDecimal("11.40"));
         assertThat(resultado.importe()).isEqualByComparingTo(new BigDecimal("57.00"));
         assertThat(resultado.citas())
-                .anySatisfy(cita -> assertThat(cita).contains("Art. 33"));
+                .anySatisfy(cita -> assertThat(cita.texto()).contains("Art. 33"));
     }
 
     @Test
@@ -112,7 +127,7 @@ class CalculoConvenioServiceTest {
         Convenio teruel = catalog.porId("teruel-hosteleria").orElseThrow();
         assertThat(servicio.topeHorasExtraAnual(teruel, Year.of(2026)).horas()).isEqualTo(80);
         assertThat(servicio.topeHorasExtraAnual(teruel, Year.of(2026)).citas())
-                .anySatisfy(cita -> assertThat(cita).contains("art. 35"));
+                .anySatisfy(cita -> assertThat(cita.texto()).contains("art. 35"));
     }
 
     @Test
@@ -126,7 +141,7 @@ class CalculoConvenioServiceTest {
                 alicante, Year.of(2026), new BigDecimal("1200"), BigDecimal.ZERO).orElseThrow();
 
         assertThat(resultado.valorHora()).isEqualByComparingTo(new BigDecimal("9.3508"));
-        assertThat(resultado.citas()).anySatisfy(cita -> assertThat(cita).contains("14 mensualidades"));
+        assertThat(resultado.citas()).anySatisfy(cita -> assertThat(cita.texto()).contains("14 mensualidades"));
     }
 
     @Test
@@ -139,7 +154,7 @@ class CalculoConvenioServiceTest {
 
         assertThat(resultado).isPresent();
         assertThat(resultado.orElseThrow().citas())
-                .anySatisfy(cita -> assertThat(cita).contains("15 mensualidades"));
+                .anySatisfy(cita -> assertThat(cita.texto()).contains("15 mensualidades"));
     }
 
     @Nested
@@ -203,7 +218,7 @@ class CalculoConvenioServiceTest {
             var tope = servicio.topeHorasExtraAnual(c, Year.of(2026));
 
             assertThat(tope.horas()).isEqualTo(60);
-            assertThat(tope.citas()).anySatisfy(cita -> assertThat(cita).contains("Art. 99"));
+            assertThat(tope.citas()).anySatisfy(cita -> assertThat(cita.texto()).contains("Art. 99"));
         }
 
         @Test
