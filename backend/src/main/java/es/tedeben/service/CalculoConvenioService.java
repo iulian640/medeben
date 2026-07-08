@@ -10,6 +10,7 @@ import java.math.RoundingMode;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -22,6 +23,11 @@ import java.util.Optional;
  * <p>El salario base entra como parámetro: el convenio es el mínimo y el
  * trabajador puede cobrar su salario real (D25); la búsqueda del mínimo en las
  * tablas del convenio es una pieza aparte.
+ *
+ * <p>Pendiente conocido: las pagas de CUANTÍA FIJA (bonus de octubre de Álava,
+ * Santa Marta de Asturias, paga de octubre de Zaragoza, gratificación de octubre
+ * de Alicante...) no entran aún en el valor hora; esos convenios declaran
+ * `mensualidadesEquivalentes` solo con las pagas proporcionales.
  */
 @Service
 public class CalculoConvenioService {
@@ -41,6 +47,8 @@ public class CalculoConvenioService {
      */
     public Optional<ValorHoraCalculado> valorHoraOrdinaria(
             Convenio convenio, Year anio, BigDecimal salarioBaseMensual, BigDecimal plusesAnuales) {
+        Objects.requireNonNull(convenio, "convenio");
+        Objects.requireNonNull(anio, "anio");
         if (salarioBaseMensual == null || salarioBaseMensual.signum() <= 0) {
             throw new IllegalArgumentException("El salario base mensual debe ser positivo");
         }
@@ -49,7 +57,7 @@ public class CalculoConvenioService {
         }
 
         Optional<BigDecimal> jornada = convenio.jornadaAnual(anio);
-        Optional<BigDecimal> mensualidades = mensualidades(convenio.raw().path("pagasExtraordinarias"));
+        Optional<BigDecimal> mensualidades = mensualidades(nodoPagas(convenio));
         if (jornada.isEmpty() || mensualidades.isEmpty()) {
             return Optional.empty();
         }
@@ -61,7 +69,7 @@ public class CalculoConvenioService {
         citas.add("Jornada anual de " + jornada.get().stripTrailingZeros().toPlainString()
                 + " h (" + articuloJornada(convenio) + " del convenio)");
         citas.add(mensualidades.get().stripTrailingZeros().toPlainString() + " mensualidades al año ("
-                + articulo(convenio.raw().path("pagasExtraordinarias")) + " del convenio)");
+                + articulo(nodoPagas(convenio)) + " del convenio)");
         return Optional.of(new ValorHoraCalculado(valorHora, citas));
     }
 
@@ -96,31 +104,45 @@ public class CalculoConvenioService {
     }
 
     /** Tope anual de horas extra: el del convenio si lo fija, si no las 80 h del ET. */
-    public TopeHorasExtra topeHorasExtraAnual(Convenio convenio) {
-        JsonNode tope = convenio.raw().path("horasExtraordinarias").path("topeHorasExtraAnual");
-        if (tope.isInt()) {
-            return new TopeHorasExtra(tope.intValue(),
-                    List.of("Tope de " + tope.intValue() + " h/año según el convenio ("
-                            + articulo(convenio.raw().path("horasExtraordinarias")) + ")"));
+    public TopeHorasExtra topeHorasExtraAnual(Convenio convenio, Year anio) {
+        Objects.requireNonNull(convenio, "convenio");
+        Objects.requireNonNull(anio, "anio");
+
+        JsonNode horasExtraNodo = convenio.raw().path("horasExtraordinarias");
+        Optional<BigDecimal> tope = ValoresPorAnio.resuelve(horasExtraNodo.path("topeHorasExtraAnual"), anio);
+        if (tope.isPresent()) {
+            int horas = tope.get().intValue();
+            return new TopeHorasExtra(horas,
+                    List.of("Tope de " + horas + " h/año según el convenio ("
+                            + articulo(horasExtraNodo) + ")"));
         }
         return new TopeHorasExtra(TOPE_HORAS_EXTRA_ET,
                 List.of("Tope de " + TOPE_HORAS_EXTRA_ET + " h extraordinarias al año (art. 35.2 ET)"));
     }
 
+    /** El corpus usa `pagasExtraordinarias` casi siempre; tres convenios usan `pagas`. */
+    private static JsonNode nodoPagas(Convenio convenio) {
+        JsonNode nodo = convenio.raw().path("pagasExtraordinarias");
+        return nodo.isObject() ? nodo : convenio.raw().path("pagas");
+    }
+
     /**
-     * Mensualidades totales al año. El corpus lo expresa de dos maneras:
-     * `cantidad`/`numero` = pagas EXTRA sobre las 12 ordinarias; `total`/`totalPagas`
-     * = mensualidades totales. Un total menor que 12 es un dato sospechoso y se
-     * trata como pendiente.
+     * Mensualidades totales al año. Prioridad: `mensualidadesEquivalentes`
+     * (campo canónico, excluye pagas de cuantía fija) > `cantidad` (pagas EXTRA
+     * sobre las 12 ordinarias) > `total`/`totalPagas`/`pagasAnualesTotales`
+     * (mensualidades totales, sospechoso si < 12). El campo `numero` NO se lee:
+     * significa "extras" en unos ficheros y "total" en otros.
      */
     private static Optional<BigDecimal> mensualidades(JsonNode pagasNodo) {
-        for (String campo : new String[]{"cantidad", "numero"}) {
-            JsonNode n = pagasNodo.path(campo);
-            if (n.isNumber()) {
-                return Optional.of(MENSUALIDADES_ORDINARIAS.add(n.decimalValue()));
-            }
+        JsonNode equivalentes = pagasNodo.path("mensualidadesEquivalentes");
+        if (equivalentes.isNumber()) {
+            return Optional.of(equivalentes.decimalValue());
         }
-        for (String campo : new String[]{"total", "totalPagas"}) {
+        JsonNode cantidad = pagasNodo.path("cantidad");
+        if (cantidad.isNumber()) {
+            return Optional.of(MENSUALIDADES_ORDINARIAS.add(cantidad.decimalValue()));
+        }
+        for (String campo : new String[]{"total", "totalPagas", "pagasAnualesTotales"}) {
             JsonNode n = pagasNodo.path(campo);
             if (n.isNumber() && n.decimalValue().compareTo(MINIMO_MENSUALIDADES) >= 0) {
                 return Optional.of(n.decimalValue());

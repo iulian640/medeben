@@ -38,6 +38,8 @@
     "noDisfrutadasAlCesar": "pendiente (o convenio non o regula expresamente; por regra xeral abóanse no finiquito conforme ao ET)."
   },
   "pagas": {
+    "mensualidadesEquivalentes": 15,
+    "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra a salario garantido = 15 (aquí 'numero' significa el total anual).",
     "numero": 15,
     "extraordinarias": 3,
     "nombres": ["Nadal", "xullo", "setembro"],

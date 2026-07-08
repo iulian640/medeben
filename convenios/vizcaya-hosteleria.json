@@ -144,6 +144,8 @@
     "horasIncluidasEnComplementos": 44
   },
   "pagas": {
+    "mensualidadesEquivalentes": 15,
+    "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones sobre salario garantizado + antigüedad = 15 (aquí 'numero' significa el total anual).",
     "numero": 15,
     "$comment": "Art. 23. 12 mensualidades ordinarias + 3 gratificaciones extraordinarias (abril, julio y diciembre). Cada extra se liquida sobre el Salario Garantizado más la antigüedad.",
     "extraordinarias": [

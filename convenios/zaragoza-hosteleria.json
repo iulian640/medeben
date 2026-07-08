@@ -53,6 +53,8 @@
   },
 
   "pagasExtraordinarias": {
+    "mensualidadesEquivalentes": 14,
+    "mensualidadesEquivalentesNota": "14 mensualidades proporcionales (12 + julio + Navidad). La paga de octubre es de CUANTÍA FIJA (1.359,07 € en 2025, tope el salario base mensual) y NO entra en este multiplicador (pendiente de motor: pagas fijas).",
     "total": 15,
     "$comment": "Art. 45. Estructura: 12 mensualidades + 2 gratificaciones extraordinarias (julio y Navidad) + 1 paga de octubre = 15 conceptos anuales. Las gratificaciones de JULIO y NAVIDAD equivalen cada una a una mensualidad de salario base más el complemento personal de antigüedad consolidada que corresponda; se abonan el 15 de julio y el 20 de diciembre (o día posterior si festivo); prorrateo mensual solo por mutuo acuerdo. La PAGA DE OCTUBRE es una paga adicional de CUANTÍA FIJA (no equivale al salario base): 1.359,07 € en 2025, con el tope del salario base mensual de cada trabajador si este fuera inferior; se abona el 15 de octubre; su incremento anual es 1 punto por encima del resto de conceptos. Contratos a tiempo parcial y altas/bajas en el año: en proporción al tiempo trabajado."
   },

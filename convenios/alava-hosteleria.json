@@ -36,6 +36,8 @@
   },
 
   "pagasExtraordinarias": {
+    "mensualidadesEquivalentes": 14,
+    "mensualidadesEquivalentesNota": "14 mensualidades proporcionales (12 + julio + Navidad, a salario real). El Bonus de 31 de octubre es una percepción FIJA uniforme (importe = paga del nivel III) y NO entra en este multiplicador (pendiente de motor: pagas fijas).",
     "total": 15,
     "articulo": "Art. 17 (gratificaciones julio y Navidad) y Art. 18 (Bonus 31 de octubre)",
     "detalle": "12 mensualidades + 2 gratificaciones extraordinarias (julio y Navidad) A SALARIO REAL, incrementadas con 30 días de antigüedad, con suelo = salario base + antigüedad + complemento en especie del nivel (o, para niveles III y IV, la cuantía 'PAGAS' de la tabla del Anexo III). Se cobran íntegras aunque se esté en IT. + 1 'Bonus 31 de octubre': paga extra adicional, exclusiva, única y uniforme para TODOS los niveles/grupos, cuyo importe es el de la paga extraordinaria del NIVEL III de tablas (devengo 1-nov a 31-oct, sin salario real ni antigüedad). Prorrateable mensualmente. Total efectivo: 15 pagas.",

@@ -11,7 +11,9 @@ import java.util.Optional;
 /**
  * Resuelve un nodo que puede ser un número directo o un mapa {"2025": 1746, ...}
  * a la última entrada publicada ≤ año pedido — la que aplica por ultraactividad
- * cuando el convenio está vencido. Claves no numéricas (p. ej. "unidad") se ignoran.
+ * cuando el convenio está vencido. Claves no numéricas (p. ej. "unidad") se
+ * ignoran, y los valores no positivos se tratan como dato inválido (vacío):
+ * una jornada o un precio de 0 € solo puede ser una errata.
  */
 public final class ValoresPorAnio {
 
@@ -20,10 +22,10 @@ public final class ValoresPorAnio {
 
     public static Optional<BigDecimal> resuelve(JsonNode nodo, Year anio) {
         if (nodo.isNumber()) {
-            return Optional.of(nodo.decimalValue());
+            return Optional.of(nodo.decimalValue()).filter(v -> v.signum() > 0);
         }
         if (nodo.isObject()) {
-            return ultimaEntrada(nodo, anio);
+            return ultimaEntrada(nodo, anio).filter(v -> v.signum() > 0);
         }
         return Optional.empty();
     }

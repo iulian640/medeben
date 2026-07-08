@@ -92,6 +92,8 @@
     "nota": "Art. 23: cómputo anual de 1.819 horas de trabajo efectivo. Descanso semanal de 2 días consecutivos; mínimo 12 h entre jornadas."
   },
   "pagas": {
+    "mensualidadesEquivalentes": 14,
+    "mensualidadesEquivalentesNota": "12 mensualidades + 2 gratificaciones de una mensualidad de salario bruto garantizado = 14 (aquí 'numero' significa el total anual).",
     "numero": 14,
     "nota": "Art. 11: dos gratificaciones extraordinarias (1 de julio -verano- y 22 de diciembre -navidad-), cada una de una mensualidad de salario bruto garantizado. 12 mensualidades + 2 extras = 14 pagas."
   },
