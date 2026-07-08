@@ -73,13 +73,13 @@ reales. Objetivo: confirmar cómo interpretar/aplicar bien los datos en la app.
 Pendientes de re-verificar contra el PDF oficial; si el boletín de verdad dice esto,
 ¿cómo se interpreta?
 
-- **Sevilla:** el cuerpo del Anexo I lista "Camarero o Sumiller" en el Nivel 3, pero
-  la nota del mismo bloque dice que el camarero está en el Nivel 4. ¿Cuál rige?
-  (Es el puesto más común del sector.)
-- **Cádiz:** el grupo 4 incluye "Cocinero/a (ayte.)" y el grupo 5 "Ayudante de
-  Cocineros/as". ¿Son dos figuras distintas o una contradicción del texto?
-- **Valladolid:** el Anexo III lista al jefe de partida en DOS niveles (NS II y NS III)
-  del área segunda, sin criterio aparente para elegir.
+- ~~Sevilla~~ y ~~Cádiz~~: RESUELTAS 2026-07-08 re-verificando la imagen del PDF —
+  eran errores nuestros de transcripción, ya corregidos (camarero de Sevilla = Nivel 3;
+  el "Cocinero/a (ayte.)" del grupo 4 de Cádiz no existe en el BOP).
+- **Valladolid (SIGUE ABIERTA):** errata del PROPIO BOP verificada: la tabla 2026 lista
+  al jefe de partida en NS II y NS III a la vez; la tabla 2025 y la estructura del resto
+  de áreas apuntan a NS III (NS II = segundos jefes). ¿Se aplica NS III, o el trabajador
+  puede exigir NS II (lectura más favorable) mientras el BOP no publique corrección?
 - **Ambigüedad recurrente en media España:** "administrativo/a" no existe como
   categoría llana (solo oficial 1ª/2ª, auxiliar...). ¿Qué categoría se presume si el
   contrato dice solo "administrativo"?

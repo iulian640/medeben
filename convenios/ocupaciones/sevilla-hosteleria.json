@@ -44,8 +44,10 @@
       }
     },
     "camarero": {
-      "dimensiones": null,
-      "nota": "CONTRADICCIÓN interna en la transcripción: el cuerpo del Anexo I lista 'Camarero o Sumiller' en el Nivel 3, pero el $comment del mismo bloque dice que el camarero/a está en el Nivel 4. Resolver contra el PDF del BOP antes de mapear; no se inventa."
+      "dimensiones": {
+        "nivel": "Nivel 3"
+      },
+      "nota": "Verificado contra la imagen del PDF del BOP (pág. 22): 'Camarero o Sumiller' en el Nivel 3.º; el $comment de la transcripción que decía Nivel 4 era erróneo y fue corregido."
     },
     "ayudante-camarero": {
       "dimensiones": {
