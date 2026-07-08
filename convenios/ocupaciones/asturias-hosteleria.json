@@ -1,59 +1,160 @@
 {
-  "$comment": "Mapeo puesto→dimensiones para asturias-hosteleria: TODO null porque en este convenio el nivel retributivo (I-XI) de cada ocupación DEPENDE del tipo y categoría del establecimiento (Anexo I: el mismo puesto es nivel V en hotel 5/4* y VII en restaurante de 1 tenedor). Los hechos del normalizado solo tienen la dimensión nivel, así que el puesto por sí solo no determina ninguna dimensión. Para resolverlo la app necesitaría cruzar puesto x tipo de establecimiento con la tabla del Anexo I (transcrita parcialmente en clasificacionProfesional.nivelesRetributivosPorOcupacion_Anexo_I: 'ocupaciones más habituales').",
+  "$comment": "Mapeo puesto→dimensiones para asturias-hosteleria. ANÁLISIS: el nivel retributivo (I-XI, número romano de la columna única del salario base) del MISMO puesto CAMBIA según el tipo y categoría del establecimiento (Anexo I; p.ej. jefe-cocina es I en hoteles 5/4* y restaurantes 5 tenedores, II en hoteles 3*, III/IV en cafés-bares y V en hoteles 2* y colectividades). Es condicional DE VERDAD, NO como alicante (allí el nivel era fijo por puesto y solo cambiaba la columna A/B/C que sí es dimensión del hecho): aquí la variación es puro tipo de establecimiento. HUECO DE FORMATO: los hechos de la capa normalizada llevan UNA SOLA dimensión, 'nivel'; 'tipoEstablecimiento' NO es dimensión de ningún hecho, así que el resolver (PerfilOcupacionService.pendientes, que solo pregunta dimensiones que EXISTEN en los hechos) no puede ni siquiera ofrecerlo como pregunta pendiente. Por eso —a diferencia de cataluna-hosteleria, donde 'zona' SÍ era dimensión de los hechos— el formato actual no puede resolver los puestos condicionales sin tocar backend: 'dimensiones' queda null (modo manual) y el mapeo verificado va en el campo 'condicionalPorEstablecimiento' de cada puesto (mismo patrón que 'condicionalPorZona' de cataluna), que el backend actual IGNORA (OcupacionesCatalog solo lee 'dimensiones'). Esto es el hueco estructural nº 1 de docs/revisiones-pendientes.md ('Mapeo condicional por establecimiento', Asturias listada). SEMÁNTICA PROPUESTA de 'condicionalPorEstablecimiento': cuando el formato lo soporte, el resolver preguntaría PRIMERO el tipo de establecimiento y aplicaría {nivel: ...} del objeto correspondiente, o caería a modo manual si esa tabla no está transcrita (valor ausente). Las claves de establecimiento son las tablas del Anexo I (transcritas en clasificacionProfesional.nivelesRetributivosPorOcupacion_Anexo_I); los niveles van en romanos para casar con la dimensión 'nivel' de la capa normalizada. Único puesto FIJO: personal-limpieza (nivel XI en las 7 tablas transcritas donde aparece un rol de limpieza —hoteles, restaurantes, cafeterías, cafés-bares, salas de fiesta, billares—; es el nivel más bajo de la escala, independiente del establecimiento). REGLA DE ORO: el Anexo I es parcial ('ocupaciones más habituales'); solo se listan las tablas realmente transcritas para cada puesto, las no transcritas se OMITEN, nunca se inventan. Los puestos ausentes del Anexo I (segundo-jefe-cocina, jefe-partida, repostero, sumiller) quedan null: dato ausente > dato erróneo.",
   "id": "asturias-hosteleria",
   "articulo": "Anexo I (niveles retributivos por ocupación y tipo de establecimiento) y Art. 53",
   "ocupaciones": {
     "jefe-cocina": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel I en hoteles 5/4* y restaurantes 5 tenedores, hasta V en colectividades."
+      "nota": "Nivel condicional al tipo de establecimiento (el formato actual no lo expresa: 'tipoEstablecimiento' no es dimensión de los hechos). Valores exactos del Anexo I por tabla en condicionalPorEstablecimiento; el resto de tablas no transcribe 'jefe de cocina'.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "I" },
+        "hoteles_3_estrellas": { "nivel": "II" },
+        "hoteles_2_estrellas": { "nivel": "V" },
+        "restaurantes_5_tenedores": { "nivel": "I" },
+        "cafes_bares_cervecerias_especial": { "nivel": "III" },
+        "cafes_bares_cervecerias_otros": { "nivel": "IV" },
+        "colectividades": { "nivel": "V" }
+      }
     },
-    "segundo-jefe-cocina": null,
-    "jefe-partida": null,
+    "segundo-jefe-cocina": {
+      "dimensiones": null,
+      "nota": "El Anexo I no transcribe 'segundo/a jefe/a de cocina' en ninguna tabla ('segundoJefeSala' de salas de fiesta es 2º jefe de SALA, no de cocina). No se mapea sin inventar."
+    },
+    "jefe-partida": {
+      "dimensiones": null,
+      "nota": "El Anexo I no transcribe 'jefe/a de partida' en ninguna tabla. No se mapea sin inventar."
+    },
     "cocinero": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel V en hoteles 5/4/3*, VI en cafeterías, VII en restaurantes 2/1 tenedores."
+      "nota": "Nivel condicional al tipo de establecimiento (el formato actual no lo expresa). Valores exactos del Anexo I por tabla en condicionalPorEstablecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "V" },
+        "hoteles_3_estrellas": { "nivel": "V" },
+        "hoteles_2_estrellas": { "nivel": "VI" },
+        "hoteles_1_estrella": { "nivel": "VII" },
+        "restaurantes_5_tenedores": { "nivel": "V" },
+        "restaurantes_4_tenedores": { "nivel": "V" },
+        "restaurantes_3_tenedores": { "nivel": "VI" },
+        "restaurantes_2_tenedores": { "nivel": "VII" },
+        "restaurantes_1_tenedor": { "nivel": "VII" },
+        "cafeterias": { "nivel": "VI" },
+        "cafes_bares_cervecerias_especial": { "nivel": "V" },
+        "cafes_bares_cervecerias_otros": { "nivel": "VI" },
+        "colectividades": { "nivel": "VI" }
+      }
     },
-    "repostero": null,
+    "repostero": {
+      "dimensiones": null,
+      "nota": "El Anexo I no transcribe 'repostero/a' en ninguna tabla. No se mapea sin inventar."
+    },
     "ayudante-cocina": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel X en las tablas transcritas (hoteles 5/4* y 3*, colectividades); resto de tablas sin transcribir."
+      "nota": "Nivel X (10) en las 3 tablas del Anexo I donde aparece 'ayudante de cocina' (hoteles 5/4*, hoteles 3*, colectividades); el resto de tablas (restaurantes, cafés, cafeterías) NO lo transcribe, así que no se fija global (dato ausente > dato erróneo): queda condicional con las tablas conocidas.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "X" },
+        "hoteles_3_estrellas": { "nivel": "X" },
+        "colectividades": { "nivel": "X" }
+      }
     },
     "auxiliar-cocina": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel XI en hoteles 5/4*; resto de tablas sin transcribir."
+      "nota": "El Anexo I solo transcribe 'auxiliar de cocina' en hoteles 5/4* (nivel XI); el resto de tablas no lo lista. Único dato conocido en condicionalPorEstablecimiento; no se extrapola al resto.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "XI" }
+      }
     },
     "jefe-sala": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel I en hoteles 5/4* y restaurantes 5/4 tenedores, V en restaurantes 3 tenedores."
+      "nota": "Nivel condicional al tipo de establecimiento (el formato actual no lo expresa). 'jefe/a de restaurante-sala' (hoteles/restaurantes) y 'jefe/a de sala' (salas de fiesta) del Anexo I; valores exactos por tabla en condicionalPorEstablecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "I" },
+        "restaurantes_5_tenedores": { "nivel": "I" },
+        "restaurantes_4_tenedores": { "nivel": "I" },
+        "restaurantes_3_tenedores": { "nivel": "V" },
+        "salas_fiesta_discotecas": { "nivel": "I" }
+      }
     },
     "camarero": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel V en hoteles 5/4* y cafeterías, VII en restaurantes 2/1 tenedores."
+      "nota": "Nivel condicional al tipo de establecimiento (el formato actual no lo expresa). Valores exactos del Anexo I por tabla en condicionalPorEstablecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "V" },
+        "hoteles_3_estrellas": { "nivel": "V" },
+        "hoteles_2_estrellas": { "nivel": "VI" },
+        "hoteles_1_estrella": { "nivel": "VI" },
+        "restaurantes_5_tenedores": { "nivel": "V" },
+        "restaurantes_4_tenedores": { "nivel": "V" },
+        "restaurantes_3_tenedores": { "nivel": "VI" },
+        "restaurantes_2_tenedores": { "nivel": "VII" },
+        "restaurantes_1_tenedor": { "nivel": "VII" },
+        "cafeterias": { "nivel": "V" },
+        "cafes_bares_cervecerias_especial": { "nivel": "V" },
+        "cafes_bares_cervecerias_otros": { "nivel": "VI" },
+        "salas_fiesta_discotecas": { "nivel": "V" }
+      }
     },
     "ayudante-camarero": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: va del VII (cafés-bares especiales) al IX (hoteles 2/1*, restaurantes 3/2/1 tenedores)."
+      "nota": "Nivel condicional al tipo de establecimiento (el formato actual no lo expresa). Valores exactos del Anexo I por tabla en condicionalPorEstablecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "VIII" },
+        "hoteles_3_estrellas": { "nivel": "VIII" },
+        "hoteles_2_estrellas": { "nivel": "IX" },
+        "hoteles_1_estrella": { "nivel": "IX" },
+        "restaurantes_5_tenedores": { "nivel": "VIII" },
+        "restaurantes_4_tenedores": { "nivel": "VIII" },
+        "restaurantes_3_tenedores": { "nivel": "IX" },
+        "restaurantes_2_tenedores": { "nivel": "IX" },
+        "restaurantes_1_tenedor": { "nivel": "IX" },
+        "cafeterias": { "nivel": "VIII" },
+        "cafes_bares_cervecerias_especial": { "nivel": "VII" },
+        "cafes_bares_cervecerias_otros": { "nivel": "VIII" },
+        "salas_fiesta_discotecas": { "nivel": "VIII" }
+      }
     },
     "barman": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel V en hoteles 5/4* y cafeterías, II-III en cafés-bares."
+      "nota": "Nivel condicional al tipo de establecimiento (el formato actual no lo expresa). Valores exactos del Anexo I por tabla en condicionalPorEstablecimiento (el resto de tablas no lista 'barman').",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "V" },
+        "cafeterias": { "nivel": "V" },
+        "cafes_bares_cervecerias_especial": { "nivel": "II" },
+        "cafes_bares_cervecerias_otros": { "nivel": "III" }
+      }
     },
-    "sumiller": null,
+    "sumiller": {
+      "dimensiones": null,
+      "nota": "El Anexo I no transcribe 'sumiller' en ninguna tabla ('escanciador' de cafés-bares es escanciador de sidra, no sumiller). No se mapea sin inventar."
+    },
     "recepcionista": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel V en hoteles 5/4/3*, VI en 2* y VII en 1*."
+      "nota": "Nivel condicional a la categoría del hotel (el formato actual no lo expresa). Solo hoteles transcriben 'recepcionista' en el Anexo I; valores exactos por tabla en condicionalPorEstablecimiento.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "V" },
+        "hoteles_3_estrellas": { "nivel": "V" },
+        "hoteles_2_estrellas": { "nivel": "VI" },
+        "hoteles_1_estrella": { "nivel": "VII" }
+      }
     },
     "camarera-pisos": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel X en hoteles 5/4*; resto de tablas sin transcribir."
+      "nota": "El Anexo I solo transcribe 'camarero/a de pisos y limpieza' en hoteles 5/4* (nivel X); el resto de tablas no lo lista. Único dato conocido en condicionalPorEstablecimiento; no se extrapola.",
+      "condicionalPorEstablecimiento": {
+        "hoteles_5o4_estrellas": { "nivel": "X" }
+      }
     },
     "administrativo": {
       "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: solo transcrito para salas de fiesta/discotecas (nivel VI)."
+      "nota": "El Anexo I solo transcribe 'administrativo/a' en salas de fiesta/discotecas (nivel VI); el resto de tablas no lo lista. Único dato conocido en condicionalPorEstablecimiento; no se extrapola.",
+      "condicionalPorEstablecimiento": {
+        "salas_fiesta_discotecas": { "nivel": "VI" }
+      }
     },
     "personal-limpieza": {
-      "dimensiones": null,
-      "nota": "El nivel retributivo (I-XI) depende del tipo y categoría del establecimiento (Anexo I), no se puede fijar solo con el puesto: nivel XI en todas las tablas transcritas, pero la transcripción del Anexo I es parcial ('ocupaciones más habituales')."
+      "dimensiones": {
+        "nivel": "XI"
+      },
+      "nota": "FIJO: nivel XI (el más bajo de la escala) en TODAS las tablas del Anexo I que transcriben un rol de limpieza — 'auxiliar de pisos y limpieza' en hoteles 5/4* y 'auxiliar de limpieza' en restaurantes 5 tenedores, cafeterías, cafés-bares (especial y otros), salas de fiesta/discotecas y billares/salones de recreo. Al ser el mismo nivel en las 7 tablas y el residual de fondo de escala, se fija independiente del establecimiento (casa con los hechos salarioBase nivel XI de 2023 y 2026)."
     }
   }
 }
