@@ -2,7 +2,7 @@
   "$comment": "Táboas 2024 VERIFICADAS visualmente e por dobre método (imaxe renderizada a 185 dpi + extracción de texto, coincidentes) contra o PDF oficial do BOP da Coruña nº241 (22-12-2022, anuncio 2022/8018), que contén o texto do convenio e as táboas salariais 2022/2023/2024. As táboas de 2024 son as vixentes en xullo de 2026: o convenio (2019-2024) está en ULTRAACTIVIDADE dende 01-01-2025 e a cláusula de revisión por IPC do art.6 NON se activou (confirmado en acta da comisión paritaria publicada no BOP nº60 de 28-03-2025, punto 3º: 'como no se ha llegado al IPC acumulado no procede el ajuste'). As publicacións paritarias posteriores (2024, mar-2025, dec-2025) só resolven consultas: non conteñen táboas novas. OLLO: este convenio estrutura os salarios por SECCIÓN de establecemento (hoteis, pensións, restaurantes, cafetarías, cafés-bares, salas de festa, tabernas, billares) x ÁREA FUNCIONAL (1-6) x GRUPO PROFESIONAL (I/II/III) x FUNCIÓN x CATEGORÍA de establecemento (estrelas/luxo-primeira.../tazas...). A nocturnidade e a hora extra son PORCENTAXES sobre salario base/hora (non € fixos como en Alacante).",
   "id": "acoruna-hosteleria",
   "nombre": "Convenio colectivo do sector da hostalería da provincia da Coruña",
-  "codigoConvenio": "15000745011981",
+  "codigoRegcon": "15000745011981",
   "ambitoTerritorial": { "tipo": "provincial", "comunidad": "Galicia", "provincias": ["A Coruña"] },
   "ambitoFuncional": "hosteleria",
   "fuente": {
