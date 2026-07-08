@@ -1,0 +1,591 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../cordoba-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el Anexo I (Art. 40): salario base mensual por NIVEL SALARIAL (1-5) x TIPO DE ESTABLECIMIENTO (e5 = 5 estrellas/tenedores; e43 = 4-3 estrellas/tenedores; resto), años 2024, 2025 y 2026 (tablas definitivas publicadas de una vez, BOP Córdoba nº 192, 04-10-2024). Las 6 áreas funcionales comparten la misma escala por nivel; el mapeo categoría->nivel está en la transcripción (mapaCategorias). La transcripción recoge los valores mayoritarios ante descuadres de céntimo entre áreas del PDF (ver notaRedondeo).",
+  "id": "cordoba-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1339.82,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/1/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1312.38,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/1/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1287.6,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/1/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1314.52,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/2/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1287.6,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/2/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1262.67,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/2/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1238.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/3/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1213.03,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/3/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1188.17,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/3/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1213.01,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/4/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1188.17,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/4/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1178.18,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/4/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1202.8,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/5/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1178.18,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/5/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1168.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2024/5/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1385.37,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/1/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1357.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/1/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1331.38,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/1/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1359.21,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/2/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1331.38,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/2/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1305.6,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/2/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1280.52,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/3/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1254.27,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/3/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1228.57,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/3/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1254.25,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/4/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1228.57,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/4/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1218.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/4/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1243.7,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/5/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1218.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/5/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1208.03,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2025/5/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1432.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/1/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1403.14,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/1/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1376.64,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/1/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1405.43,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/2/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1376.64,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/2/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1349.99,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/2/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1324.06,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/3/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1296.92,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/3/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1270.34,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/3/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1296.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/4/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1270.34,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/4/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1259.65,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/4/resto"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "e5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1285.99,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/5/e5"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "e43"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1259.65,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/5/e43"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "tipoEstablecimiento": "resto"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1249.11,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 y Anexo I (tablas 2024/2025/2026, BOP Córdoba nº 192, 04-10-2024)",
+      "rutaCruda": "/salariosBaseMensualesPorNivel/2026/5/resto"
+    }
+  ]
+}

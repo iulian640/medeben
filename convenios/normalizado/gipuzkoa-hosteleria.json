@@ -1,0 +1,78 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../gipuzkoa-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Salario mensual GARANTIZADO bruto (14 pagas) por nivel salarial 1-5 + Auxiliar de hostelería, Anexo III de la revisión 2026 (BOG 29/2026). La transcripción solo recoge la tabla del año 2026 (la vigente); el convenio expira 31-12-2026 y no hay tablas 2027 -> sin más hechos.",
+  "id": "gipuzkoa-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 2072.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (revisión salarial 2026, BOG 29/2026)",
+      "rutaCruda": "/tablasSalariales2026/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1947.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (revisión salarial 2026, BOG 29/2026)",
+      "rutaCruda": "/tablasSalariales2026/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1782.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (revisión salarial 2026, BOG 29/2026)",
+      "rutaCruda": "/tablasSalariales2026/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1699.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (revisión salarial 2026, BOG 29/2026)",
+      "rutaCruda": "/tablasSalariales2026/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1657.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (revisión salarial 2026, BOG 29/2026)",
+      "rutaCruda": "/tablasSalariales2026/5/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "auxiliarHosteleria"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1545.39,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (revisión salarial 2026, BOG 29/2026)",
+      "rutaCruda": "/tablasSalariales2026/auxiliarHosteleria/mes"
+    }
+  ]
+}

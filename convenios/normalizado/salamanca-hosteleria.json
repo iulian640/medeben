@@ -1,0 +1,762 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../salamanca-hosteleria.json. Salario base mensual por ÁREA FUNCIONAL × NIVEL (1-4) × columna de categoría de establecimiento ('5-4' y '1-2-3'). 2026 = tablas PROVISIONALES completas (+2,9% IPC a cuenta, BOP nº44 05-03-2026; pendiente acuerdo definitivo 2026). 2025 = solo Área Primera, única volcada celda a celda en la transcripción (el resto de áreas replican la escala pero no están transcritas → no se derivan; nunca se extrapola). NO editar importes aquí.",
+  "id": "salamanca-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1322.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaPrimera_recepcionAdministracion/nivel1/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1306.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaPrimera_recepcionAdministracion/nivel1/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaPrimera_recepcionAdministracion/nivel2/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1255.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaPrimera_recepcionAdministracion/nivel2/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1251.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaPrimera_recepcionAdministracion/nivel3/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1244.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaPrimera_recepcionAdministracion/nivel3/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaPrimera_recepcionAdministracion/nivel4/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaPrimera_recepcionAdministracion/nivel4/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1322.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSegunda_cocinaEconomato/nivel1/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1306.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSegunda_cocinaEconomato/nivel1/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSegunda_cocinaEconomato/nivel2/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1255.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSegunda_cocinaEconomato/nivel2/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1251.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSegunda_cocinaEconomato/nivel3/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1244.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSegunda_cocinaEconomato/nivel3/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSegunda_cocinaEconomato/nivel4/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSegunda_cocinaEconomato",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSegunda_cocinaEconomato/nivel4/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1322.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaTercera_restauranteBar/nivel1/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1306.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaTercera_restauranteBar/nivel1/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaTercera_restauranteBar/nivel2/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1255.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaTercera_restauranteBar/nivel2/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1251.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaTercera_restauranteBar/nivel3/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1244.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaTercera_restauranteBar/nivel3/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaTercera_restauranteBar/nivel4/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaTercera_restauranteBar",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaTercera_restauranteBar/nivel4/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaCuarta_pisosLimpieza",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1291.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaCuarta_pisosLimpieza/nivel2/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaCuarta_pisosLimpieza",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1281.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaCuarta_pisosLimpieza/nivel2/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaCuarta_pisosLimpieza",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaCuarta_pisosLimpieza/nivel3/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaCuarta_pisosLimpieza",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1255.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaCuarta_pisosLimpieza/nivel3/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaCuarta_pisosLimpieza",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaCuarta_pisosLimpieza/nivel4/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaCuarta_pisosLimpieza",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaCuarta_pisosLimpieza/nivel4/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaQuinta_mantenimientoAuxiliares",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1322.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaQuinta_mantenimientoAuxiliares/nivel1/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaQuinta_mantenimientoAuxiliares",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1306.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaQuinta_mantenimientoAuxiliares/nivel1/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaQuinta_mantenimientoAuxiliares",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaQuinta_mantenimientoAuxiliares/nivel2/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaQuinta_mantenimientoAuxiliares",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1255.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaQuinta_mantenimientoAuxiliares/nivel2/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaQuinta_mantenimientoAuxiliares",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1251.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaQuinta_mantenimientoAuxiliares/nivel3/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaQuinta_mantenimientoAuxiliares",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1244.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaQuinta_mantenimientoAuxiliares/nivel3/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaQuinta_mantenimientoAuxiliares",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaQuinta_mantenimientoAuxiliares/nivel4/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaQuinta_mantenimientoAuxiliares",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaQuinta_mantenimientoAuxiliares/nivel4/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSexta_serviciosComplementarios",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1322.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSexta_serviciosComplementarios/nivel1/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSexta_serviciosComplementarios",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1306.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSexta_serviciosComplementarios/nivel1/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSexta_serviciosComplementarios",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.67,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSexta_serviciosComplementarios/nivel2/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSexta_serviciosComplementarios",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1255.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSexta_serviciosComplementarios/nivel2/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSexta_serviciosComplementarios",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1251.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSexta_serviciosComplementarios/nivel3/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSexta_serviciosComplementarios",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1244.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSexta_serviciosComplementarios/nivel3/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSexta_serviciosComplementarios",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSexta_serviciosComplementarios/nivel4/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaSexta_serviciosComplementarios",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1234.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — tablas provisionales 2026, +2,9% a cuenta (BOP nº44, 05-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/areaSexta_serviciosComplementarios/nivel4/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1285.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (BOP nº56, 22-03-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2025_base/areaPrimera_recepcionAdministracion/nivel1/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel1",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1270.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (BOP nº56, 22-03-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2025_base/areaPrimera_recepcionAdministracion/nivel1/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1230.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (BOP nº56, 22-03-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2025_base/areaPrimera_recepcionAdministracion/nivel2/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel2",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1220.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (BOP nº56, 22-03-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2025_base/areaPrimera_recepcionAdministracion/nivel2/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1216.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (BOP nº56, 22-03-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2025_base/areaPrimera_recepcionAdministracion/nivel3/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel3",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1209.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (BOP nº56, 22-03-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2025_base/areaPrimera_recepcionAdministracion/nivel3/1-2-3"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "5-4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1200.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (BOP nº56, 22-03-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2025_base/areaPrimera_recepcionAdministracion/nivel4/5-4"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "areaPrimera_recepcionAdministracion",
+        "nivel": "nivel4",
+        "categoriaEstablecimiento": "1-2-3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1200.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (BOP nº56, 22-03-2023)",
+      "rutaCruda": "/salariosBaseMensuales/2025_base/areaPrimera_recepcionAdministracion/nivel4/1-2-3"
+    }
+  ]
+}

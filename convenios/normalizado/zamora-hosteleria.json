@@ -1,0 +1,366 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../zamora-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre las tablas salariales del Anexo (Art. 34): 5 niveles retributivos (N1_jefes..N5_ayudantes, comunes a las 6 áreas funcionales) x 6 tramos (2020-2021, 2022, 2023, 2024, 2025, 2026). Importe = salario base MENSUAL (12 mensualidades; 14 pagas/año). Nota: los efectos económicos de las tablas se aplicaron desde el 01-04-2022 sin atrasos (Art. 34); aquí se conserva la vigencia nominal de cada tramo de tabla.",
+  "id": "zamora-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N1_jefes"
+      },
+      "desde": "2020-01-01",
+      "hasta": "2021-12-31",
+      "importe": 1166.5,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N1_jefes/2020-2021/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N1_jefes"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1201.5,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N1_jefes/2022/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N1_jefes"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1237.54,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N1_jefes/2023/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N1_jefes"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1274.67,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N1_jefes/2024/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N1_jefes"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1312.91,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N1_jefes/2025/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N1_jefes"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1352.29,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N1_jefes/2026/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N2_segundosJefes"
+      },
+      "desde": "2020-01-01",
+      "hasta": "2021-12-31",
+      "importe": 1055.29,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N2_segundosJefes/2020-2021/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N2_segundosJefes"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1086.95,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N2_segundosJefes/2022/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N2_segundosJefes"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1119.56,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N2_segundosJefes/2023/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N2_segundosJefes"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1153.14,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N2_segundosJefes/2024/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N2_segundosJefes"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.74,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N2_segundosJefes/2025/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N2_segundosJefes"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1223.37,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N2_segundosJefes/2026/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N3_encargadoSeccion"
+      },
+      "desde": "2020-01-01",
+      "hasta": "2021-12-31",
+      "importe": 1049.55,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N3_encargadoSeccion/2020-2021/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N3_encargadoSeccion"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1081.04,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N3_encargadoSeccion/2022/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N3_encargadoSeccion"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1113.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N3_encargadoSeccion/2023/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N3_encargadoSeccion"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1146.87,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N3_encargadoSeccion/2024/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N3_encargadoSeccion"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1181.28,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N3_encargadoSeccion/2025/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N3_encargadoSeccion"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1216.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N3_encargadoSeccion/2026/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      },
+      "desde": "2020-01-01",
+      "hasta": "2021-12-31",
+      "importe": 1045.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N4_grupoII/2020-2021/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1077.12,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N4_grupoII/2022/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1109.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N4_grupoII/2023/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1142.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N4_grupoII/2024/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1177.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N4_grupoII/2025/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N4_grupoII"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1212.31,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N4_grupoII/2026/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      },
+      "desde": "2020-01-01",
+      "hasta": "2021-12-31",
+      "importe": 1024.8,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N5_ayudantes/2020-2021/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1055.54,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N5_ayudantes/2022/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1087.21,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N5_ayudantes/2023/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1119.83,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N5_ayudantes/2024/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1153.42,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N5_ayudantes/2025/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "N5_ayudantes"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1188.02,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 34 y Anexo salarial (BOP nº67, págs. 18-29)",
+      "rutaCruda": "/salarios/niveles/N5_ayudantes/2026/mes"
+    }
+  ]
+}

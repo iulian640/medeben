@@ -1,0 +1,273 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../valladolid-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el Anexo III: tabla 2025 (niveles salariales NS_I..NS_V con tres columnas de equiparación Grupo I/II/III) y tabla única 2026 (NS_I..NS_V_A, culminada la equiparación). Los años 2018-2024 del Anexo III no están transcritos (durante 2018-2021 se aplicaron las tablas de 2017 sin subida), por lo que no se derivan. Importes = salario base MENSUAL (14 pagas).",
+  "id": "valladolid-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_I",
+        "grupo": "grupoI"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1393.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_I/grupoI/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_I",
+        "grupo": "grupoII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1374.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_I/grupoII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_I",
+        "grupo": "grupoIII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1363.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_I/grupoIII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_II",
+        "grupo": "grupoI"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1302.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_II/grupoI/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_II",
+        "grupo": "grupoII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1280.18,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_II/grupoII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_II",
+        "grupo": "grupoIII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1271.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_II/grupoIII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_III",
+        "grupo": "grupoI"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1255.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_III/grupoI/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_III",
+        "grupo": "grupoII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1237.07,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_III/grupoII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_III",
+        "grupo": "grupoIII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_III/grupoIII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_IV",
+        "grupo": "grupoI"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_IV/grupoI/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_IV",
+        "grupo": "grupoII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1173.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_IV/grupoII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_IV",
+        "grupo": "grupoIII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1161.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_IV/grupoIII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_V",
+        "grupo": "grupoI"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1095.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_V/grupoI/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_V",
+        "grupo": "grupoII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1081.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_V/grupoII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_V",
+        "grupo": "grupoIII"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1081.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/NS_V/grupoIII/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_I"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1416.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla única 2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/NS_I/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_II"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1322.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla única 2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/NS_II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_III"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1276.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla única 2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/NS_III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_IV"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1206.26,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla única 2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/NS_IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_V"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1112.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla única 2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/NS_V/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivelSalarial": "NS_V_A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1079.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (tabla única 2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/NS_V_A/mensual"
+    }
+  ]
+}

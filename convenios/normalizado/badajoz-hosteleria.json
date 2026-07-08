@@ -1,0 +1,114 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../badajoz-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el salario base mensual Único por GRUPO PROFESIONAL (I-III, sin categorías de establecimiento): 2024 (tabla original), 2025 DEFINITIVO y 2026 PROVISIONAL (Acta 24-03-2026, DOE nº95). OJO: 2026 es provisional (incremento inicial 2,35%; podría subir hasta el IPC 2026 con tope 3,25%) — re-derivar si se publica tabla definitiva de 2026.",
+  "id": "badajoz-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "I"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1048.56,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 23 y tabla anexa (DOE nº17, 27-01-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2024/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 23 y tabla anexa (DOE nº17, 27-01-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2024/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 969.48,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 23 y tabla anexa (DOE nº17, 27-01-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2024/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "I"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1078.97,
+      "unidad": "EUR/mes",
+      "articulo": "Tabla salarial definitiva 2025, Acta 24-03-2026 (DOE nº95, 20-05-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivo/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1042.12,
+      "unidad": "EUR/mes",
+      "articulo": "Tabla salarial definitiva 2025, Acta 24-03-2026 (DOE nº95, 20-05-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivo/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 997.59,
+      "unidad": "EUR/mes",
+      "articulo": "Tabla salarial definitiva 2025, Acta 24-03-2026 (DOE nº95, 20-05-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2025_definitivo/III"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "I"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1104.32,
+      "unidad": "EUR/mes",
+      "articulo": "Tabla salarial provisional 2026, Acta 24-03-2026 (DOE nº95, 20-05-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/I"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "II"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1066.61,
+      "unidad": "EUR/mes",
+      "articulo": "Tabla salarial provisional 2026, Acta 24-03-2026 (DOE nº95, 20-05-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/II"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "III"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1021.04,
+      "unidad": "EUR/mes",
+      "articulo": "Tabla salarial provisional 2026, Acta 24-03-2026 (DOE nº95, 20-05-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026_provisional/III"
+    }
+  ]
+}

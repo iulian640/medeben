@@ -1,0 +1,114 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../gipuzkoa-hospedaje.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Salario base mensual bruto (convenio de 14 pagas) por nivel salarial I-IV, Anexo II: tablas 2025 (BOG 125/2025) y 2026 (revisión BOG 30/2026). El nivel V fue ELIMINADO por el convenio 2025-2028 (absorbido por el IV): se deriva como 'V_historico' con vigencia 01-01-2025 a 02-07-2025 (fecha de publicación, según la transcripción). 2027 y 2028 sin tablas publicadas (solo fórmula IPC+2,5%) -> sin hechos.",
+  "id": "gipuzkoa-hospedaje",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 2174.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 2043.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1870.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1783.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 2291.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2026/I/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 2154.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2026/II/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1971.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2026/III/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1879.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2026/IV/mensual"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V_historico"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-07-02",
+      "importe": 1739.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo II",
+      "rutaCruda": "/salariosBaseMensuales/2025/V_historico/mensual"
+    }
+  ]
+}

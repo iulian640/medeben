@@ -1,0 +1,3171 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../murcia-hosteleria.json (la transcripción verificada es la fuente de verdad). Salario base mensual AÑO 2024 (BORM nº176, 30-07-2024, últimas tablas oficialmente publicadas) por área funcional, grupo, puesto y tipo de establecimiento. SIN hechos 2025: el Art. 14 pacta +3% pero no consta tabla 2025 publicada (regla D32, no se calcula). El 'Plus SMI' (garantía hasta el SMI) es un concepto aparte, fuera del alcance v1: para categorías con plusSMI el mínimo real percibido es salarioBase + plusSMI. Área Sexta: sin importes en el boletín, sin hechos. NO editar importes aquí: se corrige la transcripción y se re-deriva.",
+  "id": "murcia-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "1º Jefe de Recepción",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/1º Jefe de Recepción/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "1º Jefe de Recepción",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/1º Jefe de Recepción/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "1º Jefe de Recepción",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/1º Jefe de Recepción/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "1º Jefe de Recepción",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/1º Jefe de Recepción/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "1º Jefe de Recepción",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1239.35,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/1º Jefe de Recepción/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Recepción",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1222.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/2º Jefe de Recepción/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Recepción",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/2º Jefe de Recepción/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Recepción",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/2º Jefe de Recepción/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Recepción",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1222.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/2º Jefe de Recepción/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Recepción",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1209.32,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/2º Jefe de Recepción/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Contable General",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Contable General/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Contable General",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Contable General/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Contable General",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Contable General/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Contable General",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1089.0,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Contable General/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Contable General",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Contable General/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Contable General",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1239.35,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Contable General/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe Comercial",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Jefe Comercial/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe Comercial",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Jefe Comercial/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe Comercial",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Jefe Comercial/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe Comercial",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Jefe Comercial/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe Comercial",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1239.35,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/Jefe Comercial/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "1ª Conserje",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1224.01,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/1ª Conserje/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "1ª Conserje",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/1ª Conserje/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "1ª Conserje",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/1ª Conserje/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoI",
+        "puesto": "2ª Conserje",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoI/2ª Conserje/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Recepcionista",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Recepcionista/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Recepcionista",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Recepcionista/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Recepcionista",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1009.16,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Recepcionista/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Recepcionista",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1192.95,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Recepcionista/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Recepcionista",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1162.8,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Recepcionista/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Conserje",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1068.67,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Conserje/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Conserje",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.23,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Conserje/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Conserje",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1002.59,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Conserje/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Conserje",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1192.95,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Conserje/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Conserje",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1162.8,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Conserje/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Tenedor de cuentas",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1190.15,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Tenedor de cuentas/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Tenedor de cuentas",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1034.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Tenedor de cuentas/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Tenedor de cuentas",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Tenedor de cuentas/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Tenedor de cuentas",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Tenedor de cuentas/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Tenedor de cuentas",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1192.95,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Tenedor de cuentas/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Tenedor de cuentas",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1162.8,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Tenedor de cuentas/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Relaciones Públicas",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Relaciones Públicas/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Relaciones Públicas",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Relaciones Públicas/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Relaciones Públicas",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1009.16,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Relaciones Públicas/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Relaciones Públicas",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1192.95,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Relaciones Públicas/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Relaciones Públicas",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1162.8,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Relaciones Públicas/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Comercial",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1068.67,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Comercial/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Comercial",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.23,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Comercial/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Comercial",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1002.59,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Comercial/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Comercial",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1192.95,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Comercial/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoII",
+        "puesto": "Comercial",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1162.8,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoII/Comercial/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Recepción",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Ayudante de Recepción/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Recepción",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1004.22,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Ayudante de Recepción/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Recepción",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1165.59,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Ayudante de Recepción/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Recepción",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1132.74,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Ayudante de Recepción/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Oficial de Contabilidad",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Oficial de Contabilidad/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Oficial de Contabilidad",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Oficial de Contabilidad/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Oficial de Contabilidad",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1009.16,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Oficial de Contabilidad/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Oficial de Contabilidad",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Oficial de Contabilidad/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Oficial de Contabilidad",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Oficial de Contabilidad/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Oficial de Contabilidad",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1129.96,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Oficial de Contabilidad/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Telefonista de 1ª",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Telefonista de 1ª/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Telefonista de 1ª",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Telefonista de 1ª/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Telefonista de 1ª",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1009.16,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Telefonista de 1ª/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Telefonista de 1ª",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Telefonista de 1ª/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Telefonista de 1ª",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Telefonista de 1ª/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Telefonista de 1ª",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1129.96,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIII/Telefonista de 1ª/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Portero",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIV/Portero/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Portero",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIV/Portero/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Portero",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1005.84,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIV/Portero/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Portero",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1005.84,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIV/Portero/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Portero",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1165.59,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIV/Portero/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_recepcionAdmin",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Portero",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1132.74,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaPrimera_recepcionAdmin/grupoIV/Portero/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Cocina",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/Jefe de Cocina/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Cocina",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/Jefe de Cocina/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Cocina",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1089.0,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/Jefe de Cocina/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Cocina",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1089.0,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/Jefe de Cocina/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Cocina",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/Jefe de Cocina/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Cocina",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1239.35,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/Jefe de Cocina/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Cocina",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1222.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/2º Jefe de Cocina/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Cocina",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/2º Jefe de Cocina/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Cocina",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/2º Jefe de Cocina/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Cocina",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1222.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/2º Jefe de Cocina/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Cocina",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.87,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/2º Jefe de Cocina/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Catering",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoI/Jefe de Catering/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Partida",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1190.15,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe de Partida/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Partida",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1034.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe de Partida/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Partida",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe de Partida/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Partida",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1192.95,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe de Partida/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Partida",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe de Partida/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Cocinero",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1129.96,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Cocinero/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Cocinero",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Cocinero/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Cocinero",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1009.16,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Cocinero/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Cocinero",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Cocinero/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Cocinero",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Cocinero/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Cocinero",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Cocinero/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe Repostero",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1190.15,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe Repostero/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe Repostero",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1034.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe Repostero/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe Repostero",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe Repostero/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe Repostero",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe Repostero/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe Repostero",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe Repostero/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe Repostero",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Jefe Repostero/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Economato",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1190.15,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Encargado de Economato/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Economato",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1034.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Encargado de Economato/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Economato",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Encargado de Economato/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Economato",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Encargado de Economato/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Economato",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Encargado de Economato/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Economato",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1018.99,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Encargado de Economato/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoII",
+        "puesto": "Bodeguero",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoII/Bodeguero/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Economato y Bodega",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1005.84,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante Economato y Bodega/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Economato y Bodega",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 974.97,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante Economato y Bodega/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Economato y Bodega",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 973.39,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante Economato y Bodega/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Economato y Bodega",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 973.39,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante Economato y Bodega/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Economato y Bodega",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 973.39,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante Economato y Bodega/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Economato y Bodega",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 973.39,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante Economato y Bodega/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Cocinero",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1005.84,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante de Cocinero/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Cocinero",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 974.97,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante de Cocinero/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Cocinero",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 973.39,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante de Cocinero/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Cocinero",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 973.39,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante de Cocinero/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Cocinero",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 973.39,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante de Cocinero/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante de Cocinero",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 973.39,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIII/Ayudante de Cocinero/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Marmitón",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1005.84,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIV/Marmitón/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Marmitón",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1004.22,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIV/Marmitón/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Marmitón",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1002.59,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIV/Marmitón/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Marmitón",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1002.59,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIV/Marmitón/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Marmitón",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1002.59,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIV/Marmitón/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_cocinaEconomato",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Marmitón",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1002.59,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaSegunda_cocinaEconomato/grupoIV/Marmitón/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Sala",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1266.83,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/Jefe de Sala/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Sala",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/Jefe de Sala/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Sala",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/Jefe de Sala/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Sala",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/Jefe de Sala/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Sala",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1192.95,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/Jefe de Sala/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Sala",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1192.95,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/Jefe de Sala/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Operaciones (catering)",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/Jefe de Operaciones (catering)/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Comedor",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1222.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/2º Jefe de Comedor/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Comedor",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/2º Jefe de Comedor/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Comedor",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1042.48,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/2º Jefe de Comedor/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Comedor",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1089.0,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/2º Jefe de Comedor/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Comedor",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1042.48,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/2º Jefe de Comedor/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoI",
+        "puesto": "2º Jefe de Comedor",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1042.48,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoI/2º Jefe de Comedor/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "3ª Jefe de Sector",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1190.15,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/3ª Jefe de Sector/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "3ª Jefe de Sector",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1034.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/3ª Jefe de Sector/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "3ª Jefe de Sector",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/3ª Jefe de Sector/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Sala (catering)",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Jefe de Sala (catering)/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarero",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Camarero/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarero",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Camarero/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarero",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Camarero/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarero",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Camarero/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarero",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Camarero/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarero",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Camarero/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Barman",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1089.0,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Barman/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Barman",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1089.0,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Barman/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Barman",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1089.0,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Barman/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Sumiller",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1190.15,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Jefe de Sumiller/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Sumiller",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1034.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Jefe de Sumiller/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Sumiller",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Jefe de Sumiller/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Supervisor",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Supervisor/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Jefe de Equipo",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Jefe de Equipo/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoII",
+        "puesto": "Supervisor Colectividades",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoII/Supervisor Colectividades/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Camarero",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Ayudante Camarero/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Camarero",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Ayudante Camarero/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Camarero",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Ayudante Camarero/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Camarero",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1008.58,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Ayudante Camarero/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Camarero",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1008.58,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Ayudante Camarero/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Camarero",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1008.58,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Ayudante Camarero/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Preparador/Montador de catering",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Preparador~1Montador de catering/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Conductor Equipo Catering",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Conductor Equipo Catering/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Ayudante Equipo Catering",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIII/Ayudante Equipo Catering/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Auxiliar Colectividades",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.91,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIV/Auxiliar Colectividades/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_restauranteSala",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Auxiliar de Preparación o Montaje de Catering",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.91,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaTercera_restauranteSala/grupoIV/Auxiliar de Preparación o Montaje de Catering/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Encargado General",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1222.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Encargado General/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Encargado General",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Encargado General/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Encargado General",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Encargado General/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Encargado General",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1222.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Encargado General/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Encargado General",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Encargado General/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Gobernanta de 2ª",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Gobernanta de 2ª/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Gobernanta de 2ª",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Gobernanta de 2ª/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Gobernanta de 2ª",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Gobernanta de 2ª/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Gobernanta de 2ª",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Gobernanta de 2ª/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Gobernanta de 2ª",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Gobernanta de 2ª/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoI",
+        "puesto": "Gobernanta de 2ª",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1014.07,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoI/Gobernanta de 2ª/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarera de Pisos",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoII/Camarera de Pisos/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarera de Pisos",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoII/Camarera de Pisos/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarera de Pisos",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoII/Camarera de Pisos/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoII",
+        "puesto": "Camarera de Pisos",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoII/Camarera de Pisos/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Auxiliar de Pisos y Limpieza (Personal de Limpieza)",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoIII/Auxiliar de Pisos y Limpieza (Personal de Limpieza)/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Auxiliar de Pisos y Limpieza (Personal de Limpieza)",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoIII/Auxiliar de Pisos y Limpieza (Personal de Limpieza)/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Auxiliar de Pisos y Limpieza (Personal de Limpieza)",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoIII/Auxiliar de Pisos y Limpieza (Personal de Limpieza)/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Auxiliar de Pisos y Limpieza (Personal de Limpieza)",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoIII/Auxiliar de Pisos y Limpieza (Personal de Limpieza)/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Auxiliar de Pisos y Limpieza (Personal de Limpieza)",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoIII/Auxiliar de Pisos y Limpieza (Personal de Limpieza)/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_pisosLimpieza",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Auxiliar de Pisos y Limpieza (Personal de Limpieza)",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaCuarta_pisosLimpieza/grupoIII/Auxiliar de Pisos y Limpieza (Personal de Limpieza)/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoI",
+        "puesto": "Jefe de Servicios de Catering",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoI/Jefe de Servicios de Catering/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Trabajos (Mantenimiento y Servicios)",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1222.98,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoII/Encargado de Trabajos (Mantenimiento y Servicios)/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Trabajos (Mantenimiento y Servicios)",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1058.89,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoII/Encargado de Trabajos (Mantenimiento y Servicios)/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Trabajos (Mantenimiento y Servicios)",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoII/Encargado de Trabajos (Mantenimiento y Servicios)/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Sala / Oficial 1ª (Encargado de Sección)",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1129.96,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoII/Encargado de Sala ~1 Oficial 1ª (Encargado de Sección)/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Sala / Oficial 1ª (Encargado de Sección)",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1034.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoII/Encargado de Sala ~1 Oficial 1ª (Encargado de Sección)/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Sala / Oficial 1ª (Encargado de Sección)",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1017.36,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoII/Encargado de Sala ~1 Oficial 1ª (Encargado de Sección)/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoII",
+        "puesto": "Encargado de Sala / Oficial 1ª (Encargado de Sección)",
+        "tipoEstablecimiento": "salones_billares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1004.22,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoII/Encargado de Sala ~1 Oficial 1ª (Encargado de Sección)/salones_billares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Mecánico/Calefactor (Especialista de Mantenimiento)",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1028.78,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIII/Mecánico~1Calefactor (Especialista de Mantenimiento)/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Mecánico/Calefactor (Especialista de Mantenimiento)",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1012.45,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIII/Mecánico~1Calefactor (Especialista de Mantenimiento)/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Mecánico/Calefactor (Especialista de Mantenimiento)",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1005.84,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIII/Mecánico~1Calefactor (Especialista de Mantenimiento)/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Mecánico/Calefactor (Especialista de Mantenimiento)",
+        "tipoEstablecimiento": "cafeterias_bares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1005.84,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIII/Mecánico~1Calefactor (Especialista de Mantenimiento)/cafeterias_bares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Mecánico/Calefactor (Especialista de Mantenimiento)",
+        "tipoEstablecimiento": "casinos1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1005.84,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIII/Mecánico~1Calefactor (Especialista de Mantenimiento)/casinos1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Mecánico/Calefactor (Especialista de Mantenimiento)",
+        "tipoEstablecimiento": "casinos3y4"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1149.18,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIII/Mecánico~1Calefactor (Especialista de Mantenimiento)/casinos3y4/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIII",
+        "puesto": "Animador Turístico",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1022.82,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIII/Animador Turístico/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Ayudante de Mecánico/Calefactor (Auxiliar de Mantenimiento)",
+        "tipoEstablecimiento": "hot4y5_rest4y5"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIV/Ayudante de Mecánico~1Calefactor (Auxiliar de Mantenimiento)/hot4y5_rest4y5/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Ayudante de Mecánico/Calefactor (Auxiliar de Mantenimiento)",
+        "tipoEstablecimiento": "hot3_rest3"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIV/Ayudante de Mecánico~1Calefactor (Auxiliar de Mantenimiento)/hot3_rest3/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Ayudante de Mecánico/Calefactor (Auxiliar de Mantenimiento)",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIV/Ayudante de Mecánico~1Calefactor (Auxiliar de Mantenimiento)/hot1y2_hosp_rest1y2/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoIV",
+        "puesto": "Ayudante de Mecánico/Calefactor (Auxiliar de Mantenimiento)",
+        "tipoEstablecimiento": "salones_billares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1000.9,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoIV/Ayudante de Mecánico~1Calefactor (Auxiliar de Mantenimiento)/salones_billares/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_mantenimientoAuxiliares",
+        "grupoProfesional": "grupoV",
+        "puesto": "Monitor-Cuidador",
+        "tipoEstablecimiento": "hot1y2_hosp_rest1y2"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 995.11,
+      "unidad": "EUR/mes",
+      "articulo": "Acuerdo tablas salariales 2024 (BORM nº 176, 30-07-2024, NPE A-300724-3949)",
+      "rutaCruda": "/tablasSalariales2024/areaQuinta_mantenimientoAuxiliares/grupoV/Monitor-Cuidador/hot1y2_hosp_rest1y2/salarioBase"
+    }
+  ]
+}

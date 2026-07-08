@@ -1,0 +1,3282 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../leon-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí. Cubre el Anexo I, tabla del AÑO 2025 (la única transcrita: las de 2023-2024 constan como 'no_transcritas_por_superadas'), por ÁREA FUNCIONAL, CATEGORÍA y CATEGORÍA DE ESTABLECIMIENTO ('lujo1a' = Lujo y 1.ª clase, 'segunda' = Segunda clase, 'tercera' = Tercera y sucesivas). Sin tabla 2026 publicada (D32): sin hechos; en ultraactividad aplica la tabla 2025.",
+  "id": "leon-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "jefeRecepcion",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/jefeRecepcion/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "jefeRecepcion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/jefeRecepcion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "jefeRecepcion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1558.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/jefeRecepcion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "segundoJefeRecepcion",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/segundoJefeRecepcion/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "segundoJefeRecepcion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/segundoJefeRecepcion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "segundoJefeRecepcion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/segundoJefeRecepcion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "contableGeneralJefeAdministracion",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/contableGeneralJefeAdministracion/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "contableGeneralJefeAdministracion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/contableGeneralJefeAdministracion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "contableGeneralJefeAdministracion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1558.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/contableGeneralJefeAdministracion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "jefeDePersonal",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/jefeDePersonal/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "jefeDePersonal",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/jefeDePersonal/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "jefeDePersonal",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1558.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/jefeDePersonal/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "primerConserjeDeDia",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/primerConserjeDeDia/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "primerConserjeDeDia",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/primerConserjeDeDia/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "primerConserjeDeDia",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1558.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/primerConserjeDeDia/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "segundoConserjeDeDia",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/segundoConserjeDeDia/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "segundoConserjeDeDia",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/segundoConserjeDeDia/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "segundoConserjeDeDia",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/segundoConserjeDeDia/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "recepcionista",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/recepcionista/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "recepcionista",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/recepcionista/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "recepcionista",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/recepcionista/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "cajero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/cajero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "cajero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/cajero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "cajero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/cajero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "conserjeDeNoche",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/conserjeDeNoche/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "conserjeDeNoche",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/conserjeDeNoche/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "conserjeDeNoche",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/conserjeDeNoche/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "interventor",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/interventor/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "interventor",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/interventor/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "interventor",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/interventor/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "contable",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/contable/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "contable",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/contable/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "contable",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/contable/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "oficialAdministrativo",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/oficialAdministrativo/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "oficialAdministrativo",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/oficialAdministrativo/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "oficialAdministrativo",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/oficialAdministrativo/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ayudanteRecepcion",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ayudanteRecepcion/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ayudanteRecepcion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ayudanteRecepcion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ayudanteRecepcion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ayudanteRecepcion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ayudanteConserjeria",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ayudanteConserjeria/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ayudanteConserjeria",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ayudanteConserjeria/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ayudanteConserjeria",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ayudanteConserjeria/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "telefonista1a",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/telefonista1a/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "telefonista1a",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/telefonista1a/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "telefonista1a",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/telefonista1a/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "telefonista2a",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/telefonista2a/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "telefonista2a",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/telefonista2a/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "telefonista2a",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/telefonista2a/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "auxiliarAdministrativo",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/auxiliarAdministrativo/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "auxiliarAdministrativo",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/auxiliarAdministrativo/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "auxiliarAdministrativo",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/auxiliarAdministrativo/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "portero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/portero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "portero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/portero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "portero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/portero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "vigilanteDeNoche",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/vigilanteDeNoche/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "vigilanteDeNoche",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/vigilanteDeNoche/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "vigilanteDeNoche",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/vigilanteDeNoche/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ordenanzaDeSalon",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ordenanzaDeSalon/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ordenanzaDeSalon",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ordenanzaDeSalon/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "ordenanzaDeSalon",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/ordenanzaDeSalon/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "botones",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/botones/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "botones",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/botones/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "botones",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/botones/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "mozoDeEquipajes",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/mozoDeEquipajes/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "mozoDeEquipajes",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/mozoDeEquipajes/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "mozoDeEquipajes",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/mozoDeEquipajes/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "aspiranteAdministracion",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/aspiranteAdministracion/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "aspiranteAdministracion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/aspiranteAdministracion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaAdmin",
+        "categoria": "aspiranteAdministracion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaPrimera_RecepcionConserjeriaAdmin/aspiranteAdministracion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "jefeCocina",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/jefeCocina/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "jefeCocina",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/jefeCocina/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "jefeCocina",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1557.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/jefeCocina/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "segundoJefeCocina",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/segundoJefeCocina/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "segundoJefeCocina",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/segundoJefeCocina/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "segundoJefeCocina",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/segundoJefeCocina/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "jefePartida",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/jefePartida/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "jefePartida",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/jefePartida/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "jefePartida",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/jefePartida/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "cocinero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/cocinero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "cocinero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/cocinero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "cocinero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/cocinero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "reposteroJefe",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/reposteroJefe/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "reposteroJefe",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/reposteroJefe/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "reposteroJefe",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/reposteroJefe/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "oficialRepostero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/oficialRepostero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "oficialRepostero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/oficialRepostero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "oficialRepostero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/oficialRepostero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "encargadoEconomatoBodega",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/encargadoEconomatoBodega/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "encargadoEconomatoBodega",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/encargadoEconomatoBodega/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "encargadoEconomatoBodega",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/encargadoEconomatoBodega/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "bodeguero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/bodeguero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "bodeguero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/bodeguero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "bodeguero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/bodeguero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteCocinero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteCocinero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteCocinero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteCocinero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteCocinero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteCocinero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteRepostero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteRepostero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteRepostero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteRepostero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteRepostero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteRepostero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "cafetero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/cafetero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "cafetero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/cafetero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "cafetero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/cafetero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteEconomatoCafeterias",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteEconomatoCafeterias/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteEconomatoCafeterias",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteEconomatoCafeterias/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteEconomatoCafeterias",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteEconomatoCafeterias/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteEconomatoBodega",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteEconomatoBodega/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteEconomatoBodega",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteEconomatoBodega/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "ayudanteEconomatoBodega",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/ayudanteEconomatoBodega/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "pinche",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/pinche/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "pinche",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/pinche/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "pinche",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/pinche/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "fregador",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/fregador/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "fregador",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/fregador/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaEconomato",
+        "categoria": "fregador",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSegunda_CocinaEconomato/fregador/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeDeSala",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeDeSala/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeDeSala",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeDeSala/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeDeSala",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1557.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeDeSala/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerJefeComedor",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerJefeComedor/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerJefeComedor",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerJefeComedor/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerJefeComedor",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1557.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerJefeComedor/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerEncargadoGeneralCafeteria",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerEncargadoGeneralCafeteria/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerEncargadoGeneralCafeteria",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerEncargadoGeneralCafeteria/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerEncargadoGeneralCafeteria",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1557.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerEncargadoGeneralCafeteria/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoJefeComedor",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoJefeComedor/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoJefeComedor",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoJefeComedor/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoJefeComedor",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoJefeComedor/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoEncargadoMostrador",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoEncargadoMostrador/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoEncargadoMostrador",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoEncargadoMostrador/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoEncargadoMostrador",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoEncargadoMostrador/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeOperaciones",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeOperaciones/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeOperaciones",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeOperaciones/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeOperaciones",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1557.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeOperaciones/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeSector",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeSector/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeSector",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeSector/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeSector",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeSector/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "camarero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/camarero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "camarero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/camarero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "camarero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/camarero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "cajeroComedor",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/cajeroComedor/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "cajeroComedor",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/cajeroComedor/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "cajeroComedor",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/cajeroComedor/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerBarmanBarwoman",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerBarmanBarwoman/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerBarmanBarwoman",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerBarmanBarwoman/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "primerBarmanBarwoman",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1557.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/primerBarmanBarwoman/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoBarmanBarwoman",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoBarmanBarwoman/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoBarmanBarwoman",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoBarmanBarwoman/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "segundoBarmanBarwoman",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/segundoBarmanBarwoman/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "sumiller",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/sumiller/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "sumiller",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/sumiller/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "sumiller",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/sumiller/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeSalaCatering",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1854.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeSalaCatering/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeSalaCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1706.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeSalaCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "jefeSalaCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1557.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/jefeSalaCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "supervisorJefeEquipoCatering",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/supervisorJefeEquipoCatering/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "supervisorJefeEquipoCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/supervisorJefeEquipoCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "supervisorJefeEquipoCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/supervisorJefeEquipoCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudanteCamarero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudanteCamarero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudanteCamarero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudanteCamarero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudanteCamarero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudanteCamarero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudanteDependiente",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudanteDependiente/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudanteDependiente",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudanteDependiente/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudanteDependiente",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudanteDependiente/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudantePreparacionCatering",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudantePreparacionCatering/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudantePreparacionCatering",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudantePreparacionCatering/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "ayudantePreparacionCatering",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/ayudantePreparacionCatering/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "montadorDeDiscos",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1345.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/montadorDeDiscos/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "montadorDeDiscos",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/montadorDeDiscos/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteSalaBarColectividadesCatering",
+        "categoria": "montadorDeDiscos",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaTercera_RestauranteSalaBarColectividadesCatering/montadorDeDiscos/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "encargadaGeneralGobernantaPrimera",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1521.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/encargadaGeneralGobernantaPrimera/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "encargadaGeneralGobernantaPrimera",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/encargadaGeneralGobernantaPrimera/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "encargadaGeneralGobernantaPrimera",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/encargadaGeneralGobernantaPrimera/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "gobernantaSegunda",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/gobernantaSegunda/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "gobernantaSegunda",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/gobernantaSegunda/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "gobernantaSegunda",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/gobernantaSegunda/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "encargadaLenceriaLavadero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/encargadaLenceriaLavadero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "encargadaLenceriaLavadero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/encargadaLenceriaLavadero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "encargadaLenceriaLavadero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/encargadaLenceriaLavadero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "lenceria",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/lenceria/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "lenceria",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/lenceria/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "lenceria",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/lenceria/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "camareraDeHabitacion",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/camareraDeHabitacion/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "camareraDeHabitacion",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/camareraDeHabitacion/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "camareraDeHabitacion",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/camareraDeHabitacion/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "planchadora",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/planchadora/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "planchadora",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/planchadora/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "planchadora",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/planchadora/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "costureroLenceria",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/costureroLenceria/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "costureroLenceria",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/costureroLenceria/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "costureroLenceria",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/costureroLenceria/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "lavandera",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/lavandera/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "lavandera",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/lavandera/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "lavandera",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/lavandera/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "limpiador",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/limpiador/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "limpiador",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/limpiador/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "limpiador",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/limpiador/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "mozoDeLimpieza",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/mozoDeLimpieza/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "mozoDeLimpieza",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/mozoDeLimpieza/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosLimpieza",
+        "categoria": "mozoDeLimpieza",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaCuarta_PisosLimpieza/mozoDeLimpieza/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "encargadoTrabajosServicioTecnico",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/encargadoTrabajosServicioTecnico/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "encargadoTrabajosServicioTecnico",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/encargadoTrabajosServicioTecnico/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "encargadoTrabajosServicioTecnico",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/encargadoTrabajosServicioTecnico/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialMecanicoCalefactor",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialMecanicoCalefactor/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialMecanicoCalefactor",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialMecanicoCalefactor/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialMecanicoCalefactor",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialMecanicoCalefactor/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialEbanista",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialEbanista/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialEbanista",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialEbanista/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialEbanista",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialEbanista/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialCarpintero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialCarpintero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialCarpintero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialCarpintero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialCarpintero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialCarpintero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialJardinero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialJardinero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialJardinero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialJardinero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "oficialJardinero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/oficialJardinero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteMecanicoCalefactor",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteMecanicoCalefactor/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteMecanicoCalefactor",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteMecanicoCalefactor/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteMecanicoCalefactor",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteMecanicoCalefactor/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteJardinero",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteJardinero/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteJardinero",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteJardinero/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteJardinero",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteJardinero/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteCarpinteroEbanista",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1266.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteCarpinteroEbanista/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteCarpinteroEbanista",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteCarpinteroEbanista/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoServiciosAuxiliares",
+        "categoria": "ayudanteCarpinteroEbanista",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1187.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaQuinta_MantenimientoServiciosAuxiliares/ayudanteCarpinteroEbanista/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "responsableServicio",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/responsableServicio/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "responsableServicio",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/responsableServicio/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "responsableServicio",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/responsableServicio/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "tecnicoServicio",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/tecnicoServicio/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "tecnicoServicio",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/tecnicoServicio/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "tecnicoServicio",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/tecnicoServicio/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "especialistaServicio",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/especialistaServicio/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "especialistaServicio",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/especialistaServicio/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "especialistaServicio",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/especialistaServicio/tercera"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "auxiliarServicio",
+        "categoriaEstablecimiento": "lujo1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/auxiliarServicio/lujo1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "auxiliarServicio",
+        "categoriaEstablecimiento": "segunda"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/auxiliarServicio/segunda"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "categoria": "auxiliarServicio",
+        "categoriaEstablecimiento": "tercera"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1304.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I (tablas 2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/areaSexta_ServiciosComplementarios/auxiliarServicio/tercera"
+    }
+  ]
+}

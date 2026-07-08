@@ -1,0 +1,42 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../caceres-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el salario base mensual Único por GRUPO PROFESIONAL (1-3, sin categorías de establecimiento) de la tabla DEFINITIVA de 2025 (revisión IPC +0,9% retroactiva a 01-01-2025). No existe tabla de 2026: el convenio sigue vigente por ultraactividad y la de 2025 es la referencia salarial actual, pero aquí la vigencia del hecho se limita al año de la tabla (no se extrapola).",
+  "id": "caceres-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1077.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III / Acta 20-02-2026 (DOE nº59, 26-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2025/1"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1054.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III / Acta 20-02-2026 (DOE nº59, 26-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2025/2"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupoProfesional": "3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1013.07,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III / Acta 20-02-2026 (DOE nº59, 26-03-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2025/3"
+    }
+  ]
+}

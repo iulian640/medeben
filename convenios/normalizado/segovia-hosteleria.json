@@ -1,0 +1,1826 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../segovia-hosteleria.json. Salario base mensual (14 pagas) por ÁREA FUNCIONAL (primera-sexta) × escalón de GRUPO PROFESIONAL (I-III) con sus categorías, años 2022-2026 (publicación única BOP nº29/2023 con los 5 años). La dimensión 'categorias' reproduce literalmente el rótulo de la fila de la tabla. Erratas del BOP anotadas en la transcripción: afectan a casillas de salario AÑO (no derivadas) y a la casilla mes 2024 Área 2ª Grupo I 2º escalón, donde la transcripción fija el valor auto-consistente 1.284,78 (boletín: 1.248,78, aparente errata). NO editar importes aquí.",
+  "id": "segovia-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1271.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/primera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "2.º Jefe/a de Recepción"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1211.03,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/primera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "II",
+        "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1211.03,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/primera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1154.76,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/primera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1092.7,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/primera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Jefe/a de Cocina"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1271.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/segunda/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Segundo Jefe/a de Cocina, Jefe/a de Partida"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1211.03,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/segunda/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "II",
+        "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1154.76,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/segunda/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Ayudante de Economato, Ayudante de Cocina"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1092.7,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/segunda/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Auxiliar de Cocina"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1030.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/segunda/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1271.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/tercera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Segundo Jefe/a de Restaurante o Sala"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1211.03,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/tercera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Jefe/a de Sector"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1211.03,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/tercera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Camarero/a, Barman, Sumiller"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1154.76,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/tercera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "III",
+        "categorias": "Ayudante de Camarero/a, Riders"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1092.7,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/tercera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a General"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1221.21,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/cuarta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Sección"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1164.24,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/cuarta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "II",
+        "categorias": "Camarero/a de Pisos"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1136.83,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/cuarta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Pisos y Limpieza"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1030.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/cuarta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1211.03,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/quinta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "II",
+        "categorias": "Especialista de Mantenimiento y Servicios Auxiliares"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1154.76,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/quinta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1030.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/quinta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Responsable de Servicio"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1271.1,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/sexta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1184.31,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/sexta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1154.76,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/sexta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2022-12-31",
+      "importe": 1030.0,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2022 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2022/sexta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1309.24,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/primera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "2.º Jefe/a de Recepción"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1247.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/primera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "II",
+        "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1247.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/primera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1189.41,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/primera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1125.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/primera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Jefe/a de Cocina"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1309.24,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/segunda/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1247.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/segunda/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "II",
+        "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1189.41,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/segunda/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Ayudante de Economato, Ayudante de Cocina"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1125.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/segunda/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Auxiliar de Cocina"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1060.9,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/segunda/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1309.24,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/tercera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Segundo Jefe/a de Restaurante o Sala"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1247.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/tercera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Jefe/a de Sector"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1223.26,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/tercera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Camarero/a, Barman, Sumiller"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1189.41,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/tercera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "III",
+        "categorias": "Ayudante de Camarero/a, Riders"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1125.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/tercera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a General"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1266.66,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/cuarta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Sección"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1207.35,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/cuarta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "II",
+        "categorias": "Camarero/a de Pisos"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1171.27,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/cuarta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Pisos y Limpieza"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1060.9,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/cuarta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1247.36,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/quinta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "II",
+        "categorias": "Especialista de Mantenimiento y Servicios Auxiliares"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1189.41,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/quinta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1060.9,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/quinta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Responsable de Servicio"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1309.24,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/sexta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1219.84,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/sexta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1189.41,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/sexta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1060.9,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2023 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2023/sexta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1348.51,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/primera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "2.º Jefe/a de Recepción"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1284.78,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/primera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "II",
+        "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1284.78,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/primera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1225.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/primera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1159.24,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/primera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Jefe/a de Cocina"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1348.51,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/segunda/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1284.78,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/segunda/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "II",
+        "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1225.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/segunda/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Ayudante de Economato, Ayudante de Cocina"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1159.24,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/segunda/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Auxiliar de Cocina"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1092.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/segunda/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1348.51,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/tercera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Segundo Jefe/a de Restaurante o Sala"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1284.78,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/tercera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Jefe/a de Sector"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1284.78,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/tercera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Camarero/a, Barman, Sumiller"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1225.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/tercera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "III",
+        "categorias": "Ayudante de Camarero/a, Riders"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1159.24,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/tercera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a General"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1312.11,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/cuarta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Sección"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1250.46,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/cuarta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "II",
+        "categorias": "Camarero/a de Pisos"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1205.71,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/cuarta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Pisos y Limpieza"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1092.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/cuarta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1284.78,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/quinta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "II",
+        "categorias": "Especialista de Mantenimiento y Servicios Auxiliares"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1225.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/quinta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1092.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/quinta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Responsable de Servicio"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1348.51,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/sexta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1256.44,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/sexta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1225.09,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/sexta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1092.73,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2024 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2024/sexta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1375.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/primera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "2.º Jefe/a de Recepción"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/primera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "II",
+        "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/primera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.59,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/primera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1182.43,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/primera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Jefe/a de Cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1375.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/segunda/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/segunda/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "II",
+        "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.59,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/segunda/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Ayudante de Economato, Ayudante de Cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1182.43,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/segunda/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Auxiliar de Cocina"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1114.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/segunda/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1375.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/tercera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Segundo Jefe/a de Restaurante o Sala"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/tercera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Jefe/a de Sector"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/tercera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Camarero/a, Barman, Sumiller"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.59,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/tercera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "III",
+        "categorias": "Ayudante de Camarero/a, Riders"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1182.43,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/tercera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a General"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1357.56,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/cuarta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Sección"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1292.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/cuarta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "II",
+        "categorias": "Camarero/a de Pisos"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1240.15,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/cuarta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Pisos y Limpieza"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1114.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/cuarta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1310.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/quinta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "II",
+        "categorias": "Especialista de Mantenimiento y Servicios Auxiliares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.59,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/quinta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1114.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/quinta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Responsable de Servicio"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1375.48,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/sexta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1281.57,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/sexta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.59,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/sexta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1114.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2025 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2025/sexta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Recepción, Jefe/a de Administración, Comercial, Primer Conserje"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1402.99,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/primera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "I",
+        "categorias": "2.º Jefe/a de Recepción"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1336.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/primera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "II",
+        "categorias": "Administrativo/a, Comercial, Recepcionista, Conserje, Relaciones Públicas, Técnico/a de Prevención de Riesgos"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1336.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/primera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Ayudantes de Recepción-Conserjería-Administrativo/a, Conserje, Telefonista"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1274.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/primera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "primera",
+        "grupo": "III",
+        "categorias": "Auxiliar de Recepción, Auxiliar de Conserjería"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1206.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/primera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Jefe/a de Cocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1402.99,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/segunda/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "I",
+        "categorias": "Segundo/a Jefe de Cocina, Jefe/a de Partida"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1336.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/segunda/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "II",
+        "categorias": "Cocinero/a, Repostero/a, Encargado/a de Economato"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1274.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/segunda/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Ayudante de Economato, Ayudante de Cocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1206.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/segunda/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "segunda",
+        "grupo": "III",
+        "categorias": "Auxiliar de Cocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1136.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/segunda/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Jefe/a de Restaurante o Sala, Gerente de Centro"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1402.99,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/tercera/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "I",
+        "categorias": "Segundo/a Jefe de Restaurante o Sala"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1336.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/tercera/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Jefe/a de Sector"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1336.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/tercera/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "II",
+        "categorias": "Camarero/a, Barman, Sumiller"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1274.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/tercera/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "tercera",
+        "grupo": "III",
+        "categorias": "Ayudante de Camarero/a, Riders"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1206.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/tercera/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a General"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1402.99,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/cuarta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Sección"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1336.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/cuarta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "II",
+        "categorias": "Camarero/a de Pisos"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1274.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/cuarta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "cuarta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Pisos y Limpieza"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1136.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/cuarta/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "I",
+        "categorias": "Encargado/a de Mantenimiento y Servicios Técnicos y/o Auxiliares, Encargado/a de Sección"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1336.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/quinta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "II",
+        "categorias": "Especialista de Mantenimiento y Servicios Auxiliares"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1274.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/quinta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "quinta",
+        "grupo": "III",
+        "categorias": "Auxiliar de Mantenimiento y Servicios Auxiliares, Monitor"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1136.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/quinta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Responsable de Servicio"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1402.99,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/sexta/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "I",
+        "categorias": "Personal Técnico de Servicio (Dietista, Fisioterapeuta y otros titulados de la Salud)"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1307.2,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/sexta/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Especialista de Servicios (Socorrista, primeros auxilios, disk jockey, masajista/quiromasajista, especialistas de atención al cliente)"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1274.58,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/sexta/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "area": "sexta",
+        "grupo": "II",
+        "categorias": "Auxiliar de Servicio (atención al cliente, auxiliar de balneario o piscina)"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1136.87,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales 2026 (Art. 15; BOP nº29, 08-03-2023)",
+      "rutaCruda": "/tablasSalariales/2026/sexta/3/mes"
+    }
+  ]
+}

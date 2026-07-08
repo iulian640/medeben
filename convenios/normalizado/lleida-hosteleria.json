@@ -1,0 +1,1098 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../lleida-hosteleria.json (la transcripción verificada es la fuente de verdad). Salario mensual GARANTIZADO por nivel (I-VI + V BIS) y categoría de establecimiento (A-D), años 2023-2025. 2025 verificado en imagen del BOP Lleida nº162/2025; 2023-2024 del texto del convenio (BOP 130/2024). La eventual revisión IPC 2026 no está publicada: sin hechos 2026. NO editar importes aquí: se corrige la transcripción y se re-deriva.",
+  "id": "lleida-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1949.2,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1833.17,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1749.37,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1700.65,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/I/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1711.46,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1658.28,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1601.13,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1577.92,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/II/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1528.13,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1468.13,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1420.11,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1380.68,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/III/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1330.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1301.72,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1290.39,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1284.05,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/IV/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.66,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.66,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.66,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.66,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/V/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/V BIS/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/V BIS/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/V BIS/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/V BIS/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/VI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/VI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/VI/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1184.0,
+      "unidad": "EUR/mes",
+      "articulo": "Taules salarials 2025 (BOP Lleida nº 162, 26-08-2025, efectes 01-01-2025)",
+      "rutaCruda": "/tablasSalariales/2025/VI/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1892.43,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1779.77,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1698.42,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1651.12,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/I/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1661.62,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/II/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1609.98,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/II/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1554.49,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/II/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1531.97,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/II/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1483.62,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1425.37,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1378.75,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1340.47,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/III/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1291.27,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1263.81,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1252.81,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1246.65,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/IV/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1213.26,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1213.26,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1213.26,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1213.26,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/V/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/V BIS/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/V BIS/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/V BIS/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/V BIS/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/VI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/VI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/VI/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1134.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2024 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2024_referencia/VI/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1837.31,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1727.94,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1648.95,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1603.03,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/I/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1613.22,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/II/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1563.09,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/II/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1509.22,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/II/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1487.35,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/II/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1440.41,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1383.85,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1338.59,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1301.42,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/III/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1253.66,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1227.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1216.32,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1210.34,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/IV/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1177.93,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1177.93,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1177.93,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1177.93,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/V/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1080.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/V BIS/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1080.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/V BIS/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1080.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/V BIS/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V BIS",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1080.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/V BIS/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1080.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/VI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1080.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/VI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1080.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/VI/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1080.0,
+      "unidad": "EUR/mes",
+      "articulo": "Annex I / taules 2023 (BOP Lleida nº 130, 05-07-2024)",
+      "rutaCruda": "/tablasSalariales/2023_referencia/VI/D"
+    }
+  ]
+}

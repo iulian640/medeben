@@ -1,0 +1,102 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../alava-hosteleria.json (fuente de verdad). Cubre el Anexo III, columna SALARIO BASE por nivel salarial I-IV: tabla 2025 (con efectos SOLO desde el 01-12-2025, art. 2) y tabla 2026 (año natural). Las columnas complemento en especie, bruto mes, pagas, hora extra, IT y garantía mínima son conceptos distintos (fuera del alcance v1). Tablas 2027 y 2028 NO publicadas (ligadas a IPC, art. 21): sin hechos. NO editar importes aquí: se corrige la transcripción y se re-deriva.",
+  "id": "alava-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2025-12-01",
+      "hasta": "2025-12-31",
+      "importe": 1829.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (columna SALARIO BASE)",
+      "rutaCruda": "/salariosBaseMensuales/2025_desde_1_dic/I/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2025-12-01",
+      "hasta": "2025-12-31",
+      "importe": 1687.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (columna SALARIO BASE)",
+      "rutaCruda": "/salariosBaseMensuales/2025_desde_1_dic/II/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2025-12-01",
+      "hasta": "2025-12-31",
+      "importe": 1558.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (columna SALARIO BASE)",
+      "rutaCruda": "/salariosBaseMensuales/2025_desde_1_dic/III/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2025-12-01",
+      "hasta": "2025-12-31",
+      "importe": 1463.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (columna SALARIO BASE)",
+      "rutaCruda": "/salariosBaseMensuales/2025_desde_1_dic/IV/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1891.61,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (columna SALARIO BASE)",
+      "rutaCruda": "/salariosBaseMensuales/2026/I/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1745.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (columna SALARIO BASE)",
+      "rutaCruda": "/salariosBaseMensuales/2026/II/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1611.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (columna SALARIO BASE)",
+      "rutaCruda": "/salariosBaseMensuales/2026/III/salarioBase"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1513.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III (columna SALARIO BASE)",
+      "rutaCruda": "/salariosBaseMensuales/2026/IV/salarioBase"
+    }
+  ]
+}

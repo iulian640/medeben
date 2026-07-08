@@ -52,9 +52,25 @@ Un fichero por convenio, mismo nombre que su transcripción: `<id>.json`.
 
 ## Estado de derivación
 
-| Convenio | Conceptos derivados |
-|---|---|
-| madrid-hosteleria | salarioBase (Anexo I general + catering, 2023-2025). Anexo III (% servicio histórico) fuera de alcance: solo empresas que lo conservan. |
-| baleares-hosteleria | salarioBase (Anexos I-II, nivel × categoría, periodos abr-mar 2025-2028) |
+**54 de 55 convenios derivados** (2026-07-08), ~8.760 hechos `salarioBase`, todos con
+procedencia verificada. El único sin fichero es `aleh-estatal`: es un acuerdo marco
+(clasificación, periodo de prueba, disciplinario) sin tablas salariales — correcto que no exista.
 
-Los 53 restantes: pendientes de derivar (proceso mecánico por agentes, la transcripción manda).
+Huecos conocidos dentro de ficheros derivados (documentados en el `$comment` de cada uno):
+
+- **estatal-restauracion-colectiva**: Lugo sin derivar (la transcripción trae esa provincia
+  como strings multi-columna, sin celdas numéricas para `rutaCruda` — re-transcribir algún día)
+  y 1 celda de Córdoba con errata del propio BOE (`"1.21,73"`).
+- **Regímenes especiales fuera de alcance v1**: Anexo III de madrid-hosteleria (% de servicio
+  histórico), Anexo IV de cadiz (casinos), Anexo II BIS de valencia (sin experiencia),
+  baremos de cafeterías de cataluna.
+- **Años `pendiente` en la transcripción = sin hechos** (teruel 2024-26, murcia 2025+,
+  huesca 2025-26...): el motor aplica la última tabla publicada por ultraactividad.
+- Tablas **provisionales** publicadas (badajoz 2026, guadalajara 2026, albacete jul-dic 2025,
+  salamanca 2026) sí están derivadas, marcadas en su `articulo`/`$comment` — re-derivar
+  cuando salga la definitiva (regla D32).
+- **melilla**: 16 celdas "S.M.I." sin hecho (retribución = SMI legal, no cifra del convenio);
+  **murcia**: el plus SMI va aparte; **cuenca** publica en EUR/año (ver `unidad`).
+
+Regla de vigencias: la capa deriva el rango que publica el boletín (año natural, periodos
+abr→mar, temporadas jul→jun...); NUNCA extiende por ultraactividad — eso lo resuelve el motor.

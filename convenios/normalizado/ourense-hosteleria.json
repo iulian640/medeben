@@ -1,0 +1,942 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../ourense-hosteleria.json. Salario base mensual por GRUPO PROFESIONAL (1-6) × CATEGORÍA DE ESTABLECIMIENTO (1a-4a), años 2025-2027. 2025 del Anexo V (BOP nº190); 2026-2027 de las tablas re-ratificadas al alza por revisión IPC (BOP nº34, 20-02-2026), la publicación más reciente. Peculiaridad OFICIAL verificada en imagen (no errata de transcripción): Grupo 2 3ª categoría > 2ª, y Grupo 4 2ª = 3ª. NO editar importes aquí.",
+  "id": "ourense-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1660.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/1/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1621.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/1/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1582.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/1/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1543.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/1/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1543.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/2/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1504.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/2/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1537.18,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/2/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1428.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/2/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1458.01,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/3/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1419.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/3/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1380.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/3/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1341.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/3/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1302.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/4/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1263.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/4/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1263.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/4/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1226.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/4/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/5/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/5/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/5/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/5/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/6/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/6/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/6/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V (BOP nº190, 03-10-2025)",
+      "rutaCruda": "/salariosBaseMensuales/2025/6/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1708.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/1/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1668.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/1/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1628.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/1/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1588.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/1/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1588.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/2/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1548.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/2/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1581.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/2/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1469.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/2/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1500.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/3/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1460.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/3/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1420.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/3/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1380.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/3/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1340.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/4/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.01,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/4/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.01,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/4/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1261.98,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/4/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/5/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/5/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/5/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/5/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/6/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/6/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/6/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2026/6/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1768.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/1/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1726.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/1/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1685.39,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/1/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "1",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1644.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/1/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1644.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/2/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1602.41,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/2/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1637.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/2/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "2",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1521.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/2/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1552.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/3/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1511.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/3/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1470.07,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/3/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "3",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1428.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/3/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1387.07,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/4/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1345.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/4/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1345.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/4/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "4",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1306.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/4/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1268.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/5/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1268.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/5/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1268.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/5/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "5",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1268.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/5/4a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "1a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1268.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/6/1a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "2a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1268.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/6/2a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "3a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1268.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/6/3a"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "grupo": "6",
+        "categoriaEstablecimiento": "4a"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1268.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo V, tablas revisadas por IPC (BOP nº34, 20-02-2026)",
+      "rutaCruda": "/salariosBaseMensuales/2027/6/4a"
+    }
+  ]
+}

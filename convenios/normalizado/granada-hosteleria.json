@@ -1,0 +1,370 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../granada-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Salario base mensual bruto por nivel profesional (I-VI + IV_BIS) x categoría de establecimiento (A/B/C/D), Anexo IV (tabla 2025, la más reciente publicada y vigente en 2026 por ultraactividad). El nivel IV_BIS es solo para Camareras/os de Pisos y solo durante 2025 (Art. 28.2.d); desde el 01-01-2026 ese colectivo cobra como Nivel IV. Las tablas 2020-2024 existen en el BOP pero no están transcritas -> sin hechos.",
+  "id": "granada-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1873.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1724.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1724.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1675.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1723.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1681.57,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1591.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1515.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1697.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1539.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1469.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1439.36,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1675.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1528.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1463.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1435.89,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV_BIS",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1601.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV_BIS/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV_BIS",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1495.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV_BIS/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV_BIS",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1440.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV_BIS/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "IV_BIS",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1426.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/IV_BIS/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1528.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1463.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1416.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "V",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1416.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/V/D"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1397.01,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/VI/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1351.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/VI/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1348.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/VI/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "VI",
+        "categoriaEstablecimiento": "D"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1348.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo IV",
+      "rutaCruda": "/salariosBaseMensuales/2025/VI/D"
+    }
+  ]
+}

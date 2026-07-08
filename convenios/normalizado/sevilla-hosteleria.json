@@ -1,0 +1,4478 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../sevilla-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre las tablas del Anexo I punto 2: salario base mensual por TIPO DE ESTABLECIMIENTO (17 tablas: hoteles/apartamentos por estrellas, moteles-pensiones, restaurantes, cafeterías, cafés-bares, bares especiales, tabernas, casinos, billares) × NIVEL (1-5, con 3 Bis en alojamiento), años 2025-2028 (convenio multi-año, todas las tablas publicadas de una vez).",
+  "id": "sevilla-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1571.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1650.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1716.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1785.11,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1516.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1592.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1655.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1721.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1423.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1495.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1554.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1617.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1340.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 3 Bis/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1427.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 3 Bis/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1506.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 3 Bis/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1589.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 3 Bis/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1265.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1328.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1381.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1436.82,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1238.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1300.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1352.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_5_4_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1406.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_5_4_estrellas/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1417.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1547.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1609.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1319.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1385.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1441.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1498.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1273.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1337.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1391.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1446.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1273.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 3 Bis/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1337.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 3 Bis/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1391.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 3 Bis/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1446.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 3 Bis/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1220.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1281.24,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1332.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1385.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1220.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1281.24,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1332.49,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_3_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1385.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_3_estrellas/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1307.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1372.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1427.74,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1484.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1274.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1338.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1392.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1447.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1286.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1337.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1391.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1225.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 3 Bis/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1286.31,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 3 Bis/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1337.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 3 Bis/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1391.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 3 Bis/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1163.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1222.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1271.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1321.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1163.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1222.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1271.04,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_2_estrellas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1321.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_2_estrellas/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1275.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1339.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1393.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1448.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1244.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1306.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1358.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1412.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1195.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1254.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1305.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1357.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1195.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 3 Bis/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1254.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 3 Bis/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1305.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 3 Bis/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1357.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 3 Bis/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1191.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1239.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1289.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1191.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1239.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "hoteles_apartamentos_1_estrella",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1289.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/hoteles_apartamentos_1_estrella/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1275.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1339.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1393.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1448.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1244.02,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1306.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1358.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1412.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1195.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1254.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1305.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1357.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1195.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 3 Bis/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1254.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 3 Bis/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1305.17,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 3 Bis/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 3 Bis"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1357.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 3 Bis/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1191.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1239.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1289.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1135.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1191.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1239.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "moteles_camping_pensiones_hostales_residencias_geriatricas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1289.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/moteles_camping_pensiones_hostales_residencias_geriatricas/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1560.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1638.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1704.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1772.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1505.21,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1580.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1643.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1709.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1413.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1483.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1543.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1604.85,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1290.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1355.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1409.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1465.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1290.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1355.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1409.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_5_4_tenedores",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1465.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_5_4_tenedores/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1359.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1427.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1484.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1543.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1324.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1390.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1446.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1504.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1292.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1356.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1410.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1467.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1210.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1270.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1321.61,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1374.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1210.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1270.78,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1321.61,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurantes_3_2_tenedores_y_catering",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1374.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurantes_3_2_tenedores_y_catering/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1346.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1413.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1470.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1529.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1312.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1377.9,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1433.01,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1490.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1280.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1344.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1397.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1453.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1198.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1258.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1309.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1361.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1198.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1258.91,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1309.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1361.64,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/restaurante_1_tenedor_tabernas_con_comidas_colectividades_pizzerias_hamburgueserias_bagueterias/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1346.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1413.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1470.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1528.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1298.1,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1363.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1417.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1474.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1248.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1310.96,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1363.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1417.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1215.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1276.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1327.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1380.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1215.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1276.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1327.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_3_2_tazas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1380.8,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_3_2_tazas/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1303.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1368.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1423.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1480.12,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1271.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1334.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1388.07,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1443.6,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1223.53,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1284.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1336.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1389.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1204.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1264.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1315.32,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1367.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1204.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1264.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1315.32,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafeterias_1_taza_y_creperias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1367.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafeterias_1_taza_y_creperias/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1302.19,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1367.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1422.0,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1478.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1254.55,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1317.28,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1369.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1424.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1205.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1316.18,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1368.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1173.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1231.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1280.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1332.18,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1173.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1231.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1280.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1332.18,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_cafes_bares_categoria_especial_cervecerias_chocolaterias_heladerias/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1265.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1328.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1382.15,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1437.43,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1233.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1295.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1347.27,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1401.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1186.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1245.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1295.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1347.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1274.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1325.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1274.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "cafes_y_cafes_bares_de_4a",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1325.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/cafes_y_cafes_bares_de_4a/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1376.52,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1445.35,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1503.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1563.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1308.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1373.66,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1428.61,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1485.75,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1249.13,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1311.59,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1364.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1418.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1233.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1295.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1347.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1401.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1233.95,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1295.65,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1347.47,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1401.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/bares_categoria_especial_pubs_disco_bares_salas_fiestas_te_discotecas_cafes_teatros_tablaos_salas_baile/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1186.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1245.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1295.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1347.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1274.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1325.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1167.46,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1225.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1274.87,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "tabernas_sin_comidas",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1325.86,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/tabernas_sin_comidas/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1528.88,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1605.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1669.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1736.32,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1473.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1547.09,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1608.97,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1673.33,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1431.07,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1502.62,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1562.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1625.24,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1450.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1508.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1568.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1381.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1450.56,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1508.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_1a_2a_categoria",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1568.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_1a_2a_categoria/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1465.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 1/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1538.51,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 1/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1600.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 1/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 1"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1664.05,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 1/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1433.01,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 2/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1504.66,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 2/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1564.84,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 2/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 2"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1627.44,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 2/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1383.75,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1452.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1511.06,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1571.5,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1351.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1418.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1475.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1534.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1351.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1418.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1475.69,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "casinos_3a_4a_categoria",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1534.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/casinos_3a_4a_categoria/Nivel 5/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1210.99,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 3/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1271.54,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 3/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1322.4,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 3/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 3"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1375.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 3/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1190.22,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 4/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1249.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 4/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1299.72,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 4/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 4"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1351.71,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 4/2028"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1173.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 5/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1231.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 5/2026"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2027-01-01",
+      "hasta": "2027-12-31",
+      "importe": 1280.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 5/2027"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "tipoEstablecimiento": "billares_y_salones_de_recreo",
+        "nivel": "Nivel 5"
+      },
+      "desde": "2028-01-01",
+      "hasta": "2028-12-31",
+      "importe": 1332.18,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo I punto 2",
+      "rutaCruda": "/tablasSalariales/billares_y_salones_de_recreo/Nivel 5/2028"
+    }
+  ]
+}

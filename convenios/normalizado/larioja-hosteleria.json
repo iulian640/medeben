@@ -1,0 +1,150 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../larioja-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí. Cubre el salario base mensual por NIVEL profesional (I, II, III; sin categorías de establecimiento), Anexo de tablas + Art. 8. Periodos: la tabla '2022_a_2023H1' rige del 01-01-2022 al 30-06-2023 y la '2023H2' desde el 01-07-2023 (incremento a mitad de año), tal como indica la transcripción. 2026 'pendiente' (D32): sin hechos; en ultraactividad aplica la tabla 2025.",
+  "id": "larioja-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2023-06-30",
+      "importe": 1246.75,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2022_a_2023H1/I/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2023-06-30",
+      "importe": 1208.0,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2022_a_2023H1/II/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2022-01-01",
+      "hasta": "2023-06-30",
+      "importe": 1175.61,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2022_a_2023H1/III/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2023-07-01",
+      "hasta": "2023-12-31",
+      "importe": 1302.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2023H2/I/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2023-07-01",
+      "hasta": "2023-12-31",
+      "importe": 1262.36,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2023H2/II/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2023-07-01",
+      "hasta": "2023-12-31",
+      "importe": 1228.51,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2023H2/III/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1344.54,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2024/I/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1302.76,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2024/II/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1267.82,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2024/III/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "I"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1384.88,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2025/I/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "II"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1341.84,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2025/II/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "III"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1305.85,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 8 + Anexo de tablas salariales",
+      "rutaCruda": "/salariosBaseMensuales/2025/III/mes"
+    }
+  ]
+}

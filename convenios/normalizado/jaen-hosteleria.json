@@ -1,0 +1,294 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../jaen-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí. Cubre el salario base mensual por NIVEL retributivo (claves literales '1.35' a '1.70', tal cual en la transcripción), años 2023-2025 (Art. 40 + Anexos I-III). El nivel de cada categoría depende del tipo y categoría de establecimiento (Anexo VII, 'asignacionNivelPorCategoria' de la transcripción): esa correspondencia NO está derivada aquí. 2026 'pendiente' (D32): sin hechos.",
+  "id": "jaen-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.35"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1037.12,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.35/2023"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.40"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1098.82,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.40/2023"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.45"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1153.66,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.45/2023"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.50"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1230.67,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.50/2023"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.55"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1283.89,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.55/2023"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.60"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1335.49,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.60/2023"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.65"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1361.47,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.65/2023"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.70"
+      },
+      "desde": "2023-01-01",
+      "hasta": "2023-12-31",
+      "importe": 1379.94,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.70/2023"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.35"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1114.9,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.35/2024"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.40"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1181.23,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.40/2024"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.45"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1240.18,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.45/2024"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.50"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1322.97,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.50/2024"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.55"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1380.18,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.55/2024"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.60"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1435.65,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.60/2024"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.65"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1463.58,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.65/2024"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.70"
+      },
+      "desde": "2024-01-01",
+      "hasta": "2024-12-31",
+      "importe": 1483.44,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.70/2024"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.35"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1148.35,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.35/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.40"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1216.67,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.40/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.45"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1277.39,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.45/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.50"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1362.66,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.50/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.55"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1421.59,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.55/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.60"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1478.72,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.60/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.65"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1507.49,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.65/2025"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1.70"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1527.94,
+      "unidad": "EUR/mes",
+      "articulo": "Art. 40 + Anexos I, II, III",
+      "rutaCruda": "/salariosBaseMensuales/porNivel/1.70/2025"
+    }
+  ]
+}

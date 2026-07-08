@@ -1,0 +1,474 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../alicante-hosteleria.json (fuente de verdad). Cubre las tablas de salario base mensual por nivel retributivo 1-6 × grupo de establecimiento A/B/C: tabla 2026 (VIGENTE, BOP nº29 12-02-2026) y tabla 2025 (histórico, BOP nº33 18-02-2025). 2026 es el último año del calendario pactado del convenio 2023-2026. Horas extra, nocturnidad y compensación de fiestas son conceptos distintos (fuera del alcance v1). NO editar importes aquí: se corrige la transcripción y se re-deriva.",
+  "id": "alicante-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1727.77,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/1/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1644.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/1/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1499.7,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/1/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1616.63,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/2/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1532.98,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/2/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1428.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/2/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1500.23,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/3/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1460.94,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/3/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1397.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/3/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1461.45,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/4/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1388.3,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/4/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1314.25,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/4/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1350.68,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/5/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1308.03,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/5/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1277.42,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/5/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "6",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1270.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/6/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "6",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1269.73,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/6/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "6",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1268.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Resolución tablas salariales 2026 (BOP Alicante nº29, 12-02-2026, anuncio 819/2026)",
+      "rutaCruda": "/salariosBaseMensuales2026/6/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1693.89,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/1/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1612.58,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/1/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "1",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1470.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/1/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1584.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/2/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1502.92,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/2/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "2",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1400.16,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/2/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1470.81,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/3/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1432.29,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/3/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "3",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1369.76,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/3/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1432.79,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/4/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1361.08,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/4/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "4",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1288.48,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/4/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1324.2,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/5/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1282.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/5/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "5",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1252.37,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/5/C"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "6",
+        "grupoEstablecimiento": "A"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1245.38,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/6/A"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "6",
+        "grupoEstablecimiento": "B"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1244.83,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/6/B"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "nivel": "6",
+        "grupoEstablecimiento": "C"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1243.93,
+      "unidad": "EUR/mes",
+      "articulo": "Anexo III — Tabla salarial 2025 (BOP Alicante nº33, 18-02-2025, anuncio 971/2025)",
+      "rutaCruda": "/salariosBaseMensuales2025/6/C"
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../burgos-hosteleria.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre el salario base mensual (14 pagas) por ÁREA FUNCIONAL, GRUPO PROFESIONAL y puestos, de las tablas DEFINITIVAS de 2026 (BOP nº54). La dimensión 'puestos' distingue las filas de un mismo área+grupo con salario distinto (así las trae la tabla oficial). La transcripción solo contiene la tabla de 2026: sin hechos para 2023-2025.",
+  "id": "burgos-hosteleria",
+  "hechos": [
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaRRPPAdministracion",
+        "grupo": "I",
+        "puestos": "Jefe de recepción, jefe de administración, comercial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1721.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaPrimera_RecepcionConserjeriaRRPPAdministracion/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaRRPPAdministracion",
+        "grupo": "I",
+        "puestos": "2º jefe de recepción, primer conserje de día"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.89,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaPrimera_RecepcionConserjeriaRRPPAdministracion/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaRRPPAdministracion",
+        "grupo": "II",
+        "puestos": "Administrativo comercial"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.89,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaPrimera_RecepcionConserjeriaRRPPAdministracion/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaRRPPAdministracion",
+        "grupo": "II",
+        "puestos": "Recepcionista, relaciones públicas"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1310.33,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaPrimera_RecepcionConserjeriaRRPPAdministracion/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaRRPPAdministracion",
+        "grupo": "III",
+        "puestos": "Ayudante administrativo, telefonista"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1310.33,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaPrimera_RecepcionConserjeriaRRPPAdministracion/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaPrimera_RecepcionConserjeriaRRPPAdministracion",
+        "grupo": "III",
+        "puestos": "Ayudante de recepción, auxiliar de recepción, auxiliar de conserjería"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1253.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaPrimera_RecepcionConserjeriaRRPPAdministracion/5/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "I",
+        "puestos": "Jefe de cocina, jefe de catering"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1721.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaSegunda_CocinaYEconomato/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "I",
+        "puestos": "Segundo jefe de cocina, jefe de partida"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.89,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaSegunda_CocinaYEconomato/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "II",
+        "puestos": "Cocinero, repostero, encargado de economato"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1310.33,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaSegunda_CocinaYEconomato/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSegunda_CocinaYEconomato",
+        "grupo": "III",
+        "puestos": "Ayudante de economato, ayudante de cocina, auxiliar de cocina"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1253.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaSegunda_CocinaYEconomato/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "I",
+        "puestos": "Jefe de restaurante, sala o catering"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1721.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaTercera_RestauranteBarCatering/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "I",
+        "puestos": "Segundo jefe de restaurante o sala"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.89,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaTercera_RestauranteBarCatering/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "II",
+        "puestos": "Jefe de sector, supervisor de catering"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.89,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaTercera_RestauranteBarCatering/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "II",
+        "puestos": "Camarero, barman, sumiller, preparador montador de catering"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1310.33,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaTercera_RestauranteBarCatering/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaTercera_RestauranteBarCatering",
+        "grupo": "III",
+        "puestos": "Ayudante de camarero, ayudante equipo catering, auxiliar preparación catering"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1253.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaTercera_RestauranteBarCatering/4/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosYLimpieza",
+        "grupo": "I",
+        "puestos": "Encargado general"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.89,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaCuarta_PisosYLimpieza/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosYLimpieza",
+        "grupo": "I",
+        "puestos": "Encargado de sección"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1310.33,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaCuarta_PisosYLimpieza/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosYLimpieza",
+        "grupo": "II",
+        "puestos": "Camarero/a de pisos"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1265.33,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaCuarta_PisosYLimpieza/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaCuarta_PisosYLimpieza",
+        "grupo": "III",
+        "puestos": "Auxiliar de pisos y limpieza"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1253.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaCuarta_PisosYLimpieza/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoYServiciosAuxiliares",
+        "grupo": "I",
+        "puestos": "Jefe de servicios"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1721.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaQuinta_MantenimientoYServiciosAuxiliares/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoYServiciosAuxiliares",
+        "grupo": "II",
+        "puestos": "Encargado de mantenimiento y/o servicios auxiliares, técnico de catering o flota o de instalaciones y edificios"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.89,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaQuinta_MantenimientoYServiciosAuxiliares/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoYServiciosAuxiliares",
+        "grupo": "III",
+        "puestos": "Mecánico, calefactor, ebanista, electricista, carpintero, albañil, pintor, conductor, fontanero, jardinero, especialista de mantenimiento y servicios técnicos"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1310.33,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaQuinta_MantenimientoYServiciosAuxiliares/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaQuinta_MantenimientoYServiciosAuxiliares",
+        "grupo": "III",
+        "puestos": "Ayte. mecánico o calefactor, ayudante de ebanista, de carpintero, de electricista, de albañil y pintor-mozo de billar o salón de recreo, guarda del exterior, monitor"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1253.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaQuinta_MantenimientoYServiciosAuxiliares/3/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "grupo": "I",
+        "puestos": "Responsable de servicio"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1721.07,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaSexta_ServiciosComplementarios/0/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "grupo": "II",
+        "puestos": "Técnico de servicio, fisioterapeuta, dietista y otros titulados en salud"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1488.89,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaSexta_ServiciosComplementarios/1/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "grupo": "II",
+        "puestos": "Especialista de servicios (socorrista, primeros auxilios, disc-jockey, masajista, monitor deportivo, quiromasajista, especialista de atención al cliente)"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1310.33,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaSexta_ServiciosComplementarios/2/mes"
+    },
+    {
+      "concepto": "salarioBase",
+      "dimensiones": {
+        "areaFuncional": "areaSexta_ServiciosComplementarios",
+        "grupo": "III",
+        "puestos": "Auxiliar de servicio (auxiliar atención al cliente, auxiliar de balneario o piscina)"
+      },
+      "desde": "2026-01-01",
+      "hasta": "2026-12-31",
+      "importe": 1253.69,
+      "unidad": "EUR/mes",
+      "articulo": "Tablas salariales definitivas 2026 (BOP Burgos nº54, 19-03-2026)",
+      "rutaCruda": "/tablasSalariales/2026/areaSexta_ServiciosComplementarios/3/mes"
+    }
+  ]
+}
