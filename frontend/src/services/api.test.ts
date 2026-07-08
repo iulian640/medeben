@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { api, ApiError, getHealth } from './api'
+import { api, ApiError, getHealth, setAuthToken, setOnUnauthorized } from './api'
 
 function mockFetch(response: Partial<Response> & { jsonValue?: unknown }) {
   const fetchMock = vi.fn().mockResolvedValue({
@@ -16,6 +16,8 @@ function mockFetch(response: Partial<Response> & { jsonValue?: unknown }) {
 afterEach(() => {
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
+  setAuthToken(null)
+  setOnUnauthorized(null)
 })
 
 describe('api client', () => {
@@ -71,5 +73,68 @@ describe('api client', () => {
     mockFetch({ status: 204, headers: new Headers({ 'Content-Length': '0' }) })
 
     await expect(api.delete('/x')).resolves.toBeUndefined()
+  })
+})
+
+describe('api client auth token', () => {
+  it('attaches Authorization: Bearer when a token is set', async () => {
+    const fetchMock = mockFetch({ jsonValue: {} })
+    setAuthToken('mi-jwt')
+
+    await api.get('/perfil')
+
+    const [, init] = fetchMock.mock.calls[0]
+    expect((init.headers as Record<string, string>)['Authorization']).toBe('Bearer mi-jwt')
+  })
+
+  it('sends no Authorization header when there is no token', async () => {
+    const fetchMock = mockFetch({ jsonValue: {} })
+
+    await api.get('/provincias')
+
+    const [, init] = fetchMock.mock.calls[0]
+    expect((init.headers as Record<string, string>)['Authorization']).toBeUndefined()
+  })
+
+  it('stops attaching the token after clearing it', async () => {
+    const fetchMock = mockFetch({ jsonValue: {} })
+    setAuthToken('mi-jwt')
+    setAuthToken(null)
+
+    await api.get('/provincias')
+
+    const [, init] = fetchMock.mock.calls[0]
+    expect((init.headers as Record<string, string>)['Authorization']).toBeUndefined()
+  })
+
+  it('notifies the unauthorized handler on a 401 from an authenticated request', async () => {
+    mockFetch({ ok: false, status: 401, statusText: 'Unauthorized', jsonValue: null })
+    const onUnauthorized = vi.fn()
+    setAuthToken('jwt-caducado')
+    setOnUnauthorized(onUnauthorized)
+
+    await expect(api.get('/perfil')).rejects.toBeInstanceOf(ApiError)
+    expect(onUnauthorized).toHaveBeenCalledTimes(1)
+  })
+
+  it('does NOT notify the handler on a 401 without token (failed login is not an expired session)', async () => {
+    mockFetch({ ok: false, status: 401, statusText: 'Unauthorized', jsonValue: null })
+    const onUnauthorized = vi.fn()
+    setOnUnauthorized(onUnauthorized)
+
+    await expect(api.post('/auth/login', { email: 'a@b.c', password: 'x' })).rejects.toBeInstanceOf(
+      ApiError,
+    )
+    expect(onUnauthorized).not.toHaveBeenCalled()
+  })
+
+  it('does NOT notify the handler on non-401 errors', async () => {
+    mockFetch({ ok: false, status: 404, statusText: 'Not Found', jsonValue: null })
+    const onUnauthorized = vi.fn()
+    setAuthToken('mi-jwt')
+    setOnUnauthorized(onUnauthorized)
+
+    await expect(api.get('/perfil')).rejects.toBeInstanceOf(ApiError)
+    expect(onUnauthorized).not.toHaveBeenCalled()
   })
 })

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useAuthStore } from '../stores/auth'
+
+const auth = useAuthStore()
 </script>
 
 <template>
@@ -12,6 +15,20 @@
       to="/perfil"
     >
       Calcula tu salario mínimo y tus horas extra
+    </RouterLink>
+    <RouterLink
+      v-if="auth.autenticado"
+      class="secundario"
+      to="/cuenta"
+    >
+      Tu cuenta ({{ auth.email }})
+    </RouterLink>
+    <RouterLink
+      v-else
+      class="secundario"
+      to="/login"
+    >
+      Entra o crea tu cuenta para guardar tu perfil
     </RouterLink>
   </main>
 </template>
@@ -43,5 +60,11 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 1.05rem;
+}
+
+.secundario {
+  margin-top: 0.75rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
 }
 </style>

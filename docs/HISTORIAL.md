@@ -5,6 +5,17 @@ Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
 ## 2026-07-08 — tarde/noche · Arranca la fase APP
 
+- **Frontend de autenticación + cuenta (Vue)**: pantallas de login y registro
+  (validación en cliente calcada a los límites del backend, errores RFC 7807 legibles),
+  store Pinia de sesión con el JWT **solo en memoria** (nunca localStorage — al recargar
+  se pide login de nuevo, aceptado para v1, guía del security-reviewer), cliente API con
+  Bearer automático y manejo de 401 sin bucles (login fallido ≠ sesión caducada), guard
+  de router para `/cuenta` con `?redirect=` blindado contra open redirect, y vista de
+  cuenta que carga/guarda el perfil del servidor (el PUT es full-replace: siempre se
+  manda el objeto completo). TDD estricto (todo test en rojo primero); revisada por
+  vue-reviewer y security-reviewer (ambos APPROVE, cero CRITICAL/HIGH; el MEDIUM de
+  cada uno corregido: token de solo lectura fuera del store y flag anti-doble-push en
+  el manejador de 401). El flujo anónimo sigue intacto.
 - **Perfil laboral persistido** (provincia, puesto, dimensiones, salario real): el
   servidor resuelve el convenio (nunca se confía en el del cliente) y el id de usuario
   sale siempre del token (sin acceso cruzado, verificado por security-reviewer: cero
