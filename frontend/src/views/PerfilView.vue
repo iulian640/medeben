@@ -3,11 +3,13 @@ import { computed, onMounted } from 'vue'
 import { usePerfilStore } from '../stores/perfil'
 import { SUBSECTORES } from '../lib/subsectores'
 import {
+  describeVigencia,
+  esUrlSegura,
   etiquetaDimension,
   etiquetaUnidad,
   explicacionDimension,
-  formatearFecha,
   formatearImporte,
+  hoyIso,
 } from '../lib/formato'
 import CitasFuente from '../components/CitasFuente.vue'
 import HorasExtraCalculadora from '../components/HorasExtraCalculadora.vue'
@@ -116,9 +118,15 @@ function onPuesto(event: Event) {
         {{ perfil.convenio.nombre }}
       </p>
       <p class="tarjeta-detalle">
-        Vigencia: {{ formatearFecha(perfil.convenio.vigenciaDesde) }} –
-        {{ formatearFecha(perfil.convenio.vigenciaHasta) }}
+        {{ describeVigencia(perfil.convenio.vigenciaDesde, perfil.convenio.vigenciaHasta, hoyIso()) }}
       </p>
+      <a
+        v-if="esUrlSegura(perfil.convenio.fuenteUrl)"
+        class="tarjeta-enlace"
+        :href="perfil.convenio.fuenteUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Ver el convenio completo (boletín oficial)</a>
     </section>
 
     <!-- Paso 3: ¿de qué trabajas? -->

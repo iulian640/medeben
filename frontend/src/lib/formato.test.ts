@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { ApiError } from '../services/api'
 import {
+  describeVigencia,
   esUrlSegura,
   etiquetaDimension,
   etiquetaUnidad,
@@ -91,5 +92,23 @@ describe('formatearFecha', () => {
 
   it('devuelve el valor tal cual si no es ISO', () => {
     expect(formatearFecha('en vigor')).toBe('en vigor')
+  })
+})
+
+describe('describeVigencia', () => {
+  const hoy = '2026-07-08'
+
+  it('convenio en vigor por fechas → "En vigor hasta..."', () => {
+    expect(describeVigencia('2025-01-01', '2029-12-31', hoy)).toBe('En vigor hasta el 31/12/2029')
+  })
+
+  it('convenio vencido → lo explica en cristiano (ultraactividad), sin parecer un dato roto', () => {
+    expect(describeVigencia('2023-01-01', '2025-12-31', hoy)).toBe(
+      'Sigue en vigor: mientras no se publique el nuevo convenio, se aplican las últimas tablas (de 2025)',
+    )
+  })
+
+  it('fechas no ISO ("pendiente") → texto neutro', () => {
+    expect(describeVigencia('2023', 'pendiente', hoy)).toBe('Vigencia según su publicación oficial')
   })
 })

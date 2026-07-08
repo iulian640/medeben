@@ -48,7 +48,9 @@ class ConvenioControllerTest {
         mockMvc.perform(get("/api/v1/convenios"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(55)))
-                .andExpect(jsonPath("$[?(@.id == 'madrid-hosteleria')].subsector").value("hosteleria"));
+                .andExpect(jsonPath("$[?(@.id == 'madrid-hosteleria')].subsector").value("hosteleria"))
+                .andExpect(jsonPath("$[?(@.id == 'madrid-hosteleria')].fuenteUrl")
+                        .value(org.hamcrest.Matchers.hasItem(org.hamcrest.Matchers.containsString("bocm.es"))));
     }
 
     @Test

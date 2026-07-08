@@ -13,7 +13,8 @@ public record ConvenioResumenDto(
         List<String> provincias,
         String vigenciaDesde,
         String vigenciaHasta,
-        String estado
+        String estado,
+        String fuenteUrl
 ) {
 
     public static ConvenioResumenDto desde(Convenio c) {
@@ -25,6 +26,7 @@ public record ConvenioResumenDto(
                 c.ambitoTerritorial().provincias(),
                 c.vigencia().desde(),
                 c.vigencia().hasta(),
-                c.raw().path("estado").asText(null));
+                c.raw().path("estado").asText(null),
+                c.fuenteUrl());
     }
 }
