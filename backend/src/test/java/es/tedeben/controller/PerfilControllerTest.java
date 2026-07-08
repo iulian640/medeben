@@ -32,6 +32,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class PerfilControllerTest {
 
     private static final UUID USUARIO = UUID.randomUUID();
+    private static final java.time.OffsetDateTime SELLO =
+            java.time.OffsetDateTime.parse("2026-07-08T10:15:00+02:00");
 
     @Autowired
     private MockMvc mockMvc;
@@ -65,7 +67,7 @@ class PerfilControllerTest {
     @DisplayName("PUT guarda el perfil del usuario del token (el id nunca viene del body)")
     void guardaPerfil() throws Exception {
         Perfil guardado = new Perfil(USUARIO, "Madrid", "hosteleria", "madrid-hosteleria",
-                "cocinero", Map.of("nivel", "III"), null, null);
+                "cocinero", Map.of("nivel", "III"), null, null, SELLO);
         when(perfilService.guarda(eq(USUARIO), anyString(), anyString(), any(), any(), any(), any()))
                 .thenReturn(guardado);
 
@@ -82,7 +84,7 @@ class PerfilControllerTest {
     @DisplayName("GET con perfil existente → 200 con el perfil serializado")
     void getConPerfil() throws Exception {
         Perfil existente = new Perfil(USUARIO, "Madrid", "hosteleria", "madrid-hosteleria",
-                "cocinero", Map.of("nivel", "III"), new java.math.BigDecimal("1400.00"), null);
+                "cocinero", Map.of("nivel", "III"), new java.math.BigDecimal("1400.00"), null, SELLO);
         when(perfilService.busca(USUARIO)).thenReturn(Optional.of(existente));
 
         mockMvc.perform(get("/api/v1/perfil").with(comoUsuario()))

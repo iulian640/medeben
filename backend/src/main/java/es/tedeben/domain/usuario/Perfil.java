@@ -69,10 +69,40 @@ public class Perfil implements Persistable<UUID> {
         // requerido por JPA
     }
 
+    /**
+     * @param actualizadoEn sello de actualización, SIEMPRE del reloj inyectado
+     *                      del servicio (zona controlada), como en Apunte y
+     *                      Cuadrante — nunca del reloj del sistema.
+     */
     public Perfil(UUID usuarioId, String provincia, String subsector, String convenioId,
                   String puestoId, Map<String, String> dimensiones,
-                  BigDecimal salarioBaseMensual, BigDecimal plusesAnuales) {
+                  BigDecimal salarioBaseMensual, BigDecimal plusesAnuales,
+                  OffsetDateTime actualizadoEn) {
         this.usuarioId = usuarioId;
+        this.actualizadoEn = java.util.Objects.requireNonNull(
+                actualizadoEn, "actualizadoEn: el sello es obligatorio");
+        rellena(provincia, subsector, convenioId, puestoId, dimensiones,
+                salarioBaseMensual, plusesAnuales);
+    }
+
+    /**
+     * Actualiza el perfil existente in situ. El perfil es una fila mutable 1:1
+     * por usuario (NO append-only): guardar de nuevo = sobrescribir esta fila,
+     * nunca insertar otra.
+     */
+    public void actualiza(String provincia, String subsector, String convenioId,
+                          String puestoId, Map<String, String> dimensiones,
+                          BigDecimal salarioBaseMensual, BigDecimal plusesAnuales,
+                          OffsetDateTime actualizadoEn) {
+        this.actualizadoEn = java.util.Objects.requireNonNull(
+                actualizadoEn, "actualizadoEn: el sello es obligatorio");
+        rellena(provincia, subsector, convenioId, puestoId, dimensiones,
+                salarioBaseMensual, plusesAnuales);
+    }
+
+    private void rellena(String provincia, String subsector, String convenioId, String puestoId,
+                         Map<String, String> dimensiones, BigDecimal salarioBaseMensual,
+                         BigDecimal plusesAnuales) {
         this.provincia = provincia;
         this.subsector = subsector;
         this.convenioId = convenioId;
@@ -100,8 +130,12 @@ public class Perfil implements Persistable<UUID> {
 
     @PrePersist
     @PreUpdate
-    void marcaActualizacion() {
-        this.actualizadoEn = OffsetDateTime.now();
+    void exigeSello() {
+        if (actualizadoEn == null) {
+            // Nunca rellenar aquí con el reloj del sistema: el sello viene del
+            // servicio con su Clock inyectado (Europe/Madrid), como en Apunte.
+            throw new IllegalStateException("Perfil sin sello de actualización");
+        }
     }
 
     public UUID getUsuarioId() {

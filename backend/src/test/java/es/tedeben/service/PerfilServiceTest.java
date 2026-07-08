@@ -10,6 +10,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.time.Clock;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
@@ -25,6 +28,8 @@ import static org.mockito.Mockito.when;
 class PerfilServiceTest {
 
     private static final UUID USUARIO = UUID.randomUUID();
+    private static final OffsetDateTime AHORA = OffsetDateTime.parse("2026-07-08T10:15:00+02:00");
+    private static final Clock RELOJ_FIJO = Clock.fixed(AHORA.toInstant(), ZoneId.of("Europe/Madrid"));
 
     private PerfilRepository repositorio;
     private PerfilService servicio;
@@ -33,7 +38,8 @@ class PerfilServiceTest {
     void arranque() {
         repositorio = mock(PerfilRepository.class);
         ObjectMapper mapper = new ObjectMapper();
-        servicio = new PerfilService(repositorio, new ConvenioCatalog(mapper), new OcupacionesCatalog(mapper));
+        servicio = new PerfilService(repositorio, new ConvenioCatalog(mapper),
+                new OcupacionesCatalog(mapper), RELOJ_FIJO);
         when(repositorio.save(any(Perfil.class))).thenAnswer(inv -> inv.getArgument(0));
     }
 
@@ -47,6 +53,25 @@ class PerfilServiceTest {
         assertThat(perfil.getConvenioId()).isEqualTo("madrid-hosteleria");
         assertThat(perfil.getPuestoId()).isEqualTo("cocinero");
         assertThat(perfil.getDimensiones()).containsEntry("nivel", "III");
+        assertThat(perfil.getActualizadoEn()).isEqualTo(AHORA);
+    }
+
+    @Test
+    @DisplayName("guardar con perfil existente lo actualiza in situ (fila mutable, nunca una segunda fila)")
+    void actualizaPerfilExistente() {
+        Perfil existente = new Perfil(USUARIO, "Madrid", "hosteleria", "madrid-hosteleria",
+                "cocinero", Map.of("nivel", "III"), new BigDecimal("1400"), null,
+                AHORA.minusDays(30));
+        when(repositorio.findById(USUARIO)).thenReturn(Optional.of(existente));
+
+        Perfil guardado = servicio.guarda(USUARIO, "Madrid", "hosteleria", "camarero",
+                Map.of("nivel", "II"), new BigDecimal("1500"), null);
+
+        assertThat(guardado).isSameAs(existente);
+        assertThat(guardado.getPuestoId()).isEqualTo("camarero");
+        assertThat(guardado.getDimensiones()).containsEntry("nivel", "II");
+        assertThat(guardado.getSalarioBaseMensual()).isEqualByComparingTo("1500");
+        assertThat(guardado.getActualizadoEn()).isEqualTo(AHORA);
     }
 
     @Test
@@ -85,7 +110,7 @@ class PerfilServiceTest {
     @DisplayName("busca el perfil por usuario")
     void buscaPorUsuario() {
         Perfil existente = new Perfil(USUARIO, "Madrid", "hosteleria", "madrid-hosteleria",
-                "cocinero", Map.of("nivel", "III"), null, null);
+                "cocinero", Map.of("nivel", "III"), null, null, AHORA);
         when(repositorio.findById(USUARIO)).thenReturn(Optional.of(existente));
 
         assertThat(servicio.busca(USUARIO)).contains(existente);

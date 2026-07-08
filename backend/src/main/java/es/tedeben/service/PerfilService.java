@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.Clock;
+import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
@@ -28,12 +30,14 @@ public class PerfilService {
     private final PerfilRepository perfiles;
     private final ConvenioCatalog convenios;
     private final OcupacionesCatalog ocupaciones;
+    private final Clock reloj;
 
     public PerfilService(PerfilRepository perfiles, ConvenioCatalog convenios,
-                         OcupacionesCatalog ocupaciones) {
+                         OcupacionesCatalog ocupaciones, Clock reloj) {
         this.perfiles = perfiles;
         this.convenios = convenios;
         this.ocupaciones = ocupaciones;
+        this.reloj = reloj;
     }
 
     @Transactional
@@ -61,8 +65,20 @@ public class PerfilService {
         if (plusesAnuales != null && plusesAnuales.signum() < 0) {
             throw new IllegalArgumentException("Los pluses anuales no pueden ser negativos");
         }
-        return perfiles.save(new Perfil(usuarioId, provincia, subsector, convenio.id(),
-                puestoId, dimensiones, salarioBaseMensual, plusesAnuales));
+        // El perfil es una fila mutable 1:1 por usuario (NO append-only):
+        // si ya existe se actualiza in situ. Crear siempre uno nuevo haría
+        // persist() (Persistable.isNew()=true) y la segunda actualización
+        // violaría la PK usuario_id → 500 para el usuario.
+        OffsetDateTime ahora = OffsetDateTime.now(reloj);
+        Perfil perfil = perfiles.findById(usuarioId)
+                .map(existente -> {
+                    existente.actualiza(provincia, subsector, convenio.id(), puestoId,
+                            dimensiones, salarioBaseMensual, plusesAnuales, ahora);
+                    return existente;
+                })
+                .orElseGet(() -> new Perfil(usuarioId, provincia, subsector, convenio.id(),
+                        puestoId, dimensiones, salarioBaseMensual, plusesAnuales, ahora));
+        return perfiles.save(perfil);
     }
 
     @Transactional(readOnly = true)
