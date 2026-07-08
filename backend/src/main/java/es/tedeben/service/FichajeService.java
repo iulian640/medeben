@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
@@ -83,39 +84,57 @@ public class FichajeService {
         List<Apunte> diario = apuntes.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(usuarioId, fecha);
         boolean sellado = estaSellado(fecha, LocalDate.now(reloj));
 
-        Apunte ultimaEntrada = null;
-        Apunte ultimaSalida = null;
+        // Emparejado secuencial en tramos: el turno partido (D38, máx. 2 tramos
+        // declarados) suma TODOS sus tramos, no solo la última pareja E/S.
+        List<Tramo> tramos = new ArrayList<>();
+        String entradaAbierta = null;
         Apunte ultimo = null;
         for (Apunte a : diario) {
             if (a.getTipo() == TipoApunte.ENTRADA) {
-                ultimaEntrada = a;
+                // Sin tramo abierto, abre uno nuevo; con tramo abierto es una
+                // corrección de esa entrada: gana la última.
+                entradaAbierta = a.getHora();
             } else if (a.getTipo() == TipoApunte.SALIDA) {
-                ultimaSalida = a;
+                if (entradaAbierta != null) {
+                    tramos.add(new Tramo(entradaAbierta, a.getHora()));
+                    entradaAbierta = null;
+                } else if (!tramos.isEmpty()) {
+                    // Salida sin tramo abierto: corrección de la salida del último
+                    // tramo cerrado (gana la última), no un tramo nuevo.
+                    int i = tramos.size() - 1;
+                    tramos.set(i, new Tramo(tramos.get(i).entrada(), a.getHora()));
+                }
+                // Salida sin ninguna entrada previa: no forma tramo; el día
+                // quedará PENDIENTE de completar (ver abajo).
             } else if (a.getTipo() == TipoApunte.AUSENCIA) {
                 // La ausencia es una frontera: invalida los fichajes anteriores.
-                // Corregir después "sí entré" no resucita una salida vieja.
-                ultimaEntrada = null;
-                ultimaSalida = null;
+                // Corregir después "sí entré" no resucita tramos viejos.
+                tramos.clear();
+                entradaAbierta = null;
             }
             ultimo = a;
         }
 
         EstadoDia.Estado estado;
-        int minutos = -1;
         if (diario.isEmpty()) {
             estado = sellado ? EstadoDia.Estado.HUECO : EstadoDia.Estado.PENDIENTE;
         } else if (ultimo.getTipo() == TipoApunte.AUSENCIA) {
             estado = EstadoDia.Estado.AUSENCIA;
-        } else if (ultimaEntrada != null && ultimaSalida != null) {
-            estado = EstadoDia.Estado.COMPLETO;
-            minutos = minutosEntre(ultimaEntrada.getHora(), ultimaSalida.getHora());
-        } else if (ultimaEntrada != null) {
+        } else if (entradaAbierta != null) {
             estado = EstadoDia.Estado.EN_CURSO;
+        } else if (!tramos.isEmpty()) {
+            estado = EstadoDia.Estado.COMPLETO;
         } else {
             // Salida sin entrada: el día sigue a medias, la app pedirá completarlo.
             estado = EstadoDia.Estado.PENDIENTE;
         }
+        int minutos = tramos.isEmpty() ? -1
+                : tramos.stream().mapToInt(t -> minutosEntre(t.entrada(), t.salida())).sum();
         return new EstadoDia(fecha, estado, sellado, selladoDesde(fecha), minutos, diario);
+    }
+
+    /** Un tramo cerrado del día (entrada y salida); un turno partido tiene dos. */
+    private record Tramo(String entrada, String salida) {
     }
 
     private boolean estaSellado(LocalDate fecha, LocalDate hoy) {

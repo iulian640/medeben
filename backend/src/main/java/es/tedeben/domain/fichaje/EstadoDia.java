@@ -7,7 +7,8 @@ import java.util.List;
  * El estado de un día, derivado de su diario de apuntes (D38). No se guarda:
  * se calcula siempre desde los apuntes, que son la única verdad.
  *
- * @param minutosTrabajados solo con día COMPLETO; -1 si no aplica.
+ * @param minutosTrabajados suma de los tramos cerrados (turno partido incluido,
+ *                          D38); -1 si no hay ninguno.
  * @param selladoDesde      cuándo se sella (o se selló) el día: para el
  *                          contador de la UI ("se sella en 3 días").
  */
@@ -23,9 +24,9 @@ public record EstadoDia(
     public enum Estado {
         /** Sin apuntes y aún dentro de ventana: la app pedirá confirmarlo. */
         PENDIENTE,
-        /** Entrada fichada, salida todavía no. */
+        /** Hay un tramo abierto: entrada fichada, salida todavía no. */
         EN_CURSO,
-        /** Entrada y salida fichadas. */
+        /** Todos los tramos cerrados (turno seguido o partido, D38). */
         COMPLETO,
         /** No fue a trabajar, registrado. */
         AUSENCIA,
