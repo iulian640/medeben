@@ -125,8 +125,168 @@
     "ropaTrabajoEsmoquin": 26.52,
     "nota": "La gratificación de octubre (Art. 38b) sugiere posibles 3 pagas — confirmar nº total de pagas en el texto. Ropa de trabajo tiene más tramos (sin chaqueta/cocina, resto) en el PDF."
   },
-  "jornadaAnual": { "horas": null, "nota": "≈40 h/semana; horas anuales exactas en el texto del convenio (pendiente)." },
-  "estado": "tablas_2026_verificadas",
-  "verificadoContra": "PDF oficial BOP Alicante nº29 (12-02-2026, anuncio 819/2026) renderizado a imagen (fitz, dpi 185) y leído celda a celda. Tablas 2026 (salarios base, contratos formación, horas extra, fiestas, nocturnidad, pluses: responsabilidad, gratificación octubre, ropa, calzado, ayuda matrimonio, manutención) verificadas. Tablas 2025 (BOP nº33, 18-02-2025) preservadas como histórico.",
+  "fuenteTexto": {
+    "$comment": "TEXTO/articulado del convenio (distinta publicación que las tablas anuales). De aquí sale todo el bloque de condiciones no salariales (D33). Verificado en IMAGEN.",
+    "boletin": "BOP Alicante",
+    "numero": 200,
+    "fecha": "2023-10-18",
+    "documento": "Anuncio 8879/2023 — Resolución de 11-10-2023 de la Dir. Territorial de Alicante; texto del Convenio Colectivo del sector de Hostelería de la provincia de Alicante 2023-2026 (firmado en Benidorm el 31-07-2023)",
+    "url": "https://www.dip-alicante.es/bop2/pdftotal/2023/10/18_200/2023_008879.pdf",
+    "derechoSupletorio": "VI Acuerdo Laboral de ámbito Estatal para el sector de Hostelería (ALEH VI), BOE núm. 59 de 10-03-2023 (disposición final única del convenio).",
+    "verificado": true
+  },
+  "jornadaAnual": {
+    "horas": 1796.63,
+    "horasTexto": "1.796 horas y 38 minutos anuales a tiempo completo",
+    "horasSemanales": 40,
+    "articulo": "art. 21",
+    "regla": "Jornada máxima ordinaria de 40 h semanales de trabajo efectivo de promedio en cómputo anual. La jornada anual se extrapola por fórmula: 365 días naturales − 31 vacaciones − 95,42 descanso semanal − 14 fiestas = 224,58 días laborables × 8 h/día = 1.796 h 38 min.",
+    "controlJornada": "Registro diario obligatorio de comienzo, fin e interrupciones (art. 22, remite al art. 34.9 ET).",
+    "verificado": true
+  },
+  "vacaciones": {
+    "dias": 31,
+    "tipoDias": "naturales",
+    "articulo": "art. 27",
+    "disfrute": "31 días naturales ininterrumpidos; deben disfrutarse dentro del año natural o, como máximo y de común acuerdo, dentro del primer trimestre del año siguiente (en ese caso la empresa emite reconocimiento escrito de deuda de los días pendientes e informa a la representación legal).",
+    "diasExtraAntiguedad": "no previstos en el convenio",
+    "retribucion": "Cada día de vacaciones se retribuye con salario base + complemento ad personam de antigüedad (en su caso) + complementos mensuales consolidados (art. 27, módulo definido para el caso de compensación económica al cese). El plus de nocturnidad NO se devenga durante las vacaciones (art. 34). No se fija expresamente promedio de festivos; duda para UGT si en la práctica se abona solo salario base.",
+    "periodoDisfrute": "no se bloquea temporada alta de forma expresa; el inicio del periodo vacacional no puede coincidir con día de descanso semanal (se entiende iniciado el día siguiente).",
+    "quienFija": "La persona trabajadora comunica en la primera quincena de noviembre el periodo que propone para el año siguiente; la empresa, previo informe de la representación legal, confecciona el calendario en la segunda quincena de noviembre. Preaviso mínimo 2 meses antes del comienzo del disfrute (art. 27).",
+    "fraccionamiento": "Podrán fraccionarse una o más veces de común acuerdo entre empresa y persona trabajadora (art. 27).",
+    "incorporacionParcial": "Quien ingresa durante el año tiene derecho a la parte proporcional antes de fin del año de referencia o, de común acuerdo, en el primer trimestre del año siguiente.",
+    "bajaDuranteVacaciones": "Por aplicación del art. 38.3 ET: IT por embarazo/parto/lactancia o suspensión ex art. 48.4/5/7 ET → derecho a disfrutarlas en fecha distinta al finalizar la suspensión, aunque haya terminado el año natural. Otras IT que impidan disfrutarlas → se disfrutan al finalizar la incapacidad, con límite de 18 meses desde el fin del año en que se originaron (art. 27).",
+    "festivosDentroVacaciones": "pendiente (no regulado expresamente en el art. 27; los 14 festivos se descuentan del cómputo de jornada en el art. 21). Duda para UGT.",
+    "vacacionesNoDisfrutadas": "Al cese sin haber podido disfrutarlas se compensan económicamente con la retribución indicada (salario base + ad personam antigüedad + complementos mensuales consolidados). El personal fijo discontinuo y temporal se compensa al final del llamamiento/contrato, económicamente o en descanso (art. 27).",
+    "verificado": true
+  },
+  "permisosRetribuidos": {
+    "articulo": "art. 28",
+    "regla": "Previo aviso y posterior justificación, con derecho a remuneración.",
+    "matrimonioOParejaHecho": "15 días naturales (letra a).",
+    "nacimientoHijo": "4 días, solo si no se tiene el periodo de carencia exigido para lucrar la prestación por nacimiento y cuidado de menor (letra b).",
+    "fallecimientoFamiliar": "3 días por fallecimiento de cónyuge, pareja de hecho o parientes hasta 2º grado de consanguinidad o afinidad; +2 días si hay desplazamiento (letra c).",
+    "enfermedadGraveHospitalizacion": "5 días por accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización con reposo domiciliario de cónyuge, pareja de hecho o parientes hasta 2º grado (incluido consanguíneo de la pareja) o de cualquier conviviente que requiera su cuidado (letra d).",
+    "matrimonioBautizoComunionHijos": "1 día por celebración de matrimonio civil/religioso, bautizo o comunión de hijos/hijas (letra e).",
+    "matrimonioHermanosOProgenitores": "1 día por matrimonio de hermanos/as o progenitores (letra f).",
+    "trasladoDomicilio": "1 día por traslado del domicilio habitual (letra g).",
+    "deberInexcusable": "el tiempo indispensable para deber inexcusable de carácter público y personal, incluido el sufragio activo (letra h).",
+    "examenes": "el tiempo necesario para concurrir a exámenes en centros oficiales de formación académica o profesional; retribuidos los 10 primeros días del año, computándose como vacaciones los que excedan (letra i).",
+    "examenesPrenatalesAdopcion": "el tiempo indispensable para exámenes prenatales, técnicas de preparación al parto y sesiones/informes previos en adopción o acogimiento, cuando deban realizarse dentro de la jornada (letra j).",
+    "nacimientoPrematuro": "1 hora en caso de nacimiento prematuro u hospitalización tras el parto; derecho a reducir la jornada hasta 2 h con disminución proporcional del salario (letra k).",
+    "asuntosPropios": "1 día de permiso retribuido y no recuperable para quienes tengan al menos 1 año de antigüedad; preaviso mínimo 10 días, concesión automática salvo coincidencia de ausencias que altere gravemente la producción (letra l).",
+    "fuerzaMayorFamiliar": "ausencia por fuerza mayor por motivos familiares urgentes (enfermedad o accidente de familiares/convivientes que exijan presencia inmediata); horas retribuidas equivalentes a 4 días al año (letra m; art. 37.9 ET).",
+    "ampliacionDesplazamiento": "Los permisos de las letras e) y f) se amplían si hay desplazamiento. Las uniones de hecho (Ley 5/2012 CV) dan derecho a los permisos c), d) y e) previa declaración a la empresa.",
+    "verificado": true
+  },
+  "complementoIT": {
+    "articulo": "art. 40",
+    "descripcion": "El dato 'oro'. OJO: este convenio complementa la IT de forma MODESTA (mejora del 25% + primeros 3 días al 50%), no hasta el 100% como otros convenios.",
+    "contingenciasComunes": {
+      "aplicaA": "enfermedad común y accidente no laboral",
+      "primerosTresDias": "La empresa abona los tres primeros días de baja (que la Seguridad Social no cubre) al 50% del salario (salario base de convenio + prorrata de gratificaciones + ad personam de antigüedad + complementos consolidados) (art. 40.c).",
+      "mejora": "Desde que se inicia el percibo de la prestación de la Seguridad Social, la empresa abona una mejora económica equivalente al 25% de la suma de: salario base de convenio + prorrata de gratificaciones extraordinarias + complemento ad personam de antigüedad + otros complementos salariales consolidados (los pactados y percibidos regularmente al menos los últimos 6 meses). Esta mejora complementa la prestación de la SS/Mutua (art. 40.a).",
+      "tope": "Si la prestación de la Seguridad Social es igual o superior a la suma indicada (base + prorrata + ad personam + consolidados), la persona percibe solo esa prestación y la empresa no abona nada (art. 40.b).",
+      "cese": "El complemento cesa si la empresa sustituye a la persona mediante contratación de un interino (salvo los 3 primeros días del art. 40.c) y, en todo caso, al cumplirse 12 meses de baja."
+    },
+    "contingenciasProfesionales": {
+      "aplicaA": "accidente de trabajo y enfermedad profesional",
+      "mejora": "Derecho al complemento del 25% previsto en el art. 40.a, con el límite de 12 meses.",
+      "inItinere": "Si se percibe indemnización civil por accidente in itinere, se reembolsa a la empresa la cuantía cobrada en concepto del complemento empresarial."
+    },
+    "ceseGeneral": "En todo caso cesa la obligación de complementar cuando hay alta médica antes de los 12 meses o cuando se propone el paso a incapacidad permanente. La entrega en plazo de los partes es requisito; no comparecer a los reconocimientos médicos del art. 20.4 ET extingue el complemento (art. 27).",
+    "verificado": true
+  },
+  "pagasExtraordinarias": {
+    "cantidad": 3,
+    "articulo": "art. 38",
+    "resumen": "3 gratificaciones extraordinarias: verano, navidad y octubre. Las de verano y navidad son de una mensualidad de salario base (+ ad personam de antigüedad en su caso) cada una; la de octubre es de cuantía FIJA e igual para todos los niveles salariales. Equivale aproximadamente a 14 mensualidades de salario base + una gratificación fija de octubre.",
+    "veranoYNavidad": "Dos gratificaciones de una mensualidad de salario base cada una, incrementadas en su caso con el ad personam de antigüedad. Abono el 10 de julio y el 10 de diciembre. Devengo: verano del 1 julio al 30 junio del año siguiente; navidad del 1 enero al 31 diciembre del mismo año (art. 38.a).",
+    "octubre": "Gratificación de cuantía fija e igual para todos los niveles, a abonar el 10 de octubre. Importe base texto 2023 = 1.142,04 €; actualizada por revisión: 2025 = 1.211,59 €, 2026 = 1.235,82 €. Devengo del 1 octubre al 30 septiembre del año siguiente. Prorrateable por acuerdo (art. 38.b).",
+    "prorrateoIngresoCese": "Quien ingresa o cesa durante el año devenga la parte proporcional al tiempo trabajado (art. 38.c).",
+    "verificado": true
+  },
+  "nocturnidad": {
+    "articulo": "art. 34",
+    "tramoHorario": "entre las 22:00 (10 de la noche) y las 06:00 (6 de la mañana)",
+    "aplicaA": "actividades que desarrollan su horario tanto diurna como nocturnamente",
+    "caracter": "El importe (ver tablas nocturnidad2026/2025, € por hora) no es consolidable y es absorbible y compensable con complementos o pluses que la empresa ya abone por nocturnidad. NO se devenga durante el periodo de vacaciones.",
+    "verificado": true
+  },
+  "periodoPrueba": {
+    "$comment": "DATO PRIORITARIO. El convenio remite al ALEH VI y lo reproduce en su ANEXO VI (Cap. Quinto, arts. 21-27 del ALEH VI, BOE núm. 59 de 10-03-2023). Se computa siempre en días naturales.",
+    "articulo": "Anexo VI (reproduce arts. 21-27 del ALEH VI); clasificación profesional remitida al ALEH VI por art. 15",
+    "computo": "días naturales",
+    "tabla": {
+      "$comment": "Días máximos de periodo de prueba por grupo profesional/área funcional del ALEH VI. Debe suscribirse siempre por escrito.",
+      "grupo1_todasAreas_y_grupo2_areaQuinta": { "indefinidoOFijo": 90, "temporalMas3Meses": 75, "temporalHasta3Meses": 60 },
+      "grupo2_todasAreas_exceptoAreaQuinta": { "indefinidoOFijo": 60, "temporalMas3Meses": 45, "temporalHasta3Meses": 30 },
+      "grupo3_todasAreas": { "indefinidoOFijo": 45, "temporalMas3Meses": 30, "temporalHasta3Meses": 15 }
+    },
+    "personalDirectivo": "6 meses en contratos indefinidos/fijos y 4 meses en temporales (art. 22 ALEH VI).",
+    "nulidad": "Es nulo el pacto de periodo de prueba cuando la persona ya haya desempeñado las mismas funciones en la empresa bajo cualquier modalidad y lo hubiera superado (art. 23 ALEH VI).",
+    "tiempoParcial": "Se aplican los mismos periodos (art. 24 ALEH VI).",
+    "verificado": true
+  },
+  "excedencias": {
+    "articulo": "art. 30",
+    "voluntaria": "Mínimo 1 año de trabajo efectivo en la empresa; duración no inferior a 4 meses ni superior a 5 años. Sin retribución, no computa antigüedad. Se solicita por escrito con 30 días de antelación. El reingreso debe pedirse por escrito con 30 días de antelación al vencimiento (si no, baja definitiva) y da derecho a ocupar la primera vacante de su puesto o grupo profesional. Prorrogable solo por acuerdo hasta el máximo de 5 años.",
+    "cuidadoFamiliares": "Hasta 2 años para cuidado de familiar hasta 2º grado (incluido consanguíneo de la pareja de hecho) que no pueda valerse por sí mismo y no desempeñe actividad retribuida (art. 46.3 ET). Computa antigüedad; reserva del puesto el 1er año, después puesto del mismo grupo o equivalente.",
+    "cuidadoHijos": "Hasta 3 años por cada hijo (naturaleza, adopción o acogimiento). Familia numerosa: reserva del puesto hasta 15 meses (categoría general) o 18 meses (categoría especial / ejercicio simultáneo por ambos progenitores).",
+    "defuncion": "Solo personal fijo o fijo discontinuo; por defunción de cónyuge, padres o hijos con circunstancias excepcionales acreditadas; duración de 3 meses a 1 año, con reserva de puesto.",
+    "estudios": "Se reconoce a quien tenga al menos 1 año de antigüedad para cursar estudios (art. 30.D; detalle no transcrito íntegro).",
+    "verificado": true
+  },
+  "regimenDisciplinario": {
+    "$comment": "PRIORITARIO. El convenio de Alicante NO regula su propio régimen de faltas y sanciones: lo remite al derecho supletorio (ALEH VI, disposición final única) y al Estatuto de los Trabajadores. Los datos generales del ET son base legal verificada.",
+    "reguladoEnConvenio": false,
+    "remision": "Faltas, sanciones y su graduación se rigen por el VI Acuerdo Laboral de ámbito Estatal para el sector de Hostelería (ALEH VI, BOE núm. 59 de 10-03-2023) como derecho supletorio, y por el art. 58 ET. El detalle de faltas leves/graves/muy graves y sanciones del ALEH VI está pendiente de transcripción (no aparece en el articulado provincial).",
+    "sancionEconomicaProhibida": "PROHIBIDO (art. 58.3 ET): la empresa NO puede sancionar quitando dinero del sueldo (multa de haber) ni recortando vacaciones o descansos. Distinto es descontar el tiempo no trabajado por llegar tarde, que no es sanción.",
+    "procedimiento": "Las faltas graves y muy graves requieren comunicación por escrito con fecha y hechos (art. 58 ET). Sin ello la sanción es impugnable ante el Juzgado de lo Social.",
+    "prescripcion": "Faltas leves 10 días, graves 20 días, muy graves 60 días; en todo caso máximo 6 meses desde que se cometieron (art. 60.2 ET).",
+    "drogodependencias": "La disposición adicional duodécima del convenio remite a la Comisión Paritaria el tratamiento de las consecuencias disciplinarias del alcoholismo y otras drogadicciones.",
+    "verificado": true
+  },
+  "representacionSindical": {
+    "articulo": "art. 49 (Capítulo VIII); base legal ET arts. 62-68 y LOLS",
+    "creditoHoras": "Los tramos de crédito horario del art. 68.e ET se incrementan en 5 horas, con tope en todo caso de 40 horas mensuales (mejora del convenio, art. 49.a).",
+    "acumulacionLiberados": "Los miembros del comité, delegados/as de personal y delegados/as sindicales con horas retribuidas pueden ceder todo o parte del crédito y acumularlo. Se comunica a la empresa con 15 días de antelación; duración mínima 1 mes natural; el fin anticipado se comunica por escrito con 10 días (art. 49.b).",
+    "delegadoSindical": "Se puede designar delegado/a sindical en centros con más de 75 personas trabajadoras (mejora sobre el umbral de 250 del art. 10 LOLS) (art. 49.c).",
+    "cuotaSindical": "A petición escrita, la empresa descuenta la cuota sindical de la nómina y la transfiere a las centrales firmantes: mensualmente en empresas de más de 50 personas y trimestralmente en el resto (art. 49.d).",
+    "garantiasLegales": "Además, rigen las garantías del art. 68 ET: expediente contradictorio previo a sanción por falta grave/muy grave, prioridad de permanencia y protección frente a despido/sanción por la actividad representativa durante el mandato y el año siguiente.",
+    "verificado": true
+  },
+  "preavisoDimision": {
+    "articulo": "art. 16",
+    "niveles1y2": "45 días de preaviso.",
+    "restoPersonal": "15 días de preaviso.",
+    "incumplimiento": "1 día de salario de indemnización por cada día de retraso en el preaviso.",
+    "verificado": true
+  },
+  "polivalenciaCategoria": {
+    "articulo": "art. 15",
+    "regla": "Clasificación profesional y movilidad funcional remitidas a los capítulos 2 y 3 del ALEH VI. Regla específica: quien permanezca 30 meses consecutivos y efectivos como «Asistente preparador/montador de catering» pasa automáticamente, a partir del mes 31, a percibir la retribución de «preparador/montador de catering» aunque siga haciendo las mismas funciones.",
+    "verificado": true
+  },
+  "mapeoCategoriaNivel": {
+    "estado": "pendiente",
+    "nota": "Las tablas salariales usan niveles retributivos 1 a 6 (Anexo III) y grupos de establecimiento A/B/C (Anexo I). La correspondencia categoría profesional → nivel retributivo NO figura en el articulado provincial: el art. 15 remite la clasificación profesional a los capítulos 2 y 3 del ALEH VI (grupos profesionales I/II/III y áreas funcionales 1ª-6ª). Transcripción del mapeo pendiente del ALEH VI. Duda para UGT sobre la equivalencia exacta grupos ALEH → niveles 1-6 del Anexo III.",
+    "gruposEstablecimiento": "Anexo I clasifica los establecimientos en grupos salariales A (superior: hoteles 4/4sup/5/5GL estrellas, campings 4-5*, apartoteles y viviendas turísticas de categoría superior...), B (intermedio) y C (inferior: restaurantes de 1 tenedor, catering/colectividades y comedores escolares, bares, heladerías, chocolaterías, salones recreativos, boleras y billares)."
+  },
+  "seguroAccidentes": {
+    "articulo": "art. 47",
+    "cobertura": "Póliza de seguro de accidentes (sea o no laboral) con capital indemnizatorio; la representación legal conoce el contenido de la póliza. Las empresas sin póliza responden directamente del capital.",
+    "importe": "pendiente (cuantía del capital no leída celda a celda; confirmar en art. 47).",
+    "verificado": false
+  },
+  "ayudaMatrimonio": {
+    "articulo": "art. 48",
+    "importeTexto2023": 241.69,
+    "importeVigente": "ver pluses2026.ayudaEconomicaMatrimonio (261,54 € en 2026)",
+    "requisito": "Pago único a quien opte por seguir trabajando tras contraer matrimonio, con mínimo de 2 años de servicio en la empresa.",
+    "verificado": true
+  },
+  "estado": "verificado",
+  "verificadoContra": "DOS publicaciones verificadas en IMAGEN (fitz, dpi 185): (1) TABLAS — BOP Alicante nº29 (12-02-2026, anuncio 819/2026) para las tablas 2026 y BOP nº33 (18-02-2025) para el histórico 2025, leídas celda a celda; (2) TEXTO/ARTICULADO — BOP Alicante nº200 (18-10-2023, anuncio 8879/2023), convenio 2023-2026, del que se ha leído el articulado para el bloque de condiciones no salariales (D33): jornada anual art. 21, vacaciones art. 27, permisos art. 28, excedencias art. 30, gratificaciones art. 38, revisión salarial art. 39, IT art. 40, ayuda matrimonio art. 48, representación colectiva art. 49, preaviso art. 16, clasificación art. 15, y periodo de prueba del Anexo VI (reproducción del ALEH VI). Nocturnidad tramo 22:00-06:00 (art. 34). Régimen disciplinario NO regulado en el convenio (remite al ALEH VI y al ET). Pendientes: mapeo categoría→nivel (remitido al ALEH VI), detalle de faltas/sanciones del ALEH VI, importe del seguro del art. 47, y festivos dentro de vacaciones.",
   "fechaVerificacion": "2026-07-08"
 }
