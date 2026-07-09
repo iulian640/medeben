@@ -6,6 +6,7 @@ import { mensajeDeError } from '../lib/formato'
 import { useCuentaStore } from './cuenta'
 import { useFichajesStore } from './fichajes'
 import { useResumenStore } from './resumen'
+import { usePerfilStore } from './perfil'
 
 /**
  * Sesión del usuario. REQUISITO DE SEGURIDAD: el JWT vive SOLO aquí, en
@@ -82,6 +83,7 @@ export const useAuthStore = defineStore('auth', () => {
     useCuentaStore().limpiar()
     useFichajesStore().limpiar()
     useResumenStore().limpiar()
+    usePerfilStore().limpiar()
   }
 
   /** Logout voluntario. */

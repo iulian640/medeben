@@ -115,14 +115,33 @@ public final class RateLimitFilter extends OncePerRequestFilter {
         escribeRespuestaDemasiadasPeticiones(response, registro.segundosHastaReintento(clave));
     }
 
+    /**
+     * Clave de la cubeta. La IP (resuelta con confianza en proxy) SIEMPRE forma
+     * parte de la clave: así una sola IP no puede crear cubetas ilimitadas ni
+     * relajar su presupuesto. Para rutas autenticadas se añade el {@code sub}
+     * del JWT (solo sintáctico) para separar a usuarios legítimos tras una misma
+     * IP compartida (WiFi del local, CGNAT), pero un atacante con un sub
+     * rotatorio desde una IP sigue confinado a las cubetas de ESA IP.
+     *
+     * <p>Fallo de seguridad corregido: antes la rama con sub NO incluía la IP,
+     * así que un token forjado con sub distinto en cada petición esquivaba el
+     * tope por IP y podía llenar el registro entero desde una sola máquina.
+     *
+     * <p>Residual conocido (mejora futura): una IP con subs rotatorios aún puede
+     * crear una cubeta por sub hasta el tope global {@code MAX_CUBETAS}; el
+     * cierre completo (presupuesto agregado por IP, o mover el límite por
+     * usuario a DESPUÉS de la autenticación con el principal verificado) es un
+     * rediseño con trade-off de usabilidad en CGNAT/WiFi compartido.
+     */
     private String claveDelCliente(HttpServletRequest request, boolean esAuth) {
+        String ip = resuelveIp(request);
         if (!esAuth) {
             Optional<String> sub = extraeSubDelBearer(request);
             if (sub.isPresent()) {
-                return "sub:" + sub.get();
+                return "ip:" + ip + "|sub:" + sub.get();
             }
         }
-        return "ip:" + resuelveIp(request);
+        return "ip:" + ip;
     }
 
     /**

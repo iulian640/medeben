@@ -28,9 +28,17 @@ migraciones Flyway al arrancar, rate limiting con `confiar-en-proxy=true`) y
 nginx sirviendo la PWA con las **cabeceras de seguridad de la auditoría**
 (HSTS, CSP, nosniff, frame-deny, referrer, permissions) y el proxy de `/api`.
 
-**HTTPS (pendiente de dominio):** el compose expone el puerto 80. Con dominio
-comprado, lo limpio es poner delante Caddy (TLS automático) o certbot. Sin
-HTTPS no se debe abrir a usuarios reales: el JWT viajaría en claro.
+**HTTPS es OBLIGATORIO antes de abrir a usuarios (no es opcional).** El servicio
+`web` del compose escucha en HTTP plano y se publica solo en `127.0.0.1:80`
+—accesible para un proxy TLS en el mismo host, no desde fuera— justamente para
+que nadie lo exponga sin cifrar por error. La app manda usuario+contraseña y el
+JWT (válido 24 h) en cada petición; sin TLS, cualquiera en el WiFi del local
+(público, compartido) hace un MITM y los captura en claro. La cabecera HSTS que
+emite nginx SOLO surte efecto una vez servido por HTTPS.
+
+Con dominio comprado, pon delante **Caddy** (TLS automático con Let's Encrypt,
+lo más simple) o Traefik/certbot, apuntando a `127.0.0.1:80`, con redirección
+`80→443`. Hasta que eso esté, la app no debe tener usuarios reales.
 
 ## 2. APK de Android
 

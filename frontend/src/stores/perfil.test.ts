@@ -62,6 +62,24 @@ describe('perfil store', () => {
     expect(getProvincias).toHaveBeenCalledTimes(1)
   })
 
+  it('limpiar() borra los datos personales (dispositivo compartido, review de seguridad)', async () => {
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue(convenioMadrid)
+    vi.mocked(getPuestos).mockResolvedValue([{ id: 'cocinero', etiqueta: 'Cocinero/a' }])
+    const store = usePerfilStore()
+    store.provincia = 'Madrid'
+    await store.elegirSubsector('hosteleria')
+    expect(store.convenio).not.toBeNull()
+
+    store.limpiar()
+
+    expect(store.provincia).toBeNull()
+    expect(store.subsector).toBeNull()
+    expect(store.convenio).toBeNull()
+    expect(store.puestos).toEqual([])
+    expect(store.puestoId).toBeNull()
+    expect(store.salario).toBeNull()
+  })
+
   it('busca el convenio cuando hay provincia y subsector', async () => {
     vi.mocked(getConvenioParaTrabajador).mockResolvedValue(convenioMadrid)
     vi.mocked(getPuestos).mockResolvedValue([{ id: 'cocinero', etiqueta: 'Cocinero/a' }])
