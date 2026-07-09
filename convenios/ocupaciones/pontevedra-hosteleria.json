@@ -1,27 +1,44 @@
 {
-  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para pontevedra-hosteleria. Los hechos salarioBase solo tienen la dimensión nivel (1-9), y el nivel se obtiene cruzando la categoría profesional con el TIPO de establecimiento y su sección/categoría (cuadro del Anexo V, ap. 3). Solo se mapean los puestos cuya categoría tiene el MISMO nivel en TODAS las casillas del cuadro; el resto queda null porque el nivel depende del establecimiento. NUNCA inventar.",
+  "$comment": "Mapeo puesto→dimensiones de la capa normalizada para pontevedra-hosteleria. ANÁLISIS: los hechos salarioBase solo tienen la dimensión 'nivel' (1-9); el establecimiento NO es dimensión del hecho. El nivel de cada categoría profesional se obtiene del cuadro de correspondencia del Anexo V, ap. 3 (transcripción, campo 'correspondenciaCategoriaNivel'), que depende del TIPO de establecimiento (A/B/C/D) y de la columna dentro del tipo (estrellas/tenedores/tazas o categoría de la sección). 4 puestos tienen el MISMO nivel 9 en TODAS las casillas donde existe su categoría → 'dimensiones': {nivel:'9'} (el nivel basta para elegir el hecho; sin pregunta pendiente). Los otros 12 son CONDICIONALES al establecimiento (el nivel varía por tipo/columna) y el formato de mapeo actual (dimensiones planas puesto→valor fijo; OcupacionesCatalog solo lee 'dimensiones') NO lo expresa sin tocar backend: por eso 'dimensiones' queda null (modo manual) y su mapeo completo verificado va en el campo 'condicionalPorEstablecimiento', que el backend IGNORA hoy (hueco estructural nº 1 de docs/revisiones-pendientes.md: 'requiere extender el formato de mapeo con condiciones, o preguntar el establecimiento ANTES del puesto'). SEMÁNTICA de 'condicionalPorEstablecimiento' (patrón cataluna-hosteleria.condicionalPorZona, extendido a 2 dimensiones): el resolver pregunta primero el tipo de establecimiento y su columna (dimensión del establecimiento), aplica {nivel:...} de la casilla correspondiente, y con ese nivel elige el hecho de salarioBase igual que hoy. COLUMNAS (idénticas a correspondenciaCategoriaNivel.columnas de la transcripción): tipoA = estrellas/tenedores/tazas '5'|'4'|'3'|'2'|'1' (Secciones 1ª-4ª); tipoB = casinos/recreativos (Secc. 7ª) '1a_y_2a'|'3a_y_4a'; tipoC = bares/cafés/tabernas sin comidas (Secc. 5ª) 'especial'|'primera'|'2a_y_tabernas'|'3a_y_4a'; tipoD = salas de fiesta/discotecas (Secc. 6ª) y billares (Secc. 8ª), nivel único (valor {nivel:...} directo, sin subcolumnas). Un tipo o columna AUSENTE = casilla vacía en el cuadro (categoría no aplicable a ese establecimiento → modo manual, no inventar). Valores transcritos celda a celda del cuadro (Anexo V ap. 3, BOPPO nº209 31-10-2025). NUNCA inventar: dato ausente > dato erróneo.",
   "id": "pontevedra-hosteleria",
   "articulo": "Anexo V, apartado 3 (cuadro de correspondencia categoría→nivel salarial 1-9)",
   "ocupaciones": {
     "jefe-cocina": {
       "dimensiones": null,
-      "nota": "Nivel 1 a 5 según estrellas/tenedores del establecimiento (Tipo A: 5★=1 … 1★=5). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Jefe/a de Cocina' (Área SEGUNDA, grupo I). Solo aparece en Tipo A; 5★/4★=1, 3★/2★=2, 1★=5. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su columna. Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "1" }, "4": { "nivel": "1" }, "3": { "nivel": "2" }, "2": { "nivel": "2" }, "1": { "nivel": "5" } }
+      }
     },
     "segundo-jefe-cocina": {
       "dimensiones": null,
-      "nota": "Nivel 3 a 5 según el establecimiento. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría '2º Jefe/a de Cocina' (Área SEGUNDA, grupo I). Solo en Tipo A; 5★/4★/3★=3, 2★=4, 1★=5. Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "3" }, "4": { "nivel": "3" }, "3": { "nivel": "3" }, "2": { "nivel": "4" }, "1": { "nivel": "5" } }
+      }
     },
     "jefe-partida": {
       "dimensiones": null,
-      "nota": "Nivel 3 a 5 según el establecimiento. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Jefe/a de Partida' (Área SEGUNDA, grupo II). Solo en Tipo A; 5★=3, 4★/3★/2★=4, 1★=5. Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "3" }, "4": { "nivel": "4" }, "3": { "nivel": "4" }, "2": { "nivel": "4" }, "1": { "nivel": "5" } }
+      }
     },
     "cocinero": {
       "dimensiones": null,
-      "nota": "Nivel 4 a 8 según el establecimiento (Tipo A: 4-7; Tipo C bares: 7-8). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Cocinero/a' (Área SEGUNDA, grupo II). Tipo A: 5★/4★/3★=4, 2★=5, 1★=7. Tipo C (bares con cocina): primera/2ª y tabernas=7, 3ª y 4ª=8 (sin columna 'especial'). Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "4" }, "4": { "nivel": "4" }, "3": { "nivel": "4" }, "2": { "nivel": "5" }, "1": { "nivel": "7" } },
+        "tipoC": { "primera": { "nivel": "7" }, "2a_y_tabernas": { "nivel": "7" }, "3a_y_4a": { "nivel": "8" } }
+      }
     },
     "repostero": {
       "dimensiones": null,
-      "nota": "Nivel 5 a 9 según el establecimiento. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Repostero/a' (Área SEGUNDA, grupo II). Tipo A: 5★=5, 4★=6, 3★/2★=7, 1★=9. Tipo C: primera/2ª y tabernas=7, 3ª y 4ª=8 (sin columna 'especial'). Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "5" }, "4": { "nivel": "6" }, "3": { "nivel": "7" }, "2": { "nivel": "7" }, "1": { "nivel": "9" } },
+        "tipoC": { "primera": { "nivel": "7" }, "2a_y_tabernas": { "nivel": "7" }, "3a_y_4a": { "nivel": "8" } }
+      }
     },
     "ayudante-cocina": {
       "dimensiones": {
@@ -37,27 +54,52 @@
     },
     "jefe-sala": {
       "dimensiones": null,
-      "nota": "Nivel 1 a 5 según el establecimiento (Tipo A: 1-5; Tipo C: 3-5; Tipo D: 2). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Jefe/a de Restaurante o Sala' (Área TERCERA, grupo I). Tipo A: 5★/4★/3★=1, 2★=2, 1★=5. Tipo C: especial=3, primera=4, 2ª y tabernas/3ª y 4ª=5. Tipo D (salas de fiesta/discotecas)=2. Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "1" }, "4": { "nivel": "1" }, "3": { "nivel": "1" }, "2": { "nivel": "2" }, "1": { "nivel": "5" } },
+        "tipoC": { "especial": { "nivel": "3" }, "primera": { "nivel": "4" }, "2a_y_tabernas": { "nivel": "5" }, "3a_y_4a": { "nivel": "5" } },
+        "tipoD": { "nivel": "2" }
+      }
     },
     "camarero": {
       "dimensiones": null,
-      "nota": "Nivel 4 a 8 según el establecimiento (Tipo A: 4-7; Tipo C: 5-8; Tipo D: 4). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Camarero/a' (Área TERCERA, grupo II). Tipo A: 5★/4★/3★=4, 2★=5, 1★=7. Tipo C: especial=5, primera=6, 2ª y tabernas=7, 3ª y 4ª=8. Tipo D=4. Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "4" }, "4": { "nivel": "4" }, "3": { "nivel": "4" }, "2": { "nivel": "5" }, "1": { "nivel": "7" } },
+        "tipoC": { "especial": { "nivel": "5" }, "primera": { "nivel": "6" }, "2a_y_tabernas": { "nivel": "7" }, "3a_y_4a": { "nivel": "8" } },
+        "tipoD": { "nivel": "4" }
+      }
     },
     "ayudante-camarero": {
       "dimensiones": null,
-      "nota": "Nivel 6 a 9 según el establecimiento (Tipo A: 8-9; Tipos B/C: 8-9; Tipo D: 6). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Ayudante de Camarero' (Área TERCERA, grupo III). Tipo A: 5★=8, 4★/3★/2★/1★=9. Tipo B: 1ª y 2ª=8, 3ª y 4ª=9. Tipo C: especial=8, resto=9. Tipo D=6. Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "8" }, "4": { "nivel": "9" }, "3": { "nivel": "9" }, "2": { "nivel": "9" }, "1": { "nivel": "9" } },
+        "tipoB": { "1a_y_2a": { "nivel": "8" }, "3a_y_4a": { "nivel": "9" } },
+        "tipoC": { "especial": { "nivel": "8" }, "primera": { "nivel": "9" }, "2a_y_tabernas": { "nivel": "9" }, "3a_y_4a": { "nivel": "9" } },
+        "tipoD": { "nivel": "6" }
+      }
     },
     "barman": {
       "dimensiones": null,
-      "nota": "La categoría 'Barman' solo existe en el cuadro para la Sección 5ª (bares americanos, whiskerías...) de categoría Especial, con nivel 3; en el resto de establecimientos se aplica la categoría Camarero/a, cuyo nivel depende del local. El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "La categoría 'Barman' (Área TERCERA, grupo II) SOLO existe en el cuadro para la columna 'especial' del Tipo C (Sección 5ª: bares americanos, whiskerías... de categoría Especial), con nivel 3. En el resto de establecimientos NO hay categoría 'Barman': se aplica la categoría 'Camarero/a', cuyo nivel depende del local (ver puesto 'camarero'). Aquí solo se codifica la casilla propia de Barman; el resto queda a modo manual (no inventar).",
+      "condicionalPorEstablecimiento": {
+        "tipoC": { "especial": { "nivel": "3" } }
+      }
     },
     "sumiller": {
       "dimensiones": null,
-      "nota": "Nivel 4 a 7 según estrellas/tenedores (Tipo A). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Sumiller' (Área TERCERA, grupo II). Solo en Tipo A; 5★/4★/3★=4, 2★=5, 1★=7. Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "4" }, "4": { "nivel": "4" }, "3": { "nivel": "4" }, "2": { "nivel": "5" }, "1": { "nivel": "7" } }
+      }
     },
     "recepcionista": {
       "dimensiones": null,
-      "nota": "Nivel 5 a 8 según estrellas (Tipo A). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Recepcionista' (Área PRIMERA, grupo II). Solo en Tipo A; 5★/4★=5, 3★=6, 2★=7, 1★=8. Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "5" }, "4": { "nivel": "5" }, "3": { "nivel": "6" }, "2": { "nivel": "7" }, "1": { "nivel": "8" } }
+      }
     },
     "camarera-pisos": {
       "dimensiones": {
@@ -67,7 +109,12 @@
     },
     "administrativo": {
       "dimensiones": null,
-      "nota": "Nivel 5 a 9 según tipo y categoría del establecimiento (Tipos A, B y C). El nivel salarial (1-9) NO lo determina el puesto solo: depende del TIPO de establecimiento y su sección/categoría (cuadro de correspondencia del Anexo V, ap. 3). El usuario debe responder la pregunta del tipo de local."
+      "nota": "Nivel condicional al establecimiento (formato actual no lo expresa): categoría 'Administrativo/a' (Área PRIMERA, grupo II). Tipo A: 5★=5, 4★=6, 3★=7, 2★=8, 1★=9. Tipo B: 1ª y 2ª=6, 3ª y 4ª=8. Tipo C: primera=5, 2ª y tabernas=6, 3ª y 4ª=8 (sin columna 'especial'). Valores exactos en 'condicionalPorEstablecimiento'.",
+      "condicionalPorEstablecimiento": {
+        "tipoA": { "5": { "nivel": "5" }, "4": { "nivel": "6" }, "3": { "nivel": "7" }, "2": { "nivel": "8" }, "1": { "nivel": "9" } },
+        "tipoB": { "1a_y_2a": { "nivel": "6" }, "3a_y_4a": { "nivel": "8" } },
+        "tipoC": { "primera": { "nivel": "5" }, "2a_y_tabernas": { "nivel": "6" }, "3a_y_4a": { "nivel": "8" } }
+      }
     },
     "personal-limpieza": {
       "dimensiones": {
