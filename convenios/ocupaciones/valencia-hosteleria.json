@@ -1,71 +1,71 @@
 {
-  "$comment": "Mapeo puesto→dimensiones para valencia-hosteleria. TODO NULL: la transcripción (art. 16 y Anexo II) contiene las tablas por nivel retributivo (PRIMERO-QUINTO) y tipo de establecimiento (apartadoBOP+descripcion, dimensiones del establecimiento), pero NO la correspondencia ocupación→nivel (remitida al V ALEH y no transcrita). Las filas especiales 'CAMARERO/A PISO' y 'CONSERJE NOCHE' solo existen en algunas tablas de hospedaje, así que ni siquiera camarera-pisos tiene un nivel constante entre tablas. Completar cuando se transcriba la clasificación. NUNCA inventar.",
+  "$comment": "Mapeo puesto→dimensiones para valencia-hosteleria, derivado del ANEXO I 'Tablas de clasificacion del personal a efectos retributivos' de la transcripcion (clasificacionProfesionalRetributiva). El Anexo I asigna cada categoria a un NIVEL retributivo PRIMERO-QUINTO; la dimension del establecimiento (apartadoBOP/descripcion del Anexo II) la responde el usuario aparte. Los valores de 'nivel' coinciden literalmente con los hechos de salarioBase de la capa normalizada (PRIMERO..QUINTO). CORRECCION respecto al $comment anterior: la correspondencia ocupacion→nivel NO estaba remitida al ALEH ni ausente; SI figura en el Anexo I del propio convenio (solo la clasificacion a efectos FUNCIONALES remite al V ALEH). El Anexo I se ha transcrito ahora. Unico null: camarera-pisos, cuyo nivel NO es constante entre tablas (regla del proyecto: si el nivel varia por establecimiento no cabe en el formato de un unico 'nivel' fijo) — ver su nota. NUNCA inventar.",
   "id": "valencia-hosteleria",
-  "articulo": "art. 16 y Anexo II (tablas salariales; la clasificación ocupación→nivel no está transcrita)",
+  "articulo": "Anexo I (clasificacion del personal a efectos retributivos, niveles PRIMERO-QUINTO)",
   "ocupaciones": {
     "jefe-cocina": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "PRIMERO" },
+      "nota": "Anexo I, NIVEL PRIMERO: 'Jefe/a de Cocina'."
     },
     "segundo-jefe-cocina": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "SEGUNDO" },
+      "nota": "Anexo I, NIVEL SEGUNDO: 'Segundo/a Jefe/a de Cocina'."
     },
     "jefe-partida": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "SEGUNDO" },
+      "nota": "Anexo I, NIVEL SEGUNDO: 'Jefe/a de Partida'."
     },
     "cocinero": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "TERCERO" },
+      "nota": "Anexo I, NIVEL TERCERO: 'Cocinero/a'."
     },
     "repostero": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "TERCERO" },
+      "nota": "Anexo I, NIVEL TERCERO: 'Repostero/a'."
     },
     "ayudante-cocina": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "CUARTO" },
+      "nota": "Anexo I, NIVEL CUARTO: 'Ayudante/a de Cocina'."
     },
     "auxiliar-cocina": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "QUINTO" },
+      "nota": "Anexo I, NIVEL QUINTO: 'Auxiliar de Cocina'. Cubre pinche/marmiton/fregador segun la etiqueta canonica del puesto."
     },
     "jefe-sala": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "PRIMERO" },
+      "nota": "Anexo I, NIVEL PRIMERO: 'Jefe/a de Restaurante o Sala' (maitre)."
     },
     "camarero": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "TERCERO" },
+      "nota": "Anexo I, NIVEL TERCERO: 'Camarero/a'."
     },
     "ayudante-camarero": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "CUARTO" },
+      "nota": "Anexo I, NIVEL CUARTO: 'Ayudante de Camarero/a' (el BOP escribe 'Camero/a', errata evidente)."
     },
     "barman": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "TERCERO" },
+      "nota": "Anexo I, NIVEL TERCERO: 'Barman/Barwoman'."
     },
     "sumiller": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "TERCERO" },
+      "nota": "Anexo I, NIVEL TERCERO: 'Sumiller'."
     },
     "recepcionista": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "TERCERO" },
+      "nota": "Anexo I, NIVEL TERCERO: 'Recepcionista'."
     },
     "camarera-pisos": {
       "dimensiones": null,
-      "nota": "Las tablas del Anexo II tienen una fila propia 'CAMARERO/A PISO', pero SOLO en los apartados III y VI (hoteles de 3 estrellas y hoteles de 3 estrellas de la zona de Gandía); en el resto de tablas el nivel de la camarera de pisos no está definido en la transcripción. Nivel no constante entre tablas → null (regla del proyecto)."
+      "nota": "El Anexo I clasifica la camarera de pisos en DOS niveles distintos segun el establecimiento: NIVEL TERCERO en 'Camarero/a de Pisos en Hoteles de Tres o mas Estrellas' y NIVEL CUARTO en 'Camarero/a de Pisos en Hoteles de 2 Estrellas, Hostales de 3 Estrellas, Establecimientos de categoria inferior y Balnearios'. Ademas, el Anexo II incluye una fila propia 'CAMARERO/A PISO' con importe especifico SOLO en las tablas de hoteles de 3 estrellas (apartados III y VI-Gandia). Como el nivel NO es constante entre tablas, no cabe en el formato de un unico 'nivel' fijo (regla del proyecto) → null. Mapeo en forma de datos: hoteles de 3 o mas estrellas → NIVEL TERCERO, con fila dedicada 'CAMARERO/A PISO' en los apartados III y VI; hoteles de 2 estrellas, hostales de 3 estrellas, establecimientos de categoria inferior y balnearios → NIVEL CUARTO. No se inventa un nivel unico."
     },
     "administrativo": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "SEGUNDO" },
+      "nota": "Anexo I, NIVEL SEGUNDO: 'Administrativo/a'."
     },
     "personal-limpieza": {
-      "dimensiones": null,
-      "nota": "La transcripción de Valencia no incluye la clasificación ocupación→nivel: el Anexo II solo define los niveles retributivos PRIMERO-QUINTO por tipo de establecimiento, sin listar qué ocupaciones corresponden a cada nivel (el convenio remite al V ALEH). No se mapea hasta transcribir esa correspondencia; no se inventa."
+      "dimensiones": { "nivel": "QUINTO" },
+      "nota": "Anexo I, NIVEL QUINTO: 'Auxiliar de Pisos y Limpieza'."
     }
   }
 }

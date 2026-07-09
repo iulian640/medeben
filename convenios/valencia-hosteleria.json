@@ -87,6 +87,110 @@
     "regla": "supresion de las habituales; se realizan las de fuerza mayor y las coyunturales/estructurales. Pueden compensarse por descanso equivalente. Registro dia a dia.",
     "verificado": true
   },
+  "clasificacionProfesionalRetributiva": {
+    "$comment": "ANEXO I 'Tablas de clasificacion del personal a efectos retributivos' (pagina BOP 30 del BOP Valencia nº26 07-02-2023, CSV BOPV-2023/01380). VERIFICADO EN IMAGEN (fitz 185 dpi, copia sellada CCOO/BOP dival). Asigna cada categoria profesional a uno de los cinco NIVELES retributivos (PRIMERO-QUINTO) que usan las tablas del Anexo II. IMPORTANTE: la clasificacion a efectos FUNCIONALES remite al ALEH vigente ('materia reservada al ambito del mismo'); esta tabla es solo la clasificacion a efectos RETRIBUTIVOS y SI figura en el convenio provincial. Es la pieza que faltaba para mapear ocupacion→nivel (convenios/ocupaciones/valencia-hosteleria.json). No lleva importes: cada nivel enlaza con los salarios del Anexo II ya transcritos.",
+    "articulo": "Anexo I",
+    "remisionFuncional": "En materia de clasificacion profesional a efectos FUNCIONALES se estara a lo dispuesto en el ALEH vigente en cada momento. La clasificacion a efectos RETRIBUTIVOS (esta tabla) tiene en cuenta ademas lo establecido en el art. 51 del convenio para 2022 y siguientes.",
+    "niveles": [
+      {
+        "nivel": "PRIMERO",
+        "ocupaciones": [
+          "Jefe/a de Recepcion",
+          "Jefe/a de Administracion",
+          "Jefe/a Comercial",
+          "Jefe/a de Cocina",
+          "Jefe/a de Servicios de Catering",
+          "Jefe/a de Operaciones de Catering",
+          "Jefe/a de Restaurante o Sala",
+          "Jefe/a de Catering",
+          "Gerente de Centro de Restauracion Moderna",
+          "Responsable de Servicio (Termales y Balnearios)",
+          "Tecnico/a en prevencion de Riesgos Laborales (Nivel Superior)",
+          "Encargados/as generales",
+          "Encargados/as de Mantenimiento y servicios auxiliares"
+        ]
+      },
+      {
+        "nivel": "SEGUNDO",
+        "ocupaciones": [
+          "Administrativo/a",
+          "Segundo/a Jefe/a de Restaurante o Sala",
+          "Segundo/a Jefe/a de Cocina",
+          "Segundo/a Jefe/a de Recepcion",
+          "Primer/a Conserje",
+          "Encargado/a de Seccion",
+          "Jefe/a de Partida",
+          "Jefe/a de Sala de Catering",
+          "Supervisor/a de Catering",
+          "Supervisor/a de Colectividades",
+          "Tecnico/a de Servicios (Fisioterapeuta, Dietista y otros/as titulados/as en Ciencias de la Salud)",
+          "Tecnico/a en Prevencion de Riesgos Laborales (Nivel Intermedio)"
+        ]
+      },
+      {
+        "nivel": "TERCERO",
+        "ocupaciones": [
+          "Camarero/a",
+          "Barman/Barwoman",
+          "Sumiller",
+          "Repostero/a",
+          "Conserje",
+          "Conserje de Noche en Hoteles de 4 o 5 Estrellas",
+          "Recepcionista",
+          "Telefonista",
+          "Cocinero/a",
+          "Encargado/a de Economato",
+          "Especialista de Mantenimiento y Servicios Auxiliares",
+          "Jefe/a de Sector",
+          "Relaciones Publicas",
+          "Conductor/a de Equipo en Catering",
+          "Comercial",
+          "Especialista de Servicios (Socorrista o Especialista de primeros auxilios, Animador/a turistico o de tiempo libre, Monitor/a deportivo, pinchadiscos, Masajista, Quiromasajista, Esteticista, Especialista Termal o de Balneario, Hidroterapeuta y Especialista en Atencion al Cliente)",
+          "Camarero/a de Pisos en Hoteles de Tres o mas Estrellas",
+          "Supervisor/a de Restauracion Moderna",
+          "Dependiente/a de casa de comidas para llevar"
+        ]
+      },
+      {
+        "nivel": "CUARTO",
+        "ocupaciones": [
+          "Ayudante de Camarero/a",
+          "Conserje de Noche en Hoteles de 3 Estrellas y categorias inferiores",
+          "Ayudante/a de Economato",
+          "Ayudante/a de Cocina",
+          "Preparador/a Montador/a de Catering",
+          "Ayudante/a Administrativo/a",
+          "Auxiliar de Colectividades",
+          "Ayudante/a de Equipo de Catering",
+          "Ayudante/a de Recepcion y Conserjeria",
+          "Camarero/a de Pisos en Hoteles de 2 Estrellas, Hostales de 3 Estrellas, Establecimientos de categoria inferior y Balnearios",
+          "Ayudante/a de dependiente/a de casa de comidas para llevar",
+          "Preparador/a de Restauracion Moderna y Repartidor/a de comidas y bebidas"
+        ],
+        "nota": "El BOP escribe 'Ayudante de Camero/a' (errata evidente por 'Camarero/a')."
+      },
+      {
+        "nivel": "QUINTO",
+        "ocupaciones": [
+          "Auxiliar de Recepcion y Conserjeria",
+          "Auxiliar de Cocina",
+          "Auxiliar de Pisos y Limpieza",
+          "Auxiliar de Mantenimiento y Servicios Auxiliares",
+          "Auxiliar/Asistente de Restauracion Moderna",
+          "Monitor/a o Cuidador/a de Colectividades",
+          "Auxiliar de Preparador/a Montador/a de Catering",
+          "Auxiliar de Servicio (Auxiliar de atencion al cliente y auxiliar de piscina o balneario)"
+        ]
+      }
+    ],
+    "notas": [
+      "Esta clasificacion se ha realizado tratando de asimilar las categorias profesionales a efectos retributivos con las previstas en el ALEH, respetando en sus propios terminos aquellas otras no coincidentes y conservando el nivel retributivo anterior.",
+      "Las denominaciones indicadas deben considerarse todas ellas en terminos femeninos cuando asi sea posible gramaticalmente.",
+      "La camarera/o de pisos NO tiene un nivel constante: es NIVEL TERCERO en hoteles de 3 o mas estrellas y NIVEL CUARTO en hoteles de 2 estrellas, hostales de 3 estrellas, establecimientos de categoria inferior y balnearios. Ademas el Anexo II le da fila propia 'CAMARERO/A PISO' solo en las tablas de hoteles de 3 estrellas (apartados III y VI)."
+    ],
+    "verificado": true,
+    "verificadoContra": "BOP Valencia nº26 (07-02-2023, CSV BOPV-2023/01380), Anexo I, pagina BOP 30. Leido celda a celda en imagen (fitz 185 dpi)."
+  },
   "tablasSalariales": {
     "anio": 2025,
     "reglaD32": "Anexo II del convenio contiene tablas 2022, 2023, 2024 y 2025; se transcriben las de 2025 por ser las mas recientes publicadas (aplicables en 2026 por ultraactividad).",
