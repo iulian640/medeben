@@ -33,6 +33,18 @@ const router = createRouter({
       meta: { requiereSesion: true },
       component: () => import('../views/CuentaView.vue'),
     },
+    {
+      path: '/libreta',
+      name: 'libreta',
+      meta: { requiereSesion: true },
+      component: () => import('../views/LibretaView.vue'),
+    },
+    {
+      path: '/libreta/semana',
+      name: 'libreta-semana',
+      meta: { requiereSesion: true },
+      component: () => import('../views/LibretaSemanaView.vue'),
+    },
   ],
 })
 
