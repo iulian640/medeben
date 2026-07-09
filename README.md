@@ -10,8 +10,11 @@ and keep your hours up to date, all explained in plain language, with every
 figure backed by its article and a link to the official gazette.
 
 It includes 55 hospitality convenios (all 50 provinces plus Ceuta and Melilla),
-transcribed from the official gazettes and verified cell by cell. If a figure
-isn't published, the app says so; it never makes one up.
+transcribed from the official gazettes. If a figure isn't published, the app
+says so; it never makes one up.
+
+> 🚧 **Work in progress (v1).** I'm still building this. See [Status](#status)
+> for what's working today and what's still on the way.
 
 ## What it does
 
@@ -26,11 +29,9 @@ isn't published, the app says so; it never makes one up.
 - Saves your shift schedules with their dates, so you keep your own tidy
   history.
 - Exports a PDF report with your records and the detail behind the
-  calculations.
+  calculations *(planned)*.
 
 ## Our promise
-
-Built by a former cook who knows the sector from the inside.
 
 - You will never pay to use it.
 - Your data is yours: export it or delete it whenever you want. We don't sell
@@ -38,6 +39,22 @@ Built by a former cook who knows the sector from the inside.
 - What's free today won't turn into a paid feature.
 - You don't have to take our word for it: the code is public (AGPL-3.0) and
   anyone can check what the app does with your data.
+
+## How it's made
+
+I'm Iulian, a former cook now training as a developer. I started TeDeben
+because I lived the problem: not knowing what my convenio actually said, or
+whether my hours added up.
+
+I set the direction and the product decisions, and I review what goes in. One
+rule governs everything: a wrong figure is worse than a missing one. The build
+itself is done with [Claude Code](https://claude.com/claude-code) (an AI coding
+agent) as a pair: the Java/Spring backend, the Vue frontend, the
+transcription-and-validation pipeline, the tests and the CI are written with it,
+under my direction and review. The domain judgment and the standards are mine;
+the AI does much of the typing.
+
+That pairing is also why a project this size took shape in weeks, not months.
 
 ## The data
 
@@ -62,37 +79,26 @@ The inside matters as much as the outside:
 - **Every answer with its source.** Calculations cite the convenio article and
   link to the gazette PDF (or to the BOE, Spain's state gazette, for the
   Estatuto de los Trabajadores, the Workers' Statute).
-- **Code quality.** TDD on backend and frontend, code and security review on
-  every major piece, and a CI that runs the full suite on every PR, including
-  the corpus validator and tests against a real PostgreSQL.
+- **Code quality.** TDD on backend and frontend, code and security review
+  (human and AI-assisted) on every major piece, and a CI that runs the full
+  suite on every PR, including the corpus validator and tests against a real
+  PostgreSQL.
 - **Oddities get written down.** Transcribing turns up curious things (a
   nocturnidad (night-work premium) of 1%, a job group that earns more in 3rd
   category than in 2nd...): they are collected with their sources in
   [convenios/curiosidades.md](convenios/curiosidades.md) (in Spanish).
 
-## Milestones
-
-Built in the first week of July 2026:
-
-1. **Complete corpus**: 55 hospitality convenios transcribed and verified,
-   covering 100% of the territory.
-2. **Normalized layer**: ~8,800 wage facts with provenance, validity periods
-   as date ranges and a cross-validator in the build.
-3. **Calculation engine**: value of the ordinary hour, overtime and minimum
-   wage per job, with article citations and the ultraactividad rule (a
-   convenio staying in force after it expires).
-4. **Public query API** and **first screen**: from "where do you work, and as
-   what?" to your minimum wage with sources, in two questions.
-5. **User accounts** with JWT, hardened with a security audit.
-
-The day-by-day detail is in the [project diary](docs/HISTORIAL.md) (in
-Spanish).
-
 ## Status
 
-🚧 In development (v1). Project decisions: [docs/ADR.md](docs/ADR.md) (in
-Spanish). Progress diary: [docs/HISTORIAL.md](docs/HISTORIAL.md) (in Spanish).
-To run it locally: [docs/dev-setup.md](docs/dev-setup.md).
+🚧 In development (v1). Working today: convenio lookup, wage-by-job with
+sources, the overtime/hour calculation engine, time tracking and shift
+schedules, and user accounts (JWT). On the way: PDF export and clock-in
+reminders. Full-coverage corpus of 55 convenios (~8,800 wage facts with
+provenance) is in place.
+
+Project decisions: [docs/ADR.md](docs/ADR.md) (in Spanish). Progress diary:
+[docs/HISTORIAL.md](docs/HISTORIAL.md) (in Spanish). To run it locally:
+[docs/dev-setup.md](docs/dev-setup.md).
 
 ## Stack
 
