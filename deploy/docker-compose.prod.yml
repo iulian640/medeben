@@ -18,7 +18,10 @@ services:
       retries: 5
 
   backend:
-    build: ../backend
+    build:
+      # Raíz del repo: el pom necesita ../convenios dentro del contexto.
+      context: ..
+      dockerfile: backend/Dockerfile
     restart: unless-stopped
     depends_on:
       db:
