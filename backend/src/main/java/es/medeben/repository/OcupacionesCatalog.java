@@ -123,13 +123,14 @@ public class OcupacionesCatalog {
                         }
                         porPuesto.put(entrada.getKey(), Map.copyOf(dims));
                     } else if (puesto.has("condicionalPorEstablecimiento")) {
-                        condicionalPorPuesto.put(entrada.getKey(), NodoCondicional.desde(
-                                puesto.path("condicionalPorEstablecimiento"), "establecimiento"));
+                        NodoCondicional.desde(puesto.path("condicionalPorEstablecimiento"), "establecimiento")
+                                .ifPresent(arbol -> condicionalPorPuesto.put(entrada.getKey(), arbol));
                     } else if (puesto.has("condicionalPorZona")) {
-                        condicionalPorPuesto.put(entrada.getKey(), NodoCondicional.desde(
-                                puesto.path("condicionalPorZona"), "zona"));
+                        NodoCondicional.desde(puesto.path("condicionalPorZona"), "zona")
+                                .ifPresent(arbol -> condicionalPorPuesto.put(entrada.getKey(), arbol));
                     }
-                    // dimensiones null y sin condicional = puesto no contemplado.
+                    // dimensiones null y sin condicional resoluble = puesto no
+                    // contemplado (todas sus celdas eran null → cae a modo manual).
                 }
                 if (mapeos.put(id, new MapeoConvenio(raiz.path("articulo").asText(null),
                         porPuesto, condicionalPorPuesto)) != null) {

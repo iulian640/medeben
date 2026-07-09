@@ -79,19 +79,20 @@ public class PerfilOcupacionService {
                     .map(List::of).orElseGet(List::of);
             return new OcupacionResuelta(Map.of(), pregunta, articulo);
         }
-        // Nivel resuelto: dimensiones = {nivel} + las respuestas que además sean
-        // dimensiones reales de la tabla (p. ej. la zona en Cataluña, que a la
-        // vez fue la pregunta y es dimensión del salario). Las respuestas
-        // "auxiliares" (tipo/categoría de establecimiento) solo servían para
-        // llegar al nivel y no van a la tabla.
-        Set<String> dimsTabla = dimensionesDeTabla(convenioId);
+        // Nivel resuelto por el árbol: es AUTORITATIVO y no se puede sobrescribir
+        // con un input del cliente. Solo se promociona a la tabla la DIMENSIÓN
+        // RAÍZ del árbol cuando además indexa el salario (la zona en Cataluña,
+        // que fue la pregunta y también es dimensión de la tabla); su valor ya
+        // lo validó el árbol al resolver el nivel. Ninguna otra respuesta entra
+        // aquí (ni 'nivel', ni auxiliares, ni query params sueltos): las demás
+        // dimensiones de tabla se piden como pendientes normales.
         Map<String, String> fijas = new LinkedHashMap<>();
+        String dimRaiz = arbol.dimension();
+        if (dimRaiz != null && respuestas.containsKey(dimRaiz)
+                && dimensionesDeTabla(convenioId).contains(dimRaiz)) {
+            fijas.put(dimRaiz, respuestas.get(dimRaiz));
+        }
         fijas.put("nivel", nivel.get());
-        respuestas.forEach((clave, valor) -> {
-            if (dimsTabla.contains(clave)) {
-                fijas.put(clave, valor);
-            }
-        });
         return new OcupacionResuelta(fijas, pendientes(convenioId, fijas), articulo);
     }
 

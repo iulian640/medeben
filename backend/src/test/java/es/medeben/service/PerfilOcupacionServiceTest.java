@@ -133,4 +133,35 @@ class PerfilOcupacionServiceTest {
         assertThat(r.dimensiones()).isEmpty();
         assertThat(r.pendientes().getFirst().dimension()).isEqualTo("establecimiento");
     }
+
+    @Test
+    @DisplayName("SEGURIDAD (review CRITICAL): un 'nivel' inyectado por el cliente NO pisa el que resuelve el árbol")
+    void condicionalNivelInyectadoNoManda() {
+        // Jaén cocinero hotel 5*y4* resuelve nivel 1.70. El cliente intenta
+        // colar nivel=1.35 (más barato). El árbol es autoritativo.
+        var legitimo = servicio.resuelve("jaen-hosteleria", "cocinero",
+                java.util.Map.of("establecimiento", "hoteles", "categoria", "5*y4*")).orElseThrow();
+        String nivelReal = legitimo.dimensiones().get("nivel");
+
+        var conInyeccion = servicio.resuelve("jaen-hosteleria", "cocinero", java.util.Map.of(
+                "establecimiento", "hoteles", "categoria", "5*y4*", "nivel", "1.35")).orElseThrow();
+
+        assertThat(conInyeccion.dimensiones().get("nivel")).isEqualTo(nivelReal);
+        assertThat(conInyeccion.dimensiones().get("nivel")).isNotEqualTo("1.35");
+    }
+
+    @Test
+    @DisplayName("SEGURIDAD: una dimensión de tabla suelta por query param (no la raíz del árbol) no se cuela")
+    void condicionalDimensionSueltaNoSeCuela() {
+        // categoriaEstablecimiento es dimensión de tabla en Cataluña, pero NO es
+        // la raíz del árbol (que es 'zona'); no debe entrar por query param, sale
+        // como pendiente normal para que el usuario la elija de valores reales.
+        var r = servicio.resuelve("cataluna-hosteleria", "camarero", java.util.Map.of(
+                "zona", "barcelona", "categoriaEstablecimiento", "ZZZ-inventada")).orElseThrow();
+
+        assertThat(r.dimensiones()).doesNotContainKey("categoriaEstablecimiento");
+        assertThat(r.dimensiones()).containsEntry("zona", "barcelona").containsKey("nivel");
+        assertThat(r.pendientes()).anySatisfy(
+                p -> assertThat(p.dimension()).isEqualTo("categoriaEstablecimiento"));
+    }
 }

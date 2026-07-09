@@ -40,24 +40,37 @@ public record NodoCondicional(String dimension, Map<String, NodoCondicional> ram
      * la dimensión de la primera pregunta ("establecimiento" o "zona"); los
      * niveles interiores preguntan por "categoria".
      */
-    public static NodoCondicional desde(JsonNode condicional, String dimensionRaiz) {
+    /**
+     * Construye el árbol, o vacío si el puesto no resuelve a ningún nivel (todas
+     * sus celdas son {@code null} = no aplicable). El corpus marca {@code null}
+     * a propósito ("dato ausente &gt; dato erróneo, modo manual"): esas ramas se
+     * PODAN, no se ofrecen como opciones ni encadenan preguntas vacías.
+     */
+    public static Optional<NodoCondicional> desde(JsonNode condicional, String dimensionRaiz) {
         return nodo(condicional, dimensionRaiz);
     }
 
-    private static NodoCondicional nodo(JsonNode valor, String dimension) {
+    private static Optional<NodoCondicional> nodo(JsonNode valor, String dimension) {
+        // Celda no aplicable: se poda (ni hoja ni rama).
+        if (valor.isNull() || valor.isMissingNode()) {
+            return Optional.empty();
+        }
         // Hoja string (Jaén): el propio valor es el nivel.
         if (valor.isTextual()) {
-            return hoja(valor.asText());
+            return valor.asText().isBlank() ? Optional.empty() : Optional.of(hoja(valor.asText()));
         }
-        // Hoja objeto: {"nivel": "X"}.
+        // Hoja objeto: {"nivel": "X"} (con nivel null = no aplicable, se poda).
         if (valor.isObject() && valor.has("nivel")) {
-            return hoja(valor.path("nivel").asText());
+            JsonNode n = valor.path("nivel");
+            return n.isNull() || n.asText().isBlank() ? Optional.empty() : Optional.of(hoja(n.asText()));
         }
         // Rama: objeto cuyas entradas son sub-nodos; se pregunta por 'dimension'
-        // y cada hijo interior pregunta por la categoría.
+        // y cada hijo interior pregunta por la categoría. Las ramas que se podan
+        // (solo llevan a null) no se incluyen; si no queda ninguna, no hay nodo.
         Map<String, NodoCondicional> ramas = new LinkedHashMap<>();
-        valor.fields().forEachRemaining(e -> ramas.put(e.getKey(), nodo(e.getValue(), "categoria")));
-        return new NodoCondicional(dimension, ramas, null);
+        valor.fields().forEachRemaining(e ->
+                nodo(e.getValue(), "categoria").ifPresent(sub -> ramas.put(e.getKey(), sub)));
+        return ramas.isEmpty() ? Optional.empty() : Optional.of(new NodoCondicional(dimension, ramas, null));
     }
 
     private static NodoCondicional hoja(String nivel) {
