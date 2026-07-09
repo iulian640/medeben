@@ -3,6 +3,7 @@ import { createPinia, setActivePinia } from 'pinia'
 import { ApiError } from '../services/api'
 import { useAuthStore } from './auth'
 import { useCuentaStore } from './cuenta'
+import { usePerfilStore } from './perfil'
 
 vi.mock('../services/auth', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../services/auth')>()),
@@ -121,6 +122,22 @@ describe('auth store', () => {
     expect(cuenta.salarioBaseMensual).toBeNull()
     expect(cuenta.plusesAnuales).toBeNull()
     expect(cuenta.convenioId).toBeNull()
+  })
+
+  it('cerrarSesion vacía también el store de perfil (dispositivo compartido, review de seguridad)', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    const perfil = usePerfilStore()
+    perfil.provincia = 'Madrid'
+    perfil.subsector = 'hosteleria'
+    perfil.puestoId = 'cocinero'
+
+    auth.cerrarSesion()
+
+    expect(perfil.provincia).toBeNull()
+    expect(perfil.subsector).toBeNull()
+    expect(perfil.puestoId).toBeNull()
   })
 
   it('la expulsión por 401 (sesionCaducada) también vacía el store de cuenta', async () => {

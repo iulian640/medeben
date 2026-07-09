@@ -201,6 +201,29 @@ export const usePerfilStore = defineStore('perfil', () => {
     }
   }
 
+  /**
+   * Reset al cerrar sesión: este store retiene dónde trabaja el usuario
+   * (provincia, puesto) y su salario base calculado. En un dispositivo
+   * compartido el siguiente usuario no debe verlos yendo a /perfil (ruta
+   * pública). Invalida también las peticiones en vuelo. Lo llama
+   * limpiarSesion() del store de auth, igual que cuenta/fichajes/resumen.
+   */
+  function limpiar() {
+    nuevaPeticion()
+    provincias.value = []
+    provincia.value = null
+    subsector.value = null
+    convenio.value = null
+    puestos.value = []
+    puestoId.value = null
+    ocupacion.value = null
+    puestoNoMapeado.value = false
+    respuestas.value = {}
+    salario.value = null
+    cargando.value = false
+    error.value = null
+  }
+
   return {
     provincias,
     provincia,
@@ -221,5 +244,6 @@ export const usePerfilStore = defineStore('perfil', () => {
     elegirSubsector,
     elegirPuesto,
     responderPendiente,
+    limpiar,
   }
 })

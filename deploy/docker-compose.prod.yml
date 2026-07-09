@@ -40,8 +40,14 @@ services:
     restart: unless-stopped
     depends_on:
       - backend
+    # Escucha en HTTP plano: este servicio NO debe quedar de cara a internet
+    # tal cual. Va SIEMPRE detrás de un terminador TLS (Caddy/Traefik o el LB
+    # del cloud) que haga HTTPS y redirija 80→443; si no, el login y el JWT
+    # viajan en claro (MITM en el WiFi del local). Por eso se publica solo en
+    # 127.0.0.1 (accesible para el proxy TLS del host, no desde fuera).
+    # La cabecera HSTS del nginx solo surte efecto una vez servido por HTTPS.
     ports:
-      - '80:80'
+      - '127.0.0.1:80:80'
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
       # Snippet de cabeceras de seguridad que el nginx.conf incluye en cada
