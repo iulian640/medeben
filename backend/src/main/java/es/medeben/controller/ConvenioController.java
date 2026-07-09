@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Consulta pública de convenios: los datos son públicos (boletines oficiales,
@@ -66,10 +67,17 @@ public class ConvenioController {
         return ResponseEntity.ok().cacheControl(CACHE_DATOS_ESTATICOS).body(perfilOcupacion.puestos());
     }
 
-    /** Qué determina el puesto en este convenio y qué falta por preguntar al usuario. */
+    /**
+     * Qué determina el puesto en este convenio y qué falta por preguntar al
+     * usuario. Las respuestas ya dadas (tipo/categoría de establecimiento,
+     * zona...) llegan como query params para resolver los puestos con nivel
+     * CONDICIONAL: sin respuestas se devuelve la primera pregunta; con ellas,
+     * la siguiente o el nivel ya resuelto.
+     */
     @GetMapping("/convenios/{id}/puestos/{puestoId}")
-    public OcupacionResuelta resuelvePuesto(@PathVariable String id, @PathVariable String puestoId) {
-        return perfilOcupacion.resuelve(id, puestoId)
+    public OcupacionResuelta resuelvePuesto(@PathVariable String id, @PathVariable String puestoId,
+                                            @RequestParam Map<String, String> respuestas) {
+        return perfilOcupacion.resuelve(id, puestoId, respuestas)
                 .orElseThrow(() -> new RecursoNoEncontradoException(
                         "El puesto '" + puestoId + "' no está mapeado en el convenio '" + id + "'"));
     }

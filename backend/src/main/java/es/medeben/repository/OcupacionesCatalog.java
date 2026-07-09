@@ -2,6 +2,7 @@ package es.medeben.repository;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import es.medeben.service.NodoCondicional;
 import es.medeben.service.Puesto;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -47,10 +48,19 @@ public class OcupacionesCatalog {
         return Optional.ofNullable(mapeosPorConvenio.get(convenioId));
     }
 
-    public record MapeoConvenio(String articulo, Map<String, Map<String, String>> dimensionesPorPuesto) {
+    /**
+     * Mapeo de un convenio. Un puesto está en {@code dimensionesPorPuesto} (nivel
+     * fijo o casi) o en {@code condicionalPorPuesto} (el nivel depende del tipo/
+     * categoría de establecimiento o de la zona — árbol de decisión), nunca en
+     * ambos. Un puesto en ninguno = no contemplado.
+     */
+    public record MapeoConvenio(String articulo,
+                                Map<String, Map<String, String>> dimensionesPorPuesto,
+                                Map<String, NodoCondicional> condicionalPorPuesto) {
 
         public MapeoConvenio {
             dimensionesPorPuesto = Map.copyOf(dimensionesPorPuesto);
+            condicionalPorPuesto = Map.copyOf(condicionalPorPuesto);
         }
     }
 
@@ -99,21 +109,30 @@ public class OcupacionesCatalog {
                     throw new IllegalArgumentException(fichero + ": falta el campo 'id'");
                 }
                 Map<String, Map<String, String>> porPuesto = new LinkedHashMap<>();
+                Map<String, NodoCondicional> condicionalPorPuesto = new LinkedHashMap<>();
                 JsonNode ocupaciones = raiz.path("ocupaciones");
                 for (Iterator<Map.Entry<String, JsonNode>> it = ocupaciones.fields(); it.hasNext(); ) {
                     Map.Entry<String, JsonNode> entrada = it.next();
-                    JsonNode dimensiones = entrada.getValue().path("dimensiones");
-                    if (!dimensiones.isObject() || dimensiones.isEmpty()) {
-                        continue; // null o sin dimensiones = puesto no contemplado
+                    JsonNode puesto = entrada.getValue();
+                    JsonNode dimensiones = puesto.path("dimensiones");
+                    if (dimensiones.isObject() && !dimensiones.isEmpty()) {
+                        Map<String, String> dims = new LinkedHashMap<>();
+                        for (Iterator<Map.Entry<String, JsonNode>> dit = dimensiones.fields(); dit.hasNext(); ) {
+                            Map.Entry<String, JsonNode> d = dit.next();
+                            dims.put(d.getKey(), d.getValue().asText());
+                        }
+                        porPuesto.put(entrada.getKey(), Map.copyOf(dims));
+                    } else if (puesto.has("condicionalPorEstablecimiento")) {
+                        condicionalPorPuesto.put(entrada.getKey(), NodoCondicional.desde(
+                                puesto.path("condicionalPorEstablecimiento"), "establecimiento"));
+                    } else if (puesto.has("condicionalPorZona")) {
+                        condicionalPorPuesto.put(entrada.getKey(), NodoCondicional.desde(
+                                puesto.path("condicionalPorZona"), "zona"));
                     }
-                    Map<String, String> dims = new LinkedHashMap<>();
-                    for (Iterator<Map.Entry<String, JsonNode>> dit = dimensiones.fields(); dit.hasNext(); ) {
-                        Map.Entry<String, JsonNode> d = dit.next();
-                        dims.put(d.getKey(), d.getValue().asText());
-                    }
-                    porPuesto.put(entrada.getKey(), Map.copyOf(dims));
+                    // dimensiones null y sin condicional = puesto no contemplado.
                 }
-                if (mapeos.put(id, new MapeoConvenio(raiz.path("articulo").asText(null), porPuesto)) != null) {
+                if (mapeos.put(id, new MapeoConvenio(raiz.path("articulo").asText(null),
+                        porPuesto, condicionalPorPuesto)) != null) {
                     throw new IllegalStateException("Mapeo de ocupaciones duplicado: " + id);
                 }
             } catch (IOException e) {
