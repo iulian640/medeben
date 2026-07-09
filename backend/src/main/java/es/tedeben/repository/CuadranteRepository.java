@@ -5,6 +5,7 @@ import org.springframework.data.repository.Repository;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -26,4 +27,12 @@ public interface CuadranteRepository extends Repository<Cuadrante, UUID> {
 
     /** Última edición de una semana concreta. */
     Optional<Cuadrante> findTopByUsuarioIdAndSemanaInicioOrderByCreadoEnDescIdDesc(UUID usuarioId, LocalDate semanaInicio);
+
+    /** Todas las ediciones de semanas concretas del rango, más reciente primero (resolver periodos en memoria, sin N+1). */
+    List<Cuadrante> findByUsuarioIdAndSemanaInicioBetweenOrderByCreadoEnDescIdDesc(
+            UUID usuarioId, LocalDate desde, LocalDate hasta);
+
+    /** Todas las versiones de la semana tipo anteriores a un momento, más reciente primero (as-of por semana en memoria). */
+    List<Cuadrante> findByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
+            UUID usuarioId, OffsetDateTime antesDe);
 }

@@ -15,7 +15,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.regex.Pattern;
@@ -92,6 +95,65 @@ public class HorarioService {
     @Transactional(readOnly = true)
     public Optional<Cuadrante> semanaTipoActual(UUID usuarioId) {
         return cuadrantes.findTopByUsuarioIdAndSemanaInicioIsNullOrderByCreadoEnDescIdDesc(usuarioId);
+    }
+
+    /**
+     * Horario efectivo de TODAS las semanas de un rango de lunes (ambos incluidos)
+     * en DOS consultas: las ediciones del rango y las versiones de la semana tipo.
+     * La resolución por semana es en memoria con la MISMA semántica que
+     * {@link #horarioEfectivo}: la edición gana, y si no la hay aplica la semana
+     * tipo vigente al ACABAR esa semana (el pasado no se reescribe, D38). Evita
+     * el N+1 de pedir semana a semana en recorridos largos (p. ej. el año del
+     * resumen mensual: ~52 semanas serían ~104 consultas).
+     */
+    @Transactional(readOnly = true)
+    public Map<LocalDate, Optional<HorarioEfectivo>> horariosEfectivosDelRango(
+            UUID usuarioId, LocalDate lunesDesde, LocalDate lunesHasta) {
+        exigeLunes(lunesDesde);
+        exigeLunes(lunesHasta);
+        if (lunesHasta.isBefore(lunesDesde)) {
+            throw new IllegalArgumentException("El rango de semanas está del revés");
+        }
+
+        // Más reciente primero + putIfAbsent = se queda la última versión de cada semana.
+        Map<LocalDate, Cuadrante> ediciones = new HashMap<>();
+        for (Cuadrante c : cuadrantes.findByUsuarioIdAndSemanaInicioBetweenOrderByCreadoEnDescIdDesc(
+                usuarioId, lunesDesde, lunesHasta)) {
+            ediciones.putIfAbsent(c.getSemanaInicio(), c);
+        }
+
+        // Todas las versiones de la semana tipo que pudieran aplicar a alguna
+        // semana del rango, más reciente primero: para cada semana vale la
+        // primera creada antes de su fin de semana.
+        OffsetDateTime finUltimaSemana =
+                lunesHasta.plusDays(DIAS_SEMANA).atStartOfDay(ZONA).toOffsetDateTime();
+        List<Cuadrante> tipos =
+                cuadrantes.findByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
+                        usuarioId, finUltimaSemana);
+
+        Map<LocalDate, Optional<HorarioEfectivo>> resultado = new LinkedHashMap<>();
+        for (LocalDate lunes = lunesDesde; !lunes.isAfter(lunesHasta); lunes = lunes.plusDays(DIAS_SEMANA)) {
+            resultado.put(lunes, resuelveSemana(lunes, ediciones, tipos));
+        }
+        return resultado;
+    }
+
+    private static Optional<HorarioEfectivo> resuelveSemana(LocalDate lunes,
+                                                            Map<LocalDate, Cuadrante> ediciones,
+                                                            List<Cuadrante> tipos) {
+        Cuadrante edicion = ediciones.get(lunes);
+        if (edicion != null) {
+            return Optional.of(new HorarioEfectivo(
+                    edicion.getDias(), OrigenHorario.SEMANA_EDITADA, edicion.getCreadoEn()));
+        }
+        OffsetDateTime finDeSemana = lunes.plusDays(DIAS_SEMANA).atStartOfDay(ZONA).toOffsetDateTime();
+        for (Cuadrante tipo : tipos) {
+            if (tipo.getCreadoEn().isBefore(finDeSemana)) {
+                return Optional.of(new HorarioEfectivo(
+                        tipo.getDias(), OrigenHorario.SEMANA_TIPO, tipo.getCreadoEn()));
+            }
+        }
+        return Optional.empty();
     }
 
     private boolean estaSellada(LocalDate lunes) {

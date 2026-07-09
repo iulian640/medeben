@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,6 +23,9 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @DisplayName("FichajeService — el diario de la libreta sellada (D38): apuntes append-only con origen")
@@ -461,9 +465,41 @@ class FichajeServiceTest {
         assertThat(servicio.estadoDia(USUARIO, HOY).selladoDesde()).isEqualTo(HOY.plusDays(15));
     }
 
+    // --- estado de un periodo entero: una consulta por rango (sin N+1) ---
+
+    @Test
+    @DisplayName("estadosDelPeriodo: UNA sola consulta por rango, deriva cada día en memoria (sin N+1, review HIGH)")
+    void estadosDelPeriodoUnaSolaConsulta() {
+        LocalDate lunes = LocalDate.of(2026, 7, 6);
+        LocalDate martes = LocalDate.of(2026, 7, 7);
+        LocalDate miercoles = HOY; // 2026-07-08
+        when(repositorio.findByUsuarioIdAndFechaBetweenOrderByFechaAscRegistradoEnAscIdAsc(
+                USUARIO, lunes, miercoles))
+                .thenReturn(List.of(
+                        apunteEn(lunes, TipoApunte.ENTRADA, "09:00", "2026-07-06T09:01"),
+                        apunteEn(lunes, TipoApunte.SALIDA, "17:00", "2026-07-06T17:02"),
+                        apunteEn(martes, TipoApunte.ENTRADA, "10:00", "2026-07-07T10:01")));
+
+        Map<LocalDate, EstadoDia> estados = servicio.estadosDelPeriodo(USUARIO, lunes, miercoles);
+
+        assertThat(estados).containsOnlyKeys(lunes, martes, miercoles);
+        assertThat(estados.get(lunes).estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estados.get(lunes).minutosTrabajados()).isEqualTo(8 * 60);
+        assertThat(estados.get(martes).estado()).isEqualTo(EstadoDia.Estado.EN_CURSO); // solo entrada
+        assertThat(estados.get(miercoles).estado()).isEqualTo(EstadoDia.Estado.PENDIENTE); // sin apuntes, reciente
+        // El N+1 queda descartado: una única consulta de rango, ninguna por día.
+        verify(repositorio, times(1)).findByUsuarioIdAndFechaBetweenOrderByFechaAscRegistradoEnAscIdAsc(
+                USUARIO, lunes, miercoles);
+        verify(repositorio, never()).findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(any(), any());
+    }
+
     private static Apunte apunte(TipoApunte tipo, String hora, String registradoMadrid) {
+        return apunteEn(HOY, tipo, hora, registradoMadrid);
+    }
+
+    private static Apunte apunteEn(LocalDate fecha, TipoApunte tipo, String hora, String registradoMadrid) {
         OffsetDateTime sello = java.time.LocalDateTime.parse(registradoMadrid).atZone(MADRID).toOffsetDateTime();
-        return new Apunte(USUARIO, HOY, tipo, hora,
+        return new Apunte(USUARIO, fecha, tipo, hora,
                 tipo == TipoApunte.AUSENCIA ? "motivo" : null,
                 tipo == TipoApunte.AUSENCIA || hora == null ? OrigenApunte.RECONSTRUIDO : OrigenApunte.CONFIRMADO,
                 sello);

@@ -15,9 +15,12 @@ import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * El diario de fichajes de la libreta sellada (D38): apuntes append-only con
@@ -90,9 +93,39 @@ public class FichajeService {
                 OffsetDateTime.now(reloj)));
     }
 
+    /** El estado de un día, derivado de su diario (una consulta por fecha). */
+    @Transactional(readOnly = true)
+    public EstadoDia estadoDia(UUID usuarioId, LocalDate fecha) {
+        List<Apunte> diario = apuntes.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(usuarioId, fecha);
+        return derivaEstado(fecha, diario, LocalDate.now(reloj));
+    }
+
+    /**
+     * El estado de TODOS los días del periodo [desde, hasta] con UNA sola
+     * consulta: trae el diario del rango de una vez y deriva cada día en
+     * memoria, en vez de una query por día. Así el resumen mensual/anual (D12/
+     * D22), que recorre el año natural, no dispara el N+1 (una SELECT por día).
+     * Devuelve un estado por cada día del rango, incluidos los días sin apuntes
+     * (HUECO si ya sellado, PENDIENTE si no).
+     */
+    @Transactional(readOnly = true)
+    public Map<LocalDate, EstadoDia> estadosDelPeriodo(UUID usuarioId, LocalDate desde, LocalDate hasta) {
+        Map<LocalDate, List<Apunte>> porDia = apuntes
+                .findByUsuarioIdAndFechaBetweenOrderByFechaAscRegistradoEnAscIdAsc(usuarioId, desde, hasta)
+                .stream()
+                .collect(Collectors.groupingBy(Apunte::getFecha, LinkedHashMap::new, Collectors.toList()));
+        LocalDate hoy = LocalDate.now(reloj);
+        Map<LocalDate, EstadoDia> estados = new LinkedHashMap<>();
+        for (LocalDate dia = desde; !dia.isAfter(hasta); dia = dia.plusDays(1)) {
+            estados.put(dia, derivaEstado(dia, porDia.getOrDefault(dia, List.of()), hoy));
+        }
+        return estados;
+    }
+
     /**
      * Deriva el estado del día emparejando el diario en tramos (D38: turno
-     * seguido o partido, máx. {@value #MAX_TRAMOS} tramos).
+     * seguido o partido, máx. {@value #MAX_TRAMOS} tramos). Puro: no toca BD, así
+     * que vale para un día suelto o para el recorrido de un periodo ya cargado.
      *
      * <p>Limitación conocida: los apuntes no llevan identificador de tramo, así
      * que una corrección se asigna POR POSICIÓN — siempre al tramo abierto o,
@@ -103,10 +136,8 @@ public class FichajeService {
      * ~24h, pero no recupera la intención: para eso el apunte tendría que
      * declarar a qué tramo corrige.
      */
-    @Transactional(readOnly = true)
-    public EstadoDia estadoDia(UUID usuarioId, LocalDate fecha) {
-        List<Apunte> diario = apuntes.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(usuarioId, fecha);
-        boolean sellado = estaSellado(fecha, LocalDate.now(reloj));
+    private EstadoDia derivaEstado(LocalDate fecha, List<Apunte> diario, LocalDate hoy) {
+        boolean sellado = estaSellado(fecha, hoy);
 
         // Emparejado secuencial en tramos: el turno partido (D38, máx. 2 tramos
         // declarados) suma TODOS sus tramos, no solo la última pareja E/S.
