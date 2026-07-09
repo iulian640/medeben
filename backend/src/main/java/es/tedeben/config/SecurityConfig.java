@@ -1,6 +1,8 @@
 package es.tedeben.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import es.tedeben.ratelimit.RateLimitFilter;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -8,6 +10,7 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -20,13 +23,22 @@ import org.springframework.security.web.SecurityFilterChain;
  * stateless y sin CSRF (API pura de tokens, sin sesiones ni cookies), y los
  * 401 salen como ProblemDetail RFC 7807 con copy neutro, igual que el resto
  * de errores de la API.
+ *
+ * <p>El {@link RateLimitFilter} (si está presente en el contexto — ver
+ * {@code RateLimitConfig}) se registra ANTES del filtro de autenticación
+ * Bearer: así frena la fuerza bruta en {@code /auth/**} por IP sin gastar
+ * CPU validando JWT, y limita el resto de {@code /api/**} aunque el token
+ * no llegue a autenticar. Se inyecta como {@link ObjectProvider} para que
+ * los tests de slice ({@code @WebMvcTest}) que no importan {@code RateLimitConfig}
+ * sigan construyendo la cadena exactamente igual que antes, sin el filtro.
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, ObjectMapper objectMapper)
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, ObjectMapper objectMapper,
+                                                     ObjectProvider<RateLimitFilter> rateLimitFilterProvider)
             throws Exception {
         // El mismo 401 neutro para "sin token" y para "token inválido/caducado":
         // va cableado en los DOS sitios porque el filtro Bearer usa su propio
@@ -51,6 +63,11 @@ public class SecurityConfig {
                 // API stateless: sin token no hay redirect a login, hay un 401
                 // RFC 7807 (mismo shape que el GlobalExceptionHandler).
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(entryPoint));
+
+        RateLimitFilter rateLimitFilter = rateLimitFilterProvider.getIfAvailable();
+        if (rateLimitFilter != null) {
+            http.addFilterBefore(rateLimitFilter, BearerTokenAuthenticationFilter.class);
+        }
         return http.build();
     }
 }
