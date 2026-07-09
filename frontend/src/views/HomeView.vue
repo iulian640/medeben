@@ -6,7 +6,7 @@ const auth = useAuthStore()
 
 <template>
   <main class="home">
-    <h1>TeDeben</h1>
+    <h1>MeDeben</h1>
     <p class="tagline">
       Las horas que trabajas, cobradas.
     </p>

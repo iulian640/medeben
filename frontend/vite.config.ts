@@ -9,8 +9,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'TeDeben',
-        short_name: 'TeDeben',
+        name: 'MeDeben',
+        short_name: 'MeDeben',
         description:
           'Las horas que trabajas, cobradas. Registro de jornada del lado del trabajador de hostelería.',
         lang: 'es',
