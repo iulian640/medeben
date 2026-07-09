@@ -258,6 +258,13 @@ function reenviaConfirmada(confirmado: boolean) {
           :fichando="fichajes.fichando"
           @confirmar="reenviaConfirmada"
         />
+
+        <RouterLink
+          class="enlace-resumen"
+          to="/resumen"
+        >
+          Ver cuánto te deben este mes →
+        </RouterLink>
       </template>
 
       <button
@@ -380,6 +387,11 @@ h1 {
 .cargando {
   opacity: 0.7;
   font-size: 0.9rem;
+}
+
+.enlace-resumen {
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .ver-onboarding {

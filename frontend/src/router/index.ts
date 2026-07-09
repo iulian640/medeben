@@ -34,6 +34,12 @@ const router = createRouter({
       component: () => import('../views/CuentaView.vue'),
     },
     {
+      path: '/resumen',
+      name: 'resumen',
+      meta: { requiereSesion: true },
+      component: () => import('../views/ResumenMesView.vue'),
+    },
+    {
       path: '/libreta',
       name: 'libreta',
       meta: { requiereSesion: true },
