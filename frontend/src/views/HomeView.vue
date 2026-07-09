@@ -19,6 +19,13 @@ const auth = useAuthStore()
     <RouterLink
       v-if="auth.autenticado"
       class="cta"
+      to="/resumen"
+    >
+      ¿Cuánto te deben este mes?
+    </RouterLink>
+    <RouterLink
+      v-if="auth.autenticado"
+      class="cta"
       to="/libreta"
     >
       Tu libreta: ficha tu jornada
