@@ -2,7 +2,7 @@
 -- defensa en profundidad sobre las columnas enum de apuntes. La tabla es
 -- append-only y es la prueba del trabajador; un valor fuera del vocabulario
 -- (bug, SQL manual, cliente futuro) contaminaría el diario sin ruido.
--- Los valores replican los enums de es.tedeben.domain.fichaje (TipoApunte y
+-- Los valores replican los enums de es.medeben.domain.fichaje (TipoApunte y
 -- OrigenApunte). cuadrantes no lleva CHECK: no tiene columnas de vocabulario
 -- cerrado (dias es JSONB y el origen del horario se deriva, no se almacena).
 

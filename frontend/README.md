@@ -1,4 +1,4 @@
-# TeDeben — frontend
+# MeDeben — frontend
 
 Vue 3 + Vite + TypeScript. PWA (vite-plugin-pwa); más adelante se empaqueta
 para Android con Capacitor (ADR D14).

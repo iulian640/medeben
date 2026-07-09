@@ -1,11 +1,11 @@
-# TeDeben — backend
+# MeDeben — backend
 
-API REST en Java 21 + Spring Boot 3 (Maven). Paquete base: `es.tedeben`.
+API REST en Java 21 + Spring Boot 3 (Maven). Paquete base: `es.medeben`.
 
 ## Estructura
 
 ```
-src/main/java/es/tedeben/
+src/main/java/es/medeben/
 ├── config/       # Configuración (Spring Security, etc.)
 ├── controller/   # Capa web (REST)
 ├── service/      # Lógica de negocio

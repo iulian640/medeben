@@ -1,6 +1,6 @@
 spring:
   application:
-    name: tedeben-backend
+    name: medeben-backend
   profiles:
     default: dev
   mvc:
@@ -22,7 +22,7 @@ management:
       exposure:
         include: health,info
 
-tedeben:
+medeben:
   rate-limit:
     # Presupuestos por defecto (producción). Ver RateLimitProperties.
     habilitado: true

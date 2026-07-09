@@ -10,7 +10,7 @@ import type { DiaHorario } from '../services/horario'
  * Flag de "onboarding de la libreta ya visto" en localStorage. SOLO el
  * booleano: ningún dato personal se persiste en el navegador (D38/RGPD).
  */
-export const CLAVE_ONBOARDING_LIBRETA = 'tedeben.libreta.onboarding-visto'
+export const CLAVE_ONBOARDING_LIBRETA = 'medeben.libreta.onboarding-visto'
 
 /**
  * Acceso defensivo al flag: si el navegador no ofrece localStorage (modo

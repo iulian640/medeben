@@ -3,20 +3,20 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: tedeben-postgres
+    container_name: medeben-postgres
     environment:
-      POSTGRES_DB: tedeben
-      POSTGRES_USER: tedeben
-      POSTGRES_PASSWORD: tedeben
+      POSTGRES_DB: medeben
+      POSTGRES_USER: medeben
+      POSTGRES_PASSWORD: medeben
     ports:
       - "5432:5432"
     volumes:
-      - tedeben-pgdata:/var/lib/postgresql/data
+      - medeben-pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U tedeben -d tedeben"]
+      test: ["CMD-SHELL", "pg_isready -U medeben -d medeben"]
       interval: 5s
       timeout: 3s
       retries: 10
 
 volumes:
-  tedeben-pgdata:
+  medeben-pgdata:
