@@ -1,23 +1,35 @@
 {
-  "$comment": "Mapeo puesto→dimensiones para alicante-hosteleria: TODO null porque la correspondencia categoría→nivel retributivo (1-6, Anexo III) NO figura en el articulado provincial. El art. 15 remite la clasificación profesional al ALEH VI y la transcripción marca el mapeo como 'pendiente' (duda abierta para UGT). Cuando se transcriba la equivalencia, rellenar con la dimensión nivel ('1'..'6'); grupoEstablecimiento (A/B/C, Anexo I) es del establecimiento y la responde el usuario aparte.",
+  "$comment": "Mapeo puesto→dimensiones para alicante-hosteleria, derivado del ANEXO II del TEXTO del convenio 2023-2026 ('Clasificación de los niveles de los puestos de trabajo a efectos retributivos', BOP Alicante nº200, 18-10-2023, anuncio 8879/2023, págs. 60-63, leído en IMAGEN página a página). El nivel retributivo (1-6) es FIJO por puesto e IGUAL para todos los establecimientos: lo que depende del establecimiento es la COLUMNA de la tabla salarial (grupoEstablecimiento A/B/C, Anexo I), dimensión que NO se fija aquí y el usuario responde con los valores reales A/B/C de la capa normalizada (pregunta pendiente automática del resolutor). El $comment anterior ('la correspondencia categoría→nivel NO figura en el articulado provincial') era ERRÓNEO: el art. 15 remite al ALEH VI la clasificación PROFESIONAL (grupos I-III y áreas funcionales), pero los niveles RETRIBUTIVOS 1-6 sí están en el Anexo II de la misma publicación provincial. NUNCA inventar: si el convenio no clasifica un puesto, null y punto.",
   "id": "alicante-hosteleria",
-  "articulo": "pendiente — Art. 15 (remite al ALEH VI) y Anexo III (niveles 1-6); sin mapeo categoría→nivel en la transcripción",
+  "articulo": "Anexo II — Clasificación de los niveles de los puestos de trabajo a efectos retributivos (texto del convenio, BOP Alicante nº200, 18-10-2023, págs. 60-63)",
   "ocupaciones": {
-    "jefe-cocina": null,
-    "segundo-jefe-cocina": null,
-    "jefe-partida": null,
-    "cocinero": null,
-    "repostero": null,
-    "ayudante-cocina": null,
-    "auxiliar-cocina": null,
-    "jefe-sala": null,
-    "camarero": null,
-    "ayudante-camarero": null,
-    "barman": null,
-    "sumiller": null,
-    "recepcionista": null,
-    "camarera-pisos": null,
-    "administrativo": null,
-    "personal-limpieza": null
+    "jefe-cocina": { "dimensiones": { "nivel": "1" } },
+    "segundo-jefe-cocina": { "dimensiones": { "nivel": "2" } },
+    "jefe-partida": { "dimensiones": { "nivel": "3" } },
+    "cocinero": { "dimensiones": { "nivel": "4" } },
+    "repostero": { "dimensiones": { "nivel": "4" } },
+    "ayudante-cocina": { "dimensiones": { "nivel": "5" } },
+    "auxiliar-cocina": {
+      "dimensiones": { "nivel": "6" },
+      "nota": "Anexo II nivel 6: 'Auxiliar de cocina'."
+    },
+    "jefe-sala": {
+      "dimensiones": { "nivel": "1" },
+      "nota": "Anexo II nivel 1: 'Jefe/a de restaurante o sala'."
+    },
+    "camarero": { "dimensiones": { "nivel": "4" } },
+    "ayudante-camarero": { "dimensiones": { "nivel": "5" } },
+    "barman": {
+      "dimensiones": { "nivel": "3" },
+      "nota": "Anexo II nivel 3: 'Barman/Barwoman'."
+    },
+    "sumiller": { "dimensiones": { "nivel": "4" } },
+    "recepcionista": { "dimensiones": { "nivel": "4" } },
+    "camarera-pisos": { "dimensiones": { "nivel": "4" } },
+    "administrativo": { "dimensiones": { "nivel": "4" } },
+    "personal-limpieza": {
+      "dimensiones": { "nivel": "6" },
+      "nota": "Anexo II nivel 6: 'Auxiliar de pisos y limpieza' (la categoría de limpieza del convenio)."
+    }
   }
 }
