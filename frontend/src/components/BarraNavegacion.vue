@@ -8,10 +8,30 @@ import { useAuthStore } from '../stores/auth'
  */
 const auth = useAuthStore()
 
+/**
+ * Iconos de línea (SVG inline, currentColor): heredan el color de la pestaña,
+ * así que la activa se tiñe de acento sin lógica extra. Trazo geométrico
+ * simple para que se lean nítidos a 22px en cualquier densidad.
+ */
 const pestanas = [
-  { a: '/resumen', etiqueta: 'Lo tuyo', icono: '€' },
-  { a: '/libreta', etiqueta: 'Libreta', icono: '✓' },
-  { a: '/cuenta', etiqueta: 'Cuenta', icono: '●' },
+  {
+    a: '/resumen',
+    etiqueta: 'Lo tuyo',
+    // Euro
+    icono: 'M17 6.5a6 6 0 1 0 0 11 M4 10h9 M4 13.5h9',
+  },
+  {
+    a: '/libreta',
+    etiqueta: 'Libreta',
+    // Libreta con renglones y anilla
+    icono: 'M6 4h11a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z M9 8h6 M9 12h6 M9 16h3 M8 3v3',
+  },
+  {
+    a: '/cuenta',
+    etiqueta: 'Cuenta',
+    // Persona
+    icono: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M5 20a7 7 0 0 1 14 0',
+  },
 ]
 </script>
 
@@ -27,10 +47,18 @@ const pestanas = [
       class="pestana"
       :to="p.a"
     >
-      <span
+      <svg
         class="icono"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
         aria-hidden="true"
-      >{{ p.icono }}</span>
+      >
+        <path :d="p.icono" />
+      </svg>
       {{ p.etiqueta }}
     </RouterLink>
   </nav>
@@ -62,8 +90,8 @@ const pestanas = [
 }
 
 .icono {
-  font-size: 1.15rem;
-  line-height: 1;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 /* La pestaña de la pantalla actual, en el color de acción. */
