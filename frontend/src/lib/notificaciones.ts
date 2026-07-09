@@ -47,3 +47,31 @@ export async function programarNotificacion(notificacion: NotificacionProgramada
     ],
   })
 }
+
+/**
+ * Programa un lote de notificaciones de una vez (una llamada al plugin).
+ * Reutilizar ids reemplaza las anteriores: reprogramar es idempotente.
+ */
+export async function programarNotificaciones(
+  notificaciones: NotificacionProgramada[],
+): Promise<void> {
+  if (notificaciones.length === 0) {
+    return
+  }
+  await LocalNotifications.schedule({
+    notifications: notificaciones.map((n) => ({
+      id: n.id,
+      title: n.titulo,
+      body: n.cuerpo,
+      schedule: { at: n.fecha },
+    })),
+  })
+}
+
+/** Cancela notificaciones programadas por id. Ids inexistentes se ignoran sin error. */
+export async function cancelarNotificaciones(ids: number[]): Promise<void> {
+  if (ids.length === 0) {
+    return
+  }
+  await LocalNotifications.cancel({ notifications: ids.map((id) => ({ id })) })
+}
