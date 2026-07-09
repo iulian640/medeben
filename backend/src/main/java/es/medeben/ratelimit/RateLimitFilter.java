@@ -127,16 +127,24 @@ public final class RateLimitFilter extends OncePerRequestFilter {
 
     /**
      * IP del cliente. Solo se confía en {@code X-Forwarded-For} cuando
-     * {@code medeben.rate-limit.confiar-en-proxy} está activo (por defecto
-     * no); en caso contrario se usa siempre {@code getRemoteAddr()}. Confiar
-     * en esa cabecera sin un proxy de confianza delante permitiría a
-     * cualquier cliente falsear su IP y saltarse el límite.
+     * {@code medeben.rate-limit.confiar-en-proxy} está activo (por defecto no);
+     * si no, se usa siempre {@code getRemoteAddr()}.
+     *
+     * <p>CLAVE (fallo de seguridad corregido): se toma el ÚLTIMO valor de la
+     * lista, no el primero. Nuestro proxy de confianza (nginx con
+     * {@code $proxy_add_x_forwarded_for}) ANEXA la IP real del cliente al final
+     * de lo que llegue; los valores anteriores los pudo poner el propio cliente.
+     * Coger el primero permitiría a cualquiera mandar {@code X-Forwarded-For:
+     * 1.2.3.4} y, rotándolo, saltarse por completo el límite anti-fuerza-bruta
+     * del login (la única defensa, no hay bloqueo por cuenta). El último valor
+     * es el que escribió nuestro proxy y el cliente no controla.
      */
     private String resuelveIp(HttpServletRequest request) {
         if (propiedades.confiarEnProxy()) {
             String cabecera = request.getHeader(CABECERA_X_FORWARDED_FOR);
             if (cabecera != null && !cabecera.isBlank()) {
-                return cabecera.split(",")[0].trim();
+                String[] saltos = cabecera.split(",");
+                return saltos[saltos.length - 1].trim();
             }
         }
         return request.getRemoteAddr();

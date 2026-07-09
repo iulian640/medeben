@@ -76,9 +76,20 @@ final class RegistroCubetas {
                 k -> new Entrada(new CubetaTokens(capacidad, recargaPorMinuto, reloj)));
     }
 
-    /** Segundos hasta el próximo token disponible en la cubeta de {@code clave}, o 0 si no existe. */
+    /**
+     * Segundos hasta el próximo token de la cubeta de {@code clave}. Si esa
+     * clave no tiene cubeta propia (el registro estaba lleno y la petición cayó
+     * en la de desbordamiento de su grupo), se consulta esa — así el
+     * Retry-After refleja la recarga real y no un 1s falso que invitaría a
+     * reintentar en bucle bajo saturación.
+     */
     long segundosHastaReintento(String clave) {
         Entrada entrada = cubetas.get(clave);
+        if (entrada == null && !clave.endsWith(SUFIJO_DESBORDAMIENTO)) {
+            int separador = clave.indexOf(':');
+            String grupo = separador < 0 ? "" : clave.substring(0, separador);
+            entrada = cubetas.get(grupo + SUFIJO_DESBORDAMIENTO);
+        }
         return entrada == null ? 0L : entrada.cubeta.segundosHastaProximoToken();
     }
 
