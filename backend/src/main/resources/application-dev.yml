@@ -1,13 +1,13 @@
 # Local development: PostgreSQL 16 from the docker-compose.yml at the repo root.
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/tedeben
-    username: tedeben
-    password: tedeben
+    url: jdbc:postgresql://localhost:5432/medeben
+    username: medeben
+    password: medeben
 
 # Secreto JWT SOLO PARA DESARROLLO LOCAL (jamás en producción: allí viene de
-# la variable de entorno TEDEBEN_SEGURIDAD_JWT_SECRETO).
-tedeben:
+# la variable de entorno MEDEBEN_SEGURIDAD_JWT_SECRETO).
+medeben:
   seguridad:
     jwt:
       secreto: "secreto-de-desarrollo-no-usar-en-produccion-32-bytes!"

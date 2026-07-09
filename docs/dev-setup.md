@@ -1,4 +1,4 @@
-# Running TeDeben locally
+# Running MeDeben locally
 
 > Lee esto en español → [dev-setup.es.md](dev-setup.es.md)
 
@@ -20,8 +20,8 @@ From the repo root:
 docker compose up -d
 ```
 
-Starts a PostgreSQL 16 on `localhost:5432` with `tedeben` as database, user
-and password, and a persistent volume (`tedeben-pgdata`). To stop it:
+Starts a PostgreSQL 16 on `localhost:5432` with `medeben` as database, user
+and password, and a persistent volume (`medeben-pgdata`). To stop it:
 `docker compose down` (the data is kept).
 
 ## 2. Backend (Spring Boot)

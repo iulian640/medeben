@@ -14,7 +14,7 @@ spring:
 
 # Secreto JWT SOLO para el modo local sin BD (los endpoints de auth no existen
 # en este perfil, pero la cadena de seguridad necesita un decoder).
-tedeben:
+medeben:
   seguridad:
     jwt:
       secreto: "secreto-local-solo-para-consultar-convenios-32-bytes!!"

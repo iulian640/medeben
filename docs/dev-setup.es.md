@@ -1,4 +1,4 @@
-# Levantar TeDeben en local
+# Levantar MeDeben en local
 
 > Read this in English → [dev-setup.md](dev-setup.md)
 
@@ -21,7 +21,7 @@ docker compose up -d
 ```
 
 Levanta un PostgreSQL 16 en `localhost:5432` con BD/usuario/contraseña
-`tedeben` y volumen persistente (`tedeben-pgdata`). Para pararlo:
+`medeben` y volumen persistente (`medeben-pgdata`). Para pararlo:
 `docker compose down` (los datos se conservan).
 
 ## 2. Backend (Spring Boot)

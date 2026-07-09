@@ -14,7 +14,7 @@ function crearStorageFalso() {
 describe('esErrorDeCargaDeChunk', () => {
   it('reconoce el mensaje de Chrome', () => {
     const error = new TypeError(
-      'Failed to fetch dynamically imported module: https://tedeben.app/assets/PerfilView-a1b2c3.js',
+      'Failed to fetch dynamically imported module: https://medeben.app/assets/PerfilView-a1b2c3.js',
     )
     expect(esErrorDeCargaDeChunk(error)).toBe(true)
   })

@@ -7,7 +7,7 @@
  */
 import type { NotificacionProgramada } from './notificaciones'
 
-export const CLAVE_HORA_RECORDATORIO = 'tedeben.libreta.recordatorio-hora'
+export const CLAVE_HORA_RECORDATORIO = 'medeben.libreta.recordatorio-hora'
 
 /**
  * Ids reservados para el recordatorio (reutilizarlos reemplaza en vez de

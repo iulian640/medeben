@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">TeDeben</string>
-    <string name="title_activity_main">TeDeben</string>
-    <string name="package_name">es.tedeben.app</string>
-    <string name="custom_url_scheme">es.tedeben.app</string>
+    <string name="app_name">MeDeben</string>
+    <string name="title_activity_main">MeDeben</string>
+    <string name="package_name">es.medeben.app</string>
+    <string name="custom_url_scheme">es.medeben.app</string>
 </resources>
