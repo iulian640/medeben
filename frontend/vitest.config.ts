@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url'
-import { defineConfig } from 'vitest/config'
+import { coverageConfigDefaults, defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
@@ -7,20 +7,28 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      // El plugin PWA solo vive en vite.config.ts; en tests el módulo virtual
+      // se resuelve a un stub para poder cubrir src/pwa.ts.
+      'virtual:pwa-register': fileURLToPath(
+        new URL('./src/test/pwa-register.stub.ts', import.meta.url),
+      ),
     },
   },
   test: {
     environment: 'jsdom',
     globals: true,
-    // Cobertura solo del código fuente. Threshold solo de LÍNEAS al 80%
-    // (hoy 80,5%); statements (79,6%), branches (73,4%) y functions (65,6%)
-    // quedan sin gate hasta subirlas, para no romper la CI
+    // Cobertura solo del código fuente. Gates al 80% en líneas (88,2%),
+    // statements (87,5%) y branches (87,5%); functions (78,1%) queda sin gate
+    // hasta cubrir las que faltan, para no romper la CI.
     coverage: {
       provider: 'v8',
       include: ['src/**/*.{ts,vue}'],
+      exclude: [...coverageConfigDefaults.exclude, 'src/test/**'],
       reporter: ['text', 'html', 'lcov'],
       thresholds: {
         lines: 80,
+        statements: 80,
+        branches: 80,
       },
     },
   },
