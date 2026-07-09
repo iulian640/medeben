@@ -3,6 +3,70 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-09 — maratón nocturno · La app queda funcionalmente completa
+
+Sesión autónoma larga (Iulian fuera, con orden de no parar): 17 PRs mergeadas
+y los tres frentes cerrados. MeDeben ya hace de punta a punta lo que promete.
+
+- **Limpieza de la cola:** las 8 PRs de datos de convenios pendientes (Alicante,
+  Jaén, Pontevedra, Asturias, Las Palmas, Málaga, Valencia, Melilla) y 4 de
+  dependabot mergeadas; quedan retenidas con nota las 2 majors en rojo (Spring
+  Boot 4, TypeScript 7) y 3 que piden el scope `workflow` del token de gh
+  (mergeables desde la web).
+- **PR #163 — "me deben X € este mes" (backend), con review adversarial previa
+  (Opus):** la review confirmó un N+1 de horario (~52-106 SELECTs por petición
+  recorriendo el año) → nuevo `horariosEfectivosDelRango` (2 consultas y
+  resolución as-of en memoria, misma semántica D38) con test de regresión;
+  cota inferior de mes (2019) y el input crudo fuera de los errores RFC 7807.
+- **PR #152 — libreta en el frontend, con review adversarial previa:** el
+  hallazgo gordo era un mutex de fichaje que podía quedarse pegado para
+  siempre (navegar durante un POST lento deshabilitaba los botones de fichar
+  hasta cerrar sesión) → liberación incondicional + test; la semana ya no se
+  cae entera por un día con error (allSettled por día); la rectificación
+  tardía re-comprueba la confirmación en el punto de envío; y el contador de
+  cierre de D38 ahora cuenta de verdad ("se sella el jueves 23/07 — en 14 días").
+- **PR #166 — coverage frontend:** `pwa.ts` salía EXCLUIDO del coverage en
+  silencio (parse error del TS crudo en ficheros sin test) → stub del módulo
+  virtual + tests reales; PerfilView pasó de 0 tests a cubierta; gates de
+  vitest en las 4 métricas al 80 %.
+- **PR #167 — pantalla "Lo tuyo, este mes":** el número gordo de la app, con
+  navegación de meses, 422 tratado como guía (no error) con enlace a lo que
+  falte, tope anual D22 con barra, avisos y citas D18. Vue-review con 7
+  hallazgos (0 críticos), todos aplicados.
+- **PR #168 — rate limiting transversal (blocker pre-deploy de la auditoría):**
+  token buckets propios en memoria, presupuesto estricto por IP en auth y por
+  usuario en el resto; la review de seguridad (Opus) tumbó la primera versión
+  (DoS de memoria vía subs forjados y 429 a plantillas tras un mismo WiFi) y
+  la final lleva tope duro de cubetas con desbordamiento por grupo, límites
+  de auth dimensionados para CGNAT y health/OPTIONS exentos.
+- **PR #169 — recordatorio diario de fichar:** el módulo de notificaciones de
+  #151 por fin tiene UX (solo app nativa): toggle + hora, permisos con
+  fallback honesto, quincena renovada sola, solo se persiste la hora.
+- **PR #170 — pasada de diseño pedida por Iulian:** acento verde-dinero
+  semántico (antes el accent ERA el color del texto), barra de navegación
+  inferior (Lo tuyo / Libreta / Cuenta), nombre visible MeDeben, focus-visible
+  global y prefers-reduced-motion.
+- **PR #171 — deep rename a MeDeben:** paquete `es.medeben`, appId
+  `es.medeben.app` (antes de Play Store: es inmutable), properties, claves de
+  localStorage, docker-compose y dev-setup. ADR e HISTORIAL conservan las
+  menciones históricas.
+- **PR #172 — release Android + deploy:** icono y splash de MeDeben (marca de
+  euro geométrica, 74 assets), firma de release con keystore fuera del repo,
+  `assembleRelease` firmado verificado; Dockerfile de backend, compose de
+  producción y nginx con las cabeceras de seguridad de la auditoría
+  (pendiente de verificar el build de imagen: sin Docker en la máquina).
+- **Pendientes que quedan** (decisiones de Iulian): dominio + HTTPS + hosting,
+  cuenta de Play Store y política de privacidad, bloqueo por cuenta
+  anti fuerza bruta, PK UUIDv4, id de tramo/apunte en el API, docs personales
+  del repo público, y QA manual del diseño nuevo con la app en marcha.
+
+## 2026-07-09 — mañana · Nombre y honestidad
+
+- **PR #164:** nota de autoría honesta y estado WIP en los README (EN/ES).
+- **PR #165:** rename de superficie TeDeben → MeDeben en los README; el repo
+  pasa a `github.com/iulian640/medeben`. El deep rename se difirió (y cayó
+  esa misma noche, ver arriba).
+
 ## 2026-07-08 — noche · Auditoría integral + ola de fixes en 5 frentes
 
 - **Auditoría integral pedida por Iulian** (43 agentes: 8 auditores en paralelo sobre TODO
