@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 import { useResumenStore } from '../stores/resumen'
-import { formatearImporte } from '../lib/formato'
+import { formatearHoras, formatearImporte } from '../lib/formato'
 import { formatearMinutos } from '../lib/libreta'
 import { etiquetaMes } from '../lib/meses'
 import CitasFuente from '../components/CitasFuente.vue'
@@ -26,12 +26,16 @@ const porcentajeTope = computed(() => {
   return Math.min(100, Math.round((tope.acumuladoAnioHoras / tope.horas) * 100))
 })
 
-/** El 422 sobre horario y el de perfil llevan a pantallas distintas. */
+/**
+ * El 422 sobre horario y el de perfil llevan a pantallas distintas. El match
+ * va sobre el detail (texto libre) en minúsculas: lo sólido sería un código
+ * estable RFC 7807 del backend — anotado como pendiente (review).
+ */
 const enlaceIncompleto = computed(() => {
   if (!resumen.incompleto) {
     return null
   }
-  return resumen.incompleto.includes('horario')
+  return resumen.incompleto.toLowerCase().includes('horario')
     ? { a: '/libreta', texto: 'Ir a tu libreta para crear tu horario' }
     : { a: '/cuenta', texto: 'Completar tu perfil' }
 })
@@ -57,6 +61,7 @@ const enlaceIncompleto = computed(() => {
         type="button"
         class="secundario"
         aria-label="Mes anterior"
+        :disabled="resumen.cargando"
         @click="resumen.mesAnterior()"
       >
         ←
@@ -68,7 +73,7 @@ const enlaceIncompleto = computed(() => {
         type="button"
         class="secundario"
         aria-label="Mes siguiente"
-        :disabled="resumen.esMesActual"
+        :disabled="resumen.esMesActual || resumen.cargando"
         @click="resumen.mesSiguiente()"
       >
         →
@@ -89,9 +94,9 @@ const enlaceIncompleto = computed(() => {
       v-else-if="resumen.incompleto"
       class="tarjeta guia"
     >
-      <p class="guia-titulo">
+      <h2 class="guia-titulo">
         Aún no puedo echar las cuentas de este mes
-      </p>
+      </h2>
       <p>{{ resumen.incompleto }}</p>
       <RouterLink
         v-if="enlaceIncompleto"
@@ -124,14 +129,14 @@ const enlaceIncompleto = computed(() => {
         :class="{ 'sin-extras': !hayExtras }"
         aria-labelledby="importe-titulo"
       >
-        <p id="importe-titulo">
+        <h2 id="importe-titulo">
           <template v-if="hayExtras">
             Por tus horas extra te deben, como mínimo
           </template>
           <template v-else>
             Horas extra apuntadas este mes
           </template>
-        </p>
+        </h2>
         <p
           v-if="hayExtras"
           class="importe"
@@ -161,9 +166,9 @@ const enlaceIncompleto = computed(() => {
 
       <!-- El mes en horas: teórico vs real, sin dramatismo. -->
       <section class="tarjeta">
-        <p class="tarjeta-etiqueta">
+        <h2 class="tarjeta-etiqueta">
           Tu mes en horas
-        </p>
+        </h2>
         <dl class="horas">
           <div class="fila">
             <dt>Según tu horario</dt>
@@ -196,14 +201,14 @@ const enlaceIncompleto = computed(() => {
         class="tarjeta"
         aria-labelledby="tope-titulo"
       >
-        <p
+        <h2
           id="tope-titulo"
           class="tarjeta-etiqueta"
         >
           Tu año, contra el tope legal
-        </p>
+        </h2>
         <p>
-          Llevas <strong>{{ resumen.resumen.topeAnual.acumuladoAnioHoras }} h extra</strong>
+          Llevas <strong>{{ formatearHoras(resumen.resumen.topeAnual.acumuladoAnioHoras) }} h extra</strong>
           de las {{ resumen.resumen.topeAnual.horas }} h que permite la ley al año.
         </p>
         <div
@@ -222,23 +227,27 @@ const enlaceIncompleto = computed(() => {
         <CitasFuente :citas="resumen.resumen.topeAnual.citas" />
       </section>
 
-      <p
-        v-for="aviso in resumen.resumen.avisos"
-        :key="aviso"
-        class="aviso"
+      <div
+        v-if="resumen.resumen.avisos.length > 0"
         role="alert"
       >
-        ⚠ {{ aviso }}
-      </p>
+        <p
+          v-for="aviso in resumen.resumen.avisos"
+          :key="aviso"
+          class="aviso"
+        >
+          ⚠ {{ aviso }}
+        </p>
+      </div>
 
       <!-- D18: no me creas, compruébalo. -->
       <section
         v-if="hayExtras"
         class="tarjeta"
       >
-        <p class="tarjeta-etiqueta">
+        <h2 class="tarjeta-etiqueta">
           De dónde sale la cifra
-        </p>
+        </h2>
         <p class="nota">
           Salario base aplicado:
           {{ formatearImporte(resumen.resumen.importeEstimado.salarioBaseAplicado) }} € al mes
@@ -295,6 +304,12 @@ h1 {
   text-transform: capitalize;
 }
 
+#importe-titulo {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 .importe-hero {
   text-align: center;
   padding: 1.75rem 1rem;
@@ -337,6 +352,8 @@ h1 {
 }
 
 .tarjeta-etiqueta {
+  margin: 0;
+  font-weight: 600;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -381,6 +398,7 @@ h1 {
 }
 
 .guia .guia-titulo {
+  margin: 0;
   font-weight: 600;
   font-size: 1.05rem;
 }

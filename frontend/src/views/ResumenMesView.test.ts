@@ -72,6 +72,33 @@ beforeEach(() => {
 })
 
 describe('ResumenMesView', () => {
+  it('mientras carga: "Echando cuentas..." con role=status y sin cifra a medias', async () => {
+    let resuelve!: (r: ResumenMensual) => void
+    vi.mocked(getResumenMes).mockReturnValue(new Promise((res) => (resuelve = res)))
+
+    const wrapper = await montar()
+
+    expect(wrapper.find('[role="status"]').text()).toContain('Echando cuentas')
+    expect(wrapper.find('.importe').exists()).toBe(false)
+    // Los botones de mes no disparan peticiones extra durante la carga.
+    expect(wrapper.find('button[aria-label="Mes anterior"]').attributes('disabled')).toBeDefined()
+
+    resuelve(resumenServidor())
+    await flushPromises()
+    expect(wrapper.find('.importe').exists()).toBe(true)
+  })
+
+  it('las horas fraccionarias del tope van en estilo español (3,5, no 3.5)', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(
+      resumenServidor({ topeAnual: { horas: 80, acumuladoAnioHoras: 3.5, citas: [] } }),
+    )
+
+    const wrapper = await montar()
+
+    expect(wrapper.text()).toContain('3,5 h extra')
+    expect(wrapper.text()).not.toContain('3.5 h extra')
+  })
+
   it('el número gordo: importe, horas extra y precio hora en cristiano', async () => {
     vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
 

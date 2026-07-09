@@ -14,6 +14,15 @@ export function formatearImporte(importe: number): string {
   return FORMATO_IMPORTE.format(importe)
 }
 
+const FORMATO_HORAS = new Intl.NumberFormat('es-ES', {
+  maximumFractionDigits: 2,
+})
+
+/** Horas fraccionarias en estilo español: 3.5 → "3,5"; 72 → "72". */
+export function formatearHoras(horas: number): string {
+  return FORMATO_HORAS.format(horas)
+}
+
 /**
  * Unidad de la API en lenguaje llano. Las desconocidas se muestran tal cual:
  * nunca inventamos periodicidades (Cuenca publica en EUR/año, no EUR/mes).
