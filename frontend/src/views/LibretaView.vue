@@ -6,6 +6,7 @@ import LibretaOnboarding from '../components/LibretaOnboarding.vue'
 import PanelHoraManual from '../components/PanelHoraManual.vue'
 import PanelAusencia from '../components/PanelAusencia.vue'
 import PanelRectificacionSellado from '../components/PanelRectificacionSellado.vue'
+import PanelRecordatorio from '../components/PanelRecordatorio.vue'
 import { formatearFecha, hoyIso } from '../lib/formato'
 import {
   ETIQUETAS_ESTADO,
@@ -265,6 +266,9 @@ function reenviaConfirmada(confirmado: boolean) {
         >
           Ver cuánto te deben este mes →
         </RouterLink>
+
+        <!-- Solo en la app nativa: recordatorio diario de fichar. -->
+        <PanelRecordatorio />
       </template>
 
       <button
