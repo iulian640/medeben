@@ -34,3 +34,25 @@ entrada en vigor (la fuente transcrita solo acredita la publicación en BOE el
 10-03-2023). El motor tolera el formato (test `alehEstatalTolerado`). Si una
 revisión del ALEH VI verifica en imagen su cláusula de vigencia, actualizar y
 armonizar entonces.
+
+## Mapeo condicional puesto→nivel NO conectado al backend (bug de producto, 2026-07-09)
+
+Cuatro convenios expresan el nivel del puesto de forma CONDICIONAL al tipo y la
+categoría del establecimiento (`condicionalPorEstablecimiento` en Asturias,
+Jaén, Pontevedra; `condicionalPorZona` en Cataluña), con `dimensiones: null`.
+Los datos ESTÁN completos y verificados (los niveles y sus salarios existen en
+la capa normalizada), pero `OcupacionesCatalog.cargaMapeos` solo lee el campo
+`dimensiones` y descarta (`continue`) todo lo que lo tenga en null. Efecto en
+producción: **50 puestos devuelven 404 "no mapeado"** y el frontend muestra
+"modo manual (próximamente)" — incluida Cataluña entera (Barcelona/Girona/
+Tarragona) y su cocinero/camarero, que son de los puestos más usados.
+
+Impacto por convenio (puestos condicionales bloqueados):
+- cataluna-hosteleria: 12   · asturias-hosteleria: 11
+- jaen-hosteleria: 15       · pontevedra-hosteleria: 12
+
+Para cerrarlo hace falta una FEATURE (no un parche): resolver `(tipo, categoría)
+→ nivel → salario` preguntando al usuario con el mecanismo de "pendientes" ya
+existente, pero encadenado (la categoría depende del tipo). Requiere decisiones
+de UX de producto (cómo etiquetar "5*y4*", "5T/lujo", "2tazas" en cristiano) y
+review del cálculo (es dinero real). Datos listos; es conectar, no transcribir.
