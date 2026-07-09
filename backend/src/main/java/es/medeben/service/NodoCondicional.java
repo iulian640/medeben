@@ -38,13 +38,11 @@ public record NodoCondicional(String dimension, Map<String, NodoCondicional> ram
     /**
      * Construye el árbol desde el JSON del condicional. {@code dimensionRaiz} es
      * la dimensión de la primera pregunta ("establecimiento" o "zona"); los
-     * niveles interiores preguntan por "categoria".
-     */
-    /**
-     * Construye el árbol, o vacío si el puesto no resuelve a ningún nivel (todas
-     * sus celdas son {@code null} = no aplicable). El corpus marca {@code null}
-     * a propósito ("dato ausente &gt; dato erróneo, modo manual"): esas ramas se
-     * PODAN, no se ofrecen como opciones ni encadenan preguntas vacías.
+     * niveles interiores preguntan por "categoria". Devuelve vacío si el puesto
+     * no resuelve a ningún nivel (todas sus celdas son {@code null} = no
+     * aplicable): el corpus marca {@code null} a propósito ("dato ausente &gt;
+     * dato erróneo, modo manual"), esas ramas se PODAN — ni se ofrecen como
+     * opción ni encadenan preguntas vacías.
      */
     public static Optional<NodoCondicional> desde(JsonNode condicional, String dimensionRaiz) {
         return nodo(condicional, dimensionRaiz);

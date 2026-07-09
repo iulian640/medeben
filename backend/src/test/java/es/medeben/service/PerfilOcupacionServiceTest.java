@@ -135,6 +135,22 @@ class PerfilOcupacionServiceTest {
     }
 
     @Test
+    @DisplayName("Pontevedra camarero (profundidad mixta): tipoD resuelve en un paso, tipoA encadena categoría")
+    void pontevedraProfundidadMixta() {
+        // tipoD: {nivel} directo → resuelve sin preguntar categoría.
+        var directo = servicio.resuelve("pontevedra-hosteleria", "camarero",
+                java.util.Map.of("establecimiento", "tipoD")).orElseThrow();
+        assertThat(directo.dimensiones()).containsKey("nivel");
+        assertThat(directo.pendientes()).isEmpty();
+
+        // tipoA: {categoria:{nivel}} → tras el tipo, encadena la categoría.
+        var encadena = servicio.resuelve("pontevedra-hosteleria", "camarero",
+                java.util.Map.of("establecimiento", "tipoA")).orElseThrow();
+        assertThat(encadena.dimensiones()).isEmpty();
+        assertThat(encadena.pendientes().getFirst().dimension()).isEqualTo("categoria");
+    }
+
+    @Test
     @DisplayName("SEGURIDAD (review CRITICAL): un 'nivel' inyectado por el cliente NO pisa el que resuelve el árbol")
     void condicionalNivelInyectadoNoManda() {
         // Jaén cocinero hotel 5*y4* resuelve nivel 1.70. El cliente intenta
