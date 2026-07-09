@@ -1,4 +1,4 @@
-# TeDeben
+# MeDeben
 
 > Read this in English → [README.md](README.md)
 
@@ -40,7 +40,7 @@ dice; nunca lo inventa.
 
 ## Cómo está hecha
 
-Soy Iulian, excocinero y ahora desarrollador en formación. Empecé TeDeben
+Soy Iulian, excocinero y ahora desarrollador en formación. Empecé MeDeben
 porque viví el problema: no saber qué decía de verdad mi convenio, ni si mis
 horas cuadraban.
 

@@ -1,4 +1,4 @@
-# TeDeben
+# MeDeben
 
 > Lee esto en español → [README.es.md](README.es.md)
 
@@ -42,7 +42,7 @@ says so; it never makes one up.
 
 ## How it's made
 
-I'm Iulian, a former cook now training as a developer. I started TeDeben
+I'm Iulian, a former cook now training as a developer. I started MeDeben
 because I lived the problem: not knowing what my convenio actually said, or
 whether my hours added up.
 
