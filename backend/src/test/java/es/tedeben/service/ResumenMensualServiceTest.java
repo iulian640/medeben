@@ -93,7 +93,9 @@ class ResumenMensualServiceTest {
 
         // Perfil por defecto: cocinero de Madrid, sin salario real (usa el mínimo).
         perfilConSalario(null);
-        when(horarios.horarioEfectivo(eq(USUARIO), any())).thenReturn(Optional.of(SEMANA_8H));
+        // El servicio pide el horario de TODO el rango de semanas de una vez
+        // (dos consultas, no una por semana): el stub construye el mapa lunes a lunes.
+        horarioParaTodoElRango(Optional.of(SEMANA_8H));
         // El servicio pide el diario del periodo de una vez (una consulta, no una
         // por día): el stub construye el mapa del rango con el diario simulado.
         when(fichajes.estadosDelPeriodo(eq(USUARIO), any(), any())).thenAnswer(inv -> {
@@ -116,6 +118,19 @@ class ResumenMensualServiceTest {
         });
         when(calculo.topeHorasExtraAnual(any(), any())).thenReturn(
                 new TopeHorasExtra(80, List.of(new Cita("Tope de 80 h extraordinarias al año (art. 35.2 ET)", ET_URL))));
+    }
+
+    /** Stub del horario por rango: el mismo horario (o ninguno) para todas las semanas pedidas. */
+    private void horarioParaTodoElRango(Optional<HorarioEfectivo> semana) {
+        when(horarios.horariosEfectivosDelRango(eq(USUARIO), any(), any())).thenAnswer(inv -> {
+            LocalDate desde = inv.getArgument(1);
+            LocalDate hasta = inv.getArgument(2);
+            Map<LocalDate, Optional<HorarioEfectivo>> semanas = new LinkedHashMap<>();
+            for (LocalDate lunes = desde; !lunes.isAfter(hasta); lunes = lunes.plusDays(7)) {
+                semanas.put(lunes, semana);
+            }
+            return semanas;
+        });
     }
 
     private void perfilConSalario(BigDecimal salarioReal) {
@@ -171,11 +186,25 @@ class ResumenMensualServiceTest {
     @Test
     @DisplayName("mes sin horario (ninguna semana tiene cuadrante) → 422 diciendo que falta el horario")
     void mesSinHorario() {
-        when(horarios.horarioEfectivo(eq(USUARIO), any())).thenReturn(Optional.empty());
+        horarioParaTodoElRango(Optional.empty());
 
         assertThatExceptionOfType(ResumenIncompletoException.class)
                 .isThrownBy(() -> servicio.delMes(USUARIO, JULIO))
                 .withMessageContaining("horario");
+    }
+
+    @Test
+    @DisplayName("sin N+1 de horario: el rango de semanas se pide UNA vez, nunca semana a semana (review)")
+    void horarioSePideUnaVezParaTodoElRango() {
+        diario.put(LocalDate.of(2026, 7, 7), estado(LocalDate.of(2026, 7, 7), EstadoDia.Estado.COMPLETO, 540));
+
+        servicio.delMes(USUARIO, JULIO);
+
+        // Una única llamada por rango, del lunes de la semana del 1 de enero al
+        // lunes de la semana del fin del mes; y ni una sola llamada por semana.
+        verify(horarios).horariosEfectivosDelRango(
+                USUARIO, LocalDate.of(2025, 12, 29), LocalDate.of(2026, 7, 27));
+        verify(horarios, org.mockito.Mockito.never()).horarioEfectivo(any(), any());
     }
 
     @Test

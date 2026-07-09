@@ -30,6 +30,16 @@ public class ResumenController {
     /** Formato estricto yyyy-MM: un mes concreto, sin día. */
     private static final DateTimeFormatter YYYY_MM = DateTimeFormatter.ofPattern("yyyy-MM");
 
+    /**
+     * Cota inferior del mes consultable. La libreta nace con la app (2026) y el
+     * registro horario obligatorio es de 2019: nada anterior tiene sentido, y
+     * sin cota un año como el 0001 recorrería su año entero igualmente.
+     */
+    private static final YearMonth MES_MINIMO = YearMonth.of(2019, 1);
+
+    /** Longitud exacta de yyyy-MM: lo que no mida eso ni se intenta parsear (ni se ecoa). */
+    private static final int LONGITUD_YYYY_MM = 7;
+
     private final ResumenMensualService resumenes;
 
     public ResumenController(ResumenMensualService resumenes) {
@@ -49,11 +59,24 @@ public class ResumenController {
     }
 
     private static YearMonth parseaMes(String anyoMes) {
-        try {
-            return YearMonth.parse(anyoMes, YYYY_MM);
-        } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException(
-                    "Mes inválido '" + anyoMes + "': usa el formato yyyy-MM (por ejemplo 2026-07)");
+        // El input crudo no se ecoa en el error: puede ser cualquier cosa que
+        // venga en la URL y acabaría tal cual en logs y respuestas RFC 7807.
+        if (anyoMes == null || anyoMes.length() != LONGITUD_YYYY_MM) {
+            throw new IllegalArgumentException(FORMATO_ESPERADO);
         }
+        YearMonth mes;
+        try {
+            mes = YearMonth.parse(anyoMes, YYYY_MM);
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException(FORMATO_ESPERADO);
+        }
+        if (mes.isBefore(MES_MINIMO)) {
+            throw new IllegalArgumentException(
+                    "El mes " + mes + " es anterior a " + MES_MINIMO + ": no hay libreta que resumir tan atrás");
+        }
+        return mes;
     }
+
+    private static final String FORMATO_ESPERADO =
+            "Mes inválido: usa el formato yyyy-MM (por ejemplo 2026-07)";
 }

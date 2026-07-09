@@ -213,6 +213,85 @@ class HorarioServiceTest {
     }
 
     @Test
+    @DisplayName("horariosEfectivosDelRango: la edición gana en su semana, el resto usa la semana tipo (2 consultas en total)")
+    void rangoPrefiereEdicionYCaeATipo() {
+        LocalDate lunes1 = LocalDate.of(2026, 6, 29);
+        LocalDate lunes2 = LocalDate.of(2026, 7, 6);
+        Cuadrante edicion = new Cuadrante(USUARIO, lunes2, semanaValida(),
+                OffsetDateTime.parse("2026-07-01T10:00:00+02:00"));
+        Cuadrante tipo = new Cuadrante(USUARIO, null, semanaValida(),
+                OffsetDateTime.parse("2026-01-01T10:00:00+01:00"));
+        when(repositorio.findByUsuarioIdAndSemanaInicioBetweenOrderByCreadoEnDescIdDesc(USUARIO, lunes1, lunes2))
+                .thenReturn(List.of(edicion));
+        when(repositorio.findByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
+                eq(USUARIO), any())).thenReturn(List.of(tipo));
+
+        var rango = servicio.horariosEfectivosDelRango(USUARIO, lunes1, lunes2);
+
+        assertThat(rango).hasSize(2);
+        assertThat(rango.get(lunes1)).hasValueSatisfying(
+                h -> assertThat(h.origen()).isEqualTo(OrigenHorario.SEMANA_TIPO));
+        assertThat(rango.get(lunes2)).hasValueSatisfying(
+                h -> assertThat(h.origen()).isEqualTo(OrigenHorario.SEMANA_EDITADA));
+        // Exactamente una consulta de ediciones y una de semanas tipo: sin N+1.
+        verify(repositorio).findByUsuarioIdAndSemanaInicioBetweenOrderByCreadoEnDescIdDesc(USUARIO, lunes1, lunes2);
+        verify(repositorio).findByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
+                eq(USUARIO), any());
+    }
+
+    @Test
+    @DisplayName("horariosEfectivosDelRango respeta el as-of: una semana tipo creada tras el fin de una semana no aplica a esa semana, sí a las siguientes")
+    void rangoRespetaElAsOfPorSemana() {
+        LocalDate lunes1 = LocalDate.of(2026, 6, 29); // acaba el 2026-07-06 00:00
+        LocalDate lunes2 = LocalDate.of(2026, 7, 6);
+        // Creada el martes de la segunda semana: después del fin de la primera.
+        Cuadrante tipoNueva = new Cuadrante(USUARIO, null, semanaValida(),
+                OffsetDateTime.parse("2026-07-07T09:00:00+02:00"));
+        when(repositorio.findByUsuarioIdAndSemanaInicioBetweenOrderByCreadoEnDescIdDesc(USUARIO, lunes1, lunes2))
+                .thenReturn(List.of());
+        when(repositorio.findByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
+                eq(USUARIO), any())).thenReturn(List.of(tipoNueva));
+
+        var rango = servicio.horariosEfectivosDelRango(USUARIO, lunes1, lunes2);
+
+        assertThat(rango.get(lunes1)).isEmpty(); // el pasado no se reescribe (D38)
+        assertThat(rango.get(lunes2)).hasValueSatisfying(
+                h -> assertThat(h.origen()).isEqualTo(OrigenHorario.SEMANA_TIPO));
+    }
+
+    @Test
+    @DisplayName("horariosEfectivosDelRango con varias versiones: cada semana usa la ÚLTIMA versión que ya existía a su fin")
+    void rangoEligeLaVersionVigenteDeCadaSemana() {
+        LocalDate lunes1 = LocalDate.of(2026, 6, 29);
+        LocalDate lunes2 = LocalDate.of(2026, 7, 6);
+        Cuadrante tipoVieja = new Cuadrante(USUARIO, null, semanaValida(),
+                OffsetDateTime.parse("2026-01-01T10:00:00+01:00"));
+        Cuadrante tipoNueva = new Cuadrante(USUARIO, null, semanaValida(),
+                OffsetDateTime.parse("2026-07-07T09:00:00+02:00"));
+        when(repositorio.findByUsuarioIdAndSemanaInicioBetweenOrderByCreadoEnDescIdDesc(USUARIO, lunes1, lunes2))
+                .thenReturn(List.of());
+        // El finder devuelve más reciente primero, como el ORDER BY del repositorio.
+        when(repositorio.findByUsuarioIdAndSemanaInicioIsNullAndCreadoEnBeforeOrderByCreadoEnDescIdDesc(
+                eq(USUARIO), any())).thenReturn(List.of(tipoNueva, tipoVieja));
+
+        var rango = servicio.horariosEfectivosDelRango(USUARIO, lunes1, lunes2);
+
+        assertThat(rango.get(lunes1)).hasValueSatisfying(
+                h -> assertThat(h.definidoEn()).isEqualTo(tipoVieja.getCreadoEn()));
+        assertThat(rango.get(lunes2)).hasValueSatisfying(
+                h -> assertThat(h.definidoEn()).isEqualTo(tipoNueva.getCreadoEn()));
+    }
+
+    @Test
+    @DisplayName("horariosEfectivosDelRango exige lunes y un rango bien ordenado")
+    void rangoValidaLosLimites() {
+        assertThatIllegalArgumentException().isThrownBy(() -> servicio.horariosEfectivosDelRango(
+                USUARIO, LocalDate.of(2026, 7, 7), LocalDate.of(2026, 7, 13)));
+        assertThatIllegalArgumentException().isThrownBy(() -> servicio.horariosEfectivosDelRango(
+                USUARIO, LocalDate.of(2026, 7, 6), LocalDate.of(2026, 6, 29)));
+    }
+
+    @Test
     @DisplayName("guardar nunca borra: el repositorio solo recibe saves (libreta append-only)")
     void soloSeAnade() {
         servicio.guardaSemanaTipo(USUARIO, semanaValida());

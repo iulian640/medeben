@@ -20,7 +20,6 @@ import java.time.Year;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -38,9 +37,10 @@ import java.util.UUID;
  * (422) explicando QUÉ falta. Nunca se inventa una cifra (regla de oro).
  *
  * <p>Coste: recorre el año natural hasta el mes para el acumulado del tope. El
- * diario del periodo se trae de una vez ({@link FichajeService#estadosDelPeriodo})
- * y todo {@code delMes} corre en una única transacción de solo lectura, así que
- * no hay un round-trip por día (se evita el N+1).
+ * diario del periodo se trae de una vez ({@link FichajeService#estadosDelPeriodo}),
+ * el horario de todas las semanas también ({@link HorarioService#horariosEfectivosDelRango})
+ * y todo {@code delMes} corre en una única transacción de solo lectura: ni un
+ * round-trip por día ni por semana (sin N+1).
  */
 @Service
 @RequiereBaseDeDatos
@@ -93,14 +93,15 @@ public class ResumenMensualService {
 
         SalarioAplicado salario = resuelveSalario(perfil, convenio.id(), mes);
 
-        // Cache de horario por semana (lunes). Se comparte entre la comprobación
-        // de "hay horario en el mes" y el recorrido día a día del año.
-        Map<LocalDate, Optional<HorarioEfectivo>> cacheSemana = new HashMap<>();
-        exigeHorarioEnElMes(usuarioId, mes, cacheSemana);
-
         LocalDate hoy = LocalDate.now(reloj);
         LocalDate finMes = minimo(mes.atEndOfMonth(), hoy);
         LocalDate inicioAnio = mes.atDay(1).withDayOfYear(1);
+
+        // Todo el horario del periodo en DOS consultas (ediciones + semanas tipo):
+        // el recorrido del año no dispara queries por semana (sin N+1 de horario).
+        Map<LocalDate, Optional<HorarioEfectivo>> semanas = horarios.horariosEfectivosDelRango(
+                usuarioId, lunesDe(inicioAnio), lunesDe(mes.atEndOfMonth()));
+        exigeHorarioEnElMes(mes, semanas);
 
         // Todo el diario del año en UNA consulta (evita el N+1 día a día).
         Map<LocalDate, EstadoDia> estados = fichajes.estadosDelPeriodo(usuarioId, inicioAnio, finMes);
@@ -117,7 +118,7 @@ public class ResumenMensualService {
                 contadores.merge(estado.estado(), 1, Integer::sum);
             }
 
-            OptionalInt teorico = minutosTeoricos(usuarioId, dia, cacheSemana);
+            OptionalInt teorico = minutosTeoricos(dia, semanas);
             OptionalInt real = minutosReales(estado);
             if (teorico.isEmpty() || real.isEmpty()) {
                 if (enElMes && esSinCalcular(estado)) {
@@ -163,13 +164,13 @@ public class ResumenMensualService {
     }
 
     /** El mes debe tener horario (semana tipo o edición) en al menos una de sus semanas; si no, 422. */
-    private void exigeHorarioEnElMes(UUID usuarioId, YearMonth mes,
-                                     Map<LocalDate, Optional<HorarioEfectivo>> cache) {
+    private static void exigeHorarioEnElMes(YearMonth mes,
+                                            Map<LocalDate, Optional<HorarioEfectivo>> semanas) {
         boolean hayHorario = false;
         LocalDate lunes = lunesDe(mes.atDay(1));
         LocalDate finMes = mes.atEndOfMonth();
         while (!lunes.isAfter(finMes)) {
-            if (horarioDeSemana(usuarioId, lunes, cache).isPresent()) {
+            if (semanas.getOrDefault(lunes, Optional.empty()).isPresent()) {
                 hayHorario = true;
             }
             lunes = lunes.plusDays(DIAS_SEMANA);
@@ -239,9 +240,9 @@ public class ResumenMensualService {
     // --- minutos teóricos (horario efectivo) y reales (diario) ---
 
     /** Minutos teóricos del día según el horario efectivo de su semana; vacío si esa semana no tiene horario. */
-    private OptionalInt minutosTeoricos(UUID usuarioId, LocalDate dia,
-                                        Map<LocalDate, Optional<HorarioEfectivo>> cache) {
-        Optional<HorarioEfectivo> semana = horarioDeSemana(usuarioId, lunesDe(dia), cache);
+    private static OptionalInt minutosTeoricos(LocalDate dia,
+                                               Map<LocalDate, Optional<HorarioEfectivo>> semanas) {
+        Optional<HorarioEfectivo> semana = semanas.getOrDefault(lunesDe(dia), Optional.empty());
         if (semana.isEmpty()) {
             return OptionalInt.empty();
         }
@@ -268,11 +269,6 @@ public class ResumenMensualService {
     /** Un día COMPLETO cuyo total quedó "sin calcular" (techo de cordura): se excluye y se cuenta (honestidad). */
     private static boolean esSinCalcular(EstadoDia estado) {
         return estado.estado() == EstadoDia.Estado.COMPLETO && estado.minutosTrabajados() < 0;
-    }
-
-    private Optional<HorarioEfectivo> horarioDeSemana(UUID usuarioId, LocalDate lunes,
-                                                      Map<LocalDate, Optional<HorarioEfectivo>> cache) {
-        return cache.computeIfAbsent(lunes, l -> horarios.horarioEfectivo(usuarioId, l));
     }
 
     private static int minutosTramo(String entrada, String salida) {

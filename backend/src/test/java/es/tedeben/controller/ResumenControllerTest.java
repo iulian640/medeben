@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
@@ -145,5 +146,22 @@ class ResumenControllerTest {
     void mesNoNumerico() throws Exception {
         mockMvc.perform(get("/api/v1/resumen/mes/julio").with(comoUsuario()))
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("mes anterior a 2019 (registro horario obligatorio) → 400 con la cota explicada (review)")
+    void mesDemasiadoAntiguo() throws Exception {
+        mockMvc.perform(get("/api/v1/resumen/mes/2018-12").with(comoUsuario()))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value(containsString("2019")));
+    }
+
+    @Test
+    @DisplayName("el input crudo del path no se ecoa en el error 400 (review): ni en detail ni en logs vía detail")
+    void inputCrudoNoSeEcoa() throws Exception {
+        String raro = "x".repeat(64);
+        mockMvc.perform(get("/api/v1/resumen/mes/" + raro).with(comoUsuario()))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value(not(containsString("xxxx"))));
     }
 }
