@@ -79,6 +79,30 @@ export function lunesDe(fechaIso: string): string {
   return sumarDias(fechaIso, -((diaSemana + 6) % 7))
 }
 
+const MILIS_POR_DIA = 24 * 60 * 60 * 1000
+
+/** Días de calendario de una fecha ISO a otra (hasta - desde), en UTC: sin efectos de zona ni de cambio de hora. */
+export function diasEntre(desdeIso: string, hastaIso: string): number {
+  const [a1, m1, d1] = desdeIso.split('-').map(Number)
+  const [a2, m2, d2] = hastaIso.split('-').map(Number)
+  return Math.round((Date.UTC(a2, m2 - 1, d2) - Date.UTC(a1, m1 - 1, d1)) / MILIS_POR_DIA)
+}
+
+/**
+ * El contador de cierre de D38 ("se sella en 3 días"), en cristiano. La fecha
+ * absoluta sola no le dice al trabajador si aún llega a tiempo de corregir.
+ */
+export function cuentaAtrasSello(hoyIso: string, selladoDesdeIso: string): string {
+  const dias = diasEntre(hoyIso, selladoDesdeIso)
+  if (dias <= 0) {
+    return 'hoy'
+  }
+  if (dias === 1) {
+    return 'mañana'
+  }
+  return `en ${dias} días`
+}
+
 const DIAS_SEMANA = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado']
 
 /** "2026-07-08" → "miércoles". El día de la semana de una fecha no depende de la zona. */

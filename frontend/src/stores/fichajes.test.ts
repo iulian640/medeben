@@ -280,7 +280,7 @@ describe('fichajes store — la semana', () => {
     expect(fichajes.errorSemana).toBeNull()
   })
 
-  it('si falla un día de la semana, el error sale legible', async () => {
+  it('si falla la semana ENTERA (los 7 días), el error sale legible', async () => {
     vi.mocked(getEstadoDia).mockRejectedValue(
       new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }),
     )
@@ -291,5 +291,51 @@ describe('fichajes store — la semana', () => {
 
     expect(fichajes.errorSemana).toBe('Error interno')
     expect(fichajes.cargandoSemana).toBe(false)
+  })
+
+  it('un día caído NO tumba la semana: los otros seis llegan y el caído queda marcado (review)', async () => {
+    vi.mocked(getEstadoDia).mockImplementation((fecha) =>
+      fecha === '2026-07-08'
+        ? Promise.reject(new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }))
+        : Promise.resolve(diaVacio(fecha)),
+    )
+    vi.mocked(getHorarioSemana).mockResolvedValue(horarioServidor)
+    const fichajes = useFichajesStore()
+
+    await fichajes.cargarSemana('2026-07-06')
+
+    expect(fichajes.errorSemana).toBeNull()
+    expect(fichajes.semana).toHaveLength(7)
+    expect(fichajes.semana[2].fecha).toBe('2026-07-08')
+    expect(fichajes.semana[2].estado).toBeNull() // el caído, marcado
+    expect(fichajes.semana[0].estado?.fecha).toBe('2026-07-06') // el resto, intacto
+    expect(fichajes.semana[6].estado?.fecha).toBe('2026-07-12')
+  })
+})
+
+describe('fichajes store — el mutex de fichar', () => {
+  it('se libera aunque otra petición lo adelante: navegar durante un POST lento no deja los botones muertos (review)', async () => {
+    let resuelvePost!: (apunte: ApunteGuardado) => void
+    vi.mocked(postApunte).mockReturnValue(new Promise((res) => (resuelvePost = res)))
+    vi.mocked(getEstadoDia).mockImplementation((fecha) => Promise.resolve(diaVacio(fecha)))
+    const fichajes = useFichajesStore()
+
+    const fichada = fichajes.fichar({
+      fecha: '2026-07-08',
+      tipo: 'ENTRADA',
+      hora: '14:05',
+      motivo: null,
+      rectificacionTardiaConfirmada: false,
+    })
+    expect(fichajes.fichando).toBe(true)
+
+    // El usuario se va a la semana y vuelve: cargarDia adelanta el contador
+    // de vigencia mientras el POST sigue en vuelo.
+    await fichajes.cargarDia('2026-07-08')
+    resuelvePost(apunteEntrada)
+    await fichada
+
+    // Los datos "viejos" no pisan nada, pero el mutex queda LIBRE.
+    expect(fichajes.fichando).toBe(false)
   })
 })

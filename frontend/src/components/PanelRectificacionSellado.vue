@@ -12,7 +12,12 @@ import { ref } from 'vue'
  */
 defineProps<{ fichando: boolean }>()
 
-const emit = defineEmits<{ confirmar: [] }>()
+/**
+ * El evento lleva el booleano del checkbox: el padre lo re-comprueba antes de
+ * mandar la petición con valor probatorio (comprobación redundante a propósito
+ * — el disabled del botón no es la única barrera).
+ */
+const emit = defineEmits<{ confirmar: [confirmado: boolean] }>()
 
 const confirmado = ref(false)
 </script>
@@ -47,7 +52,7 @@ const confirmado = ref(false)
       type="button"
       class="secundario"
       :disabled="!confirmado || fichando"
-      @click="emit('confirmar')"
+      @click="emit('confirmar', confirmado)"
     >
       Registrar la rectificación
     </button>

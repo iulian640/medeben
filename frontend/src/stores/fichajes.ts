@@ -15,6 +15,15 @@ import { sumarDias } from '../lib/libreta'
 const DIAS_SEMANA = 7
 
 /**
+ * Un día de la vista de semana: su estado, o null si ESA petición falló.
+ * Un fallo puntual en un día no tumba los otros seis (resiliencia por día).
+ */
+export interface DiaDeSemana {
+  fecha: string
+  estado: EstadoDiaGuardado | null
+}
+
+/**
  * La libreta sellada (D38) en el cliente: el día de hoy con sus apuntes y la
  * vista de semana. Aquí no se deriva ningún estado — tras cada apunte se
  * relee el día del backend, que es quien deriva todo del diario.
@@ -35,7 +44,7 @@ export const useFichajesStore = defineStore('fichajes', () => {
 
   // --- Pantalla "Semana" ---
   const lunes = ref<string | null>(null)
-  const semana = ref<EstadoDiaGuardado[]>([])
+  const semana = ref<DiaDeSemana[]>([])
   const horario = ref<HorarioEfectivo | null>(null)
   const cargandoSemana = ref(false)
   const errorSemana = ref<string | null>(null)
@@ -106,9 +115,11 @@ export const useFichajesStore = defineStore('fichajes', () => {
         }
       }
     } finally {
-      if (sigueVigente(miId)) {
-        fichando.value = false
-      }
+      // El mutex se libera SIEMPRE: es estado de ESTA acción, no de la última
+      // vista. Si se condicionara a sigueVigente, navegar mientras el POST
+      // está en vuelo (cargarDia adelanta el contador) lo dejaría pegado en
+      // true y los botones de fichar quedarían deshabilitados para siempre.
+      fichando.value = false
     }
     return apuntado
   }
@@ -119,8 +130,9 @@ export const useFichajesStore = defineStore('fichajes', () => {
     errorSemana.value = null
     try {
       const fechas = Array.from({ length: DIAS_SEMANA }, (_, i) => sumarDias(lunesIso, i))
-      const [dias, horarioSemana] = await Promise.all([
-        Promise.all(fechas.map((fecha) => getEstadoDia(fecha))),
+      const [resultados, horarioSemana] = await Promise.all([
+        // allSettled: un 500 puntual en UN día no descarta los otros seis.
+        Promise.allSettled(fechas.map((fecha) => getEstadoDia(fecha))),
         getHorarioSemana(lunesIso).then(
           (h) => h,
           (e) => {
@@ -133,6 +145,16 @@ export const useFichajesStore = defineStore('fichajes', () => {
         ),
       ])
       if (!sigueVigente(miId)) {
+        return
+      }
+      const dias: DiaDeSemana[] = resultados.map((r, i) => ({
+        fecha: fechas[i],
+        estado: r.status === 'fulfilled' ? r.value : null,
+      }))
+      if (dias.every((d) => d.estado === null)) {
+        // Los 7 fallaron: eso sí es la semana entera caída, no un día suelto.
+        const primero = resultados[0]
+        errorSemana.value = mensajeDeError(primero.status === 'rejected' ? primero.reason : null)
         return
       }
       lunes.value = lunesIso

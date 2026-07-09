@@ -22,6 +22,9 @@ describe('PanelRectificacionSellado', () => {
 
     await boton.trigger('click')
     expect(wrapper.emitted('confirmar')).toHaveLength(1)
+    // El evento lleva el estado del checkbox: el padre lo re-comprueba antes
+    // de mandar la petición (comprobación redundante a propósito, review).
+    expect(wrapper.emitted('confirmar')![0]).toEqual([true])
   })
 
   it('con un apunte en vuelo (fichando) el botón sigue deshabilitado aunque esté marcada', async () => {

@@ -98,7 +98,10 @@ describe('LibretaView — el día', () => {
     expect(wrapper.text()).toContain('Entrada')
     expect(wrapper.text()).toContain('a las 14:05')
     expect(wrapper.text()).toContain('fichado al momento')
-    expect(wrapper.text()).toContain('Este día se sella el 23/07/2026')
+    // Contador de cierre (D38): día de la semana + fecha + cuenta atrás en
+    // cristiano. La cuenta atrás depende del día real, así que se ata el patrón.
+    expect(wrapper.text()).toContain('Este día se sella el jueves 23/07/2026')
+    expect(wrapper.text()).toMatch(/— (hoy|mañana|en \d+ días)\./)
   })
 
   it('un día sellado lo dice como tal en el contador', async () => {

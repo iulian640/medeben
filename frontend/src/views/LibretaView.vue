@@ -11,6 +11,7 @@ import {
   ETIQUETAS_ESTADO,
   ETIQUETAS_ORIGEN,
   ETIQUETAS_TIPO,
+  cuentaAtrasSello,
   diaSemanaDe,
   formatearMinutos,
   horaActual,
@@ -94,8 +95,10 @@ function registraAusencia() {
   })
 }
 
-function reenviaConfirmada() {
-  if (!ultimaPeticion) {
+function reenviaConfirmada(confirmado: boolean) {
+  // Comprobación redundante a propósito: una petición con valor probatorio no
+  // se marca como confirmada solo porque el botón del hijo estuviera activo.
+  if (!ultimaPeticion || !confirmado) {
     return
   }
   envia({ ...ultimaPeticion, rectificacionTardiaConfirmada: true })
@@ -198,7 +201,10 @@ function reenviaConfirmada() {
               Este día está sellado desde el {{ formatearFecha(fichajes.dia.selladoDesde) }}.
             </template>
             <template v-else>
-              Este día se sella el {{ formatearFecha(fichajes.dia.selladoDesde) }}.
+              <!-- Contador de cierre (D38): la cuenta atrás dice si aún llegas a corregir. -->
+              Este día se sella el {{ diaSemanaDe(fichajes.dia.selladoDesde) }}
+              {{ formatearFecha(fichajes.dia.selladoDesde) }} —
+              {{ cuentaAtrasSello(hoyIso(), fichajes.dia.selladoDesde) }}.
             </template>
           </p>
         </section>

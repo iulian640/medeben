@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   CLAVE_ONBOARDING_LIBRETA,
+  cuentaAtrasSello,
+  diasEntre,
   diaSemanaDe,
   formatearMinutos,
   horaActual,
@@ -125,5 +127,24 @@ describe('minutosTeoricos', () => {
   it('un tramo con salida anterior a la entrada cruza la medianoche', () => {
     // Turno de cierre 20:00 → 02:00: 6 horas, no un negativo.
     expect(minutosTeoricos({ tramos: [{ entrada: '20:00', salida: '02:00' }] })).toBe(360)
+  })
+})
+
+describe('diasEntre y cuentaAtrasSello (contador de cierre, D38)', () => {
+  it('cuenta días de calendario entre fechas ISO, sin efectos de zona', () => {
+    expect(diasEntre('2026-07-08', '2026-07-11')).toBe(3)
+    expect(diasEntre('2026-07-08', '2026-07-08')).toBe(0)
+    expect(diasEntre('2026-12-30', '2027-01-02')).toBe(3) // cruza el año
+    expect(diasEntre('2026-03-28', '2026-03-30')).toBe(2) // cruza el cambio de hora
+  })
+
+  it('el contador habla en cristiano: hoy, mañana, en N días', () => {
+    expect(cuentaAtrasSello('2026-07-08', '2026-07-08')).toBe('hoy')
+    expect(cuentaAtrasSello('2026-07-08', '2026-07-09')).toBe('mañana')
+    expect(cuentaAtrasSello('2026-07-08', '2026-07-11')).toBe('en 3 días')
+  })
+
+  it('una fecha de sello ya pasada no da un contador negativo', () => {
+    expect(cuentaAtrasSello('2026-07-08', '2026-07-01')).toBe('hoy')
   })
 })

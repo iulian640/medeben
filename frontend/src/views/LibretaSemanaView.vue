@@ -25,6 +25,9 @@ function cambiaSemana(dias: number) {
   fichajes.cargarSemana(lunes.value)
 }
 
+/** Hay días que fallaron al cargar (resiliencia por día): aviso suave arriba. */
+const hayDiasCaidos = computed(() => fichajes.semana.some((d) => d.estado === null))
+
 /**
  * Las horas teóricas de cada día según el horario, ya en texto; null si el
  * usuario no tiene horario configurado (el GET devolvió 404).
@@ -101,6 +104,20 @@ const teoricas = computed<(string | null)[]>(() => {
     </p>
 
     <template v-else-if="fichajes.semana.length > 0">
+      <p
+        v-if="hayDiasCaidos"
+        class="nota"
+        role="status"
+      >
+        Algún día no se ha podido cargar; el resto de la semana sí. Puedes reintentar.
+        <button
+          type="button"
+          class="secundario"
+          @click="fichajes.cargarSemana(lunes)"
+        >
+          Reintentar
+        </button>
+      </p>
       <ol class="dias">
         <li
           v-for="(d, i) in fichajes.semana"
@@ -113,13 +130,16 @@ const teoricas = computed<(string | null)[]>(() => {
               <span class="fecha">{{ formatearFecha(d.fecha) }}</span>
             </h2>
             <p class="estado">
-              {{ ETIQUETAS_ESTADO[d.estado] }}
+              {{ d.estado ? ETIQUETAS_ESTADO[d.estado.estado] : 'No se ha podido cargar' }}
             </p>
           </div>
-          <p class="minutos">
+          <p
+            v-if="d.estado"
+            class="minutos"
+          >
             Trabajado:
-            <template v-if="d.minutosTrabajados !== null">
-              {{ formatearMinutos(d.minutosTrabajados) }}
+            <template v-if="d.estado.minutosTrabajados !== null">
+              {{ formatearMinutos(d.estado.minutosTrabajados) }}
             </template>
             <span
               v-else
