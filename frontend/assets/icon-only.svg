@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!--
+    Icono de MeDeben: el euro que te deben, dibujado con geometría pura
+    (sin fuentes: el rasterizado es idéntico en cualquier máquina).
+    Paleta de la app: navy #1a1a2e, teal #2dd4bf, espuma #f3f4f6.
+  -->
+  <rect width="1024" height="1024" rx="224" fill="#1a1a2e"/>
+  <!-- La C del euro: arco abierto hacia la derecha, en el color del dinero. -->
+  <path d="M 708 335 A 230 230 0 1 0 708 689"
+        fill="none" stroke="#2dd4bf" stroke-width="92" stroke-linecap="round"/>
+  <!-- Las dos barras del euro. -->
+  <rect x="296" y="424" width="300" height="52" rx="26" fill="#f3f4f6"/>
+  <rect x="296" y="548" width="300" height="52" rx="26" fill="#f3f4f6"/>
+</svg>
