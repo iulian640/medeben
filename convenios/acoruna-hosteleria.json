@@ -57,6 +57,10 @@
   "horasExtraordinarias": {
     "articulo": 11,
     "incremento": "≥25% sobre o salario da hora ordinaria",
+    "tipo": "porcentaje",
+    "porcentaje": 25,
+    "porcentajeNota": "El convenio fija un MÍNIMO del 25% (≥25%). Mostramos el 25% como suelo garantizado.",
+    "sobre": "hora_ordinaria",
     "compensacion": "Compensables por descanso: 1 h extra = 1 h 15 min de descanso, dentro dos 4 meses seguintes. Cobrar ou descansar é decisión da empresa.",
     "nota": "Este convenio NON fixa prezo en € por hora extra (a diferenza de Alacante): é unha porcentaxe sobre a hora ordinaria."
   },

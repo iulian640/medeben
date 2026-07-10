@@ -117,14 +117,12 @@ public class CalculoConvenioService {
             }
 
             // (2) RECARGO PORCENTUAL sobre la hora ordinaria: la forma más común
-            // del corpus (23 convenios: Cádiz 75%, Granada 100%, Ourense 100%...).
-            // precio = valorHora × (1 + %/100). Antes se ignoraba y la hora extra
-            // se pagaba igual que la ordinaria — dinero de menos para el trabajador.
+            // del corpus (Cádiz 75%, Granada 100%, Cuenca "al 175%"...). El factor
+            // ya viene resuelto: recargo del X% → 1+X/100; abono AL X% → X/100.
+            // Antes se ignoraba y la hora extra se pagaba igual que la ordinaria.
             Optional<RecargoExtra> recargo = recargoPorcentual(horasExtraNodo);
             if (recargo.isPresent()) {
-                BigDecimal factor = BigDecimal.ONE.add(
-                        BigDecimal.valueOf(recargo.get().porcentaje()).movePointLeft(2));
-                BigDecimal conRecargo = valorHora.valorHora().multiply(factor);
+                BigDecimal conRecargo = valorHora.valorHora().multiply(recargo.get().factor());
                 if (conRecargo.compareTo(precio) > 0) {
                     precio = conRecargo;
                     citas.add(new Cita(recargo.get().nota() + " (" + articulo(horasExtraNodo)
@@ -155,47 +153,60 @@ public class CalculoConvenioService {
                         "Tope de " + TOPE_HORAS_EXTRA_ET + " h extraordinarias al año (art. 35.2 ET)")));
     }
 
-    /** Recargo % de la hora extra: el porcentaje a aplicar y el texto de la cita. */
-    private record RecargoExtra(int porcentaje, String nota) {}
+    /** Recargo % de la hora extra: el FACTOR sobre la hora ordinaria y el texto de la cita. */
+    private record RecargoExtra(BigDecimal factor, String nota) {}
 
     /** Nombres bajo los que el corpus guarda el recargo % plano de la hora extra. */
     private static final String[] CLAVES_RECARGO_PCT =
-            {"porcentaje", "recargoPct", "incrementoAbonoPorcentaje"};
+            {"porcentaje", "recargoPct", "incrementoAbonoPorcentaje", "recargoImplicitoPorcentaje"};
 
     /**
      * Recargo porcentual de la hora extra sobre la ordinaria, si el convenio lo
-     * fija así (entero, p. ej. 75 o 100). Vacío si no hay recargo porcentual o si
-     * su base no es la hora ordinaria (no se aplica a ciegas sobre otra base).
+     * fija así (p. ej. 75 o 100). Vacío si no hay recargo porcentual o si su base
+     * no es la hora ordinaria (no se aplica a ciegas sobre otra base).
      */
     private static Optional<RecargoExtra> recargoPorcentual(JsonNode horasExtraNodo) {
         JsonNode sobre = horasExtraNodo.path("sobre");
-        // Si el convenio dice explícitamente sobre qué base va, exigimos que sea
-        // la hora/salario ordinaria; si no lo dice (p. ej. incrementoAbono), se
-        // asume ordinaria (que es la definición del incremento del abono).
-        // "ordinari" cubre las tres formas del corpus: "hora_ordinaria",
-        // "valor_hora_ordinaria" y "salario_real_ordinario" (masculino).
-        if (sobre.isTextual() && !sobre.asText().toLowerCase().contains("ordinari")) {
-            return Optional.empty();
+        if (sobre.isTextual()) {
+            // Debe ser la hora/salario ORDINARIA. "ordinari" cubre "hora_ordinaria",
+            // "valor_hora_ordinaria" y "salario_real_ordinario" (masculino); pero
+            // "extraordinari(a/o)" también lo contiene, así que la excluimos.
+            String base = sobre.asText().toLowerCase();
+            if (!base.contains("ordinari") || base.contains("extraordinari")) {
+                return Optional.empty();
+            }
         }
+        // ¿El % es un recargo SOBRE la ordinaria (1+X/100) o el abono TOTAL (X/100)?
+        // Cuenca abona "al 175%" (×1,75); Cantabria recarga "el 175%" (×2,75).
+        boolean abonoTotal = "abono_total".equals(horasExtraNodo.path("computoRecargo").asText(""));
         // Caso normal: un único recargo plano.
         for (String clave : CLAVES_RECARGO_PCT) {
             JsonNode n = horasExtraNodo.path(clave);
-            if (n.isInt() && n.asInt() > 0) {
-                return Optional.of(new RecargoExtra(n.asInt(),
-                        "La hora extra se paga con un recargo del " + n.asInt() + "% sobre la ordinaria"));
+            if (n.isNumber() && n.decimalValue().signum() > 0) {
+                BigDecimal pct = n.decimalValue();
+                String pctTxt = pct.stripTrailingZeros().toPlainString();
+                if (abonoTotal) {
+                    return Optional.of(new RecargoExtra(pct.movePointLeft(2),
+                            "La hora extra se abona al " + pctTxt + "% del valor de la hora ordinaria"));
+                }
+                return Optional.of(new RecargoExtra(BigDecimal.ONE.add(pct.movePointLeft(2)),
+                        "La hora extra se paga con un recargo del " + pctTxt + "% sobre la ordinaria"));
             }
         }
         // Caso a tramos (Córdoba): 50% la primera hora de la semana, 75% el resto.
         // Aplicamos el MÍNIMO garantizado para no prometer de más, y citamos ambos.
         JsonNode resto = horasExtraNodo.path("recargoRestoHoras");
-        if (resto.isInt() && resto.asInt() > 0) {
+        if (resto.isNumber() && resto.decimalValue().signum() > 0) {
             JsonNode primera = horasExtraNodo.path("recargoPrimeraHoraSemanal");
-            int r = resto.asInt();
-            int p = primera.isInt() && primera.asInt() > 0 ? primera.asInt() : r;
-            int minimo = Math.min(p, r);
-            return Optional.of(new RecargoExtra(minimo,
-                    "La hora extra lleva recargo (el " + p + "% la primera hora de la semana y el "
-                            + r + "% el resto); mostramos el " + minimo + "% como mínimo garantizado"));
+            BigDecimal r = resto.decimalValue();
+            BigDecimal p = primera.isNumber() && primera.decimalValue().signum() > 0
+                    ? primera.decimalValue() : r;
+            BigDecimal minimo = p.min(r);
+            return Optional.of(new RecargoExtra(BigDecimal.ONE.add(minimo.movePointLeft(2)),
+                    "La hora extra lleva recargo (el " + p.stripTrailingZeros().toPlainString()
+                            + "% la primera hora de la semana y el " + r.stripTrailingZeros().toPlainString()
+                            + "% el resto); mostramos el " + minimo.stripTrailingZeros().toPlainString()
+                            + "% como mínimo garantizado"));
         }
         return Optional.empty();
     }

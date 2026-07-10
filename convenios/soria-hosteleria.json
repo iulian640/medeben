@@ -166,6 +166,8 @@
     "tipo": "formula",
     "formula": "hora extra = (salario base + antigüedad + complementos) x 1,75 / jornada anual (1785 horas)",
     "recargoImplicito": "El factor 1,75 equivale a un recargo del 75% sobre el valor de la hora ordinaria.",
+    "recargoImplicitoPorcentaje": 75,
+    "sobre": "hora_ordinaria",
     "topeAnual": "El art. 6 remite al máximo de horas extraordinarias del art. 35 ET.",
     "nota": "La fórmula del articulado 2022 usa el divisor 1.785 h (jornada de 2022-2024). Para 2025, cuya jornada anual es 1.780 h (art. 6), el divisor coherente sería 1.780; el convenio no actualizó expresamente la fórmula. Duda menor para UGT."
   },

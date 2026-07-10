@@ -325,6 +325,42 @@ class CalculoConvenioServiceTest {
         }
 
         @Test
+        @DisplayName("Cuenca 'se abona AL 175%' → ×1,75 (NO ×2,75): distinta semántica que Cantabria")
+        void cuencaAbonoTotal175() {
+            assertRecargo("cuenca-hosteleria", "1.75", "175%");
+        }
+
+        @Test
+        @DisplayName("Cantabria 'incremento DEL 175%' → ×2,75 (recargo encima, no abono total)")
+        void cantabriaRecargo175() {
+            assertRecargo("cantabria-hosteleria", "2.75", "175%");
+        }
+
+        @Test
+        @DisplayName("Las Palmas 'al doble' (100%) → ×2 (recargo legible que antes se ignoraba)")
+        void lasPalmas100() {
+            assertRecargo("laspalmas-hosteleria", "2", "100%");
+        }
+
+        @Test
+        @DisplayName("A Coruña ≥25% → ×1,25 (mínimo garantizado del recargo en gallego)")
+        void acoruna25Minimo() {
+            assertRecargo("acoruna-hosteleria", "1.25", "25%");
+        }
+
+        @Test
+        @DisplayName("Castellón: recargo implícito del 75% (fórmula 'precio hora + 75%') → ×1,75")
+        void castellon75Implicito() {
+            assertRecargo("castellon-hosteleria", "1.75", "75%");
+        }
+
+        @Test
+        @DisplayName("Soria: recargo implícito del 75% (factor 1,75) → ×1,75")
+        void soria75Implicito() {
+            assertRecargo("soria-hosteleria", "1.75", "75%");
+        }
+
+        @Test
         @DisplayName("Madrid no fija recargo %: la hora extra se paga al valor ordinario (suelo del ET), sin inventar recargo")
         void madridSinRecargoQuedaEnOrdinaria() {
             var vho = servicio.valorHoraOrdinaria(madrid(), ANIO, BASE, BigDecimal.ZERO);
