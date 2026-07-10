@@ -3,8 +3,9 @@ import PanelPlegable from './PanelPlegable.vue'
 
 /**
  * Panel "No he ido" de la libreta (D38): registrar una ausencia con un motivo
- * opcional. El estado (abierto/motivo) lo controla el padre con v-model para que
- * su reset tras un apunte exitoso valga también para este panel.
+ * opcional. El estado (abierto/motivo) lo controla el padre con v-model — el
+ * botón que lo abre vive en el PADRE (la fila de excepciones de la libreta) y
+ * el reset tras un apunte exitoso vale también para este panel.
  *
  * El formulario vive dentro de PanelPlegable: siempre está en el DOM (por eso
  * se despliega animado) pero queda inert mientras está cerrado.
@@ -20,14 +21,6 @@ defineEmits<{ registrar: [] }>()
 </script>
 
 <template>
-  <button
-    type="button"
-    class="boton-secundario"
-    :aria-expanded="abierto"
-    @click="abierto = !abierto"
-  >
-    No he ido
-  </button>
   <PanelPlegable :abierto="abierto">
     <form
       class="tarjeta"

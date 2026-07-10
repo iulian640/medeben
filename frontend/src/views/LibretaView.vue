@@ -374,7 +374,30 @@ function reenviaConfirmada(confirmado: boolean) {
             </button>
           </template>
 
+          <!-- Las excepciones (hora a mano, ausencia) van en su propia fila,
+               a media anchura y en fantasma: existen, pero no compiten con el
+               gesto diario de "Entro/Salgo ahora". Sus paneles se despliegan
+               debajo, a ancho completo. -->
           <template v-if="!esFuturo">
+            <div class="excepciones">
+              <button
+                type="button"
+                class="boton-fantasma excepcion"
+                :aria-expanded="mostrarHoraManual"
+                @click="mostrarHoraManual = !mostrarHoraManual"
+              >
+                Registrar el turno manualmente
+              </button>
+              <button
+                type="button"
+                class="boton-fantasma excepcion"
+                :aria-expanded="mostrarAusencia"
+                @click="mostrarAusencia = !mostrarAusencia"
+              >
+                No he ido
+              </button>
+            </div>
+
             <PanelHoraManual
               v-model:abierto="mostrarHoraManual"
               v-model:hora="horaManual"
@@ -405,19 +428,26 @@ function reenviaConfirmada(confirmado: boolean) {
           @confirmar="reenviaConfirmada"
         />
 
-        <RouterLink
-          class="enlace-resumen"
-          to="/resumen"
+        <!-- Navegación, no acciones: el pie del documento, separado por un
+             filete para que no se lea como más botones de fichar. -->
+        <nav
+          class="pie-enlaces"
+          aria-label="Ir a otras pantallas"
         >
-          Ver cuánto te deben este mes →
-        </RouterLink>
+          <RouterLink
+            class="enlace-resumen"
+            to="/resumen"
+          >
+            Ver cuánto te deben este mes →
+          </RouterLink>
 
-        <RouterLink
-          class="enlace-resumen"
-          to="/horario"
-        >
-          Tu horario →
-        </RouterLink>
+          <RouterLink
+            class="enlace-resumen"
+            to="/horario"
+          >
+            Tu horario →
+          </RouterLink>
+        </nav>
 
         <!-- Solo en la app nativa y en la vista de hoy: recordatorio diario. -->
         <PanelRecordatorio v-if="esHoy" />
@@ -510,6 +540,35 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: var(--esp-sm);
+}
+
+/* Las dos excepciones comparten fila a media anchura; si el texto largo no
+ * cabe (pantallas estrechas), cada una envuelve en su mitad. */
+.excepciones {
+  display: flex;
+  gap: var(--esp-sm);
+}
+
+/* Un panel plegado mide 0 pero sigue sumando el gap de la columna: dos
+ * paneles cerrados dejaban un hueco muerto bajo las excepciones. El margen
+ * negativo cancela ese gap solo mientras están cerrados. */
+.acciones :deep(.plegable:not(.abierto)) {
+  margin-top: calc(-1 * var(--esp-sm));
+}
+
+.excepcion {
+  flex: 1;
+  white-space: normal;
+}
+
+/* El pie de navegación: filas de índice tras un filete, no más botones. */
+.pie-enlaces {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-sm);
+  border-top: 1px solid var(--linea);
+  padding-top: var(--esp-md);
+  margin-top: var(--esp-xs);
 }
 
 .enlace-resumen {
