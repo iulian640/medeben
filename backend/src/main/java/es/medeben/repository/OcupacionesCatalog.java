@@ -50,18 +50,26 @@ public class OcupacionesCatalog {
 
     /**
      * Mapeo de un convenio. Un puesto está en {@code dimensionesPorPuesto} (nivel
-     * fijo o casi) o en {@code condicionalPorPuesto} (el nivel depende del tipo/
-     * categoría de establecimiento o de la zona — árbol de decisión), nunca en
-     * ambos. Un puesto en ninguno = no contemplado.
+     * fijo o casi) o en {@code condicionalPorPuesto} (la dimensión que falta sale
+     * de un árbol de decisión — tipo/categoría de establecimiento, zona o
+     * provincia), nunca en ambos. Un puesto en ninguno = no contemplado.
      */
     public record MapeoConvenio(String articulo,
                                 Map<String, Map<String, String>> dimensionesPorPuesto,
-                                Map<String, NodoCondicional> condicionalPorPuesto) {
+                                Map<String, Condicional> condicionalPorPuesto) {
 
         public MapeoConvenio {
             dimensionesPorPuesto = Map.copyOf(dimensionesPorPuesto);
             condicionalPorPuesto = Map.copyOf(condicionalPorPuesto);
         }
+    }
+
+    /**
+     * Árbol condicional de un puesto junto a la dimensión de tabla que resuelve:
+     * los árboles por establecimiento/zona resuelven el {@code nivel}; los árboles
+     * por provincia (colectiva) resuelven la {@code categoria} agrupada del anexo.
+     */
+    public record Condicional(NodoCondicional arbol, String dimensionObjetivo) {
     }
 
     private static List<Puesto> cargaPuestos(ObjectMapper objectMapper,
@@ -109,7 +117,7 @@ public class OcupacionesCatalog {
                     throw new IllegalArgumentException(fichero + ": falta el campo 'id'");
                 }
                 Map<String, Map<String, String>> porPuesto = new LinkedHashMap<>();
-                Map<String, NodoCondicional> condicionalPorPuesto = new LinkedHashMap<>();
+                Map<String, Condicional> condicionalPorPuesto = new LinkedHashMap<>();
                 JsonNode ocupaciones = raiz.path("ocupaciones");
                 for (Iterator<Map.Entry<String, JsonNode>> it = ocupaciones.fields(); it.hasNext(); ) {
                     Map.Entry<String, JsonNode> entrada = it.next();
@@ -124,10 +132,18 @@ public class OcupacionesCatalog {
                         porPuesto.put(entrada.getKey(), Map.copyOf(dims));
                     } else if (puesto.has("condicionalPorEstablecimiento")) {
                         NodoCondicional.desde(puesto.path("condicionalPorEstablecimiento"), "establecimiento")
-                                .ifPresent(arbol -> condicionalPorPuesto.put(entrada.getKey(), arbol));
+                                .ifPresent(arbol -> condicionalPorPuesto.put(entrada.getKey(),
+                                        new Condicional(arbol, "nivel")));
                     } else if (puesto.has("condicionalPorZona")) {
                         NodoCondicional.desde(puesto.path("condicionalPorZona"), "zona")
-                                .ifPresent(arbol -> condicionalPorPuesto.put(entrada.getKey(), arbol));
+                                .ifPresent(arbol -> condicionalPorPuesto.put(entrada.getKey(),
+                                        new Condicional(arbol, "nivel")));
+                    } else if (puesto.has("condicionalPorProvincia")) {
+                        // Colectiva: cada anexo provincial agrupa ocupaciones en una fila
+                        // propia; el árbol resuelve la CATEGORÍA literal de esa provincia.
+                        NodoCondicional.desde(puesto.path("condicionalPorProvincia"), "provincia")
+                                .ifPresent(arbol -> condicionalPorPuesto.put(entrada.getKey(),
+                                        new Condicional(arbol, "categoria")));
                     }
                     // dimensiones null y sin condicional resoluble = puesto no
                     // contemplado (todas sus celdas eran null → cae a modo manual).
