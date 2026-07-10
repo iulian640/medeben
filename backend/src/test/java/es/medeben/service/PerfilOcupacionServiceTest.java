@@ -214,17 +214,26 @@ class PerfilOcupacionServiceTest {
     }
 
     @Test
-    @DisplayName("SEGURIDAD: una dimensión de tabla suelta por query param (no la raíz del árbol) no se cuela")
-    void condicionalDimensionSueltaNoSeCuela() {
-        // categoriaEstablecimiento es dimensión de tabla en Cataluña, pero NO es
-        // la raíz del árbol (que es 'zona'); no debe entrar por query param, sale
-        // como pendiente normal para que el usuario la elija de valores reales.
-        var r = servicio.resuelve("cataluna-hosteleria", "camarero", java.util.Map.of(
-                "zona", "barcelona", "categoriaEstablecimiento", "ZZZ-inventada")).orElseThrow();
+    @DisplayName("condicional: al responder una dimensión de tabla no-raíz (categoría en Cataluña) se pliega y deja de preguntarse")
+    void condicionalPliegaDimensionDeTablaRespondida() {
+        // La categoría del establecimiento NO es la raíz del árbol (que es la zona),
+        // pero SÍ es dimensión de tabla. Tras resolver el nivel desde la zona, sale
+        // como pendiente; al responderla debe plegarse. Si no se plegara, se volvería
+        // a preguntar en bucle (el bug que cazó el barrido de cobertura).
+        var inicial = servicio.resuelve("cataluna-hosteleria", "camarero",
+                java.util.Map.of("zona", "barcelona")).orElseThrow();
+        var pendienteCategoria = inicial.pendientes().stream()
+                .filter(p -> p.dimension().equals("categoriaEstablecimiento"))
+                .findFirst().orElseThrow();
+        String valorValido = pendienteCategoria.valores().getFirst();
 
-        assertThat(r.dimensiones()).doesNotContainKey("categoriaEstablecimiento");
-        assertThat(r.dimensiones()).containsEntry("zona", "barcelona").containsKey("nivel");
-        assertThat(r.pendientes()).anySatisfy(
-                p -> assertThat(p.dimension()).isEqualTo("categoriaEstablecimiento"));
+        var r = servicio.resuelve("cataluna-hosteleria", "camarero", java.util.Map.of(
+                "zona", "barcelona", "categoriaEstablecimiento", valorValido)).orElseThrow();
+
+        assertThat(r.dimensiones())
+                .containsEntry("zona", "barcelona")
+                .containsEntry("categoriaEstablecimiento", valorValido)
+                .containsKey("nivel");
+        assertThat(r.pendientes()).noneMatch(p -> p.dimension().equals("categoriaEstablecimiento"));
     }
 }
