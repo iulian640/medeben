@@ -48,8 +48,10 @@ export default defineConfig({
   server: {
     proxy: {
       // Dev only: forward API calls to the local Spring Boot backend.
+      // MEDEBEN_API permite apuntar a otro puerto (p. ej. un backend paralelo
+      // durante los E2E) sin tocar este fichero.
       '/api': {
-        target: 'http://localhost:8080',
+        target: process.env.MEDEBEN_API ?? 'http://localhost:8080',
         changeOrigin: true,
       },
     },

@@ -3,6 +3,30 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-10 (noche) — E2E de Playwright en CI: los recorridos críticos, vigilados
+
+Hasta hoy los viajes completos solo se comprobaban a mano (QA en navegador o
+emulador). Ahora corren en cada PR contra el stack REAL (vite dev + Spring
+Boot + Postgres de servicio), en un job propio de CI.
+
+- **4 recorridos**: el viaje crítico entero (registro → perfil con la pregunta
+  encadenada del convenio → horario semana tipo → fichar entro/salgo → "Lo
+  tuyo" carga SIN la guía del 422); la consulta anónima de salario mínimo con
+  su cita del boletín (Zaragoza camarero, el mismo QA del rediseño); y el
+  borrado de cuenta RGPD por las dos ramas (contraseña buena y mala).
+- Solo Chromium a propósito: la app de producción ES un WebView Chromium
+  (Capacitor). Esperas deterministas, cuentas de usar y tirar por test,
+  navegación por la interfaz (el token vive en memoria: un goto() recarga la
+  SPA y pierde la sesión — está documentado en el helper).
+- `MEDEBEN_API` en vite.config permite apuntar el proxy a un backend paralelo
+  (así se verificó en local sin tocar el stack de desarrollo).
+- Cazas del propio E2E al escribirlo: el select de puesto de la calculadora se
+  REMONTA cuando llega el convenio (había que esperar la tarjeta antes de
+  elegir), y el onboarding de la libreta bloquea el primer fichaje si no se
+  recorre.
+- vue-tsc tipa también los specs (tsconfig.node) y vitest los excluye (cada
+  runner lo suyo).
+
 ## 2026-07-10 (noche) — backups de Postgres, con ensayo de restauración
 
 La BD de producción tenía CERO copias, y guarda la evidencia de los usuarios.
