@@ -1,7 +1,14 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { ApiError } from '../services/api'
-import { getProvincias, getPuestos, type Puesto } from '../services/convenios'
+import {
+  getConvenioParaTrabajador,
+  getOcupacion,
+  getProvincias,
+  getPuestos,
+  type OcupacionResuelta,
+  type Puesto,
+} from '../services/convenios'
 import {
   getPerfilUsuario,
   putPerfilUsuario,
@@ -32,6 +39,24 @@ export const useCuentaStore = defineStore('cuenta', () => {
   /** Solo lectura tras cargar: para decidir si las dimensiones siguen valiendo. */
   const dimensionesCargadas = ref<Record<string, string> | null>(null)
   const puestoIdCargado = ref<string | null>(null)
+  const provinciaCargada = ref<string | null>(null)
+  const subsectorCargado = ref<string | null>(null)
+
+  /*
+   * Clasificación del puesto en el convenio: el mismo mecanismo de preguntas
+   * encadenadas de la calculadora (PR #185). Sin él, esta pantalla guardaba
+   * perfiles con `dimensiones: {}` que parecían completos pero dejaban el
+   * resumen mensual en un 422 permanente (el motor no sabe tu grupo/nivel).
+   */
+  const ocupacion = ref<OcupacionResuelta | null>(null)
+  const respuestas = ref<Record<string, string>>({})
+  const convenioResuelto = ref<string | null>(null)
+  const resolviendo = ref(false)
+  const puestoNoMapeado = ref(false)
+
+  const pendientesSinResponder = computed(
+    () => ocupacion.value?.pendientes.filter((p) => !(p.dimension in respuestas.value)) ?? [],
+  )
 
   const sinPerfil = ref(false)
   const cargando = ref(false)
@@ -44,6 +69,12 @@ export const useCuentaStore = defineStore('cuenta', () => {
   const nuevaPeticion = () => ++peticionActual
   const sigueVigente = (id: number) => id === peticionActual
 
+  /** Contador propio para las resoluciones de clasificación: cambiar de
+   *  puesto no debe invalidar un guardado en vuelo, ni al revés. */
+  let resolucionActual = 0
+  const nuevaResolucion = () => ++resolucionActual
+  const resolucionVigente = (id: number) => id === resolucionActual
+
   function aplicarPerfil(p: PerfilGuardado) {
     provincia.value = p.provincia
     subsector.value = p.subsector
@@ -53,7 +84,16 @@ export const useCuentaStore = defineStore('cuenta', () => {
     convenioId.value = p.convenioId
     dimensionesCargadas.value = p.dimensiones
     puestoIdCargado.value = p.puestoId
+    provinciaCargada.value = p.provincia
+    subsectorCargado.value = p.subsector
   }
+
+  /** Lo cargado del servidor sigue intacto: sus dimensiones aún valen. */
+  const clasificacionIntacta = () =>
+    puestoId.value !== null &&
+    puestoId.value === puestoIdCargado.value &&
+    provincia.value === provinciaCargada.value &&
+    subsector.value === subsectorCargado.value
 
   /** Vacía TODOS los campos del formulario: como recién creado, sin datos de nadie. */
   function limpiarFormulario() {
@@ -65,6 +105,18 @@ export const useCuentaStore = defineStore('cuenta', () => {
     convenioId.value = null
     dimensionesCargadas.value = null
     puestoIdCargado.value = null
+    provinciaCargada.value = null
+    subsectorCargado.value = null
+    limpiarClasificacion()
+  }
+
+  function limpiarClasificacion() {
+    nuevaResolucion()
+    ocupacion.value = null
+    respuestas.value = {}
+    convenioResuelto.value = null
+    resolviendo.value = false
+    puestoNoMapeado.value = false
   }
 
   /**
@@ -120,6 +172,12 @@ export const useCuentaStore = defineStore('cuenta', () => {
       } else {
         sinPerfil.value = false
         aplicarPerfil(perfil)
+        // Perfil con puesto pero SIN dimensiones (guardado antes de que esta
+        // pantalla supiera preguntar): se resuelve ya, para que las preguntas
+        // pendientes aparezcan y el resumen deje de estar en 422 eterno.
+        if (perfil.puestoId !== null && Object.keys(perfil.dimensiones ?? {}).length === 0) {
+          resuelveClasificacion()
+        }
       }
     } catch (e) {
       if (sigueVigente(miId)) {
@@ -132,12 +190,88 @@ export const useCuentaStore = defineStore('cuenta', () => {
     }
   }
 
+  /**
+   * Resuelve la clasificación del puesto elegido (y dispara las preguntas
+   * encadenadas si el convenio las necesita). La vista la llama al cambiar
+   * provincia, tipo de sitio o puesto; y cargar() cuando el perfil guardado
+   * tiene puesto pero dimensiones vacías (el caso del 422 eterno).
+   */
+  async function resuelveClasificacion() {
+    limpiarClasificacion()
+    if (!provincia.value || !subsector.value || !puestoId.value) {
+      return
+    }
+    const miId = nuevaResolucion()
+    resolviendo.value = true
+    try {
+      const conv = await getConvenioParaTrabajador(provincia.value, subsector.value)
+      if (!resolucionVigente(miId)) {
+        return
+      }
+      const resultado = await getOcupacion(conv.id, puestoId.value)
+      if (!resolucionVigente(miId)) {
+        return
+      }
+      convenioResuelto.value = conv.id
+      ocupacion.value = resultado
+    } catch (e) {
+      if (!resolucionVigente(miId)) {
+        return
+      }
+      if (e instanceof ApiError && e.status === 404) {
+        // Puesto sin mapear en este convenio: se guarda sin clasificación,
+        // con las cartas boca arriba (la vista lo cuenta).
+        puestoNoMapeado.value = true
+      } else {
+        error.value = mensajeDeError(e)
+      }
+    } finally {
+      if (resolucionVigente(miId)) {
+        resolviendo.value = false
+      }
+    }
+  }
+
+  /** Misma disciplina que la calculadora: la respuesta solo se confirma si el
+   *  re-resolve funciona; si falla, la pregunta sigue en pantalla. */
+  async function responderPendiente(dimension: string, valor: string) {
+    if (!convenioResuelto.value || !puestoId.value) {
+      return
+    }
+    const candidatas = { ...respuestas.value, [dimension]: valor }
+    const miId = nuevaResolucion()
+    resolviendo.value = true
+    error.value = null
+    try {
+      const resultado = await getOcupacion(convenioResuelto.value, puestoId.value, candidatas)
+      if (!resolucionVigente(miId)) {
+        return
+      }
+      respuestas.value = candidatas
+      ocupacion.value = resultado
+    } catch (e) {
+      if (resolucionVigente(miId)) {
+        error.value = mensajeDeError(e)
+      }
+    } finally {
+      if (resolucionVigente(miId)) {
+        resolviendo.value = false
+      }
+    }
+  }
+
   async function guardar() {
     if (guardando.value) {
       return
     }
     if (!provincia.value || !subsector.value) {
       error.value = 'Elige al menos tu provincia y el tipo de sitio antes de guardar.'
+      return
+    }
+    if (pendientesSinResponder.value.length > 0) {
+      // Guardar un puesto a medias volvería al perfil de dimensiones vacías
+      // que deja el resumen en un 422 eterno: mejor pedir la respuesta ya.
+      error.value = 'Tu convenio necesita una respuesta más (justo arriba) para clasificar tu puesto.'
       return
     }
     // Mismo guard que en cargar(): si limpiar() corre con el PUT en vuelo
@@ -149,12 +283,20 @@ export const useCuentaStore = defineStore('cuenta', () => {
     error.value = null
     guardado.value = false
     try {
-      // Full-replace: SIEMPRE el objeto completo. Las dimensiones del puesto
-      // viejo no valen para el nuevo, así que solo se reenvían si el puesto
-      // no ha cambiado desde la carga.
-      const dimensiones =
-        puestoId.value !== null && puestoId.value === puestoIdCargado.value
+      // Full-replace: SIEMPRE el objeto completo. Prioridad de dimensiones:
+      // 1) las de una clasificación recién resuelta (ocupacion.dimensiones ya
+      //    trae las respuestas plegadas: es la ÚNICA fuente del cálculo);
+      // 2) las cargadas del servidor, si nada de lo que las define cambió y
+      //    NO están vacías (unas vacías son el 422 eterno: mejor null honesto);
+      // 3) null (sin puesto, puesto sin mapear, o clasificación caducada).
+      const cargadasUtiles =
+        dimensionesCargadas.value && Object.keys(dimensionesCargadas.value).length > 0
           ? dimensionesCargadas.value
+          : null
+      const dimensiones = ocupacion.value
+        ? { ...ocupacion.value.dimensiones }
+        : clasificacionIntacta() && !puestoNoMapeado.value
+          ? cargadasUtiles
           : null
       const resultado = await putPerfilUsuario({
         provincia: provincia.value,
@@ -195,6 +337,11 @@ export const useCuentaStore = defineStore('cuenta', () => {
     salarioBaseMensual,
     plusesAnuales,
     convenioId,
+    ocupacion,
+    respuestas,
+    resolviendo,
+    puestoNoMapeado,
+    pendientesSinResponder,
     sinPerfil,
     cargando,
     guardando,
@@ -202,6 +349,8 @@ export const useCuentaStore = defineStore('cuenta', () => {
     error,
     cargar,
     guardar,
+    resuelveClasificacion,
+    responderPendiente,
     marcarEdicion,
     limpiar,
   }

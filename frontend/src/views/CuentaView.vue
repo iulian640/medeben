@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { nextTick, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { useCuentaStore } from '../stores/cuenta'
 import { SUBSECTORES } from '../lib/subsectores'
+import { etiquetaDimension, etiquetaValor, explicacionDimension } from '../lib/formato'
 import { pulsoExito } from '../lib/animacion'
 
 const auth = useAuthStore()
 const cuenta = useCuentaStore()
 const router = useRouter()
+
+/** Una pregunta cada vez, como en la calculadora. */
+const siguientePendiente = computed(() => cuenta.pendientesSinResponder[0] ?? null)
 
 /* El aviso "Perfil guardado" recibe el pulso de confirmación justo cuando
  * cuenta.guardado pasa a true: el mismo patrón de la casa (el movimiento
@@ -19,20 +23,26 @@ onMounted(() => {
   cuenta.cargar()
 })
 
+/* Provincia, tipo de sitio y puesto definen la clasificación en el convenio:
+ * cualquier cambio la re-resuelve (y dispara las preguntas encadenadas si el
+ * convenio las necesita, igual que la calculadora). */
 function onProvincia(event: Event) {
   cuenta.provincia = (event.target as HTMLSelectElement).value
   cuenta.marcarEdicion()
+  cuenta.resuelveClasificacion()
 }
 
 function onSubsector(clave: string) {
   cuenta.subsector = clave
   cuenta.marcarEdicion()
+  cuenta.resuelveClasificacion()
 }
 
 function onPuesto(event: Event) {
   const valor = (event.target as HTMLSelectElement).value
   cuenta.puestoId = valor === '' ? null : valor
   cuenta.marcarEdicion()
+  cuenta.resuelveClasificacion()
 }
 
 function onSalario(event: Event) {
@@ -164,6 +174,52 @@ function salir() {
             </option>
           </select>
         </div>
+
+        <!-- La clasificación del puesto en el convenio: sin ella el resumen
+             mensual no puede dar cifra. Misma mecánica que la calculadora. -->
+        <p
+          v-if="cuenta.resolviendo"
+          class="texto-sm texto-suave"
+          role="status"
+          aria-live="polite"
+        >
+          Consultando tu convenio...
+        </p>
+
+        <fieldset
+          v-else-if="siguientePendiente"
+          class="campo campo-pendiente"
+        >
+          <legend>
+            Una cosa más: ¿{{ etiquetaDimension(siguientePendiente.dimension).toLowerCase() }}?
+          </legend>
+          <p
+            v-if="explicacionDimension(siguientePendiente.dimension)"
+            class="campo-ayuda"
+          >
+            {{ explicacionDimension(siguientePendiente.dimension) }}
+          </p>
+          <div class="opciones">
+            <button
+              v-for="valor in siguientePendiente.valores"
+              :key="valor"
+              type="button"
+              class="opcion boton-secundario"
+              :aria-pressed="cuenta.respuestas[siguientePendiente.dimension] === valor"
+              @click="cuenta.responderPendiente(siguientePendiente.dimension, valor)"
+            >
+              {{ etiquetaValor(siguientePendiente.dimension, valor) }}
+            </button>
+          </div>
+        </fieldset>
+
+        <p
+          v-else-if="cuenta.puestoNoMapeado"
+          class="texto-sm texto-suave"
+        >
+          Este puesto todavía no está clasificado en tu convenio: el perfil se
+          guarda igual, pero de momento no podremos estimar tu salario mínimo.
+        </p>
 
         <div class="campo">
           <label for="salario">Tu salario base al mes, según tu nómina (opcional)</label>
