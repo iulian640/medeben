@@ -44,6 +44,7 @@ const salarioMensual: SalarioBase = {
   unidad: 'EUR/mes',
   bajoSmi: false,
   smiMensual: 1221,
+  minimoLegal: null,
   citas: [{ texto: 'Tabla salarial 2026', url: null }],
 }
 
@@ -116,6 +117,7 @@ describe('PerfilView', () => {
       unidad: 'EUR/hora',
       bajoSmi: false,
       smiMensual: 1221,
+      minimoLegal: null,
       citas: [],
     })
     const wrapper = await montar()
@@ -127,12 +129,13 @@ describe('PerfilView', () => {
     expect(wrapper.find('.aviso-unidad').exists()).toBe(true)
   })
 
-  it('avisa cuando la tabla del convenio queda por debajo del SMI', async () => {
+  it('con la tabla bajo el SMI, la cifra grande es el suelo legal y el aviso explica la tabla', async () => {
     vi.mocked(postSalarioBase).mockResolvedValue({
       importe: 1086.31,
       unidad: 'EUR/mes',
       bajoSmi: true,
       smiMensual: 1221,
+      minimoLegal: 1221,
       citas: [],
     })
     const wrapper = await montar()
@@ -141,10 +144,39 @@ describe('PerfilView', () => {
     await wrapper.find('#puesto').setValue('cocinero')
     await flushPromises()
 
+    // Lo que se enseña en grande es lo que por ley te corresponde como
+    // mínimo, no la tabla superada (que iría a la calculadora infravalorada).
+    expect(wrapper.find('.resultado .cifra').text()).toBe('1.221,00')
     const aviso = wrapper.find('.aviso-smi')
     expect(aviso.exists()).toBe(true)
     expect(aviso.text()).toContain('salario mínimo')
+    expect(aviso.text()).toContain('1.086,31') // la tabla, ahora como contexto
     expect(aviso.attributes('role')).toBe('alert')
+  })
+
+  it('backend viejo (bajoSmi sin minimoLegal): la tabla se enseña pero el aviso NUNCA falta', async () => {
+    // Despliegue por fases o respuesta cacheada: bajoSmi llega sin el suelo
+    // calculado. El peor fallo posible sería tabla infra-SMI en grande y sin
+    // aviso; este test lo clava.
+    vi.mocked(postSalarioBase).mockResolvedValue({
+      importe: 1086.31,
+      unidad: 'EUR/mes',
+      bajoSmi: true,
+      smiMensual: 1221,
+      minimoLegal: null,
+      citas: [],
+    })
+    const wrapper = await montar()
+    await llegarAlConvenio(wrapper)
+
+    await wrapper.find('#puesto').setValue('cocinero')
+    await flushPromises()
+
+    expect(wrapper.find('.resultado .cifra').text()).toBe('1.086,31')
+    const aviso = wrapper.find('.aviso-smi')
+    expect(aviso.exists()).toBe(true)
+    expect(aviso.text()).toContain('salario mínimo')
+    expect(aviso.text()).toContain('1.221,00')
   })
 
   it('no avisa del SMI cuando el salario lo alcanza', async () => {

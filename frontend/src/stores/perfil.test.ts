@@ -44,6 +44,7 @@ const salario: SalarioBase = {
   unidad: 'EUR/mes',
   bajoSmi: false,
   smiMensual: 1221,
+  minimoLegal: null,
   citas: [{ texto: 'Salario base...', url: 'https://boe.es/x' }],
 }
 
@@ -200,6 +201,24 @@ describe('perfil store', () => {
     expect(store.salarioMensualPrefill).toBe(1425.5)
 
     store.salario = { ...salario, unidad: 'EUR/año' }
+    expect(store.salarioMensualPrefill).toBeNull()
+  })
+
+  it('con la tabla bajo el SMI, el prellenado usa el suelo legal, no la tabla superada', async () => {
+    const store = usePerfilStore()
+
+    store.salario = { ...salario, importe: 1066.61, bajoSmi: true, minimoLegal: 1221 }
+
+    // El valor hora de la calculadora debe partir del mínimo que la ley
+    // garantiza; con la tabla vieja saldría infravalorado.
+    expect(store.salarioMensualPrefill).toBe(1221)
+  })
+
+  it('bajoSmi sin minimoLegal (backend viejo): mejor no prellenar que infravalorar', async () => {
+    const store = usePerfilStore()
+
+    store.salario = { ...salario, importe: 1066.61, bajoSmi: true, minimoLegal: null }
+
     expect(store.salarioMensualPrefill).toBeNull()
   })
 

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,14 +94,19 @@ public class CalculoController {
             mensualidades = convenios.porId(convenioId).flatMap(calculo::mensualidades)
                     .orElse(BigDecimal.valueOf(14));
         } else {
-            return new SalarioBaseResponse(r.importe(), r.unidad(), false, null, r.citas());
+            return new SalarioBaseResponse(r.importe(), r.unidad(), false, null, null, r.citas());
         }
         boolean alcanza = smi.alcanzaElSmi(r.importe(), mensualidades, BigDecimal.ZERO, anio);
         if (alcanza) {
-            return new SalarioBaseResponse(r.importe(), r.unidad(), false, smi.smiMensual(anio), r.citas());
+            return new SalarioBaseResponse(r.importe(), r.unidad(), false, smi.smiMensual(anio), null, r.citas());
         }
+        // El suelo legal en la unidad de la respuesta: SMI anual repartido entre
+        // las mensualidades de ESTE convenio (con EUR/año, mensualidades=1 y
+        // queda el anual tal cual). Redondeo hacia ABAJO: antes un céntimo de
+        // menos que prometer uno que la ley no garantiza.
+        BigDecimal minimoLegal = smi.smiAnual(anio).divide(mensualidades, 2, RoundingMode.DOWN);
         List<Cita> citas = new ArrayList<>(r.citas());
         citas.add(smi.citaSmi(anio));
-        return new SalarioBaseResponse(r.importe(), r.unidad(), true, smi.smiMensual(anio), citas);
+        return new SalarioBaseResponse(r.importe(), r.unidad(), true, smi.smiMensual(anio), minimoLegal, citas);
     }
 }

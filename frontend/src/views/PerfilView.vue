@@ -257,7 +257,10 @@ watch(
       <h2 class="titulo-seccion">
         Tu salario base mínimo
       </h2>
-      <ImporteDinero :importe="perfil.salario.importe" />
+      <!-- La cifra grande es SIEMPRE lo que por ley te corresponde como
+           mínimo: si la tabla quedó por debajo del SMI, manda el suelo
+           legal, no la tabla superada. -->
+      <ImporteDinero :importe="perfil.salario.minimoLegal ?? perfil.salario.importe" />
       <p class="texto-suave">
         {{ periodicidadSalario }}
       </p>
@@ -267,15 +270,27 @@ watch(
       >
         Ojo: este convenio publica el salario en esta unidad, no al mes.
       </p>
+      <!-- El aviso cuelga de bajoSmi A SECAS: aunque un backend viejo no mande
+           minimoLegal (despliegue por fases, caché), enseñar la tabla infra-SMI
+           sin avisar sería justo el dato engañoso que este bloque evita. -->
       <p
-        v-if="perfil.salario.bajoSmi && perfil.salario.smiMensual"
+        v-if="perfil.salario.bajoSmi"
         class="aviso-smi aviso-bloque"
         role="alert"
       >
-        La tabla de tu convenio para este puesto ha quedado por debajo del
-        salario mínimo ({{ formatearImporte(perfil.salario.smiMensual) }} € al mes).
-        Por ley no pueden pagarte menos: al año te corresponde al menos el mínimo,
-        y si con tus pluses no llega, la diferencia es tuya.
+        <template v-if="perfil.salario.minimoLegal != null">
+          La tabla de tu convenio para este puesto se queda en
+          {{ formatearImporte(perfil.salario.importe) }} €, por debajo del salario
+          mínimo. La cifra de arriba es el suelo legal: el SMI del año, repartido
+          entre las pagas de tu convenio y sin contar pluses. Por ley no pueden
+          pagarte menos en el año; si con tus pluses no llegas, la diferencia es tuya.
+        </template>
+        <template v-else>
+          La tabla de tu convenio para este puesto ha quedado por debajo del
+          salario mínimo<template v-if="perfil.salario.smiMensual"> ({{ formatearImporte(perfil.salario.smiMensual) }} € al mes en 14 pagas)</template>.
+          Por ley no pueden pagarte menos: al año te corresponde al menos el
+          mínimo, y si con tus pluses no llega, la diferencia es tuya.
+        </template>
       </p>
       <CitasFuente :citas="perfil.salario.citas" />
     </section>
