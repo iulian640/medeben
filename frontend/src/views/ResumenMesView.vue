@@ -354,10 +354,15 @@ h1 {
   height: 1.25rem;
 }
 
+/* Solo la inicial en mayúscula: capitalize a secas convertía
+ * "junio de 2026" en "Junio De 2026". */
 .titulo-mes {
   font-weight: var(--peso-etiqueta);
   text-align: center;
-  text-transform: capitalize;
+}
+
+.titulo-mes::first-letter {
+  text-transform: uppercase;
 }
 
 .cargando {

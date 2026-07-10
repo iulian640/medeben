@@ -33,7 +33,7 @@ const PASOS = [
     titulo: 'Los huecos son normales',
     texto:
       'Si un día no apuntas nada, queda un hueco. No pasa nada: un diario ' +
-      'real tiene huecos, y eso le da credibilidad. Un diario perfecto canta.',
+      'real tiene huecos, y eso le da credibilidad.',
   },
 ]
 
