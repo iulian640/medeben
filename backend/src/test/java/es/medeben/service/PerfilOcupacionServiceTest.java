@@ -98,6 +98,17 @@ class PerfilOcupacionServiceTest {
         assertThat(r.dimensiones()).doesNotContainKey("basura");
     }
 
+    @Test
+    @DisplayName("mapeo directo: el cliente NO puede pisar el nivel que fija el puesto vía query param")
+    void directoNivelDelPuestoEsAutoritativo() {
+        // Cocinero Madrid = nivel III (lo fija el puesto). Un ?nivel=I inyectado no
+        // debe cambiarlo y saltar a otra fila salarial (mismo blindaje que el árbol).
+        var r = servicio.resuelve("madrid-hosteleria", "cocinero",
+                java.util.Map.of("nivel", "I")).orElseThrow();
+
+        assertThat(r.dimensiones()).containsEntry("nivel", "III");
+    }
+
     // --- Puestos con nivel CONDICIONAL al establecimiento/zona (datos reales) ---
 
     @Test

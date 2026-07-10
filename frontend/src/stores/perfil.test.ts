@@ -149,6 +149,23 @@ describe('perfil store', () => {
     expect(store.salario).toEqual(salario)
   })
 
+  it('si la re-resolución falla, NO confirma la respuesta ni oculta la pregunta (reintentable)', async () => {
+    vi.mocked(getOcupacion)
+      .mockResolvedValueOnce(ocupacionConPendiente)
+      .mockRejectedValueOnce(new ApiError(500, 'boom'))
+    const store = usePerfilStore()
+    store.convenio = convenioMadrid
+
+    await store.elegirPuesto('cocinero')
+    await store.responderPendiente('claseEmpresa', 'B')
+
+    expect(store.error).not.toBeNull()
+    // La respuesta no se confirmó y la pregunta sigue en pantalla para reintentar.
+    expect(store.respuestas).toEqual({})
+    expect(store.pendientesSinResponder).toHaveLength(1)
+    expect(postSalarioBase).not.toHaveBeenCalled()
+  })
+
   it('sin pendientes calcula el salario directamente al elegir puesto', async () => {
     vi.mocked(getOcupacion).mockResolvedValue({
       dimensiones: { nivel: 'II' },

@@ -169,7 +169,6 @@ export const usePerfilStore = defineStore('perfil', () => {
   }
 
   async function responderPendiente(dimension: string, valor: string) {
-    respuestas.value = { ...respuestas.value, [dimension]: valor }
     if (!convenio.value || !puestoId.value) {
       return
     }
@@ -177,13 +176,19 @@ export const usePerfilStore = defineStore('perfil', () => {
     // CONDICIONAL (Cataluña por zona, Jaén/Asturias/Málaga por establecimiento…)
     // esto revela la siguiente pregunta encadenada o el nivel que resuelve el
     // árbol. En los directos devuelve lo mismo y no estorba.
+    // La respuesta NO se confirma hasta que el re-resolve funciona: si falla (un
+    // 500/timeout transitorio), la pregunta debe SEGUIR en pantalla para reintentar,
+    // no desaparecer dejando al usuario sin salida.
+    const candidatas = { ...respuestas.value, [dimension]: valor }
     const miId = nuevaPeticion()
     try {
       cargando.value = true
-      const resultado = await getOcupacion(convenio.value.id, puestoId.value, respuestas.value)
+      error.value = null
+      const resultado = await getOcupacion(convenio.value.id, puestoId.value, candidatas)
       if (!sigueVigente(miId)) {
         return
       }
+      respuestas.value = candidatas
       ocupacion.value = resultado
       if (pendientesSinResponder.value.length === 0) {
         await calcularSalario()

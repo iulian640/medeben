@@ -96,6 +96,7 @@ function onPuesto(event: Event) {
           type="button"
           class="opcion"
           :class="{ activa: perfil.subsector === s.clave }"
+          :disabled="perfil.cargando"
           :aria-pressed="perfil.subsector === s.clave"
           @click="perfil.elegirSubsector(s.clave)"
         >
@@ -148,6 +149,7 @@ function onPuesto(event: Event) {
         id="puesto"
         class="selector"
         :value="perfil.puestoId ?? ''"
+        :disabled="perfil.cargando"
         @change="onPuesto"
       >
         <option
@@ -218,6 +220,7 @@ function onPuesto(event: Event) {
           :key="valor"
           type="button"
           class="opcion"
+          :disabled="perfil.cargando"
           :aria-pressed="perfil.respuestas[siguientePendiente.dimension] === valor"
           @click="perfil.responderPendiente(siguientePendiente.dimension, valor)"
         >
