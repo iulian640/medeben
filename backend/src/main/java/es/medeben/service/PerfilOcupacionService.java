@@ -79,16 +79,18 @@ public class PerfilOcupacionService {
                 }
                 return Optional.of(resueltaConAutofijado(convenioId, fijas, mapeo.articulo()));
             }
-            NodoCondicional arbol = mapeo.condicionalPorPuesto().get(puestoId);
-            if (arbol != null) {
-                return Optional.of(resuelveCondicional(convenioId, arbol, respuestas, mapeo.articulo()));
+            OcupacionesCatalog.Condicional condicional = mapeo.condicionalPorPuesto().get(puestoId);
+            if (condicional != null) {
+                return Optional.of(resuelveCondicional(convenioId, condicional, respuestas, mapeo.articulo()));
             }
             return Optional.empty();
         });
     }
 
-    private OcupacionResuelta resuelveCondicional(String convenioId, NodoCondicional arbol,
+    private OcupacionResuelta resuelveCondicional(String convenioId,
+                                                  OcupacionesCatalog.Condicional condicional,
                                                   Map<String, String> respuestas, String articulo) {
+        NodoCondicional arbol = condicional.arbol();
         Optional<String> nivel = arbol.resuelveNivel(respuestas);
         if (nivel.isEmpty()) {
             // Falta responder alguna pregunta del árbol: se pide la siguiente
@@ -97,23 +99,26 @@ public class PerfilOcupacionService {
                     .map(List::of).orElseGet(List::of);
             return new OcupacionResuelta(Map.of(), pregunta, articulo);
         }
-        // Nivel resuelto por el árbol: es AUTORITATIVO y no se puede sobrescribir
+        // Valor resuelto por el árbol: es AUTORITATIVO y no se puede sobrescribir
         // con un input del cliente. Solo se promociona a la tabla la DIMENSIÓN
-        // RAÍZ del árbol cuando además indexa el salario (la zona en Cataluña,
-        // que fue la pregunta y también es dimensión de la tabla); su valor ya
-        // lo validó el árbol al resolver el nivel.
+        // RAÍZ del árbol cuando además indexa el salario (la zona en Cataluña o la
+        // provincia en colectiva, que fue la pregunta y también es dimensión de la
+        // tabla); su valor ya lo validó el árbol al resolver.
         Map<String, String> fijas = new LinkedHashMap<>();
         String dimRaiz = arbol.dimension();
         Set<String> dimsTabla = dimensionesDeTabla(convenioId);
         if (dimRaiz != null && respuestas.containsKey(dimRaiz) && dimsTabla.contains(dimRaiz)) {
             fijas.put(dimRaiz, respuestas.get(dimRaiz));
         }
-        fijas.put("nivel", nivel.get());
-        // Además del nivel, la tabla puede pedir OTRAS dimensiones que no son del
-        // árbol (p. ej. la categoría del establecimiento en Cataluña): cuando el
-        // usuario ya las ha respondido, se pliegan aquí para no volver a preguntar
-        // en bucle. El `nivel` del árbol es autoritativo (ya está en `fijas`, así
-        // que no se pisa) y las respuestas que no son dimensión de tabla se ignoran.
+        // El árbol resuelve su dimensión OBJETIVO: el `nivel` en los árboles por
+        // establecimiento/zona, la `categoria` agrupada en los de provincia.
+        fijas.put(condicional.dimensionObjetivo(), nivel.get());
+        // Además del objetivo, la tabla puede pedir OTRAS dimensiones que no son
+        // del árbol (p. ej. la categoría del establecimiento en Cataluña): cuando
+        // el usuario ya las ha respondido, se pliegan aquí para no volver a
+        // preguntar en bucle. El objetivo del árbol es autoritativo (ya está en
+        // `fijas`, así que no se pisa) y las respuestas que no son dimensión de
+        // tabla se ignoran.
         respuestas.forEach((clave, valor) -> {
             if (!fijas.containsKey(clave) && dimsTabla.contains(clave)) {
                 fijas.put(clave, valor);

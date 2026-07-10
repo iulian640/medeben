@@ -30,6 +30,13 @@ Existe la fuente oficial; falta pasarla al JSON con el método del proyecto
 El dato salarial está en el corpus, pero faltan las **ocupaciones** (qué puesto =
 qué nivel/grupo). Es trabajo de mapeo + verificación, no transcripción:
 
+- ~~**Colectiva por provincia (~296 literales)**~~ — **CERRADO 2026-07-10**: 405
+  pares puesto×provincia mapeados con `condicionalPorProvincia` (ver
+  `colectiva-ocupaciones-informe-2026-07-10.md`). Quedan DOS huecos nuevos y
+  acotados: **Alicante-colectiva** (su anexo solo publica niveles sin nombrar
+  ocupaciones → buscar la tabla de encuadramiento en el BOE) y **Lugo-colectiva**
+  (tabla multi-columna por tenedores sin capa normalizada).
+
 - **Melilla — 16/16 puestos sin mapear.** Tiene 56 hechos salariales y jornada
   1800 h; el grupo profesional de cada puesto **remite al ALEH** (que está en el
   corpus, `aleh-estatal.json`). Mapeable cruzando ALEH × áreas de Melilla.

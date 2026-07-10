@@ -57,6 +57,11 @@ class OcupacionesValidadorTest {
             for (String puesto : mapeo.dimensionesPorPuesto().keySet()) {
                 assertThat(curados).as("%s: puesto '%s' fuera de la lista curada", id, puesto).contains(puesto);
             }
+            // Los condicionales también: un id con typo aquí sería datos muertos
+            // (nunca se resolvería) y no lo cazaría ningún otro test.
+            for (String puesto : mapeo.condicionalPorPuesto().keySet()) {
+                assertThat(curados).as("%s: puesto condicional '%s' fuera de la lista curada", id, puesto).contains(puesto);
+            }
         }
     }
 
