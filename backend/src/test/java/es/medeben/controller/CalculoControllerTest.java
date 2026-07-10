@@ -130,8 +130,10 @@ class CalculoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.bajoSmi").value(false))
                 .andExpect(jsonPath("$.smiMensual").value(1221.00))
-                // Alcanza el SMI: no hay suelo que enseñar por encima de la tabla.
-                .andExpect(jsonPath("$.minimoLegal").isEmpty());
+                // Alcanza el SMI: no hay suelo que enseñar por encima de la tabla,
+                // y 1.250,91 > 1.221 tampoco necesita aclaración anual.
+                .andExpect(jsonPath("$.minimoLegal").isEmpty())
+                .andExpect(jsonPath("$.comparativaSmi").isEmpty());
     }
 
     @Test
@@ -146,7 +148,13 @@ class CalculoControllerTest {
                                  "dimensiones":{"nivel":"9"}}"""))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.importe").value(1166.15))
-                .andExpect(jsonPath("$.bajoSmi").value(false));
+                .andExpect(jsonPath("$.bajoSmi").value(false))
+                // PERO parece ilegal (1.166,15 < 1.221 del titular): viajan los
+                // números de la cuenta anual para que la UI se adelante a la duda.
+                .andExpect(jsonPath("$.comparativaSmi.mensualidades").value(15))
+                .andExpect(jsonPath("$.comparativaSmi.anualConvenio").value(17492.25))
+                .andExpect(jsonPath("$.comparativaSmi.smiAnual").value(17094.00))
+                .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Salario Mínimo.*/)]").exists());
     }
 
     @Test
@@ -163,6 +171,7 @@ class CalculoControllerTest {
                 .andExpect(jsonPath("$.smiMensual").value(1221.00))
                 // Madrid paga 14 mensualidades: 17.094 / 14 = 1.221,00 justos.
                 .andExpect(jsonPath("$.minimoLegal").value(1221.00))
+                .andExpect(jsonPath("$.comparativaSmi").isEmpty())
                 .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Salario Mínimo.*/)]").exists());
     }
 

@@ -51,6 +51,16 @@ export interface SalarioBase {
    * cifra que se enseña en grande — la tabla superada sería un dato engañoso.
    */
   minimoLegal: number | null
+  /**
+   * El caso que PARECE ilegal sin serlo: mensual por debajo del SMI mensual
+   * que cumple el cómputo ANUAL (art. 27 ET) gracias a >14 pagas. La UI se
+   * adelanta a la duda con estos números. Null si no hay nada que aclarar.
+   */
+  comparativaSmi: {
+    mensualidades: number
+    anualConvenio: number
+    smiAnual: number
+  } | null
   citas: Cita[]
 }
 

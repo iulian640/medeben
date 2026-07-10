@@ -10,6 +10,7 @@ import {
   etiquetaUnidad,
   etiquetaValor,
   explicacionDimension,
+  formatearHoras,
   formatearImporte,
   hoyIso,
 } from '../lib/formato'
@@ -292,6 +293,20 @@ watch(
         class="aviso-unidad texto-sm"
       >
         Ojo: este convenio publica el salario en esta unidad, no al mes.
+      </p>
+      <!-- El caso que PARECE ilegal sin serlo (Almería, Pontevedra…): con más
+           de 14 pagas, el mensual puede quedar bajo el SMI mensual cumpliendo
+           el cómputo ANUAL del art. 27 ET. Quien vea la cifra la va a comparar
+           con el SMI de los titulares: mejor adelantarse que dejar la duda. -->
+      <p
+        v-if="perfil.salario.comparativaSmi && perfil.salario.smiMensual"
+        class="texto-sm texto-suave"
+      >
+        ¿Te parece poco comparado con el SMI ({{ formatearImporte(perfil.salario.smiMensual) }} € al mes)?
+        Tu convenio paga {{ formatearHoras(perfil.salario.comparativaSmi.mensualidades) }} pagas al año:
+        en total son {{ formatearImporte(perfil.salario.comparativaSmi.anualConvenio) }} €, por encima
+        del SMI anual ({{ formatearImporte(perfil.salario.comparativaSmi.smiAnual) }} €). El mínimo
+        legal se compara por años completos, no mes a mes.
       </p>
       <!-- El aviso cuelga de bajoSmi A SECAS: aunque un backend viejo no mande
            minimoLegal (despliegue por fases, caché), enseñar la tabla infra-SMI
