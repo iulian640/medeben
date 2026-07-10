@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { destinoTrasLogin } from '../lib/navegacion'
@@ -28,19 +28,28 @@ async function entrar() {
     router.push(destinoTrasLogin(route.query.redirect))
   }
 }
+
+/*
+ * No sabemos con certeza si el fallo es del email o de la contraseña (el
+ * mensaje es uno solo, tanto en cliente como en el 401 del backend): se
+ * marca el grupo entero en vez de arriesgarse a señalar el campo que sí
+ * estaba bien — un dato erróneo es peor que uno ausente (PRODUCT.md).
+ */
+const hayErrorCampo = computed(() => errorCliente.value !== null || auth.error !== null)
 </script>
 
 <template>
   <main class="auth">
     <h1>Entra en tu cuenta</h1>
-    <p class="intro">
+    <p class="texto-suave">
       Con cuenta, tu perfil laboral queda guardado y no tienes que repetirlo cada vez.
     </p>
 
     <p
       v-if="auth.aviso"
-      class="aviso"
+      class="aviso-bloque"
       role="status"
+      aria-live="polite"
     >
       {{ auth.aviso }}
     </p>
@@ -49,7 +58,10 @@ async function entrar() {
       novalidate
       @submit.prevent="entrar"
     >
-      <div class="campo">
+      <div
+        class="campo"
+        :class="{ 'campo--error': hayErrorCampo }"
+      >
         <label for="email">Email</label>
         <input
           id="email"
@@ -60,7 +72,10 @@ async function entrar() {
         >
       </div>
 
-      <div class="campo">
+      <div
+        class="campo"
+        :class="{ 'campo--error': hayErrorCampo }"
+      >
         <label for="password">Contraseña</label>
         <input
           id="password"
@@ -73,7 +88,7 @@ async function entrar() {
 
       <p
         v-if="errorCliente || auth.error"
-        class="error"
+        class="campo-error"
         role="alert"
       >
         {{ errorCliente ?? auth.error }}
@@ -81,14 +96,14 @@ async function entrar() {
 
       <button
         type="submit"
-        class="principal"
+        class="boton boton--ancho"
         :disabled="auth.cargando"
       >
         {{ auth.cargando ? 'Entrando...' : 'Entrar' }}
       </button>
     </form>
 
-    <p class="alternativa">
+    <p class="texto-sm texto-suave">
       ¿No tienes cuenta?
       <RouterLink :to="{ name: 'registro', query: route.query }">
         Créala en un minuto
@@ -98,79 +113,24 @@ async function entrar() {
 </template>
 
 <style scoped>
+/* Layout de vista estándar (DESIGN.md): columna centrada, ritmo apretado
+ * dentro de un grupo y generoso entre bloques. */
 .auth {
-  max-width: 480px;
+  max-width: 30rem;
   margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  padding: var(--esp-lg) var(--esp-md) var(--esp-2xl);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: var(--esp-md);
 }
 
 h1 {
-  font-size: 1.5rem;
-}
-
-.intro {
-  opacity: 0.8;
+  font-size: var(--tipo-titulo);
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.campo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.campo label {
-  font-weight: 600;
-}
-
-.campo input {
-  font: inherit;
-  padding: 0.85rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.principal {
-  font: inherit;
-  font-weight: 600;
-  padding: 1rem 1.5rem;
-  border: none;
-  border-radius: 0.75rem;
-  background: var(--color-accent);
-  color: var(--color-bg);
-  cursor: pointer;
-}
-
-.principal:disabled {
-  opacity: 0.55;
-  cursor: default;
-}
-
-.aviso {
-  border-left: 3px solid var(--color-accent);
-  padding-left: 0.75rem;
-  opacity: 0.9;
-}
-
-.error {
-  color: #c0392b;
-}
-
-.alternativa {
-  opacity: 0.85;
-}
-
-.alternativa a {
-  color: var(--color-accent);
+  gap: var(--esp-sm);
 }
 </style>

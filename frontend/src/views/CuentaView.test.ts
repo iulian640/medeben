@@ -111,6 +111,21 @@ describe('CuentaView', () => {
     expect(wrapper.text()).toMatch(/guardado/i)
   })
 
+  it('editar un campo tras guardar oculta la confirmación', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    vi.mocked(putPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    await wrapper.find('form').trigger('submit')
+    await flushPromises()
+    expect(wrapper.text()).toMatch(/perfil guardado\./i)
+
+    await wrapper.find('#salario').setValue('1600')
+    await flushPromises()
+
+    expect(wrapper.text()).not.toMatch(/perfil guardado\./i)
+  })
+
   it('cerrar sesión limpia la sesión y vuelve a la portada', async () => {
     vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
     const { wrapper, router, auth } = await montar()

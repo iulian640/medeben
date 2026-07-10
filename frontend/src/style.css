@@ -87,12 +87,6 @@
   /* La barra de navegación inferior reserva su hueco (más el safe area). */
   --altura-nav: 3.75rem;
 
-  /* Compat temporal mientras se reconstruyen las vistas (se retirará al acabar). */
-  --color-bg: var(--papel);
-  --color-text: var(--tinta);
-  --color-accent: var(--verde);
-  --color-alerta: var(--alerta);
-
   font-family: var(--tipo-familia);
   line-height: 1.5;
   color-scheme: light dark;

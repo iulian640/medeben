@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 import { postHorasExtra, type HorasExtra } from '../services/convenios'
 import { formatearImporte, mensajeDeError } from '../lib/formato'
+import { revelaEscalonado } from '../lib/animacion'
 import CitasFuente from './CitasFuente.vue'
 
 const props = defineProps<{
@@ -20,6 +21,7 @@ const plusesAnuales = ref<number | null>(null)
 const resultado = ref<HorasExtra | null>(null)
 const error = ref<string | null>(null)
 const calculando = ref(false)
+const resultadoRef = ref<HTMLElement | null>(null)
 
 // Mientras el usuario no haya tocado el campo, seguimos la sugerencia del
 // convenio (incluido volver a vacío si el nuevo puesto no publica EUR/mes).
@@ -31,6 +33,19 @@ watch(
     }
   },
 )
+
+/* El resultado recién calculado (con su desglose y sus citas) entra
+ * escalonado, igual que cualquier bloque de datos que aparece de golpe. */
+watch(resultado, async (nuevo) => {
+  if (!nuevo) {
+    return
+  }
+  await nextTick()
+  const bloques = resultadoRef.value?.querySelectorAll(':scope > *')
+  if (bloques) {
+    revelaEscalonado(bloques)
+  }
+})
 
 async function calcular() {
   if (horas.value === null || horas.value < 0 || salarioMensual.value === null || salarioMensual.value <= 0) {
@@ -58,14 +73,17 @@ async function calcular() {
 
 <template>
   <section class="calculadora">
-    <h2>¿Te deben horas extra?</h2>
-    <p class="ayuda">
+    <h2 class="titulo-seccion">
+      ¿Te deben horas extra?
+    </h2>
+    <p class="texto-sm texto-suave">
       Dinos cuántas horas de más has hecho y calculamos lo que te deben como mínimo.
     </p>
 
-    <label class="campo">
-      <span>Horas extra</span>
+    <div class="campo">
+      <label for="horas-extra">Horas extra</label>
       <input
+        id="horas-extra"
         v-model.number="horas"
         type="number"
         min="0"
@@ -73,11 +91,12 @@ async function calcular() {
         inputmode="decimal"
         placeholder="Ej: 10"
       >
-    </label>
+    </div>
 
-    <label class="campo">
-      <span>Tu salario base al mes (bruto, sin pluses)</span>
+    <div class="campo">
+      <label for="salario-base-mensual">Tu salario base al mes (bruto, sin pluses)</label>
       <input
+        id="salario-base-mensual"
         v-model.number="salarioMensual"
         class="input-salario"
         type="number"
@@ -87,14 +106,18 @@ async function calcular() {
         placeholder="Ej: 1425.50"
         @input="salarioTocado = true"
       >
-      <small v-if="salarioMensualSugerido !== null">
+      <p
+        v-if="salarioMensualSugerido !== null"
+        class="campo-ayuda"
+      >
         Prellenado con el mínimo de tu convenio. Si cobras más, pon lo tuyo.
-      </small>
-    </label>
+      </p>
+    </div>
 
-    <label class="campo">
-      <span>Pluses al año (opcional)</span>
+    <div class="campo">
+      <label for="pluses-anuales">Pluses al año (opcional)</label>
       <input
+        id="pluses-anuales"
         v-model.number="plusesAnuales"
         type="number"
         min="0"
@@ -102,10 +125,10 @@ async function calcular() {
         inputmode="decimal"
         placeholder="0"
       >
-    </label>
+    </div>
 
     <button
-      class="boton"
+      class="boton boton--ancho"
       type="button"
       :disabled="calculando"
       @click="calcular"
@@ -115,7 +138,7 @@ async function calcular() {
 
     <p
       v-if="error"
-      class="error"
+      class="error aviso-bloque"
       role="alert"
     >
       {{ error }}
@@ -123,20 +146,21 @@ async function calcular() {
 
     <div
       v-if="resultado"
+      ref="resultadoRef"
       class="resultado"
     >
       <p class="importe-grande">
-        Te deben al menos <strong>{{ formatearImporte(resultado.importe) }} €</strong>
+        Te deben al menos <strong class="num">{{ formatearImporte(resultado.importe) }} €</strong>
       </p>
-      <p class="detalle">
-        Cada hora extra vale como mínimo {{ formatearImporte(resultado.precioHora) }} €.
+      <p class="detalle texto-sm texto-suave">
+        Cada hora extra vale como mínimo <span class="num">{{ formatearImporte(resultado.precioHora) }}</span> €.
       </p>
       <details class="desglose">
         <summary>¿De dónde sale este mínimo?</summary>
         <p>
           Tu convenio fija un salario base de
-          <strong>{{ formatearImporte(resultado.desglose.salarioBaseMensual) }} € al mes</strong>
-          y <strong>{{ resultado.desglose.mensualidades }} pagas</strong> al año<template
+          <strong class="num">{{ formatearImporte(resultado.desglose.salarioBaseMensual) }} € al mes</strong>
+          y <strong class="num">{{ resultado.desglose.mensualidades }} pagas</strong> al año<template
             v-if="resultado.desglose.plusesAnuales > 0"
           >
             , más {{ formatearImporte(resultado.desglose.plusesAnuales) }} € de pluses anuales
@@ -145,17 +169,17 @@ async function calcular() {
                un divisor de valor hora propio (Arts. 23 y 24). Etiquetarlo mal
                contradiría la cita de fuente de justo debajo. -->
           Repartido entre las
-          <strong>{{ formatearImporte(resultado.desglose.divisorHoras) }} horas</strong>
+          <strong class="num">{{ formatearImporte(resultado.desglose.divisorHoras) }} horas</strong>
           {{ resultado.desglose.esDivisorExplicito
             ? 'del divisor de valor hora que fija tu convenio'
             : 'de jornada anual' }}, tu hora ordinaria sale a
-          <strong>{{ formatearImporte(resultado.desglose.valorHora) }} €</strong>.
+          <strong class="num">{{ formatearImporte(resultado.desglose.valorHora) }} €</strong>.
           La ley no permite pagar la hora extra por debajo de tu hora ordinaria
           (art. 35 del Estatuto de los Trabajadores).
         </p>
         <p v-if="resultado.precioHora > resultado.desglose.valorHora">
           Además, tu convenio fija un precio de hora extra mejor:
-          <strong>{{ formatearImporte(resultado.precioHora) }} €</strong>. Se aplica el más alto.
+          <strong class="num">{{ formatearImporte(resultado.precioHora) }} €</strong>. Se aplica el más alto.
         </p>
       </details>
       <CitasFuente :citas="resultado.citas" />
@@ -167,90 +191,32 @@ async function calcular() {
 .calculadora {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--esp-md);
 }
 
-h2 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-.ayuda {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.campo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.campo input {
-  font: inherit;
-  font-weight: 400;
-  padding: 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.5rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.campo small {
-  font-weight: 400;
-  opacity: 0.7;
-}
-
-.boton {
-  font: inherit;
-  font-weight: 600;
-  padding: 0.9rem 1rem;
-  border: none;
-  border-radius: 0.6rem;
-  background: var(--color-accent);
-  color: var(--color-bg);
-  cursor: pointer;
-}
-
-.boton:disabled {
-  opacity: 0.6;
-  cursor: default;
-}
-
-.error {
-  color: #c0392b;
-  font-size: 0.9rem;
+.importe-grande {
+  font-size: var(--tipo-lg);
 }
 
 .desglose {
-  margin: 0.75rem 0;
-  font-size: 0.95rem;
+  font-size: var(--tipo-sm);
 }
+
 .desglose summary {
   cursor: pointer;
-  color: var(--color-primario, #1a5fb4);
-  font-weight: 600;
+  color: var(--verde);
+  font-weight: var(--peso-etiqueta);
 }
+
 .desglose p {
-  margin: 0.5rem 0 0;
+  margin: var(--esp-xs) 0 0;
   line-height: 1.5;
 }
 
 .resultado {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding-top: 0.5rem;
-}
-
-.importe-grande {
-  font-size: 1.35rem;
-}
-
-.detalle {
-  font-size: 0.95rem;
-  opacity: 0.85;
+  gap: var(--esp-sm);
+  padding-top: var(--esp-xs);
 }
 </style>

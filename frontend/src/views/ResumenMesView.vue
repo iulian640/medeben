@@ -211,18 +211,24 @@ watch(
         <dl class="horas">
           <div class="fila">
             <dt>Según tu horario</dt>
-            <dd class="num">{{ formatearMinutos(resumen.resumen.minutosTeoricos) }}</dd>
+            <dd class="num">
+              {{ formatearMinutos(resumen.resumen.minutosTeoricos) }}
+            </dd>
           </div>
           <div class="fila">
             <dt>Apuntado en tu libreta</dt>
-            <dd class="num">{{ formatearMinutos(resumen.resumen.minutosReales) }}</dd>
+            <dd class="num">
+              {{ formatearMinutos(resumen.resumen.minutosReales) }}
+            </dd>
           </div>
           <div
             v-if="resumen.resumen.deficitInformativo.minutos > 0"
             class="fila"
           >
             <dt>Horas de menos (informativo)</dt>
-            <dd class="num">{{ formatearMinutos(resumen.resumen.deficitInformativo.minutos) }}</dd>
+            <dd class="num">
+              {{ formatearMinutos(resumen.resumen.deficitInformativo.minutos) }}
+            </dd>
           </div>
         </dl>
         <p

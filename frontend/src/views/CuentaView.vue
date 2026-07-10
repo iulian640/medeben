@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { useCuentaStore } from '../stores/cuenta'
 import { SUBSECTORES } from '../lib/subsectores'
+import { pulsoExito } from '../lib/animacion'
 
 const auth = useAuthStore()
 const cuenta = useCuentaStore()
 const router = useRouter()
+
+/* El aviso "Perfil guardado" recibe el pulso de confirmación justo cuando
+ * cuenta.guardado pasa a true: el mismo patrón de la casa (el movimiento
+ * marca el instante del éxito, no decora el resto del formulario). */
+const confirmacion = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   cuenta.cargar()
@@ -41,6 +47,19 @@ function onPluses(event: Event) {
   cuenta.marcarEdicion()
 }
 
+watch(
+  () => cuenta.guardado,
+  async (guardado) => {
+    if (!guardado) {
+      return
+    }
+    await nextTick()
+    if (confirmacion.value) {
+      pulsoExito(confirmacion.value)
+    }
+  },
+)
+
 function salir() {
   auth.cerrarSesion()
   router.push('/')
@@ -52,13 +71,13 @@ function salir() {
     <header class="cabecera">
       <div>
         <h1>Tu cuenta</h1>
-        <p class="email">
+        <p class="email texto-suave texto-sm">
           {{ auth.email }}
         </p>
       </div>
       <button
         type="button"
-        class="salir"
+        class="salir boton-secundario"
         @click="salir"
       >
         Cerrar sesión
@@ -67,7 +86,7 @@ function salir() {
 
     <p
       v-if="cuenta.cargando"
-      class="cargando"
+      class="cargando texto-suave"
       role="status"
       aria-live="polite"
     >
@@ -77,7 +96,7 @@ function salir() {
     <template v-else>
       <p
         v-if="cuenta.sinPerfil"
-        class="aviso"
+        class="texto-suave"
       >
         Todavía no has guardado tu perfil laboral. Rellénalo y lo tendrás siempre a mano.
       </p>
@@ -90,7 +109,6 @@ function salir() {
           <label for="provincia">¿En qué provincia trabajas?</label>
           <select
             id="provincia"
-            class="selector"
             :value="cuenta.provincia ?? ''"
             @change="onProvincia"
           >
@@ -110,15 +128,15 @@ function salir() {
           </select>
         </div>
 
-        <fieldset class="campo">
+        <fieldset class="campo campo-subsector">
           <legend>¿En qué tipo de sitio?</legend>
           <div class="opciones">
             <button
               v-for="s in SUBSECTORES"
               :key="s.clave"
               type="button"
-              class="opcion"
-              :class="{ activa: cuenta.subsector === s.clave }"
+              class="opcion boton-secundario"
+              :class="{ 'opcion--activa': cuenta.subsector === s.clave }"
               :aria-pressed="cuenta.subsector === s.clave"
               @click="onSubsector(s.clave)"
             >
@@ -131,7 +149,6 @@ function salir() {
           <label for="puesto">¿De qué trabajas? (opcional)</label>
           <select
             id="puesto"
-            class="selector"
             :value="cuenta.puestoId ?? ''"
             @change="onPuesto"
           >
@@ -176,7 +193,7 @@ function salir() {
 
         <p
           v-if="cuenta.error"
-          class="error"
+          class="error aviso-bloque"
           role="alert"
         >
           {{ cuenta.error }}
@@ -184,6 +201,7 @@ function salir() {
 
         <p
           v-if="cuenta.guardado"
+          ref="confirmacion"
           class="confirmacion"
           role="status"
         >
@@ -192,171 +210,106 @@ function salir() {
 
         <button
           type="submit"
-          class="principal"
+          class="boton boton--ancho"
           :disabled="cuenta.guardando"
         >
           {{ cuenta.guardando ? 'Guardando...' : 'Guardar mi perfil' }}
         </button>
       </form>
 
-      <p
+      <section
         v-if="cuenta.convenioId"
-        class="nota-convenio"
+        class="tarjeta"
       >
-        Tu convenio, resuelto por el servidor a partir de provincia y tipo de sitio:
-        <strong>{{ cuenta.convenioId }}</strong>. Para ver tu salario mínimo y calcular
-        horas extra, usa <RouterLink to="/perfil">
-          la calculadora
-        </RouterLink>.
-      </p>
+        <p class="texto-sm texto-suave">
+          Tu convenio, resuelto por el servidor a partir de provincia y tipo de sitio:
+          <strong>{{ cuenta.convenioId }}</strong>. Para ver tu salario mínimo y calcular
+          horas extra, usa <RouterLink to="/perfil">
+            la calculadora
+          </RouterLink>.
+        </p>
+      </section>
     </template>
   </main>
 </template>
 
 <style scoped>
 .cuenta {
-  max-width: 480px;
+  max-width: 30rem;
   margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  padding: var(--esp-lg) var(--esp-md) var(--esp-2xl);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: var(--esp-md);
 }
 
 .cabecera {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--esp-md);
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: var(--tipo-titulo);
 }
 
 .email {
-  opacity: 0.8;
-  font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
 
 .salir {
-  font: inherit;
-  font-size: 0.9rem;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  cursor: pointer;
   white-space: nowrap;
+}
+
+.cargando {
+  padding: var(--esp-xl) 0;
+  text-align: center;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--esp-md);
 }
 
-.campo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+/* El fieldset trae borde y relleno de fábrica: se resetean para que se
+ * comporte como cualquier otro .campo (etiqueta + control), no como una
+ * caja aparte dentro del formulario. */
+.campo-subsector {
   border: none;
   padding: 0;
   margin: 0;
 }
 
-.campo label,
-.campo legend {
-  font-weight: 600;
+.campo-subsector legend {
   padding: 0;
-}
-
-.campo input {
-  font: inherit;
-  padding: 0.85rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.selector {
-  font: inherit;
-  padding: 0.85rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  width: 100%;
+  font-size: var(--tipo-sm);
+  font-weight: var(--peso-etiqueta);
 }
 
 .opciones {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--esp-xs);
 }
 
+/* Opciones en lista, no en fila: el texto se lee alineado a la izquierda,
+ * como en un listado, no centrado como un botón suelto. */
 .opcion {
-  font: inherit;
-  font-weight: 600;
+  justify-content: flex-start;
   text-align: left;
-  padding: 0.9rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  cursor: pointer;
 }
 
-.opcion.activa {
-  background: var(--color-accent);
-  color: var(--color-bg);
-  border-color: var(--color-accent);
-}
-
-.principal {
-  font: inherit;
-  font-weight: 600;
-  padding: 1rem 1.5rem;
-  border: none;
-  border-radius: 0.75rem;
-  background: var(--color-accent);
-  color: var(--color-bg);
-  cursor: pointer;
-}
-
-.principal:disabled {
-  opacity: 0.55;
-  cursor: default;
-}
-
-.aviso {
-  border-left: 3px solid var(--color-accent);
-  padding-left: 0.75rem;
-  opacity: 0.9;
-}
-
-.error {
-  color: #c0392b;
+/* Seleccionado = el mismo verde-suave que usa toda la app para marcar una
+ * elección (D..: el verde nunca es decoración, aquí es selección). */
+.opcion--activa {
+  border-color: var(--verde);
+  background: var(--verde-suave);
+  color: var(--tinta);
 }
 
 .confirmacion {
-  font-weight: 600;
-}
-
-.cargando {
-  opacity: 0.7;
-  font-size: 0.9rem;
-}
-
-.nota-convenio {
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-.nota-convenio a {
-  color: var(--color-accent);
+  font-weight: var(--peso-etiqueta);
 }
 </style>

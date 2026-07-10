@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { usePerfilStore } from '../stores/perfil'
 import { SUBSECTORES } from '../lib/subsectores'
 import {
@@ -12,10 +12,13 @@ import {
   formatearImporte,
   hoyIso,
 } from '../lib/formato'
+import { revelaEscalonado } from '../lib/animacion'
 import CitasFuente from '../components/CitasFuente.vue'
 import HorasExtraCalculadora from '../components/HorasExtraCalculadora.vue'
+import ImporteDinero from '../components/ImporteDinero.vue'
 
 const perfil = usePerfilStore()
+const resultadoRef = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   perfil.cargarProvincias()
@@ -37,6 +40,16 @@ const dimensionesResueltas = computed(() =>
 
 const siguientePendiente = computed(() => perfil.pendientesSinResponder[0] ?? null)
 
+/*
+ * ImporteDinero ya pinta su propio "€" junto a la cifra grande; etiquetaUnidad
+ * también lo incluye ("€ al mes") porque antes iba pegado al número sin
+ * componente propio. Se recorta el "€ " duplicado — la periodicidad (al mes/
+ * la hora/al año) es la misma palabra, solo cambia dónde vive el símbolo.
+ */
+const periodicidadSalario = computed(() =>
+  perfil.salario ? etiquetaUnidad(perfil.salario.unidad).replace(/^€\s*/, '') : '',
+)
+
 function onProvincia(event: Event) {
   perfil.elegirProvincia((event.target as HTMLSelectElement).value)
 }
@@ -44,24 +57,36 @@ function onProvincia(event: Event) {
 function onPuesto(event: Event) {
   perfil.elegirPuesto((event.target as HTMLSelectElement).value)
 }
+
+/* El resultado del salario (con sus avisos y sus citas) entra escalonado al
+ * llegar: es el momento firma de esta pantalla, igual que en el resumen. */
+watch(
+  () => perfil.salario,
+  async (nuevo) => {
+    if (!nuevo) {
+      return
+    }
+    await nextTick()
+    const bloques = resultadoRef.value?.querySelectorAll(':scope > *')
+    if (bloques) {
+      revelaEscalonado(bloques)
+    }
+  },
+)
 </script>
 
 <template>
   <main class="perfil">
     <h1>Tu convenio, en claro</h1>
-    <p class="intro">
+    <p class="intro texto-suave">
       Dos preguntas y te decimos lo mínimo que te tienen que pagar. Sin registrarte, sin guardar nada.
     </p>
 
     <!-- Paso 1: ¿dónde trabajas? -->
-    <section class="paso">
-      <label
-        class="paso-titulo"
-        for="provincia"
-      >¿En qué provincia trabajas?</label>
+    <div class="campo">
+      <label for="provincia">¿En qué provincia trabajas?</label>
       <select
         id="provincia"
-        class="selector"
         :value="perfil.provincia ?? ''"
         @change="onProvincia"
       >
@@ -79,7 +104,7 @@ function onPuesto(event: Event) {
           {{ p }}
         </option>
       </select>
-    </section>
+    </div>
 
     <!-- Paso 2: ¿en qué tipo de sitio? -->
     <section
@@ -107,7 +132,7 @@ function onPuesto(event: Event) {
 
     <p
       v-if="perfil.error"
-      class="error"
+      class="error aviso-bloque"
       role="alert"
     >
       {{ perfil.error }}
@@ -118,13 +143,13 @@ function onPuesto(event: Event) {
       v-if="perfil.convenio"
       class="tarjeta"
     >
-      <p class="tarjeta-etiqueta">
+      <h2 class="titulo-seccion">
         Tu convenio
-      </p>
+      </h2>
       <p class="tarjeta-nombre">
         {{ perfil.convenio.nombre }}
       </p>
-      <p class="tarjeta-detalle">
+      <p class="tarjeta-detalle texto-sm texto-suave">
         {{ describeVigencia(perfil.convenio.vigenciaDesde, perfil.convenio.vigenciaHasta, hoyIso()) }}
       </p>
       <a
@@ -137,17 +162,13 @@ function onPuesto(event: Event) {
     </section>
 
     <!-- Paso 3: ¿de qué trabajas? -->
-    <section
+    <div
       v-if="perfil.convenio"
-      class="paso"
+      class="campo"
     >
-      <label
-        class="paso-titulo"
-        for="puesto"
-      >¿De qué trabajas?</label>
+      <label for="puesto">¿De qué trabajas?</label>
       <select
         id="puesto"
-        class="selector"
         :value="perfil.puestoId ?? ''"
         :disabled="perfil.cargando"
         @change="onPuesto"
@@ -166,7 +187,7 @@ function onPuesto(event: Event) {
           {{ p.etiqueta }}
         </option>
       </select>
-    </section>
+    </div>
 
     <!-- Puesto sin mapear todavía -->
     <section
@@ -187,18 +208,16 @@ function onPuesto(event: Event) {
     </section>
 
     <!-- Pedagogía D20: tu clasificación según el convenio -->
-    <section
+    <p
       v-if="perfil.ocupacion && dimensionesResueltas.length > 0"
-      class="nota-nivel"
+      class="nota-nivel texto-sm texto-suave"
     >
-      <p>
-        Según tu convenio, tu puesto es <strong>{{ dimensionesResueltas.join(', ') }}</strong>.
-        Así es como el convenio clasifica los puestos para asignar el sueldo mínimo.
-        <template v-if="perfil.ocupacion.articulo">
-          Lo dice el {{ perfil.ocupacion.articulo }}.
-        </template>
-      </p>
-    </section>
+      Según tu convenio, tu puesto es <strong>{{ dimensionesResueltas.join(', ') }}</strong>.
+      Así es como el convenio clasifica los puestos para asignar el sueldo mínimo.
+      <template v-if="perfil.ocupacion.articulo">
+        Lo dice el {{ perfil.ocupacion.articulo }}.
+      </template>
+    </p>
 
     <!-- Pregunta pendiente (p. ej. clase de empresa) -->
     <section
@@ -210,7 +229,7 @@ function onPuesto(event: Event) {
       </p>
       <p
         v-if="explicacionDimension(siguientePendiente.dimension)"
-        class="ayuda"
+        class="campo-ayuda"
       >
         {{ explicacionDimension(siguientePendiente.dimension) }}
       </p>
@@ -229,27 +248,28 @@ function onPuesto(event: Event) {
       </div>
     </section>
 
-    <!-- Resultado: tu salario mínimo -->
+    <!-- Resultado: tu salario mínimo. LA cifra de esta pantalla. -->
     <section
       v-if="perfil.salario"
+      ref="resultadoRef"
       class="tarjeta resultado"
     >
-      <p class="tarjeta-etiqueta">
+      <h2 class="titulo-seccion">
         Tu salario base mínimo
-      </p>
-      <p class="importe">
-        {{ formatearImporte(perfil.salario.importe) }}
-        <span class="unidad">{{ etiquetaUnidad(perfil.salario.unidad) }}</span>
+      </h2>
+      <ImporteDinero :importe="perfil.salario.importe" />
+      <p class="texto-suave">
+        {{ periodicidadSalario }}
       </p>
       <p
         v-if="perfil.salario.unidad !== 'EUR/mes'"
-        class="aviso-unidad"
+        class="aviso-unidad texto-sm"
       >
         Ojo: este convenio publica el salario en esta unidad, no al mes.
       </p>
       <p
         v-if="perfil.salario.bajoSmi && perfil.salario.smiMensual"
-        class="aviso-smi"
+        class="aviso-smi aviso-bloque"
         role="alert"
       >
         La tabla de tu convenio para este puesto ha quedado por debajo del
@@ -262,7 +282,7 @@ function onPuesto(event: Event) {
 
     <p
       v-if="perfil.cargando"
-      class="cargando"
+      class="cargando texto-sm texto-suave"
       role="status"
       aria-live="polite"
     >
@@ -284,137 +304,84 @@ function onPuesto(event: Event) {
 
 <style scoped>
 .perfil {
-  max-width: 480px;
+  max-width: 30rem;
   margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  padding: var(--esp-lg) var(--esp-md) var(--esp-2xl);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: var(--esp-md);
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: var(--tipo-titulo);
 }
 
-.intro {
-  opacity: 0.8;
-}
-
+/* Cada pregunta es su propio bloque, apretado por dentro; el ritmo entre
+ * pasos lo da el gap generoso de .perfil, no un espaciado local aquí. */
 .paso {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--esp-xs);
 }
 
 .paso-titulo {
-  font-weight: 600;
-}
-
-.ayuda {
-  font-size: 0.85rem;
-  opacity: 0.75;
-}
-
-.selector {
-  font: inherit;
-  padding: 0.85rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  width: 100%;
+  font-size: var(--tipo-sm);
+  font-weight: var(--peso-etiqueta);
 }
 
 .opciones {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--esp-xs);
 }
 
+/* Chips de elección: no hay componente global para esto, así que se
+ * construyen aquí, pero solo con tokens (nunca colores/tamaños a pelo). */
 .opcion {
   font: inherit;
-  font-weight: 600;
+  font-weight: var(--peso-etiqueta);
   text-align: left;
-  padding: 0.9rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
+  min-height: 2.75rem;
+  padding: var(--esp-sm) var(--esp-md);
+  border: 1px solid var(--linea-fuerte);
+  border-radius: var(--radio-control);
+  background: var(--papel);
+  color: var(--tinta);
   cursor: pointer;
+  transition:
+    background-color var(--dur-estado) var(--curva-suave),
+    border-color var(--dur-estado) var(--curva-suave);
 }
 
+.opcion:hover:not(:disabled) {
+  border-color: var(--tinta-suave);
+}
+
+/* Seleccionado: el verde marca la selección, uno de sus dos usos permitidos. */
 .opcion.activa {
-  background: var(--color-accent);
-  color: var(--color-bg);
-  border-color: var(--color-accent);
+  background: var(--verde);
+  border-color: var(--verde);
+  color: var(--sobre-verde);
 }
 
 .opcion:disabled {
-  opacity: 0.55;
+  /* Mismo valor que .boton:disabled (style.css): un solo criterio de
+   * atenuación para cualquier control inactivo en toda la app. */
+  opacity: 0.45;
   cursor: default;
 }
 
-.tarjeta {
-  border: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
-  border-radius: 0.75rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.tarjeta-etiqueta {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.7;
-}
-
 .tarjeta-nombre {
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-size: var(--tipo-lg);
+  font-weight: var(--peso-titulo);
 }
 
-.tarjeta-detalle {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.nota-nivel {
-  font-size: 0.95rem;
-  border-left: 3px solid var(--color-accent);
-  padding-left: 0.75rem;
-  opacity: 0.9;
-}
-
-.resultado .importe {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.resultado .unidad {
-  font-size: 1rem;
-  font-weight: 400;
-  opacity: 0.8;
+.tarjeta-enlace {
+  font-weight: var(--peso-etiqueta);
+  align-self: flex-start;
 }
 
 .aviso-unidad {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.aviso-smi {
-  font-size: 0.9rem;
-  border-left: 3px solid var(--color-alerta);
-  padding-left: 0.75rem;
-}
-
-.error {
-  color: #c0392b;
-}
-
-.cargando {
-  opacity: 0.7;
-  font-size: 0.9rem;
+  font-weight: var(--peso-etiqueta);
 }
 </style>
