@@ -62,6 +62,12 @@ export function setOnUnauthorized(handler: (() => void) | null) {
   onUnauthorized = handler
 }
 
+/**
+ * Registra el renovador. Resetea también el guardián single-flight A PROPÓSITO:
+ * esta función solo se llama en el arranque (main.ts) y en los tests, y un
+ * handler nuevo no debe heredar una promesa del handler anterior. Si algún día
+ * se reasignara en caliente, separar ambas cosas.
+ */
 export function setOnRefresh(handler: (() => Promise<boolean>) | null) {
   onRefresh = handler
   refreshEnVuelo = null
@@ -109,7 +115,13 @@ async function envia(path: string, options: OpcionesApi, esReintento = false): P
         return envia(path, options, true)
       }
     }
-    onUnauthorized?.()
+    // Solo se expulsa si la sesión actual sigue siendo la que emitió ESTA
+    // petición (vue review, CRITICAL): en un dispositivo compartido, el 401
+    // tardío de una sesión ya sustituida (Ana salió, Bea entró mientras el
+    // refresh viajaba) no puede echar a la persona que está dentro ahora.
+    if (authToken === tokenEnviado) {
+      onUnauthorized?.()
+    }
   }
 
   if (!response.ok) {
@@ -135,17 +147,17 @@ async function request<T>(path: string, options: OpcionesApi = {}): Promise<T> {
 
 /**
  * GET binario (el informe PDF): mismas reglas que el resto — timeout, token en
- * memoria, manejo del 401 y errores RFC 7807 — pero devolviendo el Blob.
+ * memoria, refresh+reintento del 401 y errores RFC 7807 — pero devolviendo el Blob.
  */
-async function requestBlob(path: string): Promise<Blob> {
-  const response = await envia(path, {})
+async function requestBlob(path: string, options: OpcionesApi = {}): Promise<Blob> {
+  const response = await envia(path, options)
   return response.blob()
 }
 
 export const api = {
   get: <T>(path: string, options: OpcionesApi = {}) => request<T>(path, options),
 
-  getBlob: (path: string) => requestBlob(path),
+  getBlob: (path: string, options: OpcionesApi = {}) => requestBlob(path, options),
 
   post: <T>(path: string, body: unknown, options: OpcionesApi = {}) =>
     request<T>(path, { ...options, method: 'POST', body: JSON.stringify(body) }),

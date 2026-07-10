@@ -170,7 +170,20 @@ class AuthServiceTest {
         when(sesiones.findByTokenHash(any())).thenReturn(Optional.of(caducada));
         assertThatExceptionOfType(CredencialesInvalidasException.class)
                 .isThrownBy(() -> servicio.refresca("caducado"));
-        // Caducado no es reuso: no hay revocación en bloque ni sesión nueva.
+
+        // Revocada (logout previo): mismo 401, y tampoco escala a reuso.
+        Sesion revocada = sesionViva(usuario);
+        when(sesiones.findByTokenHash(any())).thenReturn(Optional.of(revocada));
+        when(sesiones.revocaPorHash(any(), any())).thenReturn(1);
+        servicio.cierraSesion("da-igual");
+        // Simula el estado revocado que vería el refresca posterior.
+        Sesion conRevocacion = org.mockito.Mockito.spy(revocada);
+        org.mockito.Mockito.doReturn(AHORA.minusSeconds(60)).when(conRevocacion).getRevocadaEn();
+        when(sesiones.findByTokenHash(any())).thenReturn(Optional.of(conRevocacion));
+        assertThatExceptionOfType(CredencialesInvalidasException.class)
+                .isThrownBy(() -> servicio.refresca("revocado"));
+
+        // Ni caducado ni revocado son reuso: sin revocación en bloque ni sesión nueva.
         verify(sesiones, never()).revocaTodas(any(), any());
         verify(sesiones, never()).save(any(Sesion.class));
     }

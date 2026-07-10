@@ -197,9 +197,9 @@ export const useAuthStore = defineStore('auth', () => {
     // que viaja lo gestiona services/api.ts.
     token: computed(() => token.value),
     refreshToken: computed(() => refreshToken.value),
+    refreshExpiraEn: computed(() => refreshExpiraEn.value),
     email,
     expiraEn,
-    refreshExpiraEn,
     cargando,
     error,
     aviso,

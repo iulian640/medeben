@@ -264,6 +264,54 @@ describe('renovación de sesión (B4)', () => {
     expect(onUnauthorized).toHaveBeenCalledTimes(1)
   })
 
+  it('CRITICAL review: el 401 tardío de una sesión VIEJA no expulsa a quien está dentro ahora', async () => {
+    // Tablet compartida: la petición de Ana recibe 401 y su refresh queda en
+    // vuelo; Bea inicia sesión mientras tanto; el refresh viejo falla. La
+    // petición vieja debe morir en silencio, sin tocar la sesión de Bea.
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(respuesta(401)))
+    setAuthToken('jwt-ana')
+    let resolverRefresh: (v: boolean) => void = () => {}
+    setOnRefresh(
+      vi.fn().mockReturnValue(
+        new Promise<boolean>((resolve) => {
+          resolverRefresh = resolve
+        }),
+      ),
+    )
+    const onUnauthorized = vi.fn()
+    setOnUnauthorized(onUnauthorized)
+
+    const peticionDeAna = api.get('/perfil')
+    // Deja que el 401 llegue y el refresh quede pendiente.
+    await new Promise((r) => setTimeout(r, 0))
+    setAuthToken('jwt-bea') // Bea entra con el refresh de Ana aún en vuelo.
+    resolverRefresh(false)
+
+    await expect(peticionDeAna).rejects.toBeInstanceOf(ApiError)
+    expect(onUnauthorized).not.toHaveBeenCalled()
+  })
+
+  it('getBlob también renueva y reintenta tras un 401 (la descarga del PDF no se queda muda)', async () => {
+    const pdf = new Blob(['%PDF'])
+    const fetchMock = vi.fn().mockImplementation(async (_url: string, init: RequestInit) => {
+      const auth = (init.headers as Record<string, string>)['Authorization']
+      if (auth === 'Bearer jwt-nuevo') {
+        return { ...respuesta(200), blob: async () => pdf } as Response
+      }
+      return respuesta(401)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    setAuthToken('jwt-caducado')
+    setOnRefresh(
+      vi.fn().mockImplementation(async () => {
+        setAuthToken('jwt-nuevo')
+        return true
+      }),
+    )
+
+    await expect(api.getBlob('/informes/mes/2026-07')).resolves.toBe(pdf)
+  })
+
   it('una petición anonimo no manda Authorization ni dispara refresh (así viaja el propio /auth/refresh)', async () => {
     const fetchMock = vi.fn().mockResolvedValue(respuesta(401))
     vi.stubGlobal('fetch', fetchMock)

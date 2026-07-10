@@ -48,6 +48,7 @@ public final class RateLimitFilter extends OncePerRequestFilter {
     private static final String PREFIJO_API = "/api/";
     private static final String PREFIJO_AUTH = "/api/v1/auth/";
     private static final String PREFIJO_INFORMES = "/api/v1/informes/";
+    private static final String RUTA_REFRESH = "/api/v1/auth/refresh";
     private static final String RUTA_CUENTA = "/api/v1/cuenta";
     private static final String RUTA_HEALTH = "/api/v1/health";
     private static final String PREFIJO_BEARER = "Bearer ";
@@ -106,20 +107,27 @@ public final class RateLimitFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                      FilterChain filterChain) throws ServletException, IOException {
         String ruta = rutaNormalizada(request);
-        boolean esAuth = ruta.startsWith(PREFIJO_AUTH);
+        // El refresh (B4) va ANTES que auth: cuelga de /auth/ pero es tráfico
+        // sostenido legítimo (cada usuario activo, ~4/hora durante todo el
+        // turno) y metería a la plantilla entera en el bucket estricto del
+        // login (security review). Presupuesto propio, también por IP.
+        boolean esRefresh = ruta.equals(RUTA_REFRESH);
+        boolean esAuth = !esRefresh && ruta.startsWith(PREFIJO_AUTH);
         // Los informes PDF llevan su propio presupuesto, mucho más estrecho:
         // generarlos cuesta un año de recorrido + maquetado (ver Properties).
-        boolean esInforme = !esAuth && ruta.startsWith(PREFIJO_INFORMES);
+        boolean esInforme = !esRefresh && !esAuth && ruta.startsWith(PREFIJO_INFORMES);
         // El borrado de cuenta re-confirma la contraseña: mismo control
         // anti-fuerza-bruta que el login → presupuesto ESTRICTO de auth
         // (security review). La clave sigue siendo ip|sub: el atacante con un
         // token queda confinado sin castigar a los legítimos de un WiFi común.
-        boolean esCuenta = !esAuth && !esInforme && ruta.equals(RUTA_CUENTA);
+        boolean esCuenta = !esRefresh && !esAuth && !esInforme && ruta.equals(RUTA_CUENTA);
         RateLimitProperties.Presupuesto presupuesto =
-                esAuth || esCuenta ? propiedades.auth()
+                esRefresh ? propiedades.refresh()
+                        : esAuth || esCuenta ? propiedades.auth()
                         : esInforme ? propiedades.informes() : propiedades.api();
-        String grupo = esAuth ? "auth:" : esInforme ? "informes:" : esCuenta ? "cuenta:" : "api:";
-        String clave = grupo + claveDelCliente(request, esAuth);
+        String grupo = esRefresh ? "refresh:"
+                : esAuth ? "auth:" : esInforme ? "informes:" : esCuenta ? "cuenta:" : "api:";
+        String clave = grupo + claveDelCliente(request, esAuth || esRefresh);
 
         boolean permitido = registro.intentaConsumir(clave, presupuesto.capacidad(), presupuesto.recargaPorMinuto());
         if (permitido) {

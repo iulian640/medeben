@@ -19,6 +19,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.Instant;
 
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -103,7 +105,8 @@ class AuthControllerTest {
                                 {"refreshToken":"refresh-opaco"}"""))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.token").value("un.jwt.firmado"))
-                .andExpect(jsonPath("$.refreshToken").value("refresh-opaco"));
+                .andExpect(jsonPath("$.refreshToken").value("refresh-opaco"))
+                .andExpect(jsonPath("$.refreshExpiraEn").exists());
     }
 
     @Test
@@ -126,7 +129,7 @@ class AuthControllerTest {
                         .content("{}"))
                 .andExpect(status().isBadRequest());
 
-        org.mockito.Mockito.verify(authService, org.mockito.Mockito.never()).refresca(anyString());
+        verify(authService, never()).refresca(anyString());
     }
 
     @Test
@@ -138,7 +141,18 @@ class AuthControllerTest {
                                 {"refreshToken":"refresh-opaco"}"""))
                 .andExpect(status().isNoContent());
 
-        org.mockito.Mockito.verify(authService).cierraSesion("refresh-opaco");
+        verify(authService).cierraSesion("refresh-opaco");
+    }
+
+    @Test
+    @DisplayName("logout sin body válido → 400, el servicio ni se llama (mismo @Valid que el refresh)")
+    void logoutSinToken() throws Exception {
+        mockMvc.perform(post("/api/v1/auth/logout")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{}"))
+                .andExpect(status().isBadRequest());
+
+        verify(authService, never()).cierraSesion(anyString());
     }
 
     private static SesionEmitida sesionDePrueba() {

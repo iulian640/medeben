@@ -95,6 +95,31 @@ class SesionRepositoryTest {
     }
 
     @Test
+    @DisplayName("la purga barre lo caducado y lo revocado viejo; respeta lo vivo y lo revocado reciente")
+    void purga() {
+        // Viva: se queda.
+        Sesion viva = sesiones.saveAndFlush(sesionNueva("e1"));
+        // Caducada: fuera.
+        Sesion caducada = sesiones.saveAndFlush(new Sesion(usuarioId, hash("e2"),
+                AHORA.minus(Duration.ofDays(9)), AHORA.minus(Duration.ofDays(2))));
+        // Revocada hace mucho (más allá de la retención forense): fuera.
+        Sesion revocadaVieja = sesiones.saveAndFlush(sesionNueva("e3"));
+        sesiones.revocaPorHash(revocadaVieja.getTokenHash(), AHORA.minus(Duration.ofDays(40)));
+        // Revocada ayer (dentro de la retención): se queda para el forense.
+        Sesion revocadaReciente = sesiones.saveAndFlush(sesionNueva("e4"));
+        sesiones.revocaPorHash(revocadaReciente.getTokenHash(), AHORA.minus(Duration.ofDays(1)));
+
+        int borradas = sesiones.purga(AHORA, AHORA.minus(Duration.ofDays(30)));
+
+        em.clear();
+        assertThat(borradas).isEqualTo(2);
+        assertThat(sesiones.findById(viva.getId())).isPresent();
+        assertThat(sesiones.findById(caducada.getId())).isEmpty();
+        assertThat(sesiones.findById(revocadaVieja.getId())).isEmpty();
+        assertThat(sesiones.findById(revocadaReciente.getId())).isPresent();
+    }
+
+    @Test
     @DisplayName("el hash del refresh es UNIQUE: dos sesiones no pueden compartir token")
     void hashUnico() {
         sesiones.saveAndFlush(sesionNueva("d1"));

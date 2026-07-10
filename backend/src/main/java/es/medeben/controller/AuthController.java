@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Registro y login (D13.4). Fuera del perfil `local` (sin BD no hay usuarios;
- * ese perfil es solo para consultar convenios).
+ * Registro, login y ciclo de sesión: refresh rotativo y logout con revocación
+ * (D13.4 + B4). Fuera del perfil `local` (sin BD no hay usuarios; ese perfil
+ * es solo para consultar convenios).
  */
 @RestController
 @RequestMapping("/api/v1")
