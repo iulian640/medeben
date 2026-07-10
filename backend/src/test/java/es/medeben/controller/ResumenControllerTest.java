@@ -121,16 +121,30 @@ class ResumenControllerTest {
     }
 
     @Test
-    @DisplayName("faltan datos (sin horario) → 422 RFC 7807 con detalle claro de qué falta")
+    @DisplayName("faltan datos (sin horario) → 422 RFC 7807 con detalle claro y CÓDIGO estable")
     void datosIncompletos422() throws Exception {
         when(resumenService.delMes(eq(USUARIO), any())).thenThrow(
-                new ResumenIncompletoException("No has definido tu horario para ese mes"));
+                new ResumenIncompletoException(ResumenIncompletoException.Codigo.HORARIO, "No has definido tu horario para ese mes"));
 
         mockMvc.perform(get("/api/v1/resumen/mes/2026-07").with(comoUsuario()))
                 .andExpect(status().isUnprocessableEntity())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
                 .andExpect(jsonPath("$.status").value(422))
-                .andExpect(jsonPath("$.detail").value(containsString("horario")));
+                .andExpect(jsonPath("$.detail").value(containsString("horario")))
+                // El frontend guía con el código, no adivinando sobre el texto.
+                .andExpect(jsonPath("$.codigo").value("HORARIO"));
+    }
+
+    @Test
+    @DisplayName("al convenio le falta un dato → 422 con codigo DATOS_CONVENIO (no depende del usuario)")
+    void datosConvenio422() throws Exception {
+        when(resumenService.delMes(eq(USUARIO), any())).thenThrow(new ResumenIncompletoException(
+                ResumenIncompletoException.Codigo.DATOS_CONVENIO,
+                "Tu convenio no tiene publicada la tabla salarial para tus datos (dimensiones)"));
+
+        mockMvc.perform(get("/api/v1/resumen/mes/2026-07").with(comoUsuario()))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.codigo").value("DATOS_CONVENIO"));
     }
 
     @Test

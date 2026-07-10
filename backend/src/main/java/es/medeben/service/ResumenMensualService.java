@@ -86,10 +86,10 @@ public class ResumenMensualService {
             throw new IllegalArgumentException(
                     "El mes " + mes + " todavía no ha empezado: aún no hay nada que resumir");
         }
-        Perfil perfil = perfiles.busca(usuarioId).orElseThrow(() -> new ResumenIncompletoException(
+        Perfil perfil = perfiles.busca(usuarioId).orElseThrow(() -> new ResumenIncompletoException(ResumenIncompletoException.Codigo.PERFIL,
                 "Todavía no has creado tu perfil: sin él no sé tu convenio ni tu salario"));
         Convenio convenio = convenios.porId(perfil.getConvenioId()).orElseThrow(
-                () -> new ResumenIncompletoException(
+                () -> new ResumenIncompletoException(ResumenIncompletoException.Codigo.CONVENIO_NO_DISPONIBLE,
                         "El convenio de tu perfil no está disponible ahora mismo"));
 
         SalarioAplicado salario = resuelveSalario(perfil, convenio.id(), mes);
@@ -157,11 +157,11 @@ public class ResumenMensualService {
     private SalarioAplicado resuelveSalario(Perfil perfil, String convenioId, YearMonth mes) {
         SalarioBaseResuelto minimo = tablas.salarioBaseMinimo(
                         convenioId, perfil.getDimensiones(), mes.atEndOfMonth())
-                .orElseThrow(() -> new ResumenIncompletoException(
+                .orElseThrow(() -> new ResumenIncompletoException(ResumenIncompletoException.Codigo.DATOS_CONVENIO,
                         "Tu convenio no tiene publicada la tabla salarial para tus datos (dimensiones): "
                                 + "no puedo estimar tu hora todavía"));
         if (!UNIDAD_MENSUAL.equals(minimo.unidad())) {
-            throw new ResumenIncompletoException(
+            throw new ResumenIncompletoException(ResumenIncompletoException.Codigo.DATOS_CONVENIO,
                     "La tabla de tu convenio está en '" + minimo.unidad()
                             + "', no en EUR/mes: aún no sé convertirla para estimar tu mes");
         }
@@ -185,7 +185,7 @@ public class ResumenMensualService {
             lunes = lunes.plusDays(DIAS_SEMANA);
         }
         if (!hayHorario) {
-            throw new ResumenIncompletoException(
+            throw new ResumenIncompletoException(ResumenIncompletoException.Codigo.HORARIO,
                     "No has definido tu horario para ese mes: sin horario no hay horas teóricas que comparar");
         }
     }
@@ -196,7 +196,7 @@ public class ResumenMensualService {
         HorasExtraCalculadas calculada = calculo.importeHorasExtra(
                         convenio, Year.of(mes.getYear()), salario.importe(), salario.plusesONada(),
                         horasExtraPrecisas(extraMin))
-                .orElseThrow(() -> new ResumenIncompletoException(
+                .orElseThrow(() -> new ResumenIncompletoException(ResumenIncompletoException.Codigo.DATOS_CONVENIO,
                         "Tu convenio no tiene publicada la jornada anual o las pagas para "
                                 + mes.getYear() + ": no puedo valorar tus horas extra"));
 

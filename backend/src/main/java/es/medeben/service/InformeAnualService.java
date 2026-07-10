@@ -151,6 +151,7 @@ public class InformeAnualService {
     private byte[] generaDeVerdad(UUID usuarioId, Year anio, Year anioActual) {
         YearMonth ultimo = anio.equals(anioActual) ? YearMonth.now(reloj) : anio.atMonth(12);
         List<MesDelAnio> meses = new ArrayList<>();
+        ResumenIncompletoException.Codigo primerCodigo = null;
         for (YearMonth mes = anio.atMonth(1); !mes.isAfter(ultimo); mes = mes.plusMonths(1)) {
             try {
                 meses.add(new MesDelAnio(mes, resumenes.delMes(usuarioId, mes), null));
@@ -158,10 +159,15 @@ public class InformeAnualService {
                 // Un mes sin perfil/horario/tabla no tumba el año: se lista con
                 // su motivo (honestidad) y no aporta a los totales.
                 meses.add(new MesDelAnio(mes, null, e.getMessage()));
+                if (primerCodigo == null) {
+                    primerCodigo = e.codigo();
+                }
             }
         }
         if (meses.stream().allMatch(m -> m.resumen() == null)) {
-            throw new ResumenIncompletoException(
+            // El código del año entero es el del PRIMER mes fallido: si falta el
+            // perfil, todos fallan por lo mismo y la guía del frontend acierta.
+            throw new ResumenIncompletoException(primerCodigo,
                     "Ningún mes de " + anio + " tiene datos suficientes para el histórico: "
                             + "crea tu perfil y tu horario, y ficha tus días");
         }

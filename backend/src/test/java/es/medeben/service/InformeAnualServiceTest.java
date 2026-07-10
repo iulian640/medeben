@@ -55,7 +55,7 @@ class InformeAnualServiceTest {
         when(resumenes.delMes(eq(USUARIO), any())).thenAnswer(inv -> {
             YearMonth mes = inv.getArgument(1);
             if (mes.getMonthValue() < 3) {
-                throw new ResumenIncompletoException("Todavía no has creado tu perfil");
+                throw new ResumenIncompletoException(ResumenIncompletoException.Codigo.PERFIL, "Todavía no has creado tu perfil");
             }
             return resumenDe(mes);
         });
@@ -155,7 +155,7 @@ class InformeAnualServiceTest {
     @DisplayName("si NINGÚN mes tiene datos, guía honesta (422), no un PDF vacío")
     void sinNingunMes() {
         when(resumenes.delMes(eq(USUARIO), any()))
-                .thenThrow(new ResumenIncompletoException("Todavía no has creado tu perfil"));
+                .thenThrow(new ResumenIncompletoException(ResumenIncompletoException.Codigo.PERFIL, "Todavía no has creado tu perfil"));
 
         assertThatThrownBy(() -> servicio.genera(USUARIO, Year.of(2026)))
                 .isInstanceOf(ResumenIncompletoException.class)

@@ -37,7 +37,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResumenIncompletoException.class)
     public ProblemDetail resumenIncompleto(ResumenIncompletoException e) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
+        ProblemDetail problema =
+                ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
+        // Código estable para que el frontend guíe sin adivinar sobre el texto.
+        problema.setProperty("codigo", e.codigo().name());
+        return problema;
     }
 
     @ExceptionHandler(es.medeben.service.EmailYaRegistradoException.class)
