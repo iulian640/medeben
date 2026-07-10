@@ -27,7 +27,9 @@
   --tinta: oklch(24% 0.02 275);
   --tinta-suave: oklch(45% 0.015 275); /* secundario; AA sobre papel */
   --linea: oklch(89% 0.007 275); /* separadores */
-  --linea-fuerte: oklch(72% 0.012 275); /* bordes de controles */
+  /* Bordes de controles: ≥3:1 sobre papel Y papel-2 (WCAG 1.4.11, verificado
+   * por cálculo: 4,3:1 / 3,9:1) — el límite de un input tiene que verse. */
+  --linea-fuerte: oklch(58% 0.012 275);
 
   /* El verde del DINERO y de la acción. Es la identidad de marca ya decidida
    * (sobrio, no banca de neón); se conserva el valor exacto. */
@@ -76,6 +78,7 @@
   --dur-estado: 200ms; /* cambios de estado: hover, mostrar/ocultar */
   --dur-panel: 320ms; /* despliegues y paneles */
   --dur-entrada: 550ms; /* entradas de contenido */
+  --dur-vista-salida: 140ms; /* la salida de pantalla: ~70% de su entrada */
   --curva-salida: cubic-bezier(0.22, 1, 0.36, 1); /* outQuint: decidida, sin rebote */
   --curva-suave: cubic-bezier(0.45, 0, 0.2, 1);
 
@@ -107,7 +110,8 @@
     --tinta: #f3f4f6;
     --tinta-suave: #aab0c0;
     --linea: #32334c;
-    --linea-fuerte: #4b4d6b;
+    /* Igual que en claro: ≥3:1 sobre los dos papeles (3,6:1 / 3,2:1). */
+    --linea-fuerte: #6c6f9a;
 
     --verde: #2dd4bf;
     --verde-vivo: #52ddcb;
@@ -340,7 +344,7 @@ a {
 }
 
 .vista-leave-active {
-  transition: opacity 140ms var(--curva-suave);
+  transition: opacity var(--dur-vista-salida) var(--curva-suave);
 }
 
 .vista-enter-from {

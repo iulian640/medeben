@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 import { useAuthStore } from '../stores/auth'
-import { revelaEscalonado } from '../lib/animacion'
 
 const auth = useAuthStore()
 
@@ -10,20 +9,12 @@ const auth = useAuthStore()
  * entrada (.boton). Con sesión, la pregunta del dinero pasa a ser la
  * protagonista (D1) y este enlace baja a acción de apoyo. Nunca hay dos
  * .boton a la vez en pantalla (DESIGN.md).
+ *
+ * Sin animación de entrada: revelaEscalonado es para contenido recién
+ * cargado, y estos CTAs son estáticos — animarlos sería coreografía de
+ * carga de página, prohibida por DESIGN.md (hallazgo de la review).
  */
 const claseCalculadora = computed(() => (auth.autenticado ? 'boton-secundario' : 'boton'))
-
-/* Único gesto de esta pantalla (es medio-marca, se le permite respirar):
- * el stack de CTAs entra escalonado. El resto de la app no anima la carga
- * de página — aquí sí, pero corto y sobrio, nunca una coreografía. */
-const ctas = ref<HTMLElement | null>(null)
-
-onMounted(() => {
-  const bloques = ctas.value?.querySelectorAll(':scope > *')
-  if (bloques) {
-    revelaEscalonado(bloques)
-  }
-})
 </script>
 
 <template>
@@ -35,10 +26,7 @@ onMounted(() => {
       </p>
     </div>
 
-    <div
-      ref="ctas"
-      class="ctas"
-    >
+    <div class="ctas">
       <RouterLink
         class="boton--ancho"
         :class="claseCalculadora"

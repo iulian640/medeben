@@ -70,12 +70,15 @@ const hayErrorCampo = computed(() => errorCliente.value !== null || auth.error !
         :class="{ 'campo--error': hayErrorCampo }"
       >
         <label for="email">Email</label>
+        <!-- El estado de error también en aria: el borde rojo solo lo ve quien ve. -->
         <input
           id="email"
           v-model="email"
           type="email"
           autocomplete="email"
           required
+          :aria-invalid="hayErrorCampo || undefined"
+          :aria-describedby="hayErrorCampo ? 'error-formulario' : undefined"
         >
       </div>
 
@@ -91,6 +94,8 @@ const hayErrorCampo = computed(() => errorCliente.value !== null || auth.error !
           autocomplete="new-password"
           :minlength="PASSWORD_MIN"
           required
+          :aria-invalid="hayErrorCampo || undefined"
+          :aria-describedby="hayErrorCampo ? 'error-formulario' : undefined"
         >
         <p class="campo-ayuda">
           Mínimo {{ PASSWORD_MIN }} caracteres. Una frase que recuerdes vale de sobra.
@@ -108,11 +113,14 @@ const hayErrorCampo = computed(() => errorCliente.value !== null || auth.error !
           type="password"
           autocomplete="new-password"
           required
+          :aria-invalid="hayErrorCampo || undefined"
+          :aria-describedby="hayErrorCampo ? 'error-formulario' : undefined"
         >
       </div>
 
       <p
         v-if="errorCliente || auth.error"
+        id="error-formulario"
         class="campo-error"
         role="alert"
       >

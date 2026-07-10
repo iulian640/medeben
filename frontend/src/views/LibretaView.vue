@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 import { useFichajesStore } from '../stores/fichajes'
 import type { ApuntePeticion, TipoApunte } from '../services/fichajes'
 import LibretaOnboarding from '../components/LibretaOnboarding.vue'
@@ -102,6 +102,14 @@ function registraAusencia() {
     rectificacionTardiaConfirmada: false,
   })
 }
+
+/*
+ * La acción del momento: con la jornada abierta (EN_CURSO) lo primario es
+ * salir; en cualquier otro estado, entrar. Los dos botones siguen SIEMPRE
+ * disponibles (las jornadas partidas fichan varias entradas y salidas al
+ * día), pero solo uno lleva el verde: un único primario por pantalla.
+ */
+const jornadaAbierta = computed(() => fichajes.dia?.estado === 'EN_CURSO')
 
 function reenviaConfirmada(confirmado: boolean) {
   // Comprobación redundante a propósito: una petición con valor probatorio no
@@ -218,7 +226,8 @@ function reenviaConfirmada(confirmado: boolean) {
         >
           <button
             type="button"
-            class="boton boton--ancho"
+            class="boton--ancho"
+            :class="jornadaAbierta ? 'boton-secundario' : 'boton'"
             :disabled="fichajes.fichando"
             @click="fichaAhora('ENTRADA')"
           >
@@ -226,7 +235,8 @@ function reenviaConfirmada(confirmado: boolean) {
           </button>
           <button
             type="button"
-            class="boton boton--ancho"
+            class="boton--ancho"
+            :class="jornadaAbierta ? 'boton' : 'boton-secundario'"
             :disabled="fichajes.fichando"
             @click="fichaAhora('SALIDA')"
           >

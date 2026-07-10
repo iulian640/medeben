@@ -119,8 +119,8 @@ watch(
           v-for="s in SUBSECTORES"
           :key="s.clave"
           type="button"
-          class="opcion"
-          :class="{ activa: perfil.subsector === s.clave }"
+          class="opcion boton-secundario"
+          :class="{ 'opcion--activa': perfil.subsector === s.clave }"
           :disabled="perfil.cargando"
           :aria-pressed="perfil.subsector === s.clave"
           @click="perfil.elegirSubsector(s.clave)"
@@ -200,7 +200,7 @@ watch(
       </p>
       <button
         type="button"
-        class="opcion"
+        class="opcion boton-secundario"
         disabled
       >
         Modo manual (próximamente)
@@ -238,7 +238,7 @@ watch(
           v-for="valor in siguientePendiente.valores"
           :key="valor"
           type="button"
-          class="opcion"
+          class="opcion boton-secundario"
           :disabled="perfil.cargando"
           :aria-pressed="perfil.respuestas[siguientePendiente.dimension] === valor"
           @click="perfil.responderPendiente(siguientePendiente.dimension, valor)"
@@ -335,40 +335,19 @@ h1 {
   gap: var(--esp-xs);
 }
 
-/* Chips de elección: no hay componente global para esto, así que se
- * construyen aquí, pero solo con tokens (nunca colores/tamaños a pelo). */
+/* Chips de elección: el mismo control que en CuentaView — .boton-secundario
+ * compuesto, en lista y alineado a la izquierda. Aquí solo vive el layout. */
 .opcion {
-  font: inherit;
-  font-weight: var(--peso-etiqueta);
+  justify-content: flex-start;
   text-align: left;
-  min-height: 2.75rem;
-  padding: var(--esp-sm) var(--esp-md);
-  border: 1px solid var(--linea-fuerte);
-  border-radius: var(--radio-control);
-  background: var(--papel);
-  color: var(--tinta);
-  cursor: pointer;
-  transition:
-    background-color var(--dur-estado) var(--curva-suave),
-    border-color var(--dur-estado) var(--curva-suave);
 }
 
-.opcion:hover:not(:disabled) {
-  border-color: var(--tinta-suave);
-}
-
-/* Seleccionado: el verde marca la selección, uno de sus dos usos permitidos. */
-.opcion.activa {
-  background: var(--verde);
+/* Seleccionado = el mismo verde-suave que usa toda la app para marcar una
+ * elección (el verde nunca es decoración; aquí es selección). */
+.opcion--activa {
   border-color: var(--verde);
-  color: var(--sobre-verde);
-}
-
-.opcion:disabled {
-  /* Mismo valor que .boton:disabled (style.css): un solo criterio de
-   * atenuación para cualquier control inactivo en toda la app. */
-  opacity: 0.45;
-  cursor: default;
+  background: var(--verde-suave);
+  color: var(--tinta);
 }
 
 .tarjeta-nombre {

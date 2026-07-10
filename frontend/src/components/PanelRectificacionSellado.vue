@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import PanelPlegable from './PanelPlegable.vue'
+import { movimientoReducido } from '../lib/animacion'
 
 /**
  * Panel de rectificación tardía de la libreta (D38): aparece cuando el backend
@@ -25,12 +26,22 @@ const confirmado = ref(false)
 /*
  * El padre monta este panel con v-if solo cuando hay conflicto (así se
  * desmonta y reinicia solo, ver arriba). PanelPlegable, aparte, empieza
- * cerrado y se abre un instante después del montaje: así el aviso se
- * despliega animado en vez de aparecer de golpe en mitad de la pantalla.
+ * cerrado y se abre tras DOS frames de rAF: el navegador tiene que llegar
+ * a pintar el estado cerrado o la transición de despliegue no existe
+ * (mismo truco que usa <Transition appear> por dentro). Con movimiento
+ * reducido —o sin rAF, como jsdom— se abre al instante.
  */
 const revelado = ref(false)
 onMounted(() => {
-  revelado.value = true
+  if (movimientoReducido() || typeof requestAnimationFrame !== 'function') {
+    revelado.value = true
+    return
+  }
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      revelado.value = true
+    })
+  })
 })
 </script>
 

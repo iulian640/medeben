@@ -25,6 +25,7 @@ export const DURACION = {
   panel: 320,
   entrada: 550,
   cuenta: 800,
+  trazo: 450,
 } as const
 
 /**
@@ -65,7 +66,7 @@ export function cuentaImporte(
  * izquierda a derecha (scaleX con origen a la izquierda, vía CSS del
  * componente). Con movimiento reducido el trazo simplemente está.
  */
-export function dibujaTrazo(el: HTMLElement, duracion = 450): Promise<void> {
+export function dibujaTrazo(el: HTMLElement, duracion: number = DURACION.trazo): Promise<void> {
   if (movimientoReducido()) {
     el.style.transform = ''
     return Promise.resolve()

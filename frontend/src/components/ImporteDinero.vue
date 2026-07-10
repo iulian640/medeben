@@ -80,7 +80,8 @@ watch(() => props.importe, arranca)
 }
 
 .euro {
-  font-size: 1.75rem;
+  /* Medio escalón bajo la cifra: el rol "título" de la escala. */
+  font-size: var(--tipo-titulo);
   font-weight: var(--peso-titulo);
   color: var(--tinta-suave);
 }
