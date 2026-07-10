@@ -404,16 +404,16 @@ function reenviaConfirmada(confirmado: boolean) {
                  el aria-controls de su toggle. -->
             <PanelHoraManual
               id="panel-hora-manual"
-              :abierto="mostrarHoraManual"
               v-model:hora="horaManual"
+              :abierto="mostrarHoraManual"
               :fichando="fichajes.fichando"
               @fichar="fichaManual"
             />
 
             <PanelAusencia
               id="panel-ausencia"
-              :abierto="mostrarAusencia"
               v-model:motivo="motivo"
+              :abierto="mostrarAusencia"
               :fichando="fichajes.fichando"
               @registrar="registraAusencia"
             />
