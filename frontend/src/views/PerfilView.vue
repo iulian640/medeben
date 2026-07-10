@@ -310,7 +310,9 @@ watch(
         </template>
         <template v-else>
           La tabla de tu convenio para este puesto ha quedado por debajo del
-          salario mínimo<template v-if="perfil.salario.smiMensual"> ({{ formatearImporte(perfil.salario.smiMensual) }} € al mes en 14 pagas)</template>.
+          salario mínimo<template v-if="perfil.salario.smiMensual">
+            ({{ formatearImporte(perfil.salario.smiMensual) }} € al mes en 14 pagas)
+          </template>.
           Por ley no pueden pagarte menos: al año te corresponde al menos el
           mínimo, y si con tus pluses no llega, la diferencia es tuya.
         </template>

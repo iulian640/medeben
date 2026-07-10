@@ -229,6 +229,42 @@ class FichajeServiceTest {
     }
 
     @Test
+    @DisplayName("los tramos derivados viajan en el estado: la UI enseña la lectura, no la pila de apuntes")
+    void tramosDerivadosExpuestos() {
+        // La ráfaga real del QA: entrada, salida, y una lluvia de toques a las
+        // 14:02 que se corrigen unos a otros. La lectura queda en dos tramos.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T10:01"),
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T11:00"),
+                        apunte(TipoApunte.SALIDA, "14:02", "2026-07-08T14:02"),
+                        apunte(TipoApunte.ENTRADA, "14:02", "2026-07-08T14:02"),
+                        apunte(TipoApunte.SALIDA, "14:02", "2026-07-08T14:02"),
+                        apunte(TipoApunte.ENTRADA, "14:02", "2026-07-08T14:02"),
+                        apunte(TipoApunte.SALIDA, "14:02", "2026-07-08T14:02")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.tramos()).containsExactly(
+                new EstadoDia.TramoDia("10:00", "14:02"),
+                new EstadoDia.TramoDia("14:02", "14:02"));
+        assertThat(estado.entradaAbierta()).isNull();
+        assertThat(estado.minutosTrabajados()).isEqualTo(4 * 60 + 2);
+    }
+
+    @Test
+    @DisplayName("con la jornada abierta, la entrada sin salida viaja como entradaAbierta")
+    void entradaAbiertaExpuesta() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(apunte(TipoApunte.ENTRADA, "12:00", "2026-07-08T12:01")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.tramos()).isEmpty();
+        assertThat(estado.entradaAbierta()).isEqualTo("12:00");
+    }
+
+    @Test
     @DisplayName("una AUSENCIA invalida los fichajes anteriores: corregir después 'sí entré' NO resucita la salida vieja (review HIGH)")
     void ausenciaEsFrontera() {
         when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))

@@ -26,6 +26,12 @@ export interface ApunteGuardado {
   registradoEn: string
 }
 
+/** Un tramo cerrado que el motor deriva del diario (horas "HH:mm"). */
+export interface TramoDia {
+  entrada: string
+  salida: string
+}
+
 export interface EstadoDiaGuardado {
   fecha: string
   estado: EstadoDia
@@ -37,6 +43,14 @@ export interface EstadoDiaGuardado {
    * un día EN_CURSO puede traer minutos (primer tramo del partido ya cerrado).
    */
   minutosTrabajados: number | null
+  /**
+   * La LECTURA del diario: los tramos emparejados con las correcciones ya
+   * aplicadas. Es lo que la UI enseña como "tu jornada"; los apuntes en bruto
+   * son la prueba y se enseñan aparte, plegados.
+   */
+  tramos: TramoDia[]
+  /** La entrada sin salida cuando el día está EN_CURSO; null si no la hay. */
+  entradaAbierta: string | null
   apuntes: ApunteGuardado[]
 }
 

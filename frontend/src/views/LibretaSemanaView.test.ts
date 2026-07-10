@@ -26,6 +26,8 @@ function dia(fecha: string, estado: EstadoDia, minutos: number | null): EstadoDi
     sellado: false,
     selladoDesde: '2026-07-21',
     minutosTrabajados: minutos,
+    tramos: [],
+    entradaAbierta: null,
     apuntes: [],
   }
 }

@@ -14,6 +14,12 @@ import java.util.List;
  *                          y un COMPLETO anómalo puede traer -1.
  * @param selladoDesde      cuándo se sella (o se selló) el día: para el
  *                          contador de la UI ("se sella en 3 días").
+ * @param tramos            los tramos CERRADOS que el emparejado deriva del
+ *                          diario, en orden. Es lo que la UI enseña como "tu
+ *                          jornada": el diario en bruto (con sus correcciones
+ *                          encadenadas) es la prueba, esto es su lectura.
+ * @param entradaAbierta    la hora de la entrada sin salida (día EN_CURSO), o
+ *                          null si no hay tramo abierto.
  */
 public record EstadoDia(
         LocalDate fecha,
@@ -21,8 +27,20 @@ public record EstadoDia(
         boolean sellado,
         LocalDate selladoDesde,
         int minutosTrabajados,
+        List<TramoDia> tramos,
+        String entradaAbierta,
         List<Apunte> apuntes
 ) {
+
+    /** Las listas quedan inmutables por el TIPO, no por disciplina del llamador. */
+    public EstadoDia {
+        tramos = List.copyOf(tramos);
+        apuntes = List.copyOf(apuntes);
+    }
+
+    /** Un tramo cerrado derivado del diario (horas "HH:mm"). */
+    public record TramoDia(String entrada, String salida) {
+    }
 
     public enum Estado {
         /** Sin apuntes y aún dentro de ventana: la app pedirá confirmarlo. */

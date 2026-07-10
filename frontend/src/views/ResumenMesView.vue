@@ -409,30 +409,7 @@ h1 {
   margin: 0;
 }
 
-/* Filas con puntos de guía, como una nómina bien hecha. */
-.fila {
-  display: flex;
-  align-items: baseline;
-  gap: var(--esp-xs);
-}
-
-.fila::after {
-  content: '';
-  order: 2;
-  flex: 1;
-  border-bottom: 1px dotted var(--linea-fuerte);
-  transform: translateY(-0.25em);
-}
-
-.fila dt {
-  order: 1;
-}
-
-.fila dd {
-  order: 3;
-  font-weight: var(--peso-etiqueta);
-  margin: 0;
-}
+/* Las filas con puntos de guía (.fila) son globales: style.css. */
 
 .barra-tope {
   height: 0.625rem;

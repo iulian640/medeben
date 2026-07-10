@@ -141,7 +141,7 @@ public class FichajeService {
 
         // Emparejado secuencial en tramos: el turno partido (D38, máx. 2 tramos
         // declarados) suma TODOS sus tramos, no solo la última pareja E/S.
-        List<Tramo> tramos = new ArrayList<>();
+        List<EstadoDia.TramoDia> tramos = new ArrayList<>();
         String entradaAbierta = null;
         Apunte ultimo = null;
         for (Apunte a : diario) {
@@ -152,7 +152,7 @@ public class FichajeService {
                     // entrada del último tramo cerrado (gana la última), igual
                     // que hace la SALIDA con la suya.
                     int i = tramos.size() - 1;
-                    tramos.set(i, new Tramo(a.getHora(), tramos.get(i).salida()));
+                    tramos.set(i, new EstadoDia.TramoDia(a.getHora(), tramos.get(i).salida()));
                 } else {
                     // Sin tramo abierto (y con cupo libre), abre uno nuevo; con
                     // tramo abierto es una corrección de esa entrada: gana la última.
@@ -160,13 +160,13 @@ public class FichajeService {
                 }
             } else if (a.getTipo() == TipoApunte.SALIDA) {
                 if (entradaAbierta != null) {
-                    tramos.add(new Tramo(entradaAbierta, a.getHora()));
+                    tramos.add(new EstadoDia.TramoDia(entradaAbierta, a.getHora()));
                     entradaAbierta = null;
                 } else if (!tramos.isEmpty()) {
                     // Salida sin tramo abierto: corrección de la salida del último
                     // tramo cerrado (gana la última), no un tramo nuevo.
                     int i = tramos.size() - 1;
-                    tramos.set(i, new Tramo(tramos.get(i).entrada(), a.getHora()));
+                    tramos.set(i, new EstadoDia.TramoDia(tramos.get(i).entrada(), a.getHora()));
                 }
                 // Salida sin ninguna entrada previa: no forma tramo; el día
                 // quedará PENDIENTE de completar (ver abajo).
@@ -192,7 +192,8 @@ public class FichajeService {
             // Salida sin entrada: el día sigue a medias, la app pedirá completarlo.
             estado = EstadoDia.Estado.PENDIENTE;
         }
-        return new EstadoDia(fecha, estado, sellado, selladoDesde(fecha), calculaMinutos(tramos), diario);
+        return new EstadoDia(fecha, estado, sellado, selladoDesde(fecha), calculaMinutos(tramos),
+                tramos, entradaAbierta, diario);
     }
 
     /**
@@ -200,12 +201,12 @@ public class FichajeService {
      * algún tramo supera el techo de cordura {@link #TRAMO_MAX_MINUTOS}: mejor
      * "sin total" que un día inflado a ~24h por una corrección mal dirigida.
      */
-    private static int calculaMinutos(List<Tramo> tramos) {
+    private static int calculaMinutos(List<EstadoDia.TramoDia> tramos) {
         if (tramos.isEmpty()) {
             return -1;
         }
         int total = 0;
-        for (Tramo t : tramos) {
+        for (EstadoDia.TramoDia t : tramos) {
             int minutos = minutosEntre(t.entrada(), t.salida());
             if (minutos > TRAMO_MAX_MINUTOS) {
                 return -1;
@@ -213,10 +214,6 @@ public class FichajeService {
             total += minutos;
         }
         return total;
-    }
-
-    /** Un tramo cerrado del día (entrada y salida); un turno partido tiene dos. */
-    private record Tramo(String entrada, String salida) {
     }
 
     private boolean estaSellado(LocalDate fecha, LocalDate hoy) {

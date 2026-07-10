@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import { useFichajesStore } from '../stores/fichajes'
 import type { ApuntePeticion, TipoApunte } from '../services/fichajes'
 import LibretaOnboarding from '../components/LibretaOnboarding.vue'
+import PanelPlegable from '../components/PanelPlegable.vue'
 import PanelHoraManual from '../components/PanelHoraManual.vue'
 import PanelAusencia from '../components/PanelAusencia.vue'
 import PanelRectificacionSellado from '../components/PanelRectificacionSellado.vue'
@@ -60,6 +61,11 @@ const esFuturo = computed(() => fechaObjetivo.value > hoyIso())
 const mostrarOnboarding = ref(!onboardingVisto())
 const mostrarHoraManual = ref(false)
 const mostrarAusencia = ref(false)
+/** El diario en bruto (la prueba) va plegado: lo que se enseña es la jornada. */
+const mostrarApuntes = ref(false)
+
+/** La lectura del día; el `??` tolera un backend anterior sin el campo. */
+const tramosDelDia = computed(() => fichajes.dia?.tramos ?? [])
 const horaManual = ref('')
 const motivo = ref('')
 
@@ -75,6 +81,7 @@ function cargaFecha() {
   fichajes.cargarDia(fechaObjetivo.value)
   mostrarHoraManual.value = !esHoy.value && !esFuturo.value
   mostrarAusencia.value = false
+  mostrarApuntes.value = false
 }
 
 onMounted(cargaFecha)
@@ -231,27 +238,36 @@ function reenviaConfirmada(confirmado: boolean) {
             {{ ETIQUETAS_ESTADO[fichajes.dia.estado] }}
           </p>
 
-          <ul
-            v-if="fichajes.dia.apuntes.length > 0"
-            class="apuntes"
+          <!-- La LECTURA del día: los tramos que el motor deriva del diario,
+               con las correcciones ya aplicadas. Una salida de más corrige la
+               anterior; aquí se ve el resultado, no la pila de toques. -->
+          <dl
+            v-if="tramosDelDia.length > 0 || fichajes.dia.entradaAbierta"
+            class="jornada"
           >
-            <!-- registradoEn es el sello del servidor: único por apunte y estable. -->
-            <li
-              v-for="a in fichajes.dia.apuntes"
-              :key="a.registradoEn"
+            <div
+              v-for="(tramo, i) in tramosDelDia"
+              :key="`${i}-${tramo.entrada}`"
+              class="fila"
             >
-              <strong>{{ ETIQUETAS_TIPO[a.tipo] }}</strong>
-              <template v-if="a.hora">
-                a las {{ a.hora }}
-              </template>
-              <span class="texto-suave texto-sm"> ({{ ETIQUETAS_ORIGEN[a.origen] }})</span>
-              <!-- El motivo SIEMPRE interpolado como texto, nunca v-html (RGPD, D38). -->
-              <span
-                v-if="a.motivo"
-                class="motivo"
-              >— {{ a.motivo }}</span>
-            </li>
-          </ul>
+              <dt>{{ tramosDelDia.length > 1 ? `Turno ${i + 1}` : 'Tu jornada' }}</dt>
+              <dd class="num">
+                {{ tramo.entrada }} → {{ tramo.salida }}
+              </dd>
+            </div>
+            <!-- Acoplado al estado a propósito: un entradaAbierta rezagado de
+                 un backend desincronizado no puede pintar "en curso" en un
+                 día que el resto de la tarjeta da por cerrado o ausente. -->
+            <div
+              v-if="fichajes.dia.estado === 'EN_CURSO' && fichajes.dia.entradaAbierta"
+              class="fila"
+            >
+              <dt>En curso</dt>
+              <dd class="num">
+                desde las {{ fichajes.dia.entradaAbierta }}
+              </dd>
+            </div>
+          </dl>
 
           <p
             v-if="fichajes.dia.minutosTrabajados !== null"
@@ -259,6 +275,51 @@ function reenviaConfirmada(confirmado: boolean) {
           >
             Llevas apuntado: {{ formatearMinutos(fichajes.dia.minutosTrabajados) }}.
           </p>
+          <!-- El techo de cordura puede dejar el total sin calcular aunque haya
+               tramos: se dice, no se esconde (un hueco explicado no confunde). -->
+          <p
+            v-else-if="tramosDelDia.length > 0"
+            class="minutos texto-sm texto-suave"
+          >
+            Sin total: hay un tramo que no cuadra, y antes que inventar, no se suma.
+          </p>
+
+          <!-- El diario en bruto es la prueba: cada toque queda, incluidas las
+               correcciones. Se enseña plegado para que la lectura respire. -->
+          <template v-if="fichajes.dia.apuntes.length > 0">
+            <button
+              type="button"
+              class="boton-fantasma ver-diario"
+              :aria-expanded="mostrarApuntes"
+              @click="mostrarApuntes = !mostrarApuntes"
+            >
+              {{
+                mostrarApuntes
+                  ? 'Ocultar el diario'
+                  : `Ver el diario (${fichajes.dia.apuntes.length} ${fichajes.dia.apuntes.length === 1 ? 'apunte' : 'apuntes'})`
+              }}
+            </button>
+            <PanelPlegable :abierto="mostrarApuntes">
+              <ul class="apuntes">
+                <!-- registradoEn es el sello del servidor: único por apunte y estable. -->
+                <li
+                  v-for="a in fichajes.dia.apuntes"
+                  :key="a.registradoEn"
+                >
+                  <strong>{{ ETIQUETAS_TIPO[a.tipo] }}</strong>
+                  <template v-if="a.hora">
+                    a las {{ a.hora }}
+                  </template>
+                  <span class="texto-suave texto-sm"> ({{ ETIQUETAS_ORIGEN[a.origen] }})</span>
+                  <!-- El motivo SIEMPRE interpolado como texto, nunca v-html (RGPD, D38). -->
+                  <span
+                    v-if="a.motivo"
+                    class="motivo"
+                  >— {{ a.motivo }}</span>
+                </li>
+              </ul>
+            </PanelPlegable>
+          </template>
 
           <p
             v-if="fichajes.ultimoSello"
@@ -405,6 +466,20 @@ h1 {
 
 .estado {
   font-weight: var(--peso-etiqueta);
+}
+
+.jornada {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2xs);
+  margin: 0;
+}
+
+/* Ligero de aspecto pero con los 44px táctiles intactos (.boton-fantasma). */
+.ver-diario {
+  align-self: flex-start;
+  padding-inline: 0;
+  font-size: var(--tipo-sm);
 }
 
 .apuntes {
