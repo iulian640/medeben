@@ -51,6 +51,15 @@ const router = createRouter({
       meta: { requiereSesion: true },
       component: () => import('../views/LibretaSemanaView.vue'),
     },
+    {
+      // Un día concreto (desde "Tu semana"): la misma pantalla de fichar,
+      // cargando esa fecha. Para completar o corregir días pasados (D38:
+      // 14 días de margen; después, rectificación tardía).
+      path: '/libreta/dia/:fecha',
+      name: 'libreta-dia',
+      meta: { requiereSesion: true },
+      component: () => import('../views/LibretaView.vue'),
+    },
   ],
 })
 

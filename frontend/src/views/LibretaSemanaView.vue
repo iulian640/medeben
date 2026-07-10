@@ -76,9 +76,12 @@ interface FilaSemana {
   marcador: Marcador
   etiqueta: string
   teorica: string | null
+  esFutura: boolean
 }
 
-/** Una fila por día, con todo lo que pinta la plantilla ya resuelto. */
+/** Una fila por día, con todo lo que pinta la plantilla ya resuelto. Un día
+ *  futuro no se abre: todavía no hay nada que fichar en él (mismo criterio
+ *  que el resumen, que tampoco navega a un mes futuro). */
 const filas = computed<FilaSemana[]>(() =>
   fichajes.semana.map((d, i) => ({
     fecha: d.fecha,
@@ -86,6 +89,7 @@ const filas = computed<FilaSemana[]>(() =>
     marcador: marcadorDe(d.estado?.estado),
     etiqueta: d.estado ? ETIQUETAS_ESTADO[d.estado.estado] : 'No se ha podido cargar',
     teorica: teoricas.value[i] ?? null,
+    esFutura: d.fecha > hoyIso(), // ISO ordena igual que el calendario
   })),
 )
 
@@ -190,41 +194,64 @@ watch(
           :key="fila.fecha"
           class="dia"
         >
-          <div class="dia-cabecera">
-            <h2 class="dia-nombre">
-              {{ diaSemanaDe(fila.fecha) }}
-              <span class="dia-fecha texto-suave texto-sm num">{{ formatearFecha(fila.fecha) }}</span>
-            </h2>
-            <p
-              class="dia-estado"
-              :class="fila.marcador.clase"
-            >
-              <span
-                class="marcador"
-                aria-hidden="true"
-              >{{ fila.marcador.simbolo }}</span>
-              {{ fila.etiqueta }}
-            </p>
-          </div>
-          <p
-            v-if="fila.estado"
-            class="dia-minutos texto-sm texto-suave"
+          <!-- Cada día pasado (u hoy) se abre para completarlo o corregirlo:
+               la misma pantalla de fichar, con esa fecha (D38: 14 días de
+               margen). Un día futuro es una fila sin enlace: no hay nada que
+               fichar en él todavía. -->
+          <component
+            :is="fila.esFutura ? 'div' : 'RouterLink'"
+            class="dia-fila"
+            :class="{ 'dia-enlace': !fila.esFutura }"
+            v-bind="
+              fila.esFutura
+                ? {}
+                : {
+                  to: `/libreta/dia/${fila.fecha}`,
+                  'aria-label': `Abrir ${diaSemanaDe(fila.fecha)} ${formatearFecha(fila.fecha)}`,
+                }
+            "
           >
-            Trabajado:
-            <template v-if="fila.estado.minutosTrabajados !== null">
-              <span class="num">{{ formatearMinutos(fila.estado.minutosTrabajados) }}</span>
-            </template>
-            <span
-              v-else
-              class="sin-calcular"
-              title="sin calcular"
-              aria-label="sin calcular"
-            >—</span>
-            <span
-              v-if="fila.teorica"
-              class="teoricas"
-            >· {{ fila.teorica }}</span>
-          </p>
+            <div class="dia-cabecera">
+              <h2 class="dia-nombre">
+                {{ diaSemanaDe(fila.fecha) }}
+                <span class="dia-fecha texto-suave texto-sm num">{{ formatearFecha(fila.fecha) }}</span>
+              </h2>
+              <p
+                class="dia-estado"
+                :class="fila.marcador.clase"
+              >
+                <span
+                  class="marcador"
+                  aria-hidden="true"
+                >{{ fila.marcador.simbolo }}</span>
+                {{ fila.etiqueta }}
+                <span
+                  v-if="!fila.esFutura"
+                  class="abrir texto-suave"
+                  aria-hidden="true"
+                >›</span>
+              </p>
+            </div>
+            <p
+              v-if="fila.estado"
+              class="dia-minutos texto-sm texto-suave"
+            >
+              Trabajado:
+              <template v-if="fila.estado.minutosTrabajados !== null">
+                <span class="num">{{ formatearMinutos(fila.estado.minutosTrabajados) }}</span>
+              </template>
+              <span
+                v-else
+                class="sin-calcular"
+                title="sin calcular"
+                aria-label="sin calcular"
+              >—</span>
+              <span
+                v-if="fila.teorica"
+                class="teoricas"
+              >· {{ fila.teorica }}</span>
+            </p>
+          </component>
         </li>
       </ol>
 
@@ -309,19 +336,37 @@ h1 {
 }
 
 .dia {
-  padding: var(--esp-sm) 0;
   border-bottom: 1px solid var(--linea);
-  display: flex;
-  flex-direction: column;
-  gap: var(--esp-2xs);
-}
-
-.dia:first-child {
-  padding-top: 0;
 }
 
 .dia:last-child {
   border-bottom: none;
+}
+
+/* La fila del día: en pasados/hoy es el enlace que lo abre (color de texto
+ * propio, no el verde de los enlaces; fondo suave al pasar). Las futuras
+ * comparten layout pero no son enlace. */
+.dia-fila {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2xs);
+  padding: var(--esp-sm) var(--esp-2xs);
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radio-control);
+}
+
+.dia-enlace {
+  transition: background-color var(--dur-estado) var(--curva-suave);
+}
+
+.dia-enlace:hover {
+  background: var(--papel-2);
+}
+
+.abrir {
+  font-weight: var(--peso-titulo);
+  margin-left: var(--esp-2xs);
 }
 
 .dia-cabecera {
