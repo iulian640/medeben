@@ -260,7 +260,7 @@ describe('LibretaView — fichar', () => {
     vi.mocked(postApunte).mockResolvedValue({ ...apunteEntrada, tipo: 'SALIDA', hora: '23:45' })
     const wrapper = await montar()
 
-    await boton(wrapper, '¿A otra hora?').trigger('click')
+    await boton(wrapper, 'Registrar el turno manualmente').trigger('click')
     await wrapper.find('#hora-manual').setValue('23:45')
     await boton(wrapper, 'Salida a esa hora').trigger('click')
     await flushPromises()
@@ -274,7 +274,7 @@ describe('LibretaView — fichar', () => {
     vi.mocked(postApunte).mockResolvedValue({ ...apunteEntrada, hora: '09:00' })
     const wrapper = await montar()
 
-    await boton(wrapper, '¿A otra hora?').trigger('click')
+    await boton(wrapper, 'Registrar el turno manualmente').trigger('click')
     await wrapper.find('#hora-manual').setValue('09:00')
     await formularioDe(wrapper, '#hora-manual').trigger('submit')
     await flushPromises()

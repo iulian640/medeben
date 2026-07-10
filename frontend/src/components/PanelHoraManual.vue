@@ -3,7 +3,7 @@ import type { TipoApunte } from '../services/fichajes'
 import PanelPlegable from './PanelPlegable.vue'
 
 /**
- * Panel "¿A otra hora?" de la libreta (D38): fichar entrada o salida a una hora
+ * Panel "Registrar el turno manualmente" de la libreta (D38): fichar entrada o salida a una hora
  * elegida a mano. El estado (abierto/hora) lo controla el padre con v-model para
  * que su reset tras un apunte exitoso valga también para este panel.
  *
@@ -29,7 +29,7 @@ defineEmits<{ fichar: [tipo: TipoApunte] }>()
     :aria-expanded="abierto"
     @click="abierto = !abierto"
   >
-    ¿A otra hora?
+    Registrar el turno manualmente
   </button>
   <PanelPlegable :abierto="abierto">
     <!-- Intro (submit) ficha la ENTRADA, el caso más común. -->
