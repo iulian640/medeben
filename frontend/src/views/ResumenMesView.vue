@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useResumenStore } from '../stores/resumen'
 import { formatearHoras, formatearImporte } from '../lib/formato'
 import { formatearMinutos } from '../lib/libreta'
 import { etiquetaMes } from '../lib/meses'
+import { revelaEscalonado } from '../lib/animacion'
 import CitasFuente from '../components/CitasFuente.vue'
+import ImporteDinero from '../components/ImporteDinero.vue'
 
 const resumen = useResumenStore()
+const cuerpo = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   resumen.cargar()
@@ -39,6 +42,22 @@ const enlaceIncompleto = computed(() => {
     ? { a: '/libreta', texto: 'Ir a tu libreta para crear tu horario' }
     : { a: '/cuenta', texto: 'Completar tu perfil' }
 })
+
+/* Cuando llegan los datos, las secciones entran escalonadas (la cifra ya
+ * trae su propia cuenta). Con movimiento reducido no pasa nada de esto. */
+watch(
+  () => resumen.resumen,
+  async (nuevo) => {
+    if (!nuevo) {
+      return
+    }
+    await nextTick()
+    const bloques = cuerpo.value?.querySelectorAll(':scope > *')
+    if (bloques) {
+      revelaEscalonado(bloques)
+    }
+  },
+)
 </script>
 
 <template>
@@ -59,30 +78,46 @@ const enlaceIncompleto = computed(() => {
     >
       <button
         type="button"
-        class="secundario"
+        class="boton-secundario paso-mes"
         aria-label="Mes anterior"
         :disabled="resumen.cargando"
         @click="resumen.mesAnterior()"
       >
-        ←
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        ><path d="M14.5 6 9 12l5.5 6" /></svg>
       </button>
       <p class="titulo-mes">
         {{ etiquetaMes(resumen.mes) }}
       </p>
       <button
         type="button"
-        class="secundario"
+        class="boton-secundario paso-mes"
         aria-label="Mes siguiente"
         :disabled="resumen.esMesActual || resumen.cargando"
         @click="resumen.mesSiguiente()"
       >
-        →
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        ><path d="m9.5 6 5.5 6-5.5 6" /></svg>
       </button>
     </nav>
 
     <p
       v-if="resumen.cargando"
-      class="cargando"
+      class="cargando texto-suave"
       role="status"
       aria-live="polite"
     >
@@ -94,42 +129,48 @@ const enlaceIncompleto = computed(() => {
       v-else-if="resumen.incompleto"
       class="tarjeta guia"
     >
-      <h2 class="guia-titulo">
+      <h2 class="titulo-seccion">
         Aún no puedo echar las cuentas de este mes
       </h2>
       <p>{{ resumen.incompleto }}</p>
       <RouterLink
         v-if="enlaceIncompleto"
-        class="cta"
+        class="boton boton--ancho"
         :to="enlaceIncompleto.a"
       >
         {{ enlaceIncompleto.texto }}
       </RouterLink>
     </section>
 
-    <p
+    <div
       v-else-if="resumen.error"
-      class="error"
+      class="error aviso-bloque"
       role="alert"
     >
-      {{ resumen.error }}
+      <p>{{ resumen.error }}</p>
       <button
         type="button"
-        class="secundario"
+        class="boton-secundario"
         @click="resumen.cargar()"
       >
         Reintentar
       </button>
-    </p>
+    </div>
 
-    <template v-else-if="resumen.resumen">
+    <div
+      v-else-if="resumen.resumen"
+      ref="cuerpo"
+      class="cuerpo"
+    >
       <!-- El número gordo: la razón de ser de la app. -->
       <section
-        class="importe-hero"
-        :class="{ 'sin-extras': !hayExtras }"
+        class="hero"
         aria-labelledby="importe-titulo"
       >
-        <h2 id="importe-titulo">
+        <h2
+          id="importe-titulo"
+          class="hero-titulo"
+        >
           <template v-if="hayExtras">
             Por tus horas extra te deben, como mínimo
           </template>
@@ -137,58 +178,62 @@ const enlaceIncompleto = computed(() => {
             Horas extra apuntadas este mes
           </template>
         </h2>
-        <p
+        <ImporteDinero
           v-if="hayExtras"
-          class="importe"
-        >
-          {{ formatearImporte(resumen.resumen.importeEstimado.importe) }} €
-        </p>
+          :importe="resumen.resumen.importeEstimado.importe"
+        />
         <p
           v-else
-          class="importe"
+          class="importe importe-cero num"
         >
           0 h
         </p>
         <p
           v-if="hayExtras"
-          class="importe-detalle"
+          class="hero-detalle texto-suave num"
         >
           {{ formatearMinutos(resumen.resumen.horasExtra.minutos) }} extra
           a {{ formatearImporte(resumen.resumen.importeEstimado.precioHora) }} € la hora
         </p>
         <p
           v-else
-          class="importe-detalle"
+          class="hero-detalle texto-suave"
         >
           Si un día echas más horas que las de tu horario, aquí verás lo que te deben.
         </p>
       </section>
 
-      <!-- El mes en horas: teórico vs real, sin dramatismo. -->
+      <!-- El mes en horas: teórico vs real, con puntos de guía de nómina. -->
       <section class="tarjeta">
-        <h2 class="tarjeta-etiqueta">
+        <h2 class="titulo-seccion">
           Tu mes en horas
         </h2>
         <dl class="horas">
           <div class="fila">
             <dt>Según tu horario</dt>
-            <dd>{{ formatearMinutos(resumen.resumen.minutosTeoricos) }}</dd>
+            <dd class="num">
+              {{ formatearMinutos(resumen.resumen.minutosTeoricos) }}
+            </dd>
           </div>
           <div class="fila">
             <dt>Apuntado en tu libreta</dt>
-            <dd>{{ formatearMinutos(resumen.resumen.minutosReales) }}</dd>
+            <dd class="num">
+              {{ formatearMinutos(resumen.resumen.minutosReales) }}
+            </dd>
           </div>
           <div
             v-if="resumen.resumen.deficitInformativo.minutos > 0"
             class="fila"
           >
             <dt>Horas de menos (informativo)</dt>
-            <dd>{{ formatearMinutos(resumen.resumen.deficitInformativo.minutos) }}</dd>
+            <dd class="num">
+              {{ formatearMinutos(resumen.resumen.deficitInformativo.minutos) }}
+            </dd>
           </div>
         </dl>
         <p
           v-if="resumen.resumen.diasSinCalcular > 0"
-          class="nota"
+          class="texto-sm texto-suave"
         >
           {{ resumen.resumen.diasSinCalcular }}
           {{ resumen.resumen.diasSinCalcular === 1 ? 'día quedó' : 'días quedaron' }}
@@ -203,12 +248,12 @@ const enlaceIncompleto = computed(() => {
       >
         <h2
           id="tope-titulo"
-          class="tarjeta-etiqueta"
+          class="titulo-seccion"
         >
           Tu año, contra el tope legal
         </h2>
         <p>
-          Llevas <strong>{{ formatearHoras(resumen.resumen.topeAnual.acumuladoAnioHoras) }} h extra</strong>
+          Llevas <strong class="num">{{ formatearHoras(resumen.resumen.topeAnual.acumuladoAnioHoras) }} h extra</strong>
           de las {{ resumen.resumen.topeAnual.horas }} h que permite la ley al año.
         </p>
         <div
@@ -221,7 +266,7 @@ const enlaceIncompleto = computed(() => {
           <div
             class="barra-tope-relleno"
             :class="{ alerta: porcentajeTope >= 80 }"
-            :style="{ width: `${porcentajeTope}%` }"
+            :style="{ transform: `scaleX(${porcentajeTope / 100})` }"
           />
         </div>
         <CitasFuente :citas="resumen.resumen.topeAnual.citas" />
@@ -229,14 +274,15 @@ const enlaceIncompleto = computed(() => {
 
       <div
         v-if="resumen.resumen.avisos.length > 0"
+        class="avisos"
         role="alert"
       >
         <p
           v-for="aviso in resumen.resumen.avisos"
           :key="aviso"
-          class="aviso"
+          class="aviso aviso-bloque"
         >
-          ⚠ {{ aviso }}
+          <strong class="aviso-marca">⚠</strong> {{ aviso }}
         </p>
       </div>
 
@@ -245,12 +291,12 @@ const enlaceIncompleto = computed(() => {
         v-if="hayExtras"
         class="tarjeta"
       >
-        <h2 class="tarjeta-etiqueta">
+        <h2 class="titulo-seccion">
           De dónde sale la cifra
         </h2>
-        <p class="nota">
+        <p class="texto-sm texto-suave">
           Salario base aplicado:
-          {{ formatearImporte(resumen.resumen.importeEstimado.salarioBaseAplicado) }} € al mes
+          <span class="num">{{ formatearImporte(resumen.resumen.importeEstimado.salarioBaseAplicado) }} €</span> al mes
           <template v-if="resumen.resumen.importeEstimado.salarioRealUsado">
             (tu salario declarado, que es mayor que el mínimo del convenio)
           </template>
@@ -260,34 +306,34 @@ const enlaceIncompleto = computed(() => {
         </p>
         <CitasFuente :citas="resumen.resumen.importeEstimado.citas" />
       </section>
-    </template>
+    </div>
   </main>
 </template>
 
 <style scoped>
 .resumen {
-  max-width: 480px;
+  max-width: 30rem;
   margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  padding: var(--esp-lg) var(--esp-md) var(--esp-2xl);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--esp-md);
 }
 
 .cabecera {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--esp-md);
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: var(--tipo-titulo);
 }
 
 .enlace-libreta {
-  color: var(--color-accent);
-  font-size: 0.95rem;
+  font-size: var(--tipo-sm);
+  font-weight: var(--peso-etiqueta);
   white-space: nowrap;
 }
 
@@ -295,157 +341,125 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: var(--esp-xs);
+}
+
+.paso-mes {
+  min-width: 2.75rem;
+  padding: 0.5rem;
+}
+
+.paso-mes svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .titulo-mes {
-  font-weight: 600;
+  font-weight: var(--peso-etiqueta);
   text-align: center;
   text-transform: capitalize;
 }
 
-#importe-titulo {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.importe-hero {
+.cargando {
+  padding: var(--esp-xl) 0;
   text-align: center;
-  padding: 1.75rem 1rem;
-  border-radius: 1rem;
-  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+}
+
+.cuerpo {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: var(--esp-md);
 }
 
-.importe-hero.sin-extras {
-  background: color-mix(in srgb, var(--color-text) 6%, transparent);
-}
-
-.importe {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.1;
-  font-variant-numeric: tabular-nums;
-  color: var(--color-accent);
-}
-
-.sin-extras .importe {
-  color: var(--color-text);
-  opacity: 0.85;
-}
-
-.importe-detalle {
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-.tarjeta {
-  border: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
-  border-radius: 0.75rem;
-  padding: 1rem;
+/* La cifra vive sobre el papel, sin caja: el espacio es su marco. */
+.hero {
+  padding: var(--esp-lg) 0 var(--esp-md);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--esp-sm);
 }
 
-.tarjeta-etiqueta {
-  margin: 0;
-  font-weight: 600;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.7;
+.hero-titulo {
+  font-size: var(--tipo-base);
+  font-weight: var(--peso-texto);
+  color: var(--tinta-suave);
+}
+
+.importe-cero {
+  font-size: var(--tipo-importe);
+  font-weight: var(--peso-importe);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--tinta-suave);
+}
+
+.hero-detalle {
+  font-size: var(--tipo-sm);
 }
 
 .horas {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: var(--esp-xs);
   margin: 0;
 }
 
+/* Filas con puntos de guía, como una nómina bien hecha. */
 .fila {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  align-items: baseline;
+  gap: var(--esp-xs);
+}
+
+.fila::after {
+  content: '';
+  order: 2;
+  flex: 1;
+  border-bottom: 1px dotted var(--linea-fuerte);
+  transform: translateY(-0.25em);
+}
+
+.fila dt {
+  order: 1;
 }
 
 .fila dd {
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
+  order: 3;
+  font-weight: var(--peso-etiqueta);
   margin: 0;
 }
 
 .barra-tope {
-  height: 0.5rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--color-text) 12%, transparent);
+  height: 0.625rem;
+  border-radius: var(--radio-pastilla);
+  background: var(--papel-2);
+  border: 1px solid var(--linea);
   overflow: hidden;
 }
 
+/* El relleno escala (transform, no width): mismo dibujo, sin relayout. */
 .barra-tope-relleno {
   height: 100%;
-  border-radius: 999px;
-  background: var(--color-accent);
-  transition: width 300ms ease;
+  border-radius: var(--radio-pastilla);
+  background: var(--verde);
+  transform-origin: left center;
+  transition: transform var(--dur-panel) var(--curva-salida);
 }
 
 .barra-tope-relleno.alerta {
-  background: #c0392b;
+  background: var(--alerta);
 }
 
-.guia .guia-titulo {
-  margin: 0;
-  font-weight: 600;
-  font-size: 1.05rem;
-}
-
-.cta {
-  display: inline-block;
-  font-weight: 600;
-  padding: 0.9rem 1rem;
-  border-radius: 0.6rem;
-  background: var(--color-accent);
-  color: var(--color-bg);
-  text-align: center;
-}
-
-.aviso {
-  border-left: 3px solid #c0392b;
-  padding-left: 0.75rem;
-  font-size: 0.95rem;
-}
-
-.secundario {
-  font: inherit;
-  font-size: 0.9rem;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  cursor: pointer;
-}
-
-.secundario:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
-.nota {
-  font-size: 0.9rem;
-  opacity: 0.8;
+.avisos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-xs);
 }
 
 .error {
-  color: #c0392b;
-}
-
-.cargando {
-  opacity: 0.7;
-  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-sm);
+  align-items: flex-start;
 }
 </style>

@@ -8,14 +8,21 @@ export default defineConfig({
     vue(),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        // La fuente de la casa (woff2) también va precacheada: la app debe
+        // verse igual sin red. El resto es el glob por defecto del plugin.
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+      },
       manifest: {
         name: 'MeDeben',
         short_name: 'MeDeben',
         description:
           'Las horas que trabajas, cobradas. Registro de jornada del lado del trabajador de hostelería.',
         lang: 'es',
-        theme_color: '#1a1a2e',
-        background_color: '#1a1a2e',
+        // "Nómina clara": la app arranca en papel; el tema oscuro lo pone el
+        // sistema en runtime (el manifest solo admite un color).
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
         display: 'standalone',
         icons: [
           {

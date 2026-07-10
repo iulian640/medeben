@@ -11,12 +11,14 @@ function boton(wrapper: VueWrapper, texto: string) {
 }
 
 describe('PanelAusencia', () => {
-  it('cerrado solo enseña el toggle; al pulsarlo pide abrir vía update:abierto', async () => {
+  it('cerrado, el formulario queda inerte; al pulsar el toggle pide abrir vía update:abierto', async () => {
     const wrapper = mount(PanelAusencia, {
       props: { abierto: false, motivo: '', fichando: false },
     })
 
-    expect(wrapper.find('form').exists()).toBe(false)
+    // El form vive siempre en el DOM (PanelPlegable lo despliega animado);
+    // cerrado, lo que lo saca de la interacción es el inert, no su ausencia.
+    expect(wrapper.find('.plegable').attributes()).toHaveProperty('inert')
 
     await boton(wrapper, 'No he ido').trigger('click')
 

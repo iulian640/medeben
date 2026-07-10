@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import PanelPlegable from './PanelPlegable.vue'
+import { movimientoReducido } from '../lib/animacion'
 
 /**
  * Panel de rectificación tardía de la libreta (D38): aparece cuando el backend
@@ -20,78 +22,76 @@ defineProps<{ fichando: boolean }>()
 const emit = defineEmits<{ confirmar: [confirmado: boolean] }>()
 
 const confirmado = ref(false)
+
+/*
+ * El padre monta este panel con v-if solo cuando hay conflicto (así se
+ * desmonta y reinicia solo, ver arriba). PanelPlegable, aparte, empieza
+ * cerrado y se abre tras DOS frames de rAF: el navegador tiene que llegar
+ * a pintar el estado cerrado o la transición de despliegue no existe
+ * (mismo truco que usa <Transition appear> por dentro). Con movimiento
+ * reducido —o sin rAF, como jsdom— se abre al instante.
+ */
+const revelado = ref(false)
+onMounted(() => {
+  if (movimientoReducido() || typeof requestAnimationFrame !== 'function') {
+    revelado.value = true
+    return
+  }
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      revelado.value = true
+    })
+  })
+})
 </script>
 
 <template>
-  <section
-    class="rectificacion"
-    aria-labelledby="rectificacion-titulo"
-  >
-    <h3 id="rectificacion-titulo">
-      Este día ya quedó protegido
-    </h3>
-    <p>
-      Pasados 14 días, cada día de tu libreta queda protegido: lo apuntado se
-      fija como prueba y ya no se reescribe, para que nadie pueda cambiarlo en
-      tu contra.
-    </p>
-    <p>
-      Aun así puedes registrarlo como <strong>rectificación tardía</strong>:
-      se guarda aparte, con su propia fecha, y lo ya protegido no se toca. Como
-      prueba vale menos que lo fichado al momento, pero es honesto y queda
-      en tu libreta.
-    </p>
-    <label class="confirmar">
-      <input
-        v-model="confirmado"
-        type="checkbox"
-      >
-      Entiendo que quedará registrado como rectificación tardía, separado
-      del día ya protegido
-    </label>
-    <button
-      type="button"
-      class="secundario"
-      :disabled="!confirmado || fichando"
-      @click="emit('confirmar', confirmado)"
+  <PanelPlegable :abierto="revelado">
+    <section
+      class="tarjeta"
+      aria-labelledby="rectificacion-titulo"
     >
-      Registrar la rectificación
-    </button>
-  </section>
+      <h2
+        id="rectificacion-titulo"
+        class="titulo-seccion"
+      >
+        Este día ya quedó protegido
+      </h2>
+      <p>
+        Pasados 14 días, cada día de tu libreta queda protegido: lo apuntado se
+        fija como prueba y ya no se reescribe, para que nadie pueda cambiarlo en
+        tu contra.
+      </p>
+      <p>
+        Aun así puedes registrarlo como <strong>rectificación tardía</strong>:
+        se guarda aparte, con su propia fecha, y lo ya protegido no se toca. Como
+        prueba vale menos que lo fichado al momento, pero es honesto y queda
+        en tu libreta.
+      </p>
+      <label class="confirmar">
+        <input
+          v-model="confirmado"
+          type="checkbox"
+        >
+        Entiendo que quedará registrado como rectificación tardía, separado
+        del día ya protegido
+      </label>
+      <button
+        type="button"
+        class="boton-secundario"
+        :disabled="!confirmado || fichando"
+        @click="emit('confirmar', confirmado)"
+      >
+        Registrar la rectificación
+      </button>
+    </section>
+  </PanelPlegable>
 </template>
 
 <style scoped>
-.rectificacion {
-  border: 1px solid color-mix(in srgb, var(--color-text) 25%, transparent);
-  border-radius: 0.75rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.rectificacion h3 {
-  font-size: 1.05rem;
-}
-
 .confirmar {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-}
-
-.secundario {
-  font: inherit;
-  padding: 0.75rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  cursor: pointer;
-}
-
-.secundario:disabled {
-  opacity: 0.55;
-  cursor: default;
+  gap: var(--esp-xs);
 }
 </style>

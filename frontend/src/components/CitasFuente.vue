@@ -13,19 +13,26 @@ defineProps<{ citas: Cita[] }>()
 </script>
 
 <template>
-  <ul class="citas">
+  <!-- Nota al pie de documento: un separador fino arriba de todo el bloque,
+       nunca una franja lateral de color (baneada en este sistema). -->
+  <ul
+    v-if="citas.length > 0"
+    class="citas"
+  >
     <li
       v-for="(cita, indice) in citas"
       :key="indice"
       class="cita"
     >
-      <span class="cita-texto">{{ cita.texto }}</span>
+      <p class="cita-texto texto-xs texto-suave">
+        {{ cita.texto }}
+      </p>
       <a
         v-if="esUrlSegura(cita.url)"
         :href="cita.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="cita-enlace"
+        class="cita-enlace texto-xs"
       >Ver boletín oficial</a>
     </li>
   </ul>
@@ -35,25 +42,21 @@ defineProps<{ citas: Cita[] }>()
 .citas {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: var(--esp-sm) 0 0;
+  border-top: 1px solid var(--linea);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--esp-sm);
 }
 
 .cita {
-  font-size: 0.85rem;
-  opacity: 0.85;
-  border-left: 3px solid var(--color-accent);
-  padding-left: 0.6rem;
-}
-
-.cita-texto {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2xs);
 }
 
 .cita-enlace {
-  color: inherit;
-  font-weight: 600;
+  font-weight: var(--peso-etiqueta);
+  align-self: flex-start;
 }
 </style>

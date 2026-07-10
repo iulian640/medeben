@@ -82,7 +82,7 @@ async function cambiaHora(event: Event) {
 <template>
   <section
     v-if="esNativo"
-    class="recordatorio"
+    class="recordatorio tarjeta"
     aria-labelledby="recordatorio-titulo"
   >
     <label
@@ -112,7 +112,7 @@ async function cambiaHora(event: Event) {
 
     <p
       v-if="sinPermiso"
-      class="nota"
+      class="nota texto-suave texto-sm"
       role="status"
     >
       Sin permiso de notificaciones no puedo recordártelo. Puedes dárselo a la
@@ -122,39 +122,28 @@ async function cambiaHora(event: Event) {
 </template>
 
 <style scoped>
-.recordatorio {
-  border: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
-  border-radius: 0.75rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 .fila-activar {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
+  gap: var(--esp-xs);
+  font-weight: var(--peso-etiqueta);
 }
 
 .fila-hora {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--esp-xs);
 }
 
+/* Sin un .campo (label encima) que envolver: es una etiqueta en línea
+ * ("A las [hora]"), así que el control toma el mismo vocabulario a mano. */
 .fila-hora input {
   font: inherit;
-  padding: 0.4rem 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.5rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.nota {
-  font-size: 0.9rem;
-  opacity: 0.8;
+  color: var(--tinta);
+  background: var(--papel);
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: var(--radio-control);
 }
 </style>

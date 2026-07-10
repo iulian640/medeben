@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { PASSWORD_MAX, PASSWORD_MIN } from '../services/auth'
@@ -45,12 +45,19 @@ async function crearCuenta() {
     router.push(destinoTrasLogin(route.query.redirect))
   }
 }
+
+/*
+ * Igual criterio que en LoginView: el error puede venir de cualquiera de
+ * los tres campos y el mensaje es uno solo, así que se marca el grupo
+ * entero en vez de señalar un campo concreto sin estar seguros.
+ */
+const hayErrorCampo = computed(() => errorCliente.value !== null || auth.error !== null)
 </script>
 
 <template>
   <main class="auth">
     <h1>Crea tu cuenta</h1>
-    <p class="intro">
+    <p class="texto-suave">
       Solo pedimos un email y una contraseña. Nada más: ni nombre, ni teléfono, ni empresa.
     </p>
 
@@ -58,18 +65,27 @@ async function crearCuenta() {
       novalidate
       @submit.prevent="crearCuenta"
     >
-      <div class="campo">
+      <div
+        class="campo"
+        :class="{ 'campo--error': hayErrorCampo }"
+      >
         <label for="email">Email</label>
+        <!-- El estado de error también en aria: el borde rojo solo lo ve quien ve. -->
         <input
           id="email"
           v-model="email"
           type="email"
           autocomplete="email"
           required
+          :aria-invalid="hayErrorCampo || undefined"
+          :aria-describedby="hayErrorCampo ? 'error-formulario' : undefined"
         >
       </div>
 
-      <div class="campo">
+      <div
+        class="campo"
+        :class="{ 'campo--error': hayErrorCampo }"
+      >
         <label for="password">Contraseña</label>
         <input
           id="password"
@@ -78,13 +94,18 @@ async function crearCuenta() {
           autocomplete="new-password"
           :minlength="PASSWORD_MIN"
           required
+          :aria-invalid="hayErrorCampo || undefined"
+          :aria-describedby="hayErrorCampo ? 'error-formulario' : undefined"
         >
-        <p class="ayuda">
+        <p class="campo-ayuda">
           Mínimo {{ PASSWORD_MIN }} caracteres. Una frase que recuerdes vale de sobra.
         </p>
       </div>
 
-      <div class="campo">
+      <div
+        class="campo"
+        :class="{ 'campo--error': hayErrorCampo }"
+      >
         <label for="repite">Repite la contraseña</label>
         <input
           id="repite"
@@ -92,12 +113,15 @@ async function crearCuenta() {
           type="password"
           autocomplete="new-password"
           required
+          :aria-invalid="hayErrorCampo || undefined"
+          :aria-describedby="hayErrorCampo ? 'error-formulario' : undefined"
         >
       </div>
 
       <p
         v-if="errorCliente || auth.error"
-        class="error"
+        id="error-formulario"
+        class="campo-error"
         role="alert"
       >
         {{ errorCliente ?? auth.error }}
@@ -105,14 +129,14 @@ async function crearCuenta() {
 
       <button
         type="submit"
-        class="principal"
+        class="boton boton--ancho"
         :disabled="auth.cargando"
       >
         {{ auth.cargando ? 'Creando cuenta...' : 'Crear cuenta' }}
       </button>
     </form>
 
-    <p class="alternativa">
+    <p class="texto-sm texto-suave">
       ¿Ya tienes cuenta?
       <RouterLink :to="{ name: 'login', query: route.query }">
         Entra
@@ -122,78 +146,24 @@ async function crearCuenta() {
 </template>
 
 <style scoped>
+/* Layout de vista estándar (DESIGN.md): columna centrada, ritmo apretado
+ * dentro de un grupo y generoso entre bloques. */
 .auth {
-  max-width: 480px;
+  max-width: 30rem;
   margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  padding: var(--esp-lg) var(--esp-md) var(--esp-2xl);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: var(--esp-md);
 }
 
 h1 {
-  font-size: 1.5rem;
-}
-
-.intro {
-  opacity: 0.8;
+  font-size: var(--tipo-titulo);
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.campo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.campo label {
-  font-weight: 600;
-}
-
-.campo input {
-  font: inherit;
-  padding: 0.85rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.ayuda {
-  font-size: 0.85rem;
-  opacity: 0.75;
-}
-
-.principal {
-  font: inherit;
-  font-weight: 600;
-  padding: 1rem 1.5rem;
-  border: none;
-  border-radius: 0.75rem;
-  background: var(--color-accent);
-  color: var(--color-bg);
-  cursor: pointer;
-}
-
-.principal:disabled {
-  opacity: 0.55;
-  cursor: default;
-}
-
-.error {
-  color: #c0392b;
-}
-
-.alternativa {
-  opacity: 0.85;
-}
-
-.alternativa a {
-  color: var(--color-accent);
+  gap: var(--esp-sm);
 }
 </style>

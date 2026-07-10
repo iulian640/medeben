@@ -11,17 +11,28 @@ function boton(wrapper: VueWrapper, texto: string) {
 }
 
 describe('PanelHoraManual', () => {
-  it('cerrado solo enseña el toggle; al pulsarlo pide abrir vía update:abierto', async () => {
+  it('cerrado, el formulario queda inerte; el toggle pide abrir vía update:abierto', async () => {
     const wrapper = mount(PanelHoraManual, {
       props: { abierto: false, hora: '', fichando: false },
     })
 
-    expect(wrapper.find('form').exists()).toBe(false)
+    // El form vive siempre en el DOM (PanelPlegable lo despliega animado);
+    // cerrado, lo que lo saca de la interacción es el inert, no su ausencia.
+    expect(wrapper.find('.plegable').attributes()).toHaveProperty('inert')
     expect(boton(wrapper, '¿A otra hora?').attributes('aria-expanded')).toBe('false')
 
     await boton(wrapper, '¿A otra hora?').trigger('click')
 
     expect(wrapper.emitted('update:abierto')).toStrictEqual([[true]])
+  })
+
+  it('abierto, el formulario es alcanzable (sin inert)', () => {
+    const wrapper = mount(PanelHoraManual, {
+      props: { abierto: true, hora: '', fichando: false },
+    })
+
+    expect(wrapper.find('.plegable').attributes('inert')).toBeUndefined()
+    expect(wrapper.find('form').exists()).toBe(true)
   })
 
   it('el submit del form (Intro) ficha la ENTRADA, la acción más común', async () => {

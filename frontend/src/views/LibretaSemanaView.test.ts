@@ -167,6 +167,32 @@ describe('LibretaSemanaView', () => {
     expect(wrapper.text()).toContain('Semana del 06/07/2026')
   })
 
+  it('un día caído no tumba la semana: se marca aparte y se puede reintentar', async () => {
+    vi.mocked(getEstadoDia).mockImplementation((fecha) => {
+      if (fecha === '2026-07-09') {
+        return Promise.reject(new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }))
+      }
+      return Promise.resolve(semanaServidor[fecha] ?? dia(fecha, 'PENDIENTE', null))
+    })
+
+    const wrapper = await montar()
+
+    const dias = wrapper.findAll('.dia')
+    expect(dias).toHaveLength(7)
+    expect(dias[3].text()).toContain('No se ha podido cargar')
+    expect(wrapper.text()).toContain(
+      'Algún día no se ha podido cargar; el resto de la semana sí. Puedes reintentar.',
+    )
+
+    vi.mocked(getEstadoDia).mockImplementation((fecha) =>
+      Promise.resolve(semanaServidor[fecha] ?? dia(fecha, 'PENDIENTE', null)),
+    )
+    await boton(wrapper, 'Reintentar').trigger('click')
+    await flushPromises()
+
+    expect(wrapper.findAll('.dia')[3].text()).toContain('Sin apuntar todavía')
+  })
+
   it('si la carga falla, enseña el error legible y deja reintentar', async () => {
     vi.mocked(getEstadoDia).mockRejectedValue(
       new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }),

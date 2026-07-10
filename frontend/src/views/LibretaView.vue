@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 import { useFichajesStore } from '../stores/fichajes'
 import type { ApuntePeticion, TipoApunte } from '../services/fichajes'
 import LibretaOnboarding from '../components/LibretaOnboarding.vue'
@@ -8,6 +8,7 @@ import PanelAusencia from '../components/PanelAusencia.vue'
 import PanelRectificacionSellado from '../components/PanelRectificacionSellado.vue'
 import PanelRecordatorio from '../components/PanelRecordatorio.vue'
 import { formatearFecha, hoyIso } from '../lib/formato'
+import { pulsoExito } from '../lib/animacion'
 import {
   ETIQUETAS_ESTADO,
   ETIQUETAS_ORIGEN,
@@ -21,6 +22,7 @@ import {
 } from '../lib/libreta'
 
 const fichajes = useFichajesStore()
+const bloqueDia = ref<HTMLElement | null>(null)
 
 /** Primera visita → onboarding (D38). Solo se persiste el flag booleano. */
 const mostrarOnboarding = ref(!onboardingVisto())
@@ -52,6 +54,12 @@ async function envia(peticion: ApuntePeticion) {
     horaManual.value = ''
     motivo.value = ''
     ultimaPeticion = null
+    // El fichaje se confirma con un pulso sobre el bloque del día, no con
+    // color: el verde queda solo para el dinero y la acción (Nómina clara).
+    await nextTick()
+    if (bloqueDia.value) {
+      pulsoExito(bloqueDia.value)
+    }
   }
 }
 
@@ -95,6 +103,14 @@ function registraAusencia() {
   })
 }
 
+/*
+ * La acción del momento: con la jornada abierta (EN_CURSO) lo primario es
+ * salir; en cualquier otro estado, entrar. Los dos botones siguen SIEMPRE
+ * disponibles (las jornadas partidas fichan varias entradas y salidas al
+ * día), pero solo uno lleva el verde: un único primario por pantalla.
+ */
+const jornadaAbierta = computed(() => fichajes.dia?.estado === 'EN_CURSO')
+
 function reenviaConfirmada(confirmado: boolean) {
   // Comprobación redundante a propósito: una petición con valor probatorio no
   // se marca como confirmada solo porque el botón del hijo estuviera activo.
@@ -125,34 +141,38 @@ function reenviaConfirmada(confirmado: boolean) {
     <template v-else>
       <p
         v-if="fichajes.cargando"
-        class="cargando"
+        class="cargando texto-suave"
         role="status"
         aria-live="polite"
       >
         Cargando tu día...
       </p>
 
-      <p
+      <div
         v-else-if="!fichajes.dia && fichajes.error"
-        class="error"
+        class="aviso-bloque"
         role="alert"
       >
-        {{ fichajes.error }}
+        <p>{{ fichajes.error }}</p>
         <button
           type="button"
-          class="secundario"
+          class="boton-secundario"
           @click="fichajes.cargarDia(hoyIso())"
         >
           Reintentar
         </button>
-      </p>
+      </div>
 
       <template v-else-if="fichajes.dia">
         <section
-          class="dia"
+          ref="bloqueDia"
+          class="tarjeta"
           aria-labelledby="dia-titulo"
         >
-          <h2 id="dia-titulo">
+          <h2
+            id="dia-titulo"
+            class="titulo-seccion"
+          >
             {{ diaSemanaDe(fichajes.dia.fecha) }} {{ formatearFecha(fichajes.dia.fecha) }}
           </h2>
           <p class="estado">
@@ -172,7 +192,7 @@ function reenviaConfirmada(confirmado: boolean) {
               <template v-if="a.hora">
                 a las {{ a.hora }}
               </template>
-              <span class="origen">({{ ETIQUETAS_ORIGEN[a.origen] }})</span>
+              <span class="texto-suave texto-sm"> ({{ ETIQUETAS_ORIGEN[a.origen] }})</span>
               <!-- El motivo SIEMPRE interpolado como texto, nunca v-html (RGPD, D38). -->
               <span
                 v-if="a.motivo"
@@ -197,13 +217,17 @@ function reenviaConfirmada(confirmado: boolean) {
           </p>
         </section>
 
+        <!-- Lo diario se hace con un pulgar: las dos acciones grandes van
+             arriba, sin competir por espacio con nada más (D "un pulgar y
+             cinco segundos"). -->
         <section
           class="acciones"
           aria-label="Fichar"
         >
           <button
             type="button"
-            class="principal"
+            class="boton--ancho"
+            :class="jornadaAbierta ? 'boton-secundario' : 'boton'"
             :disabled="fichajes.fichando"
             @click="fichaAhora('ENTRADA')"
           >
@@ -211,7 +235,8 @@ function reenviaConfirmada(confirmado: boolean) {
           </button>
           <button
             type="button"
-            class="principal"
+            class="boton--ancho"
+            :class="jornadaAbierta ? 'boton' : 'boton-secundario'"
             :disabled="fichajes.fichando"
             @click="fichaAhora('SALIDA')"
           >
@@ -235,7 +260,7 @@ function reenviaConfirmada(confirmado: boolean) {
 
         <p
           v-if="fichajes.error && !fichajes.conflictoSellado"
-          class="error"
+          class="aviso-bloque"
           role="alert"
         >
           {{ fichajes.error }}
@@ -260,7 +285,7 @@ function reenviaConfirmada(confirmado: boolean) {
 
       <button
         type="button"
-        class="ver-onboarding"
+        class="boton-fantasma enlace-onboarding"
         @click="mostrarOnboarding = true"
       >
         ¿Cómo funciona la libreta?
@@ -271,57 +296,47 @@ function reenviaConfirmada(confirmado: boolean) {
 
 <style scoped>
 .libreta {
-  max-width: 480px;
+  max-width: 30rem;
   margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  padding: var(--esp-lg) var(--esp-md) var(--esp-2xl);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: var(--esp-md);
 }
 
 .cabecera {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--esp-md);
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: var(--tipo-titulo);
 }
 
 .enlace-semana {
-  color: var(--color-accent);
-  font-size: 0.95rem;
+  font-size: var(--tipo-sm);
+  font-weight: var(--peso-etiqueta);
   white-space: nowrap;
 }
 
-.dia {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.dia h2 {
-  font-size: 1.1rem;
+.cargando {
+  padding: var(--esp-xl) 0;
+  text-align: center;
 }
 
 .estado {
-  font-weight: 600;
+  font-weight: var(--peso-etiqueta);
 }
 
 .apuntes {
   list-style: none;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-}
-
-.origen {
-  opacity: 0.7;
-  font-size: 0.9rem;
-  margin-left: 0.35rem;
+  gap: var(--esp-xs);
 }
 
 .motivo {
@@ -329,71 +344,20 @@ h1 {
 }
 
 .sello {
-  font-weight: 600;
-  color: var(--color-accent);
-}
-
-.contador {
-  font-size: 0.9rem;
-  opacity: 0.85;
+  font-weight: var(--peso-etiqueta);
 }
 
 .acciones {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-}
-
-.principal {
-  font: inherit;
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 1.1rem 1.5rem;
-  border: none;
-  border-radius: 0.75rem;
-  background: var(--color-accent);
-  color: var(--color-bg);
-  cursor: pointer;
-}
-
-.principal:disabled {
-  opacity: 0.55;
-  cursor: default;
-}
-
-.secundario {
-  font: inherit;
-  padding: 0.75rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
-  border-radius: 0.6rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  cursor: pointer;
-}
-
-.error {
-  color: #c0392b;
-}
-
-.cargando {
-  opacity: 0.7;
-  font-size: 0.9rem;
+  gap: var(--esp-sm);
 }
 
 .enlace-resumen {
-  color: var(--color-accent);
-  font-weight: 600;
+  font-weight: var(--peso-etiqueta);
 }
 
-.ver-onboarding {
-  font: inherit;
-  font-size: 0.9rem;
-  background: none;
-  border: none;
-  color: var(--color-accent);
-  cursor: pointer;
-  text-decoration: underline;
+.enlace-onboarding {
   align-self: flex-start;
-  padding: 0;
 }
 </style>

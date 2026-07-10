@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { mount, flushPromises, type VueWrapper } from '@vue/test-utils'
+import { DOMWrapper, mount, flushPromises, type VueWrapper } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
 import { createMemoryHistory, createRouter, type Router } from 'vue-router'
 import { ApiError } from '../services/api'
@@ -64,6 +64,21 @@ function boton(wrapper: VueWrapper, texto: string) {
     throw new Error(`No hay botón "${texto}"`)
   }
   return encontrado
+}
+
+/**
+ * Los paneles de hora manual y ausencia viven siempre en el DOM (PanelPlegable
+ * los despliega animado en vez de montarlos con v-if), así que ahora hay dos
+ * <form> a la vez: localizar por el campo que contienen evita la ambigüedad
+ * de "el primer form", que además dejaría de ser correcto si cambia el orden.
+ */
+function formularioDe(wrapper: VueWrapper, selectorCampo: string) {
+  const campo = wrapper.get(selectorCampo).element
+  const form = campo.closest('form')
+  if (!form) {
+    throw new Error(`El campo "${selectorCampo}" no está dentro de un <form>`)
+  }
+  return new DOMWrapper(form)
 }
 
 /** Este jsdom no trae localStorage: un doble mínimo en memoria basta. */
@@ -191,7 +206,7 @@ describe('LibretaView — fichar', () => {
 
     await boton(wrapper, '¿A otra hora?').trigger('click')
     await wrapper.find('#hora-manual').setValue('09:00')
-    await wrapper.find('form').trigger('submit')
+    await formularioDe(wrapper, '#hora-manual').trigger('submit')
     await flushPromises()
 
     expect(postApunte).toHaveBeenCalledWith(
@@ -236,7 +251,7 @@ describe('LibretaView — ausencia', () => {
     expect(wrapper.text()).toContain('El motivo es opcional; si lo escribes, queda en tu libreta.')
 
     // El panel es un <form>: registrar (botón submit o Intro) dispara el submit.
-    await wrapper.find('form').trigger('submit')
+    await formularioDe(wrapper, '#motivo').trigger('submit')
     await flushPromises()
 
     expect(postApunte).toHaveBeenCalledWith({
@@ -259,7 +274,7 @@ describe('LibretaView — ausencia', () => {
 
     await boton(wrapper, 'No he ido').trigger('click')
     await wrapper.find('#motivo').setValue('  médico  ')
-    await wrapper.find('form').trigger('submit')
+    await formularioDe(wrapper, '#motivo').trigger('submit')
     await flushPromises()
 
     expect(postApunte).toHaveBeenCalledWith(expect.objectContaining({ motivo: 'médico' }))

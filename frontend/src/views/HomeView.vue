@@ -1,84 +1,109 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useAuthStore } from '../stores/auth'
 
 const auth = useAuthStore()
+
+/*
+ * Sin sesión, calcular el salario es el único camino posible: hace de
+ * entrada (.boton). Con sesión, la pregunta del dinero pasa a ser la
+ * protagonista (D1) y este enlace baja a acción de apoyo. Nunca hay dos
+ * .boton a la vez en pantalla (DESIGN.md).
+ *
+ * Sin animación de entrada: revelaEscalonado es para contenido recién
+ * cargado, y estos CTAs son estáticos — animarlos sería coreografía de
+ * carga de página, prohibida por DESIGN.md (hallazgo de la review).
+ */
+const claseCalculadora = computed(() => (auth.autenticado ? 'boton-secundario' : 'boton'))
 </script>
 
 <template>
   <main class="home">
-    <h1>MeDeben</h1>
-    <p class="tagline">
-      Las horas que trabajas, cobradas.
-    </p>
-    <RouterLink
-      class="cta"
-      to="/perfil"
-    >
-      Calcula tu salario mínimo y tus horas extra
-    </RouterLink>
-    <RouterLink
-      v-if="auth.autenticado"
-      class="cta"
-      to="/resumen"
-    >
-      ¿Cuánto te deben este mes?
-    </RouterLink>
-    <RouterLink
-      v-if="auth.autenticado"
-      class="cta"
-      to="/libreta"
-    >
-      Tu libreta: ficha tu jornada
-    </RouterLink>
-    <RouterLink
-      v-if="auth.autenticado"
-      class="secundario"
-      to="/cuenta"
-    >
-      Tu cuenta ({{ auth.email }})
-    </RouterLink>
-    <RouterLink
-      v-else
-      class="secundario"
-      to="/login"
-    >
-      Entra o crea tu cuenta para guardar tu perfil
-    </RouterLink>
+    <div class="marca">
+      <h1>MeDeben</h1>
+      <p class="tagline texto-suave">
+        Las horas que trabajas, cobradas.
+      </p>
+    </div>
+
+    <div class="ctas">
+      <RouterLink
+        class="boton--ancho"
+        :class="claseCalculadora"
+        to="/perfil"
+      >
+        Calcula tu salario mínimo y tus horas extra
+      </RouterLink>
+      <RouterLink
+        v-if="auth.autenticado"
+        class="boton boton--ancho"
+        to="/resumen"
+      >
+        ¿Cuánto te deben este mes?
+      </RouterLink>
+      <RouterLink
+        v-if="auth.autenticado"
+        class="boton-secundario boton--ancho"
+        to="/libreta"
+      >
+        Tu libreta: ficha tu jornada
+      </RouterLink>
+      <RouterLink
+        v-if="auth.autenticado"
+        class="boton-fantasma"
+        to="/cuenta"
+      >
+        Tu cuenta ({{ auth.email }})
+      </RouterLink>
+      <RouterLink
+        v-else
+        class="boton-fantasma"
+        to="/login"
+      >
+        Entra o crea tu cuenta para guardar tu perfil
+      </RouterLink>
+    </div>
   </main>
 </template>
 
 <style scoped>
 .home {
   min-height: 100vh;
+  max-width: 30rem;
+  margin-inline: auto;
+  padding: var(--esp-lg) var(--esp-md) var(--esp-2xl);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--esp-2xl);
   text-align: center;
-  padding: 1rem;
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-xs);
+}
+
+/* El único sitio de la app donde vive el nombre de marca (la barra inferior
+ * no lleva logo): se le da el mismo peso visual que LA cifra del dinero,
+ * pero en tinta — el verde es solo para el dinero y la acción, nunca la marca. */
+.marca h1 {
+  font-size: var(--tipo-importe);
+  font-weight: var(--peso-importe);
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .tagline {
-  font-size: 1.25rem;
-  opacity: 0.85;
+  font-size: var(--tipo-xl);
+  text-wrap: balance;
 }
 
-.cta {
-  margin-top: 1.5rem;
-  display: inline-block;
-  padding: 1rem 1.5rem;
-  border-radius: 0.75rem;
-  background: var(--color-accent);
-  color: var(--color-bg);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
-}
-
-.secundario {
-  margin-top: 0.75rem;
-  color: var(--color-accent);
-  font-size: 0.95rem;
+.ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* solo estiran ancho los .boton--ancho; el enlace fantasma queda ligero */
+  gap: var(--esp-sm);
 }
 </style>
