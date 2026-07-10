@@ -58,8 +58,7 @@ public class PerfilOcupacionService {
         return ocupaciones.mapeo(convenioId).flatMap(mapeo -> {
             Map<String, String> directas = mapeo.dimensionesPorPuesto().get(puestoId);
             if (directas != null) {
-                return Optional.of(new OcupacionResuelta(
-                        directas, pendientes(convenioId, directas), mapeo.articulo()));
+                return Optional.of(resueltaConAutofijado(convenioId, directas, mapeo.articulo()));
             }
             NodoCondicional arbol = mapeo.condicionalPorPuesto().get(puestoId);
             if (arbol != null) {
@@ -93,7 +92,34 @@ public class PerfilOcupacionService {
             fijas.put(dimRaiz, respuestas.get(dimRaiz));
         }
         fijas.put("nivel", nivel.get());
-        return new OcupacionResuelta(fijas, pendientes(convenioId, fijas), articulo);
+        return resueltaConAutofijado(convenioId, fijas, articulo);
+    }
+
+    /**
+     * Ocupación resuelta fijando de una vez las dimensiones con un ÚNICO valor
+     * posible: preguntar algo que solo tiene una respuesta es ruido. Se pliegan
+     * en la ocupación (para que lleguen al cálculo) y solo quedan como pendientes
+     * las que de verdad ofrecen elección. Es idempotente: fijar el único valor no
+     * cambia el conjunto de hechos que casan, así que basta con repetir hasta que
+     * no queden dimensiones de un solo valor.
+     */
+    private OcupacionResuelta resueltaConAutofijado(String convenioId, Map<String, String> fijas,
+                                                    String articulo) {
+        Map<String, String> dimensiones = new LinkedHashMap<>(fijas);
+        List<OpcionDimension> pendientes;
+        while (true) {
+            pendientes = pendientes(convenioId, dimensiones);
+            List<OpcionDimension> unicos = pendientes.stream()
+                    .filter(p -> p.valores().size() == 1)
+                    .toList();
+            if (unicos.isEmpty()) {
+                break;
+            }
+            for (OpcionDimension u : unicos) {
+                dimensiones.put(u.dimension(), u.valores().get(0));
+            }
+        }
+        return new OcupacionResuelta(dimensiones, pendientes, articulo);
     }
 
     /** Todas las dimensiones que aparecen en los hechos de salarioBase del convenio. */

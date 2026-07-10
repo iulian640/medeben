@@ -62,6 +62,19 @@ class PerfilOcupacionServiceTest {
         assertThat(servicio.resuelve("madrid-hosteleria", "astronauta")).isEmpty();
     }
 
+    @Test
+    @DisplayName("auto-fijado: una dimensión con un solo valor posible se fija sola, no se pregunta")
+    void autofijaDimensionDeUnSoloValor() {
+        // Málaga jefe de sala/maître: 'departamento' solo puede ser "sala" → es
+        // ruido preguntarlo. Se pliega en la ocupación y no aparece como pendiente.
+        var r = servicio.resuelve("malaga-hosteleria", "jefe-sala").orElseThrow();
+
+        assertThat(r.dimensiones()).containsEntry("departamento", "sala");
+        assertThat(r.pendientes()).noneMatch(p -> p.dimension().equals("departamento"));
+        // Invariante del auto-fijado: ningún pendiente restante tiene una sola opción.
+        assertThat(r.pendientes()).allSatisfy(p -> assertThat(p.valores()).hasSizeGreaterThan(1));
+    }
+
     // --- Puestos con nivel CONDICIONAL al establecimiento/zona (datos reales) ---
 
     @Test
