@@ -230,10 +230,14 @@ public class InformeAnualService {
         doc.add(seccion("El año, mes a mes"));
         PdfPTable tabla = tabla(new float[]{2.4f, 2.6f, 2.6f, 2.2f, 2.2f});
         cabeceraTabla(tabla, "Mes", "Según horario", "Apuntado", "Extra", "Importe");
+        // La fila dice solo "Sin datos"; el motivo va UNA vez bajo la tabla,
+        // deduplicado — repetirlo entero seis veces era ruido (QA de Iulian).
+        Set<String> motivos = new LinkedHashSet<>();
         for (MesDelAnio m : meses) {
             celda(tabla, capitaliza(PdfInforme.MES_LARGO.format(m.mes())), PdfInforme.TEXTO_NEGRITA);
             if (m.resumen() == null) {
-                celda(tabla, "Sin datos suficientes: " + m.motivoSinDatos(), SUAVE);
+                motivos.add(m.motivoSinDatos());
+                celda(tabla, "Sin datos", SUAVE);
                 celda(tabla, "—", SUAVE);
                 celda(tabla, "—", SUAVE);
                 celda(tabla, "—", SUAVE);
@@ -248,6 +252,10 @@ public class InformeAnualService {
         tabla.setSpacingBefore(6);
         tabla.setSpacingAfter(8);
         doc.add(tabla);
+        if (!motivos.isEmpty()) {
+            doc.add(new Paragraph(
+                    "Meses sin datos: " + String.join(" · ", motivos), SUAVE));
+        }
         doc.add(new Paragraph(
                 "El detalle día a día, con los sellos y el origen de cada apunte, está en el informe "
                         + "mensual de cada mes.", SUAVE));

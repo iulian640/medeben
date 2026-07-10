@@ -97,9 +97,12 @@ class InformeAnualServiceTest {
         // Totales: 5 meses con datos (mar-jul) × 32,70 = 163,50 y 5 × 3 h = 15 h.
         assertThat(plano).contains("163,50 €");
         assertThat(plano).contains("15 h extra en total");
-        // Mes a mes: julio con importe, enero honesto sin cifras.
+        // Mes a mes: julio con importe, enero honesto sin cifras. El motivo va
+        // UNA vez bajo la tabla, no repetido en cada fila (QA de Iulian).
         assertThat(plano).contains("Julio de 2026");
-        assertThat(plano).contains("Sin datos suficientes: Todavía no has creado tu perfil");
+        assertThat(plano).contains("Sin datos");
+        assertThat(plano).contains("Meses sin datos: Todavía no has creado tu perfil");
+        assertThat(plano.split("Todavía no has creado tu perfil", -1)).hasSize(2);
         // El tope según el último mes con datos (julio → 3 × 5 = 15 h).
         assertThat(plano).contains("15 h extra de las 80 h");
         // Fuentes deduplicadas entre meses y el descargo de siempre.
