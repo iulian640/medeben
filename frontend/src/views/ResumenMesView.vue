@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useResumenStore } from '../stores/resumen'
-import { getInformeMes } from '../services/resumen'
+import { getInformeAnio, getInformeMes } from '../services/resumen'
 import { formatearHoras, formatearImporte, mensajeDeError } from '../lib/formato'
 import { formatearMinutos } from '../lib/libreta'
 import { etiquetaMes } from '../lib/meses'
@@ -51,25 +51,19 @@ const enlaceIncompleto = computed(() => {
 const descargandoInforme = ref(false)
 const errorInforme = ref<string | null>(null)
 
-async function descargaInforme() {
+async function descargaPdf(nombre: string, pide: () => Promise<Blob>) {
   if (descargandoInforme.value) {
     return
   }
   descargandoInforme.value = true
   errorInforme.value = null
-  // El mes se captura UNA sola vez: si navegas de mes con la descarga en
-  // vuelo, el nombre del fichero no puede desincronizarse del contenido
-  // (es la evidencia: un julio guardado como junio sería un dato falso).
-  const mesPedido = resumen.mes
   try {
-    const pdf = await getInformeMes(mesPedido)
+    const pdf = await pide()
     const url = URL.createObjectURL(pdf)
     try {
       const enlace = document.createElement('a')
       enlace.href = url
-      // OJO Capacitor: el WebView de Android no siempre honra <a download>
-      // con blob:. Pendiente de probar en el APK; plan B, plugin Filesystem.
-      enlace.download = `medeben-informe-${mesPedido}.pdf`
+      enlace.download = nombre
       enlace.click()
     } finally {
       URL.revokeObjectURL(url)
@@ -79,6 +73,19 @@ async function descargaInforme() {
   } finally {
     descargandoInforme.value = false
   }
+}
+
+/* El mes/año se captura UNA sola vez ANTES de pedir: si navegas de mes con
+ * la descarga en vuelo, el nombre del fichero no puede desincronizarse del
+ * contenido (es evidencia: un julio guardado como junio sería un dato falso). */
+function descargaInforme() {
+  const mes = resumen.mes
+  return descargaPdf(`medeben-informe-${mes}.pdf`, () => getInformeMes(mes))
+}
+
+function descargaHistorico() {
+  const anio = resumen.mes.slice(0, 4)
+  return descargaPdf(`medeben-historico-${anio}.pdf`, () => getInformeAnio(anio))
 }
 
 /* Un error del informe pertenece al mes en que ocurrió: al cambiar de mes se retira. */
@@ -343,9 +350,18 @@ watch(
         >
           {{ descargandoInforme ? 'Generando el informe...' : 'Descargar el informe del mes (PDF)' }}
         </button>
+        <button
+          type="button"
+          class="boton-fantasma descarga-anual"
+          :disabled="descargandoInforme"
+          @click="descargaHistorico"
+        >
+          Descargar el histórico del año (PDF)
+        </button>
         <p class="texto-xs texto-suave">
           Con tu diario sellado, las cuentas y sus fuentes: para enseñarlo tal
-          cual a un sindicato o a un abogado.
+          cual a un sindicato o a un abogado. El histórico del año se genera
+          como mucho una vez al día.
         </p>
         <p
           v-if="errorInforme"
@@ -512,6 +528,12 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: var(--esp-xs);
+}
+
+.descarga-anual {
+  align-self: flex-start;
+  padding-inline: 0;
+  font-size: var(--tipo-sm);
 }
 
 .error {

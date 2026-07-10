@@ -9,9 +9,10 @@ import ResumenMesView from './ResumenMesView.vue'
 vi.mock('../services/resumen', () => ({
   getResumenMes: vi.fn(),
   getInformeMes: vi.fn(),
+  getInformeAnio: vi.fn(),
 }))
 
-import { getInformeMes, getResumenMes } from '../services/resumen'
+import { getInformeAnio, getInformeMes, getResumenMes } from '../services/resumen'
 
 const Stub = { template: '<div />' }
 
@@ -237,6 +238,31 @@ describe('ResumenMesView', () => {
     expect(crearUrl).toHaveBeenCalled()
     expect(click).toHaveBeenCalled()
     expect(revocarUrl).toHaveBeenCalledWith('blob:falsa')
+    click.mockRestore()
+  })
+
+  it('el histórico anual se descarga con el año en pantalla y su propio nombre', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    vi.mocked(getInformeAnio).mockResolvedValue(new Blob(['%PDF']))
+    URL.createObjectURL = vi.fn(() => 'blob:falsa')
+    URL.revokeObjectURL = vi.fn()
+    const nombres: string[] = []
+    const click = vi
+      .spyOn(HTMLAnchorElement.prototype, 'click')
+      .mockImplementation(function (this: HTMLAnchorElement) {
+        nombres.push(this.download)
+      })
+
+    const wrapper = await montar()
+    await wrapper
+      .findAll('button')
+      .find((b) => b.text().includes('histórico'))!
+      .trigger('click')
+    await flushPromises()
+
+    const anio = vi.mocked(getInformeAnio).mock.calls[0][0]
+    expect(anio).toMatch(/^\d{4}$/)
+    expect(nombres).toEqual([`medeben-historico-${anio}.pdf`])
     click.mockRestore()
   })
 
