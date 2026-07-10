@@ -170,8 +170,33 @@ export const usePerfilStore = defineStore('perfil', () => {
 
   async function responderPendiente(dimension: string, valor: string) {
     respuestas.value = { ...respuestas.value, [dimension]: valor }
-    if (pendientesSinResponder.value.length === 0) {
-      await calcularSalario()
+    if (!convenio.value || !puestoId.value) {
+      return
+    }
+    // Re-resolvemos con las respuestas acumuladas: en los convenios con mapeo
+    // CONDICIONAL (Cataluña por zona, Jaén/Asturias/Málaga por establecimiento…)
+    // esto revela la siguiente pregunta encadenada o el nivel que resuelve el
+    // árbol. En los directos devuelve lo mismo y no estorba.
+    const miId = nuevaPeticion()
+    try {
+      cargando.value = true
+      const resultado = await getOcupacion(convenio.value.id, puestoId.value, respuestas.value)
+      if (!sigueVigente(miId)) {
+        return
+      }
+      ocupacion.value = resultado
+      if (pendientesSinResponder.value.length === 0) {
+        await calcularSalario()
+      }
+    } catch (e) {
+      if (!sigueVigente(miId)) {
+        return
+      }
+      error.value = mensajeDeError(e)
+    } finally {
+      if (sigueVigente(miId)) {
+        cargando.value = false
+      }
     }
   }
 
@@ -179,7 +204,12 @@ export const usePerfilStore = defineStore('perfil', () => {
     if (!convenio.value || !ocupacion.value) {
       return
     }
-    const dimensiones = { ...ocupacion.value.dimensiones, ...respuestas.value }
+    // `ocupacion.dimensiones` YA está completo tras re-resolver: trae las
+    // dimensiones de tabla plegadas (mapeo directo) o el nivel que resolvió el
+    // árbol (mapeo condicional). NO se mezclan las respuestas crudas, porque en
+    // los condicionales son inputs del árbol (tipo de local, categoría…), no
+    // dimensiones de la tabla, y romperían la búsqueda exacta del salario.
+    const dimensiones = { ...ocupacion.value.dimensiones }
     const miId = nuevaPeticion()
     try {
       cargando.value = true

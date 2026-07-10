@@ -75,6 +75,29 @@ class PerfilOcupacionServiceTest {
         assertThat(r.pendientes()).allSatisfy(p -> assertThat(p.valores()).hasSizeGreaterThan(1));
     }
 
+    @Test
+    @DisplayName("mapeo directo: la respuesta a una dimensión de tabla se pliega y deja de preguntarse")
+    void directoPliegaRespuestaDeTabla() {
+        // Cocinero Madrid pregunta la clase de empresa. Al responderla (re-resolución
+        // del frontend), debe quedar plegada en las dimensiones y ya no como pendiente.
+        var r = servicio.resuelve("madrid-hosteleria", "cocinero",
+                java.util.Map.of("claseEmpresa", "B")).orElseThrow();
+
+        assertThat(r.dimensiones())
+                .containsEntry("nivel", "III")
+                .containsEntry("claseEmpresa", "B");
+        assertThat(r.pendientes()).noneMatch(p -> p.dimension().equals("claseEmpresa"));
+    }
+
+    @Test
+    @DisplayName("mapeo directo: una respuesta que NO es dimensión de la tabla se ignora (no ensucia)")
+    void directoIgnoraRespuestaAjena() {
+        var r = servicio.resuelve("madrid-hosteleria", "cocinero",
+                java.util.Map.of("basura", "x")).orElseThrow();
+
+        assertThat(r.dimensiones()).doesNotContainKey("basura");
+    }
+
     // --- Puestos con nivel CONDICIONAL al establecimiento/zona (datos reales) ---
 
     @Test

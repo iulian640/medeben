@@ -159,11 +159,19 @@ describe('PerfilView', () => {
   })
 
   it('con una pregunta pendiente no calcula hasta que el usuario responde', async () => {
-    vi.mocked(getOcupacion).mockResolvedValue({
-      dimensiones: { nivel: 'III' },
-      pendientes: [{ dimension: 'claseEmpresa', valores: ['1ª', '2ª'] }],
-      articulo: null,
-    })
+    // 1ª resolución: falta la clase de empresa. Al responder, el backend la pliega
+    // en las dimensiones (re-resolución) y ya no queda pendiente.
+    vi.mocked(getOcupacion)
+      .mockResolvedValueOnce({
+        dimensiones: { nivel: 'III' },
+        pendientes: [{ dimension: 'claseEmpresa', valores: ['1ª', '2ª'] }],
+        articulo: null,
+      })
+      .mockResolvedValueOnce({
+        dimensiones: { nivel: 'III', claseEmpresa: '2ª' },
+        pendientes: [],
+        articulo: null,
+      })
     const wrapper = await montar()
     await llegarAlConvenio(wrapper)
 
@@ -177,12 +185,56 @@ describe('PerfilView', () => {
     await botonesPendiente[0].trigger('click')
     await flushPromises()
 
+    // Se calcula con las dimensiones ya resueltas por el backend (no con la respuesta cruda).
     expect(postSalarioBase).toHaveBeenCalledWith(
       'madrid-hosteleria',
       { nivel: 'III', claseEmpresa: '2ª' },
       expect.any(String),
     )
     expect(wrapper.find('.resultado').exists()).toBe(true)
+  })
+
+  it('convenio condicional: encadena las preguntas del árbol hasta resolver el nivel y calcular', async () => {
+    // Mapeo condicional (Jaén/Cataluña…): responder una pregunta revela la
+    // siguiente; solo al final el árbol resuelve el nivel y se calcula el salario.
+    vi.mocked(getOcupacion)
+      .mockResolvedValueOnce({
+        dimensiones: {},
+        pendientes: [{ dimension: 'establecimiento', valores: ['hoteles', 'restaurantes'] }],
+        articulo: 'Anexo',
+      })
+      .mockResolvedValueOnce({
+        dimensiones: {},
+        pendientes: [{ dimension: 'categoria', valores: ['1*', '2*'] }],
+        articulo: 'Anexo',
+      })
+      .mockResolvedValueOnce({ dimensiones: { nivel: 'III' }, pendientes: [], articulo: 'Anexo' })
+
+    const wrapper = await montar()
+    await llegarAlConvenio(wrapper)
+    await wrapper.find('#puesto').setValue('cocinero')
+    await flushPromises()
+
+    // 1ª pregunta del árbol: tipo de establecimiento.
+    let opciones = wrapper.findAll('.paso .opcion').filter((b) => b.text().includes('Hoteles'))
+    await opciones[0].trigger('click')
+    await flushPromises()
+
+    // Aún NO se ha calculado: falta la pregunta encadenada.
+    expect(postSalarioBase).not.toHaveBeenCalled()
+
+    // 2ª pregunta encadenada: categoría.
+    opciones = wrapper.findAll('.paso .opcion').filter((b) => b.text().includes('1*'))
+    await opciones[0].trigger('click')
+    await flushPromises()
+
+    // El árbol resolvió el nivel: se calcula SOLO con él, sin arrastrar los inputs
+    // del árbol (tipo/categoría) que no son dimensiones de la tabla y darían 404.
+    expect(postSalarioBase).toHaveBeenCalledWith(
+      'madrid-hosteleria',
+      { nivel: 'III' },
+      expect.any(String),
+    )
   })
 
   it('puesto sin mapear (404) muestra la tarjeta honesta en vez de un error', async () => {

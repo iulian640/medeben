@@ -58,7 +58,20 @@ public class PerfilOcupacionService {
         return ocupaciones.mapeo(convenioId).flatMap(mapeo -> {
             Map<String, String> directas = mapeo.dimensionesPorPuesto().get(puestoId);
             if (directas != null) {
-                return Optional.of(resueltaConAutofijado(convenioId, directas, mapeo.articulo()));
+                // Las respuestas del usuario a dimensiones de la tabla (p. ej. la
+                // clase de empresa, el grupo de actividad) se pliegan también en los
+                // mapeos DIRECTOS, no solo en los condicionales: así, al re-resolver,
+                // `dimensiones` queda completo para el cálculo y las preguntas ya
+                // respondidas dejan de aparecer. Se ignora cualquier respuesta que no
+                // sea una dimensión real de la tabla.
+                Map<String, String> fijas = new LinkedHashMap<>(directas);
+                Set<String> dimsTabla = dimensionesDeTabla(convenioId);
+                respuestas.forEach((clave, valor) -> {
+                    if (dimsTabla.contains(clave)) {
+                        fijas.put(clave, valor);
+                    }
+                });
+                return Optional.of(resueltaConAutofijado(convenioId, fijas, mapeo.articulo()));
             }
             NodoCondicional arbol = mapeo.condicionalPorPuesto().get(puestoId);
             if (arbol != null) {
