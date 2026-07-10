@@ -412,6 +412,13 @@ function reenviaConfirmada(confirmado: boolean) {
           Ver cuánto te deben este mes →
         </RouterLink>
 
+        <RouterLink
+          class="enlace-resumen"
+          to="/horario"
+        >
+          Tu horario →
+        </RouterLink>
+
         <!-- Solo en la app nativa y en la vista de hoy: recordatorio diario. -->
         <PanelRecordatorio v-if="esHoy" />
       </template>

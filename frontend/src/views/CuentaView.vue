@@ -230,14 +230,20 @@ function salir() {
         </p>
       </section>
 
-      <section class="tarjeta">
+      <section class="tarjeta seccion-horario">
+        <h2 class="titulo-seccion">
+          Tu horario
+        </h2>
         <p class="texto-sm texto-suave">
-          Tu horario habitual (la semana que se repite) se edita en
-          <RouterLink to="/horario">
-            Tu horario
-          </RouterLink>: es lo que comparamos con tu diario para calcular
-          las horas extra.
+          Tu semana habitual, la que se repite: es lo que comparamos con tu
+          diario para calcular las horas extra.
         </p>
+        <RouterLink
+          class="boton-secundario boton--ancho"
+          to="/horario"
+        >
+          Editar tu horario
+        </RouterLink>
       </section>
     </template>
   </main>
@@ -258,6 +264,12 @@ function salir() {
   align-items: flex-start;
   justify-content: space-between;
   gap: var(--esp-md);
+}
+
+.seccion-horario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-sm);
 }
 
 h1 {
