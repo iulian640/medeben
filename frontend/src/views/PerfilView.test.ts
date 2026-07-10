@@ -171,7 +171,9 @@ describe('PerfilView', () => {
     await flushPromises()
     expect(postSalarioBase).not.toHaveBeenCalled()
 
-    const botonesPendiente = wrapper.findAll('.paso .opcion').filter((b) => b.text() === '2ª')
+    // El botón se muestra en cristiano ("Clase 2ª") pero envía el valor crudo ("2ª").
+    const botonesPendiente = wrapper.findAll('.paso .opcion').filter((b) => b.text().includes('2ª'))
+    expect(botonesPendiente[0].text()).toBe('Clase 2ª')
     await botonesPendiente[0].trigger('click')
     await flushPromises()
 

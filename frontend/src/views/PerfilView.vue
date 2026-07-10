@@ -7,6 +7,7 @@ import {
   esUrlSegura,
   etiquetaDimension,
   etiquetaUnidad,
+  etiquetaValor,
   explicacionDimension,
   formatearImporte,
   hoyIso,
@@ -23,9 +24,14 @@ onMounted(() => {
 /** Pedagogía D20: "según tu convenio eres nivel III" dicho con normalidad. */
 const dimensionesResueltas = computed(() =>
   perfil.ocupacion
-    ? Object.entries(perfil.ocupacion.dimensiones).map(
-        ([dim, valor]) => `${etiquetaDimension(dim).toLowerCase()} ${valor}`,
-      )
+    ? Object.entries(perfil.ocupacion.dimensiones).map(([dim, valor]) => {
+        const legible = etiquetaValor(dim, valor)
+        // En medio de la frase va en minúscula ("tu puesto es nivel III"),
+        // pero sin tocar los romanos ("III") ni las siglas en mayúsculas.
+        return /^[A-ZÑÁÉÍÓÚ][a-zñáéíóú]/.test(legible)
+          ? legible.charAt(0).toLowerCase() + legible.slice(1)
+          : legible
+      })
     : [],
 )
 
@@ -198,7 +204,7 @@ function onPuesto(event: Event) {
       class="paso"
     >
       <p class="paso-titulo">
-        Una cosa más: ¿{{ etiquetaDimension(siguientePendiente.dimension).toLowerCase() }}?
+        Una cosa más y ya lo tienes: ¿{{ etiquetaDimension(siguientePendiente.dimension).toLowerCase() }}?
       </p>
       <p
         v-if="explicacionDimension(siguientePendiente.dimension)"
@@ -215,7 +221,7 @@ function onPuesto(event: Event) {
           :aria-pressed="perfil.respuestas[siguientePendiente.dimension] === valor"
           @click="perfil.responderPendiente(siguientePendiente.dimension, valor)"
         >
-          {{ valor }}
+          {{ etiquetaValor(siguientePendiente.dimension, valor) }}
         </button>
       </div>
     </section>
