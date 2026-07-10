@@ -4,6 +4,7 @@ import es.medeben.config.RequiereBaseDeDatos;
 import es.medeben.controller.ResumenIncompletoException;
 import es.medeben.domain.convenio.Convenio;
 import es.medeben.domain.fichaje.EstadoDia;
+import es.medeben.domain.horario.DescansoEntreJornadas;
 import es.medeben.domain.horario.DiaCuadrante;
 import es.medeben.domain.horario.Tramo;
 import es.medeben.domain.usuario.Perfil;
@@ -110,12 +111,19 @@ public class ResumenMensualService {
         Map<EstadoDia.Estado, Integer> contadores = nuevoContador();
         int[] diasSinCalcular = {0};
         long[] extraAnioMin = {0};
+        // Cuadrante del mes para el descanso entre jornadas (art. 34.3 ET): se
+        // evalúa sobre el horario TEÓRICO, así avisa aunque el día no esté fichado.
+        List<Map.Entry<LocalDate, DiaCuadrante>> diasDelMes = new ArrayList<>();
 
         for (LocalDate dia = inicioAnio; !dia.isAfter(finMes); dia = dia.plusDays(1)) {
             boolean enElMes = YearMonth.from(dia).equals(mes);
             EstadoDia estado = estados.get(dia);
             if (enElMes) {
                 contadores.merge(estado.estado(), 1, Integer::sum);
+                Optional<DiaCuadrante> cuadrante = diaCuadranteDe(dia, semanas);
+                if (cuadrante.isPresent()) {
+                    diasDelMes.add(Map.entry(dia, cuadrante.get()));
+                }
             }
 
             OptionalInt teorico = minutosTeoricos(dia, semanas);
@@ -138,7 +146,8 @@ public class ResumenMensualService {
 
         ImporteEstimadoMensual importe = valora(convenio, mes, salario, mesAgg.extraMin);
         TopeAnualResumen tope = tope(convenio, mes, extraAnioMin[0]);
-        List<String> avisos = avisos(tope.horasTope(), extraAnioMin[0]);
+        List<String> avisos = new ArrayList<>(avisos(tope.horasTope(), extraAnioMin[0]));
+        avisos.addAll(avisosDescanso(DescansoEntreJornadas.incidencias(diasDelMes)));
 
         return new ResumenMensual(mes, mesAgg.teoricoMin, mesAgg.realMin, mesAgg.extraMin,
                 mesAgg.deficitMin, diasSinCalcular[0], contadores, importe, tope, avisos);
@@ -237,7 +246,49 @@ public class ResumenMensualService {
         return avisos;
     }
 
+    /** Cuántas incidencias de descanso corto se muestran antes de resumir el resto. */
+    private static final int MAX_AVISOS_DESCANSO = 3;
+
+    /**
+     * Avisos de descanso insuficiente entre jornadas (art. 34.3 ET, RD 1561/1995):
+     * "te deben X h de descanso compensatorio" cuando el cuadrante baja de 12 h, y
+     * aviso de ilegalidad cuando baja de 7 h. Se limita el número para no saturar.
+     */
+    private static List<String> avisosDescanso(List<DescansoEntreJornadas.Incidencia> incidencias) {
+        if (incidencias.isEmpty()) {
+            return List.of();
+        }
+        List<String> avisos = new ArrayList<>();
+        int mostrados = Math.min(incidencias.size(), MAX_AVISOS_DESCANSO);
+        for (DescansoEntreJornadas.Incidencia inc : incidencias.subList(0, mostrados)) {
+            String horas = minutosAHoras(inc.minutosDescanso()).toPlainString();
+            String fecha = String.format("%02d/%02d", inc.fecha().getDayOfMonth(), inc.fecha().getMonthValue());
+            if (inc.bajoMinimoLegal()) {
+                avisos.add("El " + fecha + " tu cuadrante deja solo " + horas
+                        + " h de descanso entre turnos: por debajo del mínimo de 7 h no es legal ni "
+                        + "compensándolo (art. 34.3 ET y RD 1561/1995).");
+            } else {
+                avisos.add("El " + fecha + " descansas " + horas + " h entre turnos (menos de 12 h): "
+                        + "el convenio debe devolverte "
+                        + minutosAHoras(inc.minutosCompensables()).toPlainString()
+                        + " h de descanso compensatorio (RD 1561/1995).");
+            }
+        }
+        if (incidencias.size() > MAX_AVISOS_DESCANSO) {
+            avisos.add("… y " + (incidencias.size() - MAX_AVISOS_DESCANSO)
+                    + " día(s) más con menos de 12 h de descanso entre turnos este mes.");
+        }
+        return avisos;
+    }
+
     // --- minutos teóricos (horario efectivo) y reales (diario) ---
+
+    /** El cuadrante teórico de un día según el horario efectivo de su semana; vacío si esa semana no tiene horario. */
+    private static Optional<DiaCuadrante> diaCuadranteDe(LocalDate dia,
+                                                         Map<LocalDate, Optional<HorarioEfectivo>> semanas) {
+        return semanas.getOrDefault(lunesDe(dia), Optional.empty())
+                .map(h -> h.dias().get(indiceDia(dia)));
+    }
 
     /** Minutos teóricos del día según el horario efectivo de su semana; vacío si esa semana no tiene horario. */
     private static OptionalInt minutosTeoricos(LocalDate dia,
