@@ -184,6 +184,25 @@ class ResumenMensualServiceTest {
     }
 
     @Test
+    @DisplayName("cuadrante con cierre + apertura temprana → avisa del descanso compensatorio (< 12 h)")
+    void avisaDescansoCortoEntreJornadas() {
+        HorarioEfectivo semanaAjustada = new HorarioEfectivo(List.of(
+                new DiaCuadrante(List.of(new Tramo("18:00", "02:00"))), // lunes cierre → fin martes 02:00
+                new DiaCuadrante(List.of(new Tramo("09:00", "17:00"))), // martes 09:00 → solo 7 h de descanso
+                new DiaCuadrante(List.of(new Tramo("09:00", "17:00"))),
+                new DiaCuadrante(List.of(new Tramo("09:00", "17:00"))),
+                new DiaCuadrante(List.of(new Tramo("09:00", "17:00"))),
+                new DiaCuadrante(List.of(new Tramo("09:00", "17:00"))),
+                new DiaCuadrante(List.of(new Tramo("09:00", "17:00")))
+        ), OrigenHorario.SEMANA_TIPO, OffsetDateTime.parse("2026-01-01T00:00:00+01:00"));
+        horarioParaTodoElRango(Optional.of(semanaAjustada));
+
+        ResumenMensual r = servicio.delMes(USUARIO, JULIO);
+
+        assertThat(r.avisos()).anySatisfy(a -> assertThat(a).contains("descanso compensatorio"));
+    }
+
+    @Test
     @DisplayName("mes sin horario (ninguna semana tiene cuadrante) → 422 diciendo que falta el horario")
     void mesSinHorario() {
         horarioParaTodoElRango(Optional.empty());
