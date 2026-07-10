@@ -38,7 +38,7 @@ defineEmits<{ fichar: [tipo: TipoApunte] }>()
       @submit.prevent="$emit('fichar', 'ENTRADA')"
     >
       <div class="campo">
-        <label for="hora-manual">¿A qué hora?</label>
+        <label for="hora-manual">Hora</label>
         <input
           id="hora-manual"
           v-model="hora"
