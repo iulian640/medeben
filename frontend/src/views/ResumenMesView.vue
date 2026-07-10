@@ -348,7 +348,7 @@ watch(
           :disabled="descargandoInforme"
           @click="descargaInforme"
         >
-          {{ descargandoInforme ? 'Generando el informe...' : 'Descargar el informe del mes (PDF)' }}
+          {{ descargandoInforme ? 'Generando el informe...' : `Descargar el informe de ${etiquetaMes(resumen.mes)} (PDF)` }}
         </button>
         <button
           type="button"
@@ -356,7 +356,7 @@ watch(
           :disabled="descargandoInforme"
           @click="descargaHistorico"
         >
-          Descargar el histórico del año (PDF)
+          Descargar el histórico de {{ resumen.mes.slice(0, 4) }} (PDF)
         </button>
         <p class="texto-xs texto-suave">
           Con tu diario sellado, las cuentas y sus fuentes: para enseñarlo tal
