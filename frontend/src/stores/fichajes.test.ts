@@ -37,6 +37,8 @@ const diaServidor: EstadoDiaGuardado = {
   sellado: false,
   selladoDesde: '2026-07-23',
   minutosTrabajados: null,
+  tramos: [],
+  entradaAbierta: '14:05',
   apuntes: [apunteEntrada],
 }
 
@@ -61,6 +63,8 @@ function diaVacio(fecha: string): EstadoDiaGuardado {
     sellado: false,
     selladoDesde: sumaQuince(fecha),
     minutosTrabajados: null,
+    tramos: [],
+    entradaAbierta: null,
     apuntes: [],
   }
 }

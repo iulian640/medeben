@@ -12,6 +12,11 @@ import java.util.List;
  * EN_CURSO puede traer minutos (turno partido con el primer tramo ya cerrado)
  * y un COMPLETO puede traer {@code null} (total no calculable: algún tramo
  * supera el techo de cordura). La UI no debe asumir "minutos solo si COMPLETO".
+ *
+ * <p>{@code tramos} es la LECTURA del diario (el emparejado derivado, con las
+ * correcciones ya aplicadas): lo que la UI enseña como "tu jornada". Los
+ * apuntes en bruto siguen viajando como prueba. {@code entradaAbierta} es la
+ * hora de la entrada sin salida cuando el día está EN_CURSO; null si no.
  */
 public record EstadoDiaResponse(
         LocalDate fecha,
@@ -19,12 +24,15 @@ public record EstadoDiaResponse(
         boolean sellado,
         LocalDate selladoDesde,
         Integer minutosTrabajados,
+        List<EstadoDia.TramoDia> tramos,
+        String entradaAbierta,
         List<ApunteResponse> apuntes
 ) {
 
     public static EstadoDiaResponse desde(EstadoDia e) {
         return new EstadoDiaResponse(e.fecha(), e.estado(), e.sellado(), e.selladoDesde(),
                 e.minutosTrabajados() < 0 ? null : e.minutosTrabajados(),
+                e.tramos(), e.entradaAbierta(),
                 e.apuntes().stream().map(ApunteResponse::desde).toList());
     }
 }

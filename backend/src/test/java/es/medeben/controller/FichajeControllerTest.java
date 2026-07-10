@@ -111,13 +111,15 @@ class FichajeControllerTest {
         Apunte entrada = new Apunte(USUARIO, FECHA, TipoApunte.ENTRADA, "12:00", null,
                 OrigenApunte.CONFIRMADO, SELLO);
         when(fichajeService.estadoDia(USUARIO, FECHA)).thenReturn(new EstadoDia(
-                FECHA, EstadoDia.Estado.EN_CURSO, false, FECHA.plusDays(15), -1, List.of(entrada)));
+                FECHA, EstadoDia.Estado.EN_CURSO, false, FECHA.plusDays(15), -1,
+                List.of(), "12:00", List.of(entrada)));
 
         mockMvc.perform(get("/api/v1/fichajes/dia/2026-07-08").with(comoUsuario()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.estado").value("EN_CURSO"))
                 .andExpect(jsonPath("$.sellado").value(false))
                 .andExpect(jsonPath("$.selladoDesde").value("2026-07-23"))
+                .andExpect(jsonPath("$.entradaAbierta").value("12:00"))
                 .andExpect(jsonPath("$.apuntes[0].tipo").value("ENTRADA"));
     }
 }

@@ -141,7 +141,7 @@ class ResumenMensualServiceTest {
     }
 
     private static EstadoDia estado(LocalDate fecha, EstadoDia.Estado estado, int minutos) {
-        return new EstadoDia(fecha, estado, false, fecha.plusDays(15), minutos, List.of());
+        return new EstadoDia(fecha, estado, false, fecha.plusDays(15), minutos, List.of(), null, List.of());
     }
 
     private static ValorHoraCalculado desglose() {

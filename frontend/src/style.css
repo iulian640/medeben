@@ -176,6 +176,33 @@ a {
   font-variant-numeric: tabular-nums;
 }
 
+/* Fila de nómina con puntos de guía: etiqueta a la izquierda, dato a la
+ * derecha y la línea punteada de puente. La usan el resumen y la libreta —
+ * mismo dibujo en todas partes, definido una sola vez. */
+.fila {
+  display: flex;
+  align-items: baseline;
+  gap: var(--esp-xs);
+}
+
+.fila::after {
+  content: '';
+  order: 2;
+  flex: 1;
+  border-bottom: 1px dotted var(--linea-fuerte);
+  transform: translateY(-0.25em);
+}
+
+.fila dt {
+  order: 1;
+}
+
+.fila dd {
+  order: 3;
+  font-weight: var(--peso-etiqueta);
+  margin: 0;
+}
+
 /* ——— Capa de componentes: el mismo vocabulario en toda la app ———
  * Un botón de guardar es EL botón de guardar, se llame como se llame la
  * pantalla. Las vistas usan estas clases y solo añaden disposición local. */

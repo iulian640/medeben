@@ -33,6 +33,8 @@ const diaServidor: EstadoDiaGuardado = {
   sellado: false,
   selladoDesde: '2026-07-23',
   minutosTrabajados: null,
+  tramos: [],
+  entradaAbierta: '14:05',
   apuntes: [apunteEntrada],
 }
 
@@ -126,6 +128,63 @@ describe('LibretaView — el día', () => {
     expect(wrapper.text()).not.toMatch(/se sella|queda protegido como prueba/)
   })
 
+  it('la tarjeta enseña la jornada derivada y pliega el diario en bruto', async () => {
+    vi.mocked(getEstadoDia).mockResolvedValue({
+      ...diaServidor,
+      estado: 'COMPLETO',
+      minutosTrabajados: 242,
+      tramos: [
+        { entrada: '10:00', salida: '14:02' },
+        { entrada: '14:30', salida: '18:00' },
+      ],
+      entradaAbierta: null,
+      apuntes: [
+        apunteEntrada,
+        { ...apunteEntrada, tipo: 'SALIDA', hora: '14:02', registradoEn: '2026-07-08T14:02:30+02:00' },
+      ],
+    })
+
+    const wrapper = await montar()
+
+    // La lectura: los tramos con las correcciones ya aplicadas, cada uno con
+    // su franja horaria (no solo la etiqueta).
+    expect(wrapper.text()).toContain('Turno 1')
+    expect(wrapper.text()).toContain('10:00 → 14:02')
+    expect(wrapper.text()).toContain('Turno 2')
+    expect(wrapper.text()).toContain('14:30 → 18:00')
+    // El diario en bruto (la prueba) queda plegado hasta que se pide.
+    const plegableDe = () => wrapper.get('.apuntes').element.closest('.plegable')
+    expect(plegableDe()?.classList.contains('abierto')).toBe(false)
+    await boton(wrapper, 'Ver el diario (2 apuntes)').trigger('click')
+    expect(plegableDe()?.classList.contains('abierto')).toBe(true)
+    await boton(wrapper, 'Ocultar el diario').trigger('click')
+    expect(plegableDe()?.classList.contains('abierto')).toBe(false)
+  })
+
+  it('con la jornada abierta, la tarjeta dice desde cuándo', async () => {
+    const wrapper = await montar()
+
+    // diaServidor está EN_CURSO con la entrada de las 14:05 sin salida.
+    expect(wrapper.text()).toContain('En curso')
+    expect(wrapper.text()).toContain('desde las 14:05')
+  })
+
+  it('un total sin calcular se explica, no se esconde (techo de cordura)', async () => {
+    vi.mocked(getEstadoDia).mockResolvedValue({
+      ...diaServidor,
+      estado: 'COMPLETO',
+      minutosTrabajados: null,
+      tramos: [{ entrada: '10:00', salida: '09:00' }],
+      entradaAbierta: null,
+    })
+
+    const wrapper = await montar()
+
+    expect(wrapper.text()).toContain('10:00 → 09:00')
+    expect(wrapper.text()).toContain('Sin total: hay un tramo que no cuadra')
+    expect(wrapper.text()).not.toContain('Llevas apuntado')
+  })
+
   it('si la carga falla, enseña el error y deja reintentar', async () => {
     vi.mocked(getEstadoDia).mockRejectedValueOnce(
       new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }),
@@ -160,6 +219,9 @@ describe('LibretaView — el día', () => {
 
     expect(wrapper.find('.apuntes img').exists()).toBe(false)
     expect(wrapper.text()).toContain('<img src="x" onerror="alert(1)">')
+    // El fixture arrastra un entradaAbierta rezagado: en un día AUSENCIA la
+    // tarjeta NO puede pintar "jornada en curso" (acoplado al estado, review).
+    expect(wrapper.text()).not.toContain('desde las 14:05')
   })
 })
 
