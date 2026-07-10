@@ -27,20 +27,31 @@ onMounted(() => {
  * cualquier cambio la re-resuelve (y dispara las preguntas encadenadas si el
  * convenio las necesita, igual que la calculadora). */
 function onProvincia(event: Event) {
-  cuenta.provincia = (event.target as HTMLSelectElement).value
+  const valor = (event.target as HTMLSelectElement).value
+  if (valor === cuenta.provincia) {
+    return
+  }
+  cuenta.provincia = valor
   cuenta.marcarEdicion()
   cuenta.resuelveClasificacion()
 }
 
 function onSubsector(clave: string) {
+  if (clave === cuenta.subsector) {
+    return
+  }
   cuenta.subsector = clave
   cuenta.marcarEdicion()
   cuenta.resuelveClasificacion()
 }
 
 function onPuesto(event: Event) {
-  const valor = (event.target as HTMLSelectElement).value
-  cuenta.puestoId = valor === '' ? null : valor
+  const crudo = (event.target as HTMLSelectElement).value
+  const valor = crudo === '' ? null : crudo
+  if (valor === cuenta.puestoId) {
+    return
+  }
+  cuenta.puestoId = valor
   cuenta.marcarEdicion()
   cuenta.resuelveClasificacion()
 }
@@ -177,49 +188,60 @@ function salir() {
 
         <!-- La clasificación del puesto en el convenio: sin ella el resumen
              mensual no puede dar cifra. Misma mecánica que la calculadora. -->
-        <p
-          v-if="cuenta.resolviendo"
-          class="texto-sm texto-suave"
-          role="status"
-          aria-live="polite"
-        >
-          Consultando tu convenio...
-        </p>
-
-        <fieldset
-          v-else-if="siguientePendiente"
-          class="campo campo-pendiente"
-        >
-          <legend>
-            Una cosa más: ¿{{ etiquetaDimension(siguientePendiente.dimension).toLowerCase() }}?
-          </legend>
+        <!-- aria-live en el CONTENEDOR: el lector anuncia también la
+             pregunta siguiente cuando aparece, no solo el "consultando". -->
+        <div aria-live="polite">
           <p
-            v-if="explicacionDimension(siguientePendiente.dimension)"
-            class="campo-ayuda"
+            v-if="cuenta.resolviendo"
+            class="texto-sm texto-suave"
+            role="status"
           >
-            {{ explicacionDimension(siguientePendiente.dimension) }}
+            Consultando tu convenio...
           </p>
-          <div class="opciones">
-            <button
-              v-for="valor in siguientePendiente.valores"
-              :key="valor"
-              type="button"
-              class="opcion boton-secundario"
-              :aria-pressed="cuenta.respuestas[siguientePendiente.dimension] === valor"
-              @click="cuenta.responderPendiente(siguientePendiente.dimension, valor)"
-            >
-              {{ etiquetaValor(siguientePendiente.dimension, valor) }}
-            </button>
-          </div>
-        </fieldset>
 
-        <p
-          v-else-if="cuenta.puestoNoMapeado"
-          class="texto-sm texto-suave"
-        >
-          Este puesto todavía no está clasificado en tu convenio: el perfil se
-          guarda igual, pero de momento no podremos estimar tu salario mínimo.
-        </p>
+          <fieldset
+            v-else-if="siguientePendiente"
+            class="campo campo-pendiente"
+          >
+            <legend>
+              Una cosa más: ¿{{ etiquetaDimension(siguientePendiente.dimension).toLowerCase() }}?
+            </legend>
+            <p
+              v-if="explicacionDimension(siguientePendiente.dimension)"
+              class="campo-ayuda"
+            >
+              {{ explicacionDimension(siguientePendiente.dimension) }}
+            </p>
+            <div class="opciones">
+              <button
+                v-for="valor in siguientePendiente.valores"
+                :key="valor"
+                type="button"
+                class="opcion boton-secundario"
+                :aria-pressed="cuenta.respuestas[siguientePendiente.dimension] === valor"
+                @click="cuenta.responderPendiente(siguientePendiente.dimension, valor)"
+              >
+                {{ etiquetaValor(siguientePendiente.dimension, valor) }}
+              </button>
+            </div>
+          </fieldset>
+
+          <p
+            v-else-if="cuenta.puestoNoMapeado"
+            class="texto-sm texto-suave"
+          >
+            Este puesto todavía no está clasificado en tu convenio: el perfil se
+            guarda igual, pero de momento no podremos estimar tu salario mínimo.
+          </p>
+
+          <p
+            v-if="cuenta.errorClasificacion"
+            class="aviso-bloque"
+            role="alert"
+          >
+            {{ cuenta.errorClasificacion }}
+          </p>
+        </div>
 
         <div class="campo">
           <label for="salario">Tu salario base al mes, según tu nómina (opcional)</label>
@@ -267,7 +289,7 @@ function salir() {
         <button
           type="submit"
           class="boton boton--ancho"
-          :disabled="cuenta.guardando"
+          :disabled="cuenta.guardando || cuenta.resolviendo"
         >
           {{ cuenta.guardando ? 'Guardando...' : 'Guardar mi perfil' }}
         </button>

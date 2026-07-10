@@ -53,6 +53,9 @@ export const useCuentaStore = defineStore('cuenta', () => {
   const convenioResuelto = ref<string | null>(null)
   const resolviendo = ref(false)
   const puestoNoMapeado = ref(false)
+  /** Error PROPIO del flujo de clasificación: no pisa (ni lo pisa) el de
+   *  cargar/guardar — son cadenas async independientes con su propio guard. */
+  const errorClasificacion = ref<string | null>(null)
 
   const pendientesSinResponder = computed(
     () => ocupacion.value?.pendientes.filter((p) => !(p.dimension in respuestas.value)) ?? [],
@@ -117,6 +120,7 @@ export const useCuentaStore = defineStore('cuenta', () => {
     convenioResuelto.value = null
     resolviendo.value = false
     puestoNoMapeado.value = false
+    errorClasificacion.value = null
   }
 
   /**
@@ -203,6 +207,7 @@ export const useCuentaStore = defineStore('cuenta', () => {
     }
     const miId = nuevaResolucion()
     resolviendo.value = true
+    errorClasificacion.value = null
     try {
       const conv = await getConvenioParaTrabajador(provincia.value, subsector.value)
       if (!resolucionVigente(miId)) {
@@ -223,7 +228,7 @@ export const useCuentaStore = defineStore('cuenta', () => {
         // con las cartas boca arriba (la vista lo cuenta).
         puestoNoMapeado.value = true
       } else {
-        error.value = mensajeDeError(e)
+        errorClasificacion.value = mensajeDeError(e)
       }
     } finally {
       if (resolucionVigente(miId)) {
@@ -241,7 +246,7 @@ export const useCuentaStore = defineStore('cuenta', () => {
     const candidatas = { ...respuestas.value, [dimension]: valor }
     const miId = nuevaResolucion()
     resolviendo.value = true
-    error.value = null
+    errorClasificacion.value = null
     try {
       const resultado = await getOcupacion(convenioResuelto.value, puestoId.value, candidatas)
       if (!resolucionVigente(miId)) {
@@ -251,7 +256,7 @@ export const useCuentaStore = defineStore('cuenta', () => {
       ocupacion.value = resultado
     } catch (e) {
       if (resolucionVigente(miId)) {
-        error.value = mensajeDeError(e)
+        errorClasificacion.value = mensajeDeError(e)
       }
     } finally {
       if (resolucionVigente(miId)) {
@@ -266,6 +271,13 @@ export const useCuentaStore = defineStore('cuenta', () => {
     }
     if (!provincia.value || !subsector.value) {
       error.value = 'Elige al menos tu provincia y el tipo de sitio antes de guardar.'
+      return
+    }
+    if (resolviendo.value) {
+      // Con la clasificación en vuelo, ocupacion aún es null: guardar ahora
+      // persistiría dimensiones null para un puesto que SÍ clasifica — el
+      // mismo 422 eterno que este flujo existe para evitar.
+      error.value = 'Un momento: estamos consultando tu convenio. Guarda cuando termine.'
       return
     }
     if (pendientesSinResponder.value.length > 0) {
@@ -341,6 +353,7 @@ export const useCuentaStore = defineStore('cuenta', () => {
     respuestas,
     resolviendo,
     puestoNoMapeado,
+    errorClasificacion,
     pendientesSinResponder,
     sinPerfil,
     cargando,
