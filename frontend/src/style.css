@@ -129,6 +129,14 @@
 
 /* ——— Base ——— */
 
+/* Border-box en todo: el padding vive DENTRO del ancho declarado. Sin esto,
+ * un .boton--ancho (width 100% + padding) desborda su tarjeta 2,5rem. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
