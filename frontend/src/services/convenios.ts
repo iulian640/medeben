@@ -74,10 +74,18 @@ export const getConvenioParaTrabajador = (provincia: string, subsector: string) 
 
 export const getPuestos = () => api.get<Puesto[]>('/puestos')
 
-export const getOcupacion = (convenioId: string, puestoId: string) =>
-  api.get<OcupacionResuelta>(
-    `/convenios/${encodeURIComponent(convenioId)}/puestos/${encodeURIComponent(puestoId)}`,
-  )
+export const getOcupacion = (
+  convenioId: string,
+  puestoId: string,
+  respuestas: Record<string, string> = {},
+) => {
+  // Las respuestas ya dadas (tipo de establecimiento, zona, categoría…) van como
+  // query params: en los convenios con mapeo condicional revelan la siguiente
+  // pregunta encadenada o el nivel ya resuelto por el árbol.
+  const qs = new URLSearchParams(respuestas).toString()
+  const base = `/convenios/${encodeURIComponent(convenioId)}/puestos/${encodeURIComponent(puestoId)}`
+  return api.get<OcupacionResuelta>(qs ? `${base}?${qs}` : base)
+}
 
 export const postSalarioBase = (
   convenioId: string,

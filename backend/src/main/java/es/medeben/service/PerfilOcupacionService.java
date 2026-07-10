@@ -58,7 +58,26 @@ public class PerfilOcupacionService {
         return ocupaciones.mapeo(convenioId).flatMap(mapeo -> {
             Map<String, String> directas = mapeo.dimensionesPorPuesto().get(puestoId);
             if (directas != null) {
-                return Optional.of(resueltaConAutofijado(convenioId, directas, mapeo.articulo()));
+                // Las respuestas del usuario a dimensiones de la tabla (p. ej. la
+                // clase de empresa, el grupo de actividad) se pliegan también en los
+                // mapeos DIRECTOS, no solo en los condicionales: así, al re-resolver,
+                // `dimensiones` queda completo para el cálculo y las preguntas ya
+                // respondidas dejan de aparecer.
+                Map<String, String> fijas = new LinkedHashMap<>(directas);
+                if (!respuestas.isEmpty()) {
+                    Set<String> dimsTabla = dimensionesDeTabla(convenioId);
+                    respuestas.forEach((clave, valor) -> {
+                        // Solo se pliegan dimensiones de tabla que el puesto NO fija
+                        // ya: las fijas del puesto son AUTORITATIVAS y una respuesta
+                        // del cliente no puede pisarlas (p. ej. no puede cambiar su
+                        // `nivel` vía query param y saltar a otra fila salarial).
+                        // Misma disciplina que el `nivel` del árbol en el condicional.
+                        if (dimsTabla.contains(clave) && !directas.containsKey(clave)) {
+                            fijas.put(clave, valor);
+                        }
+                    });
+                }
+                return Optional.of(resueltaConAutofijado(convenioId, fijas, mapeo.articulo()));
             }
             NodoCondicional arbol = mapeo.condicionalPorPuesto().get(puestoId);
             if (arbol != null) {

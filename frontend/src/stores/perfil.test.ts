@@ -120,8 +120,16 @@ describe('perfil store', () => {
     expect(postSalarioBase).not.toHaveBeenCalled()
   })
 
-  it('al responder la pendiente calcula el salario con todas las dimensiones', async () => {
-    vi.mocked(getOcupacion).mockResolvedValue(ocupacionConPendiente)
+  it('al responder la pendiente re-resuelve y calcula el salario con las dimensiones ya resueltas', async () => {
+    // 1ª resolución: pendiente la clase de empresa. Al responderla, el backend la
+    // pliega en las dimensiones (re-resolución) y ya no queda pregunta.
+    vi.mocked(getOcupacion)
+      .mockResolvedValueOnce(ocupacionConPendiente)
+      .mockResolvedValueOnce({
+        dimensiones: { nivel: 'III', claseEmpresa: 'B' },
+        pendientes: [],
+        articulo: null,
+      })
     vi.mocked(postSalarioBase).mockResolvedValue(salario)
     const store = usePerfilStore()
     store.convenio = convenioMadrid
@@ -129,12 +137,33 @@ describe('perfil store', () => {
     await store.elegirPuesto('cocinero')
     await store.responderPendiente('claseEmpresa', 'B')
 
+    // Re-resuelto con la respuesta acumulada y calculado con las dimensiones del backend.
+    expect(getOcupacion).toHaveBeenLastCalledWith('madrid-hosteleria', 'cocinero', {
+      claseEmpresa: 'B',
+    })
     expect(postSalarioBase).toHaveBeenCalledWith(
       'madrid-hosteleria',
       { nivel: 'III', claseEmpresa: 'B' },
       expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/),
     )
     expect(store.salario).toEqual(salario)
+  })
+
+  it('si la re-resolución falla, NO confirma la respuesta ni oculta la pregunta (reintentable)', async () => {
+    vi.mocked(getOcupacion)
+      .mockResolvedValueOnce(ocupacionConPendiente)
+      .mockRejectedValueOnce(new ApiError(500, 'boom'))
+    const store = usePerfilStore()
+    store.convenio = convenioMadrid
+
+    await store.elegirPuesto('cocinero')
+    await store.responderPendiente('claseEmpresa', 'B')
+
+    expect(store.error).not.toBeNull()
+    // La respuesta no se confirmó y la pregunta sigue en pantalla para reintentar.
+    expect(store.respuestas).toEqual({})
+    expect(store.pendientesSinResponder).toHaveLength(1)
+    expect(postSalarioBase).not.toHaveBeenCalled()
   })
 
   it('sin pendientes calcula el salario directamente al elegir puesto', async () => {
