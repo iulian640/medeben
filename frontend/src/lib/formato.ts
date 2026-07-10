@@ -65,6 +65,7 @@ const ETIQUETAS_DIMENSION: Record<string, string> = {
   grupoActividad: 'Grupo de actividad',
   categoria: 'Categoría',
   categoriaEstablecimiento: 'Categoría del local',
+  establecimiento: 'Tipo de local',
   grupoEstablecimiento: 'Tipo de local',
   tipoEstablecimiento: 'Tipo de local',
   clasificacion: 'Clasificación del local',
@@ -104,6 +105,8 @@ const SUSTANTIVO_VALOR: Record<string, string> = {
   categoriaEstablecimiento: 'Categoría',
   seccion: 'Sección',
   tramo: 'Tramo',
+  area: 'Área',
+  areaFuncional: 'Área',
 }
 
 /**
@@ -121,34 +124,62 @@ const VALORES_CURADOS: Record<string, string> = {
 
 const RE_VALOR_LIMPIO = /^([IVXLCDM]+|\d{1,2}[ºªAB]?|[A-H])$/i
 const RE_ES_CODIGO = /_|[a-zñáéíóú][A-ZÑ]|^(AF\d|NS_|e\d)/
+const RE_ROMANO = /^[IVXLCDM]+$/i
+// Conjunciones y artículos que no se capitalizan en medio de una frase.
+const CONECTORES = new Set(['o', 'y', 'e', 'u', 'de', 'del', 'la', 'el'])
+
+function capitaliza(palabra: string): string {
+  return palabra.charAt(0).toUpperCase() + palabra.slice(1)
+}
+
+/** Casa una palabra suelta de un código: romanos y letras en mayúscula, resto en minúscula. */
+function palabraLegible(palabra: string, primera: boolean): string {
+  if (RE_ROMANO.test(palabra)) {
+    return palabra.toUpperCase()
+  }
+  const min = palabra.toLowerCase()
+  if (CONECTORES.has(min)) {
+    return primera ? capitaliza(min) : min
+  }
+  if (palabra.length === 1) {
+    return palabra.toUpperCase() // letra de grado suelta (A, B...)
+  }
+  return primera ? capitaliza(min) : min
+}
 
 /**
  * Un valor de dimensión, dicho para una persona. Un "grupoII" se lee "Grupo II";
- * un "AF2_cocina_economato", "Cocina y economato". Nunca cambia el valor que se
- * manda a la API: solo lo que ve el usuario. Los valores que ya son legibles
- * (con espacios, como "1 y 2 Estrellas") se dejan tal cual.
+ * un "AF2_cocina_economato", "Cocina y economato"; un "grupoII_tecnicos",
+ * "Grupo II tecnicos". Nunca cambia el valor que se manda a la API: solo lo que
+ * ve el usuario. Los valores que ya son legibles ("1 y 2 Estrellas") se respetan.
  */
 export function etiquetaValor(dimension: string, valor: string): string {
+  if (!valor) {
+    return valor
+  }
   const curado = VALORES_CURADOS[valor]
   if (curado) {
     return curado
   }
   const sustantivo = SUSTANTIVO_VALOR[dimension]
   if (RE_VALOR_LIMPIO.test(valor)) {
-    return sustantivo ? `${sustantivo} ${valor.toUpperCase()}` : valor
+    // Romanos en mayúscula; el resto se respeta ("3A", "1a" no se tocan).
+    const limpio = RE_ROMANO.test(valor) ? valor.toUpperCase() : valor
+    return sustantivo ? `${sustantivo} ${limpio}` : limpio
   }
   if (!RE_ES_CODIGO.test(valor)) {
-    return valor
+    return capitaliza(valor) // ya legible ("cuarto" → "Cuarto", "3 Tenedores" intacto)
   }
-  const legible = valor
+  const palabras = valor
     .replace(/^(AF\d+|NS|area[A-Za-zÁÉÍÓÚñ]+|seccion\d*)_/i, '')
     .replace(/^(\d+)y(\d+)_/i, '$1 y $2 ')
     .replace(/_/g, ' ')
-    .replace(/([a-zñáéíóú])([A-ZÑ])/g, '$1 $2')
+    .replace(/([a-zñáéíóú0-9])([A-ZÑ])/g, '$1 $2') // camelCase / dígito→mayúscula
+    .replace(/([A-ZÑ])([A-ZÑ][a-zñáéíóú])/g, '$1 $2') // "OCatering" → "O Catering"
     .replace(/\s+/g, ' ')
     .trim()
-    .toLowerCase()
-  return legible.charAt(0).toUpperCase() + legible.slice(1)
+    .split(' ')
+  return palabras.map((p, i) => palabraLegible(p, i === 0)).join(' ')
 }
 
 /** Explicación corta (una frase) para las preguntas pendientes conocidas. */
@@ -159,8 +190,12 @@ const EXPLICACIONES_DIMENSION: Record<string, string> = {
     'El tipo de sitio donde trabajas: hotel, bar, restaurante, cafetería… Elige el que más se parezca. Si te equivocas no pasa nada: pruebas otro y comparas.',
   tipoEstablecimiento:
     'El tipo de sitio donde trabajas: hotel, bar, restaurante, cafetería… Elige el que más se parezca. Si te equivocas no pasa nada: pruebas otro y comparas.',
+  categoria:
+    'La categoría del local (estrellas, tenedores, tazas…). Suele estar en la entrada o en la web del sitio. Si no la sabes, elige la que creas y compara.',
   categoriaEstablecimiento:
     'La categoría del local (estrellas, tenedores, tazas…). Suele estar en la entrada o en la web del sitio. Si no la sabes, elige la que creas y compara.',
+  establecimiento:
+    'El tipo de sitio donde trabajas: hotel, bar, restaurante, cafetería… Elige el que más se parezca. Si te equivocas no pasa nada: pruebas otro y comparas.',
   clasificacion:
     'Cómo clasifica el convenio a tu local. Si no lo tienes claro, elige la opción que más te suene y mira si el sueldo cuadra.',
   clasificacionEstablecimiento:

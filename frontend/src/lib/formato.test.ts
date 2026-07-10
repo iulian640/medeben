@@ -97,6 +97,32 @@ describe('etiquetaValor', () => {
     expect(etiquetaValor('tipoEstablecimiento', 'cafeterias_bares')).toBe('Cafeterias bares')
   })
 
+  it('conserva los romanos embebidos en un código (no los pasa a minúscula)', () => {
+    expect(etiquetaValor('grupo', 'grupoII_tecnicos')).toBe('Grupo II tecnicos')
+    expect(etiquetaValor('grupo', 'grupoI_mandos')).toBe('Grupo I mandos')
+    expect(etiquetaValor('grupo', 'grupoIII_asistentes')).toBe('Grupo III asistentes')
+  })
+
+  it('separa la conjunción pegada en camelCase ("...OCatering")', () => {
+    expect(etiquetaValor('cargo', 'auxiliarCocinaOCatering')).toBe('Auxiliar cocina o catering')
+  })
+
+  it('no pierde la letra de nivel de un código con sufijo ("NS_V_A")', () => {
+    expect(etiquetaValor('nivelSalarial', 'NS_V_A')).toBe('V A')
+  })
+
+  it('un "tipoA" del árbol de decisión se lee "Tipo A", no "Tipo a"', () => {
+    expect(etiquetaValor('establecimiento', 'tipoA')).toBe('Tipo A')
+  })
+
+  it('el área funcional con valor limpio lleva su sustantivo', () => {
+    expect(etiquetaValor('areaFuncional', 'A')).toBe('Área A')
+  })
+
+  it('capitaliza los valores ya legibles pero sueltos ("cuarto" → "Cuarto")', () => {
+    expect(etiquetaValor('grupoProfesional', 'cuarto')).toBe('Cuarto')
+  })
+
   it('deja tal cual los valores que ya son legibles', () => {
     expect(etiquetaValor('categoriaEstablecimiento', '1 y 2 Estrellas')).toBe('1 y 2 Estrellas')
     expect(etiquetaValor('categoriaEstablecimiento', '3 Tenedores')).toBe('3 Tenedores')
