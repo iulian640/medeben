@@ -259,4 +259,79 @@ class CalculoConvenioServiceTest {
                             new BigDecimal("-1")));
         }
     }
+
+    @Nested
+    @DisplayName("Recargo porcentual de la hora extra (23 convenios lo fijan así)")
+    class RecargoPorcentual {
+
+        private static final BigDecimal BASE = new BigDecimal("1300");
+        private static final Year ANIO = Year.of(2026);
+
+        /** precio hora extra == valor hora ordinaria × (1 + %/100), sin pluses. */
+        private void assertRecargo(String convenioId, String factorEsperado, String pctEnCita) {
+            Convenio convenio = catalog.porId(convenioId).orElseThrow();
+            var vho = servicio.valorHoraOrdinaria(convenio, ANIO, BASE, BigDecimal.ZERO);
+            assertThat(vho).as("valor hora de %s", convenioId).isPresent();
+            BigDecimal valorHora = vho.orElseThrow().valorHora();
+
+            var extra = servicio.importeHorasExtra(convenio, ANIO, BASE, BigDecimal.ZERO, BigDecimal.ONE)
+                    .orElseThrow();
+            assertThat(extra.precioHora())
+                    .as("precio hora extra de %s con recargo", convenioId)
+                    .isEqualByComparingTo(valorHora.multiply(new BigDecimal(factorEsperado)));
+            assertThat(extra.citas())
+                    .anySatisfy(c -> assertThat(c.texto()).contains(pctEnCita));
+        }
+
+        @Test
+        @DisplayName("Cádiz: recargo del 75% → precio = valor hora × 1,75")
+        void cadiz75() {
+            assertRecargo("cadiz-hosteleria", "1.75", "75%");
+        }
+
+        @Test
+        @DisplayName("Granada: recargo del 100% → la hora extra al doble")
+        void granada100() {
+            assertRecargo("granada-hosteleria", "2", "100%");
+        }
+
+        @Test
+        @DisplayName("La Rioja (hospedaje): 'salario_real_ordinario' (masculino) también cuenta → ×2")
+        void larioja100Masculino() {
+            assertRecargo("larioja-hospedaje", "2", "100%");
+        }
+
+        @Test
+        @DisplayName("Zaragoza (caso de Iulian): recargo del 75% → precio = valor hora × 1,75")
+        void zaragoza75() {
+            assertRecargo("zaragoza-hosteleria", "1.75", "75%");
+        }
+
+        @Test
+        @DisplayName("Córdoba a tramos (50%/75%): se aplica el 50% como mínimo garantizado y se citan ambos")
+        void cordobaTramosMinimo() {
+            Convenio cordoba = catalog.porId("cordoba-hosteleria").orElseThrow();
+            var vho = servicio.valorHoraOrdinaria(cordoba, ANIO, BASE, BigDecimal.ZERO);
+            assertThat(vho).isPresent();
+            BigDecimal valorHora = vho.orElseThrow().valorHora();
+
+            var extra = servicio.importeHorasExtra(cordoba, ANIO, BASE, BigDecimal.ZERO, BigDecimal.ONE)
+                    .orElseThrow();
+            assertThat(extra.precioHora()).isEqualByComparingTo(valorHora.multiply(new BigDecimal("1.50")));
+            assertThat(extra.citas()).anySatisfy(c -> {
+                assertThat(c.texto()).contains("50%");
+                assertThat(c.texto()).contains("75%");
+            });
+        }
+
+        @Test
+        @DisplayName("Madrid no fija recargo %: la hora extra se paga al valor ordinario (suelo del ET), sin inventar recargo")
+        void madridSinRecargoQuedaEnOrdinaria() {
+            var vho = servicio.valorHoraOrdinaria(madrid(), ANIO, BASE, BigDecimal.ZERO);
+            BigDecimal valorHora = vho.orElseThrow().valorHora();
+            var extra = servicio.importeHorasExtra(madrid(), ANIO, BASE, BigDecimal.ZERO, BigDecimal.ONE)
+                    .orElseThrow();
+            assertThat(extra.precioHora()).isEqualByComparingTo(valorHora);
+        }
+    }
 }

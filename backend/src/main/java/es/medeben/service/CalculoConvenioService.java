@@ -107,11 +107,29 @@ public class CalculoConvenioService {
                     "La hora extra no puede pagarse por debajo de la hora ordinaria (art. 35.1 ET)"));
 
             JsonNode horasExtraNodo = convenio.raw().path("horasExtraordinarias");
+
+            // (1) Precio €/hora FIJO del convenio (Teruel, Almería...).
             Optional<BigDecimal> precioConvenio = ValoresPorAnio.resuelve(horasExtraNodo.path("importe"), anio);
             if (precioConvenio.isPresent() && precioConvenio.get().compareTo(precio) > 0) {
                 precio = precioConvenio.get();
                 citas.add(new Cita("Precio de hora extra fijado en " + precio.toPlainString()
                         + " €/h (" + articulo(horasExtraNodo) + " del convenio)", convenio.fuenteUrl()));
+            }
+
+            // (2) RECARGO PORCENTUAL sobre la hora ordinaria: la forma más común
+            // del corpus (23 convenios: Cádiz 75%, Granada 100%, Ourense 100%...).
+            // precio = valorHora × (1 + %/100). Antes se ignoraba y la hora extra
+            // se pagaba igual que la ordinaria — dinero de menos para el trabajador.
+            Optional<RecargoExtra> recargo = recargoPorcentual(horasExtraNodo);
+            if (recargo.isPresent()) {
+                BigDecimal factor = BigDecimal.ONE.add(
+                        BigDecimal.valueOf(recargo.get().porcentaje()).movePointLeft(2));
+                BigDecimal conRecargo = valorHora.valorHora().multiply(factor);
+                if (conRecargo.compareTo(precio) > 0) {
+                    precio = conRecargo;
+                    citas.add(new Cita(recargo.get().nota() + " (" + articulo(horasExtraNodo)
+                            + " del convenio)", convenio.fuenteUrl()));
+                }
             }
 
             BigDecimal importe = precio.multiply(horas).setScale(DECIMALES_IMPORTE, RoundingMode.HALF_UP);
@@ -137,7 +155,51 @@ public class CalculoConvenioService {
                         "Tope de " + TOPE_HORAS_EXTRA_ET + " h extraordinarias al año (art. 35.2 ET)")));
     }
 
-    /** El corpus usa `pagasExtraordinarias` casi siempre; tres convenios usan `pagas`. */
+    /** Recargo % de la hora extra: el porcentaje a aplicar y el texto de la cita. */
+    private record RecargoExtra(int porcentaje, String nota) {}
+
+    /** Nombres bajo los que el corpus guarda el recargo % plano de la hora extra. */
+    private static final String[] CLAVES_RECARGO_PCT =
+            {"porcentaje", "recargoPct", "incrementoAbonoPorcentaje"};
+
+    /**
+     * Recargo porcentual de la hora extra sobre la ordinaria, si el convenio lo
+     * fija así (entero, p. ej. 75 o 100). Vacío si no hay recargo porcentual o si
+     * su base no es la hora ordinaria (no se aplica a ciegas sobre otra base).
+     */
+    private static Optional<RecargoExtra> recargoPorcentual(JsonNode horasExtraNodo) {
+        JsonNode sobre = horasExtraNodo.path("sobre");
+        // Si el convenio dice explícitamente sobre qué base va, exigimos que sea
+        // la hora/salario ordinaria; si no lo dice (p. ej. incrementoAbono), se
+        // asume ordinaria (que es la definición del incremento del abono).
+        // "ordinari" cubre las tres formas del corpus: "hora_ordinaria",
+        // "valor_hora_ordinaria" y "salario_real_ordinario" (masculino).
+        if (sobre.isTextual() && !sobre.asText().toLowerCase().contains("ordinari")) {
+            return Optional.empty();
+        }
+        // Caso normal: un único recargo plano.
+        for (String clave : CLAVES_RECARGO_PCT) {
+            JsonNode n = horasExtraNodo.path(clave);
+            if (n.isInt() && n.asInt() > 0) {
+                return Optional.of(new RecargoExtra(n.asInt(),
+                        "La hora extra se paga con un recargo del " + n.asInt() + "% sobre la ordinaria"));
+            }
+        }
+        // Caso a tramos (Córdoba): 50% la primera hora de la semana, 75% el resto.
+        // Aplicamos el MÍNIMO garantizado para no prometer de más, y citamos ambos.
+        JsonNode resto = horasExtraNodo.path("recargoRestoHoras");
+        if (resto.isInt() && resto.asInt() > 0) {
+            JsonNode primera = horasExtraNodo.path("recargoPrimeraHoraSemanal");
+            int r = resto.asInt();
+            int p = primera.isInt() && primera.asInt() > 0 ? primera.asInt() : r;
+            int minimo = Math.min(p, r);
+            return Optional.of(new RecargoExtra(minimo,
+                    "La hora extra lleva recargo (el " + p + "% la primera hora de la semana y el "
+                            + r + "% el resto); mostramos el " + minimo + "% como mínimo garantizado"));
+        }
+        return Optional.empty();
+    }
+
     /**
      * Mensualidades totales al año del convenio (14, 15...); vacío si el convenio
      * no las publica. Necesario para el cómputo ANUAL del SMI y del valor hora.
@@ -146,6 +208,7 @@ public class CalculoConvenioService {
         return mensualidades(nodoPagas(convenio));
     }
 
+    /** El corpus usa `pagasExtraordinarias` casi siempre; tres convenios usan `pagas`. */
     private static JsonNode nodoPagas(Convenio convenio) {
         JsonNode nodo = convenio.raw().path("pagasExtraordinarias");
         return nodo.isObject() ? nodo : convenio.raw().path("pagas");
