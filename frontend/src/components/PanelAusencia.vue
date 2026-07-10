@@ -12,10 +12,11 @@ import PanelPlegable from './PanelPlegable.vue'
  *
  * Va dentro de un <form> para que Intro dispare el registro igual que el botón.
  */
-const abierto = defineModel<boolean>('abierto', { default: false })
 const motivo = defineModel<string>('motivo', { default: '' })
 
-defineProps<{ fichando: boolean }>()
+// `abierto` es solo lectura: el toggle es del padre y este panel nunca se
+// cierra solo, así que una prop plana dice la verdad mejor que un v-model.
+defineProps<{ abierto: boolean; fichando: boolean }>()
 
 defineEmits<{ registrar: [] }>()
 </script>

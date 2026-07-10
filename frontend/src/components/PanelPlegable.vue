@@ -31,7 +31,19 @@ defineProps<{
 .plegable {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows var(--dur-panel) var(--curva-salida);
+  transition:
+    grid-template-rows var(--dur-panel) var(--curva-salida),
+    margin-top var(--dur-panel) var(--curva-salida);
+}
+
+/*
+ * CONTRATO PÚBLICO de estilo: cerrado, el panel mide 0 pero sigue ocupando
+ * el gap de la columna del padre. El padre que quiera compensar ese hueco
+ * define --plegable-compensa-gap con SU gap; sin definirla no pasa nada.
+ * (Si renombras la variable, busca a sus consumidores: es API.)
+ */
+.plegable:not(.abierto) {
+  margin-top: calc(-1 * var(--plegable-compensa-gap, 0px));
 }
 
 .plegable.abierto {

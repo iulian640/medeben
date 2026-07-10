@@ -384,6 +384,7 @@ function reenviaConfirmada(confirmado: boolean) {
                 type="button"
                 class="boton-fantasma excepcion"
                 :aria-expanded="mostrarHoraManual"
+                aria-controls="panel-hora-manual"
                 @click="mostrarHoraManual = !mostrarHoraManual"
               >
                 Registrar el turno manualmente
@@ -392,21 +393,26 @@ function reenviaConfirmada(confirmado: boolean) {
                 type="button"
                 class="boton-fantasma excepcion"
                 :aria-expanded="mostrarAusencia"
+                aria-controls="panel-ausencia"
                 @click="mostrarAusencia = !mostrarAusencia"
               >
                 No he ido
               </button>
             </div>
 
+            <!-- El id cae por attrs en la raíz del panel: es lo que apunta
+                 el aria-controls de su toggle. -->
             <PanelHoraManual
-              v-model:abierto="mostrarHoraManual"
+              id="panel-hora-manual"
+              :abierto="mostrarHoraManual"
               v-model:hora="horaManual"
               :fichando="fichajes.fichando"
               @fichar="fichaManual"
             />
 
             <PanelAusencia
-              v-model:abierto="mostrarAusencia"
+              id="panel-ausencia"
+              :abierto="mostrarAusencia"
               v-model:motivo="motivo"
               :fichando="fichajes.fichando"
               @registrar="registraAusencia"
@@ -549,11 +555,10 @@ h1 {
   gap: var(--esp-sm);
 }
 
-/* Un panel plegado mide 0 pero sigue sumando el gap de la columna: dos
- * paneles cerrados dejaban un hueco muerto bajo las excepciones. El margen
- * negativo cancela ese gap solo mientras están cerrados. */
-.acciones :deep(.plegable:not(.abierto)) {
-  margin-top: calc(-1 * var(--esp-sm));
+/* Los paneles plegados no dejan hueco muerto bajo las excepciones: se les
+ * pasa el gap de esta columna por el contrato de estilo de PanelPlegable. */
+.acciones {
+  --plegable-compensa-gap: var(--esp-sm);
 }
 
 .excepcion {

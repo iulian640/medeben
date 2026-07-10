@@ -15,10 +15,11 @@ import PanelPlegable from './PanelPlegable.vue'
  * Va dentro de un <form>: en el móvil, en marcha, poder pulsar Intro para fichar
  * la entrada (la acción más común) es justo lo que pide el caso de uso.
  */
-const abierto = defineModel<boolean>('abierto', { default: false })
 const hora = defineModel<string>('hora', { default: '' })
 
-defineProps<{ fichando: boolean }>()
+// `abierto` es solo lectura: el toggle es del padre y este panel nunca se
+// cierra solo, así que una prop plana dice la verdad mejor que un v-model.
+defineProps<{ abierto: boolean; fichando: boolean }>()
 
 defineEmits<{ fichar: [tipo: TipoApunte] }>()
 </script>
