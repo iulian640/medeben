@@ -10,8 +10,8 @@ const auth = useAuthStore()
 
 /**
  * Iconos de línea (SVG inline, currentColor): heredan el color de la pestaña,
- * así que la activa se tiñe de acento sin lógica extra. Trazo geométrico
- * simple para que se lean nítidos a 22px en cualquier densidad.
+ * así que la activa se tiñe sin lógica extra. Trazo geométrico simple para
+ * que se lean nítidos a 22px en cualquier densidad.
  */
 const pestanas = [
   {
@@ -71,22 +71,29 @@ const pestanas = [
   display: flex;
   height: calc(var(--altura-nav) + env(safe-area-inset-bottom, 0px));
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  background: var(--color-bg);
-  border-top: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
-  z-index: 10;
+  background: var(--papel);
+  border-top: 1px solid var(--linea);
+  box-shadow: var(--sombra-1);
+  z-index: var(--z-nav);
 }
 
 .pestana {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.15rem;
-  font-size: 0.75rem;
-  font-weight: 600;
+  gap: 0.2rem;
+  font-size: var(--tipo-xs);
+  font-weight: var(--peso-etiqueta);
   text-decoration: none;
-  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  color: var(--tinta-suave);
+  transition: color var(--dur-estado) var(--curva-suave);
+}
+
+.pestana:hover {
+  color: var(--tinta);
 }
 
 .icono {
@@ -94,8 +101,29 @@ const pestanas = [
   height: 1.4rem;
 }
 
-/* La pestaña de la pantalla actual, en el color de acción. */
+/* La pestaña actual: tinta plena + el listón verde que se despliega arriba.
+ * El listón es transform-only (scaleX), nunca layout. */
+.pestana::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 2rem;
+  height: 0.1875rem;
+  border-radius: var(--radio-pastilla);
+  background: var(--verde);
+  transform: scaleX(0);
+  transition: transform var(--dur-estado) var(--curva-salida);
+}
+
 .pestana.router-link-active {
-  color: var(--color-accent);
+  color: var(--tinta);
+}
+
+.pestana.router-link-active::before {
+  transform: scaleX(1);
+}
+
+.pestana.router-link-active .icono {
+  color: var(--verde);
 }
 </style>
