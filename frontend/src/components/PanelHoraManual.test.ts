@@ -19,9 +19,9 @@ describe('PanelHoraManual', () => {
     // El form vive siempre en el DOM (PanelPlegable lo despliega animado);
     // cerrado, lo que lo saca de la interacción es el inert, no su ausencia.
     expect(wrapper.find('.plegable').attributes()).toHaveProperty('inert')
-    expect(boton(wrapper, '¿A otra hora?').attributes('aria-expanded')).toBe('false')
+    expect(boton(wrapper, 'Registrar el turno manualmente').attributes('aria-expanded')).toBe('false')
 
-    await boton(wrapper, '¿A otra hora?').trigger('click')
+    await boton(wrapper, 'Registrar el turno manualmente').trigger('click')
 
     expect(wrapper.emitted('update:abierto')).toStrictEqual([[true]])
   })
