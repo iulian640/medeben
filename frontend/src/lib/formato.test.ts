@@ -92,6 +92,19 @@ describe('etiquetaValor', () => {
     expect(etiquetaValor('areaFuncional', 'AF4_pisos_limpieza')).toBe('Pisos y limpieza')
   })
 
+  it('traduce los tipos de establecimiento de los convenios condicionales', () => {
+    expect(etiquetaValor('establecimiento', 'hoteles_5o4_estrellas')).toBe('Hoteles de 4 o 5 estrellas')
+    expect(etiquetaValor('establecimiento', 'cafes_bares_cervecerias_especial')).toBe(
+      'Cafés, bares y cervecerías (categoría especial)',
+    )
+    expect(etiquetaValor('establecimiento', 'restaurantes_5_tenedores')).toBe(
+      'Restaurantes de 5 tenedores',
+    )
+    expect(etiquetaValor('establecimiento', 'colectividades')).toBe(
+      'Colectividades (comedores, hospitales, catering…)',
+    )
+  })
+
   it('humaniza códigos snake_case y camelCase desconocidos', () => {
     expect(etiquetaValor('seccion', '1y2_hotelesHostales')).toBe('1 y 2 hoteles hostales')
     expect(etiquetaValor('tipoEstablecimiento', 'cafeterias_bares')).toBe('Cafeterias bares')
