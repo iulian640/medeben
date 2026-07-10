@@ -17,11 +17,13 @@ const PASOS = [
       'fichar al entrar y al salir, aunque también puedes apuntarlo más tarde.',
   },
   {
-    titulo: 'A los 14 días, cada día se sella',
+    titulo: 'A los 14 días, cada día queda protegido',
     texto:
-      'Tienes 14 días para completar o corregir cada día. Después se sella: ' +
-      'ya no se cambia, y ese sello es justo lo que hace creíble tu libreta ' +
-      'si algún día la necesitas para reclamar.',
+      'Tienes 14 días para completar o corregir un día con calma. Después queda ' +
+      'protegido: lo apuntado ya no se reescribe, así que nadie puede cambiarlo en ' +
+      'tu contra. Si necesitas rectificar algo, se anota aparte con su fecha, como ' +
+      'en una contabilidad. Esa protección es justo lo que hace que tu libreta valga ' +
+      'como prueba si algún día reclamas.',
   },
   {
     titulo: 'Los huecos son normales',

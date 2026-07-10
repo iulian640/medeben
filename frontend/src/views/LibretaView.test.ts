@@ -90,7 +90,7 @@ afterEach(() => {
 })
 
 describe('LibretaView — el día', () => {
-  it('muestra el estado del día, sus apuntes y el contador de sellado', async () => {
+  it('muestra el estado del día y sus apuntes, sin el contador de sellado (retirado por ruido)', async () => {
     const wrapper = await montar()
 
     expect(wrapper.text()).toContain('miércoles 08/07/2026')
@@ -98,22 +98,9 @@ describe('LibretaView — el día', () => {
     expect(wrapper.text()).toContain('Entrada')
     expect(wrapper.text()).toContain('a las 14:05')
     expect(wrapper.text()).toContain('fichado al momento')
-    // Contador de cierre (D38): día de la semana + fecha + cuenta atrás en
-    // cristiano. La cuenta atrás depende del día real, así que se ata el patrón.
-    expect(wrapper.text()).toContain('Este día se sella el jueves 23/07/2026')
-    expect(wrapper.text()).toMatch(/— (hoy|mañana|en \d+ días)\./)
-  })
-
-  it('un día sellado lo dice como tal en el contador', async () => {
-    vi.mocked(getEstadoDia).mockResolvedValue({
-      ...diaServidor,
-      sellado: true,
-      selladoDesde: '2026-06-15',
-    })
-
-    const wrapper = await montar()
-
-    expect(wrapper.text()).toContain('Este día está sellado desde el 15/06/2026')
+    // El contador diario de sellado se retiró: era ruido. La protección se
+    // explica en el onboarding y el panel de rectificación aparece cuando toca.
+    expect(wrapper.text()).not.toMatch(/se sella|queda protegido como prueba/)
   })
 
   it('si la carga falla, enseña el error y deja reintentar', async () => {
@@ -171,7 +158,7 @@ describe('LibretaView — fichar', () => {
       motivo: null,
       rectificacionTardiaConfirmada: false,
     })
-    expect(wrapper.text()).toContain('✓ sellado a las 14:06')
+    expect(wrapper.text()).toContain('✓ apuntado a las 14:06')
   })
 
   it('"Salgo ahora" manda una SALIDA', async () => {
@@ -284,7 +271,7 @@ describe('LibretaView — día sellado (409)', () => {
     vi.mocked(postApunte).mockRejectedValueOnce(
       new ApiError(409, 'API 409', {
         status: 409,
-        detail: 'El día 2026-07-08 ya está sellado; solo cabe una rectificación tardía',
+        detail: 'El día 2026-07-08 ya quedó protegido (pasados 14 días): solo cabe una rectificación tardía',
       }),
     )
     vi.mocked(postApunte).mockResolvedValueOnce({
@@ -297,9 +284,9 @@ describe('LibretaView — día sellado (409)', () => {
     await flushPromises()
 
     // La explicación en cristiano, con la fricción del checkbox.
-    expect(wrapper.text()).toContain('Este día ya está sellado')
+    expect(wrapper.text()).toContain('Este día ya quedó protegido')
     expect(wrapper.text()).toContain('rectificación tardía')
-    expect(wrapper.text()).toContain('lo sellado no se toca')
+    expect(wrapper.text()).toContain('lo ya protegido no se toca')
     const confirmar = boton(wrapper, 'Registrar la rectificación')
     expect(confirmar.attributes('disabled')).toBeDefined()
 
@@ -313,7 +300,7 @@ describe('LibretaView — día sellado (409)', () => {
       expect.objectContaining({ tipo: 'ENTRADA', rectificacionTardiaConfirmada: true }),
     )
     // Tras el éxito, el panel de rectificación desaparece.
-    expect(wrapper.text()).not.toContain('Este día ya está sellado')
+    expect(wrapper.text()).not.toContain('Este día ya quedó protegido')
   })
 })
 

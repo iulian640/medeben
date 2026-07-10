@@ -11,8 +11,8 @@ describe('LibretaOnboarding', () => {
     expect(wrapper.text()).toContain('1 de 3')
     await wrapper.find('button').trigger('click')
 
-    // Paso 2: a los 14 días cada día se sella.
-    expect(wrapper.text()).toContain('A los 14 días, cada día se sella')
+    // Paso 2: a los 14 días cada día queda protegido.
+    expect(wrapper.text()).toContain('A los 14 días, cada día queda protegido')
     await wrapper.find('button').trigger('click')
 
     // Paso 3: los huecos son normales y dan credibilidad.
