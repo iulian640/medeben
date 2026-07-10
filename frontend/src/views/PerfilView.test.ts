@@ -1,9 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
+import { createMemoryHistory, createRouter, type Router } from 'vue-router'
 import { ApiError } from '../services/api'
 import type { ConvenioResumen, OcupacionResuelta, SalarioBase } from '../services/convenios'
 import PerfilView from './PerfilView.vue'
+import { useAuthStore } from '../stores/auth'
 
 vi.mock('../services/convenios', () => ({
   getProvincias: vi.fn(),
@@ -11,6 +13,10 @@ vi.mock('../services/convenios', () => ({
   getPuestos: vi.fn(),
   getOcupacion: vi.fn(),
   postSalarioBase: vi.fn(),
+}))
+vi.mock('../services/auth', () => ({
+  postLogin: vi.fn(),
+  postRegistro: vi.fn(),
 }))
 
 import {
@@ -20,6 +26,20 @@ import {
   getPuestos,
   postSalarioBase,
 } from '../services/convenios'
+import { postLogin } from '../services/auth'
+
+const Stub = { template: '<div />' }
+
+function crearRouter(): Router {
+  return createRouter({
+    history: createMemoryHistory(),
+    routes: [
+      { path: '/', name: 'home', component: Stub },
+      { path: '/perfil', name: 'perfil', component: PerfilView },
+      { path: '/login', name: 'login', component: Stub },
+    ],
+  })
+}
 
 const convenioMadrid: ConvenioResumen = {
   id: 'madrid-hosteleria',
@@ -51,7 +71,9 @@ const salarioMensual: SalarioBase = {
 async function montar() {
   const pinia = createPinia()
   setActivePinia(pinia)
-  const wrapper = mount(PerfilView, { global: { plugins: [pinia] } })
+  const router = crearRouter()
+  await router.push('/perfil')
+  const wrapper = mount(PerfilView, { global: { plugins: [pinia, router] } })
   await flushPromises()
   return wrapper
 }
@@ -77,6 +99,28 @@ beforeEach(() => {
 })
 
 describe('PerfilView', () => {
+  it('sin sesión, la cabecera ofrece entrar (única salida visible) con vuelta aquí', async () => {
+    const wrapper = await montar()
+
+    const enlace = wrapper.find('.enlace-entrar')
+    expect(enlace.exists()).toBe(true)
+    expect(enlace.attributes('href')).toBe('/login?redirect=/perfil')
+  })
+
+  it('con sesión no hace falta el enlace de entrar: la barra inferior ya da salida', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2027-01-01T00:00:00Z' })
+    const pinia = createPinia()
+    setActivePinia(pinia)
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    const router = crearRouter()
+    await router.push('/perfil')
+    const wrapper = mount(PerfilView, { global: { plugins: [pinia, router] } })
+    await flushPromises()
+
+    expect(wrapper.find('.enlace-entrar').exists()).toBe(false)
+  })
+
   it('carga las provincias al montar y las ofrece en el selector', async () => {
     const wrapper = await montar()
 

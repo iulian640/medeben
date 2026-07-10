@@ -22,7 +22,7 @@ const claseCalculadora = computed(() => (auth.autenticado ? 'boton-secundario' :
     <div class="marca">
       <h1>MeDeben</h1>
       <p class="tagline texto-suave">
-        Las horas que trabajas, cobradas.
+        Registra tus horas trabajadas
       </p>
     </div>
 

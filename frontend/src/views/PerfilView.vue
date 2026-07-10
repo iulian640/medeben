@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { usePerfilStore } from '../stores/perfil'
+import { useAuthStore } from '../stores/auth'
 import { SUBSECTORES } from '../lib/subsectores'
 import {
   describeVigencia,
@@ -18,6 +19,7 @@ import HorasExtraCalculadora from '../components/HorasExtraCalculadora.vue'
 import ImporteDinero from '../components/ImporteDinero.vue'
 
 const perfil = usePerfilStore()
+const auth = useAuthStore()
 const resultadoRef = ref<HTMLElement | null>(null)
 
 onMounted(() => {
@@ -39,6 +41,15 @@ const dimensionesResueltas = computed(() =>
 )
 
 const siguientePendiente = computed(() => perfil.pendientesSinResponder[0] ?? null)
+
+/*
+ * ¿La cifra grande es el suelo del SMI (y no la tabla del convenio)? Cambia
+ * el título: llamarlo "salario base" sería impreciso — el suelo es el SMI en
+ * cómputo anual, y con pluses hay absorción (nota del java-reviewer).
+ */
+const ensenaSueloLegal = computed(
+  () => perfil.salario?.bajoSmi === true && perfil.salario?.minimoLegal != null,
+)
 
 /*
  * ImporteDinero ya pinta su propio "€" junto a la cifra grande; etiquetaUnidad
@@ -77,7 +88,19 @@ watch(
 
 <template>
   <main class="perfil">
-    <h1>Tu convenio, en claro</h1>
+    <!-- Sin sesión no hay barra inferior: este enlace es la única salida
+         visible de la pantalla (QA de Iulian). El redirect te devuelve aquí
+         tras entrar, con tu consulta a medias intacta en el store. -->
+    <header class="cabecera">
+      <h1>Tu convenio, en claro</h1>
+      <RouterLink
+        v-if="!auth.autenticado"
+        class="enlace-entrar"
+        :to="{ name: 'login', query: { redirect: '/perfil' } }"
+      >
+        Entra o crea tu cuenta
+      </RouterLink>
+    </header>
     <p class="intro texto-suave">
       Dos preguntas y te decimos lo mínimo que te tienen que pagar. Sin registrarte, sin guardar nada.
     </p>
@@ -255,7 +278,7 @@ watch(
       class="tarjeta resultado"
     >
       <h2 class="titulo-seccion">
-        Tu salario base mínimo
+        {{ ensenaSueloLegal ? 'Lo mínimo que te corresponde por ley' : 'Tu salario base mínimo' }}
       </h2>
       <!-- La cifra grande es SIEMPRE lo que por ley te corresponde como
            mínimo: si la tabla quedó por debajo del SMI, manda el suelo
@@ -281,8 +304,8 @@ watch(
         <template v-if="perfil.salario.minimoLegal != null">
           La tabla de tu convenio para este puesto se queda en
           {{ formatearImporte(perfil.salario.importe) }} €, por debajo del salario
-          mínimo. La cifra de arriba es el suelo legal: el SMI del año, repartido
-          entre las pagas de tu convenio y sin contar pluses. Por ley no pueden
+          mínimo. La cifra de arriba es el suelo legal: el SMI del año, en las
+          mismas unidades que tu tabla y sin contar pluses. Por ley no pueden
           pagarte menos en el año; si con tus pluses no llegas, la diferencia es tuya.
         </template>
         <template v-else>
@@ -329,6 +352,20 @@ watch(
 
 h1 {
   font-size: var(--tipo-titulo);
+}
+
+.cabecera {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--esp-md);
+  flex-wrap: wrap; /* el título es largo: en 320px el enlace baja de línea */
+}
+
+.enlace-entrar {
+  font-size: var(--tipo-sm);
+  font-weight: var(--peso-etiqueta);
+  white-space: nowrap;
 }
 
 /* Cada pregunta es su propio bloque, apretado por dentro; el ritmo entre
