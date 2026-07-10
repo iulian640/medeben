@@ -16,6 +16,8 @@ vi.mock('../services/horario', () => ({
 vi.mock('../services/auth', () => ({
   postLogin: vi.fn(),
   postRegistro: vi.fn(),
+  // cerrarSesion revoca en el servidor (B4): fire-and-forget que debe resolver.
+  postLogout: vi.fn().mockResolvedValue(undefined),
 }))
 
 import { getEstadoDia, postApunte } from '../services/fichajes'
@@ -234,7 +236,7 @@ describe('fichajes store — el día', () => {
   })
 
   it('cerrar sesión limpia la libreta desde el punto central de auth', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
     vi.mocked(getEstadoDia).mockResolvedValue(diaServidor)

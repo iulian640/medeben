@@ -33,6 +33,27 @@ let authToken: string | null = null
 /** Aviso de sesión inválida (401 con token). Lo registra main.ts para limpiar sesión y llevar a login. */
 let onUnauthorized: (() => void) | null = null
 
+/**
+ * Renovación de la sesión (B4). Lo registra main.ts: devuelve true si el
+ * refresh rotó los tokens (y la petición original puede reintentarse) o false
+ * si la sesión ya no tiene arreglo (toca expulsar).
+ */
+let onRefresh: (() => Promise<boolean>) | null = null
+
+/** Single-flight: N peticiones con 401 a la vez comparten UN solo refresh. */
+let refreshEnVuelo: Promise<boolean> | null = null
+
+/** Opciones del cliente además de las de fetch. */
+export interface OpcionesApi extends RequestInit {
+  /**
+   * No adjuntar el Bearer aunque haya sesión. Para /auth/refresh y
+   * /auth/logout: viajan con el refresh en el body, y un access CADUCADO en
+   * la cabecera haría que el resource server respondiera 401 antes de mirar
+   * nada (y de paso evita cualquier bucle refresh→401→refresh).
+   */
+  anonimo?: boolean
+}
+
 export function setAuthToken(token: string | null) {
   authToken = token
 }
@@ -41,33 +62,53 @@ export function setOnUnauthorized(handler: (() => void) | null) {
   onUnauthorized = handler
 }
 
-async function envia(path: string, options: RequestInit): Promise<Response> {
+export function setOnRefresh(handler: (() => Promise<boolean>) | null) {
+  onRefresh = handler
+  refreshEnVuelo = null
+}
+
+async function envia(path: string, options: OpcionesApi, esReintento = false): Promise<Response> {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
 
   // Capturado antes del await: si la sesión cambia en vuelo, el 401 de esta
   // respuesta solo dispara el handler si ESTA petición iba autenticada.
-  const tokenEnviado = authToken
+  const tokenEnviado = options.anonimo ? null : authToken
+  // fetch no conoce 'anonimo': fuera antes de pasárselo.
+  const { anonimo: _anonimo, ...init } = options
+  void _anonimo
 
   let response: Response
   try {
     // Spread options first so caller headers merge with — not clobber — the defaults.
     response = await fetch(`${API_BASE}${path}`, {
       signal: controller.signal,
-      ...options,
+      ...init,
       headers: {
         'Content-Type': 'application/json',
         ...(tokenEnviado ? { Authorization: `Bearer ${tokenEnviado}` } : {}),
-        ...options.headers,
+        ...init.headers,
       },
     })
   } finally {
     clearTimeout(timeout)
   }
 
-  // 401 con token = sesión caducada o inválida. Sin token (p. ej. un login
-  // fallido) NO es una sesión caducada y no debe redirigir a nadie.
+  // 401 con token: antes de expulsar se intenta renovar la sesión UNA vez
+  // (B4). Sin token (login fallido, refresh, logout) no hay nada que renovar.
   if (response.status === 401 && tokenEnviado !== null) {
+    if (!esReintento && onRefresh !== null) {
+      if (refreshEnVuelo === null) {
+        refreshEnVuelo = onRefresh().finally(() => {
+          refreshEnVuelo = null
+        })
+      }
+      const renovado = await refreshEnVuelo
+      if (renovado) {
+        // Reintento único con el token ya rotado (envia lo relee del módulo).
+        return envia(path, options, true)
+      }
+    }
     onUnauthorized?.()
   }
 
@@ -82,7 +123,7 @@ async function envia(path: string, options: RequestInit): Promise<Response> {
   return response
 }
 
-async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
+async function request<T>(path: string, options: OpcionesApi = {}): Promise<T> {
   const response = await envia(path, options)
 
   if (response.status === 204 || response.headers.get('Content-Length') === '0') {
@@ -102,18 +143,18 @@ async function requestBlob(path: string): Promise<Blob> {
 }
 
 export const api = {
-  get: <T>(path: string, options: RequestInit = {}) => request<T>(path, options),
+  get: <T>(path: string, options: OpcionesApi = {}) => request<T>(path, options),
 
   getBlob: (path: string) => requestBlob(path),
 
-  post: <T>(path: string, body: unknown, options: RequestInit = {}) =>
+  post: <T>(path: string, body: unknown, options: OpcionesApi = {}) =>
     request<T>(path, { ...options, method: 'POST', body: JSON.stringify(body) }),
 
-  put: <T>(path: string, body: unknown, options: RequestInit = {}) =>
+  put: <T>(path: string, body: unknown, options: OpcionesApi = {}) =>
     request<T>(path, { ...options, method: 'PUT', body: JSON.stringify(body) }),
 
   // El body es opcional: el borrado de cuenta re-confirma con la contraseña.
-  delete: <T>(path: string, body?: unknown, options: RequestInit = {}) =>
+  delete: <T>(path: string, body?: unknown, options: OpcionesApi = {}) =>
     request<T>(path, {
       ...options,
       method: 'DELETE',

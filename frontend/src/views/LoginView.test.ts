@@ -51,7 +51,7 @@ describe('LoginView', () => {
   })
 
   it('con login correcto navega al destino por defecto (/cuenta)', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const { wrapper, router } = await montar()
 
     await wrapper.find('input[type="email"]').setValue('ana@example.com')
@@ -64,7 +64,7 @@ describe('LoginView', () => {
   })
 
   it('ignora un redirect externo (open redirect) y va a /cuenta', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const { wrapper, router } = await montar('/login?redirect=https://evil.example')
 
     await wrapper.find('input[type="email"]').setValue('ana@example.com')
@@ -76,7 +76,7 @@ describe('LoginView', () => {
   })
 
   it('vuelve a la ruta interna del redirect tras entrar', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const { wrapper, router } = await montar('/login?redirect=/cuenta')
 
     await wrapper.find('input[type="email"]').setValue('ana@example.com')

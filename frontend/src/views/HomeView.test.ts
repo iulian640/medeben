@@ -44,7 +44,7 @@ describe('HomeView', () => {
   })
 
   it('con sesión enseña el acceso a la libreta y a la cuenta', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
 

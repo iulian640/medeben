@@ -2,5 +2,7 @@ package es.medeben.dto;
 
 import java.time.Instant;
 
-public record TokenResponse(String token, Instant expiraEn) {
+/** Sesión abierta o refrescada: access JWT corto + refresh opaco revocable (B4). */
+public record TokenResponse(String token, Instant expiraEn,
+                            String refreshToken, Instant refreshExpiraEn) {
 }

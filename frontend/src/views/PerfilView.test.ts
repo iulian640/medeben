@@ -109,7 +109,7 @@ describe('PerfilView', () => {
   })
 
   it('con sesión no hace falta el enlace de entrar: la barra inferior ya da salida', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2027-01-01T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2027-01-01T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const pinia = createPinia()
     setActivePinia(pinia)
     const auth = useAuthStore()

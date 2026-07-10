@@ -41,7 +41,7 @@ async function montar(ruta = '/') {
 }
 
 async function conSesion() {
-  vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2027-01-01T00:00:00Z' })
+  vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2027-01-01T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
   const auth = useAuthStore()
   await auth.iniciarSesion('ana@example.com', 'superclave123')
 }

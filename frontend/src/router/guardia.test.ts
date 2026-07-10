@@ -18,7 +18,7 @@ function ruta(parcial: Partial<RouteLocationNormalized>): RouteLocationNormalize
 
 /** El token es de solo lectura: la sesión de prueba se abre por la puerta de verdad. */
 async function conSesion(): Promise<ReturnType<typeof useAuthStore>> {
-  vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+  vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
   const auth = useAuthStore()
   await auth.iniciarSesion('ana@example.com', 'superclave123')
   return auth

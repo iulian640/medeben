@@ -5,7 +5,7 @@ import es.medeben.domain.usuario.Usuario;
 import es.medeben.service.AuthService;
 import es.medeben.service.CredencialesInvalidasException;
 import es.medeben.service.EmailYaRegistradoException;
-import es.medeben.service.TokenEmitido;
+import es.medeben.service.SesionEmitida;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,17 +78,72 @@ class AuthControllerTest {
     }
 
     @Test
-    @DisplayName("POST /auth/login correcto → token y expiración")
+    @DisplayName("POST /auth/login correcto → access, expiración y refresh (B4)")
     void login() throws Exception {
-        when(authService.login(anyString(), anyString()))
-                .thenReturn(new TokenEmitido("un.jwt.firmado", Instant.parse("2026-07-09T12:00:00Z")));
+        when(authService.login(anyString(), anyString())).thenReturn(sesionDePrueba());
 
         mockMvc.perform(post("/api/v1/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {"email":"trabajador@example.com","password":"una-contraseña-larga"}"""))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.token").value("un.jwt.firmado"));
+                .andExpect(jsonPath("$.token").value("un.jwt.firmado"))
+                .andExpect(jsonPath("$.refreshToken").value("refresh-opaco"))
+                .andExpect(jsonPath("$.refreshExpiraEn").exists());
+    }
+
+    @Test
+    @DisplayName("POST /auth/refresh sin access token → 200 con la sesión rotada (público, como el login)")
+    void refresh() throws Exception {
+        when(authService.refresca("refresh-opaco")).thenReturn(sesionDePrueba());
+
+        mockMvc.perform(post("/api/v1/auth/refresh")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"refreshToken":"refresh-opaco"}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.token").value("un.jwt.firmado"))
+                .andExpect(jsonPath("$.refreshToken").value("refresh-opaco"));
+    }
+
+    @Test
+    @DisplayName("refresh inválido/reutilizado → 401 idéntico al de credenciales (sin oráculo)")
+    void refreshInvalido() throws Exception {
+        when(authService.refresca(anyString())).thenThrow(new CredencialesInvalidasException());
+
+        mockMvc.perform(post("/api/v1/auth/refresh")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"refreshToken":"robado-o-caducado"}"""))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    @DisplayName("refresh sin body válido → 400, el servicio ni se llama")
+    void refreshSinToken() throws Exception {
+        mockMvc.perform(post("/api/v1/auth/refresh")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{}"))
+                .andExpect(status().isBadRequest());
+
+        org.mockito.Mockito.verify(authService, org.mockito.Mockito.never()).refresca(anyString());
+    }
+
+    @Test
+    @DisplayName("POST /auth/logout → 204 siempre (idempotente, revoca en servidor)")
+    void logout() throws Exception {
+        mockMvc.perform(post("/api/v1/auth/logout")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"refreshToken":"refresh-opaco"}"""))
+                .andExpect(status().isNoContent());
+
+        org.mockito.Mockito.verify(authService).cierraSesion("refresh-opaco");
+    }
+
+    private static SesionEmitida sesionDePrueba() {
+        return new SesionEmitida("un.jwt.firmado", Instant.parse("2026-07-09T12:00:00Z"),
+                "refresh-opaco", Instant.parse("2026-07-16T12:00:00Z"));
     }
 
     @Test
