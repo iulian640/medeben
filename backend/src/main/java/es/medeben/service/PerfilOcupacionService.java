@@ -101,16 +101,24 @@ public class PerfilOcupacionService {
         // con un input del cliente. Solo se promociona a la tabla la DIMENSIÓN
         // RAÍZ del árbol cuando además indexa el salario (la zona en Cataluña,
         // que fue la pregunta y también es dimensión de la tabla); su valor ya
-        // lo validó el árbol al resolver el nivel. Ninguna otra respuesta entra
-        // aquí (ni 'nivel', ni auxiliares, ni query params sueltos): las demás
-        // dimensiones de tabla se piden como pendientes normales.
+        // lo validó el árbol al resolver el nivel.
         Map<String, String> fijas = new LinkedHashMap<>();
         String dimRaiz = arbol.dimension();
-        if (dimRaiz != null && respuestas.containsKey(dimRaiz)
-                && dimensionesDeTabla(convenioId).contains(dimRaiz)) {
+        Set<String> dimsTabla = dimensionesDeTabla(convenioId);
+        if (dimRaiz != null && respuestas.containsKey(dimRaiz) && dimsTabla.contains(dimRaiz)) {
             fijas.put(dimRaiz, respuestas.get(dimRaiz));
         }
         fijas.put("nivel", nivel.get());
+        // Además del nivel, la tabla puede pedir OTRAS dimensiones que no son del
+        // árbol (p. ej. la categoría del establecimiento en Cataluña): cuando el
+        // usuario ya las ha respondido, se pliegan aquí para no volver a preguntar
+        // en bucle. El `nivel` del árbol es autoritativo (ya está en `fijas`, así
+        // que no se pisa) y las respuestas que no son dimensión de tabla se ignoran.
+        respuestas.forEach((clave, valor) -> {
+            if (!fijas.containsKey(clave) && dimsTabla.contains(clave)) {
+                fijas.put(clave, valor);
+            }
+        });
         return resueltaConAutofijado(convenioId, fijas, articulo);
     }
 
