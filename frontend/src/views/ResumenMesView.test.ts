@@ -217,6 +217,31 @@ describe('ResumenMesView', () => {
     expect(wrapper.find('button[aria-label="Mes siguiente"]').attributes('disabled')).toBeUndefined()
   })
 
+  it('los botones de descarga nombran el mes y el año en pantalla, y siguen al navegar', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+
+    const wrapper = await montar()
+    const { useResumenStore } = await import('../stores/resumen')
+    const { etiquetaMes } = await import('../lib/meses')
+    const store = useResumenStore()
+
+    const textoBotones = () =>
+      wrapper
+        .findAll('button')
+        .filter((b) => b.text().includes('Descargar'))
+        .map((b) => b.text())
+
+    expect(textoBotones()).toEqual([
+      `Descargar el informe de ${etiquetaMes(store.mes)} (PDF)`,
+      `Descargar el histórico de ${store.mes.slice(0, 4)} (PDF)`,
+    ])
+
+    await wrapper.find('button[aria-label="Mes anterior"]').trigger('click')
+    await flushPromises()
+
+    expect(textoBotones()[0]).toBe(`Descargar el informe de ${etiquetaMes(store.mes)} (PDF)`)
+  })
+
   it('descarga el informe del mes en PDF (fetch con token, nunca un <a href> a pelo)', async () => {
     vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
     vi.mocked(getInformeMes).mockResolvedValue(new Blob(['%PDF'], { type: 'application/pdf' }))
