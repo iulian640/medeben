@@ -32,7 +32,7 @@ beforeEach(() => {
 
 describe('crearManejador401', () => {
   it('limpia la sesión y navega a login con la vuelta preparada', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const router = crearRouterPrueba()
     await router.push('/cuenta')
     const auth = useAuthStore()

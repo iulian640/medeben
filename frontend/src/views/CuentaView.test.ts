@@ -56,7 +56,7 @@ async function montar() {
   const pinia = createPinia()
   setActivePinia(pinia)
   // El token es de solo lectura: la sesión de prueba se abre por la puerta de verdad.
-  vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+  vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
   const auth = useAuthStore()
   await auth.iniciarSesion('ana@example.com', 'superclave123')
   const router = crearRouter()
@@ -258,7 +258,7 @@ describe('CuentaView', () => {
     vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
     const pinia = createPinia()
     setActivePinia(pinia)
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
     const router = crearRouter()

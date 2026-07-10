@@ -10,23 +10,28 @@ vi.mock('../services/auth', async (importOriginal) => ({
   postLogin: vi.fn(),
   postRegistro: vi.fn(),
   deleteCuenta: vi.fn(),
+  postRefresh: vi.fn(),
+  postLogout: vi.fn(),
 }))
 vi.mock('../services/api', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../services/api')>()),
   setAuthToken: vi.fn(),
 }))
 
-import { deleteCuenta, postLogin, postRegistro } from '../services/auth'
+import { deleteCuenta, postLogin, postLogout, postRefresh, postRegistro } from '../services/auth'
 import { setAuthToken } from '../services/api'
 
 beforeEach(() => {
   setActivePinia(createPinia())
   vi.clearAllMocks()
+  // El logout remoto es fire-and-forget: por defecto resuelve, y los tests
+  // que quieren red rota lo re-stubbean.
+  vi.mocked(postLogout).mockResolvedValue(undefined)
 })
 
 describe('auth store', () => {
   it('login OK: guarda token y email en memoria y lo registra en el cliente API', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
 
     const ok = await auth.iniciarSesion('ana@example.com', 'superclave123')
@@ -55,7 +60,7 @@ describe('auth store', () => {
 
   it('registro OK encadena el login con las mismas credenciales', async () => {
     vi.mocked(postRegistro).mockResolvedValue({ email: 'ana@example.com' })
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-456', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-456', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-456', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
 
     const ok = await auth.registrarse('ana@example.com', 'superclave123')
@@ -80,7 +85,7 @@ describe('auth store', () => {
   })
 
   it('cerrarSesion limpia todo y desregistra el token del cliente API', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
 
@@ -92,7 +97,7 @@ describe('auth store', () => {
   })
 
   it('sesionCaducada limpia la sesión y deja un aviso para la pantalla de login', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
 
@@ -104,7 +109,7 @@ describe('auth store', () => {
   })
 
   it('cerrarSesion vacía también el store de cuenta (dispositivo compartido)', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
     const cuenta = useCuentaStore()
@@ -126,7 +131,7 @@ describe('auth store', () => {
   })
 
   it('cerrarSesion vacía también el store de perfil (dispositivo compartido, review de seguridad)', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
     const perfil = usePerfilStore()
@@ -142,7 +147,7 @@ describe('auth store', () => {
   })
 
   it('la expulsión por 401 (sesionCaducada) también vacía el store de cuenta', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
     const cuenta = useCuentaStore()
@@ -156,7 +161,7 @@ describe('auth store', () => {
   })
 
   it('borrarCuenta OK: borra en el servidor, limpia la sesión ENTERA y deja el aviso de despedida', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     vi.mocked(deleteCuenta).mockResolvedValue(undefined)
     const auth = useAuthStore()
     await auth.iniciarSesion('ana@example.com', 'superclave123')
@@ -177,7 +182,7 @@ describe('auth store', () => {
   })
 
   it('borrarCuenta con contraseña incorrecta (403): error legible y la sesión NO se toca', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     vi.mocked(deleteCuenta).mockRejectedValue(
       new ApiError(403, 'API 403', { status: 403, detail: 'La contraseña no es correcta' }),
     )
@@ -196,7 +201,7 @@ describe('auth store', () => {
     // Dispositivo compartido: Ana lanza el borrado, cierra sesión antes de que
     // resuelva, y Bea inicia sesión. La promesa vieja no puede limpiar la
     // sesión de Bea ni dejarle el aviso de despedida de Ana.
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-ana', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-ana', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-ana', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     let resolverBorrado: () => void = () => {}
     vi.mocked(deleteCuenta).mockReturnValue(
       new Promise<void>((resolve) => {
@@ -209,7 +214,7 @@ describe('auth store', () => {
     const enVuelo = auth.borrarCuenta('superclave123')
     // Mientras el DELETE viaja: Ana sale y entra Bea.
     auth.cerrarSesion()
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-bea', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-bea', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-bea', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     await auth.iniciarSesion('bea@example.com', 'otraclave123')
 
     resolverBorrado()
@@ -223,7 +228,7 @@ describe('auth store', () => {
   })
 
   it('un intento nuevo de borrado limpia el error del intento anterior', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     vi.mocked(deleteCuenta)
       .mockRejectedValueOnce(
         new ApiError(403, 'API 403', { status: 403, detail: 'La contraseña no es correcta' }),
@@ -239,8 +244,89 @@ describe('auth store', () => {
     expect(auth.errorBorrado).toBeNull()
   })
 
+  // --- Refresh y logout real (B4) ---
+
+  it('refrescar rota los DOS tokens y sincroniza el cliente API', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
+    vi.mocked(postRefresh).mockResolvedValue({
+      token: 'jwt-rotado',
+      expiraEn: '2026-07-09T00:15:00Z',
+      refreshToken: 'refresh-rotado',
+      refreshExpiraEn: '2026-07-17T00:15:00Z',
+    })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    const ok = await auth.refrescar()
+
+    expect(ok).toBe(true)
+    expect(postRefresh).toHaveBeenCalledWith('refresh-jwt-123')
+    expect(auth.token).toBe('jwt-rotado')
+    expect(auth.refreshToken).toBe('refresh-rotado')
+    expect(setAuthToken).toHaveBeenLastCalledWith('jwt-rotado')
+  })
+
+  it('refrescar sin sesión → false, sin llamar a la red', async () => {
+    const auth = useAuthStore()
+
+    expect(await auth.refrescar()).toBe(false)
+    expect(postRefresh).not.toHaveBeenCalled()
+  })
+
+  it('refrescar con el refresh rechazado (revocado/caducado) → false y la sesión local queda como estaba', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
+    vi.mocked(postRefresh).mockRejectedValue(new ApiError(401, 'API 401', null))
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    expect(await auth.refrescar()).toBe(false)
+    // La expulsión la decide el cliente API, no este método.
+    expect(auth.token).toBe('jwt-123')
+  })
+
+  it('un refresh que resuelve tarde NO resucita una sesión ya cerrada (y revoca el token nuevo)', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
+    let resolverRefresh: () => void = () => {}
+    vi.mocked(postRefresh).mockReturnValue(
+      new Promise((resolve) => {
+        resolverRefresh = () =>
+          resolve({
+            token: 'jwt-zombi',
+            expiraEn: '2026-07-09T00:15:00Z',
+            refreshToken: 'refresh-zombi',
+            refreshExpiraEn: '2026-07-17T00:15:00Z',
+          })
+      }),
+    )
+    vi.mocked(postLogout).mockResolvedValue(undefined)
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    const enVuelo = auth.refrescar()
+    auth.cerrarSesion()
+    resolverRefresh()
+
+    expect(await enVuelo).toBe(false)
+    expect(auth.autenticado).toBe(false)
+    expect(setAuthToken).toHaveBeenLastCalledWith(null)
+    // El refresh rotado que nadie va a usar se revoca para no dejarlo vivo.
+    expect(postLogout).toHaveBeenCalledWith('refresh-zombi')
+  })
+
+  it('cerrarSesion revoca el refresh en el servidor (logout real) y limpia aunque la red falle', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
+    vi.mocked(postLogout).mockRejectedValue(new ApiError(0, 'sin red', null))
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    auth.cerrarSesion()
+
+    expect(postLogout).toHaveBeenCalledWith('refresh-jwt-123')
+    expect(auth.autenticado).toBe(false)
+  })
+
   it('un login nuevo limpia el aviso de sesión caducada anterior', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     auth.sesionCaducada()
 

@@ -64,6 +64,8 @@ class BorradoCuentaCascadaTest {
         em.persistAndFlush(new Cuadrante(usuarioId, null, List.of(), SELLO));
         em.persistAndFlush(new Apunte(usuarioId, LocalDate.of(2026, 7, 9), TipoApunte.ENTRADA,
                 "09:00", null, OrigenApunte.CONFIRMADO, SELLO));
+        em.persistAndFlush(new es.medeben.domain.usuario.Sesion(usuarioId, "f".repeat(64),
+                SELLO.toInstant(), SELLO.plusDays(7).toInstant()));
         em.clear();
 
         usuarios.deleteById(usuarioId);
@@ -74,6 +76,8 @@ class BorradoCuentaCascadaTest {
         assertThat(cuenta("perfiles", usuarioId)).isZero();
         assertThat(cuenta("cuadrantes", usuarioId)).isZero();
         assertThat(cuenta("apuntes", usuarioId)).isZero();
+        // B4: el borrado de cuenta revoca la sesión de refresh por el mismo cascade.
+        assertThat(cuenta("sesiones", usuarioId)).isZero();
 
         // El email vuelve a estar libre: registrarse de nuevo no choca con el UNIQUE.
         assertThat(usuarios.saveAndFlush(new Usuario(email, "{noop}otroHash")).getId())

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { api, ApiError, getHealth, setAuthToken, setOnUnauthorized } from './api'
+import { api, ApiError, getHealth, setAuthToken, setOnRefresh, setOnUnauthorized } from './api'
 
 function mockFetch(response: Partial<Response> & { jsonValue?: unknown; blobValue?: Blob }) {
   const fetchMock = vi.fn().mockResolvedValue({
@@ -19,6 +19,7 @@ afterEach(() => {
   vi.restoreAllMocks()
   setAuthToken(null)
   setOnUnauthorized(null)
+  setOnRefresh(null)
 })
 
 describe('api client', () => {
@@ -178,6 +179,154 @@ describe('api client auth token', () => {
     setOnUnauthorized(onUnauthorized)
 
     await expect(api.get('/perfil')).rejects.toBeInstanceOf(ApiError)
+    expect(onUnauthorized).not.toHaveBeenCalled()
+  })
+})
+
+describe('renovación de sesión (B4)', () => {
+  function respuesta(status: number, jsonValue: unknown = null) {
+    return {
+      ok: status < 400,
+      status,
+      statusText: String(status),
+      headers: new Headers(),
+      json: async () => jsonValue,
+      blob: async () => new Blob(),
+    } as Response
+  }
+
+  /** fetch que responde 401 al token viejo y 200 al rotado. */
+  function fetchQueExigeTokenNuevo() {
+    const fetchMock = vi.fn().mockImplementation(async (_url: string, init: RequestInit) => {
+      const auth = (init.headers as Record<string, string>)['Authorization']
+      return auth === 'Bearer jwt-nuevo' ? respuesta(200, { dato: 'ok' }) : respuesta(401)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    return fetchMock
+  }
+
+  it('un 401 con token refresca la sesión y reintenta la petición con el token rotado', async () => {
+    const fetchMock = fetchQueExigeTokenNuevo()
+    setAuthToken('jwt-caducado')
+    const onRefresh = vi.fn().mockImplementation(async () => {
+      setAuthToken('jwt-nuevo')
+      return true
+    })
+    setOnRefresh(onRefresh)
+    const onUnauthorized = vi.fn()
+    setOnUnauthorized(onUnauthorized)
+
+    await expect(api.get('/perfil')).resolves.toEqual({ dato: 'ok' })
+
+    expect(onRefresh).toHaveBeenCalledTimes(1)
+    expect(onUnauthorized).not.toHaveBeenCalled()
+    const [, reintento] = fetchMock.mock.calls[1]
+    expect((reintento.headers as Record<string, string>)['Authorization']).toBe('Bearer jwt-nuevo')
+  })
+
+  it('dos 401 simultáneos comparten UN solo refresh (single-flight)', async () => {
+    fetchQueExigeTokenNuevo()
+    setAuthToken('jwt-caducado')
+    const onRefresh = vi.fn().mockImplementation(async () => {
+      setAuthToken('jwt-nuevo')
+      return true
+    })
+    setOnRefresh(onRefresh)
+
+    await expect(Promise.all([api.get('/a'), api.get('/b')])).resolves.toEqual([
+      { dato: 'ok' },
+      { dato: 'ok' },
+    ])
+    expect(onRefresh).toHaveBeenCalledTimes(1)
+  })
+
+  it('si el refresh falla, expulsión de siempre y la petición revienta con 401', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(respuesta(401)))
+    setAuthToken('jwt-caducado')
+    setOnRefresh(vi.fn().mockResolvedValue(false))
+    const onUnauthorized = vi.fn()
+    setOnUnauthorized(onUnauthorized)
+
+    await expect(api.get('/perfil')).rejects.toBeInstanceOf(ApiError)
+    expect(onUnauthorized).toHaveBeenCalledTimes(1)
+  })
+
+  it('el reintento es ÚNICO: si el 401 persiste tras refrescar, expulsión (sin bucle)', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(respuesta(401)))
+    setAuthToken('jwt-caducado')
+    const onRefresh = vi.fn().mockResolvedValue(true)
+    setOnRefresh(onRefresh)
+    const onUnauthorized = vi.fn()
+    setOnUnauthorized(onUnauthorized)
+
+    await expect(api.get('/perfil')).rejects.toBeInstanceOf(ApiError)
+    expect(onRefresh).toHaveBeenCalledTimes(1)
+    expect(onUnauthorized).toHaveBeenCalledTimes(1)
+  })
+
+  it('CRITICAL review: el 401 tardío de una sesión VIEJA no expulsa a quien está dentro ahora', async () => {
+    // Tablet compartida: la petición de Ana recibe 401 y su refresh queda en
+    // vuelo; Bea inicia sesión mientras tanto; el refresh viejo falla. La
+    // petición vieja debe morir en silencio, sin tocar la sesión de Bea.
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(respuesta(401)))
+    setAuthToken('jwt-ana')
+    let resolverRefresh: (v: boolean) => void = () => {}
+    setOnRefresh(
+      vi.fn().mockReturnValue(
+        new Promise<boolean>((resolve) => {
+          resolverRefresh = resolve
+        }),
+      ),
+    )
+    const onUnauthorized = vi.fn()
+    setOnUnauthorized(onUnauthorized)
+
+    const peticionDeAna = api.get('/perfil')
+    // Deja que el 401 llegue y el refresh quede pendiente.
+    await new Promise((r) => setTimeout(r, 0))
+    setAuthToken('jwt-bea') // Bea entra con el refresh de Ana aún en vuelo.
+    resolverRefresh(false)
+
+    await expect(peticionDeAna).rejects.toBeInstanceOf(ApiError)
+    expect(onUnauthorized).not.toHaveBeenCalled()
+  })
+
+  it('getBlob también renueva y reintenta tras un 401 (la descarga del PDF no se queda muda)', async () => {
+    const pdf = new Blob(['%PDF'])
+    const fetchMock = vi.fn().mockImplementation(async (_url: string, init: RequestInit) => {
+      const auth = (init.headers as Record<string, string>)['Authorization']
+      if (auth === 'Bearer jwt-nuevo') {
+        return { ...respuesta(200), blob: async () => pdf } as Response
+      }
+      return respuesta(401)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    setAuthToken('jwt-caducado')
+    setOnRefresh(
+      vi.fn().mockImplementation(async () => {
+        setAuthToken('jwt-nuevo')
+        return true
+      }),
+    )
+
+    await expect(api.getBlob('/informes/mes/2026-07')).resolves.toBe(pdf)
+  })
+
+  it('una petición anonimo no manda Authorization ni dispara refresh (así viaja el propio /auth/refresh)', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(respuesta(401))
+    vi.stubGlobal('fetch', fetchMock)
+    setAuthToken('jwt-caducado')
+    const onRefresh = vi.fn()
+    setOnRefresh(onRefresh)
+    const onUnauthorized = vi.fn()
+    setOnUnauthorized(onUnauthorized)
+
+    await expect(api.post('/auth/refresh', { refreshToken: 'x' }, { anonimo: true }))
+      .rejects.toBeInstanceOf(ApiError)
+
+    const [, init] = fetchMock.mock.calls[0]
+    expect((init.headers as Record<string, string>)['Authorization']).toBeUndefined()
+    expect(onRefresh).not.toHaveBeenCalled()
     expect(onUnauthorized).not.toHaveBeenCalled()
   })
 })

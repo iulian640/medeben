@@ -3,6 +3,33 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-10 (noche) — sesiones revocables: refresh rotativo y logout real (B4)
+
+El último punto activo de la arquitectura. Antes: JWT de 24 h imposible de
+revocar (un token robado valía un día entero; tras borrar la cuenta seguía
+siendo criptográficamente válido). Ahora:
+
+- **Access JWT de 15 min**, stateless como siempre (validar no toca BD).
+- **Refresh opaco de 256 bits** en la tabla `sesiones` (V6), guardado como
+  SHA-256 — una fuga de BD no reconstruye tokens — y con `ON DELETE CASCADE`:
+  el borrado de cuenta revoca gratis.
+- **Rotación con detección de robo**: cada refresh se gasta UNA vez
+  (reclamación atómica por UPDATE); si llega uno ya gastado, se revocan TODAS
+  las sesiones del usuario. **Bug real cazado por la verificación en vivo**
+  (no por los mocks): el 401 del reuso hacía rollback de la propia revocación
+  → `noRollbackFor` + test de integración con transacciones reales.
+- **/auth/refresh y /auth/logout** públicos (viajan con el refresh en el body;
+  un access caducado en la cabecera daría 401 espurio). Logout ahora revoca
+  en el servidor.
+- **Cliente API**: un 401 intenta renovar UNA vez (single-flight: N peticiones
+  concurrentes comparten un refresh) y reintenta con el token rotado; si no,
+  la expulsión de siempre. Peticiones `anonimo` (refresh/logout) van sin
+  Bearer y no disparan renovación (sin bucles). Guardia de sesión cruzada: un
+  refresh que resuelve tarde no resucita una sesión cerrada (y el token zombi
+  se revoca).
+- Los tokens siguen SOLO en memoria (la norma no cambia); persistir sesión
+  tras recargar es decisión aparte (v2 nativa, secure storage).
+
 ## 2026-07-10 (noche) — E2E de Playwright en CI: los recorridos críticos, vigilados
 
 Hasta hoy los viajes completos solo se comprobaban a mano (QA en navegador o

@@ -18,6 +18,8 @@ vi.mock('../services/convenios', () => ({
 vi.mock('../services/auth', () => ({
   postLogin: vi.fn(),
   postRegistro: vi.fn(),
+  // cerrarSesion revoca en el servidor (B4): fire-and-forget que debe resolver.
+  postLogout: vi.fn().mockResolvedValue(undefined),
 }))
 
 import { getPerfilUsuario, putPerfilUsuario } from '../services/perfilUsuario'
@@ -353,7 +355,7 @@ describe('cuenta store', () => {
   })
 
   it('dispositivo compartido: logout de A y login de B sin perfil → formulario limpio', async () => {
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-a', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-a', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-a', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
     const cuenta = useCuentaStore()
     await auth.iniciarSesion('a@example.com', 'superclave123')
@@ -362,7 +364,7 @@ describe('cuenta store', () => {
     expect(cuenta.salarioBaseMensual).toBe(1500)
 
     auth.cerrarSesion()
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-b', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-b', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-b', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     await auth.iniciarSesion('b@example.com', 'superclave123')
     vi.mocked(getPerfilUsuario).mockRejectedValue(new ApiError(404, 'API 404', null))
     await cuenta.cargar()

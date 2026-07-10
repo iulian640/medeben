@@ -75,7 +75,7 @@ describe('RegistroView', () => {
 
   it('con datos válidos registra, entra y navega a la cuenta', async () => {
     vi.mocked(postRegistro).mockResolvedValue({ email: 'ana@example.com' })
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const { wrapper, router } = await montar()
 
     await rellenar(wrapper, 'ana@example.com', 'superclave123', 'superclave123')
