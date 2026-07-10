@@ -88,6 +88,11 @@ class CoberturaSalarioTest {
                 + " | DISTINTOS (convenio/puesto/tipo): " + resumen.size());
         resumen.forEach(s -> System.out.println("  " + s));
 
+        // El tope combinatorio no debe estar ocultando un callejón en la cola sin
+        // explorar: si algún par lo alcanza, el guardián degrada en silencio → falla.
+        assertThat(truncados)
+                .as("pares truncados por el tope combinatorio (podrían esconder un callejón)")
+                .isEmpty();
         assertThat(resumen)
                 .as("pares convenio/puesto que resuelven a un callejón sin salario")
                 .isEmpty();
