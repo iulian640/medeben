@@ -15,6 +15,9 @@ export default defineConfig({
     },
   },
   test: {
+    // Los E2E de Playwright viven en e2e/ y corren con `npm run test:e2e`,
+    // no con vitest (su runner es incompatible y necesitan el stack real).
+    exclude: ['e2e/**', 'node_modules/**', 'dist/**'],
     environment: 'jsdom',
     globals: true,
     // Cobertura solo del código fuente, con gate del 80% en las CUATRO

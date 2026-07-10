@@ -25,3 +25,7 @@ dist-ssr
 
 # Cobertura de tests (vitest --coverage)
 coverage
+
+# Playwright (E2E)
+playwright-report/
+test-results/
