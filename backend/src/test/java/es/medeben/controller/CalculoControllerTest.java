@@ -129,7 +129,9 @@ class CalculoControllerTest {
                                  "dimensiones":{"tabla":"general","nivel":"III","claseEmpresa":"B"}}"""))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.bajoSmi").value(false))
-                .andExpect(jsonPath("$.smiMensual").value(1221.00));
+                .andExpect(jsonPath("$.smiMensual").value(1221.00))
+                // Alcanza el SMI: no hay suelo que enseñar por encima de la tabla.
+                .andExpect(jsonPath("$.minimoLegal").isEmpty());
     }
 
     @Test
@@ -159,6 +161,8 @@ class CalculoControllerTest {
                 .andExpect(jsonPath("$.importe").value(1086.31))
                 .andExpect(jsonPath("$.bajoSmi").value(true))
                 .andExpect(jsonPath("$.smiMensual").value(1221.00))
+                // Madrid paga 14 mensualidades: 17.094 / 14 = 1.221,00 justos.
+                .andExpect(jsonPath("$.minimoLegal").value(1221.00))
                 .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Salario Mínimo.*/)]").exists());
     }
 
@@ -174,6 +178,8 @@ class CalculoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.unidad").value("EUR/año"))
                 .andExpect(jsonPath("$.bajoSmi").value(true))
+                // En EUR/año el suelo va en la misma unidad: el SMI anual entero.
+                .andExpect(jsonPath("$.minimoLegal").value(17094.00))
                 .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Salario Mínimo.*/)]").exists());
     }
 

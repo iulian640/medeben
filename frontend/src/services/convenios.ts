@@ -45,6 +45,12 @@ export interface SalarioBase {
   bajoSmi: boolean
   /** SMI de referencia (€/mes, 14 pagas) del año consultado; null si no aplica. */
   smiMensual: number | null
+  /**
+   * El suelo legal en la MISMA unidad que importe (SMI anual repartido entre
+   * las pagas de este convenio, sin pluses). Solo llega cuando bajoSmi: es la
+   * cifra que se enseña en grande — la tabla superada sería un dato engañoso.
+   */
+  minimoLegal: number | null
   citas: Cita[]
 }
 

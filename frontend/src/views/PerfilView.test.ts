@@ -1,9 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
+import { createMemoryHistory, createRouter, type Router } from 'vue-router'
 import { ApiError } from '../services/api'
 import type { ConvenioResumen, OcupacionResuelta, SalarioBase } from '../services/convenios'
 import PerfilView from './PerfilView.vue'
+import { useAuthStore } from '../stores/auth'
 
 vi.mock('../services/convenios', () => ({
   getProvincias: vi.fn(),
@@ -11,6 +13,10 @@ vi.mock('../services/convenios', () => ({
   getPuestos: vi.fn(),
   getOcupacion: vi.fn(),
   postSalarioBase: vi.fn(),
+}))
+vi.mock('../services/auth', () => ({
+  postLogin: vi.fn(),
+  postRegistro: vi.fn(),
 }))
 
 import {
@@ -20,6 +26,20 @@ import {
   getPuestos,
   postSalarioBase,
 } from '../services/convenios'
+import { postLogin } from '../services/auth'
+
+const Stub = { template: '<div />' }
+
+function crearRouter(): Router {
+  return createRouter({
+    history: createMemoryHistory(),
+    routes: [
+      { path: '/', name: 'home', component: Stub },
+      { path: '/perfil', name: 'perfil', component: PerfilView },
+      { path: '/login', name: 'login', component: Stub },
+    ],
+  })
+}
 
 const convenioMadrid: ConvenioResumen = {
   id: 'madrid-hosteleria',
@@ -44,13 +64,16 @@ const salarioMensual: SalarioBase = {
   unidad: 'EUR/mes',
   bajoSmi: false,
   smiMensual: 1221,
+  minimoLegal: null,
   citas: [{ texto: 'Tabla salarial 2026', url: null }],
 }
 
 async function montar() {
   const pinia = createPinia()
   setActivePinia(pinia)
-  const wrapper = mount(PerfilView, { global: { plugins: [pinia] } })
+  const router = crearRouter()
+  await router.push('/perfil')
+  const wrapper = mount(PerfilView, { global: { plugins: [pinia, router] } })
   await flushPromises()
   return wrapper
 }
@@ -76,6 +99,28 @@ beforeEach(() => {
 })
 
 describe('PerfilView', () => {
+  it('sin sesión, la cabecera ofrece entrar (única salida visible) con vuelta aquí', async () => {
+    const wrapper = await montar()
+
+    const enlace = wrapper.find('.enlace-entrar')
+    expect(enlace.exists()).toBe(true)
+    expect(enlace.attributes('href')).toBe('/login?redirect=/perfil')
+  })
+
+  it('con sesión no hace falta el enlace de entrar: la barra inferior ya da salida', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2027-01-01T00:00:00Z' })
+    const pinia = createPinia()
+    setActivePinia(pinia)
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    const router = crearRouter()
+    await router.push('/perfil')
+    const wrapper = mount(PerfilView, { global: { plugins: [pinia, router] } })
+    await flushPromises()
+
+    expect(wrapper.find('.enlace-entrar').exists()).toBe(false)
+  })
+
   it('carga las provincias al montar y las ofrece en el selector', async () => {
     const wrapper = await montar()
 
@@ -116,6 +161,7 @@ describe('PerfilView', () => {
       unidad: 'EUR/hora',
       bajoSmi: false,
       smiMensual: 1221,
+      minimoLegal: null,
       citas: [],
     })
     const wrapper = await montar()
@@ -127,12 +173,13 @@ describe('PerfilView', () => {
     expect(wrapper.find('.aviso-unidad').exists()).toBe(true)
   })
 
-  it('avisa cuando la tabla del convenio queda por debajo del SMI', async () => {
+  it('con la tabla bajo el SMI, la cifra grande es el suelo legal y el aviso explica la tabla', async () => {
     vi.mocked(postSalarioBase).mockResolvedValue({
       importe: 1086.31,
       unidad: 'EUR/mes',
       bajoSmi: true,
       smiMensual: 1221,
+      minimoLegal: 1221,
       citas: [],
     })
     const wrapper = await montar()
@@ -141,10 +188,39 @@ describe('PerfilView', () => {
     await wrapper.find('#puesto').setValue('cocinero')
     await flushPromises()
 
+    // Lo que se enseña en grande es lo que por ley te corresponde como
+    // mínimo, no la tabla superada (que iría a la calculadora infravalorada).
+    expect(wrapper.find('.resultado .cifra').text()).toBe('1.221,00')
     const aviso = wrapper.find('.aviso-smi')
     expect(aviso.exists()).toBe(true)
     expect(aviso.text()).toContain('salario mínimo')
+    expect(aviso.text()).toContain('1.086,31') // la tabla, ahora como contexto
     expect(aviso.attributes('role')).toBe('alert')
+  })
+
+  it('backend viejo (bajoSmi sin minimoLegal): la tabla se enseña pero el aviso NUNCA falta', async () => {
+    // Despliegue por fases o respuesta cacheada: bajoSmi llega sin el suelo
+    // calculado. El peor fallo posible sería tabla infra-SMI en grande y sin
+    // aviso; este test lo clava.
+    vi.mocked(postSalarioBase).mockResolvedValue({
+      importe: 1086.31,
+      unidad: 'EUR/mes',
+      bajoSmi: true,
+      smiMensual: 1221,
+      minimoLegal: null,
+      citas: [],
+    })
+    const wrapper = await montar()
+    await llegarAlConvenio(wrapper)
+
+    await wrapper.find('#puesto').setValue('cocinero')
+    await flushPromises()
+
+    expect(wrapper.find('.resultado .cifra').text()).toBe('1.086,31')
+    const aviso = wrapper.find('.aviso-smi')
+    expect(aviso.exists()).toBe(true)
+    expect(aviso.text()).toContain('salario mínimo')
+    expect(aviso.text()).toContain('1.221,00')
   })
 
   it('no avisa del SMI cuando el salario lo alcanza', async () => {

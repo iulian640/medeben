@@ -38,10 +38,22 @@ export const usePerfilStore = defineStore('perfil', () => {
     () => ocupacion.value?.pendientes.filter((p) => !(p.dimension in respuestas.value)) ?? [],
   )
 
-  /** Prellenado de la calculadora de horas extra: solo vale si el mínimo es mensual. */
-  const salarioMensualPrefill = computed(() =>
-    salario.value && salario.value.unidad === 'EUR/mes' ? salario.value.importe : null,
-  )
+  /**
+   * Prellenado de la calculadora de horas extra: si la tabla quedó por debajo
+   * del SMI manda el suelo legal (con la tabla superada el valor hora saldría
+   * infravalorado). Si un backend viejo marca bajoSmi sin mandar minimoLegal,
+   * mejor NO prellenar que prellenar con un número que sabemos corto. Solo
+   * vale si el mínimo es mensual.
+   */
+  const salarioMensualPrefill = computed(() => {
+    if (!salario.value || salario.value.unidad !== 'EUR/mes') {
+      return null
+    }
+    if (salario.value.bajoSmi) {
+      return salario.value.minimoLegal ?? null
+    }
+    return salario.value.importe
+  })
 
   /**
    * Guard contra carreras: cada acción async captura un id monótono creciente
