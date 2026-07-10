@@ -143,6 +143,11 @@ const VALORES_CURADOS: Record<string, string> = {
   restaurantes_5_tenedores: 'Restaurantes de 5 tenedores',
   salasFiestaDiscotecas: 'Salas de fiesta y discotecas',
   salas_fiesta_discotecas: 'Salas de fiesta y discotecas',
+  // Grupos profesionales del ALEH (Melilla y otros que lo remiten), por nivel de
+  // responsabilidad: el trabajador se reconoce en uno de los tres.
+  grupoPrimero: '1º · Mando o jefe/a',
+  grupoSegundo: '2º · Técnico/a o especialista',
+  grupoTercero: '3º · Asistente',
 }
 
 const RE_VALOR_LIMPIO = /^([IVXLCDM]+|\d{1,2}[ºªAB]?|[A-H])$/i
@@ -228,7 +233,7 @@ const EXPLICACIONES_DIMENSION: Record<string, string> = {
   grupoActividad:
     'Es cómo agrupa el convenio los puestos por actividad. No hace falta que te lo sepas: prueba y compara el resultado.',
   grupoProfesional:
-    'Es el grupo en el que el convenio mete tu puesto. Si no lo sabes de memoria, elige el que creas y compara.',
+    'Tu grupo según el convenio, por responsabilidad (definición del ALEH): 1º = mandos y jefes (organizas y diriges); 2º = técnicos y especialistas (dominas el oficio, trabajas con autonomía); 3º = asistentes (trabajas siguiendo instrucciones y supervisión). Elige el tuyo.',
   zona: 'La parte de la provincia donde está tu local. Elige la tuya; si tu pueblo no sale, mira a qué zona pertenece.',
 }
 

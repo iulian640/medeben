@@ -1,71 +1,71 @@
 {
-  "$comment": "SIN MAPEO A GRUPO POSIBLE (verificado contra el PDF oficial completo BOME-A-2025-717, BOME nº 6291, págs. 2421-2433). El convenio estructura la retribución por 6 ÁREAS FUNCIONALES × 3 GRUPOS PROFESIONALES (Anexo II). El ÁREA FUNCIONAL de cada puesto SÍ es derivable y está citada en la nota de cada ocupación (Anexo II + Art. 2.c, que enumera 'camareras de pisos, personal de restaurante, cocina y recepción'). Lo que FALTA es la correspondencia categoría→GRUPO PROFESIONAL (Primero/Segundo/Tercero): el convenio provincial NO la enumera y la remite al ALEH estatal como derecho supletorio (Art. 6.b); además el Art. 23 trata los propios grupos profesionales como las 'Categorías' de la tabla, sin desglosarlos por ocupación. Sin el grupo no se puede fijar el salario (dentro de cada área el salario cambia por grupo, y el grupo Tercero de las áreas segunda/cuarta/quinta/sexta se retribuye a S.M.I. y no genera hecho). Fijar un grupo sería inventar (REGLA DE ORO: dato ausente > dato erróneo), así que las dimensiones quedan a null y el puesto cae en modo manual (el trabajador introduce su salario base desde la nómina). CUANDO SE TRANSCRIBA la clasificación categoría→grupo del ALEH, completar cada puesto con dimensiones {\"areaFuncional\": <la de su nota: primera|segunda|tercera|cuarta>, \"grupoProfesional\": \"grupoPrimero\"|\"grupoSegundo\"|\"grupoTercero\"}; el areaFuncional ya está resuelto en la nota. NUNCA inventar: si el ALEH tampoco clasificara un puesto, null y punto.",
+  "$comment": "MAPEO POR ÁREA + GRUPO AUTODECLARADO (verificado contra el PDF oficial BOME-A-2025-717, BOME nº 6291, págs. 2421-2433). El convenio estructura la retribución por 6 ÁREAS FUNCIONALES × 3 GRUPOS PROFESIONALES (Anexo II). El ÁREA FUNCIONAL de cada puesto SÍ es derivable (Anexo II + Art. 2.c) y se fija aquí. Lo que el convenio NO enumera es la correspondencia categoría→GRUPO PROFESIONAL (Primero/Segundo/Tercero): la remite al ALEH (Art. 6.b, Art. 23), y el ALEH define los grupos por NIVEL DE RESPONSABILIDAD, no por ocupación (Primero = Mandos, incluido el mando intermedio; Segundo = Técnicos y Especialistas; Tercero = Asistentes — ALEH VI, arts. 11-14, BOE-A-2023-6344). Como fijar el grupo puesto a puesto sería INVENTAR (REGLA DE ORO: dato ausente > dato erróneo), NO se fija: se deja como pregunta y el propio trabajador elige su grupo con esa definición del ALEH (sabe si es jefe/mando, técnico/especialista o asistente de su puesto). Así el salario sale del dato REAL de la tabla, sin que nadie invente la clasificación. Nota: el grupo Tercero de las áreas segunda/cuarta/quinta/sexta se retribuye a S.M.I. y no genera hecho, por eso en esas áreas solo se ofrecen los grupos con tabla.",
   "id": "melilla-hosteleria",
-  "articulo": "Anexo II (áreas funcionales y grupos profesionales) + Art. 2.c (actividades funcionales); correspondencia categoría→grupo remitida al ALEH (Art. 6.b, Art. 23), pendiente de transcribir",
+  "articulo": "Anexo II (áreas funcionales y grupos profesionales) + Art. 2.c (actividades funcionales); definición de grupos del ALEH VI arts. 11-14 (grupo autodeclarado por el trabajador)",
   "ocupaciones": {
     "jefe-cocina": {
-      "dimensiones": null,
-      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "segunda" },
+      "nota": "Cocina y Economato (área segunda). El grupo profesional lo elige el trabajador: un jefe de cocina es Mando (grupo Primero) según el ALEH."
     },
     "segundo-jefe-cocina": {
-      "dimensiones": null,
-      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "segunda" },
+      "nota": "Cocina y Economato (área segunda). El segundo jefe de cocina sigue siendo Mando (grupo Primero) según el ALEH; lo confirma el trabajador."
     },
     "jefe-partida": {
-      "dimensiones": null,
-      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "segunda" },
+      "nota": "Cocina y Economato (área segunda). El jefe de partida es el mando intermedio de la cocina (grupo Primero según el ALEH); lo confirma el trabajador."
     },
     "cocinero": {
-      "dimensiones": null,
-      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "segunda" },
+      "nota": "Cocina y Economato (área segunda). Un cocinero/a es Técnico/Especialista (grupo Segundo) según el ALEH; lo confirma el trabajador."
     },
     "repostero": {
-      "dimensiones": null,
-      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; la repostería se integra en cocina/economato). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "segunda" },
+      "nota": "Cocina y Economato (área segunda; la repostería se integra en cocina). Especialista (grupo Segundo) según el ALEH; lo confirma el trabajador."
     },
     "ayudante-cocina": {
-      "dimensiones": null,
-      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null. Ojo: el grupo Tercero del área segunda se retribuye a S.M.I. y no genera hecho."
+      "dimensiones": { "areaFuncional": "segunda" },
+      "nota": "Cocina y Economato (área segunda). El trabajador elige su grupo. Ojo: el grupo Tercero (Asistente) de cocina se retribuye a S.M.I. y no genera tabla, por eso en cocina solo se ofrecen Primero y Segundo."
     },
     "auxiliar-cocina": {
-      "dimensiones": null,
-      "nota": "Área funcional 'segunda' ('Cocina y Economato', Anexo II; Art. 2.c cita 'cocina'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null. Ojo: el grupo Tercero del área segunda se retribuye a S.M.I. y no genera hecho."
+      "dimensiones": { "areaFuncional": "segunda" },
+      "nota": "Cocina y Economato (área segunda). El trabajador elige su grupo. Ojo: el grupo Tercero (Asistente) de cocina se retribuye a S.M.I. y no genera tabla, por eso en cocina solo se ofrecen Primero y Segundo."
     },
     "jefe-sala": {
-      "dimensiones": null,
-      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering', Anexo II; Art. 2.c cita 'personal de restaurante'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "tercera" },
+      "nota": "Restaurante, Sala, Bar y Similares (área tercera). Un jefe de sala/maître es Mando (grupo Primero) según el ALEH; lo confirma el trabajador."
     },
     "camarero": {
-      "dimensiones": null,
-      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering', Anexo II; Art. 2.c cita 'personal de restaurante'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "tercera" },
+      "nota": "Restaurante, Sala, Bar y Similares (área tercera). Un camarero/a es Técnico/Especialista (grupo Segundo) según el ALEH; lo confirma el trabajador."
     },
     "ayudante-camarero": {
-      "dimensiones": null,
-      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering', Anexo II; Art. 2.c cita 'personal de restaurante'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "tercera" },
+      "nota": "Restaurante, Sala, Bar y Similares (área tercera). Un ayudante de camarero/a es Asistente (grupo Tercero) según el ALEH; lo confirma el trabajador."
     },
     "barman": {
-      "dimensiones": null,
-      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares...', Anexo II; el bar se integra en el área tercera). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "tercera" },
+      "nota": "Restaurante, Sala, Bar y Similares (área tercera; el bar se integra aquí). Especialista (grupo Segundo) según el ALEH; lo confirma el trabajador."
     },
     "sumiller": {
-      "dimensiones": null,
-      "nota": "Área funcional 'tercera' ('Restaurante, Sala, Bar y Similares...', Anexo II; servicio de sala/restaurante). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "tercera" },
+      "nota": "Restaurante, Sala, Bar y Similares (área tercera; servicio de sala). Especialista (grupo Segundo) según el ALEH; lo confirma el trabajador."
     },
     "recepcionista": {
-      "dimensiones": null,
-      "nota": "Área funcional 'primera' ('Recepción-Conserjería, Relaciones Públicas, Administración y Gestión', Anexo II; Art. 2.c cita 'recepción'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "primera" },
+      "nota": "Recepción-Conserjería, Administración (área primera). El trabajador elige su grupo (recepcionista suele ser Técnico, grupo Segundo)."
     },
     "camarera-pisos": {
-      "dimensiones": null,
-      "nota": "Área funcional 'cuarta' ('Pisos y Limpieza', Anexo II; Art. 2.c cita 'camareras de pisos'). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null. Ojo: el grupo Tercero del área cuarta se retribuye a S.M.I. y no genera hecho."
+      "dimensiones": { "areaFuncional": "cuarta" },
+      "nota": "Pisos y Limpieza (área cuarta). El trabajador elige su grupo. Ojo: el grupo Tercero de esta área se retribuye a S.M.I. y no genera tabla."
     },
     "administrativo": {
-      "dimensiones": null,
-      "nota": "Área funcional 'primera' ('Recepción-Conserjería, Relaciones Públicas, Administración y Gestión', Anexo II). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null."
+      "dimensiones": { "areaFuncional": "primera" },
+      "nota": "Recepción-Conserjería, Administración (área primera). El trabajador elige su grupo (oficial administrativo suele ser Segundo; auxiliar, Tercero)."
     },
     "personal-limpieza": {
-      "dimensiones": null,
-      "nota": "Área funcional 'cuarta' ('Pisos y Limpieza', Anexo II). Falta el grupoProfesional (Primero/Segundo/Tercero), que el convenio remite al ALEH (Art. 6.b, Art. 23) y no se puede fijar sin inventar → null. Ojo: el grupo Tercero del área cuarta se retribuye a S.M.I. y no genera hecho."
+      "dimensiones": { "areaFuncional": "cuarta" },
+      "nota": "Pisos y Limpieza (área cuarta). El trabajador elige su grupo. Ojo: el grupo Tercero de esta área se retribuye a S.M.I. y no genera tabla."
     }
   }
 }
