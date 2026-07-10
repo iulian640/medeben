@@ -104,7 +104,10 @@ describe('ResumenMesView', () => {
 
     const wrapper = await montar()
 
-    expect(wrapper.find('.importe').text()).toContain('38,15 €')
+    // La cifra y el € van en spans separados (la cifra se anima; el € no).
+    expect(wrapper.find('.importe .cifra').text()).toBe('38,15')
+    expect(wrapper.find('.importe').text()).toContain('€')
+    expect(wrapper.find('.importe').attributes('aria-label')).toBe('38,15 euros')
     expect(wrapper.text()).toContain('te deben, como mínimo')
     expect(wrapper.text()).toContain('3 h 30 min extra')
     expect(wrapper.text()).toContain('10,90 € la hora')
