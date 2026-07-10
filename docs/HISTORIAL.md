@@ -3,6 +3,29 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-10 (noche) — backups de Postgres, con ensayo de restauración
+
+La BD de producción tenía CERO copias, y guarda la evidencia de los usuarios.
+
+- `deploy/backup-db.ps1`: pg_dump (formato custom) del servicio `db` del
+  compose de prod, verificado con `pg_restore --list` ANTES de guardarse (un
+  dump corrupto no se guarda), copiado a `Documents\medeben-backups\` +
+  copia externa opcional (`-CopiaExterna`, para OneDrive/disco externo),
+  retención de 30 días. El dump nunca cruza un pipe de PowerShell (5.1
+  corrompe binarios): fichero en el contenedor + `docker cp`.
+- `deploy/restaura-db.ps1`: ensayo INOFENSIVO en un Postgres efímero (restaura,
+  cuenta filas por tabla, destruye) y modo desastre sobre producción con
+  confirmación escrita. Regla: un backup solo existe si se ha restaurado.
+- Verificado de verdad contra el prod local: primer backup hecho y su ensayo
+  restaura las 4 tablas (usuarios/perfiles/cuadrantes/apuntes).
+- `docs/backups.md`: uso, tarea diaria programada de Windows (03:30) y el
+  equivalente para cuando haya hosting Linux. Enlazado desde despliegue.md.
+- Trampas de PowerShell 5.1 documentadas en los propios scripts: ficheros
+  .ps1 CON BOM (sin él, un guion largo UTF-8 se lee como comilla tipográfica
+  y rompe el quoting) y nada de `2>$null` sobre exes con ErrorAction Stop.
+- Pendiente de Iulian: registrar la tarea programada (una vez, como admin) y
+  elegir la carpeta de copia externa.
+
 ## 2026-07-10 (noche) — borrado de cuenta (RGPD art. 17): el bloqueante de Play Store
 
 El derecho de supresión, de punta a punta. Era el hueco nº1 del análisis de
