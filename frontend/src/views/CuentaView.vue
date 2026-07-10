@@ -85,6 +85,32 @@ function salir() {
   auth.cerrarSesion()
   router.push('/')
 }
+
+/* Borrado de cuenta (RGPD art. 17), en dos pasos: primero el aviso con el
+ * botón de abrir, y solo entonces el panel con la advertencia final y la
+ * contraseña. Borrar destruye la evidencia del usuario: que no pase por un
+ * toque de más. */
+const borradoAbierto = ref(false)
+const passwordBorrado = ref('')
+
+function abrirBorrado() {
+  borradoAbierto.value = true
+}
+
+function cancelarBorrado() {
+  borradoAbierto.value = false
+  passwordBorrado.value = ''
+}
+
+async function confirmarBorrado() {
+  if (passwordBorrado.value === '' || auth.borrando) {
+    return
+  }
+  const ok = await auth.borrarCuenta(passwordBorrado.value)
+  if (ok) {
+    router.push('/')
+  }
+}
 </script>
 
 <template>
@@ -323,6 +349,71 @@ function salir() {
           Editar tu horario
         </RouterLink>
       </section>
+
+      <section class="tarjeta seccion-borrado">
+        <h2 class="titulo-seccion">
+          Borrar tu cuenta
+        </h2>
+        <p class="texto-sm texto-suave">
+          Borra tu cuenta y todos tus datos: perfil, horario y tu diario de
+          fichajes — tu evidencia. Si has fichado meses, descarga antes el PDF
+          de cada mes desde el resumen: esos informes son tu prueba y no se
+          pueden recuperar después.
+        </p>
+
+        <button
+          v-if="!borradoAbierto"
+          type="button"
+          class="boton-secundario boton--ancho boton-abrir-borrado"
+          @click="abrirBorrado"
+        >
+          Quiero borrar mi cuenta
+        </button>
+
+        <form
+          v-else
+          class="form-borrado"
+          novalidate
+          @submit.prevent="confirmarBorrado"
+        >
+          <p class="aviso-bloque">
+            <strong>No hay vuelta atrás:</strong> se borra todo, ahora mismo y
+            para siempre. Escribe tu contraseña para confirmar que eres tú.
+          </p>
+          <div class="campo">
+            <label for="password-borrado">Tu contraseña</label>
+            <input
+              id="password-borrado"
+              v-model="passwordBorrado"
+              type="password"
+              autocomplete="current-password"
+            >
+          </div>
+          <p
+            v-if="auth.errorBorrado"
+            class="aviso-bloque"
+            role="alert"
+          >
+            {{ auth.errorBorrado }}
+          </p>
+          <div class="acciones-borrado">
+            <button
+              type="button"
+              class="boton-secundario boton-cancelar-borrado"
+              @click="cancelarBorrado"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              class="boton-borrar"
+              :disabled="passwordBorrado === '' || auth.borrando"
+            >
+              {{ auth.borrando ? 'Borrando...' : 'Borrar para siempre' }}
+            </button>
+          </div>
+        </form>
+      </section>
     </template>
   </main>
 </template>
@@ -411,5 +502,42 @@ form {
 
 .confirmacion {
   font-weight: var(--peso-etiqueta);
+}
+
+.seccion-borrado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-sm);
+}
+
+.form-borrado {
+  gap: var(--esp-sm);
+}
+
+.acciones-borrado {
+  display: flex;
+  gap: var(--esp-sm);
+}
+
+.acciones-borrado > * {
+  flex: 1;
+}
+
+/* El único botón rojo de la app: destruir la evidencia no puede vestirse
+ * del verde de siempre. Mismo esqueleto que .boton, en --alerta. */
+.boton-borrar {
+  border: 1px solid var(--alerta);
+  border-radius: var(--radio-control, 8px);
+  background: var(--alerta);
+  color: var(--sobre-verde);
+  padding: var(--esp-sm) var(--esp-md);
+  font: inherit;
+  font-weight: var(--peso-etiqueta);
+  cursor: pointer;
+}
+
+.boton-borrar:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 </style>

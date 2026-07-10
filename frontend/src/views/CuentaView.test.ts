@@ -21,11 +21,12 @@ vi.mock('../services/auth', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../services/auth')>()),
   postLogin: vi.fn(),
   postRegistro: vi.fn(),
+  deleteCuenta: vi.fn(),
 }))
 
 import { getPerfilUsuario, putPerfilUsuario } from '../services/perfilUsuario'
 import { getProvincias, getPuestos } from '../services/convenios'
-import { postLogin } from '../services/auth'
+import { deleteCuenta, postLogin } from '../services/auth'
 
 const perfilServidor: PerfilGuardado = {
   provincia: 'Madrid',
@@ -146,5 +147,81 @@ describe('CuentaView', () => {
 
     expect(auth.autenticado).toBe(false)
     expect(router.currentRoute.value.path).toBe('/')
+  })
+
+  // --- Borrado de cuenta (RGPD art. 17): doble confirmación ---
+
+  it('la zona de borrado avisa de descargar los PDF y NO enseña la contraseña de primeras', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    expect(wrapper.text()).toMatch(/borrar tu cuenta/i)
+    expect(wrapper.text()).toMatch(/descarga.*pdf/i)
+    // Paso 1 todavía: sin confirmación no hay campo de contraseña.
+    expect(wrapper.find('#password-borrado').exists()).toBe(false)
+  })
+
+  it('pedir el borrado abre el segundo paso: aviso final + contraseña', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+
+    expect(wrapper.find('#password-borrado').exists()).toBe(true)
+    expect(wrapper.text()).toMatch(/no hay vuelta atrás/i)
+  })
+
+  it('cancelar cierra el segundo paso sin borrar nada', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+    await wrapper.find('button.boton-cancelar-borrado').trigger('click')
+
+    expect(wrapper.find('#password-borrado').exists()).toBe(false)
+    expect(deleteCuenta).not.toHaveBeenCalled()
+  })
+
+  it('confirmar con contraseña borra la cuenta, cierra la sesión y va a la portada', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    vi.mocked(deleteCuenta).mockResolvedValue(undefined)
+    const { wrapper, router, auth } = await montar()
+
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+    await wrapper.find('#password-borrado').setValue('superclave123')
+    await wrapper.find('form.form-borrado').trigger('submit')
+    await flushPromises()
+
+    expect(deleteCuenta).toHaveBeenCalledWith('superclave123')
+    expect(auth.autenticado).toBe(false)
+    expect(router.currentRoute.value.path).toBe('/')
+  })
+
+  it('contraseña incorrecta (403): el error se ve en el panel y la sesión sigue viva', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    vi.mocked(deleteCuenta).mockRejectedValue(
+      new ApiError(403, 'API 403', { status: 403, detail: 'La contraseña no es correcta' }),
+    )
+    const { wrapper, router, auth } = await montar()
+
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+    await wrapper.find('#password-borrado').setValue('laMala1234')
+    await wrapper.find('form.form-borrado').trigger('submit')
+    await flushPromises()
+
+    expect(wrapper.text()).toContain('La contraseña no es correcta')
+    expect(auth.autenticado).toBe(true)
+    expect(router.currentRoute.value.path).toBe('/cuenta')
+  })
+
+  it('el botón de confirmar exige contraseña: vacío no dispara nada', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+    await wrapper.find('form.form-borrado').trigger('submit')
+    await flushPromises()
+
+    expect(deleteCuenta).not.toHaveBeenCalled()
   })
 })

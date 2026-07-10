@@ -25,3 +25,6 @@ export const postLogin = (email: string, password: string) =>
   api.post<TokenEmitido>('/auth/login', { email, password })
 
 export const getMe = () => api.get<Usuario>('/me')
+
+/** Borrado de cuenta (RGPD art. 17): destruye TODOS los datos; re-confirma con la contraseña. */
+export const deleteCuenta = (password: string) => api.delete<void>('/cuenta', { password })

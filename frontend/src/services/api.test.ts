@@ -98,6 +98,25 @@ describe('api client', () => {
 
     await expect(api.delete('/x')).resolves.toBeUndefined()
   })
+
+  it('delete admite body JSON (el borrado de cuenta re-confirma con la contraseña)', async () => {
+    const fetchMock = mockFetch({ status: 204, headers: new Headers({ 'Content-Length': '0' }) })
+
+    await api.delete('/cuenta', { password: 'superclave123' })
+
+    const [, init] = fetchMock.mock.calls[0]
+    expect(init.method).toBe('DELETE')
+    expect(init.body).toBe(JSON.stringify({ password: 'superclave123' }))
+  })
+
+  it('delete sin body sigue sin mandar body (no rompe a los llamadores de siempre)', async () => {
+    const fetchMock = mockFetch({ status: 204, headers: new Headers({ 'Content-Length': '0' }) })
+
+    await api.delete('/x')
+
+    const [, init] = fetchMock.mock.calls[0]
+    expect(init.body).toBeUndefined()
+  })
 })
 
 describe('api client auth token', () => {
