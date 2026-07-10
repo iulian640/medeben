@@ -12,6 +12,8 @@ vi.mock('../services/perfilUsuario', () => ({
 vi.mock('../services/convenios', () => ({
   getProvincias: vi.fn(),
   getPuestos: vi.fn(),
+  getConvenioParaTrabajador: vi.fn(),
+  getOcupacion: vi.fn(),
 }))
 vi.mock('../services/auth', () => ({
   postLogin: vi.fn(),
@@ -19,7 +21,12 @@ vi.mock('../services/auth', () => ({
 }))
 
 import { getPerfilUsuario, putPerfilUsuario } from '../services/perfilUsuario'
-import { getProvincias, getPuestos } from '../services/convenios'
+import {
+  getConvenioParaTrabajador,
+  getOcupacion,
+  getProvincias,
+  getPuestos,
+} from '../services/convenios'
 import { postLogin } from '../services/auth'
 
 const perfilServidor: PerfilGuardado = {
@@ -81,6 +88,180 @@ describe('cuenta store', () => {
     await cuenta.cargar()
 
     expect(cuenta.error).toBe('Error interno')
+  })
+
+  it('un perfil cargado con puesto pero dimensiones VACÍAS dispara las preguntas del convenio', async () => {
+    // El caso del 422 eterno: perfil guardado antes de que Cuenta supiera
+    // preguntar (p. ej. camarero de colectiva en Zaragoza sin grupo).
+    vi.mocked(getPerfilUsuario).mockResolvedValue({
+      ...perfilServidor,
+      provincia: 'Zaragoza',
+      subsector: 'restauracion-colectiva',
+      convenioId: 'estatal-restauracion-colectiva',
+      puestoId: 'camarero',
+      dimensiones: {},
+    })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({
+      id: 'estatal-restauracion-colectiva',
+    } as never)
+    vi.mocked(getOcupacion).mockResolvedValue({
+      dimensiones: {},
+      pendientes: [{ dimension: 'grupo', valores: ['1', '2', '3'] }],
+      articulo: null,
+    })
+    const cuenta = useCuentaStore()
+
+    await cuenta.cargar()
+
+    expect(getOcupacion).toHaveBeenCalledWith('estatal-restauracion-colectiva', 'camarero')
+    expect(cuenta.pendientesSinResponder).toHaveLength(1)
+    expect(cuenta.pendientesSinResponder[0].dimension).toBe('grupo')
+  })
+
+  it('con preguntas sin responder NO se guarda: guía en vez de otro perfil a medias', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue({ ...perfilServidor, dimensiones: {} })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({ id: 'madrid-hosteleria' } as never)
+    vi.mocked(getOcupacion).mockResolvedValue({
+      dimensiones: {},
+      pendientes: [{ dimension: 'claseEmpresa', valores: ['A', 'B'] }],
+      articulo: null,
+    })
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+
+    await cuenta.guardar()
+
+    expect(putPerfilUsuario).not.toHaveBeenCalled()
+    expect(cuenta.error).toContain('una respuesta más')
+  })
+
+  it('responder la pregunta pliega la respuesta y guardar manda las dimensiones resueltas', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue({ ...perfilServidor, dimensiones: {} })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({ id: 'madrid-hosteleria' } as never)
+    vi.mocked(getOcupacion)
+      .mockResolvedValueOnce({
+        dimensiones: {},
+        pendientes: [{ dimension: 'claseEmpresa', valores: ['A', 'B'] }],
+        articulo: null,
+      })
+      // El re-resolve con la respuesta devuelve la clasificación completa.
+      .mockResolvedValueOnce({
+        dimensiones: { nivel: 'III', claseEmpresa: 'A' },
+        pendientes: [{ dimension: 'claseEmpresa', valores: ['A', 'B'] }],
+        articulo: 'art. 12',
+      })
+    vi.mocked(putPerfilUsuario).mockResolvedValue(perfilServidor)
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+
+    await cuenta.responderPendiente('claseEmpresa', 'A')
+    expect(getOcupacion).toHaveBeenLastCalledWith('madrid-hosteleria', 'cocinero', {
+      claseEmpresa: 'A',
+    })
+    expect(cuenta.pendientesSinResponder).toHaveLength(0)
+
+    await cuenta.guardar()
+    expect(putPerfilUsuario).toHaveBeenCalledWith(
+      expect.objectContaining({ dimensiones: { nivel: 'III', claseEmpresa: 'A' } }),
+    )
+  })
+
+  it('si el re-resolve falla, la respuesta NO se confirma y la pregunta sigue', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue({ ...perfilServidor, dimensiones: {} })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({ id: 'madrid-hosteleria' } as never)
+    vi.mocked(getOcupacion)
+      .mockResolvedValueOnce({
+        dimensiones: {},
+        pendientes: [{ dimension: 'claseEmpresa', valores: ['A', 'B'] }],
+        articulo: null,
+      })
+      .mockRejectedValueOnce(new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }))
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+
+    await cuenta.responderPendiente('claseEmpresa', 'A')
+
+    expect(cuenta.respuestas).toEqual({})
+    expect(cuenta.pendientesSinResponder).toHaveLength(1)
+    expect(cuenta.errorClasificacion).toBe('Error interno')
+  })
+
+  it('un puesto sin mapear (404) se guarda con dimensiones null y sin dramatismo', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue({ ...perfilServidor, dimensiones: {} })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({ id: 'madrid-hosteleria' } as never)
+    vi.mocked(getOcupacion).mockRejectedValue(
+      new ApiError(404, 'API 404', { status: 404, detail: 'Puesto no mapeado' }),
+    )
+    vi.mocked(putPerfilUsuario).mockResolvedValue({ ...perfilServidor, dimensiones: null })
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+
+    expect(cuenta.puestoNoMapeado).toBe(true)
+    expect(cuenta.error).toBeNull()
+
+    await cuenta.guardar()
+    expect(putPerfilUsuario).toHaveBeenCalledWith(expect.objectContaining({ dimensiones: null }))
+  })
+
+  it('CARRERA: guardar con la clasificación EN VUELO se niega (no persiste dims null)', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue({ ...perfilServidor, dimensiones: {} })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({ id: 'madrid-hosteleria' } as never)
+    // La resolución queda colgada: simula la red lenta del caso real.
+    let resolverOcupacion!: (o: unknown) => void
+    vi.mocked(getOcupacion).mockReturnValue(
+      new Promise((resolve) => {
+        resolverOcupacion = resolve as (o: unknown) => void
+      }) as never,
+    )
+    const cuenta = useCuentaStore()
+    const carga = cuenta.cargar()
+    await vi.waitFor(() => expect(cuenta.resolviendo).toBe(true))
+
+    // Usuario impaciente: guarda mientras "Consultando tu convenio...".
+    await cuenta.guardar()
+
+    expect(putPerfilUsuario).not.toHaveBeenCalled()
+    expect(cuenta.error).toContain('consultando tu convenio')
+
+    resolverOcupacion({ dimensiones: { nivel: 'III' }, pendientes: [], articulo: null })
+    await carga
+  })
+
+  it('CARRERA: limpiar (logout) con la resolución en vuelo — la respuesta tardía no repuebla', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue({ ...perfilServidor, dimensiones: {} })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({ id: 'madrid-hosteleria' } as never)
+    let resolverOcupacion!: (o: unknown) => void
+    vi.mocked(getOcupacion).mockReturnValue(
+      new Promise((resolve) => {
+        resolverOcupacion = resolve as (o: unknown) => void
+      }) as never,
+    )
+    const cuenta = useCuentaStore()
+    const carga = cuenta.cargar()
+    await vi.waitFor(() => expect(cuenta.resolviendo).toBe(true))
+
+    cuenta.limpiar()
+    resolverOcupacion({ dimensiones: { nivel: 'III' }, pendientes: [], articulo: null })
+    await carga
+
+    expect(cuenta.ocupacion).toBeNull()
+    expect(cuenta.resolviendo).toBe(false)
+  })
+
+  it('una resolución nueva limpia el error de la anterior (sin banners fantasma)', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue({ ...perfilServidor, dimensiones: {} })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({ id: 'madrid-hosteleria' } as never)
+    vi.mocked(getOcupacion)
+      .mockRejectedValueOnce(new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }))
+      .mockResolvedValueOnce({ dimensiones: { nivel: 'III' }, pendientes: [], articulo: null })
+    const cuenta = useCuentaStore()
+    await cuenta.cargar()
+    expect(cuenta.errorClasificacion).toBe('Error interno')
+
+    await cuenta.resuelveClasificacion()
+
+    expect(cuenta.errorClasificacion).toBeNull()
+    expect(cuenta.ocupacion?.dimensiones).toEqual({ nivel: 'III' })
   })
 
   it('guardar manda SIEMPRE el objeto completo (el PUT es full-replace)', async () => {

@@ -18,6 +18,9 @@ export const useResumenStore = defineStore('resumen', () => {
   const cargando = ref(false)
   const error = ref<string | null>(null)
   const incompleto = ref<string | null>(null)
+  /** Código estable del 422 (PERFIL/HORARIO/DATOS_CONVENIO...): la guía se
+   *  decide con él, no adivinando sobre el texto. Null con backends viejos. */
+  const incompletoCodigo = ref<string | null>(null)
 
   const esMesActual = computed(() => mes.value === mesDe(hoyIso()))
 
@@ -32,6 +35,7 @@ export const useResumenStore = defineStore('resumen', () => {
     cargando.value = true
     error.value = null
     incompleto.value = null
+    incompletoCodigo.value = null
     resumen.value = null
     try {
       const resultado = await getResumenMes(anyoMes)
@@ -43,8 +47,11 @@ export const useResumenStore = defineStore('resumen', () => {
         return
       }
       if (e instanceof ApiError && e.status === 422) {
-        // Falta un dato configurable: el detail explica QUÉ (RFC 7807).
+        // Falta un dato configurable: el detail explica QUÉ (RFC 7807) y el
+        // codigo, DE QUIÉN depende.
         incompleto.value = mensajeDeError(e)
+        const cuerpo = e.body as { codigo?: unknown } | null
+        incompletoCodigo.value = typeof cuerpo?.codigo === 'string' ? cuerpo.codigo : null
       } else {
         error.value = mensajeDeError(e)
       }
@@ -75,6 +82,7 @@ export const useResumenStore = defineStore('resumen', () => {
     cargando.value = false
     error.value = null
     incompleto.value = null
+    incompletoCodigo.value = null
   }
 
   return {
@@ -83,6 +91,7 @@ export const useResumenStore = defineStore('resumen', () => {
     cargando,
     error,
     incompleto,
+    incompletoCodigo,
     esMesActual,
     cargar,
     mesAnterior,

@@ -14,6 +14,8 @@ vi.mock('../services/perfilUsuario', () => ({
 vi.mock('../services/convenios', () => ({
   getProvincias: vi.fn(),
   getPuestos: vi.fn(),
+  getConvenioParaTrabajador: vi.fn(),
+  getOcupacion: vi.fn(),
 }))
 vi.mock('../services/auth', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../services/auth')>()),
