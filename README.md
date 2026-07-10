@@ -40,21 +40,31 @@ says so; it never makes one up.
 - You don't have to take our word for it: the code is public (AGPL-3.0) and
   anyone can check what the app does with your data.
 
-## How it's made
+## Who built this, honestly
 
-I'm Iulian, a former cook now training as a developer. I started MeDeben
-because I lived the problem: not knowing what my convenio actually said, or
-whether my hours added up.
+I'm Iulian, a former cook now learning to code. MeDeben exists because I lived
+the problem: I never really knew what my convenio said, or whether my hours
+added up at the end of the month.
 
-I set the direction and the product decisions, and I review what goes in. One
-rule governs everything: a wrong figure is worse than a missing one. The build
-itself is done with [Claude Code](https://claude.com/claude-code) (an AI coding
-agent) as a pair: the Java/Spring backend, the Vue frontend, the
-transcription-and-validation pipeline, the tests and the CI are written with it,
-under my direction and review. The domain judgment and the standards are mine;
-the AI does much of the typing.
+Here's the honest split, because the whole point of this app is being straight
+about your rights and it would be odd to hide how it's made.
 
-That pairing is also why a project this size took shape in weeks, not months.
+The idea is mine, and so is every product decision: what the app is for, who
+it's for, what we will and won't do, and the rule that governs everything (a
+wrong figure is worse than a missing one). The convenios we research together,
+because that part needs someone who has worked a bar and knows what a "grupo de
+actividad" means on a payslip. I check what goes in, and I test it with people
+who still work in kitchens.
+
+The code is mostly not mine. The Java/Spring backend, the Vue frontend, the
+transcription pipeline, the tests, the CI: almost all of it is written by
+[Claude Code](https://claude.com/claude-code), an AI coding agent, working as my
+pair under my direction. It does most of the typing and many of the
+implementation calls. I set the direction, keep the standards, and say no when
+something is wrong.
+
+So a project this size took shape in weeks instead of months. The judgment is
+mine; the hands are mostly the AI's. That's the deal, and I'd rather you know it.
 
 ## The data
 
