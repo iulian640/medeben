@@ -4,8 +4,9 @@ import PanelPlegable from './PanelPlegable.vue'
 
 /**
  * Panel "Registrar el turno manualmente" de la libreta (D38): fichar entrada o salida a una hora
- * elegida a mano. El estado (abierto/hora) lo controla el padre con v-model para
- * que su reset tras un apunte exitoso valga también para este panel.
+ * elegida a mano. El estado (abierto/hora) lo controla el padre con v-model —
+ * el botón que lo abre vive en el PADRE (la libreta lo coloca en su fila de
+ * excepciones) y el reset tras un apunte exitoso vale también para este panel.
  *
  * El formulario vive dentro de PanelPlegable: siempre está en el DOM (por eso
  * puede desplegarse animado en vez de aparecer de golpe) pero queda inert
@@ -14,23 +15,16 @@ import PanelPlegable from './PanelPlegable.vue'
  * Va dentro de un <form>: en el móvil, en marcha, poder pulsar Intro para fichar
  * la entrada (la acción más común) es justo lo que pide el caso de uso.
  */
-const abierto = defineModel<boolean>('abierto', { default: false })
 const hora = defineModel<string>('hora', { default: '' })
 
-defineProps<{ fichando: boolean }>()
+// `abierto` es solo lectura: el toggle es del padre y este panel nunca se
+// cierra solo, así que una prop plana dice la verdad mejor que un v-model.
+defineProps<{ abierto: boolean; fichando: boolean }>()
 
 defineEmits<{ fichar: [tipo: TipoApunte] }>()
 </script>
 
 <template>
-  <button
-    type="button"
-    class="boton-secundario"
-    :aria-expanded="abierto"
-    @click="abierto = !abierto"
-  >
-    Registrar el turno manualmente
-  </button>
   <PanelPlegable :abierto="abierto">
     <!-- Intro (submit) ficha la ENTRADA, el caso más común. -->
     <form

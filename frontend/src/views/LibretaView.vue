@@ -374,17 +374,46 @@ function reenviaConfirmada(confirmado: boolean) {
             </button>
           </template>
 
+          <!-- Las excepciones (hora a mano, ausencia) van en su propia fila,
+               a media anchura y en fantasma: existen, pero no compiten con el
+               gesto diario de "Entro/Salgo ahora". Sus paneles se despliegan
+               debajo, a ancho completo. -->
           <template v-if="!esFuturo">
+            <div class="excepciones">
+              <button
+                type="button"
+                class="boton-fantasma excepcion"
+                :aria-expanded="mostrarHoraManual"
+                aria-controls="panel-hora-manual"
+                @click="mostrarHoraManual = !mostrarHoraManual"
+              >
+                Registrar el turno manualmente
+              </button>
+              <button
+                type="button"
+                class="boton-fantasma excepcion"
+                :aria-expanded="mostrarAusencia"
+                aria-controls="panel-ausencia"
+                @click="mostrarAusencia = !mostrarAusencia"
+              >
+                No he ido
+              </button>
+            </div>
+
+            <!-- El id cae por attrs en la raíz del panel: es lo que apunta
+                 el aria-controls de su toggle. -->
             <PanelHoraManual
-              v-model:abierto="mostrarHoraManual"
+              id="panel-hora-manual"
               v-model:hora="horaManual"
+              :abierto="mostrarHoraManual"
               :fichando="fichajes.fichando"
               @fichar="fichaManual"
             />
 
             <PanelAusencia
-              v-model:abierto="mostrarAusencia"
+              id="panel-ausencia"
               v-model:motivo="motivo"
+              :abierto="mostrarAusencia"
               :fichando="fichajes.fichando"
               @registrar="registraAusencia"
             />
@@ -405,19 +434,26 @@ function reenviaConfirmada(confirmado: boolean) {
           @confirmar="reenviaConfirmada"
         />
 
-        <RouterLink
-          class="enlace-resumen"
-          to="/resumen"
+        <!-- Navegación, no acciones: el pie del documento, separado por un
+             filete para que no se lea como más botones de fichar. -->
+        <nav
+          class="pie-enlaces"
+          aria-label="Ir a otras pantallas"
         >
-          Ver cuánto te deben este mes →
-        </RouterLink>
+          <RouterLink
+            class="enlace-resumen"
+            to="/resumen"
+          >
+            Ver cuánto te deben este mes →
+          </RouterLink>
 
-        <RouterLink
-          class="enlace-resumen"
-          to="/horario"
-        >
-          Tu horario →
-        </RouterLink>
+          <RouterLink
+            class="enlace-resumen"
+            to="/horario"
+          >
+            Tu horario →
+          </RouterLink>
+        </nav>
 
         <!-- Solo en la app nativa y en la vista de hoy: recordatorio diario. -->
         <PanelRecordatorio v-if="esHoy" />
@@ -510,6 +546,34 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: var(--esp-sm);
+}
+
+/* Las dos excepciones comparten fila a media anchura; si el texto largo no
+ * cabe (pantallas estrechas), cada una envuelve en su mitad. */
+.excepciones {
+  display: flex;
+  gap: var(--esp-sm);
+}
+
+/* Los paneles plegados no dejan hueco muerto bajo las excepciones: se les
+ * pasa el gap de esta columna por el contrato de estilo de PanelPlegable. */
+.acciones {
+  --plegable-compensa-gap: var(--esp-sm);
+}
+
+.excepcion {
+  flex: 1;
+  white-space: normal;
+}
+
+/* El pie de navegación: filas de índice tras un filete, no más botones. */
+.pie-enlaces {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-sm);
+  border-top: 1px solid var(--linea);
+  padding-top: var(--esp-md);
+  margin-top: var(--esp-xs);
 }
 
 .enlace-resumen {

@@ -280,6 +280,33 @@ describe('LibretaView — fichar', () => {
     )
   })
 
+  it('los toggles de excepción anuncian su estado y se pliegan tras un apunte con éxito', async () => {
+    vi.mocked(postApunte).mockResolvedValue({ ...apunteEntrada, hora: '09:00' })
+    const wrapper = await montar()
+
+    const toggle = () => boton(wrapper, 'Registrar el turno manualmente')
+    expect(toggle().attributes('aria-expanded')).toBe('false')
+    expect(toggle().attributes('aria-controls')).toBe('panel-hora-manual')
+
+    await toggle().trigger('click')
+    expect(toggle().attributes('aria-expanded')).toBe('true')
+
+    // Tras fichar con éxito el panel se recoge, y el botón lo cuenta.
+    await wrapper.find('#hora-manual').setValue('09:00')
+    await formularioDe(wrapper, '#hora-manual').trigger('submit')
+    await flushPromises()
+
+    expect(toggle().attributes('aria-expanded')).toBe('false')
+    // El aria-controls del otro toggle también apunta a su panel.
+    expect(boton(wrapper, 'No he ido').attributes('aria-controls')).toBe('panel-ausencia')
+  })
+
+  it('los enlaces del pie viven en un nav con nombre accesible', async () => {
+    const wrapper = await montar()
+
+    expect(wrapper.find('nav.pie-enlaces').attributes('aria-label')).toBe('Ir a otras pantallas')
+  })
+
   it('en el panel de hora manual, Intro (submit del form) ficha una ENTRADA', async () => {
     vi.mocked(postApunte).mockResolvedValue({ ...apunteEntrada, hora: '09:00' })
     const wrapper = await montar()
