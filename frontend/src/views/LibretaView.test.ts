@@ -48,6 +48,8 @@ function crearRouter(): Router {
       { path: '/libreta', name: 'libreta', component: LibretaView },
       { path: '/libreta/semana', name: 'libreta-semana', component: Stub },
       { path: '/libreta/dia/:fecha', name: 'libreta-dia', component: LibretaView },
+      { path: '/resumen', name: 'resumen', component: Stub },
+      { path: '/horario', name: 'horario', component: Stub },
     ],
   })
 }
@@ -126,6 +128,14 @@ describe('LibretaView — el día', () => {
     // El contador diario de sellado se retiró: era ruido. La protección se
     // explica en el onboarding y el panel de rectificación aparece cuando toca.
     expect(wrapper.text()).not.toMatch(/se sella|queda protegido como prueba/)
+  })
+
+  it('desde la libreta se llega al resumen y al editor de horario', async () => {
+    const wrapper = await montar()
+
+    const enlaces = wrapper.findAll('a.enlace-resumen')
+    expect(enlaces.map((e) => e.attributes('href'))).toEqual(['/resumen', '/horario'])
+    expect(enlaces[1].text()).toContain('Tu horario')
   })
 
   it('la tarjeta enseña la jornada derivada y pliega el diario en bruto', async () => {

@@ -44,6 +44,7 @@ function crearRouter(): Router {
       { path: '/', name: 'home', component: Stub },
       { path: '/login', name: 'login', component: Stub },
       { path: '/cuenta', name: 'cuenta', component: CuentaView },
+      { path: '/horario', name: 'horario', component: Stub },
     ],
   })
 }
@@ -124,6 +125,14 @@ describe('CuentaView', () => {
     await flushPromises()
 
     expect(wrapper.text()).not.toMatch(/perfil guardado\./i)
+  })
+
+  it('la cuenta ofrece editar tu horario (acceso directo al editor)', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    const enlace = wrapper.findAll('a').find((a) => a.text() === 'Editar tu horario')
+    expect(enlace?.attributes('href')).toBe('/horario')
   })
 
   it('cerrar sesión limpia la sesión y vuelve a la portada', async () => {
