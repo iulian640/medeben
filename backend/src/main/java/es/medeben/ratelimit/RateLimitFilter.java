@@ -47,6 +47,7 @@ public final class RateLimitFilter extends OncePerRequestFilter {
 
     private static final String PREFIJO_API = "/api/";
     private static final String PREFIJO_AUTH = "/api/v1/auth/";
+    private static final String PREFIJO_INFORMES = "/api/v1/informes/";
     private static final String RUTA_HEALTH = "/api/v1/health";
     private static final String PREFIJO_BEARER = "Bearer ";
     private static final String CABECERA_X_FORWARDED_FOR = "X-Forwarded-For";
@@ -103,9 +104,15 @@ public final class RateLimitFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                      FilterChain filterChain) throws ServletException, IOException {
-        boolean esAuth = rutaNormalizada(request).startsWith(PREFIJO_AUTH);
-        RateLimitProperties.Presupuesto presupuesto = esAuth ? propiedades.auth() : propiedades.api();
-        String clave = (esAuth ? "auth:" : "api:") + claveDelCliente(request, esAuth);
+        String ruta = rutaNormalizada(request);
+        boolean esAuth = ruta.startsWith(PREFIJO_AUTH);
+        // Los informes PDF llevan su propio presupuesto, mucho más estrecho:
+        // generarlos cuesta un año de recorrido + maquetado (ver Properties).
+        boolean esInforme = !esAuth && ruta.startsWith(PREFIJO_INFORMES);
+        RateLimitProperties.Presupuesto presupuesto =
+                esAuth ? propiedades.auth() : esInforme ? propiedades.informes() : propiedades.api();
+        String grupo = esAuth ? "auth:" : esInforme ? "informes:" : "api:";
+        String clave = grupo + claveDelCliente(request, esAuth);
 
         boolean permitido = registro.intentaConsumir(clave, presupuesto.capacidad(), presupuesto.recargaPorMinuto());
         if (permitido) {

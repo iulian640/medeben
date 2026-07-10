@@ -8,9 +8,10 @@ import ResumenMesView from './ResumenMesView.vue'
 
 vi.mock('../services/resumen', () => ({
   getResumenMes: vi.fn(),
+  getInformeMes: vi.fn(),
 }))
 
-import { getResumenMes } from '../services/resumen'
+import { getInformeMes, getResumenMes } from '../services/resumen'
 
 const Stub = { template: '<div />' }
 
@@ -213,6 +214,118 @@ describe('ResumenMesView', () => {
     await wrapper.find('button[aria-label="Mes anterior"]').trigger('click')
     await flushPromises()
     expect(wrapper.find('button[aria-label="Mes siguiente"]').attributes('disabled')).toBeUndefined()
+  })
+
+  it('descarga el informe del mes en PDF (fetch con token, nunca un <a href> a pelo)', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    vi.mocked(getInformeMes).mockResolvedValue(new Blob(['%PDF'], { type: 'application/pdf' }))
+    // jsdom no trae createObjectURL; el click de un <a> intentaría "navegar".
+    const crearUrl = vi.fn(() => 'blob:falsa')
+    const revocarUrl = vi.fn()
+    URL.createObjectURL = crearUrl
+    URL.revokeObjectURL = revocarUrl
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+
+    const wrapper = await montar()
+    const botonInforme = wrapper
+      .findAll('button')
+      .find((b) => b.text().includes('Descargar el informe'))
+    await botonInforme!.trigger('click')
+    await flushPromises()
+
+    expect(getInformeMes).toHaveBeenCalledWith(expect.stringMatching(/^\d{4}-\d{2}$/))
+    expect(crearUrl).toHaveBeenCalled()
+    expect(click).toHaveBeenCalled()
+    expect(revocarUrl).toHaveBeenCalledWith('blob:falsa')
+    click.mockRestore()
+  })
+
+  it('doble click en el informe: una sola petición (guard descargando)', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    let resuelve!: (b: Blob) => void
+    vi.mocked(getInformeMes).mockReturnValue(new Promise((res) => (resuelve = res)))
+    URL.createObjectURL = vi.fn(() => 'blob:falsa')
+    URL.revokeObjectURL = vi.fn()
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+
+    const wrapper = await montar()
+    const botonInforme = wrapper
+      .findAll('button')
+      .find((b) => b.text().includes('informe'))
+    await botonInforme!.trigger('click')
+    await botonInforme!.trigger('click')
+
+    expect(getInformeMes).toHaveBeenCalledTimes(1)
+    resuelve(new Blob(['%PDF']))
+    await flushPromises()
+    click.mockRestore()
+  })
+
+  it('cambiar de mes con la descarga en vuelo NO desincroniza el nombre del fichero', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    let resuelve!: (b: Blob) => void
+    vi.mocked(getInformeMes).mockReturnValue(new Promise((res) => (resuelve = res)))
+    URL.createObjectURL = vi.fn(() => 'blob:falsa')
+    URL.revokeObjectURL = vi.fn()
+    const nombres: string[] = []
+    const click = vi
+      .spyOn(HTMLAnchorElement.prototype, 'click')
+      .mockImplementation(function (this: HTMLAnchorElement) {
+        nombres.push(this.download)
+      })
+
+    const wrapper = await montar()
+    await wrapper
+      .findAll('button')
+      .find((b) => b.text().includes('informe'))!
+      .trigger('click')
+    const mesPedido = vi.mocked(getInformeMes).mock.calls[0][0]
+    // Con el PDF en vuelo, el usuario se va al mes anterior.
+    await wrapper.find('button[aria-label="Mes anterior"]').trigger('click')
+    resuelve(new Blob(['%PDF']))
+    await flushPromises()
+
+    // El fichero se llama como el mes PEDIDO, no como el mes en pantalla.
+    expect(nombres).toEqual([`medeben-informe-${mesPedido}.pdf`])
+    click.mockRestore()
+  })
+
+  it('el error del informe se retira al cambiar de mes (no hay avisos fantasma)', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    vi.mocked(getInformeMes).mockRejectedValue(
+      new ApiError(500, 'API 500', { status: 500, detail: 'No se pudo generar el informe' }),
+    )
+
+    const wrapper = await montar()
+    await wrapper
+      .findAll('button')
+      .find((b) => b.text().includes('informe'))!
+      .trigger('click')
+    await flushPromises()
+    expect(wrapper.find('.informe [role="alert"]').exists()).toBe(true)
+
+    await wrapper.find('button[aria-label="Mes anterior"]').trigger('click')
+    await flushPromises()
+
+    expect(wrapper.find('.informe [role="alert"]').exists()).toBe(false)
+  })
+
+  it('si el informe falla, lo dice donde se pidió (aviso local, no un error global)', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    vi.mocked(getInformeMes).mockRejectedValue(
+      new ApiError(500, 'API 500', { status: 500, detail: 'No se pudo generar el informe' }),
+    )
+
+    const wrapper = await montar()
+    const botonInforme = wrapper
+      .findAll('button')
+      .find((b) => b.text().includes('Descargar el informe'))
+    await botonInforme!.trigger('click')
+    await flushPromises()
+
+    expect(wrapper.find('.informe [role="alert"]').text()).toContain('No se pudo generar el informe')
+    // La cifra del mes sigue en pantalla: el fallo del PDF no rompe el resumen.
+    expect(wrapper.find('.importe').exists()).toBe(true)
   })
 
   it('las citas de la cifra están ahí (D18: no me creas, compruébalo)', async () => {

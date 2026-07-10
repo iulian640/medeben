@@ -41,7 +41,7 @@ export function setOnUnauthorized(handler: (() => void) | null) {
   onUnauthorized = handler
 }
 
-async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
+async function envia(path: string, options: RequestInit): Promise<Response> {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
 
@@ -79,6 +79,12 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
     throw new ApiError(response.status, message, body)
   }
 
+  return response
+}
+
+async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
+  const response = await envia(path, options)
+
   if (response.status === 204 || response.headers.get('Content-Length') === '0') {
     return undefined as T
   }
@@ -86,8 +92,19 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   return response.json() as Promise<T>
 }
 
+/**
+ * GET binario (el informe PDF): mismas reglas que el resto — timeout, token en
+ * memoria, manejo del 401 y errores RFC 7807 — pero devolviendo el Blob.
+ */
+async function requestBlob(path: string): Promise<Blob> {
+  const response = await envia(path, {})
+  return response.blob()
+}
+
 export const api = {
   get: <T>(path: string, options: RequestInit = {}) => request<T>(path, options),
+
+  getBlob: (path: string) => requestBlob(path),
 
   post: <T>(path: string, body: unknown, options: RequestInit = {}) =>
     request<T>(path, { ...options, method: 'POST', body: JSON.stringify(body) }),

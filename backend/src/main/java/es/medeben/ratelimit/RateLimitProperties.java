@@ -32,17 +32,25 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  *                       hay un proxy/balanceador que sobreescribe esa cabecera.
  * @param auth           presupuesto para las rutas de autenticación.
  * @param api            presupuesto para el resto de la API.
+ * @param informes       presupuesto para {@code /api/v1/informes/**}: generar
+ *                       un PDF cuesta MUCHO más que un GET normal (recorre el
+ *                       año entero y maqueta el documento), así que con el
+ *                       presupuesto genérico una sola cuenta podría sostener
+ *                       ~120 generaciones/minuto — amplificación de CPU. Nadie
+ *                       legítimo baja más de un puñado de informes seguidos.
  */
 @ConfigurationProperties(prefix = "medeben.rate-limit")
 public record RateLimitProperties(
         boolean habilitado,
         boolean confiarEnProxy,
         Presupuesto auth,
-        Presupuesto api) {
+        Presupuesto api,
+        Presupuesto informes) {
 
     public RateLimitProperties {
         auth = auth != null ? auth : Presupuesto.DEFECTO_AUTH;
         api = api != null ? api : Presupuesto.DEFECTO_API;
+        informes = informes != null ? informes : Presupuesto.DEFECTO_INFORMES;
     }
 
     /**
@@ -56,5 +64,6 @@ public record RateLimitProperties(
 
         static final Presupuesto DEFECTO_AUTH = new Presupuesto(30, 20);
         static final Presupuesto DEFECTO_API = new Presupuesto(40, 120);
+        static final Presupuesto DEFECTO_INFORMES = new Presupuesto(5, 3);
     }
 }

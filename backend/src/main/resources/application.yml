@@ -38,3 +38,9 @@ medeben:
       # Resto de /api/**: por usuario autenticado (o IP si no hay JWT).
       capacidad: 40
       recarga-por-minuto: 120
+    informes:
+      # /api/v1/informes/**: generar un PDF recorre el año y maqueta el
+      # documento — mucho más caro que un GET. Presupuesto propio y estrecho
+      # (nadie legítimo baja más de un puñado de informes seguidos).
+      capacidad: 5
+      recarga-por-minuto: 3

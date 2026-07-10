@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useResumenStore } from '../stores/resumen'
-import { formatearHoras, formatearImporte } from '../lib/formato'
+import { getInformeMes } from '../services/resumen'
+import { formatearHoras, formatearImporte, mensajeDeError } from '../lib/formato'
 import { formatearMinutos } from '../lib/libreta'
 import { etiquetaMes } from '../lib/meses'
 import { revelaEscalonado } from '../lib/animacion'
@@ -42,6 +43,51 @@ const enlaceIncompleto = computed(() => {
     ? { a: '/libreta', texto: 'Ir a tu libreta para crear tu horario' }
     : { a: '/cuenta', texto: 'Completar tu perfil' }
 })
+
+/*
+ * Descarga del informe PDF: con el token SOLO en memoria, un <a href> a pelo
+ * iría sin sesión y daría 401 — se pide con fetch y se descarga como Blob.
+ */
+const descargandoInforme = ref(false)
+const errorInforme = ref<string | null>(null)
+
+async function descargaInforme() {
+  if (descargandoInforme.value) {
+    return
+  }
+  descargandoInforme.value = true
+  errorInforme.value = null
+  // El mes se captura UNA sola vez: si navegas de mes con la descarga en
+  // vuelo, el nombre del fichero no puede desincronizarse del contenido
+  // (es la evidencia: un julio guardado como junio sería un dato falso).
+  const mesPedido = resumen.mes
+  try {
+    const pdf = await getInformeMes(mesPedido)
+    const url = URL.createObjectURL(pdf)
+    try {
+      const enlace = document.createElement('a')
+      enlace.href = url
+      // OJO Capacitor: el WebView de Android no siempre honra <a download>
+      // con blob:. Pendiente de probar en el APK; plan B, plugin Filesystem.
+      enlace.download = `medeben-informe-${mesPedido}.pdf`
+      enlace.click()
+    } finally {
+      URL.revokeObjectURL(url)
+    }
+  } catch (e) {
+    errorInforme.value = mensajeDeError(e)
+  } finally {
+    descargandoInforme.value = false
+  }
+}
+
+/* Un error del informe pertenece al mes en que ocurrió: al cambiar de mes se retira. */
+watch(
+  () => resumen.mes,
+  () => {
+    errorInforme.value = null
+  },
+)
 
 /* Cuando llegan los datos, las secciones entran escalonadas (la cifra ya
  * trae su propia cuenta). Con movimiento reducido no pasa nada de esto. */
@@ -286,6 +332,30 @@ watch(
         </p>
       </div>
 
+      <!-- La evidencia en papel (README): el diario sellado, las cuentas y
+           sus fuentes, generado por el backend con el mismo motor. -->
+      <div class="informe">
+        <button
+          type="button"
+          class="boton-secundario boton--ancho"
+          :disabled="descargandoInforme"
+          @click="descargaInforme"
+        >
+          {{ descargandoInforme ? 'Generando el informe...' : 'Descargar el informe del mes (PDF)' }}
+        </button>
+        <p class="texto-xs texto-suave">
+          Con tu diario sellado, las cuentas y sus fuentes: para enseñarlo tal
+          cual a un sindicato o a un abogado.
+        </p>
+        <p
+          v-if="errorInforme"
+          class="aviso-bloque"
+          role="alert"
+        >
+          {{ errorInforme }}
+        </p>
+      </div>
+
       <!-- D18: no me creas, compruébalo. -->
       <section
         v-if="hayExtras"
@@ -433,6 +503,12 @@ h1 {
 }
 
 .avisos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-xs);
+}
+
+.informe {
   display: flex;
   flex-direction: column;
   gap: var(--esp-xs);

@@ -45,3 +45,9 @@ export interface ResumenMensual {
 
 export const getResumenMes = (anyoMes: string) =>
   api.get<ResumenMensual>(`/resumen/mes/${anyoMes}`)
+
+/**
+ * El informe mensual en PDF (la evidencia que promete el README): lo genera
+ * el backend con el mismo motor que este resumen — aquí solo se descarga.
+ */
+export const getInformeMes = (anyoMes: string) => api.getBlob(`/informes/mes/${anyoMes}`)

@@ -1,13 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { api, ApiError, getHealth, setAuthToken, setOnUnauthorized } from './api'
 
-function mockFetch(response: Partial<Response> & { jsonValue?: unknown }) {
+function mockFetch(response: Partial<Response> & { jsonValue?: unknown; blobValue?: Blob }) {
   const fetchMock = vi.fn().mockResolvedValue({
     ok: response.ok ?? true,
     status: response.status ?? 200,
     statusText: response.statusText ?? 'OK',
     headers: response.headers ?? new Headers(),
     json: async () => response.jsonValue ?? {},
+    blob: async () => response.blobValue ?? new Blob(),
   } as Response)
   vi.stubGlobal('fetch', fetchMock)
   return fetchMock
@@ -51,6 +52,29 @@ describe('api client', () => {
     const [, init] = fetchMock.mock.calls[0]
     expect(init.method).toBe('POST')
     expect(init.body).toBe(JSON.stringify({ a: 1 }))
+  })
+
+  it('getBlob devuelve el binario y manda el token igual que el resto', async () => {
+    const pdf = new Blob(['%PDF'], { type: 'application/pdf' })
+    const fetchMock = mockFetch({ blobValue: pdf })
+    setAuthToken('jwt-1')
+
+    const resultado = await api.getBlob('/informes/mes/2026-07')
+
+    expect(resultado).toBe(pdf)
+    const [, init] = fetchMock.mock.calls[0]
+    expect((init.headers as Record<string, string>)['Authorization']).toBe('Bearer jwt-1')
+  })
+
+  it('getBlob convierte un error RFC 7807 en ApiError, como el resto del cliente', async () => {
+    mockFetch({
+      ok: false,
+      status: 422,
+      statusText: 'Unprocessable Entity',
+      jsonValue: { detail: 'No has definido tu horario' },
+    })
+
+    await expect(api.getBlob('/informes/mes/2026-07')).rejects.toBeInstanceOf(ApiError)
   })
 
   it('throws ApiError with the backend message on a non-ok response', async () => {
