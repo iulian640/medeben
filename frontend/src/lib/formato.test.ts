@@ -5,6 +5,7 @@ import {
   esUrlSegura,
   etiquetaDimension,
   etiquetaUnidad,
+  etiquetaValor,
   explicacionDimension,
   formatearFecha,
   formatearImporte,
@@ -61,12 +62,74 @@ describe('etiquetas de dimensiones', () => {
   })
 
   it('humaniza una dimensión camelCase desconocida', () => {
-    expect(etiquetaDimension('tipoEstablecimiento')).toBe('Tipo establecimiento')
+    expect(etiquetaDimension('nombreRaroDesconocido')).toBe('Nombre raro desconocido')
   })
 
-  it('tiene explicación corta para claseEmpresa y vacía para el resto', () => {
+  it('da nombre en cristiano a las dimensiones de tipo de local', () => {
+    expect(etiquetaDimension('grupoEstablecimiento')).toBe('Tipo de local')
+    expect(etiquetaDimension('seccion')).toBe('Tipo de negocio')
+    expect(etiquetaDimension('grupoActividad')).toBe('Grupo de actividad')
+  })
+
+  it('tiene explicación corta para claseEmpresa y para el tipo de local', () => {
     expect(explicacionDimension('claseEmpresa')).not.toBe('')
-    expect(explicacionDimension('nivel')).toBe('')
+    expect(explicacionDimension('grupoEstablecimiento')).not.toBe('')
+    expect(explicacionDimension('inventada')).toBe('')
+  })
+})
+
+describe('etiquetaValor', () => {
+  it('prefija los valores limpios con el nombre de la dimensión', () => {
+    expect(etiquetaValor('grupo', 'II')).toBe('Grupo II')
+    expect(etiquetaValor('grupoActividad', 'III')).toBe('Grupo III')
+    expect(etiquetaValor('nivel', '3')).toBe('Nivel 3')
+    expect(etiquetaValor('claseEmpresa', 'A')).toBe('Clase A')
+    expect(etiquetaValor('clasificacionEstablecimiento', '5')).toBe('Clasificación 5')
+  })
+
+  it('traduce los códigos de área funcional del ALEH', () => {
+    expect(etiquetaValor('areaFuncional', 'AF2_cocina_economato')).toBe('Cocina y economato')
+    expect(etiquetaValor('areaFuncional', 'AF4_pisos_limpieza')).toBe('Pisos y limpieza')
+  })
+
+  it('humaniza códigos snake_case y camelCase desconocidos', () => {
+    expect(etiquetaValor('seccion', '1y2_hotelesHostales')).toBe('1 y 2 hoteles hostales')
+    expect(etiquetaValor('tipoEstablecimiento', 'cafeterias_bares')).toBe('Cafeterias bares')
+  })
+
+  it('conserva los romanos embebidos en un código (no los pasa a minúscula)', () => {
+    expect(etiquetaValor('grupo', 'grupoII_tecnicos')).toBe('Grupo II tecnicos')
+    expect(etiquetaValor('grupo', 'grupoI_mandos')).toBe('Grupo I mandos')
+    expect(etiquetaValor('grupo', 'grupoIII_asistentes')).toBe('Grupo III asistentes')
+  })
+
+  it('separa la conjunción pegada en camelCase ("...OCatering")', () => {
+    expect(etiquetaValor('cargo', 'auxiliarCocinaOCatering')).toBe('Auxiliar cocina o catering')
+  })
+
+  it('no pierde la letra de nivel de un código con sufijo ("NS_V_A")', () => {
+    expect(etiquetaValor('nivelSalarial', 'NS_V_A')).toBe('V A')
+  })
+
+  it('un "tipoA" del árbol de decisión se lee "Tipo A", no "Tipo a"', () => {
+    expect(etiquetaValor('establecimiento', 'tipoA')).toBe('Tipo A')
+  })
+
+  it('el área funcional con valor limpio lleva su sustantivo', () => {
+    expect(etiquetaValor('areaFuncional', 'A')).toBe('Área A')
+  })
+
+  it('capitaliza los valores ya legibles pero sueltos ("cuarto" → "Cuarto")', () => {
+    expect(etiquetaValor('grupoProfesional', 'cuarto')).toBe('Cuarto')
+  })
+
+  it('deja tal cual los valores que ya son legibles', () => {
+    expect(etiquetaValor('categoriaEstablecimiento', '1 y 2 Estrellas')).toBe('1 y 2 Estrellas')
+    expect(etiquetaValor('categoriaEstablecimiento', '3 Tenedores')).toBe('3 Tenedores')
+  })
+
+  it('sin sustantivo conocido, un valor limpio se muestra tal cual', () => {
+    expect(etiquetaValor('apartadoBOP', 'VII')).toBe('VII')
   })
 })
 

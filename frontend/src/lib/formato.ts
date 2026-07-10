@@ -58,8 +58,25 @@ export function mensajeDeError(error: unknown): string {
 const ETIQUETAS_DIMENSION: Record<string, string> = {
   claseEmpresa: 'Clase de empresa',
   nivel: 'Nivel',
+  nivelRetributivo: 'Nivel',
+  nivelSalarial: 'Nivel',
   grupo: 'Grupo',
+  grupoProfesional: 'Grupo profesional',
+  grupoActividad: 'Grupo de actividad',
   categoria: 'Categoría',
+  categoriaEstablecimiento: 'Categoría del local',
+  establecimiento: 'Tipo de local',
+  grupoEstablecimiento: 'Tipo de local',
+  tipoEstablecimiento: 'Tipo de local',
+  clasificacion: 'Clasificación del local',
+  clasificacionEstablecimiento: 'Clasificación del local',
+  seccion: 'Tipo de negocio',
+  zona: 'Zona',
+  tabla: 'Tabla salarial',
+  tramo: 'Tramo',
+  area: 'Área',
+  areaFuncional: 'Área',
+  departamento: 'Departamento',
 }
 
 export function etiquetaDimension(dimension: string): string {
@@ -72,10 +89,124 @@ export function etiquetaDimension(dimension: string): string {
   return conEspacios.charAt(0).toUpperCase() + conEspacios.slice(1)
 }
 
+/** Sustantivo con el que se lee un valor limpio (romano/número/letra) de cada dimensión. */
+const SUSTANTIVO_VALOR: Record<string, string> = {
+  grupo: 'Grupo',
+  grupoProfesional: 'Grupo',
+  grupoActividad: 'Grupo',
+  grupoEstablecimiento: 'Grupo',
+  nivel: 'Nivel',
+  nivelRetributivo: 'Nivel',
+  nivelSalarial: 'Nivel',
+  clasificacion: 'Clasificación',
+  clasificacionEstablecimiento: 'Clasificación',
+  claseEmpresa: 'Clase',
+  categoria: 'Categoría',
+  categoriaEstablecimiento: 'Categoría',
+  seccion: 'Sección',
+  tramo: 'Tramo',
+  area: 'Área',
+  areaFuncional: 'Área',
+}
+
+/**
+ * Códigos crudos que el convenio guarda de forma poco legible, en cristiano.
+ * Solo el TEXTO que se muestra cambia; el valor que se envía a la API es el crudo.
+ */
+const VALORES_CURADOS: Record<string, string> = {
+  AF1_recepcion_conserjeria_rrpp_admon_gestion: 'Recepción, conserjería y administración',
+  AF2_cocina_economato: 'Cocina y economato',
+  AF3_restaurante_sala_bar_colectividades_catering: 'Restaurante, sala, bar y catering',
+  AF4_pisos_limpieza: 'Pisos y limpieza',
+  AF5_mantenimiento_servicios_auxiliares: 'Mantenimiento y servicios auxiliares',
+  AF6_servicios_complementarios: 'Servicios complementarios',
+}
+
+const RE_VALOR_LIMPIO = /^([IVXLCDM]+|\d{1,2}[ºªAB]?|[A-H])$/i
+const RE_ES_CODIGO = /_|[a-zñáéíóú][A-ZÑ]|^(AF\d|NS_|e\d)/
+const RE_ROMANO = /^[IVXLCDM]+$/i
+// Conjunciones y artículos que no se capitalizan en medio de una frase.
+const CONECTORES = new Set(['o', 'y', 'e', 'u', 'de', 'del', 'la', 'el'])
+
+function capitaliza(palabra: string): string {
+  return palabra.charAt(0).toUpperCase() + palabra.slice(1)
+}
+
+/** Casa una palabra suelta de un código: romanos y letras en mayúscula, resto en minúscula. */
+function palabraLegible(palabra: string, primera: boolean): string {
+  if (RE_ROMANO.test(palabra)) {
+    return palabra.toUpperCase()
+  }
+  const min = palabra.toLowerCase()
+  if (CONECTORES.has(min)) {
+    return primera ? capitaliza(min) : min
+  }
+  if (palabra.length === 1) {
+    return palabra.toUpperCase() // letra de grado suelta (A, B...)
+  }
+  return primera ? capitaliza(min) : min
+}
+
+/**
+ * Un valor de dimensión, dicho para una persona. Un "grupoII" se lee "Grupo II";
+ * un "AF2_cocina_economato", "Cocina y economato"; un "grupoII_tecnicos",
+ * "Grupo II tecnicos". Nunca cambia el valor que se manda a la API: solo lo que
+ * ve el usuario. Los valores que ya son legibles ("1 y 2 Estrellas") se respetan.
+ */
+export function etiquetaValor(dimension: string, valor: string): string {
+  if (!valor) {
+    return valor
+  }
+  const curado = VALORES_CURADOS[valor]
+  if (curado) {
+    return curado
+  }
+  const sustantivo = SUSTANTIVO_VALOR[dimension]
+  if (RE_VALOR_LIMPIO.test(valor)) {
+    // Romanos en mayúscula; el resto se respeta ("3A", "1a" no se tocan).
+    const limpio = RE_ROMANO.test(valor) ? valor.toUpperCase() : valor
+    return sustantivo ? `${sustantivo} ${limpio}` : limpio
+  }
+  if (!RE_ES_CODIGO.test(valor)) {
+    return capitaliza(valor) // ya legible ("cuarto" → "Cuarto", "3 Tenedores" intacto)
+  }
+  const palabras = valor
+    .replace(/^(AF\d+|NS|area[A-Za-zÁÉÍÓÚñ]+|seccion\d*)_/i, '')
+    .replace(/^(\d+)y(\d+)_/i, '$1 y $2 ')
+    .replace(/_/g, ' ')
+    .replace(/([a-zñáéíóú0-9])([A-ZÑ])/g, '$1 $2') // camelCase / dígito→mayúscula
+    .replace(/([A-ZÑ])([A-ZÑ][a-zñáéíóú])/g, '$1 $2') // "OCatering" → "O Catering"
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+  return palabras.map((p, i) => palabraLegible(p, i === 0)).join(' ')
+}
+
 /** Explicación corta (una frase) para las preguntas pendientes conocidas. */
 const EXPLICACIONES_DIMENSION: Record<string, string> = {
   claseEmpresa:
-    'Es la categoría del local según el convenio (por tamaño o tipo). Suele venir en tu nómina o en el cartel del convenio; si dudas, pregunta al encargado o elige la que creas y compara.',
+    'Es la categoría del local según el convenio (por tamaño o tipo). Suele venir en tu nómina o en el cartel del convenio; si dudas, elige la que creas y compara el resultado.',
+  grupoEstablecimiento:
+    'El tipo de sitio donde trabajas: hotel, bar, restaurante, cafetería… Elige el que más se parezca. Si te equivocas no pasa nada: pruebas otro y comparas.',
+  tipoEstablecimiento:
+    'El tipo de sitio donde trabajas: hotel, bar, restaurante, cafetería… Elige el que más se parezca. Si te equivocas no pasa nada: pruebas otro y comparas.',
+  categoria:
+    'La categoría del local (estrellas, tenedores, tazas…). Suele estar en la entrada o en la web del sitio. Si no la sabes, elige la que creas y compara.',
+  categoriaEstablecimiento:
+    'La categoría del local (estrellas, tenedores, tazas…). Suele estar en la entrada o en la web del sitio. Si no la sabes, elige la que creas y compara.',
+  establecimiento:
+    'El tipo de sitio donde trabajas: hotel, bar, restaurante, cafetería… Elige el que más se parezca. Si te equivocas no pasa nada: pruebas otro y comparas.',
+  clasificacion:
+    'Cómo clasifica el convenio a tu local. Si no lo tienes claro, elige la opción que más te suene y mira si el sueldo cuadra.',
+  clasificacionEstablecimiento:
+    'Cómo clasifica el convenio a tu local. Si no lo tienes claro, elige la opción que más te suene y mira si el sueldo cuadra.',
+  seccion:
+    'El tipo de negocio: hotel, restaurante, cafetería, bar, discoteca… Elige el tuyo. Si dudas entre dos, pruébalos y compara.',
+  grupoActividad:
+    'Es cómo agrupa el convenio los puestos por actividad. No hace falta que te lo sepas: prueba y compara el resultado.',
+  grupoProfesional:
+    'Es el grupo en el que el convenio mete tu puesto. Si no lo sabes de memoria, elige el que creas y compara.',
+  zona: 'La parte de la provincia donde está tu local. Elige la tuya; si tu pueblo no sale, mira a qué zona pertenece.',
 }
 
 export function explicacionDimension(dimension: string): string {
