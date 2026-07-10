@@ -40,6 +40,7 @@
 
   --alerta: #b03427; /* rojo aviso, AA sobre papel */
   --alerta-suave: oklch(96% 0.018 27);
+  --sobre-alerta: #ffffff; /* texto sobre fondo --alerta (botón destructivo); AA: 6,4:1 */
 
   /* ——— Tipografía: escala fija en rem, ratio ~1.2 ——— */
   --tipo-familia: 'Public Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -120,6 +121,7 @@
 
     --alerta: #f1948a;
     --alerta-suave: #3a2226;
+    --sobre-alerta: #2a1210; /* tinta oscura sobre el salmón de alerta; AA: 7,5:1 */
 
     /* Las sombras casi no se ven sobre tinta; el borde hace su trabajo. */
     --sombra-1: 0 1px 2px oklch(0% 0 0 / 0.3);

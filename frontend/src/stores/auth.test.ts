@@ -192,6 +192,36 @@ describe('auth store', () => {
     expect(auth.email).toBe('ana@example.com')
   })
 
+  it('CRITICAL review: un borrado que resuelve tarde NO pisa la sesión de OTRO usuario', async () => {
+    // Dispositivo compartido: Ana lanza el borrado, cierra sesión antes de que
+    // resuelva, y Bea inicia sesión. La promesa vieja no puede limpiar la
+    // sesión de Bea ni dejarle el aviso de despedida de Ana.
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-ana', expiraEn: '2026-07-09T00:00:00Z' })
+    let resolverBorrado: () => void = () => {}
+    vi.mocked(deleteCuenta).mockReturnValue(
+      new Promise<void>((resolve) => {
+        resolverBorrado = () => resolve()
+      }),
+    )
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    const enVuelo = auth.borrarCuenta('superclave123')
+    // Mientras el DELETE viaja: Ana sale y entra Bea.
+    auth.cerrarSesion()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-bea', expiraEn: '2026-07-09T00:00:00Z' })
+    await auth.iniciarSesion('bea@example.com', 'otraclave123')
+
+    resolverBorrado()
+    await enVuelo
+
+    // La sesión de Bea sigue intacta y sin el aviso de borrado de Ana.
+    expect(auth.autenticado).toBe(true)
+    expect(auth.email).toBe('bea@example.com')
+    expect(setAuthToken).toHaveBeenLastCalledWith('jwt-bea')
+    expect(auth.aviso).toBeNull()
+  })
+
   it('un intento nuevo de borrado limpia el error del intento anterior', async () => {
     vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z' })
     vi.mocked(deleteCuenta)

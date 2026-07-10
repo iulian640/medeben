@@ -48,6 +48,7 @@ public final class RateLimitFilter extends OncePerRequestFilter {
     private static final String PREFIJO_API = "/api/";
     private static final String PREFIJO_AUTH = "/api/v1/auth/";
     private static final String PREFIJO_INFORMES = "/api/v1/informes/";
+    private static final String RUTA_CUENTA = "/api/v1/cuenta";
     private static final String RUTA_HEALTH = "/api/v1/health";
     private static final String PREFIJO_BEARER = "Bearer ";
     private static final String CABECERA_X_FORWARDED_FOR = "X-Forwarded-For";
@@ -109,9 +110,15 @@ public final class RateLimitFilter extends OncePerRequestFilter {
         // Los informes PDF llevan su propio presupuesto, mucho más estrecho:
         // generarlos cuesta un año de recorrido + maquetado (ver Properties).
         boolean esInforme = !esAuth && ruta.startsWith(PREFIJO_INFORMES);
+        // El borrado de cuenta re-confirma la contraseña: mismo control
+        // anti-fuerza-bruta que el login → presupuesto ESTRICTO de auth
+        // (security review). La clave sigue siendo ip|sub: el atacante con un
+        // token queda confinado sin castigar a los legítimos de un WiFi común.
+        boolean esCuenta = !esAuth && !esInforme && ruta.equals(RUTA_CUENTA);
         RateLimitProperties.Presupuesto presupuesto =
-                esAuth ? propiedades.auth() : esInforme ? propiedades.informes() : propiedades.api();
-        String grupo = esAuth ? "auth:" : esInforme ? "informes:" : "api:";
+                esAuth || esCuenta ? propiedades.auth()
+                        : esInforme ? propiedades.informes() : propiedades.api();
+        String grupo = esAuth ? "auth:" : esInforme ? "informes:" : esCuenta ? "cuenta:" : "api:";
         String clave = grupo + claveDelCliente(request, esAuth);
 
         boolean permitido = registro.intentaConsumir(clave, presupuesto.capacidad(), presupuesto.recargaPorMinuto());

@@ -51,6 +51,9 @@ class BorradoCuentaCascadaTest {
     @Autowired
     private TestEntityManager em;
 
+    @Autowired
+    private org.springframework.transaction.PlatformTransactionManager transactionManager;
+
     @Test
     @DisplayName("borrar el usuario arrastra perfil, cuadrantes y apuntes (cascade) y libera el email")
     void borradoArrastraTodoYLiberaElEmail() {
@@ -75,6 +78,42 @@ class BorradoCuentaCascadaTest {
         // El email vuelve a estar libre: registrarse de nuevo no choca con el UNIQUE.
         assertThat(usuarios.saveAndFlush(new Usuario(email, "{noop}otroHash")).getId())
                 .isNotEqualTo(usuarioId);
+    }
+
+    /**
+     * Hallazgo TOCTOU del security review: la purga de la caché de informes
+     * debe ocurrir DESPUÉS del commit. Si se purga dentro de la transacción,
+     * una petición concurrente puede regenerar el PDF (el usuario aún existe
+     * bajo READ COMMITTED) y dejarlo en memoria 24 h después del borrado.
+     * Aquí se verifica el orden real: dentro de la transacción NO se ha
+     * invalidado; nada más commitear, sí.
+     */
+    @Test
+    @org.springframework.transaction.annotation.Transactional(
+            propagation = org.springframework.transaction.annotation.Propagation.NOT_SUPPORTED)
+    @DisplayName("la caché de informes se purga DESPUÉS del commit, no dentro de la transacción")
+    void purgaLaCacheTrasElCommit() {
+        UUID usuarioId = usuarios.saveAndFlush(
+                new Usuario("rgpd-race-" + UUID.randomUUID() + "@example.com", "{noop}hash")).getId();
+        es.medeben.service.InformeAnualService informes =
+                org.mockito.Mockito.mock(es.medeben.service.InformeAnualService.class);
+        org.springframework.security.crypto.password.PasswordEncoder encoder =
+                org.mockito.Mockito.mock(org.springframework.security.crypto.password.PasswordEncoder.class);
+        org.mockito.Mockito.when(encoder.matches("laBuena123", "{noop}hash")).thenReturn(true);
+        es.medeben.service.CuentaService servicio =
+                new es.medeben.service.CuentaService(usuarios, encoder, informes);
+
+        new org.springframework.transaction.support.TransactionTemplate(transactionManager)
+                .executeWithoutResult(tx -> {
+                    servicio.borraCuenta(usuarioId, "laBuena123");
+                    // Todavía dentro de la transacción: la caché NO puede haberse
+                    // purgado (la ventana TOCTOU sigue abierta hasta el commit).
+                    org.mockito.Mockito.verify(informes, org.mockito.Mockito.never()).invalida(usuarioId);
+                });
+
+        // Commit hecho: ahora sí.
+        org.mockito.Mockito.verify(informes).invalida(usuarioId);
+        assertThat(usuarios.findById(usuarioId)).isEmpty();
     }
 
     private long cuenta(String tabla, UUID usuarioId) {

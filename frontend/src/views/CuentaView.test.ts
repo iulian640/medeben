@@ -224,4 +224,60 @@ describe('CuentaView', () => {
 
     expect(deleteCuenta).not.toHaveBeenCalled()
   })
+
+  it('HIGH review: cancelar un intento fallido y reabrir NO enseña el error viejo', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    vi.mocked(deleteCuenta).mockRejectedValue(
+      new ApiError(403, 'API 403', { status: 403, detail: 'La contraseña no es correcta' }),
+    )
+    const { wrapper } = await montar()
+
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+    await wrapper.find('#password-borrado').setValue('laMala1234')
+    await wrapper.find('form.form-borrado').trigger('submit')
+    await flushPromises()
+    expect(wrapper.text()).toContain('La contraseña no es correcta')
+
+    await wrapper.find('button.boton-cancelar-borrado').trigger('click')
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+
+    expect(wrapper.text()).not.toContain('La contraseña no es correcta')
+  })
+
+  it('HIGH review: la advertencia final se anuncia a lectores de pantalla (role=alert)', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+
+    const alertas = wrapper.findAll('[role="alert"]').map((a) => a.text())
+    expect(alertas.some((t) => /no hay vuelta atrás/i.test(t))).toBe(true)
+  })
+
+  it('HIGH review: abrir mueve el foco a la contraseña; cancelar lo devuelve al botón', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const pinia = createPinia()
+    setActivePinia(pinia)
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    const router = crearRouter()
+    await router.push('/cuenta')
+    // attachTo: el foco real solo existe con el componente en el documento.
+    const wrapper = mount(CuentaView, {
+      global: { plugins: [pinia, router] },
+      attachTo: document.body,
+    })
+    await flushPromises()
+
+    await wrapper.find('button.boton-abrir-borrado').trigger('click')
+    await flushPromises()
+    expect(document.activeElement?.id).toBe('password-borrado')
+
+    await wrapper.find('button.boton-cancelar-borrado').trigger('click')
+    await flushPromises()
+    expect(document.activeElement?.className).toContain('boton-abrir-borrado')
+
+    wrapper.unmount()
+  })
 })

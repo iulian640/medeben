@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronization;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.util.UUID;
 
@@ -45,10 +47,22 @@ public class CuentaService {
             throw new PasswordIncorrectaException();
         }
         usuarios.delete(usuario);
-        // Su PDF anual cacheado lleva email y salarios: purgarlo aquí, no puede
-        // sobrevivir a la cuenta. Si la transacción llegara a abortar tras esto,
-        // solo se habría enfriado una caché (se regenera en la siguiente descarga).
-        informesAnuales.invalida(usuarioId);
+        // Su PDF anual cacheado lleva email y salarios: purgarlo TRAS el commit
+        // (security review, TOCTOU): purgado dentro de la transacción, una
+        // petición concurrente de informe aún ve al usuario en BD (READ
+        // COMMITTED), regeneraría el PDF y lo repoblaría en la caché hasta 24 h
+        // después del borrado. Tras el commit ya no hay datos con que regenerar.
+        if (TransactionSynchronizationManager.isSynchronizationActive()) {
+            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+                @Override
+                public void afterCommit() {
+                    informesAnuales.invalida(usuarioId);
+                }
+            });
+        } else {
+            // Sin transacción activa (tests unitarios): purga directa.
+            informesAnuales.invalida(usuarioId);
+        }
         // Solo el id técnico: tras el borrado ya no identifica a nadie. Nunca el email.
         log.info("Cuenta borrada a petición del usuario (RGPD art. 17): {}", usuarioId);
     }

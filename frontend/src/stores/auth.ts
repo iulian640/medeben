@@ -103,6 +103,12 @@ export const useAuthStore = defineStore('auth', () => {
   /** Error del borrado de cuenta (contraseña incorrecta...), para su propio panel. */
   const errorBorrado = ref<string | null>(null)
 
+  /** El panel de borrado limpia su error al abrirse o cancelarse (review HIGH):
+   *  un error de un intento anterior no puede reaparecer en un intento nuevo. */
+  function limpiarErrorBorrado() {
+    errorBorrado.value = null
+  }
+
   /**
    * Borrado de cuenta (RGPD art. 17). Si el servidor confirma, la sesión se
    * limpia ENTERA (misma rutina que el logout: en un dispositivo compartido no
@@ -116,6 +122,11 @@ export const useAuthStore = defineStore('auth', () => {
     }
     borrando.value = true
     errorBorrado.value = null
+    // Capturado ANTES del await (review CRITICAL, mismo patrón que api.ts):
+    // si la sesión cambia con el DELETE en vuelo (dispositivo compartido: el
+    // dueño sale y entra otra persona), la resolución tardía no puede limpiar
+    // la sesión NUEVA ni dejarle el aviso de despedida de la cuenta borrada.
+    const tokenAlEmpezar = token.value
     try {
       await deleteCuenta(password)
     } catch (e) {
@@ -124,8 +135,10 @@ export const useAuthStore = defineStore('auth', () => {
     } finally {
       borrando.value = false
     }
-    limpiarSesion()
-    aviso.value = 'Tu cuenta y todos tus datos se han borrado.'
+    if (token.value === tokenAlEmpezar) {
+      limpiarSesion()
+      aviso.value = 'Tu cuenta y todos tus datos se han borrado.'
+    }
     return true
   }
 
@@ -147,5 +160,6 @@ export const useAuthStore = defineStore('auth', () => {
     cerrarSesion,
     sesionCaducada,
     borrarCuenta,
+    limpiarErrorBorrado,
   }
 })

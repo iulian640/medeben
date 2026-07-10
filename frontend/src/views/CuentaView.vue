@@ -92,14 +92,25 @@ function salir() {
  * toque de más. */
 const borradoAbierto = ref(false)
 const passwordBorrado = ref('')
+const inputPasswordBorrado = ref<HTMLInputElement | null>(null)
+const botonAbrirBorrado = ref<HTMLButtonElement | null>(null)
 
-function abrirBorrado() {
+/* El foco sigue al panel (review de accesibilidad): el botón que lo abre se
+ * desmonta del DOM, y sin traslado explícito el foco cae a <body> y un usuario
+ * de teclado/lector se queda flotando al principio de la página. */
+async function abrirBorrado() {
+  auth.limpiarErrorBorrado()
   borradoAbierto.value = true
+  await nextTick()
+  inputPasswordBorrado.value?.focus()
 }
 
-function cancelarBorrado() {
+async function cancelarBorrado() {
+  auth.limpiarErrorBorrado()
   borradoAbierto.value = false
   passwordBorrado.value = ''
+  await nextTick()
+  botonAbrirBorrado.value?.focus()
 }
 
 async function confirmarBorrado() {
@@ -363,6 +374,7 @@ async function confirmarBorrado() {
 
         <button
           v-if="!borradoAbierto"
+          ref="botonAbrirBorrado"
           type="button"
           class="boton-secundario boton--ancho boton-abrir-borrado"
           @click="abrirBorrado"
@@ -376,7 +388,12 @@ async function confirmarBorrado() {
           novalidate
           @submit.prevent="confirmarBorrado"
         >
-          <p class="aviso-bloque">
+          <!-- role=alert: la frase más importante del flujo también tiene que
+               sonar en un lector de pantalla, no solo verse (review a11y). -->
+          <p
+            class="aviso-bloque"
+            role="alert"
+          >
             <strong>No hay vuelta atrás:</strong> se borra todo, ahora mismo y
             para siempre. Escribe tu contraseña para confirmar que eres tú.
           </p>
@@ -384,6 +401,7 @@ async function confirmarBorrado() {
             <label for="password-borrado">Tu contraseña</label>
             <input
               id="password-borrado"
+              ref="inputPasswordBorrado"
               v-model="passwordBorrado"
               type="password"
               autocomplete="current-password"
@@ -524,12 +542,13 @@ form {
 }
 
 /* El único botón rojo de la app: destruir la evidencia no puede vestirse
- * del verde de siempre. Mismo esqueleto que .boton, en --alerta. */
+ * del verde de siempre. Mismo esqueleto que .boton, en --alerta con su
+ * pareja --sobre-alerta (review: acoplarlo a --sobre-verde era frágil). */
 .boton-borrar {
   border: 1px solid var(--alerta);
   border-radius: var(--radio-control, 8px);
   background: var(--alerta);
-  color: var(--sobre-verde);
+  color: var(--sobre-alerta);
   padding: var(--esp-sm) var(--esp-md);
   font: inherit;
   font-weight: var(--peso-etiqueta);
