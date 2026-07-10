@@ -3,6 +3,46 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-10 — rediseño de la UI de cero: "Nómina clara" (PR #192)
+
+Iulian pidió rehacer la interfaz entera desde cero, con la skill impeccable
+como guía de diseño y anime.js para el movimiento. La lógica (stores,
+services, lib, router) no se tocó; las 17 piezas visuales (8 vistas, 8
+componentes y el shell) se reescribieron sobre un sistema nuevo.
+
+- **Sistema "Nómina clara"** (dirección elegida por Iulian entre tres
+  propuestas): la claridad de un documento oficial, a favor del trabajador —
+  papel blanco, tinta casi negra, y el verde reservado para el dinero, la
+  acción y la selección. Tokens OKLCH claro/oscuro y una capa de componentes
+  globales en `style.css` para que toda la app hable el mismo vocabulario.
+  `PRODUCT.md` y `DESIGN.md` en la raíz capturan estrategia y contrato visual.
+- **Public Sans variable auto-hosteada** (subset latín de 25 KB hecho a mano
+  con fontTools conservando los numerales tabulares que Google Fonts elimina:
+  sin ellos, la cifra bailaría al animarse). Precacheada por el service worker.
+- **Motion con anime.js 4.5 vía `lib/animacion.ts`**: la cifra del resumen
+  cuenta de 0 al importe y un trazo verde la subraya al llegar (el momento
+  firma); listas recién cargadas entran escalonadas; despliegues inline con
+  `PanelPlegable` (la alternativa de la casa al modal). `prefers-reduced-motion`
+  recibe el estado final al instante, sin excepciones, y en jsdom las
+  animaciones son síncronas (los tests no dependen de frames).
+- **Construcción en paralelo:** la fundación y la pantalla héroe a mano; las
+  otras siete vistas, seis agentes en paralelo con el contrato de diseño en el
+  prompt. En la libreta, el botón primario verde cambia con el estado del día
+  (Entro ↔ Salgo), con los dos siempre disponibles por las jornadas partidas.
+- **Review multi-agente** (Vue, diseño, accesibilidad) con verificación
+  adversarial por hallazgo: 8 confirmados y arreglados — entre ellos el
+  contraste 3:1 de los bordes de controles (WCAG 1.4.11) en ambos temas y el
+  `aria-invalid`/`aria-describedby` de los formularios — y 3 refutados con la
+  razón documentada.
+- **QA en navegador contra el stack real** (registro → perfil → fichar →
+  semana → resumen; consulta anónima Zaragoza camarero → 1.351,82 € al mes con
+  sus citas). De ahí salió un endurecimiento real: la transición de vistas
+  ahora se cierra por timer (`:duration` explícita) porque un `transitionend`
+  perdido con el webview en segundo plano podía dejar la pantalla en blanco.
+- Suite frontend 286/286, cobertura 91,3 % / 88,9 % (gate 80 %), eslint limpio,
+  build y precache OK. Pendiente para Iulian: QA manual en dispositivo real
+  (sensación del motion en gama baja, render de la fuente) y regenerar el APK.
+
 ## 2026-07-09 — maratón nocturno · La app queda funcionalmente completa
 
 Sesión autónoma larga (Iulian fuera, con orden de no parar): 17 PRs mergeadas
