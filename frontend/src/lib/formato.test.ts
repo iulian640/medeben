@@ -92,6 +92,12 @@ describe('etiquetaValor', () => {
     expect(etiquetaValor('areaFuncional', 'AF4_pisos_limpieza')).toBe('Pisos y limpieza')
   })
 
+  it('traduce los grupos profesionales del ALEH a algo autoexplicativo', () => {
+    expect(etiquetaValor('grupoProfesional', 'grupoPrimero')).toBe('1º · Mando o jefe/a')
+    expect(etiquetaValor('grupoProfesional', 'grupoSegundo')).toBe('2º · Técnico/a o especialista')
+    expect(etiquetaValor('grupoProfesional', 'grupoTercero')).toBe('3º · Asistente')
+  })
+
   it('traduce los tipos de establecimiento de los convenios condicionales', () => {
     expect(etiquetaValor('establecimiento', 'hoteles_5o4_estrellas')).toBe('Hoteles de 4 o 5 estrellas')
     expect(etiquetaValor('establecimiento', 'cafes_bares_cervecerias_especial')).toBe(
