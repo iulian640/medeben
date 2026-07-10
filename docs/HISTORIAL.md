@@ -3,6 +3,27 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-10 (noche) — la restauración colectiva calcula: 405 pares puesto×provincia
+
+El convenio estatal de restauración colectiva no tenía ningún puesto mapeado
+(cada anexo provincial agrupa ocupaciones en categorías literales propias: 296
+literales en 48 provincias). Ahora un cocinero de comedor escolar elige su
+puesto, responde su provincia y llega a su fila salarial.
+
+- **Motor**: nueva forma `condicionalPorProvincia` — el árbol condicional
+  declara su dimensión objetivo (`Condicional(arbol, dimensionObjetivo)`): los
+  árboles de establecimiento/zona siguen resolviendo `nivel`; los de provincia
+  resuelven la `categoria` literal del anexo. `NodoCondicional` intacto.
+- **Datos**: piloto manual (Cáceres) → flota de 94 agentes (mapeador +
+  refutador adversarial por provincia) → arbitraje manual de 42 discrepancias
+  → validación byte a byte contra la capa normalizada + barrido de cobertura
+  (0 callejones). Detalle y criterios: `convenios/colectiva-ocupaciones-informe-2026-07-10.md`.
+- **Frontend**: solo etiquetas (la pregunta "provincia" ya era genérica);
+  tildes para las provincias ASCII de la capa normalizada.
+- No mapeable hoy (honesto): Alicante (anexo solo con niveles sin ocupaciones),
+  Lugo (tabla por tenedores sin normalizar), y las figuras de hostelería
+  clásica que colectividades no contempla.
+
 ## 2026-07-10 — rediseño de la UI de cero: "Nómina clara" (PR #192)
 
 Iulian pidió rehacer la interfaz entera desde cero, con la skill impeccable
