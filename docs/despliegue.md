@@ -36,6 +36,11 @@ JWT (válido 24 h) en cada petición; sin TLS, cualquiera en el WiFi del local
 (público, compartido) hace un MITM y los captura en claro. La cabecera HSTS que
 emite nginx SOLO surte efecto una vez servido por HTTPS.
 
+**Backups de la BD (obligatorio antes de usuarios reales):** ver
+[backups.md](backups.md) — `deploy/backup-db.ps1` diario programado con copia
+externa, y `deploy/restaura-db.ps1` para ensayar la restauración. La BD guarda
+la evidencia de los usuarios; sin backup verificado no hay producción.
+
 Con dominio comprado, pon delante **Caddy** (TLS automático con Let's Encrypt,
 lo más simple) o Traefik/certbot, apuntando a `127.0.0.1:80`, con redirección
 `80→443`. Hasta que eso esté, la app no debe tener usuarios reales.
