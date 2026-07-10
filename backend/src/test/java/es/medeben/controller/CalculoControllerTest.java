@@ -163,6 +163,21 @@ class CalculoControllerTest {
     }
 
     @Test
+    @DisplayName("EUR/año bajo SMI (review CRITICAL): Cuenca nivel I (16.175 €/año) < SMI anual → avisa")
+    void salarioBaseAnualBajoSmi() throws Exception {
+        // Cuenca publica en EUR/año; 16.175,05 < 17.094 (SMI anual 2026) → bajo SMI.
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"cuenca-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"nivel":"I","grupoEstablecimiento":"A"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.unidad").value("EUR/año"))
+                .andExpect(jsonPath("$.bajoSmi").value(true))
+                .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Salario Mínimo.*/)]").exists());
+    }
+
+    @Test
     @DisplayName("salario-base sin tabla aplicable → 404")
     void salarioBaseSinTabla() throws Exception {
         mockMvc.perform(post("/api/v1/calculo/salario-base")

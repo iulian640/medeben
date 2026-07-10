@@ -8,7 +8,9 @@ import es.medeben.dto.SalarioBaseRequest;
 import es.medeben.dto.SalarioBaseResponse;
 import es.medeben.repository.ConvenioCatalog;
 import es.medeben.service.CalculoConvenioService;
+import es.medeben.service.Cita;
 import es.medeben.service.HorasExtraCalculadas;
+import es.medeben.service.SalarioBaseResuelto;
 import es.medeben.service.SmiService;
 import es.medeben.service.TablaSalarialService;
 import jakarta.validation.Valid;
@@ -17,7 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Cálculos sobre convenios. Sin datos personales: entradas anónimas (salario,
@@ -68,25 +73,33 @@ public class CalculoController {
     }
 
     /**
-     * Añade el suelo del SMI: si la tabla (EUR/mes) queda por debajo del SMI en
-     * cómputo anual (base × mensualidades del convenio), marca {@code bajoSmi} y
-     * suma la cita legal del SMI. Sin mensualidades publicadas se asume 14 (el
-     * estándar) para no dejar de avisar. Otras unidades (Cuenca EUR/año) no se
-     * comparan aquí: el motor las trata aparte.
+     * Añade el suelo del SMI: compara el salario del convenio en cómputo ANUAL
+     * contra el SMI anual y, si no llega, marca {@code bajoSmi} y suma la cita
+     * legal del SMI. Maneja las DOS unidades del corpus:
+     * <ul>
+     *   <li>EUR/año (Cuenca): el importe ya es anual, se compara directo.</li>
+     *   <li>EUR/mes: importe × mensualidades del convenio (14 si no las publica).</li>
+     * </ul>
+     * El cómputo usa solo el salario base (pluses = 0): puede sobre-avisar en
+     * categorías que con pluses llegarían, por eso el aviso dice "si no llega, la
+     * diferencia es tuya" en vez de afirmar una cifra. Otras unidades (EUR/hora)
+     * no se comparan como salario.
      */
-    private SalarioBaseResponse conAvisoSmi(es.medeben.service.SalarioBaseResuelto r,
-                                            String convenioId, int anio) {
-        if (!"EUR/mes".equals(r.unidad())) {
+    private SalarioBaseResponse conAvisoSmi(SalarioBaseResuelto r, String convenioId, int anio) {
+        BigDecimal mensualidades;
+        if ("EUR/año".equals(r.unidad())) {
+            mensualidades = BigDecimal.ONE; // el importe ya es el cómputo anual
+        } else if ("EUR/mes".equals(r.unidad())) {
+            mensualidades = convenios.porId(convenioId).flatMap(calculo::mensualidades)
+                    .orElse(BigDecimal.valueOf(14));
+        } else {
             return new SalarioBaseResponse(r.importe(), r.unidad(), false, null, r.citas());
         }
-        java.math.BigDecimal mensualidades = convenios.porId(convenioId)
-                .flatMap(calculo::mensualidades)
-                .orElse(java.math.BigDecimal.valueOf(14));
-        boolean alcanza = smi.alcanzaElSmi(r.importe(), mensualidades, java.math.BigDecimal.ZERO, anio);
+        boolean alcanza = smi.alcanzaElSmi(r.importe(), mensualidades, BigDecimal.ZERO, anio);
         if (alcanza) {
             return new SalarioBaseResponse(r.importe(), r.unidad(), false, smi.smiMensual(anio), r.citas());
         }
-        var citas = new java.util.ArrayList<>(r.citas());
+        List<Cita> citas = new ArrayList<>(r.citas());
         citas.add(smi.citaSmi(anio));
         return new SalarioBaseResponse(r.importe(), r.unidad(), true, smi.smiMensual(anio), citas);
     }

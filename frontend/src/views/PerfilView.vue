@@ -244,9 +244,9 @@ function onPuesto(event: Event) {
         role="alert"
       >
         La tabla de tu convenio para este puesto ha quedado por debajo del
-        salario mínimo ({{ formatearImporte(perfil.salario.smiMensual) }} € al mes
-        en 2026). Por ley no pueden pagarte menos: al año te corresponde al menos
-        el mínimo, y si no llega, la diferencia es tuya.
+        salario mínimo ({{ formatearImporte(perfil.salario.smiMensual) }} € al mes).
+        Por ley no pueden pagarte menos: al año te corresponde al menos el mínimo,
+        y si con tus pluses no llega, la diferencia es tuya.
       </p>
       <CitasFuente :citas="perfil.salario.citas" />
     </section>

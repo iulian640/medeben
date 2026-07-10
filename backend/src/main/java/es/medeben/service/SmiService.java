@@ -3,6 +3,7 @@ package es.medeben.service;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
@@ -23,13 +24,16 @@ import java.util.TreeMap;
 public class SmiService {
 
     /** SMI mensual (€/mes en 14 pagas) por año de entrada en vigor. Fuente: BOE. */
-    private static final NavigableMap<Integer, BigDecimal> SMI_MENSUAL_14 = new TreeMap<>();
+    private static final NavigableMap<Integer, BigDecimal> SMI_MENSUAL_14;
 
     static {
-        SMI_MENSUAL_14.put(2023, new BigDecimal("1080.00")); // RD 99/2023
-        SMI_MENSUAL_14.put(2024, new BigDecimal("1134.00")); // RD 145/2024
-        SMI_MENSUAL_14.put(2025, new BigDecimal("1184.00")); // RD 87/2025
-        SMI_MENSUAL_14.put(2026, new BigDecimal("1221.00")); // RD 2026 (BOE feb-2026)
+        NavigableMap<Integer, BigDecimal> tabla = new TreeMap<>();
+        tabla.put(2023, new BigDecimal("1080.00")); // RD 99/2023
+        tabla.put(2024, new BigDecimal("1134.00")); // RD 145/2024
+        tabla.put(2025, new BigDecimal("1184.00")); // RD 87/2025
+        tabla.put(2026, new BigDecimal("1221.00")); // RD 2026: 1.221 €/mes, 17.094 €/año (BOE feb-2026)
+        // Inmutable: es el suelo legal, no debe poder alterarse en runtime.
+        SMI_MENSUAL_14 = Collections.unmodifiableNavigableMap(tabla);
     }
 
     private static final int PAGAS_SMI = 14;
