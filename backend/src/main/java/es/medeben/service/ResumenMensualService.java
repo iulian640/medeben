@@ -147,7 +147,7 @@ public class ResumenMensualService {
         ImporteEstimadoMensual importe = valora(convenio, mes, salario, mesAgg.extraMin);
         TopeAnualResumen tope = tope(convenio, mes, extraAnioMin[0]);
         List<String> avisos = new ArrayList<>(avisos(tope.horasTope(), extraAnioMin[0]));
-        avisos.addAll(avisosDescanso(DescansoEntreJornadas.incidencias(diasDelMes)));
+        avisos.addAll(avisosDescanso(DescansoEntreJornadas.incidencias(conDiaAntes(mes, semanas, diasDelMes))));
 
         return new ResumenMensual(mes, mesAgg.teoricoMin, mesAgg.realMin, mesAgg.extraMin,
                 mesAgg.deficitMin, diasSinCalcular[0], contadores, importe, tope, avisos);
@@ -288,6 +288,27 @@ public class ResumenMensualService {
                                                          Map<LocalDate, Optional<HorarioEfectivo>> semanas) {
         return semanas.getOrDefault(lunesDe(dia), Optional.empty())
                 .map(h -> h.dias().get(indiceDia(dia)));
+    }
+
+    /**
+     * Antepone el último día del mes anterior (si su semana tiene cuadrante) para
+     * que el DÍA 1 se compare con la jornada de cierre del 30/31: los turnos de
+     * hostelería cruzan justo esa frontera. Ese día solo SIEMBRA el descanso (va
+     * el primero de la lista), nunca genera aviso propio. En enero el día anterior
+     * cae fuera del rango cargado (año anterior) y simplemente no se siembra.
+     */
+    private static List<Map.Entry<LocalDate, DiaCuadrante>> conDiaAntes(
+            YearMonth mes, Map<LocalDate, Optional<HorarioEfectivo>> semanas,
+            List<Map.Entry<LocalDate, DiaCuadrante>> diasDelMes) {
+        LocalDate diaAntes = mes.atDay(1).minusDays(1);
+        Optional<DiaCuadrante> cuadrante = diaCuadranteDe(diaAntes, semanas);
+        if (cuadrante.isEmpty()) {
+            return diasDelMes;
+        }
+        List<Map.Entry<LocalDate, DiaCuadrante>> conAntes = new ArrayList<>(diasDelMes.size() + 1);
+        conAntes.add(Map.entry(diaAntes, cuadrante.get()));
+        conAntes.addAll(diasDelMes);
+        return conAntes;
     }
 
     /** Minutos teóricos del día según el horario efectivo de su semana; vacío si esa semana no tiene horario. */

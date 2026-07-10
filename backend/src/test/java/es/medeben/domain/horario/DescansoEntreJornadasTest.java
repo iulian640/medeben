@@ -93,6 +93,19 @@ class DescansoEntreJornadasTest {
     }
 
     @Test
+    @DisplayName("frontera de mes: 30/06 cierre → 01/07 apertura se evalúa igual (no se pierde por el cambio de mes)")
+    void fronteraDeMes() {
+        var dias = List.of(
+                dia(LocalDate.of(2026, 6, 30), new Tramo("18:00", "02:00")), // cierre: fin 01/07 02:00
+                dia(LocalDate.of(2026, 7, 1), new Tramo("08:00", "16:00")));  // 6 h de descanso
+
+        var inc = DescansoEntreJornadas.incidencias(dias);
+        assertThat(inc).hasSize(1);
+        assertThat(inc.get(0).fecha()).isEqualTo(LocalDate.of(2026, 7, 1));
+        assertThat(inc.get(0).bajoMinimoLegal()).isTrue();
+    }
+
+    @Test
     @DisplayName("lista vacía o de un solo día → sin incidencias")
     void bordes() {
         assertThat(DescansoEntreJornadas.incidencias(List.of())).isEmpty();

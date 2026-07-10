@@ -57,9 +57,8 @@ public final class DescansoEntreJornadas {
             LocalDateTime inicioJornada = inicioJornada(dia.getKey(), tramos.get(0));
             if (finJornadaAnterior != null) {
                 long hueco = java.time.Duration.between(finJornadaAnterior, inicioJornada).toMinutes();
-                // Solo cuenta si la jornada anterior es de veras "la de ayer": un hueco
-                // negativo (solapes imposibles del cuadrante) o de más de 24 h no es
-                // un incumplimiento del descanso entre jornadas.
+                // Un hueco negativo (solapes imposibles del cuadrante) no cuenta; por
+                // encima de 12 h el descanso ya se respeta. Entre ambos, incidencia.
                 if (hueco >= 0 && hueco < ORDINARIO_MINUTOS) {
                     incidencias.add(new Incidencia(dia.getKey(), (int) hueco,
                             ORDINARIO_MINUTOS - (int) hueco, hueco < MINIMO_HOSTELERIA_MINUTOS));
