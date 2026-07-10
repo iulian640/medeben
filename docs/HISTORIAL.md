@@ -3,6 +3,33 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-10 (noche) — borrado de cuenta (RGPD art. 17): el bloqueante de Play Store
+
+El derecho de supresión, de punta a punta. Era el hueco nº1 del análisis de
+arquitectura (sin él no hay política de privacidad honesta que publicar).
+
+- **Backend**: `DELETE /api/v1/cuenta` borra FÍSICAMENTE al usuario del token
+  re-confirmando su contraseña; el `ON DELETE CASCADE` del esquema (que ya
+  estaba preparado) arrastra perfil, cuadrantes y apuntes, y el email queda
+  libre (test de cascade contra Postgres real). Contraseña incorrecta → 403
+  (un 401 expulsaría la sesión); token vivo de cuenta ya borrada → 401.
+- **Frontend**: zona de borrado al pie de Cuenta en dos pasos — aviso de que
+  el borrado destruye la evidencia y hay que descargar antes los PDF
+  mensuales, y solo después la advertencia final con contraseña. Al éxito se
+  limpia la sesión entera (regla de dispositivo compartido) y se vuelve a la
+  portada.
+- **Reviews aplicadas** (java + security-Opus + vue): la purga de la caché de
+  informes anuales pasa a DESPUÉS del commit (TOCTOU: una petición concurrente
+  podía repoblarla con el PDF del borrado); el DELETE gasta el presupuesto
+  ESTRICTO de rate limit (es una re-confirmación de contraseña, como el
+  login), con clave ip|sub; y en Vue, un borrado que resuelve tarde ya no pisa
+  la sesión de OTRO usuario que entró mientras tanto, más foco gestionado,
+  `role="alert"` en la advertencia y token propio `--sobre-alerta`.
+- Limitación conocida y aceptada (es el punto B4 del plan, refresh/revocación):
+  el JWT stateless sigue siendo válido hasta 24 h tras el borrado; no puede
+  leer nada (los datos ya no existen) ni crear huérfanos (FK), y un POST con
+  él devuelve un 500 ruidoso en vez de un 401 fino.
+
 ## 2026-07-10 (noche) — la restauración colectiva calcula: 405 pares puesto×provincia
 
 El convenio estatal de restauración colectiva no tenía ningún puesto mapeado
