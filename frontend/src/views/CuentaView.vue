@@ -229,6 +229,16 @@ function salir() {
           </RouterLink>.
         </p>
       </section>
+
+      <section class="tarjeta">
+        <p class="texto-sm texto-suave">
+          Tu horario habitual (la semana que se repite) se edita en
+          <RouterLink to="/horario">
+            Tu horario
+          </RouterLink>: es lo que comparamos con tu diario para calcular
+          las horas extra.
+        </p>
+      </section>
     </template>
   </main>
 </template>

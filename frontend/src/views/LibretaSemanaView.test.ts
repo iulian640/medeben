@@ -66,6 +66,8 @@ function crearRouter(): Router {
       { path: '/libreta', name: 'libreta', component: Stub },
       { path: '/libreta/semana', name: 'libreta-semana', component: LibretaSemanaView },
       { path: '/libreta/dia/:fecha', name: 'libreta-dia', component: Stub },
+      { path: '/horario', name: 'horario', component: Stub },
+      { path: '/horario/semana/:lunes', name: 'horario-semana', component: Stub },
     ],
   })
 }
@@ -167,6 +169,20 @@ describe('LibretaSemanaView', () => {
     expect(wrapper.text()).not.toContain('según tu horario')
     expect(wrapper.text()).toContain('Sin horario configurado')
     expect(wrapper.find('[role="alert"]').exists()).toBe(false)
+    // Y el camino para arreglarlo: el enlace al editor de horario.
+    const crear = wrapper.findAll('a').find((a) => a.text() === 'Crear tu horario')
+    expect(crear?.attributes('href')).toBe('/horario')
+  })
+
+  it('con horario, ofrece editar el de ESTA semana (su lunes) y el habitual', async () => {
+    const wrapper = await montar()
+
+    const editar = wrapper
+      .findAll('a')
+      .find((a) => a.text().includes('Editar el horario de esta semana'))
+    expect(editar?.attributes('href')).toBe('/horario/semana/2026-07-06')
+    const habitual = wrapper.findAll('a').find((a) => a.text().includes('tu horario habitual'))
+    expect(habitual?.attributes('href')).toBe('/horario')
   })
 
   it('navega a la semana anterior y a la siguiente', async () => {
