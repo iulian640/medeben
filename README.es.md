@@ -38,22 +38,32 @@ dice; nunca lo inventa.
 - No hace falta creernos: el código es público (AGPL-3.0) y cualquiera puede
   comprobar qué hace la app con tus datos.
 
-## Cómo está hecha
+## Quién ha hecho esto, con franqueza
 
-Soy Iulian, excocinero y ahora desarrollador en formación. Empecé MeDeben
-porque viví el problema: no saber qué decía de verdad mi convenio, ni si mis
-horas cuadraban.
+Soy Iulian, excocinero y ahora aprendiendo a programar. MeDeben existe porque
+viví el problema: nunca supe del todo qué decía mi convenio, ni si mis horas
+cuadraban a final de mes.
 
-Yo pongo la dirección y las decisiones de producto, y reviso lo que entra. Una
-regla lo gobierna todo: un dato erróneo es peor que uno ausente. La construcción
-la hago con [Claude Code](https://claude.com/claude-code) (un agente de
-programación con IA) como pareja: el backend en Java/Spring, el frontend en Vue,
-el pipeline de transcripción y validación, los tests y la CI se escriben con él,
-bajo mi dirección y revisión. El criterio de dominio y los estándares son míos;
-la IA teclea gran parte.
+Este es el reparto honesto, porque toda la app va de ser claro con tus derechos
+y sería raro esconder cómo está hecha.
 
-Esa forma de trabajar es también por qué un proyecto de este tamaño ha tomado
-forma en semanas, no en meses.
+La idea es mía, y también cada decisión de producto: para qué sirve la app, para
+quién es, qué haremos y qué no, y la regla que lo gobierna todo (un dato erróneo
+es peor que uno ausente). Los convenios los investigamos juntos, porque esa
+parte necesita a alguien que haya currado en una barra y sepa qué significa un
+"grupo de actividad" en una nómina. Yo reviso lo que entra, y lo pruebo con
+gente que sigue en las cocinas.
+
+El código, en su mayoría, no es mío. El backend en Java/Spring, el frontend en
+Vue, el pipeline de transcripción, los tests, la CI: casi todo lo escribe
+[Claude Code](https://claude.com/claude-code), un agente de programación con IA,
+trabajando como mi pareja y bajo mi dirección. Teclea casi todo y toma muchas de
+las decisiones de implementación. Yo pongo el rumbo, mantengo los estándares y
+digo que no cuando algo está mal.
+
+Así un proyecto de este tamaño ha tomado forma en semanas y no en meses. El
+criterio es mío; las manos son sobre todo de la IA. Ese es el trato, y prefiero
+que lo sepas.
 
 ## Los datos
 
