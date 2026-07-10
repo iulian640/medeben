@@ -31,18 +31,33 @@ const porcentajeTope = computed(() => {
 })
 
 /**
- * El 422 sobre horario y el de perfil llevan a pantallas distintas. El match
- * va sobre el detail (texto libre) en minúsculas: lo sólido sería un código
- * estable RFC 7807 del backend — anotado como pendiente (review).
+ * La guía del 422 se decide con el CÓDIGO estable del backend (RFC 7807):
+ * PERFIL y HORARIO los arregla el usuario; DATOS_CONVENIO no depende de él
+ * (mandarle a "completar" un perfil ya completo era un bucle sin salida).
+ * Sin código (backend viejo en un despliegue a medias) se adivina sobre el
+ * texto, que es mejor que dejar sin salida.
  */
 const enlaceIncompleto = computed(() => {
   if (!resumen.incompleto) {
     return null
   }
-  return resumen.incompleto.toLowerCase().includes('horario')
-    ? { a: '/horario', texto: 'Crear tu horario' }
-    : { a: '/cuenta', texto: 'Completar tu perfil' }
+  switch (resumen.incompletoCodigo) {
+    case 'PERFIL':
+      return { a: '/cuenta', texto: 'Completar tu perfil' }
+    case 'HORARIO':
+      return { a: '/horario', texto: 'Crear tu horario' }
+    case 'DATOS_CONVENIO':
+    case 'CONVENIO_NO_DISPONIBLE':
+      return null
+    default:
+      return resumen.incompleto.toLowerCase().includes('horario')
+        ? { a: '/horario', texto: 'Crear tu horario' }
+        : { a: '/cuenta', texto: 'Completar tu perfil' }
+  }
 })
+
+/** El dato que falta es del CONVENIO: se explica que no depende del usuario. */
+const faltaDatoDelConvenio = computed(() => resumen.incompletoCodigo === 'DATOS_CONVENIO')
 
 /*
  * Descarga del informe PDF: con el token SOLO en memoria, un <a href> a pelo
@@ -186,6 +201,14 @@ watch(
         Aún no puedo echar las cuentas de este mes
       </h2>
       <p>{{ resumen.incompleto }}</p>
+      <p
+        v-if="faltaDatoDelConvenio"
+        class="texto-sm texto-suave"
+      >
+        Esto no depende de ti: tu perfil está bien. Falta un dato de tu
+        convenio (la tabla o la jornada publicadas) y estamos completándolo.
+        En cuanto esté, la cifra saldrá sola.
+      </p>
       <RouterLink
         v-if="enlaceIncompleto"
         class="boton boton--ancho"

@@ -168,6 +168,7 @@ describe('ResumenMesView', () => {
       new ApiError(422, 'API 422', {
         status: 422,
         detail: 'No has definido tu horario para ese mes',
+        codigo: 'HORARIO',
       }),
     )
 
@@ -183,12 +184,43 @@ describe('ResumenMesView', () => {
       new ApiError(422, 'API 422', {
         status: 422,
         detail: 'Todavía no has creado tu perfil',
+        codigo: 'PERFIL',
       }),
     )
 
     const wrapper = await montar()
 
     expect(wrapper.find('.guia a').attributes('href')).toBe('/cuenta')
+  })
+
+  it('422 DATOS_CONVENIO: sin botón engañoso y explicando que no depende del usuario', async () => {
+    vi.mocked(getResumenMes).mockRejectedValue(
+      new ApiError(422, 'API 422', {
+        status: 422,
+        detail: 'Tu convenio no tiene publicada la tabla salarial para tus datos (dimensiones)',
+        codigo: 'DATOS_CONVENIO',
+      }),
+    )
+
+    const wrapper = await montar()
+
+    expect(wrapper.find('.guia').text()).toContain('no tiene publicada la tabla')
+    // NADA de "Completar tu perfil": el perfil no tiene la culpa.
+    expect(wrapper.find('.guia a').exists()).toBe(false)
+    expect(wrapper.find('.guia').text()).toContain('Esto no depende de ti')
+  })
+
+  it('422 sin código (backend viejo): se adivina sobre el texto, mejor que sin salida', async () => {
+    vi.mocked(getResumenMes).mockRejectedValue(
+      new ApiError(422, 'API 422', {
+        status: 422,
+        detail: 'No has definido tu horario para ese mes',
+      }),
+    )
+
+    const wrapper = await montar()
+
+    expect(wrapper.find('.guia a').attributes('href')).toBe('/horario')
   })
 
   it('un 500 sale como error con reintento', async () => {
