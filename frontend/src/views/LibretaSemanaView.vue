@@ -255,11 +255,31 @@ watch(
         </li>
       </ol>
 
-      <p
+      <div
         v-if="!fichajes.horario"
-        class="texto-sm texto-suave"
+        class="aviso-bloque aviso"
+        role="status"
       >
-        Sin horario configurado: no comparamos con tus horas teóricas.
+        <p>Sin horario configurado: no comparamos con tus horas teóricas.</p>
+        <RouterLink
+          class="boton-secundario"
+          to="/horario"
+        >
+          Crear tu horario
+        </RouterLink>
+      </div>
+      <p
+        v-else
+        class="texto-sm"
+      >
+        ¿Te han cambiado el turno?
+        <RouterLink :to="`/horario/semana/${lunes}`">
+          Editar el horario de esta semana
+        </RouterLink>
+        ·
+        <RouterLink to="/horario">
+          tu horario habitual
+        </RouterLink>
       </p>
       <p class="texto-sm texto-suave">
         Los huecos son normales: un diario real tiene huecos, y eso le da credibilidad.

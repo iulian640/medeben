@@ -40,7 +40,7 @@ const enlaceIncompleto = computed(() => {
     return null
   }
   return resumen.incompleto.toLowerCase().includes('horario')
-    ? { a: '/libreta', texto: 'Ir a tu libreta para crear tu horario' }
+    ? { a: '/horario', texto: 'Crear tu horario' }
     : { a: '/cuenta', texto: 'Completar tu perfil' }
 })
 

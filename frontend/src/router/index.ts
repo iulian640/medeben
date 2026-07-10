@@ -52,6 +52,20 @@ const router = createRouter({
       component: () => import('../views/LibretaSemanaView.vue'),
     },
     {
+      path: '/horario',
+      name: 'horario',
+      meta: { requiereSesion: true },
+      component: () => import('../views/HorarioView.vue'),
+    },
+    {
+      // El horario de UNA semana concreta ("me han cambiado el turno"): el
+      // mismo editor, guardando una edición puntual sin tocar la semana tipo.
+      path: '/horario/semana/:lunes',
+      name: 'horario-semana',
+      meta: { requiereSesion: true },
+      component: () => import('../views/HorarioView.vue'),
+    },
+    {
       // Un día concreto (desde "Tu semana"): la misma pantalla de fichar,
       // cargando esa fecha. Para completar o corregir días pasados (D38:
       // 14 días de margen; después, rectificación tardía).

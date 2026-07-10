@@ -55,6 +55,7 @@ function crearRouter(): Router {
       { path: '/resumen', name: 'resumen', component: ResumenMesView },
       { path: '/libreta', name: 'libreta', component: Stub },
       { path: '/cuenta', name: 'cuenta', component: Stub },
+      { path: '/horario', name: 'horario', component: Stub },
     ],
   })
 }
@@ -162,7 +163,7 @@ describe('ResumenMesView', () => {
     expect(wrapper.find('.aviso').text()).toContain('cerca del tope anual')
   })
 
-  it('422 por horario: guía con enlace a la libreta, no un error', async () => {
+  it('422 por horario: guía con enlace al editor de horario, no un error', async () => {
     vi.mocked(getResumenMes).mockRejectedValue(
       new ApiError(422, 'API 422', {
         status: 422,
@@ -173,7 +174,7 @@ describe('ResumenMesView', () => {
     const wrapper = await montar()
 
     expect(wrapper.find('.guia').text()).toContain('No has definido tu horario')
-    expect(wrapper.find('.guia a').attributes('href')).toBe('/libreta')
+    expect(wrapper.find('.guia a').attributes('href')).toBe('/horario')
     expect(wrapper.find('.error').exists()).toBe(false)
   })
 
