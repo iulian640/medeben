@@ -51,3 +51,10 @@ export const getResumenMes = (anyoMes: string) =>
  * el backend con el mismo motor que este resumen — aquí solo se descarga.
  */
 export const getInformeMes = (anyoMes: string) => api.getBlob(`/informes/mes/${anyoMes}`)
+
+/**
+ * El histórico anual en PDF: el año mes a mes con totales. El backend lo
+ * genera como mucho una vez al día por usuario (caché de 24 h) — el resto
+ * del día sirve el mismo documento, con su "generado el..." visible.
+ */
+export const getInformeAnio = (anio: string) => api.getBlob(`/informes/anio/${anio}`)

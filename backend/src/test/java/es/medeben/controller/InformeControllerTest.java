@@ -1,6 +1,7 @@
 package es.medeben.controller;
 
 import es.medeben.config.SecurityConfig;
+import es.medeben.service.InformeAnualService;
 import es.medeben.service.InformeMensualService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.Year;
 import java.time.YearMonth;
 import java.util.UUID;
 
@@ -40,6 +42,9 @@ class InformeControllerTest {
 
     @MockitoBean
     private InformeMensualService informes;
+
+    @MockitoBean
+    private InformeAnualService anuales;
 
     @MockitoBean
     private JwtDecoder jwtDecoder;
@@ -80,5 +85,35 @@ class InformeControllerTest {
                 .andExpect(jsonPath("$.detail", containsString("yyyy-MM")));
 
         verify(informes, never()).genera(any(), any());
+    }
+
+    @Test
+    @DisplayName("histórico anual: PDF adjunto con nombre limpio y sin caché compartida")
+    void descargaHistoricoAnual() throws Exception {
+        when(anuales.genera(eq(USUARIO), eq(Year.of(2026)))).thenReturn(PDF);
+
+        mockMvc.perform(get("/api/v1/informes/anio/2026").with(comoUsuario()))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_PDF))
+                .andExpect(header().string("Cache-Control", containsString("no-store")))
+                .andExpect(header().string("Content-Disposition",
+                        containsString("attachment; filename=\"medeben-historico-2026.pdf\"")))
+                .andExpect(content().bytes(PDF));
+    }
+
+    @Test
+    @DisplayName("histórico sin token → 401; año inválido → 400 sin ecoar el input")
+    void historicoValidaciones() throws Exception {
+        mockMvc.perform(get("/api/v1/informes/anio/2026"))
+                .andExpect(status().isUnauthorized());
+
+        mockMvc.perform(get("/api/v1/informes/anio/20x6").with(comoUsuario()))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail", containsString("yyyy")));
+
+        mockMvc.perform(get("/api/v1/informes/anio/20261").with(comoUsuario()))
+                .andExpect(status().isBadRequest());
+
+        verify(anuales, never()).genera(any(), any());
     }
 }
