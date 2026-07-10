@@ -22,13 +22,18 @@ dice; nunca lo inventa.
   establecimiento donde trabajas.
 - Eliges tu puesto en un desplegable ("cocinero/a", "camarero/a"...) y te
   explica tu nivel y el salario que fija tu convenio, con el artículo citado.
+- Te dice cuánto te deben este mes: compara tu horario con lo que fichaste y
+  calcula el mínimo que te corresponde por las horas de más.
 - Calculadora de horas extra según tu convenio, con sus fuentes.
 - Registro de horas sencillo: apuntas tu horario y la app te avisa para
-  ficharlo con un toque. Si un día no contestas, asume tu horario habitual
-  (marcado como automático, corregible después).
-- Guarda tus cuadrantes con fecha, para que tengas tu propio historial ordenado.
-- Exporta un informe PDF con tus registros y el detalle de los cálculos
-  *(planeado)*.
+  fichar con un toque. Un día sin fichar queda como hueco, a la vista: la app
+  nunca rellena horas que no registraste. A los 14 días el diario se sella con
+  fecha del servidor; eso es lo que convierte tu libreta en una prueba.
+- Guarda tus cuadrantes con fecha, para que tengas tu propio historial ordenado
+  (y quede constancia de los cambios de turno de última hora).
+- Exporta informes PDF (del mes y del año) con tus registros, sus sellos de
+  fecha y el detalle de cada cálculo, listos para llevar a un sindicato o a un
+  abogado.
 
 ## Nuestro compromiso
 
@@ -89,8 +94,9 @@ Lo de dentro importa tanto como lo de fuera:
   y enlazan al PDF del boletín (o al BOE, para el Estatuto de los Trabajadores).
 - **Calidad de código.** TDD en backend y frontend, revisión de código y de
   seguridad (humana y asistida por IA) en cada pieza importante, y una CI que
-  ejecuta la suite completa en cada PR, incluido el validador del corpus y
-  tests contra PostgreSQL real.
+  ejecuta la suite completa en cada PR: el validador del corpus, tests contra
+  PostgreSQL real y los recorridos de usuario de punta a punta (Playwright)
+  contra el stack levantado de verdad.
 - **Las rarezas se apuntan.** Al transcribir aparecen cosas curiosas (un plus de
   nocturnidad del 1%, un grupo que cobra más en 3ª categoría que en 2ª...):
   están recogidas con su fuente en [convenios/curiosidades.md](convenios/curiosidades.md).
@@ -98,10 +104,12 @@ Lo de dentro importa tanto como lo de fuera:
 ## Estado
 
 🚧 En desarrollo (v1). Funciona hoy: consulta del convenio, salario por puesto
-con fuentes, el motor de cálculo de hora/horas extra, registro de horas y
-cuadrantes, y cuentas de usuario (JWT). En camino: exportación a PDF y avisos de
-fichaje. El corpus completo de 55 convenios (~8.800 hechos salariales con
-procedencia) ya está en su sitio.
+con fuentes, "cuánto te deben este mes", registro de horas con diario sellado,
+editor de cuadrantes, informes PDF del mes y del año, avisos de fichaje (app
+Android) y cuentas con borrado real (RGPD) y sesiones que se pueden cerrar de
+verdad. En camino: la publicación (Play Store) y el despliegue público. El
+corpus completo de 55 convenios (~8.800 hechos salariales con procedencia) ya
+está en su sitio.
 
 Decisiones del proyecto: [docs/ADR.md](docs/ADR.md). Diario de avance:
 [docs/HISTORIAL.md](docs/HISTORIAL.md). Para levantarlo en local:

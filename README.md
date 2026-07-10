@@ -22,14 +22,18 @@ says so; it never makes one up.
   of establishment where you work.
 - You pick your job from a dropdown ("cocinero/a", "camarero/a"...) and it
   explains your level and the wage your convenio sets, citing the article.
+- Tells you what they owe you this month: it compares your schedule against
+  what you clocked and works out the minimum you're due for the extra hours.
 - Overtime calculator based on your convenio, with its sources.
 - Simple time tracking: you enter your schedule and the app reminds you to
-  clock it with one tap. If you don't answer one day, it assumes your usual
-  schedule (marked as automatic, editable later).
+  clock in with one tap. A day you didn't clock stays visible as a gap: the
+  app never fills in hours you didn't record. After 14 days the journal is
+  sealed with a server timestamp; that's what makes your records usable as
+  evidence.
 - Saves your shift schedules with their dates, so you keep your own tidy
-  history.
-- Exports a PDF report with your records and the detail behind the
-  calculations *(planned)*.
+  history (and last-minute shift changes leave a trace).
+- Exports PDF reports (month and year) with your records, their timestamps and
+  the detail behind every calculation, ready to take to a union or a lawyer.
 
 ## Our promise
 
@@ -91,8 +95,8 @@ The inside matters as much as the outside:
   Estatuto de los Trabajadores, the Workers' Statute).
 - **Code quality.** TDD on backend and frontend, code and security review
   (human and AI-assisted) on every major piece, and a CI that runs the full
-  suite on every PR, including the corpus validator and tests against a real
-  PostgreSQL.
+  suite on every PR: the corpus validator, tests against a real PostgreSQL,
+  and end-to-end user journeys (Playwright) against the actual running stack.
 - **Oddities get written down.** Transcribing turns up curious things (a
   nocturnidad (night-work premium) of 1%, a job group that earns more in 3rd
   category than in 2nd...): they are collected with their sources in
@@ -101,10 +105,12 @@ The inside matters as much as the outside:
 ## Status
 
 🚧 In development (v1). Working today: convenio lookup, wage-by-job with
-sources, the overtime/hour calculation engine, time tracking and shift
-schedules, and user accounts (JWT). On the way: PDF export and clock-in
-reminders. Full-coverage corpus of 55 convenios (~8,800 wage facts with
-provenance) is in place.
+sources, "what they owe you this month", time tracking with a sealed journal,
+a shift-schedule editor, monthly and yearly PDF reports, clock-in reminders
+(Android app), and accounts with real deletion (GDPR) and sessions you can
+actually log out of. On the way: the public release (Play Store) and hosting.
+Full-coverage corpus of 55 convenios (~8,800 wage facts with provenance) is in
+place.
 
 Project decisions: [docs/ADR.md](docs/ADR.md) (in Spanish). Progress diary:
 [docs/HISTORIAL.md](docs/HISTORIAL.md) (in Spanish). To run it locally:
