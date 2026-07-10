@@ -59,6 +59,12 @@ public class GlobalExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED, e.getMessage());
     }
 
+    /** 403, no 401: el usuario sigue autenticado — solo falló la re-confirmación. */
+    @ExceptionHandler(es.medeben.service.PasswordIncorrectaException.class)
+    public ProblemDetail passwordIncorrecta(es.medeben.service.PasswordIncorrectaException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.FORBIDDEN, e.getMessage());
+    }
+
     @ExceptionHandler(es.medeben.service.SemanaSelladaException.class)
     public ProblemDetail semanaSellada(es.medeben.service.SemanaSelladaException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
