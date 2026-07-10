@@ -6,9 +6,9 @@ describe('PanelRectificacionSellado', () => {
   it('explica en cristiano el sellado y la rectificación tardía', () => {
     const wrapper = mount(PanelRectificacionSellado, { props: { fichando: false } })
 
-    expect(wrapper.text()).toContain('Este día ya está sellado')
+    expect(wrapper.text()).toContain('Este día ya quedó protegido')
     expect(wrapper.text()).toContain('rectificación tardía')
-    expect(wrapper.text()).toContain('lo sellado no se toca')
+    expect(wrapper.text()).toContain('lo ya protegido no se toca')
   })
 
   it('solo deja confirmar tras marcar la casilla, con su fricción', async () => {

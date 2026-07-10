@@ -9,6 +9,6 @@ import java.time.LocalDate;
 public class DiaSelladoException extends RuntimeException {
 
     public DiaSelladoException(LocalDate fecha) {
-        super("El día " + fecha + " ya está sellado; solo cabe una rectificación tardía, que queda registrada aparte");
+        super("El día " + fecha + " ya quedó protegido (pasados 14 días): solo cabe una rectificación tardía, que se registra aparte con su fecha");
     }
 }

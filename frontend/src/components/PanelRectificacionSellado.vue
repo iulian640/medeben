@@ -28,15 +28,16 @@ const confirmado = ref(false)
     aria-labelledby="rectificacion-titulo"
   >
     <h3 id="rectificacion-titulo">
-      Este día ya está sellado
+      Este día ya quedó protegido
     </h3>
     <p>
-      Pasados 14 días, cada día de tu libreta se sella: lo apuntado queda
-      fijado como prueba y ya no se cambia.
+      Pasados 14 días, cada día de tu libreta queda protegido: lo apuntado se
+      fija como prueba y ya no se reescribe, para que nadie pueda cambiarlo en
+      tu contra.
     </p>
     <p>
       Aun así puedes registrarlo como <strong>rectificación tardía</strong>:
-      se guarda aparte, con su propia fecha, y lo sellado no se toca. Como
+      se guarda aparte, con su propia fecha, y lo ya protegido no se toca. Como
       prueba vale menos que lo fichado al momento, pero es honesto y queda
       en tu libreta.
     </p>
@@ -46,7 +47,7 @@ const confirmado = ref(false)
         type="checkbox"
       >
       Entiendo que quedará registrado como rectificación tardía, separado
-      del día sellado
+      del día ya protegido
     </label>
     <button
       type="button"

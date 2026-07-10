@@ -12,7 +12,6 @@ import {
   ETIQUETAS_ESTADO,
   ETIQUETAS_ORIGEN,
   ETIQUETAS_TIPO,
-  cuentaAtrasSello,
   diaSemanaDe,
   formatearMinutos,
   horaActual,
@@ -194,19 +193,7 @@ function reenviaConfirmada(confirmado: boolean) {
             class="sello"
             role="status"
           >
-            ✓ sellado a las {{ horaLocalDe(fichajes.ultimoSello.registradoEn) }}
-          </p>
-
-          <p class="contador">
-            <template v-if="fichajes.dia.sellado">
-              Este día está sellado desde el {{ formatearFecha(fichajes.dia.selladoDesde) }}.
-            </template>
-            <template v-else>
-              <!-- Contador de cierre (D38): la cuenta atrás dice si aún llegas a corregir. -->
-              Este día se sella el {{ diaSemanaDe(fichajes.dia.selladoDesde) }}
-              {{ formatearFecha(fichajes.dia.selladoDesde) }} —
-              {{ cuentaAtrasSello(hoyIso(), fichajes.dia.selladoDesde) }}.
-            </template>
+            ✓ apuntado a las {{ horaLocalDe(fichajes.ultimoSello.registradoEn) }}
           </p>
         </section>
 

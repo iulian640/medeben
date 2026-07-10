@@ -125,7 +125,7 @@ describe('fichajes store — el día', () => {
     vi.mocked(postApunte).mockRejectedValue(
       new ApiError(409, 'API 409', {
         status: 409,
-        detail: 'El día 2026-06-01 ya está sellado; solo cabe una rectificación tardía',
+        detail: 'El día 2026-06-01 ya quedó protegido (pasados 14 días): solo cabe una rectificación tardía',
       }),
     )
     const fichajes = useFichajesStore()
@@ -140,7 +140,7 @@ describe('fichajes store — el día', () => {
 
     expect(apuntado).toBe(false)
     expect(fichajes.conflictoSellado).toBe(true)
-    expect(fichajes.error).toMatch(/ya está sellado/)
+    expect(fichajes.error).toMatch(/quedó protegido/)
     expect(fichajes.ultimoSello).toBeNull()
   })
 
