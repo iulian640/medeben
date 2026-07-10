@@ -213,6 +213,56 @@ class PerfilOcupacionServiceTest {
         assertThat(conInyeccion.dimensiones().get("nivel")).isNotEqualTo("1.35");
     }
 
+    // --- Colectiva: la CATEGORÍA depende de la PROVINCIA (condicionalPorProvincia) ---
+
+    @Test
+    @DisplayName("colectiva cocinero: sin respuestas pide la provincia (solo se ofrecen las mapeadas)")
+    void colectivaPrimeraPreguntaProvincia() {
+        var r = servicio.resuelve("estatal-restauracion-colectiva", "cocinero").orElseThrow();
+
+        assertThat(r.dimensiones()).isEmpty();
+        assertThat(r.pendientes()).hasSize(1);
+        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("provincia");
+        assertThat(r.pendientes().getFirst().valores()).contains("Caceres");
+    }
+
+    @Test
+    @DisplayName("colectiva cocinero en Cáceres: la provincia resuelve la categoría agrupada del anexo y no quedan preguntas")
+    void colectivaProvinciaResuelveCategoria() {
+        var r = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Caceres")).orElseThrow();
+
+        assertThat(r.dimensiones())
+                .containsEntry("provincia", "Caceres")
+                .containsEntry("categoria",
+                        "Cocinero / Camarero / Especialista de mantenimiento y servicios auxiliares");
+        assertThat(r.pendientes()).isEmpty();
+    }
+
+    @Test
+    @DisplayName("colectiva: una provincia inventada no resuelve nada, reaparece la pregunta (nunca se inventa)")
+    void colectivaProvinciaInventada() {
+        var r = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Atlantida")).orElseThrow();
+
+        assertThat(r.dimensiones()).isEmpty();
+        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("provincia");
+    }
+
+    @Test
+    @DisplayName("SEGURIDAD: una 'categoria' inyectada por el cliente NO pisa la que resuelve el árbol de provincia")
+    void colectivaCategoriaInyectadaNoManda() {
+        // El árbol fija la categoría de Cáceres. El cliente intenta colar otra fila
+        // salarial vía query param. El árbol es autoritativo (mismo blindaje que el nivel).
+        var conInyeccion = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Caceres",
+                        "categoria", "Jefe de recepción / Jefe de cocina / Jefe de restaurante o sala / Gobernante o Encargado general / Responsable de servicio"))
+                .orElseThrow();
+
+        assertThat(conInyeccion.dimensiones().get("categoria"))
+                .isEqualTo("Cocinero / Camarero / Especialista de mantenimiento y servicios auxiliares");
+    }
+
     @Test
     @DisplayName("condicional: al responder una dimensión de tabla no-raíz (categoría en Cataluña) se pliega y deja de preguntarse")
     void condicionalPliegaDimensionDeTablaRespondida() {

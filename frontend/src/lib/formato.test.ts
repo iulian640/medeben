@@ -76,6 +76,11 @@ describe('etiquetas de dimensiones', () => {
     expect(explicacionDimension('grupoEstablecimiento')).not.toBe('')
     expect(explicacionDimension('inventada')).toBe('')
   })
+
+  it('conoce la provincia (pregunta de la restauración colectiva) y la explica', () => {
+    expect(etiquetaDimension('provincia')).toBe('Provincia')
+    expect(explicacionDimension('provincia')).not.toBe('')
+  })
 })
 
 describe('etiquetaValor', () => {
@@ -109,6 +114,15 @@ describe('etiquetaValor', () => {
     expect(etiquetaValor('establecimiento', 'colectividades')).toBe(
       'Colectividades (comedores, hospitales, catering…)',
     )
+  })
+
+  it('pone la tilde a las provincias que la capa normalizada guarda en ASCII', () => {
+    expect(etiquetaValor('provincia', 'Caceres')).toBe('Cáceres')
+    expect(etiquetaValor('provincia', 'A Coruna')).toBe('A Coruña')
+    expect(etiquetaValor('provincia', 'Malaga')).toBe('Málaga')
+    // Las que ya van bien se quedan como están.
+    expect(etiquetaValor('provincia', 'Madrid')).toBe('Madrid')
+    expect(etiquetaValor('provincia', 'Santa Cruz de Tenerife')).toBe('Santa Cruz de Tenerife')
   })
 
   it('humaniza códigos snake_case y camelCase desconocidos', () => {
