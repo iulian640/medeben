@@ -63,6 +63,7 @@ function crearRouter(): Router {
       { path: '/', name: 'home', component: Stub },
       { path: '/libreta', name: 'libreta', component: Stub },
       { path: '/libreta/semana', name: 'libreta-semana', component: LibretaSemanaView },
+      { path: '/libreta/dia/:fecha', name: 'libreta-dia', component: Stub },
     ],
   })
 }
@@ -112,6 +113,20 @@ describe('LibretaSemanaView', () => {
     expect(dias[2].text()).toContain('En curso: falta la salida')
     expect(dias[3].text()).toContain('Sin apuntar todavía')
     expect(dias[6].text()).toContain('domingo')
+  })
+
+  it('cada día pasado (u hoy) es un enlace que abre esa fecha; los futuros no', async () => {
+    const wrapper = await montar()
+
+    // "Hoy" es el miércoles 8: lunes, martes y miércoles se abren.
+    const enlaces = wrapper.findAll('a.dia-enlace')
+    expect(enlaces.map((e) => e.attributes('href'))).toEqual([
+      '/libreta/dia/2026-07-06',
+      '/libreta/dia/2026-07-07',
+      '/libreta/dia/2026-07-08',
+    ])
+    // El jueves aún no ha llegado: fila sin enlace, no hay nada que fichar en él.
+    expect(wrapper.findAll('.dia')[3].find('a').exists()).toBe(false)
   })
 
   it('los minutos salen formateados, y los null como "—" con aviso de sin calcular', async () => {

@@ -5,6 +5,7 @@ import { createMemoryHistory, createRouter, type Router } from 'vue-router'
 import { ApiError } from '../services/api'
 import type { ApunteGuardado, EstadoDiaGuardado } from '../services/fichajes'
 import { CLAVE_ONBOARDING_LIBRETA } from '../lib/libreta'
+import { hoyIso } from '../lib/formato'
 import LibretaView from './LibretaView.vue'
 
 vi.mock('../services/fichajes', () => ({
@@ -44,18 +45,25 @@ function crearRouter(): Router {
       { path: '/', name: 'home', component: Stub },
       { path: '/libreta', name: 'libreta', component: LibretaView },
       { path: '/libreta/semana', name: 'libreta-semana', component: Stub },
+      { path: '/libreta/dia/:fecha', name: 'libreta-dia', component: LibretaView },
     ],
   })
 }
 
-async function montar(): Promise<VueWrapper> {
+async function montarConRouter(
+  ruta: string,
+): Promise<{ wrapper: VueWrapper; router: Router }> {
   const pinia = createPinia()
   setActivePinia(pinia)
   const router = crearRouter()
-  await router.push('/libreta')
+  await router.push(ruta)
   const wrapper = mount(LibretaView, { global: { plugins: [pinia, router] } })
   await flushPromises()
-  return wrapper
+  return { wrapper, router }
+}
+
+async function montar(ruta = '/libreta'): Promise<VueWrapper> {
+  return (await montarConRouter(ruta)).wrapper
 }
 
 function boton(wrapper: VueWrapper, texto: string) {
@@ -316,6 +324,75 @@ describe('LibretaView — día sellado (409)', () => {
     )
     // Tras el éxito, el panel de rectificación desaparece.
     expect(wrapper.text()).not.toContain('Este día ya quedó protegido')
+  })
+})
+
+describe('LibretaView — un día concreto (desde "Tu semana")', () => {
+  it('carga la fecha de la URL, esconde el "ahora" y abre la hora manual con su aviso', async () => {
+    vi.mocked(getEstadoDia).mockResolvedValue({
+      ...diaServidor,
+      fecha: '2026-07-01',
+      estado: 'HUECO',
+      apuntes: [],
+    })
+
+    const wrapper = await montar('/libreta/dia/2026-07-01')
+
+    expect(getEstadoDia).toHaveBeenCalledWith('2026-07-01')
+    // En un día pasado no existe el "ahora": solo hora manual y ausencia.
+    expect(wrapper.findAll('button').some((b) => b.text() === 'Entro ahora')).toBe(false)
+    expect(wrapper.text()).toContain('queda marcado como reconstruido')
+    // El panel de hora manual llega abierto: apuntar la hora es el único camino.
+    const plegable = wrapper.get('#hora-manual').element.closest('.plegable')
+    expect(plegable?.classList.contains('abierto')).toBe(true)
+    // Y hay vuelta a hoy.
+    const hrefs = wrapper.findAll('a').map((a) => a.attributes('href'))
+    expect(hrefs).toContain('/libreta')
+  })
+
+  it('una fecha inválida en la URL cae a hoy sin romper nada', async () => {
+    await montar('/libreta/dia/patata')
+
+    expect(getEstadoDia).toHaveBeenCalledWith(hoyIso())
+  })
+
+  it('el 30 de febrero pasa la regex pero no existe: cae a hoy', async () => {
+    await montar('/libreta/dia/2026-02-30')
+
+    expect(getEstadoDia).toHaveBeenCalledWith(hoyIso())
+  })
+
+  it('un día futuro no se ficha: mensaje honesto y sin paneles', async () => {
+    vi.mocked(getEstadoDia).mockResolvedValue({
+      ...diaServidor,
+      fecha: '2999-01-01',
+      estado: 'PENDIENTE',
+      apuntes: [],
+    })
+
+    const wrapper = await montar('/libreta/dia/2999-01-01')
+
+    expect(wrapper.text()).toContain('Este día aún no ha llegado')
+    expect(wrapper.findAll('button').some((b) => b.text() === 'Entro ahora')).toBe(false)
+    expect(wrapper.find('#hora-manual').exists()).toBe(false)
+    expect(wrapper.findAll('button').some((b) => b.text() === 'No he ido')).toBe(false)
+  })
+
+  it('al volver a hoy, el panel de hora manual se recoge y vuelven los botones de ahora', async () => {
+    const { wrapper, router } = await montarConRouter('/libreta/dia/2026-07-01')
+
+    // En el día pasado el panel llegó abierto.
+    let plegable = wrapper.get('#hora-manual').element.closest('.plegable')
+    expect(plegable?.classList.contains('abierto')).toBe(true)
+
+    await router.push('/libreta')
+    await flushPromises()
+
+    // De vuelta a hoy: los "ahora" reaparecen y el panel está recogido (el
+    // router reutiliza el componente, los refs sobreviven a la navegación).
+    expect(wrapper.findAll('button').some((b) => b.text() === 'Entro ahora')).toBe(true)
+    plegable = wrapper.get('#hora-manual').element.closest('.plegable')
+    expect(plegable?.classList.contains('abierto')).toBe(false)
   })
 })
 

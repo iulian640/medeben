@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useFichajesStore } from '../stores/fichajes'
 import type { ApuntePeticion, TipoApunte } from '../services/fichajes'
 import LibretaOnboarding from '../components/LibretaOnboarding.vue'
@@ -22,7 +23,38 @@ import {
 } from '../lib/libreta'
 
 const fichajes = useFichajesStore()
+const route = useRoute()
 const bloqueDia = ref<HTMLElement | null>(null)
+
+/*
+ * La fecha en pantalla: /libreta es hoy; /libreta/dia/:fecha (desde "Tu
+ * semana") abre ese día para completarlo o corregirlo (D38: 14 días de
+ * margen; después, el flujo de rectificación tardía que ya existe). Una
+ * fecha inválida en la URL cae a hoy sin romper nada.
+ */
+const RE_FECHA_ISO = /^\d{4}-\d{2}-\d{2}$/
+
+/** Fecha ISO REAL de calendario: '2026-02-30' pasa la regex pero no existe
+ *  (Date la desborda a marzo en vez de fallar), así que se comprueba que el
+ *  día reconstruido coincide con el pedido. */
+function esFechaRealIso(cruda: string): boolean {
+  if (!RE_FECHA_ISO.test(cruda)) {
+    return false
+  }
+  const [anio, mes, dia] = cruda.split('-').map(Number)
+  const fecha = new Date(anio, mes - 1, dia)
+  return (
+    fecha.getFullYear() === anio && fecha.getMonth() + 1 === mes && fecha.getDate() === dia
+  )
+}
+
+const fechaObjetivo = computed(() => {
+  const cruda = route.params.fecha
+  return typeof cruda === 'string' && esFechaRealIso(cruda) ? cruda : hoyIso()
+})
+const esHoy = computed(() => fechaObjetivo.value === hoyIso())
+/* El formato ISO ordena igual que el calendario: comparar strings basta. */
+const esFuturo = computed(() => fechaObjetivo.value > hoyIso())
 
 /** Primera visita → onboarding (D38). Solo se persiste el flag booleano. */
 const mostrarOnboarding = ref(!onboardingVisto())
@@ -34,11 +66,19 @@ const motivo = ref('')
 /** La última petición enviada: si el día resulta estar sellado (409), se reenvía confirmada. */
 let ultimaPeticion: ApuntePeticion | null = null
 
-onMounted(() => {
-  // hoyIso() solo elige QUÉ día pedir; a partir de ahí la fecha del día es
-  // siempre la que devuelve el backend (fichajes.dia.fecha).
-  fichajes.cargarDia(hoyIso())
-})
+/* fechaObjetivo solo elige QUÉ día pedir; a partir de ahí la fecha del día es
+ * siempre la que devuelve el backend (fichajes.dia.fecha). En un día pasado
+ * la hora manual es el único camino y se abre sola; al navegar a otra fecha
+ * los paneles se recogen (el router REUTILIZA el componente entre /libreta y
+ * /libreta/dia/:fecha, así que los refs sobreviven a la navegación). */
+function cargaFecha() {
+  fichajes.cargarDia(fechaObjetivo.value)
+  mostrarHoraManual.value = !esHoy.value && !esFuturo.value
+  mostrarAusencia.value = false
+}
+
+onMounted(cargaFecha)
+watch(fechaObjetivo, cargaFecha)
 
 function cerrarOnboarding() {
   marcaOnboardingVisto()
@@ -125,12 +165,24 @@ function reenviaConfirmada(confirmado: boolean) {
   <main class="libreta">
     <header class="cabecera">
       <h1>Tu libreta</h1>
-      <RouterLink
-        class="enlace-semana"
-        to="/libreta/semana"
+      <nav
+        class="enlaces"
+        aria-label="Cambiar de día"
       >
-        Ver la semana
-      </RouterLink>
+        <RouterLink
+          v-if="!esHoy"
+          class="enlace-semana"
+          to="/libreta"
+        >
+          Volver a hoy
+        </RouterLink>
+        <RouterLink
+          class="enlace-semana"
+          to="/libreta/semana"
+        >
+          Ver la semana
+        </RouterLink>
+      </nav>
     </header>
 
     <LibretaOnboarding
@@ -157,7 +209,7 @@ function reenviaConfirmada(confirmado: boolean) {
         <button
           type="button"
           class="boton-secundario"
-          @click="fichajes.cargarDia(hoyIso())"
+          @click="fichajes.cargarDia(fechaObjetivo)"
         >
           Reintentar
         </button>
@@ -224,38 +276,58 @@ function reenviaConfirmada(confirmado: boolean) {
           class="acciones"
           aria-label="Fichar"
         >
-          <button
-            type="button"
-            class="boton--ancho"
-            :class="jornadaAbierta ? 'boton-secundario' : 'boton'"
-            :disabled="fichajes.fichando"
-            @click="fichaAhora('ENTRADA')"
+          <!-- En un día pasado no existe el "ahora": solo hora manual y
+               ausencia, y con las cartas boca arriba sobre lo que vale. Un
+               día futuro no se ficha: todavía no ha pasado nada que apuntar. -->
+          <p
+            v-if="esFuturo"
+            class="texto-sm texto-suave"
           >
-            Entro ahora
-          </button>
-          <button
-            type="button"
-            class="boton--ancho"
-            :class="jornadaAbierta ? 'boton' : 'boton-secundario'"
-            :disabled="fichajes.fichando"
-            @click="fichaAhora('SALIDA')"
+            Este día aún no ha llegado: no hay nada que fichar todavía.
+          </p>
+          <p
+            v-else-if="!esHoy"
+            class="texto-sm texto-suave"
           >
-            Salgo ahora
-          </button>
+            Estás completando un día pasado: lo que apuntes queda marcado como
+            reconstruido, no como fichado al momento.
+          </p>
+          <template v-if="esHoy">
+            <button
+              type="button"
+              class="boton--ancho"
+              :class="jornadaAbierta ? 'boton-secundario' : 'boton'"
+              :disabled="fichajes.fichando"
+              @click="fichaAhora('ENTRADA')"
+            >
+              Entro ahora
+            </button>
+            <button
+              type="button"
+              class="boton--ancho"
+              :class="jornadaAbierta ? 'boton' : 'boton-secundario'"
+              :disabled="fichajes.fichando"
+              @click="fichaAhora('SALIDA')"
+            >
+              Salgo ahora
+            </button>
+          </template>
 
-          <PanelHoraManual
-            v-model:abierto="mostrarHoraManual"
-            v-model:hora="horaManual"
-            :fichando="fichajes.fichando"
-            @fichar="fichaManual"
-          />
+          <template v-if="!esFuturo">
+            <PanelHoraManual
+              v-model:abierto="mostrarHoraManual"
+              v-model:hora="horaManual"
+              :fichando="fichajes.fichando"
+              @fichar="fichaManual"
+            />
 
-          <PanelAusencia
-            v-model:abierto="mostrarAusencia"
-            v-model:motivo="motivo"
-            :fichando="fichajes.fichando"
-            @registrar="registraAusencia"
-          />
+            <PanelAusencia
+              v-model:abierto="mostrarAusencia"
+              v-model:motivo="motivo"
+              :fichando="fichajes.fichando"
+              @registrar="registraAusencia"
+            />
+          </template>
         </section>
 
         <p
@@ -279,8 +351,8 @@ function reenviaConfirmada(confirmado: boolean) {
           Ver cuánto te deben este mes →
         </RouterLink>
 
-        <!-- Solo en la app nativa: recordatorio diario de fichar. -->
-        <PanelRecordatorio />
+        <!-- Solo en la app nativa y en la vista de hoy: recordatorio diario. -->
+        <PanelRecordatorio v-if="esHoy" />
       </template>
 
       <button
@@ -313,6 +385,11 @@ function reenviaConfirmada(confirmado: boolean) {
 
 h1 {
   font-size: var(--tipo-titulo);
+}
+
+.enlaces {
+  display: flex;
+  gap: var(--esp-sm);
 }
 
 .enlace-semana {
