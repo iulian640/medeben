@@ -141,7 +141,7 @@ public class CalculoConvenioService {
         Objects.requireNonNull(anio, "anio");
 
         JsonNode horasExtraNodo = convenio.raw().path("horasExtraordinarias");
-        Optional<BigDecimal> tope = ValoresPorAnio.resuelve(horasExtraNodo.path("topeHorasExtraAnual"), anio);
+        Optional<BigDecimal> tope = topeAnualDelConvenio(horasExtraNodo, anio);
         if (tope.isPresent()) {
             int horas = tope.get().intValue();
             return new TopeHorasExtra(horas,
@@ -151,6 +151,32 @@ public class CalculoConvenioService {
         return new TopeHorasExtra(TOPE_HORAS_EXTRA_ET,
                 List.of(Cita.delEstatuto(
                         "Tope de " + TOPE_HORAS_EXTRA_ET + " h extraordinarias al año (art. 35.2 ET)")));
+    }
+
+    /** Claves planas bajo las que el corpus guarda el tope anual (todas equivalen). */
+    private static final String[] CLAVES_TOPE_ANUAL =
+            {"topeHorasExtraAnual", "topeAnualHoras", "topeAnual"};
+
+    /**
+     * Tope anual de horas extra que fija el convenio, mirando todas las claves que
+     * usa el corpus (planas y el anidado `topes.{año|anio}`). Vacío si el convenio
+     * no lo cuantifica (p. ej. lo deja como texto "rige el ET") → se cita el ET.
+     */
+    private static Optional<BigDecimal> topeAnualDelConvenio(JsonNode horasExtraNodo, Year anio) {
+        for (String clave : CLAVES_TOPE_ANUAL) {
+            Optional<BigDecimal> valor = ValoresPorAnio.resuelve(horasExtraNodo.path(clave), anio);
+            if (valor.isPresent()) {
+                return valor;
+            }
+        }
+        JsonNode topes = horasExtraNodo.path("topes");
+        for (String clave : new String[]{"año", "anio"}) {
+            JsonNode n = topes.path(clave);
+            if (n.isNumber() && n.decimalValue().signum() > 0) {
+                return Optional.of(n.decimalValue());
+            }
+        }
+        return Optional.empty();
     }
 
     /** Recargo % de la hora extra: el FACTOR sobre la hora ordinaria y el texto de la cita. */
