@@ -77,6 +77,7 @@ const ETIQUETAS_DIMENSION: Record<string, string> = {
   area: 'Área',
   areaFuncional: 'Área',
   departamento: 'Departamento',
+  provincia: 'Provincia',
 }
 
 export function etiquetaDimension(dimension: string): string {
@@ -148,6 +149,17 @@ const VALORES_CURADOS: Record<string, string> = {
   grupoPrimero: '1º · Mando o jefe/a',
   grupoSegundo: '2º · Técnico/a o especialista',
   grupoTercero: '3º · Asistente',
+  // Provincias que la capa normalizada guarda en ASCII (restauración colectiva).
+  'A Coruna': 'A Coruña',
+  Almeria: 'Almería',
+  Avila: 'Ávila',
+  Caceres: 'Cáceres',
+  Cadiz: 'Cádiz',
+  Cordoba: 'Córdoba',
+  Guipuzcoa: 'Guipúzcoa',
+  Jaen: 'Jaén',
+  Leon: 'León',
+  Malaga: 'Málaga',
 }
 
 const RE_VALOR_LIMPIO = /^([IVXLCDM]+|\d{1,2}[ºªAB]?|[A-H])$/i
@@ -235,6 +247,8 @@ const EXPLICACIONES_DIMENSION: Record<string, string> = {
   grupoProfesional:
     'Tu grupo según el convenio, por responsabilidad (definición del ALEH): 1º = mandos y jefes (organizas y diriges); 2º = técnicos y especialistas (dominas el oficio, trabajas con autonomía); 3º = asistentes (trabajas siguiendo instrucciones y supervisión). Elige el tuyo.',
   zona: 'La parte de la provincia donde está tu local. Elige la tuya; si tu pueblo no sale, mira a qué zona pertenece.',
+  provincia:
+    'La provincia donde está tu centro de trabajo (el comedor, el colegio, el hospital, la empresa…). Las tablas de este convenio van por provincia. Si la tuya no sale, el convenio no clasifica tu puesto ahí: puedes elegir tu categoría a mano.',
 }
 
 export function explicacionDimension(dimension: string): string {
