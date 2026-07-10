@@ -238,6 +238,16 @@ function onPuesto(event: Event) {
       >
         Ojo: este convenio publica el salario en esta unidad, no al mes.
       </p>
+      <p
+        v-if="perfil.salario.bajoSmi && perfil.salario.smiMensual"
+        class="aviso-smi"
+        role="alert"
+      >
+        La tabla de tu convenio para este puesto ha quedado por debajo del
+        salario mínimo ({{ formatearImporte(perfil.salario.smiMensual) }} € al mes
+        en 2026). Por ley no pueden pagarte menos: al año te corresponde al menos
+        el mínimo, y si no llega, la diferencia es tuya.
+      </p>
       <CitasFuente :citas="perfil.salario.citas" />
     </section>
 
@@ -382,6 +392,12 @@ h1 {
 .aviso-unidad {
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+.aviso-smi {
+  font-size: 0.9rem;
+  border-left: 3px solid var(--color-alerta);
+  padding-left: 0.75rem;
 }
 
 .error {

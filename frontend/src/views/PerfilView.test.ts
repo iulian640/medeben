@@ -42,6 +42,8 @@ const ocupacionSinPendientes: OcupacionResuelta = {
 const salarioMensual: SalarioBase = {
   importe: 1580.5,
   unidad: 'EUR/mes',
+  bajoSmi: false,
+  smiMensual: 1221,
   citas: [{ texto: 'Tabla salarial 2026', url: null }],
 }
 
@@ -112,6 +114,8 @@ describe('PerfilView', () => {
     vi.mocked(postSalarioBase).mockResolvedValue({
       importe: 11.2,
       unidad: 'EUR/hora',
+      bajoSmi: false,
+      smiMensual: 1221,
       citas: [],
     })
     const wrapper = await montar()
@@ -121,6 +125,37 @@ describe('PerfilView', () => {
     await flushPromises()
 
     expect(wrapper.find('.aviso-unidad').exists()).toBe(true)
+  })
+
+  it('avisa cuando la tabla del convenio queda por debajo del SMI', async () => {
+    vi.mocked(postSalarioBase).mockResolvedValue({
+      importe: 1086.31,
+      unidad: 'EUR/mes',
+      bajoSmi: true,
+      smiMensual: 1221,
+      citas: [],
+    })
+    const wrapper = await montar()
+    await llegarAlConvenio(wrapper)
+
+    await wrapper.find('#puesto').setValue('cocinero')
+    await flushPromises()
+
+    const aviso = wrapper.find('.aviso-smi')
+    expect(aviso.exists()).toBe(true)
+    expect(aviso.text()).toContain('salario mínimo')
+    expect(aviso.attributes('role')).toBe('alert')
+  })
+
+  it('no avisa del SMI cuando el salario lo alcanza', async () => {
+    vi.mocked(postSalarioBase).mockResolvedValue(salarioMensual) // bajoSmi: false
+    const wrapper = await montar()
+    await llegarAlConvenio(wrapper)
+
+    await wrapper.find('#puesto').setValue('cocinero')
+    await flushPromises()
+
+    expect(wrapper.find('.aviso-smi').exists()).toBe(false)
   })
 
   it('con una pregunta pendiente no calcula hasta que el usuario responde', async () => {

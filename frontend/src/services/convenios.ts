@@ -41,6 +41,10 @@ export interface OcupacionResuelta {
 export interface SalarioBase {
   importe: number
   unidad: string
+  /** true si la tabla del convenio queda por debajo del SMI en cómputo anual. */
+  bajoSmi: boolean
+  /** SMI de referencia (€/mes, 14 pagas) del año consultado; null si no aplica. */
+  smiMensual: number | null
   citas: Cita[]
 }
 

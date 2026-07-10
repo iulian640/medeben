@@ -49,6 +49,9 @@ class GlobalExceptionHandlerTest {
     @MockitoBean
     private TablaSalarialService tablas;
 
+    @MockitoBean
+    private es.medeben.service.SmiService smi;
+
     @Test
     @DisplayName("IllegalStateException interna → 500 saneado, sin filtrar el detalle")
     void errorInternoSaneado() throws Exception {
