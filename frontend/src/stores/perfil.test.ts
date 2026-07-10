@@ -42,6 +42,8 @@ const ocupacionConPendiente: OcupacionResuelta = {
 const salario: SalarioBase = {
   importe: 1425.5,
   unidad: 'EUR/mes',
+  bajoSmi: false,
+  smiMensual: 1221,
   citas: [{ texto: 'Salario base...', url: 'https://boe.es/x' }],
 }
 

@@ -138,6 +138,14 @@ public class CalculoConvenioService {
     }
 
     /** El corpus usa `pagasExtraordinarias` casi siempre; tres convenios usan `pagas`. */
+    /**
+     * Mensualidades totales al año del convenio (14, 15...); vacío si el convenio
+     * no las publica. Necesario para el cómputo ANUAL del SMI y del valor hora.
+     */
+    public Optional<BigDecimal> mensualidades(Convenio convenio) {
+        return mensualidades(nodoPagas(convenio));
+    }
+
     private static JsonNode nodoPagas(Convenio convenio) {
         JsonNode nodo = convenio.raw().path("pagasExtraordinarias");
         return nodo.isObject() ? nodo : convenio.raw().path("pagas");

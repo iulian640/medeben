@@ -22,7 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(CalculoController.class)
 @Import({SecurityConfig.class, GlobalExceptionHandler.class,
         ConvenioCatalog.class, HechosCatalog.class,
-        CalculoConvenioService.class, TablaSalarialService.class})
+        CalculoConvenioService.class, TablaSalarialService.class,
+        es.medeben.service.SmiService.class})
 class CalculoControllerTest {
 
     @Autowired
@@ -116,6 +117,64 @@ class CalculoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.importe").value(1250.91))
                 .andExpect(jsonPath("$.unidad").value("EUR/mes"));
+    }
+
+    @Test
+    @DisplayName("cocinero de Madrid (1.250,91) alcanza el SMI: bajoSmi=false")
+    void salarioBaseAlcanzaSmi() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"tabla":"general","nivel":"III","claseEmpresa":"B"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.bajoSmi").value(false))
+                .andExpect(jsonPath("$.smiMensual").value(1221.00));
+    }
+
+    @Test
+    @DisplayName("cómputo ANUAL, no mensual: Pontevedra nivel 9 (1.166,15 × 15 pagas) SÍ alcanza el SMI → sin aviso")
+    void salarioBaseAnualConQuincePagas() throws Exception {
+        // El caso que parecía ilegal (1.166,15 < 1.221 SMI mensual) NO lo es:
+        // Pontevedra paga 15 mensualidades, 1.166,15 × 15 = 17.492 ≥ 17.094.
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"pontevedra-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"nivel":"9"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.importe").value(1166.15))
+                .andExpect(jsonPath("$.bajoSmi").value(false));
+    }
+
+    @Test
+    @DisplayName("bajo SMI REAL: limpieza Madrid nivel V-C (1.086,31 × 14) < SMI anual → avisa con cita")
+    void salarioBaseBajoSmiAvisa() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"tabla":"general","nivel":"V","claseEmpresa":"C"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.importe").value(1086.31))
+                .andExpect(jsonPath("$.bajoSmi").value(true))
+                .andExpect(jsonPath("$.smiMensual").value(1221.00))
+                .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Salario Mínimo.*/)]").exists());
+    }
+
+    @Test
+    @DisplayName("EUR/año bajo SMI (review CRITICAL): Cuenca nivel I (16.175 €/año) < SMI anual → avisa")
+    void salarioBaseAnualBajoSmi() throws Exception {
+        // Cuenca publica en EUR/año; 16.175,05 < 17.094 (SMI anual 2026) → bajo SMI.
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"cuenca-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"nivel":"I","grupoEstablecimiento":"A"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.unidad").value("EUR/año"))
+                .andExpect(jsonPath("$.bajoSmi").value(true))
+                .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Salario Mínimo.*/)]").exists());
     }
 
     @Test
