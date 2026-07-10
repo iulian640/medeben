@@ -94,11 +94,26 @@ public class CalculoController {
             mensualidades = convenios.porId(convenioId).flatMap(calculo::mensualidades)
                     .orElse(BigDecimal.valueOf(14));
         } else {
-            return new SalarioBaseResponse(r.importe(), r.unidad(), false, null, null, r.citas());
+            return new SalarioBaseResponse(r.importe(), r.unidad(), false, null, null, null, r.citas());
         }
         boolean alcanza = smi.alcanzaElSmi(r.importe(), mensualidades, BigDecimal.ZERO, anio);
         if (alcanza) {
-            return new SalarioBaseResponse(r.importe(), r.unidad(), false, smi.smiMensual(anio), null, r.citas());
+            // Legal pero con pinta de ilegal: un mensual bajo el SMI mensual que
+            // cumple en cómputo anual gracias a >14 pagas (el caso Pontevedra /
+            // Almería). Quien lo vea lo va a comparar con el SMI de los titulares:
+            // se mandan los números de la cuenta anual para que la UI se adelante.
+            SalarioBaseResponse.ComparativaSmi comparativa = null;
+            List<Cita> citasAlcanza = r.citas();
+            if ("EUR/mes".equals(r.unidad()) && r.importe().compareTo(smi.smiMensual(anio)) < 0) {
+                comparativa = new SalarioBaseResponse.ComparativaSmi(
+                        mensualidades,
+                        r.importe().multiply(mensualidades).setScale(2, RoundingMode.HALF_UP),
+                        smi.smiAnual(anio));
+                citasAlcanza = new ArrayList<>(r.citas());
+                citasAlcanza.add(smi.citaSmi(anio));
+            }
+            return new SalarioBaseResponse(r.importe(), r.unidad(), false, smi.smiMensual(anio), null,
+                    comparativa, citasAlcanza);
         }
         // El suelo legal en la unidad de la respuesta: SMI anual repartido entre
         // las mensualidades de ESTE convenio (con EUR/año, mensualidades=1 y
@@ -107,6 +122,7 @@ public class CalculoController {
         BigDecimal minimoLegal = smi.smiAnual(anio).divide(mensualidades, 2, RoundingMode.DOWN);
         List<Cita> citas = new ArrayList<>(r.citas());
         citas.add(smi.citaSmi(anio));
-        return new SalarioBaseResponse(r.importe(), r.unidad(), true, smi.smiMensual(anio), minimoLegal, citas);
+        return new SalarioBaseResponse(r.importe(), r.unidad(), true, smi.smiMensual(anio), minimoLegal,
+                null, citas);
     }
 }

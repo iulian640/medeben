@@ -65,6 +65,7 @@ const salarioMensual: SalarioBase = {
   bajoSmi: false,
   smiMensual: 1221,
   minimoLegal: null,
+  comparativaSmi: null,
   citas: [{ texto: 'Tabla salarial 2026', url: null }],
 }
 
@@ -162,6 +163,7 @@ describe('PerfilView', () => {
       bajoSmi: false,
       smiMensual: 1221,
       minimoLegal: null,
+      comparativaSmi: null,
       citas: [],
     })
     const wrapper = await montar()
@@ -180,6 +182,7 @@ describe('PerfilView', () => {
       bajoSmi: true,
       smiMensual: 1221,
       minimoLegal: 1221,
+      comparativaSmi: null,
       citas: [],
     })
     const wrapper = await montar()
@@ -208,6 +211,7 @@ describe('PerfilView', () => {
       bajoSmi: true,
       smiMensual: 1221,
       minimoLegal: null,
+      comparativaSmi: null,
       citas: [],
     })
     const wrapper = await montar()
@@ -221,6 +225,33 @@ describe('PerfilView', () => {
     expect(aviso.exists()).toBe(true)
     expect(aviso.text()).toContain('salario mínimo')
     expect(aviso.text()).toContain('1.221,00')
+  })
+
+  it('un mensual legal que PARECE bajo el SMI (15 pagas) se explica solo', async () => {
+    // El caso Almería/Pontevedra que confundió hasta al dueño: 1.183,64 < 1.221
+    // del titular, pero con 15 pagas el año cumple. La UI se adelanta a la duda.
+    vi.mocked(postSalarioBase).mockResolvedValue({
+      importe: 1183.64,
+      unidad: 'EUR/mes',
+      bajoSmi: false,
+      smiMensual: 1221,
+      minimoLegal: null,
+      comparativaSmi: { mensualidades: 15, anualConvenio: 17754.6, smiAnual: 17094 },
+      citas: [],
+    })
+    const wrapper = await montar()
+    await llegarAlConvenio(wrapper)
+
+    await wrapper.find('#puesto').setValue('cocinero')
+    await flushPromises()
+
+    const texto = wrapper.text()
+    expect(texto).toContain('¿Te parece poco comparado con el SMI (1.221,00 € al mes)?')
+    expect(texto).toContain('15 pagas al año')
+    expect(texto).toContain('17.754,60')
+    expect(texto).toContain('por años completos, no mes a mes')
+    // No es una alerta: es contexto tranquilizador, sin bloque rojo.
+    expect(wrapper.find('.aviso-smi').exists()).toBe(false)
   })
 
   it('no avisa del SMI cuando el salario lo alcanza', async () => {

@@ -45,6 +45,7 @@ const salario: SalarioBase = {
   bajoSmi: false,
   smiMensual: 1221,
   minimoLegal: null,
+  comparativaSmi: null,
   citas: [{ texto: 'Salario base...', url: 'https://boe.es/x' }],
 }
 
