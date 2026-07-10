@@ -107,11 +107,27 @@ public class CalculoConvenioService {
                     "La hora extra no puede pagarse por debajo de la hora ordinaria (art. 35.1 ET)"));
 
             JsonNode horasExtraNodo = convenio.raw().path("horasExtraordinarias");
+
+            // (1) Precio €/hora FIJO del convenio (Teruel, Almería...).
             Optional<BigDecimal> precioConvenio = ValoresPorAnio.resuelve(horasExtraNodo.path("importe"), anio);
             if (precioConvenio.isPresent() && precioConvenio.get().compareTo(precio) > 0) {
                 precio = precioConvenio.get();
                 citas.add(new Cita("Precio de hora extra fijado en " + precio.toPlainString()
                         + " €/h (" + articulo(horasExtraNodo) + " del convenio)", convenio.fuenteUrl()));
+            }
+
+            // (2) RECARGO PORCENTUAL sobre la hora ordinaria: la forma más común
+            // del corpus (Cádiz 75%, Granada 100%, Cuenca "al 175%"...). El factor
+            // ya viene resuelto: recargo del X% → 1+X/100; abono AL X% → X/100.
+            // Antes se ignoraba y la hora extra se pagaba igual que la ordinaria.
+            Optional<RecargoExtra> recargo = recargoPorcentual(horasExtraNodo);
+            if (recargo.isPresent()) {
+                BigDecimal conRecargo = valorHora.valorHora().multiply(recargo.get().factor());
+                if (conRecargo.compareTo(precio) > 0) {
+                    precio = conRecargo;
+                    citas.add(new Cita(recargo.get().nota() + " (" + articulo(horasExtraNodo)
+                            + " del convenio)", convenio.fuenteUrl()));
+                }
             }
 
             BigDecimal importe = precio.multiply(horas).setScale(DECIMALES_IMPORTE, RoundingMode.HALF_UP);
@@ -137,7 +153,64 @@ public class CalculoConvenioService {
                         "Tope de " + TOPE_HORAS_EXTRA_ET + " h extraordinarias al año (art. 35.2 ET)")));
     }
 
-    /** El corpus usa `pagasExtraordinarias` casi siempre; tres convenios usan `pagas`. */
+    /** Recargo % de la hora extra: el FACTOR sobre la hora ordinaria y el texto de la cita. */
+    private record RecargoExtra(BigDecimal factor, String nota) {}
+
+    /** Nombres bajo los que el corpus guarda el recargo % plano de la hora extra. */
+    private static final String[] CLAVES_RECARGO_PCT =
+            {"porcentaje", "recargoPct", "incrementoAbonoPorcentaje", "recargoImplicitoPorcentaje"};
+
+    /**
+     * Recargo porcentual de la hora extra sobre la ordinaria, si el convenio lo
+     * fija así (p. ej. 75 o 100). Vacío si no hay recargo porcentual o si su base
+     * no es la hora ordinaria (no se aplica a ciegas sobre otra base).
+     */
+    private static Optional<RecargoExtra> recargoPorcentual(JsonNode horasExtraNodo) {
+        JsonNode sobre = horasExtraNodo.path("sobre");
+        if (sobre.isTextual()) {
+            // Debe ser la hora/salario ORDINARIA. "ordinari" cubre "hora_ordinaria",
+            // "valor_hora_ordinaria" y "salario_real_ordinario" (masculino); pero
+            // "extraordinari(a/o)" también lo contiene, así que la excluimos.
+            String base = sobre.asText().toLowerCase();
+            if (!base.contains("ordinari") || base.contains("extraordinari")) {
+                return Optional.empty();
+            }
+        }
+        // ¿El % es un recargo SOBRE la ordinaria (1+X/100) o el abono TOTAL (X/100)?
+        // Cuenca abona "al 175%" (×1,75); Cantabria recarga "el 175%" (×2,75).
+        boolean abonoTotal = "abono_total".equals(horasExtraNodo.path("computoRecargo").asText(""));
+        // Caso normal: un único recargo plano.
+        for (String clave : CLAVES_RECARGO_PCT) {
+            JsonNode n = horasExtraNodo.path(clave);
+            if (n.isNumber() && n.decimalValue().signum() > 0) {
+                BigDecimal pct = n.decimalValue();
+                String pctTxt = pct.stripTrailingZeros().toPlainString();
+                if (abonoTotal) {
+                    return Optional.of(new RecargoExtra(pct.movePointLeft(2),
+                            "La hora extra se abona al " + pctTxt + "% del valor de la hora ordinaria"));
+                }
+                return Optional.of(new RecargoExtra(BigDecimal.ONE.add(pct.movePointLeft(2)),
+                        "La hora extra se paga con un recargo del " + pctTxt + "% sobre la ordinaria"));
+            }
+        }
+        // Caso a tramos (Córdoba): 50% la primera hora de la semana, 75% el resto.
+        // Aplicamos el MÍNIMO garantizado para no prometer de más, y citamos ambos.
+        JsonNode resto = horasExtraNodo.path("recargoRestoHoras");
+        if (resto.isNumber() && resto.decimalValue().signum() > 0) {
+            JsonNode primera = horasExtraNodo.path("recargoPrimeraHoraSemanal");
+            BigDecimal r = resto.decimalValue();
+            BigDecimal p = primera.isNumber() && primera.decimalValue().signum() > 0
+                    ? primera.decimalValue() : r;
+            BigDecimal minimo = p.min(r);
+            return Optional.of(new RecargoExtra(BigDecimal.ONE.add(minimo.movePointLeft(2)),
+                    "La hora extra lleva recargo (el " + p.stripTrailingZeros().toPlainString()
+                            + "% la primera hora de la semana y el " + r.stripTrailingZeros().toPlainString()
+                            + "% el resto); mostramos el " + minimo.stripTrailingZeros().toPlainString()
+                            + "% como mínimo garantizado"));
+        }
+        return Optional.empty();
+    }
+
     /**
      * Mensualidades totales al año del convenio (14, 15...); vacío si el convenio
      * no las publica. Necesario para el cómputo ANUAL del SMI y del valor hora.
@@ -146,6 +219,7 @@ public class CalculoConvenioService {
         return mensualidades(nodoPagas(convenio));
     }
 
+    /** El corpus usa `pagasExtraordinarias` casi siempre; tres convenios usan `pagas`. */
     private static JsonNode nodoPagas(Convenio convenio) {
         JsonNode nodo = convenio.raw().path("pagasExtraordinarias");
         return nodo.isObject() ? nodo : convenio.raw().path("pagas");

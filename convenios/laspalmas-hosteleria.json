@@ -84,6 +84,9 @@
   "horasExtraordinarias": {
     "$comment": "Art. sobre horas extraordinarias del convenio. NO fija un precio en euros: es un recargo sobre el salario/hora de tablas.",
     "recargo": "100% sobre el valor del salario/hora resultante de las tablas salariales (es decir, la hora extra se paga al doble)",
+    "tipo": "porcentaje",
+    "porcentaje": 100,
+    "sobre": "hora_ordinaria",
     "limite": "15 horas/mes y 80 horas/año por persona trabajadora",
     "nota": "El convenio declara suprimida la realización de horas extra salvo urgencias imprevisibles."
   },

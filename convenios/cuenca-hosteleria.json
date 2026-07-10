@@ -203,6 +203,8 @@
     "articulo": "Art. 60 (precio) y Art. 41 (tope y régimen)",
     "tipo": "porcentaje",
     "porcentaje": 175,
+    "computoRecargo": "abono_total",
+    "computoRecargoNota": "Se ABONA al 175% de la hora ordinaria (×1,75), no un recargo del 175% encima (que sería ×2,75). A diferencia de Cantabria, que sí es incremento del 175%.",
     "sobre": "hora_ordinaria",
     "topeAnualHoras": 80,
     "formulaSalarioHora": "Salario Hora = (SB + CLC + CPA + PCA) / HJA  [Art. 59: SB salario base anual, CLC complemento lineal convenio anual, CPA complemento personal antigüedad consolidada anual, PCA plus compensatorio anual, HJA horas jornada anual (1.800)]"
