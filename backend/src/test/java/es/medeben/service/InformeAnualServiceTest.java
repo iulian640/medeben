@@ -152,6 +152,26 @@ class InformeAnualServiceTest {
     }
 
     @Test
+    @DisplayName("con meses fallando por causas DISTINTAS, el código del año es el del PRIMER mes")
+    void codigoDelPrimerMesFallido() {
+        when(resumenes.delMes(eq(USUARIO), any())).thenAnswer(inv -> {
+            YearMonth mes = inv.getArgument(1);
+            if (mes.getMonthValue() == 1) {
+                throw new ResumenIncompletoException(
+                        ResumenIncompletoException.Codigo.PERFIL, "Todavía no has creado tu perfil");
+            }
+            throw new ResumenIncompletoException(
+                    ResumenIncompletoException.Codigo.DATOS_CONVENIO,
+                    "Tu convenio no tiene publicada la tabla salarial");
+        });
+
+        assertThatThrownBy(() -> servicio.genera(USUARIO, Year.of(2026)))
+                .isInstanceOf(ResumenIncompletoException.class)
+                .satisfies(e -> assertThat(((ResumenIncompletoException) e).codigo())
+                        .isEqualTo(ResumenIncompletoException.Codigo.PERFIL));
+    }
+
+    @Test
     @DisplayName("si NINGÚN mes tiene datos, guía honesta (422), no un PDF vacío")
     void sinNingunMes() {
         when(resumenes.delMes(eq(USUARIO), any()))

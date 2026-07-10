@@ -167,7 +167,11 @@ public class InformeAnualService {
         if (meses.stream().allMatch(m -> m.resumen() == null)) {
             // El código del año entero es el del PRIMER mes fallido: si falta el
             // perfil, todos fallan por lo mismo y la guía del frontend acierta.
-            throw new ResumenIncompletoException(primerCodigo,
+            // El requireNonNull es defensa: aquí todos los meses fallaron, así
+            // que el catch corrió al menos una vez y primerCodigo quedó puesto;
+            // si un refactor rompe ese invariante, mejor un fallo ruidoso que
+            // un NPE en el handler convirtiendo este 422 en un 500.
+            throw new ResumenIncompletoException(java.util.Objects.requireNonNull(primerCodigo),
                     "Ningún mes de " + anio + " tiene datos suficientes para el histórico: "
                             + "crea tu perfil y tu horario, y ficha tus días");
         }
