@@ -246,6 +246,55 @@ class CalculoConvenioServiceTest {
         }
 
         @Test
+        @DisplayName("tope bajo clave alternativa 'topeAnualHoras' (Cuenca/Zamora) → se lee y se cita el convenio")
+        void topeClaveTopeAnualHoras() {
+            Convenio c = sintetico("""
+                    "horasExtraordinarias":{"topeAnualHoras":80,"articulo":"Art. 41"}""");
+            var tope = servicio.topeHorasExtraAnual(c, Year.of(2026));
+            assertThat(tope.horas()).isEqualTo(80);
+            assertThat(tope.citas()).anySatisfy(cita -> assertThat(cita.texto())
+                    .contains("convenio").contains("Art. 41"));
+        }
+
+        @Test
+        @DisplayName("tope bajo clave alternativa 'topeAnual' numérico (Castellón, La Rioja...) → se lee")
+        void topeClaveTopeAnual() {
+            Convenio c = sintetico("""
+                    "horasExtraordinarias":{"topeAnual":80,"articulo":"Art. 14"}""");
+            assertThat(servicio.topeHorasExtraAnual(c, Year.of(2026)).horas()).isEqualTo(80);
+        }
+
+        @Test
+        @DisplayName("tope anidado 'topes.año' (Asturias) y 'topes.anio' (León) → se leen ambas grafías")
+        void topeAnidado() {
+            Convenio asturias = sintetico("""
+                    "horasExtraordinarias":{"topes":{"dia":2,"mes":15,"año":80},"articulo":"Art. 22"}""");
+            Convenio leon = sintetico("""
+                    "horasExtraordinarias":{"topes":{"dia":2,"mes":15,"anio":70},"articulo":"Art. 20"}""");
+            assertThat(servicio.topeHorasExtraAnual(asturias, Year.of(2026)).horas()).isEqualTo(80);
+            assertThat(servicio.topeHorasExtraAnual(leon, Year.of(2026)).horas()).isEqualTo(70);
+        }
+
+        @Test
+        @DisplayName("tope como texto ('rige el ET') NO se toma como número → cae al ET, cita del Estatuto")
+        void topeTextualCaeAlEstatuto() {
+            Convenio c = sintetico("""
+                    "horasExtraordinarias":{"topeAnual":"no fijado en convenio (rige el art. 35.2 ET)"}""");
+            var tope = servicio.topeHorasExtraAnual(c, Year.of(2026));
+            assertThat(tope.horas()).isEqualTo(80);
+            assertThat(tope.citas()).anySatisfy(cita -> assertThat(cita.texto()).contains("35.2 ET"));
+        }
+
+        @Test
+        @DisplayName("convenio real (Cuenca): el tope de 80 h se cita desde el convenio, no como suelo genérico del ET")
+        void topeCuencaCitaConvenio() {
+            Convenio cuenca = catalog.porId("cuenca-hosteleria").orElseThrow();
+            var tope = servicio.topeHorasExtraAnual(cuenca, Year.of(2026));
+            assertThat(tope.horas()).isEqualTo(80);
+            assertThat(tope.citas()).anySatisfy(cita -> assertThat(cita.texto()).contains("convenio"));
+        }
+
+        @Test
         @DisplayName("las entradas del trabajador se validan: salario ≤ 0, pluses < 0, horas < 0")
         void entradasInvalidas() {
             Convenio madrid = catalog.porId("madrid-hosteleria").orElseThrow();
