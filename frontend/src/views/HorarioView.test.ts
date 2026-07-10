@@ -48,14 +48,18 @@ function crearRouter(): Router {
   })
 }
 
-async function montar(ruta = '/horario'): Promise<VueWrapper> {
+async function montarConRouter(ruta = '/horario'): Promise<{ wrapper: VueWrapper; router: Router }> {
   const pinia = createPinia()
   setActivePinia(pinia)
   const router = crearRouter()
   await router.push(ruta)
   const wrapper = mount(HorarioView, { global: { plugins: [pinia, router] } })
   await flushPromises()
-  return wrapper
+  return { wrapper, router }
+}
+
+async function montar(ruta = '/horario'): Promise<VueWrapper> {
+  return (await montarConRouter(ruta)).wrapper
 }
 
 function boton(wrapper: VueWrapper, texto: string) {
@@ -213,6 +217,18 @@ describe('HorarioView — una semana concreta (/horario/semana/:lunes)', () => {
     expect(enlace?.attributes('href')).toBe('/horario')
   })
 
+  it('con un tramo de duración cero (misma hora) no deja guardar', async () => {
+    const wrapper = await montar()
+
+    const lunes = wrapper.findAll('.dia')[0]
+    const horas = lunes.findAll('input[type="time"]')
+    await horas[1].setValue('10:00') // entrada 10:00, salida 10:00
+
+    expect(boton(wrapper, 'Guardar el horario').attributes('disabled')).toBeDefined()
+    await wrapper.find('form').trigger('submit')
+    expect(putSemanaTipo).not.toHaveBeenCalled()
+  })
+
   it('una semana sellada (409) se explica al guardar', async () => {
     vi.mocked(putSemana).mockRejectedValue(
       new ApiError(409, 'API 409', {
@@ -226,6 +242,52 @@ describe('HorarioView — una semana concreta (/horario/semana/:lunes)', () => {
     await flushPromises()
 
     expect(wrapper.find('[role="alert"]').text()).toContain('sellada')
+  })
+
+  it('al navegar entre modos con la MISMA instancia, el "guardado" viejo no se arrastra', async () => {
+    const { wrapper, router } = await montarConRouter('/horario')
+
+    await wrapper.find('form').trigger('submit')
+    await flushPromises()
+    expect(wrapper.text()).toContain('Horario guardado')
+
+    await router.push('/horario/semana/2026-07-06')
+    await flushPromises()
+
+    // El router reutiliza el componente: la confirmación era de la semana
+    // tipo, no de esta semana recién cargada y sin guardar.
+    expect(wrapper.text()).not.toContain('Horario guardado')
+    expect(wrapper.text()).toContain('Solo la semana del 06/07/2026')
+  })
+
+  it('una respuesta LENTA de la ruta anterior no pisa la semana en pantalla', async () => {
+    // La semana concreta responde lenta (con 08:00); la semana tipo, rápida (10:00).
+    let resuelveLenta!: (h: HorarioEfectivo) => void
+    vi.mocked(getHorarioSemana).mockReturnValue(new Promise((res) => (resuelveLenta = res)))
+
+    const { wrapper, router } = await montarConRouter('/horario/semana/2026-07-06')
+    await router.push('/horario')
+    await flushPromises()
+
+    // La semana tipo ya está en pantalla...
+    expect((wrapper.find('input[type="time"]').element as HTMLInputElement).value).toBe('10:00')
+
+    // ...y la respuesta rezagada de la otra ruta llega tarde: no escribe nada.
+    resuelveLenta({
+      ...efectivoServidor,
+      dias: [
+        { tramos: [{ entrada: '08:00', salida: '16:00' }] },
+        ...efectivoServidor.dias.slice(1),
+      ],
+    })
+    await flushPromises()
+
+    expect((wrapper.find('input[type="time"]').element as HTMLInputElement).value).toBe('10:00')
+    // Y guardar guarda la semana tipo, nunca la semana rezagada.
+    await wrapper.find('form').trigger('submit')
+    await flushPromises()
+    expect(putSemanaTipo).toHaveBeenCalledTimes(1)
+    expect(putSemana).not.toHaveBeenCalled()
   })
 
   it('un lunes que no es lunes (o ni es fecha) no monta el editor', async () => {

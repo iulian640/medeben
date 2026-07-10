@@ -26,7 +26,26 @@ const route = useRoute()
 const DIAS_SEMANA = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
 const MAX_TRAMOS = 2
 
-const SEMANA_VACIA = (): DiaHorario[] =>
+/** Un tramo en edición: como el del servicio pero con identidad estable,
+ *  para que Vue no reasigne filas del DOM al quitar un tramo (:key). */
+interface TramoEdicion {
+  id: number
+  entrada: string
+  salida: string
+}
+
+interface DiaEdicion {
+  tramos: TramoEdicion[]
+}
+
+let siguienteIdTramo = 0
+const nuevoTramo = (entrada = '', salida = ''): TramoEdicion => ({
+  id: ++siguienteIdTramo,
+  entrada,
+  salida,
+})
+
+const SEMANA_VACIA = (): DiaEdicion[] =>
   Array.from({ length: 7 }, () => ({ tramos: [] }))
 
 /** El lunes de la ruta, solo si es de verdad un lunes ISO (2026-07-06). */
@@ -45,13 +64,28 @@ const lunes = computed(() => lunesValido(route.params.lunes))
 const esEdicionSemana = computed(() => route.params.lunes !== undefined)
 const rutaRota = computed(() => esEdicionSemana.value && lunes.value === null)
 
-const dias = ref<DiaHorario[]>(SEMANA_VACIA())
+const dias = ref<DiaEdicion[]>(SEMANA_VACIA())
+const guardando = ref(false)
+const errorGuardar = ref<string | null>(null)
+const guardado = ref(false)
+const botonGuardar = ref<HTMLElement | null>(null)
 const cargando = ref(true)
 const errorCarga = ref<string | null>(null)
 /** En modo semana, sin semana tipo previa no hay nada que editar: guía. */
 const sinSemanaTipo = ref(false)
 
+/**
+ * Las dos rutas comparten esta instancia (el router la reutiliza): una carga
+ * LENTA de la semana anterior no puede pisar la que ya tienes en pantalla —
+ * guardaría el horario de una semana bajo la clave de otra. Solo la última
+ * carga lanzada tiene derecho a escribir el estado.
+ */
+let generacionCarga = 0
+
 async function carga() {
+  const generacion = ++generacionCarga
+  guardado.value = false
+  errorGuardar.value = null
   if (rutaRota.value) {
     cargando.value = false
     return
@@ -60,14 +94,19 @@ async function carga() {
   errorCarga.value = null
   sinSemanaTipo.value = false
   try {
-    if (esEdicionSemana.value) {
-      const efectivo = await getHorarioSemana(lunes.value!)
-      dias.value = efectivo.dias.map((d) => ({ tramos: [...d.tramos] }))
-    } else {
-      const tipo = await getSemanaTipo()
-      dias.value = tipo.dias.map((d) => ({ tramos: [...d.tramos] }))
+    const recibido = esEdicionSemana.value
+      ? await getHorarioSemana(lunes.value!)
+      : await getSemanaTipo()
+    if (generacion !== generacionCarga) {
+      return
     }
+    dias.value = recibido.dias.map((d) => ({
+      tramos: d.tramos.map((t) => nuevoTramo(t.entrada, t.salida)),
+    }))
   } catch (e) {
+    if (generacion !== generacionCarga) {
+      return
+    }
     if (e instanceof ApiError && e.status === 404) {
       // Sin horario todavía: la semana tipo arranca en blanco; la edición
       // de una semana concreta necesita antes una semana tipo que editar.
@@ -80,7 +119,9 @@ async function carga() {
       errorCarga.value = mensajeDeError(e)
     }
   } finally {
-    cargando.value = false
+    if (generacion === generacionCarga) {
+      cargando.value = false
+    }
   }
 }
 
@@ -89,7 +130,7 @@ watch(() => route.params.lunes, carga, { immediate: true })
 function anadeTramo(indice: number) {
   const tramos = dias.value[indice].tramos
   if (tramos.length < MAX_TRAMOS) {
-    tramos.push({ entrada: '', salida: '' })
+    tramos.push(nuevoTramo())
   }
 }
 
@@ -99,12 +140,16 @@ function quitaTramo(indiceDia: number, indiceTramo: number) {
 
 function copiaDiaAnterior(indice: number) {
   const anterior = dias.value[indice - 1]
-  dias.value[indice] = { tramos: anterior.tramos.map((t) => ({ ...t })) }
+  dias.value[indice] = { tramos: anterior.tramos.map((t) => nuevoTramo(t.entrada, t.salida)) }
 }
 
-/** Minutos de un día, solo si todos sus tramos tienen las dos horas. */
-function minutosDe(dia: DiaHorario): number | null {
-  if (dia.tramos.some((t) => !t.entrada || !t.salida)) {
+/** Un tramo a medias o de duración cero (misma hora) no es un tramo. */
+const tramoInvalido = (t: { entrada: string; salida: string }) =>
+  !t.entrada || !t.salida || t.entrada === t.salida
+
+/** Minutos de un día, solo si todos sus tramos son válidos. */
+function minutosDe(dia: DiaEdicion): number | null {
+  if (dia.tramos.some(tramoInvalido)) {
     return null
   }
   return minutosTeoricos(dia)
@@ -122,28 +167,27 @@ const minutosSemana = computed(() => {
   return total
 })
 
-/** No se guarda con tramos a medio rellenar: el backend los rechazaría igual. */
-const hayTramosIncompletos = computed(() =>
-  dias.value.some((d) => d.tramos.some((t) => !t.entrada || !t.salida)),
+/** No se guarda con tramos a medias o de duración cero: el backend los rechazaría igual. */
+const hayTramosInvalidos = computed(() =>
+  dias.value.some((d) => d.tramos.some(tramoInvalido)),
 )
 
-const guardando = ref(false)
-const errorGuardar = ref<string | null>(null)
-const guardado = ref(false)
-const botonGuardar = ref<HTMLElement | null>(null)
-
 async function guarda() {
-  if (guardando.value || hayTramosIncompletos.value) {
+  if (guardando.value || hayTramosInvalidos.value) {
     return
   }
   guardando.value = true
   errorGuardar.value = null
   guardado.value = false
   try {
+    // Al backend va el contrato limpio, sin los ids locales de edición.
+    const paraGuardar: DiaHorario[] = dias.value.map((d) => ({
+      tramos: d.tramos.map(({ entrada, salida }) => ({ entrada, salida })),
+    }))
     if (esEdicionSemana.value) {
-      await putSemana(lunes.value!, dias.value)
+      await putSemana(lunes.value!, paraGuardar)
     } else {
-      await putSemanaTipo(dias.value)
+      await putSemanaTipo(paraGuardar)
     }
     guardado.value = true
     if (botonGuardar.value) {
@@ -271,7 +315,7 @@ async function guarda() {
 
           <div
             v-for="(tramo, t) in dia.tramos"
-            :key="t"
+            :key="tramo.id"
             class="tramo"
           >
             <label class="tramo-campo">
@@ -347,7 +391,7 @@ async function guarda() {
         ref="botonGuardar"
         type="submit"
         class="boton boton--ancho"
-        :disabled="guardando || hayTramosIncompletos"
+        :disabled="guardando || hayTramosInvalidos"
       >
         {{ guardando ? 'Guardando...' : 'Guardar el horario' }}
       </button>
