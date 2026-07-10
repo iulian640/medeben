@@ -17,8 +17,10 @@ const pestanas = [
   {
     a: '/resumen',
     etiqueta: 'Lo tuyo',
-    // Euro
-    icono: 'M17 6.5a6 6 0 1 0 0 11 M4 10h9 M4 13.5h9',
+    // Euro: arco en C (r6, centrado en 14,12) y barras que asoman por la
+    // izquierda SIN atravesarlo — las del dibujo anterior lo cruzaban de
+    // lado a lado y a 22px se leía como un € roto (QA de Iulian).
+    icono: 'M17 6.8A6 6 0 1 0 17 17.2 M6.5 10.3h7 M6.5 13.7h7',
   },
   {
     a: '/libreta',
