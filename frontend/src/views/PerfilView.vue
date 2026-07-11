@@ -7,6 +7,7 @@ import {
   describeVigencia,
   esUrlSegura,
   etiquetaDimension,
+  etiquetaDimensionValor,
   etiquetaUnidad,
   etiquetaValor,
   explicacionDimension,
@@ -27,12 +28,17 @@ onMounted(() => {
   perfil.cargarProvincias()
 })
 
-/** Pedagogía D20: "según tu convenio eres nivel III" dicho con normalidad. */
+/**
+ * Pedagogía D20: "según tu convenio eres nivel III" dicho con normalidad.
+ * D219: cada dimensión lleva su etiqueta antepuesta cuando el valor no la
+ * incluye ya (zona "Barcelona" → "zona Barcelona"); si no, "Barcelona" solo
+ * se lee como si fuera el puesto elegido.
+ */
 const dimensionesResueltas = computed(() =>
   perfil.ocupacion
     ? Object.entries(perfil.ocupacion.dimensiones).map(([dim, valor]) => {
-        const legible = etiquetaValor(dim, valor)
-        // En medio de la frase va en minúscula ("tu puesto es nivel III"),
+        const legible = etiquetaDimensionValor(dim, valor)
+        // En medio de la frase va en minúscula ("zona Barcelona", "nivel III"),
         // pero sin tocar los romanos ("III") ni las siglas en mayúsculas.
         return /^[A-ZÑÁÉÍÓÚ][a-zñáéíóú]/.test(legible)
           ? legible.charAt(0).toLowerCase() + legible.slice(1)
@@ -236,7 +242,8 @@ watch(
       v-if="perfil.ocupacion && dimensionesResueltas.length > 0"
       class="nota-nivel texto-sm texto-suave"
     >
-      Según tu convenio, tu puesto es <strong>{{ dimensionesResueltas.join(', ') }}</strong>.
+      Según tu convenio, tu puesto de <strong>{{ perfil.puestoSeleccionado?.etiqueta }}</strong>
+      queda clasificado como <strong>{{ dimensionesResueltas.join(', ') }}</strong>.
       Así es como el convenio clasifica los puestos para asignar el sueldo mínimo.
       <template v-if="perfil.ocupacion.articulo">
         Lo dice el {{ perfil.ocupacion.articulo }}.
