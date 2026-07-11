@@ -13,10 +13,10 @@ import java.time.LocalDate;
  * modificación posterior al sellado" de la UI.
  */
 public record ApunteRequest(
-        @NotNull LocalDate fecha,
-        @NotNull TipoApunte tipo,
+        @NotNull(message = "no puede faltar") LocalDate fecha,
+        @NotNull(message = "no puede faltar") TipoApunte tipo,
         @Pattern(regexp = "^([01]\\d|2[0-3]):[0-5]\\d$", message = "hora en formato HH:mm") String hora,
-        @Size(max = 200) String motivo,
+        @Size(max = 200, message = "no puede pasar de 200 caracteres") @SinNul String motivo,
         boolean rectificacionTardiaConfirmada
 ) {
 

@@ -21,6 +21,9 @@ import java.util.Map;
  *       {@code minutosExtra - minutosDeficit == minutosReales - minutosTeoricos}.</li>
  *   <li>{@code diasSinCalcular}: días COMPLETO cuyo total quedó "sin calcular"
  *       (techo de cordura de {@code FichajeService}); se excluyen y se cuentan.</li>
+ *   <li>Los días NO_CUADRA (issue #230) también se excluyen del agregado, van a
+ *       {@code contadoresPorEstado} y generan un aviso con sus fechas: horas
+ *       fuera del total, sí, pero nunca en silencio.</li>
  *   <li>Ausencia/hueco/pendiente no computan horas reales (van a los contadores).</li>
  * </ul>
  */

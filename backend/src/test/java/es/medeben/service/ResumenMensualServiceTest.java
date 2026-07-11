@@ -241,6 +241,47 @@ class ResumenMensualServiceTest {
     }
 
     @Test
+    @DisplayName("día NO_CUADRA (issue #230): se excluye del agregado, se cuenta en su contador y el resumen AVISA con la fecha — nunca un cero mudo")
+    void diaNoCuadraExcluidoContadoYAvisado() {
+        diario.put(LocalDate.of(2026, 7, 6), estado(LocalDate.of(2026, 7, 6), EstadoDia.Estado.COMPLETO, 540)); // +60
+        diario.put(LocalDate.of(2026, 7, 8), estado(LocalDate.of(2026, 7, 8), EstadoDia.Estado.NO_CUADRA, -1));
+
+        ResumenMensual r = servicio.delMes(USUARIO, JULIO);
+
+        // Excluido de todo agregado (no es un total fiable) pero JAMÁS invisible.
+        assertThat(r.minutosExtra()).isEqualTo(60);      // solo el día bueno
+        assertThat(r.minutosTeoricos()).isEqualTo(480);  // el que no cuadra no suma teórico
+        assertThat(r.contadoresPorEstado()).containsEntry(EstadoDia.Estado.NO_CUADRA, 1);
+        // No es un "sin calcular" (techo de cordura): cada caso con su nombre.
+        assertThat(r.diasSinCalcular()).isZero();
+        assertThat(r.avisos()).anySatisfy(a -> {
+            assertThat(a).contains("no cuadran");
+            assertThat(a).contains("08/07");
+            assertThat(a).contains("no están contadas");
+        });
+    }
+
+    @Test
+    @DisplayName("varios días NO_CUADRA: un solo aviso con las primeras fechas y el resto resumido")
+    void variosDiasNoCuadranUnAvisoResumido() {
+        for (int d : new int[]{6, 8, 13, 15, 20}) {
+            LocalDate dia = LocalDate.of(2026, 7, d);
+            diario.put(dia, estado(dia, EstadoDia.Estado.NO_CUADRA, -1));
+        }
+
+        ResumenMensual r = servicio.delMes(USUARIO, JULIO);
+
+        assertThat(r.contadoresPorEstado()).containsEntry(EstadoDia.Estado.NO_CUADRA, 5);
+        List<String> deNoCuadran = r.avisos().stream().filter(a -> a.contains("no cuadran")).toList();
+        assertThat(deNoCuadran).hasSize(1); // un aviso, no cinco
+        assertThat(deNoCuadran.get(0))
+                .contains("5 días")
+                .contains("06/07, 08/07, 13/07")
+                .contains("y 2 más")
+                .doesNotContain("20/07"); // las fechas de más se resumen, no se listan
+    }
+
+    @Test
     @DisplayName("delta negativo NO compensa: se informa como déficit aparte, las extra no bajan")
     void deltaNegativoNoCompensa() {
         diario.put(LocalDate.of(2026, 7, 6), estado(LocalDate.of(2026, 7, 6), EstadoDia.Estado.COMPLETO, 600)); // +120

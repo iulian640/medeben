@@ -111,6 +111,10 @@ public class ResumenMensualService {
         Map<EstadoDia.Estado, Integer> contadores = nuevoContador();
         int[] diasSinCalcular = {0};
         long[] extraAnioMin = {0};
+        // Días del mes cuyos apuntes no cuadran (issue #230): excluidos del
+        // agregado como los "sin calcular", pero con aviso propio y con fecha —
+        // un día mal derivado y callado es dinero que se pierde sin saberlo.
+        List<LocalDate> diasNoCuadran = new ArrayList<>();
         // Cuadrante del mes para el descanso entre jornadas (art. 34.3 ET): se
         // evalúa sobre el horario TEÓRICO, así avisa aunque el día no esté fichado.
         List<Map.Entry<LocalDate, DiaCuadrante>> diasDelMes = new ArrayList<>();
@@ -120,6 +124,9 @@ public class ResumenMensualService {
             EstadoDia estado = estados.get(dia);
             if (enElMes) {
                 contadores.merge(estado.estado(), 1, Integer::sum);
+                if (estado.estado() == EstadoDia.Estado.NO_CUADRA) {
+                    diasNoCuadran.add(dia);
+                }
                 Optional<DiaCuadrante> cuadrante = diaCuadranteDe(dia, semanas);
                 if (cuadrante.isPresent()) {
                     diasDelMes.add(Map.entry(dia, cuadrante.get()));
@@ -146,7 +153,10 @@ public class ResumenMensualService {
 
         ImporteEstimadoMensual importe = valora(convenio, mes, salario, perfil.getDimensiones(), mesAgg.extraMin);
         TopeAnualResumen tope = tope(convenio, mes, extraAnioMin[0]);
-        List<String> avisos = new ArrayList<>(avisos(tope.horasTope(), extraAnioMin[0]));
+        // El aviso de datos que no cuadran va PRIMERO: antes de hablar de topes,
+        // que el usuario sepa que hay horas suyas fuera del total (issue #230).
+        List<String> avisos = new ArrayList<>(avisoNoCuadran(diasNoCuadran));
+        avisos.addAll(avisos(tope.horasTope(), extraAnioMin[0]));
         avisos.addAll(avisosDescanso(DescansoEntreJornadas.incidencias(conDiaAntes(mes, semanas, diasDelMes))));
 
         return new ResumenMensual(mes, mesAgg.teoricoMin, mesAgg.realMin, mesAgg.extraMin,
@@ -245,6 +255,34 @@ public class ResumenMensualService {
                     + minutosAHoras(extraAnioMin).toPlainString() + " h este año.");
         }
         return avisos;
+    }
+
+    /** Cuántas fechas "no cuadran" se listan en su aviso antes de resumir el resto. */
+    private static final int MAX_FECHAS_NO_CUADRAN = 3;
+
+    /**
+     * El aviso de los días cuyos apuntes no cuadran (issue #230): sus horas NO
+     * están en el total, y decirlo con la fecha es lo que separa un aviso
+     * accionable de un cero mudo que pierde dinero sin que nadie lo sepa.
+     */
+    private static List<String> avisoNoCuadran(List<LocalDate> dias) {
+        if (dias.isEmpty()) {
+            return List.of();
+        }
+        List<String> fechas = new ArrayList<>();
+        for (LocalDate dia : dias.subList(0, Math.min(dias.size(), MAX_FECHAS_NO_CUADRAN))) {
+            fechas.add(String.format("%02d/%02d", dia.getDayOfMonth(), dia.getMonthValue()));
+        }
+        String lista = String.join(", ", fechas);
+        if (dias.size() == 1) {
+            return List.of("El " + lista + " tus apuntes no cuadran entre sí: revisa ese día en la "
+                    + "libreta — sus horas no están contadas en el total del mes.");
+        }
+        if (dias.size() > MAX_FECHAS_NO_CUADRAN) {
+            lista += " y " + (dias.size() - MAX_FECHAS_NO_CUADRAN) + " más";
+        }
+        return List.of("Hay " + dias.size() + " días cuyos apuntes no cuadran (" + lista
+                + "): revísalos en la libreta — sus horas no están contadas en el total del mes.");
     }
 
     /** Cuántas incidencias de descanso corto se muestran antes de resumir el resto. */

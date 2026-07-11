@@ -21,12 +21,25 @@ import java.util.Map;
  * megas de texto en un endpoint sin autenticar (DoS de memoria/parseo).
  */
 public record CalculoHorasExtraRequest(
-        @NotBlank @Size(max = 40) String convenioId,
-        @NotNull @Min(2000) @Max(2100) Integer anio,
-        @NotNull @Positive @Digits(integer = 7, fraction = 2) BigDecimal salarioBaseMensual,
-        @PositiveOrZero @Digits(integer = 7, fraction = 2) BigDecimal plusesAnuales,
-        @NotNull @PositiveOrZero @Digits(integer = 5, fraction = 2) BigDecimal horas,
-        @Size(max = 10) Map<@NotBlank @Size(max = 40) String, @NotBlank @Size(max = 400) String> dimensiones
+        @NotBlank(message = "no puede faltar")
+        @Size(max = 40, message = "no puede pasar de 40 caracteres") @SinNul String convenioId,
+        @NotNull(message = "no puede faltar")
+        @Min(value = 2000, message = "fuera de rango (2000-2100)")
+        @Max(value = 2100, message = "fuera de rango (2000-2100)") Integer anio,
+        @NotNull(message = "no puede faltar") @Positive(message = "debe ser mayor que 0")
+        @Digits(integer = 7, fraction = 2, message = "demasiados dígitos (máximo 7 enteros y 2 decimales)")
+        BigDecimal salarioBaseMensual,
+        @PositiveOrZero(message = "no puede ser negativo")
+        @Digits(integer = 7, fraction = 2, message = "demasiados dígitos (máximo 7 enteros y 2 decimales)")
+        BigDecimal plusesAnuales,
+        @NotNull(message = "no puede faltar") @PositiveOrZero(message = "no puede ser negativo")
+        @Digits(integer = 5, fraction = 2, message = "demasiados dígitos (máximo 5 enteros y 2 decimales)")
+        BigDecimal horas,
+        // Dimensiones OPCIONALES (issue #231): mismo blindaje que SalarioBaseRequest
+        // — tope de entradas, de clave y de valor, y @SinNul en ambos (issue #232).
+        @Size(max = 10, message = "máximo 10 dimensiones")
+        Map<@NotBlank(message = "no puede faltar") @Size(max = 40, message = "no puede pasar de 40 caracteres") @SinNul String,
+                @NotBlank(message = "no puede faltar") @Size(max = 400, message = "no puede pasar de 400 caracteres") @SinNul String> dimensiones
 ) {
 
     public BigDecimal plusesONada() {

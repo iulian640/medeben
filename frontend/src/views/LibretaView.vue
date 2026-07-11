@@ -238,6 +238,28 @@ function reenviaConfirmada(confirmado: boolean) {
             {{ ETIQUETAS_ESTADO[fichajes.dia.estado] }}
           </p>
 
+          <!-- issue #230: los apuntes del día se contradicen (p.ej. un turno
+               partido reconstruido en desorden). El backend no deriva lectura
+               ni total — enseñar una jornada plausible pero falsa o callar
+               sería perder horas en silencio. El aviso es HONESTO: no promete
+               que re-apuntar siempre lo arregle (el caso de tramos fundidos no
+               se puede deshacer solo con apuntes hasta que exista la corrección
+               dirigida por tramo, decisión abierta del ADR), y nunca sugiere
+               marcar una ausencia falsa. Lo que tranquiliza es que el diario en
+               bruto —lo que vale como prueba— sigue intacto. -->
+          <p
+            v-if="fichajes.dia.estado === 'NO_CUADRA'"
+            class="aviso-bloque aviso-no-cuadra"
+            role="alert"
+          >
+            Los apuntes de entrada y salida de este día se contradicen, así que
+            no podemos calcular su total automáticamente. Tus fichajes siguen
+            guardados en el diario de abajo —que es lo que vale como prueba—;
+            solo que este día no suma en el resumen del mes hasta que cuadre.
+            Revísalos y, si puedes, vuelve a apuntar el turno en orden: la
+            entrada de cada tramo antes que su salida.
+          </p>
+
           <!-- La LECTURA del día: los tramos que el motor deriva del diario,
                con las correcciones ya aplicadas. Una salida de más corrige la
                anterior; aquí se ve el resultado, no la pila de toques. -->

@@ -114,6 +114,27 @@ class InformeAnualServiceTest {
     }
 
     @Test
+    @DisplayName("los días que no cuadran del año constan en el histórico, con la remisión al informe mensual (issue #230)")
+    void diasQueNoCuadranConstanEnElHistorico() throws Exception {
+        // Marzo con 2 días que no cuadran y mayo con 1: el histórico no detalla
+        // días, pero avisa del total y remite al informe mensual de cada mes.
+        when(resumenes.delMes(eq(USUARIO), any())).thenAnswer(inv -> {
+            YearMonth mes = inv.getArgument(1);
+            ResumenMensual base = resumenDe(mes);
+            int noCuadran = mes.getMonthValue() == 3 ? 2 : mes.getMonthValue() == 5 ? 1 : 0;
+            return new ResumenMensual(mes, base.minutosTeoricos(), base.minutosReales(),
+                    base.minutosExtra(), base.minutosDeficit(), base.diasSinCalcular(),
+                    Map.of(EstadoDia.Estado.COMPLETO, 20, EstadoDia.Estado.NO_CUADRA, noCuadran),
+                    base.importe(), base.tope(), base.avisos());
+        });
+
+        String plano = texto(servicio.genera(USUARIO, Year.of(2026))).replaceAll("\\s+", " ");
+
+        assertThat(plano).contains("3 día(s) del año no cuadran");
+        assertThat(plano).contains("informe mensual");
+    }
+
+    @Test
     @DisplayName("la caché sirve el MISMO PDF durante el día: el año solo se recorre una vez")
     void cachePorUsuarioYAnio() {
         byte[] primero = servicio.genera(USUARIO, Year.of(2026));
