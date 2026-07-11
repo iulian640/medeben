@@ -12,7 +12,12 @@ export type TipoApunte = 'ENTRADA' | 'SALIDA' | 'AUSENCIA'
 /** Jerarquía probatoria del apunte (D38): cuándo se apuntó respecto al momento. */
 export type OrigenApunte = 'CONFIRMADO' | 'RECONSTRUIDO' | 'RECTIFICACION_TARDIA'
 
-export type EstadoDia = 'PENDIENTE' | 'EN_CURSO' | 'COMPLETO' | 'AUSENCIA' | 'HUECO'
+/**
+ * NO_CUADRA (issue #230): los apuntes del día se contradicen y no forman una
+ * lectura fiable — el backend lo deriva sin tramos ni total, y la UI debe
+ * pedir revisión en vez de enseñar una jornada plausible pero falsa.
+ */
+export type EstadoDia = 'PENDIENTE' | 'EN_CURSO' | 'COMPLETO' | 'AUSENCIA' | 'HUECO' | 'NO_CUADRA'
 
 export interface ApunteGuardado {
   fecha: string

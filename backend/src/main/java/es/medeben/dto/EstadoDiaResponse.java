@@ -12,6 +12,8 @@ import java.util.List;
  * EN_CURSO puede traer minutos (turno partido con el primer tramo ya cerrado)
  * y un COMPLETO puede traer {@code null} (total no calculable: algún tramo
  * supera el techo de cordura). La UI no debe asumir "minutos solo si COMPLETO".
+ * Un día NO_CUADRA (issue #230) trae siempre {@code null}, sin tramos y sin
+ * {@code entradaAbierta}: la única verdad que viaja son sus apuntes en bruto.
  *
  * <p>{@code tramos} es la LECTURA del diario (el emparejado derivado, con las
  * correcciones ya aplicadas): lo que la UI enseña como "tu jornada". Los

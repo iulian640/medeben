@@ -195,6 +195,42 @@ describe('LibretaView — el día', () => {
     expect(wrapper.text()).not.toContain('Llevas apuntado')
   })
 
+  it('un día que no cuadra lo dice alto: aviso con explicación, sin lectura falsa y con el diario en bruto accesible (issue #230)', async () => {
+    // El caso (a) de la issue: turno partido reconstruido en desorden. El
+    // backend deriva NO_CUADRA sin tramos ni total; la vista debe avisar en
+    // vez de enseñar una jornada plausible pero falsa o un cero mudo.
+    vi.mocked(getEstadoDia).mockResolvedValue({
+      ...diaServidor,
+      estado: 'NO_CUADRA',
+      minutosTrabajados: null,
+      tramos: [],
+      entradaAbierta: null,
+      apuntes: [
+        { ...apunteEntrada, tipo: 'SALIDA', hora: '14:00', registradoEn: '2026-07-08T21:00:00+02:00' },
+        { ...apunteEntrada, hora: '10:00', registradoEn: '2026-07-08T21:01:00+02:00' },
+        { ...apunteEntrada, tipo: 'SALIDA', hora: '21:00', registradoEn: '2026-07-08T21:02:00+02:00' },
+        { ...apunteEntrada, hora: '17:00', registradoEn: '2026-07-08T21:03:00+02:00' },
+      ],
+    })
+
+    const wrapper = await montar()
+
+    // El estado en cristiano y el aviso que explica qué pasa y qué hacer.
+    expect(wrapper.text()).toContain('No cuadra: revísalo')
+    const aviso = wrapper.find('.aviso-no-cuadra')
+    expect(aviso.attributes('role')).toBe('alert')
+    expect(aviso.text()).toContain('se contradicen')
+    expect(aviso.text()).toContain('no suma en el resumen del mes')
+    // Ni jornada inventada ni total: no hay lectura que enseñar.
+    expect(wrapper.text()).not.toContain('Tu jornada')
+    expect(wrapper.text()).not.toContain('Llevas apuntado')
+    expect(wrapper.text()).not.toContain('Sin total')
+    // La prueba sigue ahí: el diario en bruto, plegado, con sus 4 apuntes.
+    await boton(wrapper, 'Ver el diario (4 apuntes)').trigger('click')
+    expect(wrapper.text()).toContain('a las 14:00')
+    expect(wrapper.text()).toContain('a las 17:00')
+  })
+
   it('si la carga falla, enseña el error y deja reintentar', async () => {
     vi.mocked(getEstadoDia).mockRejectedValueOnce(
       new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }),

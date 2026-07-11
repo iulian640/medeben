@@ -118,6 +118,7 @@ export const ETIQUETAS_ESTADO: Record<EstadoDia, string> = {
   COMPLETO: 'Completo',
   AUSENCIA: 'No fuiste, y quedó apuntado',
   HUECO: 'Hueco: quedó sin apuntar',
+  NO_CUADRA: 'No cuadra: revísalo',
 }
 
 export const ETIQUETAS_TIPO: Record<TipoApunte, string> = {

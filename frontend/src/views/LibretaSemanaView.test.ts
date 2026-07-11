@@ -143,6 +143,25 @@ describe('LibretaSemanaView', () => {
     expect(sinCalcular.attributes('title')).toBe('sin calcular')
   })
 
+  it('un día que no cuadra se marca en alerta, visible en el repaso de la semana (issue #230)', async () => {
+    vi.mocked(getEstadoDia).mockImplementation((fecha) =>
+      Promise.resolve(
+        fecha === '2026-07-07'
+          ? dia(fecha, 'NO_CUADRA', null)
+          : (semanaServidor[fecha] ?? dia(fecha, 'PENDIENTE', null)),
+      ),
+    )
+
+    const wrapper = await montar()
+
+    const martes = wrapper.findAll('.dia')[1]
+    expect(martes.text()).toContain('No cuadra: revísalo')
+    // Alerta de verdad: es el único estado que pierde horas si no se revisa.
+    expect(martes.find('.dia-estado').classes()).toContain('estado-alerta')
+    // Sin total inventado: el "—" de sin calcular, como en el techo de cordura.
+    expect(martes.find('.sin-calcular').text()).toBe('—')
+  })
+
   it('el hueco se enseña sin dramatismo, con la nota de que es normal', async () => {
     const wrapper = await montar()
 
