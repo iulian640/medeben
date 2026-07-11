@@ -504,14 +504,14 @@ class FichajeServiceTest {
     }
 
     @Test
-    @DisplayName("dos SALIDAS huérfanas distintas antes de la entrada: ambiguo (¿corrección de la misma o dos salidas de un partido?) → no se auto-empareja, queda EN_CURSO, sin horas fabricadas")
+    @DisplayName("dos SALIDAS huérfanas distintas antes de la entrada: ambiguo (¿corrección de la misma o dos salidas de un partido?) → no se auto-empareja, el día es NO_CUADRA (issue #230)")
     void dosSalidasHuerfanasNoSeAutoEmparejan() {
         // Con dos salidas sueltas no hay forma de saber si la segunda corrige a la
         // primera (misma salida) o si son las salidas de dos tramos de un turno
         // partido. Emparejar la "última" con la primera entrada fabricaba un tramo
-        // que no fichó nadie (ver issue #221 / regresión de abajo). Ante la duda no
-        // se auto-completa: la entrada abre tramo y el día queda EN_CURSO, igual que
-        // antes de la feature; el usuario lo cierra.
+        // que no fichó nadie (issue #221), y dejar el día "En curso" a secas
+        // escondía dos salidas apuntadas que ninguna lectura recogía (issue #230).
+        // Ante la duda no se auto-completa NI se calla: el día queda NO_CUADRA.
         when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
                 .thenReturn(List.of(
                         apunte(TipoApunte.SALIDA, "19:00", "2026-07-08T20:00"),
@@ -520,9 +520,10 @@ class FichajeServiceTest {
 
         EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
 
-        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
-        assertThat(estado.entradaAbierta()).isEqualTo("10:00");
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.NO_CUADRA);
+        assertThat(estado.entradaAbierta()).isNull();
         assertThat(estado.tramos()).isEmpty();
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
     }
 
     @Test
@@ -586,14 +587,15 @@ class FichajeServiceTest {
     }
 
     @Test
-    @DisplayName("issue #221 regresión: dos SALIDAS huérfanas distintas + dos ENTRADAS (turno partido reconstruido salidas-primero) NO fabrican un tramo mezclado — queda EN_CURSO")
+    @DisplayName("issue #221/#230: dos SALIDAS huérfanas distintas + dos ENTRADAS (turno partido reconstruido salidas-primero) NO fabrican un tramo mezclado — el día es NO_CUADRA")
     void dosHuerfanasDistintasConDosEntradasNoFabricanTramo() {
         // El usuario reconstruye un turno partido apuntando primero las dos salidas
         // (12:00, 22:00) y luego las dos entradas (08:00, 14:00). Con una sola ranura
         // de huérfana "gana la última" (22:00) y se emparejaba con la primera entrada
         // (08:00) → tramo (08:00, 22:00) = 14h que mezcla la entrada de la mañana con
         // la salida de la tarde, ninguna hora que se fichó. Al ser ambiguo (dos
-        // salidas sueltas) no se auto-empareja: el día queda EN_CURSO desde 14:00.
+        // salidas sueltas) no se auto-empareja; y como dejaba las 8h reales fuera del
+        // mes sin ninguna señal (issue #230, caso b), el día queda NO_CUADRA.
         when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
                 .thenReturn(List.of(
                         apunte(TipoApunte.SALIDA, "12:00", "2026-07-08T20:00"),
@@ -603,17 +605,20 @@ class FichajeServiceTest {
 
         EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
 
-        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
-        assertThat(estado.entradaAbierta()).isEqualTo("14:00");
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.NO_CUADRA);
+        assertThat(estado.entradaAbierta()).isNull();
         assertThat(estado.tramos()).isEmpty();
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
     }
 
     @Test
-    @DisplayName("issue #221 regresión: si el turno partido ambiguo se cierra luego con una SALIDA, solo cuenta el tramo real, sin solape de 23h")
-    void turnoPartidoAmbiguoAlCompletarNoSobrecuenta() {
+    @DisplayName("issue #230: el turno partido ambiguo cerrado luego con una SALIDA sigue sin cuadrar — dos salidas apuntadas que ninguna lectura recoge, ni solape de 23h ni un 9h a medias")
+    void turnoPartidoAmbiguoAlCompletarSigueSinCuadrar() {
         // Continuación del caso anterior: llega la SALIDA 23:00 que cierra la entrada
-        // abierta (14:00). Como no se fabricó el tramo (08:00, 22:00), no hay solape
-        // 14:00-22:00 contado dos veces: el día cuenta solo (14:00, 23:00) = 9h.
+        // abierta (14:00). No se fabrica el tramo (08:00, 22:00) —no hay solape
+        // contado dos veces—, pero el tramo (14:00, 23:00) tampoco es una lectura
+        // fiable: las salidas 12:00 y 22:00 siguen sin explicación, y darlo por
+        // COMPLETO con 9h sería otro total plausible pero inventado. NO_CUADRA.
         when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
                 .thenReturn(List.of(
                         apunte(TipoApunte.SALIDA, "12:00", "2026-07-08T20:00"),
@@ -624,9 +629,9 @@ class FichajeServiceTest {
 
         EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
 
-        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
-        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("14:00", "23:00"));
-        assertThat(estado.minutosTrabajados()).isEqualTo(9 * 60);
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.NO_CUADRA);
+        assertThat(estado.tramos()).isEmpty();
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
     }
 
     @Test
@@ -646,12 +651,14 @@ class FichajeServiceTest {
     }
 
     @Test
-    @DisplayName("emparejar la huérfana no salta el cupo D38: con dos tramos ya llenos, la entrada corrige el último, no fabrica un tercero")
+    @DisplayName("emparejar la huérfana no salta el cupo D38 (nunca un tercer tramo); si la lectura resultante se pisa, el día es NO_CUADRA (issue #230)")
     void huerfanaEmparejadaRespetaElCupoDeTramos() {
         // La huérfana (19:00) la empareja la primera entrada (10:00) en el tramo 1.
         // Luego se declara el tramo 2 y una entrada más cae por la regla de cupo
         // lleno sobre el tramo 2 (gana la última), sin resucitar la huérfana ya
-        // consumida ni abrir un tercer tramo.
+        // consumida ni abrir un tercer tramo. La lectura resultante, (10:00-19:00)
+        // + (09:00-12:00), se PISA en el reloj del día: contaba de 10:00 a 12:00
+        // dos veces (issue #230). Antes que un total con horas dobles: NO_CUADRA.
         when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
                 .thenReturn(List.of(
                         apunte(TipoApunte.SALIDA, "19:00", "2026-07-08T20:00"),
@@ -662,11 +669,9 @@ class FichajeServiceTest {
 
         EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
 
-        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
-        assertThat(estado.tramos()).containsExactly(
-                new EstadoDia.TramoDia("10:00", "19:00"),
-                new EstadoDia.TramoDia("09:00", "12:00"));
-        assertThat(estado.tramos()).hasSize(2); // el cupo D38 se respeta: nunca un tercer tramo
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.NO_CUADRA);
+        assertThat(estado.tramos()).isEmpty(); // ni un tercer tramo ni una lectura con horas dobles
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
     }
 
     @Test
@@ -684,6 +689,169 @@ class FichajeServiceTest {
 
         assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
         assertThat(estado.minutosTrabajados()).isEqualTo(-1);
+    }
+
+    // --- día que no cuadra: la lectura derivada se contradice (issue #230) ---
+
+    @Test
+    @DisplayName("issue #230 (a): turno partido reconstruido en desorden funde los tramos (10:00-21:00) → NO_CUADRA, nunca 11h que nadie trabajó")
+    void issue230TramosFundidosNoCuadran() {
+        // El caso literal del QA: S 14:00, E 10:00, S 21:00, E 17:00. La salida
+        // 21:00 "corrige" por posición la del tramo (10:00, 14:00) y lo funde en
+        // 10:00-21:00; la entrada 17:00 queda abierta DENTRO de ese tramo fundido
+        // — una contradicción de reloj (no puedes entrar a las 17:00 si ya estabas
+        // dentro desde las 10:00). Antes: "En curso" con un único tramo de 660
+        // minutos que nadie fichó. Ahora: señal honesta, sin lectura falsa.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "14:00", "2026-07-08T21:00"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T21:02"),
+                        apunte(TipoApunte.SALIDA, "21:00", "2026-07-08T21:04"),
+                        apunte(TipoApunte.ENTRADA, "17:00", "2026-07-08T21:06")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.NO_CUADRA);
+        assertThat(estado.tramos()).isEmpty();          // ninguna lectura plausible pero falsa
+        assertThat(estado.entradaAbierta()).isNull();
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1); // jamás los 660 min fantasma
+        assertThat(estado.apuntes()).hasSize(4);        // la prueba, intacta
+    }
+
+    @Test
+    @DisplayName("issue #230 (b): cuatro apuntes reales que acaban en 0 tramos → NO_CUADRA, no un 'En curso' mudo que pierde las 8h del mes")
+    void issue230CeroTramosNoCuadran() {
+        // El otro orden del QA: S 21:00, S 14:00, E 10:00, E 17:00. Dos salidas
+        // sueltas (ambiguo, no se auto-empareja) y dos entradas que se corrigen
+        // entre sí: el día acababa "En curso" con tramos vacíos y el resumen del
+        // mes contaba 0 minutos sin ninguna señal. Ahora el día lo dice.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "21:00", "2026-07-08T21:00"),
+                        apunte(TipoApunte.SALIDA, "14:00", "2026-07-08T21:02"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T21:04"),
+                        apunte(TipoApunte.ENTRADA, "17:00", "2026-07-08T21:06")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.NO_CUADRA);
+        assertThat(estado.tramos()).isEmpty();
+        assertThat(estado.entradaAbierta()).isNull();
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
+        assertThat(estado.apuntes()).hasSize(4);
+    }
+
+    @Test
+    @DisplayName("tramos derivados que se pisan (fusión + cierre posterior): NO_CUADRA, no 17h con cuatro horas del día contadas dos veces")
+    void tramosQueSePisanNoCuadran() {
+        // El caso (a) más la salida final: la lectura quedaría (10:00-21:00) +
+        // (17:00-23:00) = 17h con la franja 17:00-21:00 contada dos veces. Cada
+        // tramo pasa el techo de cordura de 16h POR SEPARADO, así que sin esta
+        // señal el mes sumaría un total inflado sin que nadie lo viera.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "14:00", "2026-07-08T21:00"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T21:02"),
+                        apunte(TipoApunte.SALIDA, "21:00", "2026-07-08T21:04"),
+                        apunte(TipoApunte.ENTRADA, "17:00", "2026-07-08T21:06"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.NO_CUADRA);
+        assertThat(estado.tramos()).isEmpty();
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("una salida apuntada que ninguna lectura recoge (huérfana abandonada con tramos formados) → NO_CUADRA: antes se ignoraba en silencio")
+    void salidaSinRecogerConTramosNoCuadra() {
+        // S 14:00 (huérfana en espera), E 17:00 (no la empareja: cruzaría
+        // medianoche), S 23:00 (cierra 17:00-23:00). El día quedaba COMPLETO de
+        // 6h con la salida de las 14:00 fuera de toda lectura, sin señal: puede
+        // ser un toque espurio o el rastro de un tramo de mañana que falta.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "14:00", "2026-07-08T20:00"),
+                        apunte(TipoApunte.ENTRADA, "17:00", "2026-07-08T20:02"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.NO_CUADRA);
+        assertThat(estado.tramos()).isEmpty();
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("la huérfana queda explicada si un tramo recoge esa MISMA salida: cierre nocturno apuntado dos veces → COMPLETO, sin falsa alarma")
+    void huerfanaExplicadaPorLaMismaSalidaNoAlarma() {
+        // S 02:00 (huérfana: el cierre nocturno no se auto-empareja), E 18:00,
+        // S 02:00 otra vez: el tramo (18:00, 02:00) recoge exactamente la salida
+        // que quedó suelta — el primer apunte no es un cabo suelto, es la misma
+        // salida apuntada antes de tiempo. Nada que revisar.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "02:00", "2026-07-08T02:03"),
+                        apunte(TipoApunte.ENTRADA, "18:00", "2026-07-08T18:01"),
+                        apunte(TipoApunte.SALIDA, "02:00", "2026-07-09T02:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("18:00", "02:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(8 * 60);
+    }
+
+    @Test
+    @DisplayName("turno partido reconstruido tramo a tramo 'salida primero' (S y E del 2º, S y E del 1º): COMPLETO 8h — el desorden legítimo no alarma")
+    void partidoReconstruidoSalidaPrimeroPorTramoNoAlarma() {
+        // S 14:00 espera como huérfana mientras se apunta el tramo de tarde
+        // (17:00-21:00); la última entrada (10:00) la empareja y forma el tramo
+        // de mañana. Los tramos quedan derivados fuera de orden cronológico
+        // —(17-21) antes que (10-14)— pero NO se pisan en el reloj del día:
+        // es un turno partido de 8h perfectamente coherente.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "14:00", "2026-07-08T21:00"),
+                        apunte(TipoApunte.ENTRADA, "17:00", "2026-07-08T21:02"),
+                        apunte(TipoApunte.SALIDA, "21:00", "2026-07-08T21:04"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T21:06")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(
+                new EstadoDia.TramoDia("17:00", "21:00"),
+                new EstadoDia.TramoDia("10:00", "14:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(8 * 60);
+    }
+
+    @Test
+    @DisplayName("issue #230: del día NO_CUADRA se sale re-apuntando el turno en orden — cada tramo recoge una salida suelta y el día vuelve a cuadrar")
+    void diaNoCuadraSeRecuperaReapuntandoEnOrden() {
+        // El caso (b) entero y, detrás, los mismos 4 fichajes en orden natural
+        // (entrada antes que su salida). Los tramos (10-14) y (17-21) recogen
+        // las dos salidas que quedaron sueltas (14:00 y 21:00): ya no hay cabos
+        // sueltos ni contradicción, y las 8h reales vuelven al mes.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "21:00", "2026-07-08T21:00"),
+                        apunte(TipoApunte.SALIDA, "14:00", "2026-07-08T21:02"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T21:04"),
+                        apunte(TipoApunte.ENTRADA, "17:00", "2026-07-08T21:06"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T21:10"),
+                        apunte(TipoApunte.SALIDA, "14:00", "2026-07-08T21:12"),
+                        apunte(TipoApunte.ENTRADA, "17:00", "2026-07-08T21:14"),
+                        apunte(TipoApunte.SALIDA, "21:00", "2026-07-08T21:16")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(
+                new EstadoDia.TramoDia("10:00", "14:00"),
+                new EstadoDia.TramoDia("17:00", "21:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(8 * 60);
     }
 
     @Test
