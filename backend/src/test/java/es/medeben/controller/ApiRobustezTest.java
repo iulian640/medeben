@@ -1,5 +1,6 @@
 package es.medeben.controller;
 
+import es.medeben.config.JacksonConfig;
 import es.medeben.config.SecurityConfig;
 import es.medeben.repository.ConvenioCatalog;
 import es.medeben.service.CalculoConvenioService;
@@ -18,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.UUID;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -30,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * y nunca con el genérico "Invalid request content." del framework.
  */
 @WebMvcTest(controllers = {FichajeController.class, CalculoController.class})
-@Import({SecurityConfig.class, GlobalExceptionHandler.class})
+@Import({SecurityConfig.class, GlobalExceptionHandler.class, JacksonConfig.class})
 class ApiRobustezTest {
 
     private static final UUID USUARIO = UUID.randomUUID();
@@ -94,6 +96,88 @@ class ApiRobustezTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.detail").value(
                         "convenioId: no puede faltar; dimensiones: no puede faltar; fecha: no puede faltar"));
+    }
+
+    // --- (b) Fechas estrictas: solo yyyy-MM-dd, nunca truncar un timestamp ---
+
+    @Test
+    @DisplayName("fecha con hora UTC en el body → 400, jamás truncarla al día UTC en silencio")
+    void fechaConHoraUtcEnBody() throws Exception {
+        // Lo que produce new Date().toISOString() en JavaScript: a las 00:00
+        // del 9 de julio en España (verano, UTC+2) aún es día 8 en UTC. Si se
+        // trunca, el fichaje queda registrado el día equivocado sin avisar.
+        mockMvc.perform(post("/api/v1/fichajes").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"fecha":"2026-07-08T22:00:00.000Z","tipo":"SALIDA","hora":"23:45"}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                .andExpect(jsonPath("$.detail").value(
+                        "fecha: se espera una fecha en formato yyyy-MM-dd, sin hora ni zona horaria"))
+                // El valor recibido no se ecoa en la respuesta.
+                .andExpect(content().string(org.hamcrest.Matchers.not(
+                        org.hamcrest.Matchers.containsString("22:00"))));
+
+        org.mockito.Mockito.verifyNoInteractions(fichajeService);
+    }
+
+    @Test
+    @DisplayName("fecha con hora UTC en el cálculo anónimo → 400 (aplica a todos los endpoints)")
+    void fechaConHoraUtcEnSalarioBase() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08T22:00:00.000Z",
+                                 "dimensiones":{"nivel":"III"}}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value(
+                        "fecha: se espera una fecha en formato yyyy-MM-dd, sin hora ni zona horaria"));
+    }
+
+    @Test
+    @DisplayName("fecha en formato array de Jackson ([2026,7,8]) → 400, solo se admite el texto plano")
+    void fechaComoArray() throws Exception {
+        mockMvc.perform(post("/api/v1/fichajes").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"fecha":[2026,7,8],"tipo":"SALIDA","hora":"23:45"}"""))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("fecha con hora en el path → 400 RFC 7807 en castellano, sin ecoar el valor")
+    void fechaConHoraEnPath() throws Exception {
+        mockMvc.perform(get("/api/v1/fichajes/dia/2026-07-08T22:00:00.000Z").with(comoUsuario()))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                // El match exacto garantiza que el detalle no ecoa el valor
+                // (el "instance" sí lleva la URI pedida: es el shape RFC 7807
+                // de toda la API, igual que en la entry point de los 401).
+                .andExpect(jsonPath("$.detail").value(
+                        "El parámetro 'fecha' no tiene el formato esperado (fecha en formato yyyy-MM-dd)"));
+    }
+
+    @Test
+    @DisplayName("tipo de apunte desconocido → 400 con el campo, sin ecoar el valor recibido")
+    void tipoDesconocido() throws Exception {
+        mockMvc.perform(post("/api/v1/fichajes").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"fecha":"2026-07-08","tipo":"SIESTA","hora":"16:00"}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value("tipo: no es un valor válido"))
+                .andExpect(content().string(org.hamcrest.Matchers.not(
+                        org.hamcrest.Matchers.containsString("SIESTA"))));
+    }
+
+    @Test
+    @DisplayName("cuerpo que no es JSON → 400 en castellano, no un error del framework en inglés")
+    void cuerpoNoEsJson() throws Exception {
+        mockMvc.perform(post("/api/v1/fichajes").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("esto no es json"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value("El cuerpo de la petición no es JSON válido"));
     }
 
     // --- (a) Carácter NUL en campos de texto: 400 de validación, nunca 500 ---
