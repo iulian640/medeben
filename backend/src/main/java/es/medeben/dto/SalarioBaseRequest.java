@@ -15,8 +15,11 @@ import java.util.Map;
  * de texto en un endpoint sin autenticar (DoS de memoria/parseo).
  */
 public record SalarioBaseRequest(
-        @NotBlank @Size(max = 40) String convenioId,
-        @NotNull LocalDate fecha,
-        @NotEmpty @Size(max = 10) Map<@NotBlank @Size(max = 40) String, @NotBlank @Size(max = 400) String> dimensiones
+        @NotBlank(message = "no puede faltar")
+        @Size(max = 40, message = "no puede pasar de 40 caracteres") String convenioId,
+        @NotNull(message = "no puede faltar") LocalDate fecha,
+        @NotEmpty(message = "no puede faltar") @Size(max = 10, message = "máximo 10 dimensiones")
+        Map<@NotBlank(message = "no puede faltar") @Size(max = 40, message = "no puede pasar de 40 caracteres") String,
+                @NotBlank(message = "no puede faltar") @Size(max = 400, message = "no puede pasar de 400 caracteres") String> dimensiones
 ) {
 }
