@@ -141,6 +141,47 @@ class InformeMensualServiceTest {
     }
 
     @Test
+    @DisplayName("un día que no cuadra CONSTA en el informe: etiqueta en el diario, fila en el resumen y sus apuntes en bruto — no un cero mudo (issue #230)")
+    void diaQueNoCuadraConstaEnElInforme() throws Exception {
+        // El resumen trae el contador y el aviso (los pone ResumenMensualService);
+        // el diario trae el día NO_CUADRA sin lectura pero con sus 4 apuntes.
+        ResumenMensual base = resumenEjemplo();
+        when(resumenes.delMes(USUARIO, MES)).thenReturn(new ResumenMensual(MES,
+                base.minutosTeoricos(), base.minutosReales(), base.minutosExtra(),
+                base.minutosDeficit(), base.diasSinCalcular(),
+                Map.of(EstadoDia.Estado.COMPLETO, 2, EstadoDia.Estado.NO_CUADRA, 1),
+                base.importe(), base.tope(),
+                List.of("El 09/07 tus apuntes no cuadran entre sí: revisa ese día en la libreta "
+                        + "— sus horas no están contadas en el total del mes.")));
+        LocalDate dia = LocalDate.of(2026, 7, 9);
+        List<Apunte> desordenados = List.of(
+                new Apunte(USUARIO, dia, TipoApunte.SALIDA, "14:00", null,
+                        OrigenApunte.RECONSTRUIDO, OffsetDateTime.parse("2026-07-09T21:00:00+02:00")),
+                new Apunte(USUARIO, dia, TipoApunte.ENTRADA, "10:00", null,
+                        OrigenApunte.RECONSTRUIDO, OffsetDateTime.parse("2026-07-09T21:01:00+02:00")),
+                new Apunte(USUARIO, dia, TipoApunte.SALIDA, "21:00", null,
+                        OrigenApunte.RECONSTRUIDO, OffsetDateTime.parse("2026-07-09T21:02:00+02:00")),
+                new Apunte(USUARIO, dia, TipoApunte.ENTRADA, "17:00", null,
+                        OrigenApunte.RECONSTRUIDO, OffsetDateTime.parse("2026-07-09T21:03:00+02:00")));
+        when(fichajes.estadosDelPeriodo(eq(USUARIO), any(), any())).thenReturn(Map.of(
+                dia, new EstadoDia(dia, EstadoDia.Estado.NO_CUADRA, false, dia.plusDays(15),
+                        -1, List.of(), null, desordenados)));
+
+        String texto = textoDelInforme();
+        // El PDF parte las líneas donde le cabe: se normaliza el blanco.
+        String plano = texto.replaceAll("\\s+", " ");
+
+        // La etiqueta del estado en el diario, y el aviso bien alto.
+        assertThat(plano).contains("Los apuntes no cuadran: revísalo");
+        assertThat(plano).contains("no están contadas en el total del mes");
+        // La fila del resumen: el día consta, no desaparece del recuento.
+        assertThat(plano).contains("no cuadran (revísalos, no cuentan) 1");
+        // Y la prueba en bruto sigue ahí, apunte a apunte con su sello.
+        assertThat(texto).contains("Salida 14:00");
+        assertThat(texto).contains("Entrada 17:00");
+    }
+
+    @Test
     @DisplayName("las citas repetidas no se duplican en las fuentes")
     void fuentesSinDuplicados() throws Exception {
         Cita repetida = new Cita("Tope de 80 h (art. 35.2 ET)", null);

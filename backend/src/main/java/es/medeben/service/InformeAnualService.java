@@ -8,6 +8,7 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import es.medeben.config.RequiereBaseDeDatos;
 import es.medeben.controller.ResumenIncompletoException;
+import es.medeben.domain.fichaje.EstadoDia;
 import es.medeben.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
@@ -265,6 +266,19 @@ public class InformeAnualService {
         if (!motivos.isEmpty()) {
             doc.add(new Paragraph(
                     "Meses sin datos: " + String.join(" · ", motivos), SUAVE));
+        }
+        // issue #230: si algún día del año no cuadra, sus horas están fuera de
+        // los totales de arriba — el histórico lo dice y remite al detalle.
+        int diasNoCuadran = meses.stream()
+                .filter(m -> m.resumen() != null)
+                .mapToInt(m -> m.resumen().contadoresPorEstado()
+                        .getOrDefault(EstadoDia.Estado.NO_CUADRA, 0))
+                .sum();
+        if (diasNoCuadran > 0) {
+            doc.add(new Paragraph(
+                    "Atención: " + diasNoCuadran + " día(s) del año no cuadran (sus apuntes se "
+                            + "contradicen) y NO están contados en los totales. El detalle de cada uno, "
+                            + "en el informe mensual de su mes.", TEXTO));
         }
         doc.add(new Paragraph(
                 "El detalle día a día, con los sellos y el origen de cada apunte, está en el informe "
