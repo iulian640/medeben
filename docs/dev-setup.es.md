@@ -47,9 +47,15 @@ Para arrancar con otro perfil (p. ej. `local`, con otra configuración de BD):
 mvn spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
-o fija `SPRING_PROFILES_ACTIVE` en el entorno antes de arrancar — cualquiera
-de las dos formas sustituye al perfil `dev` que trae por defecto la
-configuración del plugin.
+Fijar `SPRING_PROFILES_ACTIVE` en el entorno **no** sirve para esto: el
+`spring-boot-maven-plugin` convierte el perfil `dev` de su `<configuration>`
+en un argumento de programa `--spring.profiles.active=dev` en la JVM
+lanzada, y en el orden de precedencia de Spring Boot los argumentos de línea
+de comandos ganan a las variables de entorno del sistema operativo — así que
+el `dev` del plugin se impone en silencio sobre `SPRING_PROFILES_ACTIVE`
+(comprobado: la app registra `"dev"` como activo en ambos casos). Usa
+`-Dspring-boot.run.profiles=<nombre>` —sustituye el propio `<profiles>` del
+plugin— para cambiar de perfil de verdad.
 
 Tests:
 

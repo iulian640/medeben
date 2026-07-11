@@ -47,8 +47,14 @@ To run with a different profile (e.g. `local`, against a different DB setup):
 mvn spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
-or set `SPRING_PROFILES_ACTIVE` in the environment before running — either
-one overrides the `dev` profile baked into the plugin configuration.
+Setting `SPRING_PROFILES_ACTIVE` in the environment does **not** work for
+this: `spring-boot-maven-plugin` turns the `dev` profile from its
+`<configuration>` into a `--spring.profiles.active=dev` program argument on
+the launched JVM, and in Spring Boot's property precedence order, command-line
+arguments outrank OS environment variables — so the plugin's `dev` silently
+wins over `SPRING_PROFILES_ACTIVE` (verified: the app logs `"dev"` as active
+either way). Use `-Dspring-boot.run.profiles=<name>` — it overrides the
+plugin's own `<profiles>` setting — to actually switch profiles.
 
 Tests:
 

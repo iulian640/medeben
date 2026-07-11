@@ -32,7 +32,10 @@ Comprobación: `GET http://localhost:8080/api/v1/health` → `{"status":"ok"}`.
 `spring-boot-maven-plugin` en `pom.xml`): la config de JWT exige un perfil
 ACTIVO `dev`/`local`/`test` para aceptar los secretos de juguete del repo, y
 `spring.profiles.default` no cuenta como activo. Para otro perfil: `mvn
-spring-boot:run -Dspring-boot.run.profiles=local` o `SPRING_PROFILES_ACTIVE`.
+spring-boot:run -Dspring-boot.run.profiles=local` (fijar
+`SPRING_PROFILES_ACTIVE` en el entorno NO sirve aquí — el argumento de
+programa que inyecta el plugin le gana; detalle en
+[docs/dev-setup.es.md](../docs/dev-setup.es.md)).
 
 ## Tests
 
