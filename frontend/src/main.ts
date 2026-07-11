@@ -4,6 +4,7 @@ import './style.css'
 import App from './App.vue'
 import router from './router'
 import { crearManejador401 } from './router/sesion401'
+import { registrarReconciliacionSesion } from './router/reconciliacionSesion'
 import { setOnRefresh, setOnUnauthorized } from './services/api'
 import { useAuthStore } from './stores/auth'
 import { registrarPWA } from './pwa'
@@ -16,6 +17,10 @@ createApp(App).use(pinia).use(router).mount('#app')
 // si el refresh tampoco vale, cae al manejador de sesión caducada de siempre.
 setOnRefresh(() => useAuthStore(pinia).refrescar())
 setOnUnauthorized(crearManejador401(router, pinia))
+
+// Al despertar la pestaña (bfcache, segundo plano) se reconcilia la sesión con
+// el slot compartido: rotaciones y logouts de otras pestañas (issue #229).
+registrarReconciliacionSesion(router, pinia)
 
 // Service worker con recarga al actualizar y comprobación periódica (ver pwa.ts).
 registrarPWA()

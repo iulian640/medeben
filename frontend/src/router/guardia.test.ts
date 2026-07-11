@@ -43,7 +43,13 @@ function stubStorage(inicial: Record<string, string> = {}): void {
 }
 
 function refreshPersistido(refreshToken: string, refreshExpiraEn: string): Record<string, string> {
-  return { [CLAVE_SESION_PERSISTIDA]: JSON.stringify({ refreshToken, refreshExpiraEn }) }
+  return {
+    [CLAVE_SESION_PERSISTIDA]: JSON.stringify({
+      refreshToken,
+      refreshExpiraEn,
+      familia: 'familia-test',
+    }),
+  }
 }
 
 beforeEach(() => {

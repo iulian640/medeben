@@ -53,6 +53,13 @@ export interface OpcionesApi extends RequestInit {
    * nada (y de paso evita cualquier bucle refresh→401→refresh).
    */
   anonimo?: boolean
+  /**
+   * Plazo propio en ms (por defecto REQUEST_TIMEOUT_MS). Para /auth/refresh
+   * (issue #229): un refresh abortado por timeout deja el token en estado
+   * desconocido y fuerza un re-login, así que en red móvil floja conviene
+   * aguantarle más que a una petición corriente.
+   */
+  timeoutMs?: number
 }
 
 export function setAuthToken(token: string | null) {
@@ -76,14 +83,15 @@ export function setOnRefresh(handler: (() => Promise<boolean>) | null) {
 
 async function envia(path: string, options: OpcionesApi, esReintento = false): Promise<Response> {
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+  const timeout = setTimeout(() => controller.abort(), options.timeoutMs ?? REQUEST_TIMEOUT_MS)
 
   // Capturado antes del await: si la sesión cambia en vuelo, el 401 de esta
   // respuesta solo dispara el handler si ESTA petición iba autenticada.
   const tokenEnviado = options.anonimo ? null : authToken
-  // fetch no conoce 'anonimo': fuera antes de pasárselo.
-  const { anonimo: _anonimo, ...init } = options
+  // fetch no conoce 'anonimo' ni 'timeoutMs': fuera antes de pasárselo.
+  const { anonimo: _anonimo, timeoutMs: _timeoutMs, ...init } = options
   void _anonimo
+  void _timeoutMs
 
   let response: Response
   try {

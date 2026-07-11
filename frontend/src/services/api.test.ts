@@ -329,4 +329,33 @@ describe('renovación de sesión (B4)', () => {
     expect(onRefresh).not.toHaveBeenCalled()
     expect(onUnauthorized).not.toHaveBeenCalled()
   })
+
+  it('timeoutMs propio: aguanta más que el plazo genérico y aborta al suyo (issue #229, refresh en red móvil)', async () => {
+    // Un refresh abortado por timeout deja el token en estado desconocido y
+    // fuerza un re-login: al POST de /auth/refresh se le da más margen que los
+    // 15s genéricos. El plazo custom no debe colarse en el init de fetch.
+    vi.useFakeTimers()
+    const fetchMock = vi.fn().mockImplementation(
+      (_url: string, init: RequestInit) =>
+        new Promise((_resolve, reject) => {
+          init.signal?.addEventListener('abort', () =>
+            reject(new DOMException('abortado', 'AbortError')),
+          )
+        }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+
+    const pendiente = api.post('/auth/refresh', { refreshToken: 'x' }, { anonimo: true, timeoutMs: 30_000 })
+    const explota = expect(pendiente).rejects.toThrow()
+
+    const [, init] = fetchMock.mock.calls[0] as [string, RequestInit]
+    expect('timeoutMs' in init).toBe(false)
+    await vi.advanceTimersByTimeAsync(15_000)
+    // A los 15s genéricos sigue viva: el plazo custom manda.
+    expect(init.signal?.aborted).toBe(false)
+    await vi.advanceTimersByTimeAsync(15_000)
+    expect(init.signal?.aborted).toBe(true)
+    await explota
+    vi.useRealTimers()
+  })
 })
