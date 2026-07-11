@@ -91,8 +91,11 @@ public class TablaSalarialService {
     }
 
     private static String cita(Hecho h) {
-        return "Salario base mínimo de " + h.importe().toPlainString() + " "
-                + (h.unidad() == null ? "EUR/mes" : h.unidad())
+        // Notación española en el texto de cara al usuario (issue #222): el mismo
+        // formateador que ya usan los PDF, para que pantalla y papel coincidan.
+        // El dato crudo de "unidad" (p. ej. "EUR/mes") no se toca, solo su texto legible.
+        return "Salario base mínimo de " + PdfInforme.dinero(h.importe()) + " "
+                + unidad(h).replace("EUR", "€")
                 + " (" + h.articulo() + " del convenio, vigencia "
                 + FECHA.format(h.desde()) + " a " + FECHA.format(h.hasta()) + ")";
     }
