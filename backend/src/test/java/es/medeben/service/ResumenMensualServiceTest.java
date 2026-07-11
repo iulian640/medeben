@@ -110,7 +110,7 @@ class ResumenMensualServiceTest {
         when(tablas.salarioBaseMinimo(eq("madrid-hosteleria"), any(), any())).thenReturn(
                 Optional.of(new SalarioBaseResuelto(MINIMO_CONVENIO, "EUR/mes",
                         List.of(new Cita("Salario base mínimo 1.250,91 EUR/mes (Art. 20 del convenio)", "https://bocm.es")))));
-        when(calculo.importeHorasExtra(any(), any(), any(), any(), any())).thenAnswer(inv -> {
+        when(calculo.importeHorasExtra(any(), any(), any(), any(), any(), any())).thenAnswer(inv -> {
             BigDecimal horas = inv.getArgument(4);
             BigDecimal importe = PRECIO_HORA.multiply(horas).setScale(2, java.math.RoundingMode.HALF_UP);
             return Optional.of(new HorasExtraCalculadas(PRECIO_HORA, importe, desglose(),
@@ -279,8 +279,19 @@ class ResumenMensualServiceTest {
         assertThat(r.importe().salarioBaseAplicado()).isEqualByComparingTo("1400.00");
 
         ArgumentCaptor<BigDecimal> salarioUsado = ArgumentCaptor.forClass(BigDecimal.class);
-        verify(calculo).importeHorasExtra(any(), any(), salarioUsado.capture(), any(), any());
+        verify(calculo).importeHorasExtra(any(), any(), salarioUsado.capture(), any(), any(), any());
         assertThat(salarioUsado.getValue()).isEqualByComparingTo("1400.00");
+    }
+
+    @Test
+    @DisplayName("#231: las dimensiones del perfil llegan al motor (la colectiva resuelve jornada y pagas por provincia)")
+    void dimensionesDelPerfilViajanAlMotor() {
+        diario.put(LocalDate.of(2026, 7, 7), estado(LocalDate.of(2026, 7, 7), EstadoDia.Estado.COMPLETO, 540));
+
+        servicio.delMes(USUARIO, JULIO);
+
+        verify(calculo).importeHorasExtra(any(), any(), any(), any(), any(),
+                eq(Map.of("tabla", "general", "nivel", "III", "claseEmpresa", "B")));
     }
 
     @Test
@@ -371,7 +382,7 @@ class ResumenMensualServiceTest {
         diario.put(LocalDate.of(2026, 7, 7), estado(LocalDate.of(2026, 7, 7), EstadoDia.Estado.COMPLETO, 540));
         // doReturn: re-estubar un thenAnswer con when() lo re-invocaría (args null → NPE).
         org.mockito.Mockito.doReturn(Optional.empty())
-                .when(calculo).importeHorasExtra(any(), any(), any(), any(), any());
+                .when(calculo).importeHorasExtra(any(), any(), any(), any(), any(), any());
 
         assertThatExceptionOfType(ResumenIncompletoException.class)
                 .isThrownBy(() -> servicio.delMes(USUARIO, JULIO))

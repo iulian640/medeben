@@ -2,14 +2,20 @@ package es.medeben.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import es.medeben.domain.convenio.Convenio;
+import es.medeben.domain.convenio.Hecho;
 import es.medeben.domain.convenio.ValoresPorAnio;
+import es.medeben.repository.HechosCatalog;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -29,6 +35,13 @@ import java.util.Optional;
  * Zaragoza, gratificación de octubre de Alicante, Santa Marta de Lugo —7 días—...)
  * no entran aún en el valor hora; esos convenios declaran
  * `mensualidadesEquivalentes` solo con las pagas de mensualidad completa.
+ *
+ * <p>Jornada y pagas que dependen de DIMENSIONES (issue #231, la colectiva las
+ * publica por anexo provincial): cuando el convenio no las trae en sus nodos
+ * propios, se resuelven como hechos de la capa derivada (`jornadaAnual` y
+ * `mensualidadesEquivalentes`) filtrando por las dimensiones del llamador —
+ * las mismas del perfil que ya resuelven la tabla salarial. Sin la dimensión
+ * necesaria no se calcula nada: nunca se adivina la provincia.
  */
 @Service
 public class CalculoConvenioService {
@@ -41,18 +54,39 @@ public class CalculoConvenioService {
     private static final BigDecimal MENSUALIDADES_ORDINARIAS = BigDecimal.valueOf(12);
     private static final BigDecimal MINIMO_MENSUALIDADES = BigDecimal.valueOf(12);
 
+    /** Conceptos de la capa derivada que puede necesitar el valor hora (D37). */
+    private static final String CONCEPTO_JORNADA_ANUAL = "jornadaAnual";
+    private static final String CONCEPTO_MENSUALIDADES = "mensualidadesEquivalentes";
+    private static final DateTimeFormatter FECHA = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+    private final HechosCatalog hechos;
+
+    public CalculoConvenioService(HechosCatalog hechos) {
+        this.hechos = hechos;
+    }
+
+    /** Valor de la hora ordinaria sin dimensiones (convenios de jornada y pagas únicas). */
+    public Optional<ValorHoraCalculado> valorHoraOrdinaria(
+            Convenio convenio, Year anio, BigDecimal salarioBaseMensual, BigDecimal plusesAnuales) {
+        return valorHoraOrdinaria(convenio, anio, salarioBaseMensual, plusesAnuales, Map.of());
+    }
+
     /**
      * Valor de la hora ordinaria: (salario base × mensualidades totales + pluses
      * anuales) / divisor de horas. El divisor es la jornada anual salvo que el
      * convenio fije explícitamente otro (`divisorValorHora.horas`, p. ej. las
      * 1.829 h de Tenerife): el divisor explícito es un dato del convenio y tiene
-     * prioridad. Vacío si el convenio no tiene publicados divisor o pagas para
-     * ese año.
+     * prioridad. Si el convenio no publica jornada o pagas en sus nodos propios,
+     * se buscan como hechos de la capa derivada con las {@code dimensiones} del
+     * llamador (issue #231: en la colectiva van por provincia). Vacío si con
+     * todo eso siguen faltando divisor o pagas para ese año.
      */
     public Optional<ValorHoraCalculado> valorHoraOrdinaria(
-            Convenio convenio, Year anio, BigDecimal salarioBaseMensual, BigDecimal plusesAnuales) {
+            Convenio convenio, Year anio, BigDecimal salarioBaseMensual, BigDecimal plusesAnuales,
+            Map<String, String> dimensiones) {
         Objects.requireNonNull(convenio, "convenio");
         Objects.requireNonNull(anio, "anio");
+        Objects.requireNonNull(dimensiones, "dimensiones");
         if (salarioBaseMensual == null || salarioBaseMensual.signum() <= 0) {
             throw new IllegalArgumentException("El salario base mensual debe ser positivo");
         }
@@ -62,8 +96,23 @@ public class CalculoConvenioService {
 
         JsonNode divisorNodo = convenio.raw().path("divisorValorHora");
         Optional<BigDecimal> divisorExplicito = ValoresPorAnio.resuelve(divisorNodo.path("horas"), anio);
-        Optional<BigDecimal> divisor = divisorExplicito.or(() -> convenio.jornadaAnual(anio));
-        Optional<BigDecimal> mensualidades = mensualidades(nodoPagas(convenio));
+        Optional<BigDecimal> divisorPropio = divisorExplicito.or(() -> convenio.jornadaAnual(anio));
+        // Los nodos propios del convenio mandan; el hecho derivado solo entra si faltan.
+        Optional<Hecho> jornadaDerivada = divisorPropio.isPresent()
+                ? Optional.empty()
+                : hechoDerivado(convenio, CONCEPTO_JORNADA_ANUAL, dimensiones, anio);
+        Optional<BigDecimal> divisor = divisorPropio
+                .or(() -> jornadaDerivada.map(Hecho::importe).filter(h -> h.signum() > 0));
+
+        Optional<BigDecimal> mensualidadesPropias = mensualidades(nodoPagas(convenio));
+        Optional<Hecho> mensualidadesDerivadas = mensualidadesPropias.isPresent()
+                ? Optional.empty()
+                : hechoDerivado(convenio, CONCEPTO_MENSUALIDADES, dimensiones, anio)
+                        // Mismo suelo de 12 que las ramas del nodo propio: menos de 12
+                        // mensualidades solo puede ser una errata de derivación.
+                        .filter(h -> h.importe().compareTo(MINIMO_MENSUALIDADES) >= 0);
+        Optional<BigDecimal> mensualidades = mensualidadesPropias
+                .or(() -> mensualidadesDerivadas.map(Hecho::importe));
         if (divisor.isEmpty() || mensualidades.isEmpty()) {
             return Optional.empty();
         }
@@ -76,31 +125,104 @@ public class CalculoConvenioService {
             citas.add(new Cita("Divisor de valor hora de " + divisor.get().stripTrailingZeros().toPlainString()
                     + " h fijado por el convenio (" + articulo(divisorNodo) + " del convenio)",
                     convenio.fuenteUrl()));
+        } else if (jornadaDerivada.isPresent()) {
+            citas.add(citaDeHecho("Jornada anual de " + divisor.get().stripTrailingZeros().toPlainString()
+                    + " h", jornadaDerivada.get(), anio, convenio));
         } else {
             citas.add(new Cita("Jornada anual de " + divisor.get().stripTrailingZeros().toPlainString()
                     + " h (" + articuloJornada(convenio) + " del convenio)", convenio.fuenteUrl()));
         }
-        citas.add(new Cita(mensualidades.get().stripTrailingZeros().toPlainString()
-                + " mensualidades al año (" + articulo(nodoPagas(convenio)) + " del convenio)",
-                convenio.fuenteUrl()));
+        if (mensualidadesDerivadas.isPresent()) {
+            citas.add(citaDeHecho(mensualidades.get().stripTrailingZeros().toPlainString()
+                    + " mensualidades al año", mensualidadesDerivadas.get(), anio, convenio));
+        } else {
+            citas.add(new Cita(mensualidades.get().stripTrailingZeros().toPlainString()
+                    + " mensualidades al año (" + articulo(nodoPagas(convenio)) + " del convenio)",
+                    convenio.fuenteUrl()));
+        }
         return Optional.of(new ValorHoraCalculado(
                 valorHora, salarioBaseMensual, mensualidades.get(), plusesAnuales,
                 divisor.get(), divisorExplicito.isPresent(), citas));
     }
 
     /**
-     * Importe de unas horas extra. Precio aplicado: el fijado por el convenio si
-     * existe y es mayor; nunca por debajo del valor de la hora ordinaria
-     * (art. 35.1 ET, suelo legal).
+     * Hecho de la capa derivada aplicable al año y a las dimensiones del
+     * llamador: sus dimensiones deben estar TODAS contenidas en las del
+     * llamador (un hecho de {provincia} casa con un perfil de
+     * {provincia, categoria}; con un llamador sin provincia no casa nada —
+     * nunca se adivina). Aplica el vigente al cierre del año o, si no lo hay,
+     * el último anterior (ultraactividad, como {@link TablaSalarialService}).
      */
+    private Optional<Hecho> hechoDerivado(
+            Convenio convenio, String concepto, Map<String, String> dimensiones, Year anio) {
+        List<Hecho> candidatos = hechos.deConvenio(convenio.id()).stream()
+                .filter(h -> concepto.equals(h.concepto()))
+                .filter(h -> dimensiones.entrySet().containsAll(h.dimensiones().entrySet()))
+                .toList();
+        if (candidatos.isEmpty()) {
+            return Optional.empty();
+        }
+        LocalDate cierre = anio.atMonth(12).atEndOfMonth();
+        List<Hecho> vigentes = candidatos.stream().filter(h -> h.vigenteEn(cierre)).toList();
+        if (vigentes.size() > 1) {
+            // Solo posible con una capa derivada corrupta (dos hechos del mismo
+            // concepto casando a la vez): mejor romper que elegir a ciegas.
+            throw new IllegalStateException("Capa derivada ambigua: " + vigentes.size()
+                    + " hechos de " + concepto + " vigentes en " + cierre + " para " + dimensiones.keySet());
+        }
+        if (vigentes.size() == 1) {
+            return Optional.of(vigentes.get(0));
+        }
+        // Ultraactividad: la última tabla publicada sigue aplicando hasta que
+        // salga la nueva (el convenio vencido no caduca).
+        List<Hecho> anteriores = candidatos.stream()
+                .filter(h -> h.hasta().isBefore(cierre))
+                .toList();
+        Optional<Hecho> ultimo = anteriores.stream().max(Comparator.comparing(Hecho::hasta));
+        if (ultimo.isPresent()
+                && anteriores.stream().filter(h -> h.hasta().equals(ultimo.get().hasta())).count() > 1) {
+            throw new IllegalStateException("Capa derivada ambigua: varios hechos de " + concepto
+                    + " terminan en " + ultimo.get().hasta() + " para " + dimensiones.keySet());
+        }
+        return ultimo;
+    }
+
+    /**
+     * Cita de un dato que sale de la capa derivada (D34): artículo del hecho y,
+     * si el año pedido cae fuera de su vigencia, el aviso de ultraactividad —
+     * mismo lenguaje que el lookup de tablas salariales.
+     */
+    private static Cita citaDeHecho(String texto, Hecho hecho, Year anio, Convenio convenio) {
+        String cita = texto + " (" + hecho.articulo() + " del convenio";
+        if (!hecho.vigenteEn(anio.atMonth(12).atEndOfMonth())) {
+            cita += "; dato de vigencia hasta " + FECHA.format(hecho.hasta())
+                    + ", aplicado por ultraactividad: sigue en vigor hasta que se publique el nuevo";
+        }
+        return new Cita(cita + ")", convenio.fuenteUrl());
+    }
+
+    /** Importe de unas horas extra sin dimensiones (convenios de jornada y pagas únicas). */
     public Optional<HorasExtraCalculadas> importeHorasExtra(
             Convenio convenio, Year anio, BigDecimal salarioBaseMensual, BigDecimal plusesAnuales,
             BigDecimal horas) {
+        return importeHorasExtra(convenio, anio, salarioBaseMensual, plusesAnuales, horas, Map.of());
+    }
+
+    /**
+     * Importe de unas horas extra. Precio aplicado: el fijado por el convenio si
+     * existe y es mayor; nunca por debajo del valor de la hora ordinaria
+     * (art. 35.1 ET, suelo legal). Las {@code dimensiones} solo intervienen si
+     * la jornada o las pagas viven en la capa derivada (issue #231).
+     */
+    public Optional<HorasExtraCalculadas> importeHorasExtra(
+            Convenio convenio, Year anio, BigDecimal salarioBaseMensual, BigDecimal plusesAnuales,
+            BigDecimal horas, Map<String, String> dimensiones) {
         if (horas == null || horas.signum() < 0) {
             throw new IllegalArgumentException("Las horas extra no pueden ser negativas");
         }
 
-        return valorHoraOrdinaria(convenio, anio, salarioBaseMensual, plusesAnuales).map(valorHora -> {
+        return valorHoraOrdinaria(convenio, anio, salarioBaseMensual, plusesAnuales, dimensiones)
+                .map(valorHora -> {
             List<Cita> citas = new ArrayList<>(valorHora.citas());
             BigDecimal precio = valorHora.valorHora();
             citas.add(Cita.delEstatuto(

@@ -53,9 +53,12 @@ public class CalculoController {
                 .orElseThrow(() -> new RecursoNoEncontradoException(
                         "Convenio no encontrado: " + peticion.convenioId()));
 
+        // Las dimensiones (opcionales) viajan al motor: en la colectiva la
+        // jornada y las pagas van por provincia (#231) — sin ellas, 422 honesto.
         HorasExtraCalculadas resultado = calculo.importeHorasExtra(
                         convenio, Year.of(peticion.anio()),
-                        peticion.salarioBaseMensual(), peticion.plusesONada(), peticion.horas())
+                        peticion.salarioBaseMensual(), peticion.plusesONada(), peticion.horas(),
+                        peticion.dimensionesONada())
                 .orElseThrow(() -> new DatosConvenioPendientesException(
                         "El convenio no tiene publicados los datos necesarios (jornada anual o pagas) para "
                                 + peticion.anio()));

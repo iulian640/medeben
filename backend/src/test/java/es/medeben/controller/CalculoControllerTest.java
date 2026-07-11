@@ -75,6 +75,61 @@ class CalculoControllerTest {
     }
 
     @Test
+    @DisplayName("colectiva (#231) con provincia: cocinero de comedor en Zaragoza → 200 con importe y citas")
+    void horasExtraColectivaConProvincia() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","anio":2026,
+                                 "salarioBaseMensual":1258.40,"plusesAnuales":0,"horas":10,
+                                 "dimensiones":{"provincia":"Zaragoza"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.importe").value(97.88))
+                .andExpect(jsonPath("$.desglose.valorHora").value(9.7876))
+                .andExpect(jsonPath("$.desglose.mensualidades").value(14))
+                .andExpect(jsonPath("$.desglose.divisorHoras").value(1800))
+                .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Marco nacional.*/)]").exists())
+                .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Anexo provincial Zaragoza.*/)]").exists());
+    }
+
+    @Test
+    @DisplayName("colectiva sin provincia: no se adivina ninguna → 422 honesto (RFC 7807)")
+    void horasExtraColectivaSinProvincia() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","anio":2026,
+                                 "salarioBaseMensual":1258.40,"plusesAnuales":0,"horas":10}"""))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.detail").exists());
+    }
+
+    @Test
+    @DisplayName("colectiva en provincia sin pagas publicadas (Granada) → 422 honesto, no se inventa")
+    void horasExtraColectivaProvinciaPendiente() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","anio":2026,
+                                 "salarioBaseMensual":1200,"plusesAnuales":0,"horas":10,
+                                 "dimensiones":{"provincia":"Granada"}}"""))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.detail").exists());
+    }
+
+    @Test
+    @DisplayName("dimensiones desbocadas (valor de más de 400 caracteres) → 400 (endpoint anónimo, anti-DoS)")
+    void horasExtraDimensionesDesbocadas() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","anio":2026,
+                                 "salarioBaseMensual":1200,"plusesAnuales":0,"horas":10,
+                                 "dimensiones":{"provincia":"%s"}}""".formatted("x".repeat(401))))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
     @DisplayName("horas-extra con convenio inexistente → 404")
     void horasExtraConvenioNoExiste() throws Exception {
         mockMvc.perform(post("/api/v1/calculo/horas-extra")

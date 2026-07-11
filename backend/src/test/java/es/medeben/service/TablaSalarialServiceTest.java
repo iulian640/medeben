@@ -130,7 +130,7 @@ class TablaSalarialServiceTest {
     @DisplayName("cadena completa: salario de tabla + motor = valor hora del cocinero de Madrid")
     void cadenaCompletaConMotor() {
         var catalog = new es.medeben.repository.ConvenioCatalog(new ObjectMapper());
-        var motor = new CalculoConvenioService();
+        var motor = new CalculoConvenioService(new HechosCatalog(new ObjectMapper()));
 
         var salario = servicio.salarioBaseMinimo(
                 "madrid-hosteleria", COCINERO_MADRID_B, LocalDate.of(2026, 7, 8)).orElseThrow();
