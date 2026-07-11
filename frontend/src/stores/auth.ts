@@ -12,6 +12,7 @@ import {
 import { mensajeDeError } from '../lib/formato'
 import {
   borrarSesionPersistida,
+  borrarSesionPersistidaSi,
   guardarSesionPersistida,
   leerSesionPersistida,
 } from '../lib/sesionPersistida'
@@ -108,7 +109,7 @@ export const useAuthStore = defineStore('auth', () => {
    * sentido (auth → cuenta/fichajes; ninguno importa auth), así que no hay
    * ciclo entre stores.
    */
-  function limpiarSesion() {
+  function limpiarSesion(refrescoRechazado?: string) {
     token.value = null
     email.value = null
     expiraEn.value = null
@@ -117,8 +118,15 @@ export const useAuthStore = defineStore('auth', () => {
     setAuthToken(null)
     // Purga el refresh persistido (issue #220): como toda salida de sesión
     // pasa por aquí, logout, 401, borrado de cuenta y refresh rechazado dejan
-    // el storage vacío sin tener que acordarse cada uno por su lado.
-    borrarSesionPersistida()
+    // el storage vacío sin tener que acordarse cada uno por su lado. Coordinación
+    // entre pestañas: si la salida la provoca un refresh RECHAZADO se purga solo
+    // cuando lo persistido sigue siendo el token que ESTA pestaña usó, para no
+    // clobbear el refresh que otra pestaña ya rotó bajo la misma clave compartida.
+    if (refrescoRechazado !== undefined) {
+      borrarSesionPersistidaSi(refrescoRechazado)
+    } else {
+      borrarSesionPersistida()
+    }
     useCuentaStore().limpiar()
     useFichajesStore().limpiar()
     useResumenStore().limpiar()
@@ -143,9 +151,13 @@ export const useAuthStore = defineStore('auth', () => {
     aviso.value = null
   }
 
-  /** 401 con token: la sesión ya no vale. Se limpia y se avisa en el login. */
+  /** 401 con token: la sesión ya no vale. Se limpia y se avisa en el login.
+   *  El refresh en memoria (el que acaba de ser rechazado en segundo plano) se
+   *  captura ANTES de limpiar, para que el purgado del storage sea condicional
+   *  y no borre el token que otra pestaña haya rotado (issue #220). */
   function sesionCaducada() {
-    limpiarSesion()
+    const refrescoRechazado = refreshToken.value
+    limpiarSesion(refrescoRechazado ?? undefined)
     aviso.value = 'Tu sesión ha caducado. Entra de nuevo, por favor.'
   }
 
@@ -217,7 +229,9 @@ export const useAuthStore = defineStore('auth', () => {
     refreshExpiraEn.value = guardado.refreshExpiraEn
     const renovado = await refrescar()
     if (!renovado) {
-      limpiarSesion()
+      // Purgado condicional (issue #220): si mientras nuestro refrescar viajaba
+      // otra pestaña rotó el token compartido, no borramos su refresh vigente.
+      limpiarSesion(guardado.refreshToken)
       return false
     }
     try {

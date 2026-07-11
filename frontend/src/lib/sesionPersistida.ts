@@ -39,6 +39,27 @@ export function borrarSesionPersistida(): void {
 }
 
 /**
+ * Borrado CONDICIONAL (compare-and-delete) para coordinar pestañas (issue #220).
+ * La clave es única y compartida por todas las pestañas del mismo origen, pero
+ * cada pestaña tiene su propio refresh en memoria. Cuando la limpieza la dispara
+ * un refresh RECHAZADO (restauración fallida o expulsión por 401), otra pestaña
+ * pudo haber rotado el token bajo la misma clave: en ese caso el refresh
+ * persistido ya NO coincide con el que esta pestaña intentó usar, y purgarlo
+ * borraría el refresh vigente de la otra pestaña (que sigue autenticada). Por
+ * eso solo se purga si lo persistido sigue siendo el `refreshEsperado`, o si ya
+ * no hay nada válido. Las salidas deliberadas (logout, borrado de cuenta) siguen
+ * usando borrarSesionPersistida() sin condición.
+ */
+export function borrarSesionPersistidaSi(refreshEsperado: string): void {
+  const actual = leerSesionPersistida()
+  if (actual !== null && actual.refreshToken !== refreshEsperado) {
+    // Otra pestaña ya rotó el token: se respeta su refresh vigente.
+    return
+  }
+  borrarSesionPersistida()
+}
+
+/**
  * Lee lo persistido validando el shape antes de confiar en ello: si no hay
  * nada, el JSON está corrupto o el objeto no tiene los dos campos string, se
  * purga la clave y se devuelve null. Así una entrada manipulada (XSS, edición

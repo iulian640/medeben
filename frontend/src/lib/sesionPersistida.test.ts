@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   CLAVE_SESION_PERSISTIDA,
   borrarSesionPersistida,
+  borrarSesionPersistidaSi,
   guardarSesionPersistida,
   leerSesionPersistida,
 } from './sesionPersistida'
@@ -85,6 +86,36 @@ describe('sesionPersistida', () => {
 
     expect(leerSesionPersistida()).toBeNull()
     expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('borrado condicional: purga si el refresh persistido es el esperado', () => {
+    const { almacen, datos } = localStorageFalso()
+    vi.stubGlobal('localStorage', almacen)
+    guardarSesionPersistida({ refreshToken: 'R1', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+
+    borrarSesionPersistidaSi('R1')
+
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('borrado condicional: NO purga si otra pestaña ya rotó a otro refresh', () => {
+    // Coordinación entre pestañas (issue #220): la clave es compartida. Si otra
+    // pestaña rotó el token bajo la misma clave, su refresh vigente se respeta.
+    const { almacen, datos } = localStorageFalso()
+    vi.stubGlobal('localStorage', almacen)
+    guardarSesionPersistida({ refreshToken: 'R2', refreshExpiraEn: '2099-01-08T00:00:00Z' })
+
+    borrarSesionPersistidaSi('R1')
+
+    expect(datos.get(CLAVE_SESION_PERSISTIDA)).toContain('R2')
+  })
+
+  it('borrado condicional: sin nada persistido no rompe y queda vacío', () => {
+    const { almacen, datos } = localStorageFalso()
+    vi.stubGlobal('localStorage', almacen)
+
+    expect(() => borrarSesionPersistidaSi('R1')).not.toThrow()
+    expect(datos.size).toBe(0)
   })
 
   it('shape inválido (falta un campo o no es string) → null y purga la clave', () => {

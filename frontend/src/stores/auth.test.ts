@@ -509,6 +509,61 @@ describe('auth store', () => {
     expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
   })
 
+  it('sesionCaducada (expulsión por 401) purga también el refresh persistido', async () => {
+    // Camino MÁS habitual de purga en producción: el access caduca en pleno uso,
+    // el refresh en segundo plano también falla y el manejador del 401 expulsa.
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(true)
+
+    auth.sesionCaducada()
+
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('restauración fallida NO borra el refresh que otra pestaña ya rotó (coordinación entre pestañas)', async () => {
+    // Dos pestañas comparten la clave. Esta arranca con R1, pero mientras su
+    // refrescar viaja la OTRA pestaña rota el token a R2 y lo persiste. A esta
+    // el servidor le rechaza R1 (reutilización); su limpieza NO debe clobbear
+    // el R2 vigente de la otra pestaña (issue #220).
+    const datos = stubStorage(refreshPersistido('R1', '2099-01-01T00:00:00Z'))
+    vi.mocked(postRefresh).mockImplementation(async () => {
+      datos.set(
+        CLAVE_SESION_PERSISTIDA,
+        JSON.stringify({ refreshToken: 'R2', refreshExpiraEn: '2099-01-08T00:00:00Z' }),
+      )
+      throw new ApiError(401, 'API 401', null)
+    })
+    const auth = useAuthStore()
+
+    const ok = await auth.restaurarSesion()
+
+    expect(ok).toBe(false)
+    expect(auth.autenticado).toBe(false)
+    // El R2 de la otra pestaña sigue en el storage: no lo hemos pisado.
+    expect(datos.get(CLAVE_SESION_PERSISTIDA)).toContain('R2')
+  })
+
+  it('la expulsión por 401 NO borra el refresh que otra pestaña ya rotó', async () => {
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'R1', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    // Otra pestaña rota y re-persiste bajo la misma clave compartida.
+    datos.set(
+      CLAVE_SESION_PERSISTIDA,
+      JSON.stringify({ refreshToken: 'R2', refreshExpiraEn: '2099-01-08T00:00:00Z' }),
+    )
+
+    auth.sesionCaducada()
+
+    expect(auth.autenticado).toBe(false)
+    // R2 intacto: la pestaña expulsada llevaba R1, no puede purgar el de otra.
+    expect(datos.get(CLAVE_SESION_PERSISTIDA)).toContain('R2')
+  })
+
   it('borrarCuenta purga también el refresh persistido (RGPD: no queda nada en el disco)', async () => {
     const datos = stubStorage()
     vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
