@@ -71,9 +71,11 @@ public class SmiService {
     public Cita citaSmi(int anio) {
         var entrada = SMI_MENSUAL_14.floorEntry(anio);
         int anioVigente = entrada != null ? entrada.getKey() : SMI_MENSUAL_14.firstKey();
+        // Notación española en el texto de la cita (issue #222): mismo formateador
+        // que los PDF, para que pantalla y papel muestren el mismo número.
         return new Cita(
-                "Salario Mínimo Interprofesional " + anioVigente + ": " + smiMensual(anio).toPlainString()
-                        + " €/mes en 14 pagas (" + smiAnual(anio).toPlainString()
+                "Salario Mínimo Interprofesional " + anioVigente + ": " + PdfInforme.dinero(smiMensual(anio))
+                        + " €/mes en 14 pagas (" + PdfInforme.dinero(smiAnual(anio))
                         + " €/año). Ningún convenio puede pagar menos en cómputo anual (art. 27 ET).",
                 "https://www.boe.es/biblioteca_juridica/codigos/codigo.php?id=093_Codigo_Laboral_y_de_la_Seguridad_Social");
     }

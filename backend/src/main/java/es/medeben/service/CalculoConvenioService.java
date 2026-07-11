@@ -112,7 +112,8 @@ public class CalculoConvenioService {
             Optional<BigDecimal> precioConvenio = ValoresPorAnio.resuelve(horasExtraNodo.path("importe"), anio);
             if (precioConvenio.isPresent() && precioConvenio.get().compareTo(precio) > 0) {
                 precio = precioConvenio.get();
-                citas.add(new Cita("Precio de hora extra fijado en " + precio.toPlainString()
+                // Notación española en la cita (issue #222): mismo formateador que los PDF.
+                citas.add(new Cita("Precio de hora extra fijado en " + PdfInforme.dinero(precio)
                         + " €/h (" + articulo(horasExtraNodo) + " del convenio)", convenio.fuenteUrl()));
             }
 

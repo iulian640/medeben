@@ -74,6 +74,23 @@ class TablaSalarialServiceTest {
     }
 
     @Test
+    @DisplayName("la cita del importe va en notación española, no anglosajona (issue #222)")
+    void citaEnNotacionEspanola() {
+        var madrid = servicio.salarioBaseMinimo(
+                "madrid-hosteleria", COCINERO_MADRID_B, LocalDate.of(2025, 6, 1)).orElseThrow();
+        assertThat(madrid.citas()).anySatisfy(c ->
+                assertThat(c.texto()).startsWith("Salario base mínimo de 1.250,91 €/mes"));
+        assertThat(madrid.citas()).noneSatisfy(c ->
+                assertThat(c.texto()).contains("1250.91"));
+
+        var cuenca = servicio.salarioBaseMinimo(
+                "cuenca-hosteleria", Map.of("nivel", "I", "grupoEstablecimiento", "A"),
+                LocalDate.of(2025, 6, 1)).orElseThrow();
+        assertThat(cuenca.citas()).anySatisfy(c ->
+                assertThat(c.texto()).startsWith("Salario base mínimo de 16.175,05 €/año"));
+    }
+
+    @Test
     @DisplayName("la unidad del hecho se expone: Cuenca publica salarios en EUR/año, Madrid en EUR/mes")
     void unidadExpuesta() {
         var madrid = servicio.salarioBaseMinimo(
