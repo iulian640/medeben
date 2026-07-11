@@ -176,6 +176,31 @@ describe('etiquetaDimensionValor', () => {
     expect(etiquetaDimensionValor('nivel', 'III')).toBe('Nivel III')
     expect(etiquetaDimensionValor('categoria', 'C')).toBe('Categoría C')
   })
+
+  it('no duplica la palabra cuando el sinónimo corto de etiquetaValor no coincide con la etiqueta larga (regresión hallazgo revisor PR#223)', () => {
+    // etiquetaValor antepone el sinónimo corto de SUSTANTIVO_VALOR ("Clase", "Grupo",
+    // "Clasificación"...) que no siempre coincide con la etiqueta larga de
+    // ETIQUETAS_DIMENSION ("Clase de empresa", "Grupo de actividad"...). Sin este
+    // fix, etiquetaDimensionValor antepone la etiqueta larga IGUAL, duplicando la
+    // palabra: "Clase de empresa Clase A".
+    expect(etiquetaDimensionValor('claseEmpresa', 'A')).toBe('Clase de empresa A')
+    expect(etiquetaDimensionValor('grupoActividad', 'III')).toBe('Grupo de actividad III')
+    expect(etiquetaDimensionValor('clasificacionEstablecimiento', '5')).toBe(
+      'Clasificación del local 5',
+    )
+  })
+
+  it('no mezcla conceptos cuando el sinónimo corto es de otra dimensión (datos reales: Badajoz/Cádiz/Baleares/Alicante)', () => {
+    // grupoProfesional: badajoz-hosteleria.json y cadiz-hosteleria.json guardan
+    // "I"/"1" sin pasar por VALORES_CURADOS (que solo mapea grupoPrimero/Segundo/Tercero).
+    expect(etiquetaDimensionValor('grupoProfesional', 'I')).toBe('Grupo profesional I')
+    // categoriaEstablecimiento: cadiz-hosteleria.json y baleares-hosteleria.json.
+    expect(etiquetaDimensionValor('categoriaEstablecimiento', 'A')).toBe('Categoría del local A')
+    // grupoEstablecimiento: alicante-hosteleria.json. SUSTANTIVO_VALOR dice "Grupo"
+    // pero la dimensión es "Tipo de local" — sin el fix da "Tipo de local Grupo A",
+    // una frase que mezcla dos conceptos distintos como si fueran el mismo.
+    expect(etiquetaDimensionValor('grupoEstablecimiento', 'A')).toBe('Tipo de local A')
+  })
 })
 
 describe('esUrlSegura', () => {

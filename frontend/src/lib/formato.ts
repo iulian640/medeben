@@ -228,12 +228,25 @@ export function etiquetaValor(dimension: string, valor: string): string {
  * "zona Barcelona" — "Barcelona" sin la palabra "zona" delante lee como si
  * fuera el puesto). Si etiquetaValor ya incorpora la etiqueta de la dimensión
  * (p. ej. "Nivel III" ya lleva "Nivel", vía SUSTANTIVO_VALOR), no se repite.
+ *
+ * etiquetaValor puede haber antepuesto el sinónimo CORTO de SUSTANTIVO_VALOR
+ * ("Grupo", "Clase"...) en vez de la etiqueta LARGA de esta dimensión ("Grupo
+ * profesional", "Clase de empresa"...). Cuando no coinciden textualmente, el
+ * startsWith de arriba nunca casa y anteponer la etiqueta larga a pelo duplica
+ * ("Clase de empresa Clase A") o mezcla conceptos ("Tipo de local Grupo A", para
+ * grupoEstablecimiento). En ese caso sustituimos el sinónimo corto por la
+ * etiqueta larga en vez de anteponerla entera.
  */
 export function etiquetaDimensionValor(dimension: string, valor: string): string {
   const legible = etiquetaValor(dimension, valor)
   const etiqueta = etiquetaDimension(dimension)
   if (legible.toLowerCase().startsWith(etiqueta.toLowerCase())) {
     return legible
+  }
+  const sustantivo = SUSTANTIVO_VALOR[dimension]
+  if (sustantivo && legible.toLowerCase().startsWith(sustantivo.toLowerCase())) {
+    const resto = legible.slice(sustantivo.length).trim()
+    return resto ? `${etiqueta} ${resto}` : etiqueta
   }
   return `${etiqueta} ${legible}`
 }

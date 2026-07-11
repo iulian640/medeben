@@ -286,6 +286,27 @@ describe('PerfilView', () => {
     expect(nota).not.toContain('tu puesto es barcelona')
   })
 
+  it('no duplica ni mezcla la etiqueta cuando el sinónimo corto no coincide con la etiqueta larga (regresión hallazgo revisor PR#223, datos reales de Cádiz)', async () => {
+    // cadiz-hosteleria.json guarda grupoProfesional/categoriaEstablecimiento con
+    // valores "limpios" (1-5 / A-C) que no pasan por VALORES_CURADOS. Antes de este
+    // fix, la frase salía "grupo profesional grupo 1, categoría del local categoría A".
+    vi.mocked(getOcupacion).mockResolvedValue({
+      dimensiones: { grupoProfesional: '1', categoriaEstablecimiento: 'A' },
+      pendientes: [],
+      articulo: null,
+    })
+    const wrapper = await montar()
+    await llegarAlConvenio(wrapper)
+
+    await wrapper.find('#puesto').setValue('camarero')
+    await flushPromises()
+
+    const nota = wrapper.find('.nota-nivel').text()
+    expect(nota).toContain('grupo profesional 1, categoría del local A')
+    expect(nota).not.toContain('grupo profesional grupo')
+    expect(nota).not.toContain('categoría del local categoría')
+  })
+
   it('con una pregunta pendiente no calcula hasta que el usuario responde', async () => {
     // 1ª resolución: falta la clase de empresa. Al responder, el backend la pliega
     // en las dimensiones (re-resolución) y ya no queda pendiente.
