@@ -21,6 +21,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.time.LocalDate;
 import java.util.Comparator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -104,6 +106,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
      * viven en las anotaciones de los DTOs), igual que las validaciones hechas
      * a mano en los servicios. Orden alfabético para que la respuesta sea
      * estable aunque el validador recorra los campos como quiera.
+     *
+     * <p>El field path se sanea antes de concatenarlo: para las violaciones en
+     * claves o valores de un mapa (dimensiones), Spring mete la clave LITERAL
+     * del cliente en el path ("dimensiones[<clave>]") — sin truncar y con
+     * cualquier carácter, NUL incluido. Sin el saneado, el detail ecoaría
+     * texto arbitrario del cliente (criterio no-echo del issue #232).
      */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException e,
@@ -111,9 +119,33 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   WebRequest request) {
         String detalle = e.getBindingResult().getFieldErrors().stream()
                 .sorted(Comparator.comparing(FieldError::getField))
-                .map(err -> err.getField() + ": " + err.getDefaultMessage())
+                .map(err -> campoSaneado(err.getField()) + ": " + err.getDefaultMessage())
                 .collect(Collectors.joining("; "));
         return respuesta400(detalle, e, headers, request);
+    }
+
+    /**
+     * Path de campo que solo lleva vocabulario benigno: propiedades del DTO,
+     * índices de lista y claves de mapa con pinta de identificador acotado
+     * (las del catálogo de convenios lo son todas). Cualquier otra cosa viene
+     * del cliente y no debe ecoarse.
+     */
+    private static final Pattern CAMPO_SEGURO = Pattern.compile(
+            "[A-Za-z0-9_]{1,60}(\\[[A-Za-z0-9_-]{1,40}\\])?(\\.[A-Za-z0-9_]{1,60}(\\[[A-Za-z0-9_-]{1,40}\\])?)*");
+
+    private static final Pattern PREFIJO_PROPIEDAD = Pattern.compile("[A-Za-z0-9_]{1,60}");
+
+    /**
+     * Si el path completo es benigno se deja tal cual (así "dimensiones[nivel]"
+     * sigue orientando al cliente); si no, se recorta a la primera propiedad
+     * más "[…]" para no ecoar jamás la clave recibida.
+     */
+    private static String campoSaneado(String campo) {
+        if (CAMPO_SEGURO.matcher(campo).matches()) {
+            return campo;
+        }
+        Matcher prefijo = PREFIJO_PROPIEDAD.matcher(campo);
+        return prefijo.lookingAt() ? prefijo.group() + "[…]" : "[…]";
     }
 
     /**
@@ -152,17 +184,28 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return campo.isEmpty() ? "" : campo + ": ";
     }
 
-    /** "dias[0].tramos[1].entrada" — la ruta del campo dentro del body. */
+    /**
+     * "dias[0].tramos[1].entrada" — la ruta del campo dentro del body.
+     *
+     * <p>Cuando el error ocurre dentro de un mapa (dimensiones), el fieldName
+     * de la referencia de Jackson ES la clave literal del cliente (hasta
+     * ~50.000 caracteres, con lo que sea). Solo se concatena si tiene pinta
+     * de identificador benigno; si no, se colapsa a "[…]" — mismo criterio
+     * no-echo que en {@link #campoSaneado(String)}.
+     */
     private static String rutaDelCampo(JsonMappingException e) {
         StringBuilder ruta = new StringBuilder();
         for (JsonMappingException.Reference referencia : e.getPath()) {
-            if (referencia.getFieldName() != null) {
+            String nombre = referencia.getFieldName();
+            if (nombre == null) {
+                ruta.append('[').append(referencia.getIndex()).append(']');
+            } else if (PREFIJO_PROPIEDAD.matcher(nombre).matches()) {
                 if (!ruta.isEmpty()) {
                     ruta.append('.');
                 }
-                ruta.append(referencia.getFieldName());
+                ruta.append(nombre);
             } else {
-                ruta.append('[').append(referencia.getIndex()).append(']');
+                ruta.append("[…]");
             }
         }
         return ruta.toString();

@@ -237,6 +237,8 @@ class ApiRobustezTest {
     @Test
     @DisplayName("NUL en una dimensión del cálculo anónimo → 400, mismo cierre uniforme")
     void dimensionConNul() throws Exception {
+        // Igualdad exacta: la clave "nivel" (con pinta de identificador) se
+        // conserva para orientar al cliente, pero el valor jamás se ecoa.
         mockMvc.perform(post("/api/v1/calculo/salario-base")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
@@ -244,7 +246,72 @@ class ApiRobustezTest {
                                  "dimensiones":{"nivel":"II\\u0000I"}}"""))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.detail").value(
-                        org.hamcrest.Matchers.containsString("no puede contener el carácter nulo")));
+                        "dimensiones[nivel]: no puede contener el carácter nulo (U+0000)"));
+    }
+
+    // --- Claves de mapa enviadas por el cliente: jamás se ecoan (issue #232) ---
+
+    @Test
+    @DisplayName("clave de dimensión de 75 caracteres → 400 sin ecoar la clave en el detalle")
+    void claveDeDimensionLargaNoSeEcoa() throws Exception {
+        // El field path de la violación de @Size lleva la clave ENTERA del
+        // cliente ("dimensiones[<clave>]"); el handler debe colapsarla.
+        String clave = "CLAVE_QUE_NO_DEBE_SALIR_" + "X".repeat(51);
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"%s":"III"}}""".formatted(clave)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value("dimensiones[…]: no puede pasar de 40 caracteres"))
+                .andExpect(content().string(org.hamcrest.Matchers.not(
+                        org.hamcrest.Matchers.containsString("CLAVE_QUE_NO_DEBE_SALIR"))));
+    }
+
+    @Test
+    @DisplayName("clave de dimensión con NUL → 400 sin ecoar la clave (ni el NUL) en el detalle")
+    void claveDeDimensionConNulNoSeEcoa() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"CLAVE_OCULTA\\u0000X":"III"}}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value(
+                        "dimensiones[…]: no puede contener el carácter nulo (U+0000)"))
+                .andExpect(content().string(org.hamcrest.Matchers.not(
+                        org.hamcrest.Matchers.containsString("CLAVE_OCULTA"))));
+    }
+
+    @Test
+    @DisplayName("un objeto donde va el valor de una dimensión → 400 sin ecoar la clave del mapa")
+    void claveDeDimensionEnErrorDeTipoNoSeEcoa() throws Exception {
+        // Segundo canal del mismo eco: aquí la clave viaja en la ruta de la
+        // JsonMappingException de Jackson, no en el field de Bean Validation.
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"CLAVE OCULTA <html>":{}}}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value("dimensiones[…]: no tiene el tipo esperado"))
+                .andExpect(content().string(org.hamcrest.Matchers.not(
+                        org.hamcrest.Matchers.containsString("CLAVE OCULTA"))));
+    }
+
+    @Test
+    @DisplayName("error de tipo en una dimensión con clave benigna → el detalle sí dice la clave")
+    void claveBenignaEnErrorDeTipoSeConserva() throws Exception {
+        // Las claves con pinta de identificador (las del catálogo lo son
+        // todas) se conservan: acotadas y sin caracteres raros, orientan
+        // al cliente sin abrir el canal de eco.
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"nivel":{}}}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value("dimensiones.nivel: no tiene el tipo esperado"));
     }
 
     @Test
