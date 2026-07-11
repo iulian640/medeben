@@ -44,6 +44,19 @@ class CorsConfigTest {
     }
 
     @Test
+    @DisplayName("los orígenes de la propia web (prod y E2E) también se permiten: mismo origen manda Origin en los POST y sin esto un registro se rechazaría con 403")
+    void origenesDeLaWebPermitidos() throws Exception {
+        // Regresión cazada por el E2E: al habilitar CORS, Spring valida también
+        // las peticiones same-origin que llevan cabecera Origin (POST). Si el
+        // origen de la web no está en la lista, el registro/login se rechaza.
+        for (String origenWeb : new String[]{"https://medeben.net", "http://localhost:4180"}) {
+            mockMvc.perform(get("/api/v1/health").header(HttpHeaders.ORIGIN, origenWeb))
+                    .andExpect(status().isOk())
+                    .andExpect(header().string("Access-Control-Allow-Origin", origenWeb));
+        }
+    }
+
+    @Test
     @DisplayName("un origen cualquiera NO recibe cabecera CORS (no es '*': el API tiene datos personales)")
     void origenAjenoRechazado() throws Exception {
         mockMvc.perform(get("/api/v1/health").header(HttpHeaders.ORIGIN, "https://sitio-malicioso.example"))

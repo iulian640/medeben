@@ -43,19 +43,31 @@ import java.util.List;
 public class SecurityConfig {
 
     /**
-     * Orígenes permitidos por CORS. La PWA web se sirve MISMO ORIGEN (nginx da la
-     * web y proxya /api), así que no necesita CORS. El único cliente cross-origin
-     * es el APK de Android: el WebView de Capacitor, sin `androidScheme` propio,
-     * vive en {@code https://localhost} (ver capacitor.config.ts) y llama a
-     * https://medeben.net/api. Sin esto, toda petición del APK la bloquea CORS
-     * (y el preflight OPTIONS cae en `authenticated()` → 401). NUNCA {@code *}:
-     * el API expone datos personales (RGPD). Configurable por si algún día entra
-     * iOS ({@code capacitor://localhost}) u otro empaquetado.
+     * Orígenes permitidos por CORS. Contraintuición importante: al habilitar CORS,
+     * Spring valida CUALQUIER petición que traiga cabecera {@code Origin} contra
+     * esta lista — incluidas las SAME-ORIGIN (el navegador manda Origin en los
+     * POST/PUT/DELETE aunque el destino sea el mismo host). Por eso la lista debe
+     * incluir también el origen de la propia web, no solo el del APK: si no,
+     * el registro/login de la PWA (mismo origen) se rechazaría con 403.
+     *
+     * Orígenes por defecto (cubren dev, CI y producción sin configurar nada):
+     * - {@code https://localhost}: el WebView de Capacitor del APK Android (sin
+     *   androidScheme propio) — el único cliente REALMENTE cross-origin.
+     * - {@code https://medeben.net}: la PWA web en producción (same-origin, pero
+     *   manda Origin en los POST).
+     * - {@code http://localhost:4180} y {@code :5173}: la web en E2E (Playwright)
+     *   y en el dev server de Vite.
+     * NUNCA {@code *}: el API expone datos personales (RGPD). En prod se puede
+     * afinar (quitar los localhost de dev) con MEDEBEN_SEGURIDAD_CORS_ORIGENES;
+     * dejarlos es inocuo (Bearer en cabecera, sin cookies: allowCredentials=false).
      */
+    private static final String ORIGENES_POR_DEFECTO =
+            "https://localhost,https://medeben.net,http://localhost:4180,http://localhost:5173";
+
     private final List<String> origenesCors;
 
     public SecurityConfig(
-            @Value("${medeben.seguridad.cors-origenes:https://localhost}") List<String> origenesCors) {
+            @Value("${medeben.seguridad.cors-origenes:" + ORIGENES_POR_DEFECTO + "}") List<String> origenesCors) {
         this.origenesCors = origenesCors;
     }
 
