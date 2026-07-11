@@ -77,6 +77,15 @@ public class PerfilOcupacionService {
                         // del cliente no puede pisarlas (p. ej. no puede cambiar su
                         // `nivel` vía query param y saltar a otra fila salarial).
                         // Misma disciplina que el `nivel` del árbol en el condicional.
+                        //
+                        // OJO (issue #233): aquí NO se pliega la grafía de provincia
+                        // (conProvinciaCanonica), a diferencia de la rama condicional.
+                        // Hoy es inocuo —ningún convenio de mapeo DIRECTO indexa la
+                        // tabla por 'provincia' (solo la colectiva, y va por árbol
+                        // condicional)—, pero si algún día lo hiciera, un perfil con
+                        // "Cáceres"/"Bizkaia" fallaría aquí con un 422 de valor no
+                        // reconocido en vez de resolverse: habría que plegar también
+                        // la provincia en esta rama cuando la clave sea DIMENSION_PROVINCIA.
                         if (dimsTabla.contains(clave) && !directas.containsKey(clave)) {
                             validaValorDeTabla(convenioId, clave, valor);
                             fijas.put(clave, valor);
@@ -288,7 +297,7 @@ public class PerfilOcupacionService {
             }
             throw new DimensionDesconocidaException(
                     "Esa combinación de respuestas no corresponde a ninguna tabla salarial publicada del convenio '"
-                            + convenioId + "'");
+                            + convenioId + "'. " + pistaDeCombinaciones(convenioId));
         }
         Set<String> comunes = new LinkedHashSet<>(compatibles.getFirst().dimensiones().keySet());
         for (Hecho hecho : compatibles) {
@@ -312,5 +321,24 @@ public class PerfilOcupacionService {
     private static boolean contiene(Map<String, String> dimensiones, Map<String, String> fijas) {
         return fijas.entrySet().stream()
                 .allMatch(e -> e.getValue().equals(dimensiones.get(e.getKey())));
+    }
+
+    /**
+     * Pista para el 422 de "combinación no publicada" (issue #233): lista las
+     * COMBINACIONES de dimensiones que las tablas del convenio sí indexan, para
+     * que un cliente directo de la API (no la UI, que encadena una pregunta a la
+     * vez) entienda qué respuestas encajan juntas. No ecoa valores del cliente,
+     * solo los NOMBRES de las dimensiones publicadas (datos públicos del
+     * convenio); son pocas formas distintas, así que el mensaje queda acotado.
+     */
+    private String pistaDeCombinaciones(String convenioId) {
+        Set<Set<String>> formas = new LinkedHashSet<>();
+        for (Hecho hecho : hechos.deConvenio(convenioId)) {
+            if (CONCEPTO_SALARIO_BASE.equals(hecho.concepto())) {
+                formas.add(new TreeSet<>(hecho.dimensiones().keySet()));
+            }
+        }
+        return "Las tablas de este convenio se indexan por estas combinaciones de dimensiones: "
+                + formas + ".";
     }
 }

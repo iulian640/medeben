@@ -161,15 +161,24 @@ export const usePerfilStore = defineStore('perfil', () => {
     }
     resetDesdePuesto()
     puestoId.value = valor
+    // La provincia ya la eligió el usuario (paso previo): se siembra como
+    // respuesta desde el principio, igual que el flujo de Cuenta (issue #233),
+    // para que el árbol condicional de la colectiva no vuelva a preguntarla.
+    // El backend pliega las grafías (NombresProvincia) e ignora la respuesta
+    // sobrante en los convenios que no indexan por provincia.
+    const prefijadas: Record<string, string> = provincia.value
+      ? { provincia: provincia.value }
+      : {}
+    respuestas.value = prefijadas
     const miId = nuevaPeticion()
     try {
       cargando.value = true
-      const resultado = await getOcupacion(convenio.value.id, valor)
+      const resultado = await getOcupacion(convenio.value.id, valor, prefijadas)
       if (!sigueVigente(miId)) {
         return
       }
       ocupacion.value = resultado
-      if (resultado.pendientes.length === 0) {
+      if (pendientesSinResponder.value.length === 0) {
         await calcularSalario()
       }
     } catch (e) {

@@ -184,6 +184,63 @@ describe('perfil store', () => {
     expect(store.salario).toEqual(salario)
   })
 
+  it('issue #233: la calculadora anónima siembra la provincia elegida — la colectiva no la vuelve a preguntar', async () => {
+    // Antes, la ruta anónima (/perfil) no pasaba la provincia a getOcupacion, así
+    // que el árbol condicional de la colectiva la pedía de nuevo aunque el usuario
+    // ya la hubiera elegido. Ahora se siembra igual que en el flujo de Cuenta.
+    vi.mocked(getOcupacion).mockResolvedValue({
+      dimensiones: { categoria: 'Cocinero/a' },
+      pendientes: [],
+      articulo: 'Art. 30',
+    })
+    vi.mocked(postSalarioBase).mockResolvedValue(salario)
+    const store = usePerfilStore()
+    store.provincia = 'Zaragoza'
+    store.convenio = {
+      ...convenioMadrid,
+      id: 'estatal-restauracion-colectiva',
+      subsector: 'colectiva',
+    }
+
+    await store.elegirPuesto('cocinero')
+
+    expect(getOcupacion).toHaveBeenCalledWith('estatal-restauracion-colectiva', 'cocinero', {
+      provincia: 'Zaragoza',
+    })
+    expect(store.respuestas).toEqual({ provincia: 'Zaragoza' })
+  })
+
+  it('issue #233: al responder una pendiente conserva la provincia sembrada', async () => {
+    vi.mocked(getOcupacion)
+      .mockResolvedValueOnce({
+        dimensiones: {},
+        pendientes: [{ dimension: 'establecimiento', valores: ['colegio', 'hospital'] }],
+        articulo: null,
+      })
+      .mockResolvedValueOnce({
+        dimensiones: { categoria: 'Cocinero/a' },
+        pendientes: [],
+        articulo: 'Art. 30',
+      })
+    vi.mocked(postSalarioBase).mockResolvedValue(salario)
+    const store = usePerfilStore()
+    store.provincia = 'Zaragoza'
+    store.convenio = {
+      ...convenioMadrid,
+      id: 'estatal-restauracion-colectiva',
+      subsector: 'colectiva',
+    }
+
+    await store.elegirPuesto('cocinero')
+    await store.responderPendiente('establecimiento', 'colegio')
+
+    // La provincia sembrada viaja junto a la nueva respuesta, no se pierde.
+    expect(getOcupacion).toHaveBeenLastCalledWith('estatal-restauracion-colectiva', 'cocinero', {
+      provincia: 'Zaragoza',
+      establecimiento: 'colegio',
+    })
+  })
+
   it('marca puestoNoMapeado en un 404 al resolver el puesto', async () => {
     vi.mocked(getOcupacion).mockRejectedValue(new ApiError(404, 'API 404', { status: 404 }))
     const store = usePerfilStore()

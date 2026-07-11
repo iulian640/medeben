@@ -219,10 +219,16 @@ class PerfilOcupacionServiceTest {
         // clasificación '2' existe (indexa por establecimiento), pero juntos no
         // corresponden a ninguna tabla. Callar aquí era el "sin tabla aplicable"
         // falso del issue.
+        // El 422 además ORIENTA (issue #233, review): dice por qué combinaciones
+        // de dimensiones se indexan las tablas, para que un cliente directo de la
+        // API sepa qué respuestas encajan juntas en vez de recibir un "no cuadra"
+        // opaco. Nombra la dimensión que de verdad discrimina para clasificación 2.
         assertThatThrownBy(() -> servicio.resuelve("tenerife-hosteleria", "cocinero",
                 java.util.Map.of("clasificacion", "2", "grupoEstablecimiento", "A")))
                 .isInstanceOf(DimensionDesconocidaException.class)
-                .hasMessageContaining("combinación");
+                .hasMessageContaining("combinación")
+                .hasMessageContaining("se indexan por")
+                .hasMessageContaining("establecimiento");
     }
 
     @Test
