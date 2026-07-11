@@ -28,10 +28,34 @@ Levanta un PostgreSQL 16 en `localhost:5432` con BD/usuario/contraseña
 
 ```bash
 cd backend
-mvn spring-boot:run        # perfil por defecto: dev (postgres local)
+mvn spring-boot:run        # activa el perfil "dev" (postgres local)
 ```
 
 Comprobación: <http://localhost:8080/api/v1/health> → `{"status":"ok"}`.
+
+`mvn spring-boot:run` activa explícitamente el perfil de Spring `dev`
+(configurado en el `spring-boot-maven-plugin` de `backend/pom.xml`). Es
+necesario: la config de JWT (`JwtConfig`) rechaza arrancar con los secretos de
+juguete del repo salvo que haya un perfil ACTIVO `dev`, `local` o `test` —
+`spring.profiles.default=dev` por sí solo NO cuenta como activo, a propósito,
+para que un despliegue arrancado sin `SPRING_PROFILES_ACTIVE` falle rápido en
+vez de firmar tokens en silencio con un secreto público.
+
+Para arrancar con otro perfil (p. ej. `local`, con otra configuración de BD):
+
+```bash
+mvn spring-boot:run -Dspring-boot.run.profiles=local
+```
+
+Fijar `SPRING_PROFILES_ACTIVE` en el entorno **no** sirve para esto: el
+`spring-boot-maven-plugin` convierte el perfil `dev` de su `<configuration>`
+en un argumento de programa `--spring.profiles.active=dev` en la JVM
+lanzada, y en el orden de precedencia de Spring Boot los argumentos de línea
+de comandos ganan a las variables de entorno del sistema operativo — así que
+el `dev` del plugin se impone en silencio sobre `SPRING_PROFILES_ACTIVE`
+(comprobado: la app registra `"dev"` como activo en ambos casos). Usa
+`-Dspring-boot.run.profiles=<nombre>` —sustituye el propio `<profiles>` del
+plugin— para cambiar de perfil de verdad.
 
 Tests:
 

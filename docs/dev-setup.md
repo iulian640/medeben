@@ -28,10 +28,33 @@ and password, and a persistent volume (`medeben-pgdata`). To stop it:
 
 ```bash
 cd backend
-mvn spring-boot:run        # default profile: dev (local postgres)
+mvn spring-boot:run        # activates the "dev" profile (local postgres)
 ```
 
 Check: <http://localhost:8080/api/v1/health> → `{"status":"ok"}`.
+
+`mvn spring-boot:run` explicitly activates the `dev` Spring profile (configured
+in `backend/pom.xml`'s `spring-boot-maven-plugin`). This is required: the JWT
+config (`JwtConfig`) refuses to start with the toy secrets checked into the
+repo unless an active profile of `dev`, `local`, or `test` is present —
+`spring.profiles.default=dev` alone does **not** count as active, on purpose,
+so that a deployment started without `SPRING_PROFILES_ACTIVE` fails fast
+instead of silently signing tokens with a public secret.
+
+To run with a different profile (e.g. `local`, against a different DB setup):
+
+```bash
+mvn spring-boot:run -Dspring-boot.run.profiles=local
+```
+
+Setting `SPRING_PROFILES_ACTIVE` in the environment does **not** work for
+this: `spring-boot-maven-plugin` turns the `dev` profile from its
+`<configuration>` into a `--spring.profiles.active=dev` program argument on
+the launched JVM, and in Spring Boot's property precedence order, command-line
+arguments outrank OS environment variables — so the plugin's `dev` silently
+wins over `SPRING_PROFILES_ACTIVE` (verified: the app logs `"dev"` as active
+either way). Use `-Dspring-boot.run.profiles=<name>` — it overrides the
+plugin's own `<profiles>` setting — to actually switch profiles.
 
 Tests:
 
