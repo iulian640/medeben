@@ -8,9 +8,12 @@ vi.mock('../services/convenios', () => ({
   postHorasExtra: vi.fn(),
 }))
 
-function montar(salarioMensualSugerido: number | null) {
+function montar(
+  salarioMensualSugerido: number | null,
+  dimensiones: Record<string, string> | null = null,
+) {
   return mount(HorasExtraCalculadora, {
-    props: { convenioId: 'madrid-hosteleria', salarioMensualSugerido },
+    props: { convenioId: 'madrid-hosteleria', salarioMensualSugerido, dimensiones },
   })
 }
 
@@ -96,5 +99,50 @@ describe('HorasExtraCalculadora — desglose del mínimo', () => {
     expect(desglose.text()).toContain('1.829')
     expect(desglose.text()).toContain('divisor de valor hora que fija tu convenio')
     expect(desglose.text()).not.toContain('jornada anual')
+  })
+})
+
+describe('HorasExtraCalculadora — dimensiones del puesto (#231)', () => {
+  async function calcula(wrapper: ReturnType<typeof montar>) {
+    vi.mocked(postHorasExtra).mockResolvedValue({
+      precioHora: 9.7876,
+      importe: 97.88,
+      desglose: {
+        salarioBaseMensual: 1258.4,
+        mensualidades: 14,
+        plusesAnuales: 0,
+        valorHora: 9.7876,
+        divisorHoras: 1800,
+        esDivisorExplicito: false,
+      },
+      citas: [],
+    })
+    await wrapper.findAll('input')[0].setValue('10')
+    await wrapper.get('button.boton').trigger('click')
+    await flushPromises()
+  }
+
+  it('manda las dimensiones resueltas: la colectiva necesita la provincia para valorar', async () => {
+    const wrapper = montar(1258.4, {
+      provincia: 'Zaragoza',
+      categoria: 'Cocinero/a',
+    })
+
+    await calcula(wrapper)
+
+    expect(vi.mocked(postHorasExtra)).toHaveBeenCalledWith(
+      expect.objectContaining({
+        dimensiones: { provincia: 'Zaragoza', categoria: 'Cocinero/a' },
+      }),
+    )
+  })
+
+  it('sin dimensiones no manda el campo (los convenios de jornada única no lo necesitan)', async () => {
+    const wrapper = montar(1250.91)
+
+    await calcula(wrapper)
+
+    const peticion = vi.mocked(postHorasExtra).mock.calls.at(-1)?.[0]
+    expect(peticion).not.toHaveProperty('dimensiones')
   })
 })

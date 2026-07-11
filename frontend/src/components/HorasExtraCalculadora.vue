@@ -9,6 +9,13 @@ const props = defineProps<{
   convenioId: string
   /** Prellenado con el mínimo del convenio cuando la unidad es EUR/mes. */
   salarioMensualSugerido: number | null
+  /**
+   * Dimensiones ya resueltas del puesto (las mismas de la tabla salarial).
+   * Solo las necesitan los convenios cuya jornada/pagas van por dimensión:
+   * en la colectiva varían por provincia (#231). Opcionales: sin ellas, los
+   * convenios de jornada única siguen calculando igual.
+   */
+  dimensiones?: Record<string, string> | null
 }>()
 
 const horas = ref<number | null>(null)
@@ -61,6 +68,10 @@ async function calcular() {
       salarioBaseMensual: salarioMensual.value,
       plusesAnuales: plusesAnuales.value ?? 0,
       horas: horas.value,
+      // Sin dimensiones no se manda el campo: el backend las trata como opcionales.
+      ...(props.dimensiones && Object.keys(props.dimensiones).length > 0
+        ? { dimensiones: props.dimensiones }
+        : {}),
     })
   } catch (e) {
     resultado.value = null
