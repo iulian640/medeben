@@ -58,7 +58,7 @@
   "horasExtraordinarias": {
     "precioFijadoEnConvenio": false,
     "regla": "No se localiza precio de hora extra específico para plantilla; aplica el Estatuto de los Trabajadores (mínimo: valor de la hora ordinaria) o compensación con descanso.",
-    "valorHoraOrdinaria": "(salarioGarantizadoMensual * 14 + plusesAnuales) / jornadaAnualHoras",
+    "valorHoraOrdinaria": "(salarioBaseMensual * 14 + plusesAnuales) / jornadaAnualHoras",
     "topeHorasExtraAnual": 80,
     "nota": "Tope 80 h/año del ET salvo que el convenio fije otro (verificar art. de horas extra del convenio)."
   },
@@ -224,7 +224,7 @@
       }
     },
     "seccionCuartaCafeterias": {
-      "$comment": "Cafeterías con servicio de mostrador y sala (ANEXO III, sistema de % de servicio). Los importes son SUELDO INICIAL: se completan con la participación en el porcentaje de servicio hasta alcanzar (o superar) el cuadro de cafeterías sin servicio de sala. NO usar el inicial como salario total. Columnas por tamaño: 3 tazas / 2 tazas / 1 taza. NOTA (verificado 2026-07-08, pág. 64 BOCM): en este BOCM el ANEXO III solo IMPRIME la tabla 'con servicios de mostrador y sala'; el 'cuadro de cafeterías sin servicio de sala' se cita como GARANTÍA DE MÍNIMOS (la empresa completa hasta él) pero NO aparece como tabla independiente. El plus convenio de cafeterías son 191,22 €/11 meses; el salario de Aprendiz es por 30 h semanales.",
+      "$comment": "Cafeterías con servicio de mostrador y sala (ANEXO III, sistema de % de servicio). Los importes son SUELDO INICIAL: se completan con la participación en el porcentaje de servicio hasta alcanzar (o superar) el cuadro de cafeterías sin servicio de sala. NO usar el inicial como salario total. Columnas por tamaño: 3 tazas / 2 tazas / 1 taza. NOTA (corregido 2026-07-11 verificando el BOCM, §5b duda UGT): el 'cuadro de cafeterías sin servicio de sala' = tabla 'Sueldo garantizado' SÍ está IMPRESO como tabla independiente para 2023 (pág. 51) y 2024 (pág. 58); solo se OMITE en 2025 (pág. 64, probable errata de imprenta ya que 2023 y 2024 sí lo traen). El GARANTIZADO es el SUELO real del sistema de % de servicio; el 'sueldo inicial' es solo el componente fijo, NO el salario (por eso el fijo de 2 tazas puede superar al de 3: una cafetería de 3 tazas genera más % de servicio y su fijo se pone más bajo, pero el total garantizado es mayor). Para 2025/2026 (ultraactividad) el garantizado del sistema legacy no está publicado: el motor se apoya en el Anexo I por clase de empresa (que sí está completo). El plus convenio de cafeterías son 191,22 €/11 meses; el salario de Aprendiz es por 30 h semanales.",
       "conServicioMostradorYSala_sueldoInicial": {
         "Primer encargado/a": { "3tazas": 450.59, "2tazas": 436.06, "1taza": 403.51 },
         "Segundo encargado/a": { "3tazas": 420.41, "2tazas": 408.45, "1taza": 376.16 },
