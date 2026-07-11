@@ -23,10 +23,16 @@ Requiere PostgreSQL local (hay un `docker-compose.yml` en la raíz del repo):
 ```bash
 docker compose up -d          # desde la raíz del repo
 cd backend
-mvn spring-boot:run           # perfil por defecto: dev
+mvn spring-boot:run           # activa el perfil "dev"
 ```
 
 Comprobación: `GET http://localhost:8080/api/v1/health` → `{"status":"ok"}`.
+
+`mvn spring-boot:run` activa el perfil `dev` explícitamente (vía
+`spring-boot-maven-plugin` en `pom.xml`): la config de JWT exige un perfil
+ACTIVO `dev`/`local`/`test` para aceptar los secretos de juguete del repo, y
+`spring.profiles.default` no cuenta como activo. Para otro perfil: `mvn
+spring-boot:run -Dspring-boot.run.profiles=local` o `SPRING_PROFILES_ACTIVE`.
 
 ## Tests
 
