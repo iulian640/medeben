@@ -1,5 +1,6 @@
 package es.medeben.service;
 
+import es.medeben.controller.DimensionDesconocidaException;
 import es.medeben.domain.convenio.Hecho;
 import es.medeben.repository.HechosCatalog;
 import es.medeben.repository.OcupacionesCatalog;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Del puesto en cristiano a las dimensiones de la tabla (D20): el puesto fija
@@ -23,6 +25,9 @@ import java.util.Set;
 public class PerfilOcupacionService {
 
     private static final String CONCEPTO_SALARIO_BASE = "salarioBase";
+    private static final String DIMENSION_PROVINCIA = "provincia";
+    /** Tope de longitud del valor que se refleja en el mensaje de error (misma disciplina que el validador del perfil). */
+    private static final int ECO_VALOR_MAX = 60;
 
     private final OcupacionesCatalog ocupaciones;
     private final HechosCatalog hechos;
@@ -72,7 +77,17 @@ public class PerfilOcupacionService {
                         // del cliente no puede pisarlas (p. ej. no puede cambiar su
                         // `nivel` vía query param y saltar a otra fila salarial).
                         // Misma disciplina que el `nivel` del árbol en el condicional.
+                        //
+                        // OJO (issue #233): aquí NO se pliega la grafía de provincia
+                        // (conProvinciaCanonica), a diferencia de la rama condicional.
+                        // Hoy es inocuo —ningún convenio de mapeo DIRECTO indexa la
+                        // tabla por 'provincia' (solo la colectiva, y va por árbol
+                        // condicional)—, pero si algún día lo hiciera, un perfil con
+                        // "Cáceres"/"Bizkaia" fallaría aquí con un 422 de valor no
+                        // reconocido en vez de resolverse: habría que plegar también
+                        // la provincia en esta rama cuando la clave sea DIMENSION_PROVINCIA.
                         if (dimsTabla.contains(clave) && !directas.containsKey(clave)) {
+                            validaValorDeTabla(convenioId, clave, valor);
                             fijas.put(clave, valor);
                         }
                     });
@@ -89,8 +104,19 @@ public class PerfilOcupacionService {
 
     private OcupacionResuelta resuelveCondicional(String convenioId,
                                                   OcupacionesCatalog.Condicional condicional,
-                                                  Map<String, String> respuestas, String articulo) {
+                                                  Map<String, String> respuestasCrudas, String articulo) {
         NodoCondicional arbol = condicional.arbol();
+        Map<String, String> respuestas = conProvinciaCanonica(arbol, respuestasCrudas);
+        // Una respuesta que no corresponde a ninguna rama ya no se ignora en
+        // silencio (#233): 422 con las opciones reales de ESA pregunta. Cubre
+        // tanto el valor inventado como la provincia real cuyo puesto está
+        // podado en el anexo (Alicante) — para este puesto no es una opción.
+        arbol.respuestaNoReconocida(respuestas).ifPresent(pregunta -> {
+            throw new DimensionDesconocidaException(
+                    "El valor '" + recorta(respuestas.get(pregunta.dimension()))
+                            + "' no está entre las opciones de la pregunta '" + pregunta.dimension()
+                            + "' para este puesto. Opciones: " + pregunta.valores());
+        });
         Optional<String> nivel = arbol.resuelveNivel(respuestas);
         if (nivel.isEmpty()) {
             // Falta responder alguna pregunta del árbol: se pide la siguiente
@@ -121,10 +147,70 @@ public class PerfilOcupacionService {
         // tabla se ignoran.
         respuestas.forEach((clave, valor) -> {
             if (!fijas.containsKey(clave) && dimsTabla.contains(clave)) {
+                validaValorDeTabla(convenioId, clave, valor);
                 fijas.put(clave, valor);
             }
         });
         return resueltaConAutofijado(convenioId, fijas, articulo);
+    }
+
+    /**
+     * La respuesta de provincia con la grafía CANÓNICA del anexo (#233): el
+     * perfil ya sabe la provincia y la manda con su vocabulario ("Cáceres",
+     * "Bizkaia"), pero las ramas del árbol usan el literal del anexo del BOE
+     * ("Caceres", "Vizcaya"). Si la respuesta no casa tal cual pero nombra la
+     * MISMA provincia que exactamente UNA rama (acentos o cooficialidad), se
+     * sustituye por esa rama; el resto de preguntas del árbol se contestan
+     * eligiendo de la lista ofrecida y siguen exigiendo el literal exacto.
+     */
+    private static Map<String, String> conProvinciaCanonica(NodoCondicional arbol,
+                                                            Map<String, String> respuestas) {
+        String valor = respuestas.get(DIMENSION_PROVINCIA);
+        if (valor == null || !DIMENSION_PROVINCIA.equals(arbol.dimension())
+                || arbol.ramas().containsKey(valor)) {
+            return respuestas;
+        }
+        List<String> equivalentes = arbol.ramas().keySet().stream()
+                .filter(rama -> NombresProvincia.mismaProvincia(rama, valor))
+                .toList();
+        if (equivalentes.size() != 1) {
+            // Sin equivalencia inequívoca no se adivina: caerá en el 422 con las opciones.
+            return respuestas;
+        }
+        Map<String, String> canonicas = new LinkedHashMap<>(respuestas);
+        canonicas.put(DIMENSION_PROVINCIA, equivalentes.getFirst());
+        return canonicas;
+    }
+
+    /**
+     * 422 si el valor no está entre los publicados para esa dimensión en las
+     * tablas del convenio (#233): antes se plegaba tal cual, ningún hecho casaba
+     * y la respuesta era idéntica a no haber contestado — el desajuste entre lo
+     * que ofrece la lista y lo que entiende el motor se volvía invisible. Los
+     * valores del catálogo son datos públicos del boletín: se pueden enseñar.
+     */
+    private void validaValorDeTabla(String convenioId, String dimension, String valor) {
+        Set<String> publicados = new TreeSet<>();
+        for (Hecho hecho : hechos.deConvenio(convenioId)) {
+            if (CONCEPTO_SALARIO_BASE.equals(hecho.concepto())) {
+                String v = hecho.dimensiones().get(dimension);
+                if (v != null) {
+                    publicados.add(v);
+                }
+            }
+        }
+        if (!publicados.contains(valor)) {
+            throw new DimensionDesconocidaException(
+                    "El valor '" + recorta(valor) + "' no existe para la dimensión '" + dimension
+                            + "' del convenio '" + convenioId + "'. Valores publicados: " + publicados);
+        }
+    }
+
+    private static String recorta(String valor) {
+        if (valor == null) {
+            return "null";
+        }
+        return valor.length() <= ECO_VALOR_MAX ? valor : valor.substring(0, ECO_VALOR_MAX) + "…";
     }
 
     /**
@@ -134,6 +220,14 @@ public class PerfilOcupacionService {
      * las que de verdad ofrecen elección. Es idempotente: fijar el único valor no
      * cambia el conjunto de hechos que casan, así que basta con repetir hasta que
      * no queden dimensiones de un solo valor.
+     *
+     * <p>De las preguntas que quedan solo se ofrece la PRIMERA (#233): los
+     * valores de cada pregunta salen de los hechos compatibles con lo ya fijado,
+     * así que cada respuesta puede cambiar los valores (y hasta la existencia)
+     * de las siguientes. Ofrecerlas todas a la vez invita a combinaciones que
+     * ninguna tabla publica; el cliente re-resuelve tras cada respuesta y va
+     * recibiendo la siguiente pregunta encadenada (mismo contrato que los
+     * árboles condicionales).
      */
     private OcupacionResuelta resueltaConAutofijado(String convenioId, Map<String, String> fijas,
                                                     String articulo) {
@@ -151,7 +245,9 @@ public class PerfilOcupacionService {
                 dimensiones.put(u.dimension(), u.valores().get(0));
             }
         }
-        return new OcupacionResuelta(dimensiones, pendientes, articulo);
+        List<OpcionDimension> siguiente =
+                pendientes.isEmpty() ? List.of() : List.of(pendientes.getFirst());
+        return new OcupacionResuelta(dimensiones, siguiente, articulo);
     }
 
     /** Todas las dimensiones que aparecen en los hechos de salarioBase del convenio. */
@@ -168,27 +264,81 @@ public class PerfilOcupacionService {
     /**
      * Dimensiones que los hechos de salarioBase tienen y el puesto no fija:
      * lo que hay que preguntarle al usuario, con los valores reales de la tabla.
+     *
+     * <p>Solo se preguntan las dimensiones presentes en TODOS los hechos
+     * compatibles (#233): cuando el convenio tiene formas de tabla alternativas
+     * (Tenerife indexa por grupoEstablecimiento en las clasificaciones 1/3/4 y
+     * por establecimiento en la 2), las dimensiones que solo existen en ALGUNA
+     * forma son alternativas excluyentes entre sí — preguntarlas a la vez lleva
+     * a combinaciones que ninguna tabla publica. Primero se pregunta lo común
+     * (la clasificación); al responderse, los hechos compatibles se quedan en
+     * una sola forma y la dimensión que corresponda pasa a ser común.
      */
     private List<OpcionDimension> pendientes(String convenioId, Map<String, String> fijas) {
-        Map<String, Set<String>> valoresPorDimension = new LinkedHashMap<>();
+        boolean hayTablas = false;
+        List<Hecho> compatibles = new ArrayList<>();
         for (Hecho hecho : hechos.deConvenio(convenioId)) {
-            if (!CONCEPTO_SALARIO_BASE.equals(hecho.concepto()) || !contiene(hecho.dimensiones(), fijas)) {
+            if (!CONCEPTO_SALARIO_BASE.equals(hecho.concepto())) {
                 continue;
             }
-            hecho.dimensiones().forEach((clave, valor) -> {
-                if (!fijas.containsKey(clave)) {
-                    valoresPorDimension.computeIfAbsent(clave, k -> new LinkedHashSet<>()).add(valor);
-                }
-            });
+            hayTablas = true;
+            if (contiene(hecho.dimensiones(), fijas)) {
+                compatibles.add(hecho);
+            }
         }
+        if (compatibles.isEmpty()) {
+            // Convenio sin capa derivada: no hay tablas contra las que preguntar
+            // (modo manual, como en el validador del perfil). Pero si HAY tablas
+            // y ninguna casa, el cliente ha plegado valores válidos por separado
+            // que juntos no existen: callar aquí era el "sin tabla aplicable"
+            // falso del issue #233 — se dice alto y claro.
+            if (!hayTablas) {
+                return List.of();
+            }
+            throw new DimensionDesconocidaException(
+                    "Esa combinación de respuestas no corresponde a ninguna tabla salarial publicada del convenio '"
+                            + convenioId + "'. " + pistaDeCombinaciones(convenioId));
+        }
+        Set<String> comunes = new LinkedHashSet<>(compatibles.getFirst().dimensiones().keySet());
+        for (Hecho hecho : compatibles) {
+            comunes.retainAll(hecho.dimensiones().keySet());
+        }
+        comunes.removeAll(fijas.keySet());
+        // Orden alfabético deliberado: el orden de iteración de las dimensiones
+        // de un hecho no está garantizado (Map.copyOf), y la primera pregunta
+        // de la lista es LA que ve el usuario — debe ser la misma en cada arranque.
         List<OpcionDimension> resultado = new ArrayList<>();
-        valoresPorDimension.forEach((dimension, valores) ->
-                resultado.add(new OpcionDimension(dimension, valores.stream().sorted().toList())));
+        for (String dimension : comunes.stream().sorted().toList()) {
+            Set<String> valores = new LinkedHashSet<>();
+            for (Hecho hecho : compatibles) {
+                valores.add(hecho.dimensiones().get(dimension));
+            }
+            resultado.add(new OpcionDimension(dimension, valores.stream().sorted().toList()));
+        }
         return resultado;
     }
 
     private static boolean contiene(Map<String, String> dimensiones, Map<String, String> fijas) {
         return fijas.entrySet().stream()
                 .allMatch(e -> e.getValue().equals(dimensiones.get(e.getKey())));
+    }
+
+    /**
+     * Pista para el 422 de "combinación no publicada" (issue #233): lista las
+     * COMBINACIONES de dimensiones que las tablas del convenio sí indexan, para
+     * que un cliente directo de la API (no la UI, que encadena una pregunta a la
+     * vez) entienda qué respuestas encajan juntas. No ecoa valores del cliente,
+     * solo los NOMBRES de las dimensiones publicadas (datos públicos del
+     * convenio); son pocas formas distintas, así que el mensaje queda acotado.
+     */
+    private String pistaDeCombinaciones(String convenioId) {
+        Set<Set<String>> formas = new LinkedHashSet<>();
+        for (Hecho hecho : hechos.deConvenio(convenioId)) {
+            if (CONCEPTO_SALARIO_BASE.equals(hecho.concepto())) {
+                formas.add(new TreeSet<>(hecho.dimensiones().keySet()));
+            }
+        }
+        return "Las tablas de este convenio se indexan por estas combinaciones de dimensiones: "
+                + formas + ".";
     }
 }

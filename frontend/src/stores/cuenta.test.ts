@@ -115,9 +115,69 @@ describe('cuenta store', () => {
 
     await cuenta.cargar()
 
-    expect(getOcupacion).toHaveBeenCalledWith('estatal-restauracion-colectiva', 'camarero')
+    // #233: la provincia del perfil viaja pre-rellenada — los anexos de la
+    // colectiva van por provincia y esa provincia ya la dijo el usuario.
+    expect(getOcupacion).toHaveBeenCalledWith('estatal-restauracion-colectiva', 'camarero', {
+      provincia: 'Zaragoza',
+    })
     expect(cuenta.pendientesSinResponder).toHaveLength(1)
     expect(cuenta.pendientesSinResponder[0].dimension).toBe('grupo')
+  })
+
+  it('#233 una pregunta de provincia ya está respondida desde el perfil: no se re-pregunta', async () => {
+    // Aunque el backend devolviera la pregunta de provincia (backend viejo),
+    // el perfil ya la responde: no debe aparecer "Una cosa más: ¿provincia?".
+    vi.mocked(getPerfilUsuario).mockResolvedValue({
+      ...perfilServidor,
+      provincia: 'Zaragoza',
+      subsector: 'restauracion-colectiva',
+      convenioId: 'estatal-restauracion-colectiva',
+      puestoId: 'cocinero',
+      dimensiones: {},
+    })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({
+      id: 'estatal-restauracion-colectiva',
+    } as never)
+    vi.mocked(getOcupacion).mockResolvedValue({
+      dimensiones: {},
+      pendientes: [{ dimension: 'provincia', valores: ['Madrid', 'Zaragoza'] }],
+      articulo: null,
+    })
+    const cuenta = useCuentaStore()
+
+    await cuenta.cargar()
+
+    expect(cuenta.pendientesSinResponder).toHaveLength(0)
+  })
+
+  it('#233 un 422 al clasificar (el anexo no cruza este puesto para tu provincia) cae al modo honesto, no a un error', async () => {
+    // Alicante en la colectiva: su anexo publica niveles sin nombrar
+    // ocupaciones y el puesto está podado. La única respuesta enviada es la
+    // provincia pre-rellenada, así que el 422 significa "sin clasificación
+    // para tu provincia" → mismo trato que el puesto sin mapear (404).
+    vi.mocked(getPerfilUsuario).mockResolvedValue({
+      ...perfilServidor,
+      provincia: 'Alicante',
+      subsector: 'restauracion-colectiva',
+      convenioId: 'estatal-restauracion-colectiva',
+      puestoId: 'cocinero',
+      dimensiones: {},
+    })
+    vi.mocked(getConvenioParaTrabajador).mockResolvedValue({
+      id: 'estatal-restauracion-colectiva',
+    } as never)
+    vi.mocked(getOcupacion).mockRejectedValue(
+      new ApiError(422, 'API 422', {
+        status: 422,
+        detail: "El valor 'Alicante' no está entre las opciones de la pregunta 'provincia'",
+      }),
+    )
+    const cuenta = useCuentaStore()
+
+    await cuenta.cargar()
+
+    expect(cuenta.puestoNoMapeado).toBe(true)
+    expect(cuenta.errorClasificacion).toBeNull()
   })
 
   it('con preguntas sin responder NO se guarda: guía en vez de otro perfil a medias', async () => {
@@ -157,7 +217,10 @@ describe('cuenta store', () => {
     await cuenta.cargar()
 
     await cuenta.responderPendiente('claseEmpresa', 'A')
+    // La provincia pre-rellenada (#233) acompaña a las respuestas acumuladas;
+    // en los convenios donde no es dimensión de tabla el backend la ignora.
     expect(getOcupacion).toHaveBeenLastCalledWith('madrid-hosteleria', 'cocinero', {
+      provincia: 'Madrid',
       claseEmpresa: 'A',
     })
     expect(cuenta.pendientesSinResponder).toHaveLength(0)
@@ -183,7 +246,9 @@ describe('cuenta store', () => {
 
     await cuenta.responderPendiente('claseEmpresa', 'A')
 
-    expect(cuenta.respuestas).toEqual({})
+    // La respuesta fallida NO se confirma (la provincia pre-rellenada del
+    // perfil, #233, sí permanece: no era una respuesta del usuario).
+    expect(cuenta.respuestas).not.toHaveProperty('claseEmpresa')
     expect(cuenta.pendientesSinResponder).toHaveLength(1)
     expect(cuenta.errorClasificacion).toBe('Error interno')
   })

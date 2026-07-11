@@ -107,4 +107,26 @@ public record NodoCondicional(String dimension, Map<String, NodoCondicional> ram
         }
         return ramas.get(elegido).siguientePregunta(respuestas);
     }
+
+    /**
+     * La pregunta cuya respuesta dada NO corresponde a ninguna rama, con sus
+     * opciones reales; vacío si todas las respuestas dadas navegan bien (o
+     * faltan por dar — eso es un pendiente normal, no un error). Permite
+     * responder 422 en vez de repetir la pregunta en silencio (#233): sin esto,
+     * un valor descartado era indistinguible de no haber contestado nada.
+     */
+    public Optional<OpcionDimension> respuestaNoReconocida(Map<String, String> respuestas) {
+        if (esHoja()) {
+            return Optional.empty();
+        }
+        String elegido = respuestas.get(dimension);
+        if (elegido == null) {
+            return Optional.empty();
+        }
+        NodoCondicional siguiente = ramas.get(elegido);
+        if (siguiente == null) {
+            return Optional.of(new OpcionDimension(dimension, ramas.keySet().stream().sorted().toList()));
+        }
+        return siguiente.respuestaNoReconocida(respuestas);
+    }
 }

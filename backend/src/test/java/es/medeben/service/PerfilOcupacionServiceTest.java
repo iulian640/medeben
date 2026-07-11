@@ -1,6 +1,7 @@
 package es.medeben.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import es.medeben.controller.DimensionDesconocidaException;
 import es.medeben.repository.HechosCatalog;
 import es.medeben.repository.OcupacionesCatalog;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @DisplayName("PerfilOcupacionService — del puesto en cristiano a las dimensiones de la tabla (D20)")
 class PerfilOcupacionServiceTest {
@@ -65,9 +67,13 @@ class PerfilOcupacionServiceTest {
     @Test
     @DisplayName("auto-fijado: una dimensión con un solo valor posible se fija sola, no se pregunta")
     void autofijaDimensionDeUnSoloValor() {
-        // Málaga jefe de sala/maître: 'departamento' solo puede ser "sala" → es
-        // ruido preguntarlo. Se pliega en la ocupación y no aparece como pendiente.
-        var r = servicio.resuelve("malaga-hosteleria", "jefe-sala").orElseThrow();
+        // Málaga jefe de sala/maître en bares americanos: 'departamento' solo
+        // puede ser "sala" → es ruido preguntarlo. Se pliega en la ocupación y
+        // no aparece como pendiente. (Antes de responder la sección no se fija:
+        // la fila de casinos/salas de fiestas ni siquiera tiene departamento —
+        // las formas de tabla alternativas se resuelven pregunta a pregunta, #233.)
+        var r = servicio.resuelve("malaga-hosteleria", "jefe-sala",
+                java.util.Map.of("seccion", "5_baresAmericanos")).orElseThrow();
 
         assertThat(r.dimensiones()).containsEntry("departamento", "sala");
         assertThat(r.pendientes()).noneMatch(p -> p.dimension().equals("departamento"));
@@ -172,13 +178,57 @@ class PerfilOcupacionServiceTest {
     }
 
     @Test
-    @DisplayName("una respuesta inventada no resuelve el nivel: reaparece la pregunta (nunca se inventa)")
+    @DisplayName("#233 una respuesta inventada en el árbol ya no se ignora en silencio: 422 con las opciones reales")
     void condicionalRespuestaInventada() {
-        var r = servicio.resuelve("jaen-hosteleria", "cocinero",
-                java.util.Map.of("establecimiento", "castillo-inventado")).orElseThrow();
+        // Antes se re-preguntaba sin decir que el valor se había descartado:
+        // cualquier desajuste lista↔motor se volvía invisible. Sigue sin
+        // inventarse nada — pero ahora se dice alto y claro qué opciones hay.
+        assertThatThrownBy(() -> servicio.resuelve("jaen-hosteleria", "cocinero",
+                java.util.Map.of("establecimiento", "castillo-inventado")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("castillo-inventado")
+                .hasMessageContaining("establecimiento")
+                .hasMessageContaining("hoteles");
+    }
 
-        assertThat(r.dimensiones()).isEmpty();
-        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("establecimiento");
+    @Test
+    @DisplayName("#233 árbol encadenado: la categoría inventada TRAS un tipo válido también es 422")
+    void condicionalCategoriaInventada() {
+        assertThatThrownBy(() -> servicio.resuelve("jaen-hosteleria", "cocinero",
+                java.util.Map.of("establecimiento", "hoteles", "categoria", "8*")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("categoria")
+                .hasMessageContaining("8*");
+    }
+
+    @Test
+    @DisplayName("#233 mapeo directo: un valor no reconocido responde 422 con los valores publicados, no se ignora")
+    void directoValorNoReconocido() {
+        assertThatThrownBy(() -> servicio.resuelve("madrid-hosteleria", "cocinero",
+                java.util.Map.of("claseEmpresa", "Z")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("'Z'")
+                .hasMessageContaining("claseEmpresa")
+                .hasMessageContaining("[A, B, C]");
+    }
+
+    @Test
+    @DisplayName("#233 dos valores válidos por separado cuya combinación no publica tabla → 422, no un 'sin tabla' mudo")
+    void combinacionNoPublicada() {
+        // Tenerife: grupoEstablecimiento 'A' existe (clasificación 1) y la
+        // clasificación '2' existe (indexa por establecimiento), pero juntos no
+        // corresponden a ninguna tabla. Callar aquí era el "sin tabla aplicable"
+        // falso del issue.
+        // El 422 además ORIENTA (issue #233, review): dice por qué combinaciones
+        // de dimensiones se indexan las tablas, para que un cliente directo de la
+        // API sepa qué respuestas encajan juntas en vez de recibir un "no cuadra"
+        // opaco. Nombra la dimensión que de verdad discrimina para clasificación 2.
+        assertThatThrownBy(() -> servicio.resuelve("tenerife-hosteleria", "cocinero",
+                java.util.Map.of("clasificacion", "2", "grupoEstablecimiento", "A")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("combinación")
+                .hasMessageContaining("se indexan por")
+                .hasMessageContaining("establecimiento");
     }
 
     @Test
@@ -213,6 +263,60 @@ class PerfilOcupacionServiceTest {
         assertThat(conInyeccion.dimensiones().get("nivel")).isNotEqualTo("1.35");
     }
 
+    // --- Preguntas encadenadas desde las combinaciones REALES de hechos (#233) ---
+    // Tenerife tiene dos formas de tabla alternativas: clasificaciones 1/3/4 van
+    // por grupoEstablecimiento y la clasificación 2 (apartamentos, campings,
+    // vivienda vacacional) por establecimiento. Ofrecer las tres preguntas a la
+    // vez producía combinaciones que no existen en ninguna tabla ("sin tabla
+    // aplicable" siendo falso): las preguntas salen de los hechos compatibles
+    // y se encadenan de una en una.
+
+    @Test
+    @DisplayName("#233 Tenerife cocinero: solo se ofrece la clasificación (el resto depende de ella)")
+    void tenerifePreguntaPrimeroLaClasificacion() {
+        var r = servicio.resuelve("tenerife-hosteleria", "cocinero").orElseThrow();
+
+        assertThat(r.pendientes()).hasSize(1);
+        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("clasificacion");
+        assertThat(r.pendientes().getFirst().valores()).containsExactly("1", "2", "3", "4");
+    }
+
+    @Test
+    @DisplayName("#233 Tenerife clasificación 2: encadena el tipo de alojamiento (nunca el grupo)")
+    void tenerifeClasificacionDosEncadenaAlojamiento() {
+        var r = servicio.resuelve("tenerife-hosteleria", "cocinero",
+                java.util.Map.of("clasificacion", "2")).orElseThrow();
+
+        assertThat(r.pendientes()).hasSize(1);
+        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("establecimiento");
+        assertThat(r.pendientes().getFirst().valores()).contains("Aptos 3*", "Vivienda Vacacional");
+    }
+
+    @Test
+    @DisplayName("#233 Tenerife clasificación 1: encadena el grupo de establecimiento con SUS grupos (A-D)")
+    void tenerifeClasificacionUnoEncadenaGrupo() {
+        var r = servicio.resuelve("tenerife-hosteleria", "cocinero",
+                java.util.Map.of("clasificacion", "1")).orElseThrow();
+
+        assertThat(r.pendientes()).hasSize(1);
+        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("grupoEstablecimiento");
+        assertThat(r.pendientes().getFirst().valores()).containsExactly("A", "B", "C", "D");
+    }
+
+    @Test
+    @DisplayName("#233 Tenerife: contestando lo que se ofrece, la resolución queda completa (la tabla existe)")
+    void tenerifeRespondiendoLoOfrecidoResuelve() {
+        var r = servicio.resuelve("tenerife-hosteleria", "cocinero", java.util.Map.of(
+                "clasificacion", "2", "establecimiento", "Aptos 3*")).orElseThrow();
+
+        assertThat(r.pendientes()).isEmpty();
+        assertThat(r.dimensiones())
+                .containsEntry("clasificacion", "2")
+                .containsEntry("establecimiento", "Aptos 3*")
+                .containsEntry("puesto", "Cocinero/a")
+                .containsKey("areaFuncional");
+    }
+
     // --- Colectiva: la CATEGORÍA depende de la PROVINCIA (condicionalPorProvincia) ---
 
     @Test
@@ -240,13 +344,62 @@ class PerfilOcupacionServiceTest {
     }
 
     @Test
-    @DisplayName("colectiva: una provincia inventada no resuelve nada, reaparece la pregunta (nunca se inventa)")
+    @DisplayName("#233 colectiva: una provincia inventada ya no repite la pregunta en silencio — 422 con las opciones")
     void colectivaProvinciaInventada() {
-        var r = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
-                java.util.Map.of("provincia", "Atlantida")).orElseThrow();
+        assertThatThrownBy(() -> servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Atlantida")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("Atlantida")
+                .hasMessageContaining("provincia")
+                .hasMessageContaining("Zaragoza");
+    }
 
-        assertThat(r.dimensiones()).isEmpty();
-        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("provincia");
+    @Test
+    @DisplayName("#233 colectiva: la provincia con la grafía del perfil (Cáceres, A Coruña) casa con su anexo")
+    void colectivaProvinciaConGrafiaDelPerfil() {
+        // El perfil usa el vocabulario del ámbito territorial (con acentos);
+        // los anexos de la colectiva publican el suyo (sin ellos). La MISMA
+        // provincia no puede fallar por la tilde — y la dimensión promocionada
+        // debe llevar la grafía CANÓNICA del anexo, que es la del lookup exacto.
+        var caceres = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Cáceres")).orElseThrow();
+        assertThat(caceres.dimensiones())
+                .containsEntry("provincia", "Caceres")
+                .containsEntry("categoria",
+                        "Cocinero / Camarero / Especialista de mantenimiento y servicios auxiliares");
+        assertThat(caceres.pendientes()).isEmpty();
+
+        var coruna = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "A Coruña")).orElseThrow();
+        assertThat(coruna.dimensiones()).containsEntry("provincia", "A Coruna");
+    }
+
+    @Test
+    @DisplayName("#233 colectiva: los nombres cooficiales del perfil (Bizkaia, Gipuzkoa, Illes Balears) casan con su anexo")
+    void colectivaNombresCooficiales() {
+        var bizkaia = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Bizkaia")).orElseThrow();
+        assertThat(bizkaia.dimensiones()).containsEntry("provincia", "Vizcaya");
+
+        var gipuzkoa = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Gipuzkoa")).orElseThrow();
+        assertThat(gipuzkoa.dimensiones()).containsEntry("provincia", "Guipuzcoa");
+
+        var balears = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Illes Balears")).orElseThrow();
+        assertThat(balears.dimensiones()).containsEntry("provincia", "Islas Baleares");
+    }
+
+    @Test
+    @DisplayName("#233 colectiva: una provincia real SIN este puesto mapeado (Alicante) también avisa con 422, no calla")
+    void colectivaProvinciaSinPuestoMapeado() {
+        // El anexo de Alicante publica niveles sin nombrar ocupaciones: el
+        // cocinero está en null (podado). La respuesta debe decirlo, no
+        // devolver lo mismo que si no se hubiera contestado nada.
+        assertThatThrownBy(() -> servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Alicante")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("Alicante");
     }
 
     @Test

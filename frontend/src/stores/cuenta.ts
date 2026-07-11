@@ -205,6 +205,14 @@ export const useCuentaStore = defineStore('cuenta', () => {
     if (!provincia.value || !subsector.value || !puestoId.value) {
       return
     }
+    // La provincia del perfil YA responde la pregunta de los convenios cuyas
+    // tablas van por provincia (los anexos de la colectiva): viaja
+    // pre-rellenada para no volver a preguntar lo que el usuario acaba de
+    // decir al elegir dónde trabaja (#233). En el resto de convenios el
+    // backend la ignora (no es dimensión de sus tablas). El servidor entiende
+    // la grafía del perfil ("Cáceres", "Bizkaia") aunque el anexo escriba
+    // "Caceres" o "Vizcaya".
+    const prefijadas = { provincia: provincia.value }
     const miId = nuevaResolucion()
     resolviendo.value = true
     errorClasificacion.value = null
@@ -213,19 +221,23 @@ export const useCuentaStore = defineStore('cuenta', () => {
       if (!resolucionVigente(miId)) {
         return
       }
-      const resultado = await getOcupacion(conv.id, puestoId.value)
+      const resultado = await getOcupacion(conv.id, puestoId.value, prefijadas)
       if (!resolucionVigente(miId)) {
         return
       }
       convenioResuelto.value = conv.id
+      respuestas.value = prefijadas
       ocupacion.value = resultado
     } catch (e) {
       if (!resolucionVigente(miId)) {
         return
       }
-      if (e instanceof ApiError && e.status === 404) {
-        // Puesto sin mapear en este convenio: se guarda sin clasificación,
-        // con las cartas boca arriba (la vista lo cuenta).
+      if (e instanceof ApiError && (e.status === 404 || e.status === 422)) {
+        // 404: puesto sin mapear en este convenio. 422: la única respuesta
+        // enviada es la provincia pre-rellenada, así que significa que el
+        // anexo de SU provincia no cruza este puesto (Alicante en la
+        // colectiva). En ambos casos se guarda sin clasificación, con las
+        // cartas boca arriba (la vista lo cuenta).
         puestoNoMapeado.value = true
       } else {
         errorClasificacion.value = mensajeDeError(e)
