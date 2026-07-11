@@ -265,6 +265,27 @@ describe('PerfilView', () => {
     expect(wrapper.find('.aviso-smi').exists()).toBe(false)
   })
 
+  it('nombra el puesto elegido y antepone la etiqueta a dimensiones sin ella, como la zona (issue #219)', async () => {
+    // Antes: "tu puesto es barcelona, nivel III, categoría C" — la zona sin
+    // etiquetar se leía como si "barcelona" fuera el puesto. Repro real:
+    // Barcelona → bar → Camarero/a → zona Barcelona → categoría C.
+    vi.mocked(getOcupacion).mockResolvedValue({
+      dimensiones: { zona: 'Barcelona', nivel: 'III', categoria: 'C' },
+      pendientes: [],
+      articulo: null,
+    })
+    const wrapper = await montar()
+    await llegarAlConvenio(wrapper)
+
+    await wrapper.find('#puesto').setValue('camarero')
+    await flushPromises()
+
+    const nota = wrapper.find('.nota-nivel').text()
+    expect(nota).toContain('tu puesto de Camarero/a')
+    expect(nota).toContain('zona Barcelona, nivel III, categoría C')
+    expect(nota).not.toContain('tu puesto es barcelona')
+  })
+
   it('con una pregunta pendiente no calcula hasta que el usuario responde', async () => {
     // 1ª resolución: falta la clase de empresa. Al responder, el backend la pliega
     // en las dimensiones (re-resolución) y ya no queda pendiente.
