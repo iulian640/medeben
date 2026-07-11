@@ -4,6 +4,7 @@ import {
   describeVigencia,
   esUrlSegura,
   etiquetaDimension,
+  etiquetaDimensionValor,
   etiquetaUnidad,
   etiquetaValor,
   explicacionDimension,
@@ -163,6 +164,17 @@ describe('etiquetaValor', () => {
 
   it('sin sustantivo conocido, un valor limpio se muestra tal cual', () => {
     expect(etiquetaValor('apartadoBOP', 'VII')).toBe('VII')
+  })
+})
+
+describe('etiquetaDimensionValor', () => {
+  it('antepone la etiqueta de la dimensión cuando el valor no la incluye (D219: zona "Barcelona")', () => {
+    expect(etiquetaDimensionValor('zona', 'Barcelona')).toBe('Zona Barcelona')
+  })
+
+  it('no repite la etiqueta cuando el valor ya la incorpora (nivel/categoría vía sustantivo)', () => {
+    expect(etiquetaDimensionValor('nivel', 'III')).toBe('Nivel III')
+    expect(etiquetaDimensionValor('categoria', 'C')).toBe('Categoría C')
   })
 })
 

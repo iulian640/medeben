@@ -39,6 +39,15 @@ export const usePerfilStore = defineStore('perfil', () => {
   )
 
   /**
+   * El puesto elegido, con su etiqueta legible (p. ej. "Camarero/a"). Se busca
+   * en la lista cargada porque solo guardamos el id (D219: la frase de
+   * clasificación necesita nombrar el puesto real, no un texto genérico).
+   */
+  const puestoSeleccionado = computed(
+    () => puestos.value.find((p) => p.id === puestoId.value) ?? null,
+  )
+
+  /**
    * Prellenado de la calculadora de horas extra: si la tabla quedó por debajo
    * del SMI manda el suelo legal (con la tabla superada el valor hora saldría
    * infravalorado). Si un backend viejo marca bajoSmi sin mandar minimoLegal,
@@ -285,6 +294,7 @@ export const usePerfilStore = defineStore('perfil', () => {
     cargando,
     error,
     pendientesSinResponder,
+    puestoSeleccionado,
     salarioMensualPrefill,
     cargarProvincias,
     elegirProvincia,

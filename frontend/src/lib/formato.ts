@@ -222,6 +222,22 @@ export function etiquetaValor(dimension: string, valor: string): string {
   return palabras.map((p, i) => palabraLegible(p, i === 0)).join(' ')
 }
 
+/**
+ * Un valor de dimensión con su etiqueta antepuesta, para frases donde el valor
+ * suelto no se entiende por sí solo (D219: "tu puesto es barcelona" en vez de
+ * "zona Barcelona" — "Barcelona" sin la palabra "zona" delante lee como si
+ * fuera el puesto). Si etiquetaValor ya incorpora la etiqueta de la dimensión
+ * (p. ej. "Nivel III" ya lleva "Nivel", vía SUSTANTIVO_VALOR), no se repite.
+ */
+export function etiquetaDimensionValor(dimension: string, valor: string): string {
+  const legible = etiquetaValor(dimension, valor)
+  const etiqueta = etiquetaDimension(dimension)
+  if (legible.toLowerCase().startsWith(etiqueta.toLowerCase())) {
+    return legible
+  }
+  return `${etiqueta} ${legible}`
+}
+
 /** Explicación corta (una frase) para las preguntas pendientes conocidas. */
 const EXPLICACIONES_DIMENSION: Record<string, string> = {
   claseEmpresa:
