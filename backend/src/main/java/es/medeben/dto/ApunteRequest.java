@@ -16,7 +16,7 @@ public record ApunteRequest(
         @NotNull(message = "no puede faltar") LocalDate fecha,
         @NotNull(message = "no puede faltar") TipoApunte tipo,
         @Pattern(regexp = "^([01]\\d|2[0-3]):[0-5]\\d$", message = "hora en formato HH:mm") String hora,
-        @Size(max = 200, message = "no puede pasar de 200 caracteres") String motivo,
+        @Size(max = 200, message = "no puede pasar de 200 caracteres") @SinNul String motivo,
         boolean rectificacionTardiaConfirmada
 ) {
 

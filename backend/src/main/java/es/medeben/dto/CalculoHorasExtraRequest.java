@@ -11,7 +11,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 
 public record CalculoHorasExtraRequest(
-        @NotBlank(message = "no puede faltar") String convenioId,
+        @NotBlank(message = "no puede faltar") @SinNul String convenioId,
         @NotNull(message = "no puede faltar")
         @Min(value = 2000, message = "fuera de rango (2000-2100)")
         @Max(value = 2100, message = "fuera de rango (2000-2100)") Integer anio,

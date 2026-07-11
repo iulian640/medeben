@@ -96,6 +96,35 @@ class ApiRobustezTest {
                         "convenioId: no puede faltar; dimensiones: no puede faltar; fecha: no puede faltar"));
     }
 
+    // --- (a) Carácter NUL en campos de texto: 400 de validación, nunca 500 ---
+
+    @Test
+    @DisplayName("motivo con carácter NUL → 400 de validación (antes reventaba en Postgres con 500)")
+    void motivoConNul() throws Exception {
+        // \\u0000 llega como escape JSON y Jackson lo convierte en el carácter
+        // NUL real, el que Postgres rechaza en cualquier columna de texto.
+        mockMvc.perform(post("/api/v1/fichajes").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"fecha":"2026-07-08","tipo":"AUSENCIA","hora":null,"motivo":"baja m\\u0000dica"}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                .andExpect(jsonPath("$.detail").value("motivo: no puede contener el carácter nulo (U+0000)"));
+    }
+
+    @Test
+    @DisplayName("NUL en una dimensión del cálculo anónimo → 400, mismo cierre uniforme")
+    void dimensionConNul() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":{"nivel":"II\\u0000I"}}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value(
+                        org.hamcrest.Matchers.containsString("no puede contener el carácter nulo")));
+    }
+
     @Test
     @DisplayName("password corta en el registro → motivo en castellano con los límites")
     void passwordCorta() throws Exception {

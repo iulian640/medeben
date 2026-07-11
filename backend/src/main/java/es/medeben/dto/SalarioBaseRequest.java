@@ -16,10 +16,10 @@ import java.util.Map;
  */
 public record SalarioBaseRequest(
         @NotBlank(message = "no puede faltar")
-        @Size(max = 40, message = "no puede pasar de 40 caracteres") String convenioId,
+        @Size(max = 40, message = "no puede pasar de 40 caracteres") @SinNul String convenioId,
         @NotNull(message = "no puede faltar") LocalDate fecha,
         @NotEmpty(message = "no puede faltar") @Size(max = 10, message = "máximo 10 dimensiones")
-        Map<@NotBlank(message = "no puede faltar") @Size(max = 40, message = "no puede pasar de 40 caracteres") String,
-                @NotBlank(message = "no puede faltar") @Size(max = 400, message = "no puede pasar de 400 caracteres") String> dimensiones
+        Map<@NotBlank(message = "no puede faltar") @Size(max = 40, message = "no puede pasar de 40 caracteres") @SinNul String,
+                @NotBlank(message = "no puede faltar") @Size(max = 400, message = "no puede pasar de 400 caracteres") @SinNul String> dimensiones
 ) {
 }
