@@ -151,7 +151,7 @@ public class ResumenMensualService {
             }
         }
 
-        ImporteEstimadoMensual importe = valora(convenio, mes, salario, mesAgg.extraMin);
+        ImporteEstimadoMensual importe = valora(convenio, mes, salario, perfil.getDimensiones(), mesAgg.extraMin);
         TopeAnualResumen tope = tope(convenio, mes, extraAnioMin[0]);
         // El aviso de datos que no cuadran va PRIMERO: antes de hablar de topes,
         // que el usuario sepa que hay horas suyas fuera del total (issue #230).
@@ -200,12 +200,13 @@ public class ResumenMensualService {
         }
     }
 
+    /** Las dimensiones del perfil viajan al motor: en la colectiva la jornada y las pagas van por provincia (#231). */
     private ImporteEstimadoMensual valora(Convenio convenio, YearMonth mes, SalarioAplicado salario,
-                                          long extraMin) {
+                                          Map<String, String> dimensiones, long extraMin) {
         BigDecimal horasExtra = minutosAHoras(extraMin);
         HorasExtraCalculadas calculada = calculo.importeHorasExtra(
                         convenio, Year.of(mes.getYear()), salario.importe(), salario.plusesONada(),
-                        horasExtraPrecisas(extraMin))
+                        horasExtraPrecisas(extraMin), dimensiones)
                 .orElseThrow(() -> new ResumenIncompletoException(ResumenIncompletoException.Codigo.DATOS_CONVENIO,
                         "Tu convenio no tiene publicada la jornada anual o las pagas para "
                                 + mes.getYear() + ": no puedo valorar tus horas extra"));

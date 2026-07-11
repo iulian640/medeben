@@ -24,6 +24,7 @@ import java.math.RoundingMode;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Cálculos sobre convenios. Sin datos personales: entradas anónimas (salario,
@@ -53,9 +54,12 @@ public class CalculoController {
                 .orElseThrow(() -> new RecursoNoEncontradoException(
                         "Convenio no encontrado: " + peticion.convenioId()));
 
+        // Las dimensiones (opcionales) viajan al motor: en la colectiva la
+        // jornada y las pagas van por provincia (#231) — sin ellas, 422 honesto.
         HorasExtraCalculadas resultado = calculo.importeHorasExtra(
                         convenio, Year.of(peticion.anio()),
-                        peticion.salarioBaseMensual(), peticion.plusesONada(), peticion.horas())
+                        peticion.salarioBaseMensual(), peticion.plusesONada(), peticion.horas(),
+                        peticion.dimensionesONada())
                 .orElseThrow(() -> new DatosConvenioPendientesException(
                         "El convenio no tiene publicados los datos necesarios (jornada anual o pagas) para "
                                 + peticion.anio()));
@@ -70,7 +74,8 @@ public class CalculoController {
                 .orElseThrow(() -> new RecursoNoEncontradoException(
                         "Sin tabla salarial aplicable para esas dimensiones y fecha en "
                                 + peticion.convenioId()));
-        return conAvisoSmi(resuelto, peticion.convenioId(), peticion.fecha().getYear());
+        return conAvisoSmi(resuelto, peticion.convenioId(), peticion.dimensiones(),
+                peticion.fecha().getYear());
     }
 
     /**
@@ -86,12 +91,17 @@ public class CalculoController {
      * diferencia es tuya" en vez de afirmar una cifra. Otras unidades (EUR/hora)
      * no se comparan como salario.
      */
-    private SalarioBaseResponse conAvisoSmi(SalarioBaseResuelto r, String convenioId, int anio) {
+    private SalarioBaseResponse conAvisoSmi(SalarioBaseResuelto r, String convenioId,
+                                            Map<String, String> dimensiones, int anio) {
         BigDecimal mensualidades;
         if ("EUR/año".equals(r.unidad())) {
             mensualidades = BigDecimal.ONE; // el importe ya es el cómputo anual
         } else if ("EUR/mes".equals(r.unidad())) {
-            mensualidades = convenios.porId(convenioId).flatMap(calculo::mensualidades)
+            // Resuelto por dimensiones (issue #231): la colectiva publica las
+            // pagas por anexo provincial, no en la raíz. Solo se cae al 14 si no
+            // constan en ningún sitio — no para toda la colectiva por defecto.
+            mensualidades = convenios.porId(convenioId)
+                    .flatMap(c -> calculo.mensualidades(c, dimensiones, Year.of(anio)))
                     .orElse(BigDecimal.valueOf(14));
         } else {
             return new SalarioBaseResponse(r.importe(), r.unidad(), false, null, null, null, r.citas());

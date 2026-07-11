@@ -86,7 +86,11 @@ class SinNulTest {
     void calculoAnonimo() {
         asertaRechazado(new SalarioBaseRequest(CON_NUL, LocalDate.of(2026, 7, 8), Map.of("nivel", "III")));
         asertaRechazado(new SalarioBaseRequest("madrid-hosteleria", LocalDate.of(2026, 7, 8), Map.of("nivel", CON_NUL)));
-        asertaRechazado(new CalculoHorasExtraRequest(CON_NUL, 2026, BigDecimal.ONE, null, BigDecimal.ONE));
+        // horas-extra: convenioId, y la dimensión OPCIONAL (issue #231) también con @SinNul.
+        asertaRechazado(new CalculoHorasExtraRequest(CON_NUL, 2026, BigDecimal.ONE, null, BigDecimal.ONE, null));
+        asertaRechazado(new CalculoHorasExtraRequest(
+                "estatal-restauracion-colectiva", 2026, BigDecimal.ONE, null, BigDecimal.ONE,
+                Map.of("provincia", CON_NUL)));
     }
 
     @Test

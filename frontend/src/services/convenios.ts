@@ -115,4 +115,6 @@ export const postHorasExtra = (peticion: {
   salarioBaseMensual: number
   plusesAnuales: number
   horas: number
+  /** Solo las necesitan los convenios con jornada/pagas por dimensión (la colectiva va por provincia, #231). */
+  dimensiones?: Record<string, string>
 }) => api.post<HorasExtra>('/calculo/horas-extra', peticion)
