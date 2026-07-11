@@ -349,6 +349,42 @@ class PerfilOcupacionServiceTest {
     }
 
     @Test
+    @DisplayName("#233 colectiva: la provincia con la grafía del perfil (Cáceres, A Coruña) casa con su anexo")
+    void colectivaProvinciaConGrafiaDelPerfil() {
+        // El perfil usa el vocabulario del ámbito territorial (con acentos);
+        // los anexos de la colectiva publican el suyo (sin ellos). La MISMA
+        // provincia no puede fallar por la tilde — y la dimensión promocionada
+        // debe llevar la grafía CANÓNICA del anexo, que es la del lookup exacto.
+        var caceres = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Cáceres")).orElseThrow();
+        assertThat(caceres.dimensiones())
+                .containsEntry("provincia", "Caceres")
+                .containsEntry("categoria",
+                        "Cocinero / Camarero / Especialista de mantenimiento y servicios auxiliares");
+        assertThat(caceres.pendientes()).isEmpty();
+
+        var coruna = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "A Coruña")).orElseThrow();
+        assertThat(coruna.dimensiones()).containsEntry("provincia", "A Coruna");
+    }
+
+    @Test
+    @DisplayName("#233 colectiva: los nombres cooficiales del perfil (Bizkaia, Gipuzkoa, Illes Balears) casan con su anexo")
+    void colectivaNombresCooficiales() {
+        var bizkaia = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Bizkaia")).orElseThrow();
+        assertThat(bizkaia.dimensiones()).containsEntry("provincia", "Vizcaya");
+
+        var gipuzkoa = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Gipuzkoa")).orElseThrow();
+        assertThat(gipuzkoa.dimensiones()).containsEntry("provincia", "Guipuzcoa");
+
+        var balears = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Illes Balears")).orElseThrow();
+        assertThat(balears.dimensiones()).containsEntry("provincia", "Islas Baleares");
+    }
+
+    @Test
     @DisplayName("#233 colectiva: una provincia real SIN este puesto mapeado (Alicante) también avisa con 422, no calla")
     void colectivaProvinciaSinPuestoMapeado() {
         // El anexo de Alicante publica niveles sin nombrar ocupaciones: el

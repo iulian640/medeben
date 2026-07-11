@@ -90,10 +90,13 @@ public class PerfilOcupacionService {
         });
     }
 
+    private static final String DIMENSION_PROVINCIA = "provincia";
+
     private OcupacionResuelta resuelveCondicional(String convenioId,
                                                   OcupacionesCatalog.Condicional condicional,
-                                                  Map<String, String> respuestas, String articulo) {
+                                                  Map<String, String> respuestasCrudas, String articulo) {
         NodoCondicional arbol = condicional.arbol();
+        Map<String, String> respuestas = conProvinciaCanonica(arbol, respuestasCrudas);
         // Una respuesta que no corresponde a ninguna rama ya no se ignora en
         // silencio (#233): 422 con las opciones reales de ESA pregunta. Cubre
         // tanto el valor inventado como la provincia real cuyo puesto está
@@ -139,6 +142,34 @@ public class PerfilOcupacionService {
             }
         });
         return resueltaConAutofijado(convenioId, fijas, articulo);
+    }
+
+    /**
+     * La respuesta de provincia con la grafía CANÓNICA del anexo (#233): el
+     * perfil ya sabe la provincia y la manda con su vocabulario ("Cáceres",
+     * "Bizkaia"), pero las ramas del árbol usan el literal del anexo del BOE
+     * ("Caceres", "Vizcaya"). Si la respuesta no casa tal cual pero nombra la
+     * MISMA provincia que exactamente UNA rama (acentos o cooficialidad), se
+     * sustituye por esa rama; el resto de preguntas del árbol se contestan
+     * eligiendo de la lista ofrecida y siguen exigiendo el literal exacto.
+     */
+    private static Map<String, String> conProvinciaCanonica(NodoCondicional arbol,
+                                                            Map<String, String> respuestas) {
+        String valor = respuestas.get(DIMENSION_PROVINCIA);
+        if (valor == null || !DIMENSION_PROVINCIA.equals(arbol.dimension())
+                || arbol.ramas().containsKey(valor)) {
+            return respuestas;
+        }
+        List<String> equivalentes = arbol.ramas().keySet().stream()
+                .filter(rama -> NombresProvincia.mismaProvincia(rama, valor))
+                .toList();
+        if (equivalentes.size() != 1) {
+            // Sin equivalencia inequívoca no se adivina: caerá en el 422 con las opciones.
+            return respuestas;
+        }
+        Map<String, String> canonicas = new LinkedHashMap<>(respuestas);
+        canonicas.put(DIMENSION_PROVINCIA, equivalentes.getFirst());
+        return canonicas;
     }
 
     /**
