@@ -65,9 +65,13 @@ class PerfilOcupacionServiceTest {
     @Test
     @DisplayName("auto-fijado: una dimensión con un solo valor posible se fija sola, no se pregunta")
     void autofijaDimensionDeUnSoloValor() {
-        // Málaga jefe de sala/maître: 'departamento' solo puede ser "sala" → es
-        // ruido preguntarlo. Se pliega en la ocupación y no aparece como pendiente.
-        var r = servicio.resuelve("malaga-hosteleria", "jefe-sala").orElseThrow();
+        // Málaga jefe de sala/maître en bares americanos: 'departamento' solo
+        // puede ser "sala" → es ruido preguntarlo. Se pliega en la ocupación y
+        // no aparece como pendiente. (Antes de responder la sección no se fija:
+        // la fila de casinos/salas de fiestas ni siquiera tiene departamento —
+        // las formas de tabla alternativas se resuelven pregunta a pregunta, #233.)
+        var r = servicio.resuelve("malaga-hosteleria", "jefe-sala",
+                java.util.Map.of("seccion", "5_baresAmericanos")).orElseThrow();
 
         assertThat(r.dimensiones()).containsEntry("departamento", "sala");
         assertThat(r.pendientes()).noneMatch(p -> p.dimension().equals("departamento"));
@@ -211,6 +215,60 @@ class PerfilOcupacionServiceTest {
 
         assertThat(conInyeccion.dimensiones().get("nivel")).isEqualTo(nivelReal);
         assertThat(conInyeccion.dimensiones().get("nivel")).isNotEqualTo("1.35");
+    }
+
+    // --- Preguntas encadenadas desde las combinaciones REALES de hechos (#233) ---
+    // Tenerife tiene dos formas de tabla alternativas: clasificaciones 1/3/4 van
+    // por grupoEstablecimiento y la clasificación 2 (apartamentos, campings,
+    // vivienda vacacional) por establecimiento. Ofrecer las tres preguntas a la
+    // vez producía combinaciones que no existen en ninguna tabla ("sin tabla
+    // aplicable" siendo falso): las preguntas salen de los hechos compatibles
+    // y se encadenan de una en una.
+
+    @Test
+    @DisplayName("#233 Tenerife cocinero: solo se ofrece la clasificación (el resto depende de ella)")
+    void tenerifePreguntaPrimeroLaClasificacion() {
+        var r = servicio.resuelve("tenerife-hosteleria", "cocinero").orElseThrow();
+
+        assertThat(r.pendientes()).hasSize(1);
+        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("clasificacion");
+        assertThat(r.pendientes().getFirst().valores()).containsExactly("1", "2", "3", "4");
+    }
+
+    @Test
+    @DisplayName("#233 Tenerife clasificación 2: encadena el tipo de alojamiento (nunca el grupo)")
+    void tenerifeClasificacionDosEncadenaAlojamiento() {
+        var r = servicio.resuelve("tenerife-hosteleria", "cocinero",
+                java.util.Map.of("clasificacion", "2")).orElseThrow();
+
+        assertThat(r.pendientes()).hasSize(1);
+        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("establecimiento");
+        assertThat(r.pendientes().getFirst().valores()).contains("Aptos 3*", "Vivienda Vacacional");
+    }
+
+    @Test
+    @DisplayName("#233 Tenerife clasificación 1: encadena el grupo de establecimiento con SUS grupos (A-D)")
+    void tenerifeClasificacionUnoEncadenaGrupo() {
+        var r = servicio.resuelve("tenerife-hosteleria", "cocinero",
+                java.util.Map.of("clasificacion", "1")).orElseThrow();
+
+        assertThat(r.pendientes()).hasSize(1);
+        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("grupoEstablecimiento");
+        assertThat(r.pendientes().getFirst().valores()).containsExactly("A", "B", "C", "D");
+    }
+
+    @Test
+    @DisplayName("#233 Tenerife: contestando lo que se ofrece, la resolución queda completa (la tabla existe)")
+    void tenerifeRespondiendoLoOfrecidoResuelve() {
+        var r = servicio.resuelve("tenerife-hosteleria", "cocinero", java.util.Map.of(
+                "clasificacion", "2", "establecimiento", "Aptos 3*")).orElseThrow();
+
+        assertThat(r.pendientes()).isEmpty();
+        assertThat(r.dimensiones())
+                .containsEntry("clasificacion", "2")
+                .containsEntry("establecimiento", "Aptos 3*")
+                .containsEntry("puesto", "Cocinero/a")
+                .containsKey("areaFuncional");
     }
 
     // --- Colectiva: la CATEGORÍA depende de la PROVINCIA (condicionalPorProvincia) ---

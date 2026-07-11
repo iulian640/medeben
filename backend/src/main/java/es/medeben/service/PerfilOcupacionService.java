@@ -134,6 +134,14 @@ public class PerfilOcupacionService {
      * las que de verdad ofrecen elección. Es idempotente: fijar el único valor no
      * cambia el conjunto de hechos que casan, así que basta con repetir hasta que
      * no queden dimensiones de un solo valor.
+     *
+     * <p>De las preguntas que quedan solo se ofrece la PRIMERA (#233): los
+     * valores de cada pregunta salen de los hechos compatibles con lo ya fijado,
+     * así que cada respuesta puede cambiar los valores (y hasta la existencia)
+     * de las siguientes. Ofrecerlas todas a la vez invita a combinaciones que
+     * ninguna tabla publica; el cliente re-resuelve tras cada respuesta y va
+     * recibiendo la siguiente pregunta encadenada (mismo contrato que los
+     * árboles condicionales).
      */
     private OcupacionResuelta resueltaConAutofijado(String convenioId, Map<String, String> fijas,
                                                     String articulo) {
@@ -151,7 +159,9 @@ public class PerfilOcupacionService {
                 dimensiones.put(u.dimension(), u.valores().get(0));
             }
         }
-        return new OcupacionResuelta(dimensiones, pendientes, articulo);
+        List<OpcionDimension> siguiente =
+                pendientes.isEmpty() ? List.of() : List.of(pendientes.getFirst());
+        return new OcupacionResuelta(dimensiones, siguiente, articulo);
     }
 
     /** Todas las dimensiones que aparecen en los hechos de salarioBase del convenio. */
@@ -168,22 +178,42 @@ public class PerfilOcupacionService {
     /**
      * Dimensiones que los hechos de salarioBase tienen y el puesto no fija:
      * lo que hay que preguntarle al usuario, con los valores reales de la tabla.
+     *
+     * <p>Solo se preguntan las dimensiones presentes en TODOS los hechos
+     * compatibles (#233): cuando el convenio tiene formas de tabla alternativas
+     * (Tenerife indexa por grupoEstablecimiento en las clasificaciones 1/3/4 y
+     * por establecimiento en la 2), las dimensiones que solo existen en ALGUNA
+     * forma son alternativas excluyentes entre sí — preguntarlas a la vez lleva
+     * a combinaciones que ninguna tabla publica. Primero se pregunta lo común
+     * (la clasificación); al responderse, los hechos compatibles se quedan en
+     * una sola forma y la dimensión que corresponda pasa a ser común.
      */
     private List<OpcionDimension> pendientes(String convenioId, Map<String, String> fijas) {
-        Map<String, Set<String>> valoresPorDimension = new LinkedHashMap<>();
+        List<Hecho> compatibles = new ArrayList<>();
         for (Hecho hecho : hechos.deConvenio(convenioId)) {
-            if (!CONCEPTO_SALARIO_BASE.equals(hecho.concepto()) || !contiene(hecho.dimensiones(), fijas)) {
-                continue;
+            if (CONCEPTO_SALARIO_BASE.equals(hecho.concepto()) && contiene(hecho.dimensiones(), fijas)) {
+                compatibles.add(hecho);
             }
-            hecho.dimensiones().forEach((clave, valor) -> {
-                if (!fijas.containsKey(clave)) {
-                    valoresPorDimension.computeIfAbsent(clave, k -> new LinkedHashSet<>()).add(valor);
-                }
-            });
         }
+        if (compatibles.isEmpty()) {
+            return List.of();
+        }
+        Set<String> comunes = new LinkedHashSet<>(compatibles.getFirst().dimensiones().keySet());
+        for (Hecho hecho : compatibles) {
+            comunes.retainAll(hecho.dimensiones().keySet());
+        }
+        comunes.removeAll(fijas.keySet());
+        // Orden alfabético deliberado: el orden de iteración de las dimensiones
+        // de un hecho no está garantizado (Map.copyOf), y la primera pregunta
+        // de la lista es LA que ve el usuario — debe ser la misma en cada arranque.
         List<OpcionDimension> resultado = new ArrayList<>();
-        valoresPorDimension.forEach((dimension, valores) ->
-                resultado.add(new OpcionDimension(dimension, valores.stream().sorted().toList())));
+        for (String dimension : comunes.stream().sorted().toList()) {
+            Set<String> valores = new LinkedHashSet<>();
+            for (Hecho hecho : compatibles) {
+                valores.add(hecho.dimensiones().get(dimension));
+            }
+            resultado.add(new OpcionDimension(dimension, valores.stream().sorted().toList()));
+        }
         return resultado;
     }
 
