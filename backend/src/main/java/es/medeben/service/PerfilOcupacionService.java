@@ -25,6 +25,9 @@ import java.util.TreeSet;
 public class PerfilOcupacionService {
 
     private static final String CONCEPTO_SALARIO_BASE = "salarioBase";
+    private static final String DIMENSION_PROVINCIA = "provincia";
+    /** Tope de longitud del valor que se refleja en el mensaje de error (misma disciplina que el validador del perfil). */
+    private static final int ECO_VALOR_MAX = 60;
 
     private final OcupacionesCatalog ocupaciones;
     private final HechosCatalog hechos;
@@ -89,8 +92,6 @@ public class PerfilOcupacionService {
             return Optional.empty();
         });
     }
-
-    private static final String DIMENSION_PROVINCIA = "provincia";
 
     private OcupacionResuelta resuelveCondicional(String convenioId,
                                                   OcupacionesCatalog.Condicional condicional,
@@ -195,9 +196,6 @@ public class PerfilOcupacionService {
                             + "' del convenio '" + convenioId + "'. Valores publicados: " + publicados);
         }
     }
-
-    /** Tope de longitud del valor que se refleja en el mensaje de error (misma disciplina que el validador del perfil). */
-    private static final int ECO_VALOR_MAX = 60;
 
     private static String recorta(String valor) {
         if (valor == null) {
