@@ -213,6 +213,27 @@ class CalculoControllerTest {
     }
 
     @Test
+    @DisplayName("colectiva (#231): el aviso SMI usa las pagas DERIVADAS por provincia, no el 14 por defecto — Sevilla (1.157,48 × 15) alcanza, sin falso «bajo SMI»")
+    void salarioBaseColectivaUsaPagasDerivadasParaElSmi() throws Exception {
+        // La colectiva publica las pagas por anexo provincial, no en la raíz.
+        // Antes, el aviso SMI caía al 14 por defecto e ignoraba las 15 que este
+        // mismo cálculo ya usa para el valor hora extra: 1.157,48 × 14 = 16.204,72
+        // < 16.576 (SMI 2025 anual) marcaba «bajo SMI» en falso. Con las 15
+        // reales, 17.362,20 ≥ 16.576: legal, y viajan los números para la UI.
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","fecha":"2025-07-08",
+                                 "dimensiones":{"provincia":"Sevilla","categoria":"Nivel 4 y 5 (Monitor/a)"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.importe").value(1157.48))
+                .andExpect(jsonPath("$.bajoSmi").value(false))
+                .andExpect(jsonPath("$.comparativaSmi.mensualidades").value(15))
+                .andExpect(jsonPath("$.comparativaSmi.anualConvenio").value(17362.20))
+                .andExpect(jsonPath("$.comparativaSmi.smiAnual").value(16576.00));
+    }
+
+    @Test
     @DisplayName("bajo SMI REAL: limpieza Madrid nivel V-C (1.086,31 × 14) < SMI anual → avisa con cita")
     void salarioBaseBajoSmiAvisa() throws Exception {
         mockMvc.perform(post("/api/v1/calculo/salario-base")

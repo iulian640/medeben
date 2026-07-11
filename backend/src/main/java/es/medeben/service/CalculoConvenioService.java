@@ -363,9 +363,30 @@ public class CalculoConvenioService {
     /**
      * Mensualidades totales al año del convenio (14, 15...); vacío si el convenio
      * no las publica. Necesario para el cómputo ANUAL del SMI y del valor hora.
+     * SOLO mira el nodo raíz del crudo: sirve para convenios que publican las
+     * pagas en la raíz, pero devuelve vacío para los que las llevan por anexo
+     * provincial (la colectiva). Para esos, usar la sobrecarga con dimensiones.
      */
     public Optional<BigDecimal> mensualidades(Convenio convenio) {
         return mensualidades(nodoPagas(convenio));
+    }
+
+    /**
+     * Mensualidades resueltas también desde la capa DERIVADA por dimensiones,
+     * con la misma prioridad que el valor hora (issue #231): primero el nodo
+     * raíz del crudo y, si no lo hay, el hecho `mensualidadesEquivalentes` del
+     * anexo que casa con las dimensiones del llamador (la colectiva publica las
+     * pagas por provincia). Vacío solo si de verdad no consta en ninguno de los
+     * dos sitios — entonces el aviso del SMI asume 14 como último recurso. Sin
+     * esto, el aviso adivinaba 14 pagas para toda la colectiva y contradecía las
+     * 15 que este mismo cálculo ya publica en el valor hora extra.
+     */
+    public Optional<BigDecimal> mensualidades(
+            Convenio convenio, Map<String, String> dimensiones, Year anio) {
+        return mensualidades(nodoPagas(convenio))
+                .or(() -> hechoDerivado(convenio, CONCEPTO_MENSUALIDADES, dimensiones, anio)
+                        .map(Hecho::importe)
+                        .filter(m -> m.compareTo(MINIMO_MENSUALIDADES) >= 0));
     }
 
     /** El corpus usa `pagasExtraordinarias` casi siempre; tres convenios usan `pagas`. */
