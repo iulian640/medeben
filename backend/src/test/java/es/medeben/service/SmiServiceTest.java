@@ -67,6 +67,14 @@ class SmiServiceTest {
     @DisplayName("la cita del SMI lleva el año, el importe y el artículo (D34)")
     void citaConFuente() {
         Cita c = smi.citaSmi(2026);
-        assertThat(c.texto()).contains("1221.00", "17094.00", "art. 27 ET");
+        assertThat(c.texto()).contains("art. 27 ET");
+    }
+
+    @Test
+    @DisplayName("la cita del SMI va en notación española, no anglosajona (issue #222)")
+    void citaEnNotacionEspanola() {
+        Cita c = smi.citaSmi(2026);
+        assertThat(c.texto()).contains("1.221,00 €/mes", "17.094,00 €/año");
+        assertThat(c.texto()).doesNotContain("1221.00", "17094.00");
     }
 }

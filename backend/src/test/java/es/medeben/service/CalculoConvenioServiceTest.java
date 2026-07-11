@@ -131,6 +131,11 @@ class CalculoConvenioServiceTest {
         assertThat(resultado.importe()).isEqualByComparingTo(new BigDecimal("57.00"));
         assertThat(resultado.citas())
                 .anySatisfy(cita -> assertThat(cita.texto()).contains("Art. 33"));
+        // Notación española en la cita, no anglosajona (issue #222).
+        assertThat(resultado.citas())
+                .anySatisfy(cita -> assertThat(cita.texto()).contains("11,40 €/h"));
+        assertThat(resultado.citas())
+                .noneSatisfy(cita -> assertThat(cita.texto()).contains("11.40"));
     }
 
     @Test
