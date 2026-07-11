@@ -1,6 +1,7 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
 import { ApiError } from '../services/api'
+import { CLAVE_SESION_PERSISTIDA, leerSesionPersistida } from '../lib/sesionPersistida'
 import { useAuthStore } from './auth'
 import { useCuentaStore } from './cuenta'
 import { usePerfilStore } from './perfil'
@@ -12,14 +13,35 @@ vi.mock('../services/auth', async (importOriginal) => ({
   deleteCuenta: vi.fn(),
   postRefresh: vi.fn(),
   postLogout: vi.fn(),
+  getMe: vi.fn(),
 }))
 vi.mock('../services/api', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../services/api')>()),
   setAuthToken: vi.fn(),
 }))
 
-import { deleteCuenta, postLogin, postLogout, postRefresh, postRegistro } from '../services/auth'
+import { deleteCuenta, getMe, postLogin, postLogout, postRefresh, postRegistro } from '../services/auth'
 import { setAuthToken } from '../services/api'
+
+/**
+ * localStorage de mentira respaldado por un Map: en el entorno de test
+ * `globalThis.localStorage` es undefined, así que la persistencia del refresh
+ * (issue #220) solo es observable si lo stubbeamos aquí.
+ */
+function stubStorage(inicial: Record<string, string> = {}): Map<string, string> {
+  const datos = new Map<string, string>(Object.entries(inicial))
+  vi.stubGlobal('localStorage', {
+    getItem: (clave: string) => datos.get(clave) ?? null,
+    setItem: (clave: string, valor: string) => void datos.set(clave, valor),
+    removeItem: (clave: string) => void datos.delete(clave),
+  })
+  return datos
+}
+
+/** Siembra un refresh ya persistido bajo la clave real, para probar la restauración. */
+function refreshPersistido(refreshToken: string, refreshExpiraEn: string): Record<string, string> {
+  return { [CLAVE_SESION_PERSISTIDA]: JSON.stringify({ refreshToken, refreshExpiraEn }) }
+}
 
 beforeEach(() => {
   setActivePinia(createPinia())
@@ -27,6 +49,10 @@ beforeEach(() => {
   // El logout remoto es fire-and-forget: por defecto resuelve, y los tests
   // que quieren red rota lo re-stubbean.
   vi.mocked(postLogout).mockResolvedValue(undefined)
+})
+
+afterEach(() => {
+  vi.unstubAllGlobals()
 })
 
 describe('auth store', () => {
@@ -333,5 +359,165 @@ describe('auth store', () => {
     await auth.iniciarSesion('ana@example.com', 'superclave123')
 
     expect(auth.aviso).toBeNull()
+  })
+
+  // --- Sesión persistente: sobrevivir a la recarga (issue #220) ---
+
+  it('iniciarSesion persiste SOLO el refresh y su caducidad, ni el access ni el email', async () => {
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    expect(leerSesionPersistida()).toEqual({
+      refreshToken: 'refresh-jwt-123',
+      refreshExpiraEn: '2099-01-01T00:00:00Z',
+    })
+    // El email nunca toca el disco (D38): lo persistido no lo contiene.
+    expect(datos.get(CLAVE_SESION_PERSISTIDA)).not.toContain('ana@example.com')
+  })
+
+  it('restaurarSesion con refresh válido rota los tokens, recupera el email y re-persiste el nuevo refresh', async () => {
+    stubStorage(refreshPersistido('refresh-viejo', '2099-01-01T00:00:00Z'))
+    vi.mocked(postRefresh).mockResolvedValue({
+      token: 'jwt-rotado',
+      expiraEn: '2099-01-01T00:15:00Z',
+      refreshToken: 'refresh-rotado',
+      refreshExpiraEn: '2099-01-08T00:00:00Z',
+    })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com' })
+    const auth = useAuthStore()
+
+    const ok = await auth.restaurarSesion()
+
+    expect(ok).toBe(true)
+    expect(auth.autenticado).toBe(true)
+    expect(postRefresh).toHaveBeenCalledWith('refresh-viejo')
+    expect(auth.token).toBe('jwt-rotado')
+    expect(auth.email).toBe('ana@example.com')
+    // El refresh rotado queda persistido, listo para la siguiente recarga.
+    expect(leerSesionPersistida()).toEqual({
+      refreshToken: 'refresh-rotado',
+      refreshExpiraEn: '2099-01-08T00:00:00Z',
+    })
+  })
+
+  it('restaurarSesion con el refresh rechazado limpia memoria Y storage', async () => {
+    const datos = stubStorage(refreshPersistido('refresh-malo', '2099-01-01T00:00:00Z'))
+    vi.mocked(postRefresh).mockRejectedValue(new ApiError(401, 'API 401', null))
+    const auth = useAuthStore()
+
+    const ok = await auth.restaurarSesion()
+
+    expect(ok).toBe(false)
+    expect(auth.autenticado).toBe(false)
+    expect(setAuthToken).toHaveBeenLastCalledWith(null)
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('restaurarSesion con el refresh ya caducado → false SIN ir a la red, y purga el storage', async () => {
+    const datos = stubStorage(refreshPersistido('refresh-caduco', '2000-01-01T00:00:00Z'))
+    const auth = useAuthStore()
+
+    const ok = await auth.restaurarSesion()
+
+    expect(ok).toBe(false)
+    expect(postRefresh).not.toHaveBeenCalled()
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('restaurarSesion con una caducidad ilegible → false SIN ir a la red, y purga el storage', async () => {
+    const datos = stubStorage(refreshPersistido('refresh-x', 'no-es-una-fecha'))
+    const auth = useAuthStore()
+
+    const ok = await auth.restaurarSesion()
+
+    expect(ok).toBe(false)
+    expect(postRefresh).not.toHaveBeenCalled()
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('restaurarSesion sigue siendo válida si getMe falla por red: true con email null (no expulsa)', async () => {
+    stubStorage(refreshPersistido('refresh-viejo', '2099-01-01T00:00:00Z'))
+    vi.mocked(postRefresh).mockResolvedValue({
+      token: 'jwt-rotado',
+      expiraEn: '2099-01-01T00:15:00Z',
+      refreshToken: 'refresh-rotado',
+      refreshExpiraEn: '2099-01-08T00:00:00Z',
+    })
+    vi.mocked(getMe).mockRejectedValue(new ApiError(0, 'sin red', null))
+    const auth = useAuthStore()
+
+    const ok = await auth.restaurarSesion()
+
+    expect(ok).toBe(true)
+    expect(auth.autenticado).toBe(true)
+    expect(auth.email).toBeNull()
+  })
+
+  it('restaurarSesion sin nada persistido → false sin llamar a la red', async () => {
+    stubStorage()
+    const auth = useAuthStore()
+
+    expect(await auth.restaurarSesion()).toBe(false)
+    expect(postRefresh).not.toHaveBeenCalled()
+  })
+
+  it('restaurarSesion con una sesión ya viva → true sin tocar la red (idempotente, no la pisa)', async () => {
+    stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    const ok = await auth.restaurarSesion()
+
+    expect(ok).toBe(true)
+    expect(auth.token).toBe('jwt-123')
+    expect(postRefresh).not.toHaveBeenCalled()
+  })
+
+  it('asegurarRestauracion es single-flight: dos llamadas comparten un solo refresh', async () => {
+    stubStorage(refreshPersistido('refresh-viejo', '2099-01-01T00:00:00Z'))
+    vi.mocked(postRefresh).mockResolvedValue({
+      token: 'jwt-rotado',
+      expiraEn: '2099-01-01T00:15:00Z',
+      refreshToken: 'refresh-rotado',
+      refreshExpiraEn: '2099-01-08T00:00:00Z',
+    })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com' })
+    const auth = useAuthStore()
+
+    const [a, b] = await Promise.all([auth.asegurarRestauracion(), auth.asegurarRestauracion()])
+
+    expect(a).toBe(true)
+    expect(b).toBe(true)
+    // Dos navegaciones casi simultáneas al arrancar no pueden lanzar dos
+    // refresh (el segundo rotaría el token que el primero está usando).
+    expect(postRefresh).toHaveBeenCalledTimes(1)
+  })
+
+  it('cerrarSesion purga también el refresh persistido', async () => {
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(true)
+
+    auth.cerrarSesion()
+
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('borrarCuenta purga también el refresh persistido (RGPD: no queda nada en el disco)', async () => {
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    vi.mocked(deleteCuenta).mockResolvedValue(undefined)
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    await auth.borrarCuenta('superclave123')
+
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
   })
 })

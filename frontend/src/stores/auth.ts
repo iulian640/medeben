@@ -1,18 +1,41 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { setAuthToken } from '../services/api'
-import { deleteCuenta, postLogin, postLogout, postRefresh, postRegistro } from '../services/auth'
+import {
+  deleteCuenta,
+  getMe,
+  postLogin,
+  postLogout,
+  postRefresh,
+  postRegistro,
+} from '../services/auth'
 import { mensajeDeError } from '../lib/formato'
+import {
+  borrarSesionPersistida,
+  guardarSesionPersistida,
+  leerSesionPersistida,
+} from '../lib/sesionPersistida'
 import { useCuentaStore } from './cuenta'
 import { useFichajesStore } from './fichajes'
 import { useResumenStore } from './resumen'
 import { usePerfilStore } from './perfil'
 
 /**
- * Sesión del usuario. REQUISITO DE SEGURIDAD: el JWT vive SOLO aquí, en
- * memoria — nunca localStorage, sessionStorage ni cookies legibles por JS
- * (un XSS no debe encontrar una credencial persistida). Al recargar la
- * página la sesión se pierde y se vuelve a pedir login; aceptado para v1.
+ * Sesión del usuario. CONTRATO DE SEGURIDAD (issue #220):
+ * - El access token (JWT) vive SOLO en memoria — nunca localStorage,
+ *   sessionStorage ni cookies legibles por JS. Es el credencial que viaja en
+ *   cada petición; un XSS no debe encontrarlo persistido.
+ * - El refresh (B4) SÍ se persiste, a propósito: es lo que permite que una
+ *   recarga o reapertura de la app re-autentique en silencio en vez de echar
+ *   al usuario a login (fricción que mata el hábito de fichar a diario). Es
+ *   seguro porque rota en cada uso, se puede revocar y el servidor detecta su
+ *   reutilización, así que un token robado del storage se corta.
+ * - TODAS las salidas de sesión pasan por limpiarSesion(), que purga además lo
+ *   persistido: logout, expulsión por 401, borrado de cuenta y refresh
+ *   rechazado dejan el storage vacío por el mismo camino de siempre.
+ * - Matiz sobre D38/RGPD ("ningún dato personal se persiste en el navegador"):
+ *   un refresh revocable no es el diario del usuario; el resto de D38 sigue en
+ *   pie — ni el email ni ningún dato salarial tocan el disco.
  */
 export const useAuthStore = defineStore('auth', () => {
   const token = ref<string | null>(null)
@@ -43,6 +66,11 @@ export const useAuthStore = defineStore('auth', () => {
       refreshExpiraEn.value = emitido.refreshExpiraEn
       email.value = emailForm
       setAuthToken(emitido.token)
+      // Persistimos SOLO el refresh (issue #220): sobrevive a la recarga.
+      guardarSesionPersistida({
+        refreshToken: emitido.refreshToken,
+        refreshExpiraEn: emitido.refreshExpiraEn,
+      })
       return true
     } catch (e) {
       limpiarSesion()
@@ -87,6 +115,10 @@ export const useAuthStore = defineStore('auth', () => {
     refreshToken.value = null
     refreshExpiraEn.value = null
     setAuthToken(null)
+    // Purga el refresh persistido (issue #220): como toda salida de sesión
+    // pasa por aquí, logout, 401, borrado de cuenta y refresh rechazado dejan
+    // el storage vacío sin tener que acordarse cada uno por su lado.
+    borrarSesionPersistida()
     useCuentaStore().limpiar()
     useFichajesStore().limpiar()
     useResumenStore().limpiar()
@@ -141,11 +173,72 @@ export const useAuthStore = defineStore('auth', () => {
       refreshToken.value = emitido.refreshToken
       refreshExpiraEn.value = emitido.refreshExpiraEn
       setAuthToken(emitido.token)
+      // Re-persistimos el refresh ROTADO (issue #220): el anterior ya no vale,
+      // y así la siguiente recarga arranca del token vigente.
+      guardarSesionPersistida({
+        refreshToken: emitido.refreshToken,
+        refreshExpiraEn: emitido.refreshExpiraEn,
+      })
       return true
     } catch {
       // Refresh caducado, revocado o reutilizado: no hay renovación posible.
       return false
     }
+  }
+
+  /**
+   * Restauración de sesión al arrancar (issue #220). Lee el refresh persistido
+   * y re-autentica en silencio, para que una recarga o reapertura de la app no
+   * eche al usuario a la pantalla de login. Contrato:
+   * - Si ya hay sesión viva, NO la pisa: devuelve true sin tocar nada (idempotente).
+   * - Sin nada persistido, o con el refresh ya caducado (o con caducidad
+   *   ilegible): purga el storage y devuelve false SIN ir a la red — un refresh
+   *   muerto no merece un round-trip ni un 401 seguro.
+   * - Con un refresh vivo: lo carga en memoria y renueva (refrescar, que rota y
+   *   re-persiste). Si el servidor lo rechaza (revocado, reutilizado, caducado),
+   *   limpiarSesion purga memoria Y storage y devuelve false.
+   * - Tras renovar, intenta getMe() para recuperar el email; si getMe falla por
+   *   red la sesión SIGUE siendo válida (el email queda null, no se expulsa).
+   */
+  async function restaurarSesion(): Promise<boolean> {
+    if (autenticado.value) {
+      return true
+    }
+    const guardado = leerSesionPersistida()
+    if (guardado === null) {
+      return false
+    }
+    const caducidad = Date.parse(guardado.refreshExpiraEn)
+    if (Number.isNaN(caducidad) || caducidad <= Date.now()) {
+      borrarSesionPersistida()
+      return false
+    }
+    refreshToken.value = guardado.refreshToken
+    refreshExpiraEn.value = guardado.refreshExpiraEn
+    const renovado = await refrescar()
+    if (!renovado) {
+      limpiarSesion()
+      return false
+    }
+    try {
+      const yo = await getMe()
+      email.value = yo.email
+    } catch {
+      // getMe caído (sin red): la sesión ya es válida; el email se queda null.
+    }
+    return true
+  }
+
+  /**
+   * Restauración perezosa y ÚNICA por carga de página: la guardia de rutas la
+   * espera antes de decidir. Cachear la promesa evita que dos navegaciones casi
+   * simultáneas al arrancar disparen dos refresh (el segundo rotaría el token
+   * que el primero está usando y el servidor lo tomaría por reutilización).
+   */
+  let restauracionEnCurso: Promise<boolean> | null = null
+  function asegurarRestauracion(): Promise<boolean> {
+    restauracionEnCurso ??= restaurarSesion()
+    return restauracionEnCurso
   }
 
   const borrando = ref(false)
@@ -211,6 +304,8 @@ export const useAuthStore = defineStore('auth', () => {
     cerrarSesion,
     sesionCaducada,
     refrescar,
+    restaurarSesion,
+    asegurarRestauracion,
     borrarCuenta,
     limpiarErrorBorrado,
   }
