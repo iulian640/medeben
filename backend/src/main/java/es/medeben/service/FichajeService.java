@@ -127,14 +127,35 @@ public class FichajeService {
      * seguido o partido, máx. {@value #MAX_TRAMOS} tramos). Puro: no toca BD, así
      * que vale para un día suelto o para el recorrido de un periodo ya cargado.
      *
+     * <p>Salida huérfana (issue #221): al reconstruir un día es normal apuntar
+     * primero la salida ("me acuerdo de a qué hora salí") y luego la entrada.
+     * Una SALIDA sin tramo abierto NI tramos cerrados se recuerda como huérfana y
+     * la primera ENTRADA que abriría tramo nuevo la empareja —cierra el tramo
+     * (entrada, salida) en vez de dejar el día EN_CURSO con la salida colgando y
+     * sus horas fuera del resumen del mes. La AUSENCIA, como frontera, descarta
+     * también la huérfana pendiente; una huérfana que nunca se empareja deja el
+     * día PENDIENTE, como antes. OJO: una salida sin tramo abierto pero CON tramos
+     * cerrados NO es huérfana, es la corrección de la salida del último tramo
+     * (regla de posición de abajo).
+     *
+     * <p>El emparejado es CONSERVADOR: solo se hace cuando es inequívoco, para no
+     * fabricar horas que nadie fichó. Dos situaciones ambiguas NO se auto-completan
+     * (el día queda EN_CURSO, como antes de la feature, y el usuario lo cierra):
+     * (1) la entrada es posterior a la huérfana (cruzaría medianoche): indistinguible
+     * de una salida espuria seguida de un turno de tarde aún abierto —el cierre
+     * nocturno legítimo se reconstruye "entrada primero" por la vía normal; (2) han
+     * llegado dos huérfanas distintas: no se sabe si la segunda corrige a la primera
+     * o si son las salidas de dos tramos de un turno partido.
+     *
      * <p>Limitación conocida: los apuntes no llevan identificador de tramo, así
      * que una corrección se asigna POR POSICIÓN — siempre al tramo abierto o,
      * si no lo hay, al último cerrado. Una corrección pensada para un tramo
      * anterior (p.ej. la salida del primer tramo con el segundo ya fichado) se
      * aplicará al tramo equivocado. El techo de cordura
-     * ({@link #TRAMO_MAX_MINUTOS}) evita que ese desvío fabrique jornadas de
-     * ~24h, pero no recupera la intención: para eso el apunte tendría que
-     * declarar a qué tramo corrige.
+     * ({@link #TRAMO_MAX_MINUTOS}) evita que ese desvío —o un emparejado de
+     * huérfana del mismo día pero exageradamente largo— fabrique jornadas de ~24h,
+     * pero no recupera la intención: para eso el apunte tendría que declarar a
+     * qué tramo corrige.
      */
     private EstadoDia derivaEstado(LocalDate fecha, List<Apunte> diario, LocalDate hoy) {
         boolean sellado = estaSellado(fecha, hoy);
@@ -143,6 +164,14 @@ public class FichajeService {
         // declarados) suma TODOS sus tramos, no solo la última pareja E/S.
         List<EstadoDia.TramoDia> tramos = new ArrayList<>();
         String entradaAbierta = null;
+        // Última SALIDA huérfana vista (una salida sin tramo abierto NI tramos
+        // cerrados): la esperamos por si llega su entrada después (issue #221).
+        String salidaHuerfana = null;
+        // ¿Han llegado DOS salidas huérfanas distintas sin resolverse? Entonces el
+        // emparejado es ambiguo (¿corrección de la misma salida o dos salidas de un
+        // turno partido?) y no auto-completamos: fabricaría un tramo que no se
+        // fichó (issue #221). La AUSENCIA, como frontera, lo reinicia.
+        boolean huerfanaAmbigua = false;
         Apunte ultimo = null;
         for (Apunte a : diario) {
             if (a.getTipo() == TipoApunte.ENTRADA) {
@@ -153,6 +182,25 @@ public class FichajeService {
                     // que hace la SALIDA con la suya.
                     int i = tramos.size() - 1;
                     tramos.set(i, new EstadoDia.TramoDia(a.getHora(), tramos.get(i).salida()));
+                } else if (entradaAbierta == null && salidaHuerfana != null
+                        && !huerfanaAmbigua && formaTramoMismoDia(a.getHora(), salidaHuerfana)) {
+                    // Hay UNA salida huérfana esperando y esta entrada forma con ella
+                    // un tramo del mismo día (entrada < salida): se apuntó la salida
+                    // antes que su entrada (flujo real al reconstruir un día: "me
+                    // acuerdo de a qué hora salí"). En vez de abrir un tramo que
+                    // dejaría el día EN_CURSO con la salida ya registrada colgando
+                    // (issue #221), esta entrada la empareja y cierra el tramo.
+                    //
+                    // OJO a lo que NO empareja: si la entrada es POSTERIOR a la salida
+                    // (cruzaría medianoche) no se empareja, porque es indistinguible
+                    // de una salida espuria seguida de un turno de tarde aún abierto
+                    // —emparejarlas fabricaría horas nocturnas fantasma bajo el techo
+                    // de 16h. Y si hubo dos huérfanas distintas (ambiguo), tampoco.
+                    // En esos casos la entrada abre tramo y el día queda EN_CURSO,
+                    // como antes de la feature; el cierre nocturno legítimo se
+                    // reconstruye "entrada primero" por la vía normal de arriba.
+                    tramos.add(new EstadoDia.TramoDia(a.getHora(), salidaHuerfana));
+                    salidaHuerfana = null;
                 } else {
                     // Sin tramo abierto (y con cupo libre), abre uno nuevo; con
                     // tramo abierto es una corrección de esa entrada: gana la última.
@@ -163,18 +211,35 @@ public class FichajeService {
                     tramos.add(new EstadoDia.TramoDia(entradaAbierta, a.getHora()));
                     entradaAbierta = null;
                 } else if (!tramos.isEmpty()) {
-                    // Salida sin tramo abierto: corrección de la salida del último
-                    // tramo cerrado (gana la última), no un tramo nuevo.
+                    // Salida sin tramo abierto pero con tramos cerrados: corrección
+                    // de la salida del último tramo (gana la última), NO una
+                    // huérfana — por eso este caso va antes que el de abajo.
                     int i = tramos.size() - 1;
                     tramos.set(i, new EstadoDia.TramoDia(tramos.get(i).entrada(), a.getHora()));
+                } else {
+                    // Salida sin tramo abierto NI tramos cerrados: huérfana. La
+                    // recordamos para emparejarla cuando llegue su entrada, en vez de
+                    // descartarla en silencio (issue #221). Si nunca llega esa
+                    // entrada, el día queda PENDIENTE, exactamente como antes.
+                    //
+                    // Si YA había una huérfana pendiente, ahora hay dos salidas
+                    // sueltas distintas: no sabemos si la segunda corrige a la primera
+                    // o si son las salidas de dos tramos de un turno partido, así que
+                    // marcamos el emparejado como ambiguo y no auto-completamos
+                    // (issue #221: evita fabricar un tramo mezclado que nadie fichó).
+                    if (salidaHuerfana != null) {
+                        huerfanaAmbigua = true;
+                    }
+                    salidaHuerfana = a.getHora();
                 }
-                // Salida sin ninguna entrada previa: no forma tramo; el día
-                // quedará PENDIENTE de completar (ver abajo).
             } else if (a.getTipo() == TipoApunte.AUSENCIA) {
                 // La ausencia es una frontera: invalida los fichajes anteriores.
-                // Corregir después "sí entré" no resucita tramos viejos.
+                // Corregir después "sí entré" no resucita tramos viejos, ni tampoco
+                // la huérfana pendiente (queda descartada como todo lo anterior).
                 tramos.clear();
                 entradaAbierta = null;
+                salidaHuerfana = null;
+                huerfanaAmbigua = false;
             }
             ultimo = a;
         }
@@ -270,5 +335,16 @@ public class FichajeService {
     private static int minutosDelDia(String hora) {
         LocalTime t = LocalTime.parse(hora);
         return t.getHour() * 60 + t.getMinute();
+    }
+
+    /**
+     * ¿La entrada y la salida forman un tramo del MISMO día (entrada estrictamente
+     * antes que salida, sin cruce de medianoche)? Solo así vale emparejar una
+     * salida huérfana con una entrada posterior (issue #221): un emparejado que
+     * cruzara medianoche es indistinguible de una salida espuria seguida de un
+     * turno todavía abierto, y fabricaría horas nocturnas fantasma.
+     */
+    private static boolean formaTramoMismoDia(String entrada, String salida) {
+        return minutosDelDia(entrada) < minutosDelDia(salida);
     }
 }

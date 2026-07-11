@@ -475,12 +475,215 @@ class FichajeServiceTest {
     }
 
     @Test
-    @DisplayName("salida sin entrada → el día sigue PENDIENTE de completar")
+    @DisplayName("salida sin entrada (huérfana sola, nunca emparejada) → el día sigue PENDIENTE (comportamiento intacto)")
     void salidaSinEntrada() {
         when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
                 .thenReturn(List.of(apunte(TipoApunte.SALIDA, "17:00", "2026-07-08T17:02")));
 
         assertThat(servicio.estadoDia(USUARIO, HOY).estado()).isEqualTo(EstadoDia.Estado.PENDIENTE);
+    }
+
+    // --- salida huérfana: reconstruir apuntando primero la salida (issue #221) ---
+
+    @Test
+    @DisplayName("issue #221: reconstruir un día apuntando la SALIDA (20:00) antes que la ENTRADA (10:00) → COMPLETO 10h, no 'En curso'")
+    void salidaHuerfanaAntesQueEntradaFormaTramo() {
+        // El caso literal del QA: "me acuerdo de a qué hora salí" primero. Antes
+        // dejaba el día EN_CURSO y esas horas desaparecían del resumen del mes.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(10 * 60);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("10:00", "20:00"));
+        assertThat(estado.entradaAbierta()).isNull();
+    }
+
+    @Test
+    @DisplayName("dos SALIDAS huérfanas distintas antes de la entrada: ambiguo (¿corrección de la misma o dos salidas de un partido?) → no se auto-empareja, queda EN_CURSO, sin horas fabricadas")
+    void dosSalidasHuerfanasNoSeAutoEmparejan() {
+        // Con dos salidas sueltas no hay forma de saber si la segunda corrige a la
+        // primera (misma salida) o si son las salidas de dos tramos de un turno
+        // partido. Emparejar la "última" con la primera entrada fabricaba un tramo
+        // que no fichó nadie (ver issue #221 / regresión de abajo). Ante la duda no
+        // se auto-completa: la entrada abre tramo y el día queda EN_CURSO, igual que
+        // antes de la feature; el usuario lo cierra.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "19:00", "2026-07-08T20:00"),
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:02"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
+        assertThat(estado.entradaAbierta()).isEqualTo("10:00");
+        assertThat(estado.tramos()).isEmpty();
+    }
+
+    @Test
+    @DisplayName("la AUSENCIA es frontera: descarta también la huérfana pendiente, la entrada posterior abre tramo nuevo → EN_CURSO")
+    void ausenciaDescartaLaHuerfanaPendiente() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.AUSENCIA, null, "2026-07-08T20:03"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
+        assertThat(estado.entradaAbierta()).isEqualTo("10:00");
+        assertThat(estado.tramos()).isEmpty();
+    }
+
+    @Test
+    @DisplayName("issue #221 regresión: SALIDA huérfana (10:00) antes que la ENTRADA de un turno abierto (20:00) NO fabrica un tramo nocturno de 14h — queda EN_CURSO, no COMPLETO")
+    void salidaHuerfanaAntesDeTurnoAbiertoNoFabricaHoras() {
+        // Misclick/resto de reconstrucción: SALIDA 10:00 como primer apunte del día
+        // y luego el turno real de tarde (ENTRADA 20:00) todavía sin cerrar.
+        // Emparejarlas daría el tramo (20:00, 10:00) que minutosEntre trata como
+        // cruce de medianoche = 14h nocturnas fantasma (bajo el techo de 16h, así
+        // que ResumenMensualService las contaría como horas debidas). El emparejado
+        // de huérfana solo vale si forma un tramo del mismo día (entrada < salida):
+        // aquí la entrada es POSTERIOR a la salida, así que no se empareja.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "10:00", "2026-07-08T10:02"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T20:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
+        assertThat(estado.entradaAbierta()).isEqualTo("20:00");
+        assertThat(estado.tramos()).isEmpty();
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("huérfana que cruzaría medianoche (SALIDA 02:00 antes que ENTRADA 20:00): indistinguible de una salida espuria + turno abierto → no se empareja, queda EN_CURSO")
+    void huerfanaQueCruzariaMedianocheNoSeEmpareja() {
+        // Un turno de cierre real (20:00 → 02:00) reconstruido "salida primero" tiene
+        // exactamente la misma forma que una salida espuria 02:00 seguida de un turno
+        // de tarde aún abierto: entrada POSTERIOR a la salida. No se puede distinguir,
+        // así que no se auto-completa (evita fabricar horas, ver regresión de arriba).
+        // El cierre nocturno legítimo se reconstruye "entrada primero" (ENTRADA 20:00,
+        // SALIDA 02:00), que sí cierra el tramo por la vía normal.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "02:00", "2026-07-08T02:03"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-08T08:00")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
+        assertThat(estado.entradaAbierta()).isEqualTo("20:00");
+        assertThat(estado.tramos()).isEmpty();
+    }
+
+    @Test
+    @DisplayName("issue #221 regresión: dos SALIDAS huérfanas distintas + dos ENTRADAS (turno partido reconstruido salidas-primero) NO fabrican un tramo mezclado — queda EN_CURSO")
+    void dosHuerfanasDistintasConDosEntradasNoFabricanTramo() {
+        // El usuario reconstruye un turno partido apuntando primero las dos salidas
+        // (12:00, 22:00) y luego las dos entradas (08:00, 14:00). Con una sola ranura
+        // de huérfana "gana la última" (22:00) y se emparejaba con la primera entrada
+        // (08:00) → tramo (08:00, 22:00) = 14h que mezcla la entrada de la mañana con
+        // la salida de la tarde, ninguna hora que se fichó. Al ser ambiguo (dos
+        // salidas sueltas) no se auto-empareja: el día queda EN_CURSO desde 14:00.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "12:00", "2026-07-08T20:00"),
+                        apunte(TipoApunte.SALIDA, "22:00", "2026-07-08T20:02"),
+                        apunte(TipoApunte.ENTRADA, "08:00", "2026-07-08T20:05"),
+                        apunte(TipoApunte.ENTRADA, "14:00", "2026-07-08T20:08")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
+        assertThat(estado.entradaAbierta()).isEqualTo("14:00");
+        assertThat(estado.tramos()).isEmpty();
+    }
+
+    @Test
+    @DisplayName("issue #221 regresión: si el turno partido ambiguo se cierra luego con una SALIDA, solo cuenta el tramo real, sin solape de 23h")
+    void turnoPartidoAmbiguoAlCompletarNoSobrecuenta() {
+        // Continuación del caso anterior: llega la SALIDA 23:00 que cierra la entrada
+        // abierta (14:00). Como no se fabricó el tramo (08:00, 22:00), no hay solape
+        // 14:00-22:00 contado dos veces: el día cuenta solo (14:00, 23:00) = 9h.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "12:00", "2026-07-08T20:00"),
+                        apunte(TipoApunte.SALIDA, "22:00", "2026-07-08T20:02"),
+                        apunte(TipoApunte.ENTRADA, "08:00", "2026-07-08T20:05"),
+                        apunte(TipoApunte.ENTRADA, "14:00", "2026-07-08T20:08"),
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("14:00", "23:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(9 * 60);
+    }
+
+    @Test
+    @DisplayName("tras emparejar la huérfana, una SALIDA posterior corrige la salida de ese tramo (regla existente sigue viva)")
+    void salidaPosteriorCorrigeElTramoDeLaHuerfana() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05"),
+                        apunte(TipoApunte.SALIDA, "21:00", "2026-07-08T21:02")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("10:00", "21:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(11 * 60);
+    }
+
+    @Test
+    @DisplayName("emparejar la huérfana no salta el cupo D38: con dos tramos ya llenos, la entrada corrige el último, no fabrica un tercero")
+    void huerfanaEmparejadaRespetaElCupoDeTramos() {
+        // La huérfana (19:00) la empareja la primera entrada (10:00) en el tramo 1.
+        // Luego se declara el tramo 2 y una entrada más cae por la regla de cupo
+        // lleno sobre el tramo 2 (gana la última), sin resucitar la huérfana ya
+        // consumida ni abrir un tercer tramo.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "19:00", "2026-07-08T20:00"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05"),
+                        apunte(TipoApunte.ENTRADA, "08:00", "2026-07-08T20:10"),
+                        apunte(TipoApunte.SALIDA, "12:00", "2026-07-08T20:12"),
+                        apunte(TipoApunte.ENTRADA, "09:00", "2026-07-08T20:20")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(
+                new EstadoDia.TramoDia("10:00", "19:00"),
+                new EstadoDia.TramoDia("09:00", "12:00"));
+        assertThat(estado.tramos()).hasSize(2); // el cupo D38 se respeta: nunca un tercer tramo
+    }
+
+    @Test
+    @DisplayName("huérfana emparejada que inflaría la jornada (>16h): el techo de cordura deja el total sin calcular, el resumen no la sobrecuenta")
+    void huerfanaEmparejadaQueInflaLaJornadaSeQuedaSinTotal() {
+        // Salida 23:00 apuntada antes que la entrada 06:00 → tramo 06:00-23:00 =
+        // 17h, por encima del techo de cordura. minutosTrabajados = -1 y así
+        // ResumenMensualService.minutosReales lo excluye (no sobrecuenta dinero).
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:03"),
+                        apunte(TipoApunte.ENTRADA, "06:00", "2026-07-08T23:10")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
     }
 
     @Test
