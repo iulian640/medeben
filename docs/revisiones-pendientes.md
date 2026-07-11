@@ -16,11 +16,20 @@ Firmado o acordado pero **aún sin publicación oficial**. Hay que comprobar el
 boletín cada pocas semanas hasta que salga; en cuanto se publique, transcribir e
 integrar.
 
-### 1. La Rioja hospedaje — convenio 2026-2028 ya FIRMADO, sin BOR
+### 1. La Rioja hospedaje — convenio 2026-2028 ✅ YA PUBLICADO (BOR 07-07-2026) → TRANSCRIBIR
 - **Fichero:** `convenios/larioja-hospedaje.json` (campo `convenioPosteriorFirmadoNoPublicado`).
-- **Situación:** el convenio 2026-2028 se firmó el **09-03-2026** (patronal FER +
-  UGT/CCOO/USO). El JSON sigue con las tablas 2023-2025 en ultraactividad porque el
-  nuevo **no está publicado en el BOR** a jul-2026.
+- **Situación (actualizada 2026-07-11):** YA ESTÁ PUBLICADO. **BOR nº127, 07-07-2026,
+  Resolución 544/2026** (suscrito el 24-06-2026; el 09-03-2026 fue el preacuerdo de
+  prensa de FER). El JSON sigue con las tablas 2023-2025 en ultraactividad.
+- **ACCIÓN:** transcribir el convenio nuevo con **verificación en imagen** (dpi 185,
+  celda a celda) — es dato de dinero, no se aplica desde extracción de texto. Cambios
+  confirmados leyendo el articulado: salarios +5%(2026)/+4,5%(2027)/+4,5%(2028);
+  jornada PROGRESIVA 1.760h(2026)→1.756h(2027)→1.752h(2028) [no un salto directo a
+  1.752]; nocturnidad 70€/mes + tramo nuevo por horas (3% hasta 3h, 25% desde la 4ª);
+  plus festivo 10€/festivo; plus transporte 2,50/5,00; plus manutención 4,00€/día;
+  póliza accidentes 50.000/50.000; permisos art.18 reestructurados (fallecimiento 1er
+  grado 3 días); cláusula IPC 2029 (tope 2,15%). Las **tablas del Anexo II** faltan por
+  extraer (releer esa sección del BOR). URL: https://web.larioja.org/bor-portada/boranuncio?n=anu-578467
 - **Cambios ya anunciados a cargar cuando salga:** subidas +5% (2026) / +4,5% (2027)
   / +4,5% (2028); jornada 1.768 h → **1.752 h**; nocturnidad **70 €/mes**; nuevo plus
   festivo **10 €/festivo**; seguro accidentes 30.000 € → **50.000 €**; permiso
@@ -224,13 +233,28 @@ al modo manual mientras tanto; nada bloquea la v1):
 2. **Mapeo por provincia en restauración colectiva** — 296 literales de categoría
    distintos entre los 48 anexos provinciales, con agrupaciones diferentes por
    provincia. Requiere tabla puesto→literal por provincia (16×48, revisión manual).
-3. **Transcripciones a completar** (imposible mapear sin inventar):
-   - Valencia: la clasificación ocupación→nivel remite al V ALEH, no transcrito.
-   - Melilla: grupos sin enumerar categorías (remite al ALEH).
-   - Alicante: correspondencia categoría→nivel no está en el articulado (ya es duda UGT).
-   - Las Palmas: listas del Anexo II abreviadas ("...") en la transcripción.
-   - Málaga: Anexo III puesto→nivel de hoteles (secciones 1ª-2ª) sin transcribir.
-   - Lugo (colectiva estatal): tabla multi-columna transcrita como strings.
+3. **Transcripciones a completar** (revisado 2026-07-11 — fuente localizada en todos):
+   - ~~Valencia~~ ✅ YA RESUELTO en el corpus (Anexo I retributivo en `valencia-hosteleria.json`,
+     mapeo aplicado). La nota vieja "remite al V ALEH" solo valía para la clasificación
+     FUNCIONAL, no la retributiva.
+   - ~~Alicante~~ ✅ YA RESUELTO (`mapeoCategoriaNivel` del Anexo II, BOP nº200/2023).
+   - ~~Las Palmas~~ ✅ YA RESUELTO (listas completas del Anexo II en `laspalmas-hosteleria.json`).
+   - **Melilla — PENDIENTE, fuente localizada:** el **Art. 16 del VI ALEH**
+     (BOE-A-2023-6344, págs. 35911-35913) SÍ enumera ocupación→grupo por área funcional.
+     OJO: el mapeo actual de Melilla probablemente CONTRADICE ese artículo (p. ej.
+     jefe-partida figura en Grupo Primero, el art. 16 lo pone en Segundo; camarera-pisos
+     y ayudante-cocina se dejan a autodeclaración cuando el art. 16 los fija). **Verificar
+     contra la imagen del BOE antes de tocar** (cambia grupo → cambia salario).
+   - **Málaga — PENDIENTE, fuente localizada:** el Anexo III completo (Secciones 1ª-2ª,
+     Grupos I-V) está en el PDF de aehcos.es ya citado como `verificadoContra` del resto
+     del convenio. El nivel del cocinero difiere por sección (hotel Grupo IV vs hostal
+     Grupo III) — se resuelve con la columna de tarifa que el usuario ya elige. Transcribir
+     con verificación en imagen.
+   - **Lugo (colectiva estatal) — PENDIENTE, ya en el corpus:** los 13 literales y sus 3
+     columnas (5y4t / 3t / 1y2t) YA están en `estatal-restauracion-colectiva.json`
+     (verificado, BOE-A-2025-12598 págs. 82203-82204). Solo falta NORMALIZAR (partir los
+     strings en campos numéricos con una dimensión "tenedores") y extender el mapeo
+     `condicionalPorProvincia`. Menor riesgo (los números ya están verificados).
 4. **Grafías inconsistentes en la capa normalizada** (unificar EN LA TRANSCRIPCIÓN
    verificando contra el PDF, y re-derivar): Lugo ("Cocinero/a-repostero/a" vs
    "-Repostero/a"; "Camarero/a pisos" vs "Pisos"), Málaga ("Ayudante cocinero" vs

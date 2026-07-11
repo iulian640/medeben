@@ -1,111 +1,66 @@
-# Preguntas para UGT (dudas abiertas del proyecto)
+# Preguntas para UGT — dudas ABIERTAS
 
-Lista para llevar a la llamada con UGT. Cada duda salió de transcribir convenios
-reales. Objetivo: confirmar cómo interpretar/aplicar bien los datos en la app.
+Lista limpia para la llamada con UGT: **solo lo que sigue sin resolver** con
+fuente oficial. Las dudas ya cerradas se han retirado de aquí y quedan
+registradas, con su cita oficial, en `docs/dudas-resueltas/` (00-transversales,
+06-investigadas-2026-07-10 y 07-investigadas-2026-07-11).
 
-## 1. Jerarquía y concurrencia de convenios (la gorda)
-- ¿Cómo se decide qué convenio aplica a un trabajador cuando hay uno **estatal**
-  (marco) y uno **provincial/autonómico** (tablas)? ¿El provincial siempre pone
-  el salario? ¿En qué materias manda cada uno (art. 84 ET)?
-- Si el provincial y el estatal difieren en algo (p. ej. nocturnidad), ¿se aplica
-  el más favorable al trabajador, o gana un nivel por regla fija?
+> Resueltas y retiradas (para que no se vuelvan a preguntar): jerarquía/concurrencia
+> de convenios (§1), horas extra y valor de la hora ordinaria (§3), nocturnidad
+> Madrid 1% (§4), salario inicial vs garantizado (§5), cafeterías/tazas (§5b),
+> ultraactividad (§6), denuncia vs buzón de fraude (§7), descanso entre jornadas
+> 10 h en Cataluña (§7b), calor / RD-ley 4/2023 (§8), Sevilla/Cádiz (erratas de
+> transcripción, corregidas). Todas con fuente en `dudas-resueltas/`.
 
-## 2. Subsectores dentro de "hostelería"
-- Confirmar que en cada provincia hay convenios separados para **hospedaje
-  (hoteles)** y **hostelería (bares/restaurantes)**, y que **restauración
-  colectiva** (comedores, hospitales) va por el estatal. ¿Es así en todas las
-  provincias o varía?
-- ¿Cómo sabe un trabajador con seguridad cuál le aplica? (código REGCON, objeto
-  de la empresa, lo que ponga su contrato...)
+---
 
-## 3. Horas extra
-- En el convenio de hospedaje de Madrid no aparece precio de hora extra para
-  plantilla (solo 22,65 € para "servicios extras"). ¿Se aplica entonces el ET
-  (hora extra = mínimo valor de la hora ordinaria)? ¿O hay otra regla del sector?
-- ¿El tope de 80 h/año del ET, lo modifica algún convenio de hostelería?
-- ¿Cómo se calcula "el valor de la hora ordinaria" oficialmente? ¿(salario base
-  × 14 + pluses) / jornada anual? ¿Entran los pluses en el divisor?
+## 1. Ambigüedades de clasificación entre DOS filas del propio convenio (dinero)
 
-## 4. Nocturnidad
-- En Hostelería de Madrid la nocturnidad de 22:00-00:00 es del **1%** y de
-  00:00-08:00 del 25%. ¿Es correcto que el tramo 22-00 sea tan bajo? ¿Se aplica
-  de verdad así en nómina?
+El texto oficial deja el puesto en dos niveles con salarios distintos, sin criterio
+para distinguirlos → la app los deja en `null` (no inventa) hasta que UGT confirme.
 
-## 5. "Salario garantizado" vs "salario inicial"
-- En el convenio de hostelería las tablas tienen columnas **inicial** y
-  **garantizado**. ¿Cuál es el salario real que cobra el trabajador y cuál se usa
-  para calcular horas extra y nocturnidad?
+- **Valladolid — "Jefe de Partida" (cocina):** la tabla única de 2026 (BOP,
+  Anexo III) lo lista **a la vez en Nivel Salarial II (1.322,96 €/mes) y III
+  (1.276,03 €/mes)**. Verificado que no hay corrección de erratas publicada (la del
+  BOP nº2025/132 solo tocó manutención y LGTBI). ¿Se aplica NS III o el trabajador
+  puede exigir NS II (lectura más favorable)? ¿Hay acuerdo de la comisión paritaria?
+- **Girona — "Jefe/a de sala" (restauración colectiva):** el convenio estatal
+  (BOE-A-2025-12598) lo lista **literalmente en NIV.1 (1.739,97 €/mes) y NIV.3
+  (1.553,64 €/mes)**, sin criterio. ¿Bajo qué criterio se aplica cada uno? (igual
+  con "Segundo/a Jefe/a de sala", NIV.2 y NIV.3).
+- **Lleida — personal de limpieza (restauración colectiva, mismo BOE):** "Aux. de
+  Servicio y Limpieza" (NIV.4, 1.282,94 €/mes = sirve la línea Y limpia) vs
+  "Auxiliar de limpieza" (NIV.5, 1.231,63 €/mes = solo limpia). ¿Qué función marca
+  la frontera? (candidato conservador: NIV.5, el más bajo, pero no se aplica sin
+  confirmación).
 
-## 5b. Cafeterías, "tazas" y porcentaje de servicio
-- Confirmar el sistema de "tazas" (1/2/3) para clasificar cafeterías.
-- En las tablas de cafeterías con servicio de sala, los importes son "sueldo
-  inicial" y en varias categorías el de 2 tazas es MAYOR que el de 3 tazas.
-  ¿Es porque encima va el porcentaje de servicio y las de 3 tazas generan más?
-  ¿Cómo se calcula el salario TOTAL real (inicial + % servicio)?
+## 2. Qué pluses son "computables" en el valor de la hora ordinaria
 
-## 6. Ultraactividad
-- El convenio de Hostelería de Madrid 2023-2025 expiró el 31-12-2025. ¿Las
-  tablas de 2025 siguen vigentes en 2026 por ultraactividad? ¿Hasta cuándo?
+El ET fija el método (valor hora = (salario base × pagas + pluses) / jornada), pero
+**qué pluses concretos entran** (transporte, manutención, asistencia, ropa...) es
+de convenio/práctica de empresa. ¿Hay una regla general para hostelería o va caso a
+caso? Afecta al cálculo de horas extra.
 
-## 7. Denuncias e Inspección
-- Confirmar la diferencia entre denuncia formal (confidencial) y el Buzón de
-  lucha contra el fraude (anónimo). ¿Qué prueba pide Inspección? ¿Sirven fotos de
-  cuadrantes y registros hechos por el propio trabajador?
+## 3. Subsectores por provincia
 
-## 7b. Descanso entre jornadas y suelo europeo
-- El convenio de Cataluña permite reducir el descanso entre jornadas a 10 h. La UE
-  (Directiva 2003/88) exige 11 h y el ET 12 h. ¿Es legal bajar a 10 h? ¿Obliga a
-  dar **descanso compensatorio** por esa hora? ¿Cómo se reclama?
-- ¿Qué mínimos europeos conviene que la app vigile como suelo absoluto (48 h/sem,
-  11 h descanso, 4 semanas vacaciones)?
+Confirmar **provincia a provincia** que existen convenios separados para hospedaje
+(hoteles), hostelería (bares/restaurantes) y restauración colectiva (comedores), y
+cómo sabe un trabajador con seguridad cuál le aplica (código REGCON, objeto de la
+empresa, su contrato).
 
-## 8. Calor / condiciones climáticas
-- ¿Qué dice exactamente el RD-ley 4/2023 sobre parar el trabajo por calor? ¿Hay
-  umbral de grados o va por alerta AEMET? ¿Aplica a cocinas/terrazas?
+## 4. Dudas por convenio marcadas [REQUIERE UGT/EMPRESA]
 
-## 9. ¿Colaboración?
-- ¿A UGT le interesaría estar en una app gratuita del lado del trabajador de
-  hostelería (contactos, difusión, revisión de contenido)? (posible patrocinio /
-  aval, ver ADR D1).
+Recogidas en `docs/dudas-resueltas/grupo-a…d.md` — el convenio no fija el dato y
+depende de la práctica de empresa. Las principales:
 
-## 12. Clasificaciones contradictorias o ambiguas detectadas al mapear puestos (2026-07-08)
+- **Salario en especie (alojamiento/manutención):** cuando el convenio lo menciona
+  sin cuantificar (Álava y otros), ¿cómo se valora? (art. 26.1 ET remite a acuerdo).
+- **Plus de limpieza/mantenimiento de ropa no tabulado** (A Coruña y otros): ¿importe
+  pactado en empresa o coste real?
+- **Jornada/descuadres puntuales** señalados en cada convenio (p. ej. Alicante art. 34).
 
-Pendientes de re-verificar contra el PDF oficial; si el boletín de verdad dice esto,
-¿cómo se interpreta?
+## 5. Colaboración de UGT
 
-- ~~Sevilla~~ y ~~Cádiz~~: RESUELTAS 2026-07-08 re-verificando la imagen del PDF —
-  eran errores nuestros de transcripción, ya corregidos (camarero de Sevilla = Nivel 3;
-  el "Cocinero/a (ayte.)" del grupo 4 de Cádiz no existe en el BOP).
-- **Valladolid (SIGUE ABIERTA):** errata del PROPIO BOP verificada: la tabla 2026 lista
-  al jefe de partida en NS II y NS III a la vez; la tabla 2025 y la estructura del resto
-  de áreas apuntan a NS III (NS II = segundos jefes). ¿Se aplica NS III, o el trabajador
-  puede exigir NS II (lectura más favorable) mientras el BOP no publique corrección?
-- **Ambigüedad recurrente en media España:** "administrativo/a" no existe como
-  categoría llana (solo oficial 1ª/2ª, auxiliar...). ¿Qué categoría se presume si el
-  contrato dice solo "administrativo"?
-
-## 13. Restauración colectiva: dos puestos en NULL por ambigüedad REAL del BOE (verificado 2026-07-11)
-
-Verificadas contra el PDF oficial (**BOE-A-2025-12598**, convenio estatal de
-restauración colectiva, BOE núm. 148 de 20-jun-2025, anexos de Cataluña págs.
-82197-82199). En ambos casos el texto oficial NO desambigua: no son fallos de
-transcripción, son ambigüedad de fondo del propio convenio. Se quedan en `null`
-(dato ausente > dato erróneo) hasta que UGT confirme.
-
-- **Girona — "Jefe/a de sala":** el BOE lista *literalmente* el mismo puesto en
-  **dos niveles con salarios distintos**: NIV.1 (1.739,97 €/mes, junto a jefe/a de
-  administración/comercial/cocina) y NIV.3 (1.553,64 €/mes, junto a jefe/a de
-  partida/sector). El articulado (art. 13) dice que las ocupaciones son "meramente
-  enunciativas" y remite al ALEH, que no mapea a la numeración NIV. **Pregunta:**
-  *¿bajo qué criterio se aplica NIV.1 vs NIV.3 al mismo "Jefe/a de sala"? (¿tamaño
-  del centro, catering vs comedor, dependencia jerárquica?)* — igual pasa con
-  "Segundo/a Jefe/a de sala" (NIV.2 y NIV.3).
-- **Lleida — "personal de limpieza":** son **dos oficios distintos** a dos
-  precios: "Aux. de Servicio y Limpieza" (NIV.4, 1.282,94 €/mes = sirve la línea
-  Y limpia) vs "Auxiliar de limpieza / Fregador-limpiador" (NIV.5, 1.231,63 €/mes
-  = solo limpia). El convenio no define funciones. **Pregunta:** *un trabajador de
-  comedor de colectividad cuya función es limpiar, ¿se encuadra en "Auxiliar de
-  limpieza" (NIV.5) o en "Auxiliar de Servicio y Limpieza" (NIV.4)? ¿Qué función
-  marca la frontera?* — Si hubiera que elegir hoy, el candidato conservador es
-  NIV.5 (importe más bajo, nunca sobreestima la deuda), pero no se aplica sin
-  confirmación.
+¿A UGT le interesaría estar en una app gratuita del lado del trabajador de
+hostelería (contactos, difusión, revisión de contenido)? (posible aval/patrocinio,
+ADR D1).
