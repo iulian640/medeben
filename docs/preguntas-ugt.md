@@ -83,3 +83,29 @@ Pendientes de re-verificar contra el PDF oficial; si el boletín de verdad dice 
 - **Ambigüedad recurrente en media España:** "administrativo/a" no existe como
   categoría llana (solo oficial 1ª/2ª, auxiliar...). ¿Qué categoría se presume si el
   contrato dice solo "administrativo"?
+
+## 13. Restauración colectiva: dos puestos en NULL por ambigüedad REAL del BOE (verificado 2026-07-11)
+
+Verificadas contra el PDF oficial (**BOE-A-2025-12598**, convenio estatal de
+restauración colectiva, BOE núm. 148 de 20-jun-2025, anexos de Cataluña págs.
+82197-82199). En ambos casos el texto oficial NO desambigua: no son fallos de
+transcripción, son ambigüedad de fondo del propio convenio. Se quedan en `null`
+(dato ausente > dato erróneo) hasta que UGT confirme.
+
+- **Girona — "Jefe/a de sala":** el BOE lista *literalmente* el mismo puesto en
+  **dos niveles con salarios distintos**: NIV.1 (1.739,97 €/mes, junto a jefe/a de
+  administración/comercial/cocina) y NIV.3 (1.553,64 €/mes, junto a jefe/a de
+  partida/sector). El articulado (art. 13) dice que las ocupaciones son "meramente
+  enunciativas" y remite al ALEH, que no mapea a la numeración NIV. **Pregunta:**
+  *¿bajo qué criterio se aplica NIV.1 vs NIV.3 al mismo "Jefe/a de sala"? (¿tamaño
+  del centro, catering vs comedor, dependencia jerárquica?)* — igual pasa con
+  "Segundo/a Jefe/a de sala" (NIV.2 y NIV.3).
+- **Lleida — "personal de limpieza":** son **dos oficios distintos** a dos
+  precios: "Aux. de Servicio y Limpieza" (NIV.4, 1.282,94 €/mes = sirve la línea
+  Y limpia) vs "Auxiliar de limpieza / Fregador-limpiador" (NIV.5, 1.231,63 €/mes
+  = solo limpia). El convenio no define funciones. **Pregunta:** *un trabajador de
+  comedor de colectividad cuya función es limpiar, ¿se encuadra en "Auxiliar de
+  limpieza" (NIV.5) o en "Auxiliar de Servicio y Limpieza" (NIV.4)? ¿Qué función
+  marca la frontera?* — Si hubiera que elegir hoy, el candidato conservador es
+  NIV.5 (importe más bajo, nunca sobreestima la deuda), pero no se aplica sin
+  confirmación.

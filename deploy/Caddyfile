@@ -1,0 +1,26 @@
+# Terminador TLS de MeDeben para medeben.net.
+#
+# Va DELANTE del `web` del docker-compose (nginx en 127.0.0.1:80). Caddy saca
+# el certificado de Let's Encrypt solo, redirige 80->443, y proxya al nginx.
+#
+# Requisitos en el servidor:
+#   - Puertos 80 y 443 abiertos en el firewall (el 80 hace falta para el reto
+#     ACME HTTP-01, no solo para redirigir).
+#   - DNS: A (y AAAA si hay IPv6) de medeben.net y de www.medeben.net -> IP del VPS.
+#   - Instalar Caddy y apuntarlo a este fichero (o copiar su contenido a
+#     /etc/caddy/Caddyfile), luego: systemctl reload caddy
+#
+# IMPORTANTE (rate limiting): NO configures `trusted_proxies` aquí. Caddy debe
+# quedarse con el valor por defecto (no confía en ningún proxy anterior) para
+# anexar SIEMPRE la IP real del cliente al final de X-Forwarded-For. El nginx de
+# detrás la reenvía tal cual y el backend la lee como último salto; si Caddy
+# confiara en una X-Forwarded-For entrante, un cliente podría falsear su IP y
+# saltarse el límite anti-fuerza-bruta del login.
+
+www.medeben.net {
+	redir https://medeben.net{uri} permanent
+}
+
+medeben.net {
+	reverse_proxy 127.0.0.1:80
+}

@@ -3,6 +3,7 @@ package es.medeben.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import es.medeben.ratelimit.RateLimitFilter;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,6 +14,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 /**
  * Configuración de seguridad base.
@@ -36,6 +42,37 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    /**
+     * Orígenes permitidos por CORS. La PWA web se sirve MISMO ORIGEN (nginx da la
+     * web y proxya /api), así que no necesita CORS. El único cliente cross-origin
+     * es el APK de Android: el WebView de Capacitor, sin `androidScheme` propio,
+     * vive en {@code https://localhost} (ver capacitor.config.ts) y llama a
+     * https://medeben.net/api. Sin esto, toda petición del APK la bloquea CORS
+     * (y el preflight OPTIONS cae en `authenticated()` → 401). NUNCA {@code *}:
+     * el API expone datos personales (RGPD). Configurable por si algún día entra
+     * iOS ({@code capacitor://localhost}) u otro empaquetado.
+     */
+    private final List<String> origenesCors;
+
+    public SecurityConfig(
+            @Value("${medeben.seguridad.cors-origenes:https://localhost}") List<String> origenesCors) {
+        this.origenesCors = origenesCors;
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuracion = new CorsConfiguration();
+        configuracion.setAllowedOrigins(origenesCors);
+        configuracion.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        // El credencial viaja como Bearer en la cabecera, no en cookies: no hace
+        // falta allowCredentials (más seguro, y así jamás combina con orígenes '*').
+        configuracion.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        configuracion.setAllowCredentials(false);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/api/**", configuracion);
+        return source;
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, ObjectMapper objectMapper,
                                                      ObjectProvider<RateLimitFilter> rateLimitFilterProvider)
@@ -45,6 +82,9 @@ public class SecurityConfig {
         // entry point (no el de exceptionHandling) cuando el token no valida.
         AuthenticationEntryPoint entryPoint = new ProblemDetailEntryPoint(objectMapper);
         http
+                // CORS ANTES que nada: el preflight OPTIONS debe resolverse sin
+                // exigir autenticación (si no, el APK ni llega a la petición real).
+                .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
