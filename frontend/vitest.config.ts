@@ -20,6 +20,9 @@ export default defineConfig({
     exclude: ['e2e/**', 'node_modules/**', 'dist/**'],
     environment: 'jsdom',
     globals: true,
+    // localStorage limpio por test: el real depende de la versión de Node
+    // (ver src/test/storage-hermetico.ts) y filtraba estado entre tests en CI.
+    setupFiles: ['./src/test/storage-hermetico.ts'],
     // Cobertura solo del código fuente, con gate del 80% en las CUATRO
     // métricas (hoy: líneas 91,2%, statements 90,9%, branches 89,7%,
     // functions 86,1%).

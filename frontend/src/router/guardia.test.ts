@@ -15,7 +15,7 @@ vi.mock('../services/auth', async (importOriginal) => ({
   getMe: vi.fn(),
 }))
 
-import { getMe, postLogin, postRefresh } from '../services/auth'
+import { getMe, postLogin, postLogout, postRefresh } from '../services/auth'
 
 function ruta(parcial: Partial<RouteLocationNormalized>): RouteLocationNormalized {
   return { meta: {}, fullPath: '/', name: undefined, ...parcial } as RouteLocationNormalized
@@ -55,6 +55,9 @@ function refreshPersistido(refreshToken: string, refreshExpiraEn: string): Recor
 beforeEach(() => {
   setActivePinia(createPinia())
   vi.clearAllMocks()
+  // La revocación en segundo plano (issue #229) es fire-and-forget con .catch:
+  // el mock debe devolver una promesa, como el postLogout real.
+  vi.mocked(postLogout).mockResolvedValue(undefined)
 })
 
 afterEach(() => {
