@@ -9,9 +9,10 @@ export const PASSWORD_E2E = 'Clave-e2e-2026!'
 
 /**
  * Crea una cuenta nueva y espera a estar dentro (el registro encadena el
- * login y aterriza en /cuenta). OJO: el token vive SOLO en memoria — a partir
- * de aquí se navega por la interfaz (barra inferior, enlaces), nunca con
- * page.goto(), que recarga la SPA y pierde la sesión.
+ * login y aterriza en /cuenta). El access token vive SOLO en memoria; desde
+ * aquí se navega por la interfaz (barra inferior, enlaces), como haría el
+ * usuario. Una recarga YA no pierde la sesión: se restaura en silencio con el
+ * refresh persistido (issue #220, ver sesion-persistente.spec.ts).
  */
 export async function registra(page: Page, email: string): Promise<void> {
   await page.goto('/registro')

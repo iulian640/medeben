@@ -23,10 +23,11 @@ export class ApiError extends Error {
 }
 
 /**
- * Token de sesión SOLO en memoria (requisito de seguridad: nunca localStorage,
+ * Access token SOLO en memoria (requisito de seguridad: nunca localStorage,
  * sessionStorage ni cookies legibles por JS — un XSS no debe poder exfiltrar
- * una credencial persistida). Al recargar la página se pierde y toca hacer
- * login otra vez; aceptado para v1.
+ * el credencial que viaja en cada petición). Al recargar la página se pierde,
+ * pero la sesión se restaura en silencio con el refresh persistido, sin volver
+ * a pedir login (issue #220, en stores/auth.ts + lib/sesionPersistida.ts).
  */
 let authToken: string | null = null
 
