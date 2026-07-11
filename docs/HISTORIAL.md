@@ -3,6 +3,47 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-11 — QA general de la app y los cinco hallazgos arreglados (PRs #223-#227)
+
+Primera pasada de QA funcional sobre la app entera (flujo anónimo, cuenta,
+horario, libreta, resumen, informes PDF, borrado RGPD). El dinero cuadró de
+punta a punta; salieron 5 issues (#218-#222) y los cinco quedaron arreglados,
+revisados y mergeados el mismo día:
+
+- **#221 → PR#225, el importante (dinero y evidencia)**: reconstruir un día
+  apuntando la salida antes que la entrada dejaba el día "En curso" y esas
+  horas desaparecían del resumen y del informe. Ahora la salida huérfana se
+  empareja con la entrada posterior, pero SOLO cuando es inequívoco (mismo
+  día, entrada anterior a la salida, una única huérfana; la ausencia la
+  descarta como frontera). La revisión adversarial tumbó el emparejado
+  ingenuo: habría fabricado jornadas nocturnas fantasma de 14 h (cruce de
+  medianoche) y tramos mezclados en turnos partidos. Ante la ambigüedad no se
+  auto-completa: un dato erróneo es peor que uno ausente.
+- **#220 → PR#227 (decisión de producto)**: la sesión ya sobrevive a recargar.
+  Se persiste SOLO el refresh token (rotativo, revocable, con detección de
+  robo — B4 intacto) en localStorage con acceso defensivo; el access y el
+  email siguen únicamente en memoria. Restauración silenciosa al arrancar con
+  guardia async; coordinación entre pestañas (compare-and-delete) para que una
+  pestaña perdedora de la rotación no purgue el token de la ganadora. E2E
+  nuevo en CI: "recargar mantiene la sesión". Matiz de D38 documentado en el
+  store: una credencial revocable no es el diario.
+- **#218 → PR#224**: el arranque documentado (`mvn spring-boot:run`) volvía a
+  arrancar activando el perfil dev desde la configuración del plugin (la
+  barrera del secreto JWT, H1, queda intacta). Ojo verificado en vivo: el
+  perfil del plugin viaja como argumento de programa y le gana a
+  `SPRING_PROFILES_ACTIVE`; para otro perfil, `-Dspring-boot.run.profiles`.
+- **#219 → PR#223**: la clasificación decía "tu puesto es barcelona" (colaba
+  la zona como puesto). Ahora nombra el puesto elegido y etiqueta cada
+  dimensión; de propina cayó un bug real de etiquetas (sinónimo corto contra
+  etiqueta larga, reproducido con los datos de Cádiz).
+- **#222 → PR#226**: las citas de fuentes ya dicen "1.705,13 €/mes" en vez de
+  "1705.13 EUR/mes", reutilizando el formateador del informe PDF.
+
+Todo con TDD (el caso literal del QA es ahora un test de regresión), CI verde
+incluidos los E2E, y verificación final de los cinco flujos sobre la app real.
+Dos sospechas del QA resultaron falsas alarmas de la automatización del
+navegador, no bugs — quedaron descartadas tras investigarlas.
+
 ## 2026-07-10 (noche) — sesiones revocables: refresh rotativo y logout real (B4)
 
 El último punto activo de la arquitectura. Antes: JWT de 24 h imposible de
