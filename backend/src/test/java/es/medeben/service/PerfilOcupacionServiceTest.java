@@ -1,6 +1,7 @@
 package es.medeben.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import es.medeben.controller.DimensionDesconocidaException;
 import es.medeben.repository.HechosCatalog;
 import es.medeben.repository.OcupacionesCatalog;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @DisplayName("PerfilOcupacionService — del puesto en cristiano a las dimensiones de la tabla (D20)")
 class PerfilOcupacionServiceTest {
@@ -176,13 +178,51 @@ class PerfilOcupacionServiceTest {
     }
 
     @Test
-    @DisplayName("una respuesta inventada no resuelve el nivel: reaparece la pregunta (nunca se inventa)")
+    @DisplayName("#233 una respuesta inventada en el árbol ya no se ignora en silencio: 422 con las opciones reales")
     void condicionalRespuestaInventada() {
-        var r = servicio.resuelve("jaen-hosteleria", "cocinero",
-                java.util.Map.of("establecimiento", "castillo-inventado")).orElseThrow();
+        // Antes se re-preguntaba sin decir que el valor se había descartado:
+        // cualquier desajuste lista↔motor se volvía invisible. Sigue sin
+        // inventarse nada — pero ahora se dice alto y claro qué opciones hay.
+        assertThatThrownBy(() -> servicio.resuelve("jaen-hosteleria", "cocinero",
+                java.util.Map.of("establecimiento", "castillo-inventado")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("castillo-inventado")
+                .hasMessageContaining("establecimiento")
+                .hasMessageContaining("hoteles");
+    }
 
-        assertThat(r.dimensiones()).isEmpty();
-        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("establecimiento");
+    @Test
+    @DisplayName("#233 árbol encadenado: la categoría inventada TRAS un tipo válido también es 422")
+    void condicionalCategoriaInventada() {
+        assertThatThrownBy(() -> servicio.resuelve("jaen-hosteleria", "cocinero",
+                java.util.Map.of("establecimiento", "hoteles", "categoria", "8*")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("categoria")
+                .hasMessageContaining("8*");
+    }
+
+    @Test
+    @DisplayName("#233 mapeo directo: un valor no reconocido responde 422 con los valores publicados, no se ignora")
+    void directoValorNoReconocido() {
+        assertThatThrownBy(() -> servicio.resuelve("madrid-hosteleria", "cocinero",
+                java.util.Map.of("claseEmpresa", "Z")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("'Z'")
+                .hasMessageContaining("claseEmpresa")
+                .hasMessageContaining("[A, B, C]");
+    }
+
+    @Test
+    @DisplayName("#233 dos valores válidos por separado cuya combinación no publica tabla → 422, no un 'sin tabla' mudo")
+    void combinacionNoPublicada() {
+        // Tenerife: grupoEstablecimiento 'A' existe (clasificación 1) y la
+        // clasificación '2' existe (indexa por establecimiento), pero juntos no
+        // corresponden a ninguna tabla. Callar aquí era el "sin tabla aplicable"
+        // falso del issue.
+        assertThatThrownBy(() -> servicio.resuelve("tenerife-hosteleria", "cocinero",
+                java.util.Map.of("clasificacion", "2", "grupoEstablecimiento", "A")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("combinación");
     }
 
     @Test
@@ -298,13 +338,26 @@ class PerfilOcupacionServiceTest {
     }
 
     @Test
-    @DisplayName("colectiva: una provincia inventada no resuelve nada, reaparece la pregunta (nunca se inventa)")
+    @DisplayName("#233 colectiva: una provincia inventada ya no repite la pregunta en silencio — 422 con las opciones")
     void colectivaProvinciaInventada() {
-        var r = servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
-                java.util.Map.of("provincia", "Atlantida")).orElseThrow();
+        assertThatThrownBy(() -> servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Atlantida")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("Atlantida")
+                .hasMessageContaining("provincia")
+                .hasMessageContaining("Zaragoza");
+    }
 
-        assertThat(r.dimensiones()).isEmpty();
-        assertThat(r.pendientes().getFirst().dimension()).isEqualTo("provincia");
+    @Test
+    @DisplayName("#233 colectiva: una provincia real SIN este puesto mapeado (Alicante) también avisa con 422, no calla")
+    void colectivaProvinciaSinPuestoMapeado() {
+        // El anexo de Alicante publica niveles sin nombrar ocupaciones: el
+        // cocinero está en null (podado). La respuesta debe decirlo, no
+        // devolver lo mismo que si no se hubiera contestado nada.
+        assertThatThrownBy(() -> servicio.resuelve("estatal-restauracion-colectiva", "cocinero",
+                java.util.Map.of("provincia", "Alicante")))
+                .isInstanceOf(DimensionDesconocidaException.class)
+                .hasMessageContaining("Alicante");
     }
 
     @Test

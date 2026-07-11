@@ -1,5 +1,6 @@
 package es.medeben.service;
 
+import es.medeben.controller.DimensionDesconocidaException;
 import es.medeben.domain.convenio.Hecho;
 import es.medeben.repository.HechosCatalog;
 import es.medeben.repository.OcupacionesCatalog;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Del puesto en cristiano a las dimensiones de la tabla (D20): el puesto fija
@@ -73,6 +75,7 @@ public class PerfilOcupacionService {
                         // `nivel` vía query param y saltar a otra fila salarial).
                         // Misma disciplina que el `nivel` del árbol en el condicional.
                         if (dimsTabla.contains(clave) && !directas.containsKey(clave)) {
+                            validaValorDeTabla(convenioId, clave, valor);
                             fijas.put(clave, valor);
                         }
                     });
@@ -91,6 +94,16 @@ public class PerfilOcupacionService {
                                                   OcupacionesCatalog.Condicional condicional,
                                                   Map<String, String> respuestas, String articulo) {
         NodoCondicional arbol = condicional.arbol();
+        // Una respuesta que no corresponde a ninguna rama ya no se ignora en
+        // silencio (#233): 422 con las opciones reales de ESA pregunta. Cubre
+        // tanto el valor inventado como la provincia real cuyo puesto está
+        // podado en el anexo (Alicante) — para este puesto no es una opción.
+        arbol.respuestaNoReconocida(respuestas).ifPresent(pregunta -> {
+            throw new DimensionDesconocidaException(
+                    "El valor '" + recorta(respuestas.get(pregunta.dimension()))
+                            + "' no está entre las opciones de la pregunta '" + pregunta.dimension()
+                            + "' para este puesto. Opciones: " + pregunta.valores());
+        });
         Optional<String> nivel = arbol.resuelveNivel(respuestas);
         if (nivel.isEmpty()) {
             // Falta responder alguna pregunta del árbol: se pide la siguiente
@@ -121,10 +134,45 @@ public class PerfilOcupacionService {
         // tabla se ignoran.
         respuestas.forEach((clave, valor) -> {
             if (!fijas.containsKey(clave) && dimsTabla.contains(clave)) {
+                validaValorDeTabla(convenioId, clave, valor);
                 fijas.put(clave, valor);
             }
         });
         return resueltaConAutofijado(convenioId, fijas, articulo);
+    }
+
+    /**
+     * 422 si el valor no está entre los publicados para esa dimensión en las
+     * tablas del convenio (#233): antes se plegaba tal cual, ningún hecho casaba
+     * y la respuesta era idéntica a no haber contestado — el desajuste entre lo
+     * que ofrece la lista y lo que entiende el motor se volvía invisible. Los
+     * valores del catálogo son datos públicos del boletín: se pueden enseñar.
+     */
+    private void validaValorDeTabla(String convenioId, String dimension, String valor) {
+        Set<String> publicados = new TreeSet<>();
+        for (Hecho hecho : hechos.deConvenio(convenioId)) {
+            if (CONCEPTO_SALARIO_BASE.equals(hecho.concepto())) {
+                String v = hecho.dimensiones().get(dimension);
+                if (v != null) {
+                    publicados.add(v);
+                }
+            }
+        }
+        if (!publicados.contains(valor)) {
+            throw new DimensionDesconocidaException(
+                    "El valor '" + recorta(valor) + "' no existe para la dimensión '" + dimension
+                            + "' del convenio '" + convenioId + "'. Valores publicados: " + publicados);
+        }
+    }
+
+    /** Tope de longitud del valor que se refleja en el mensaje de error (misma disciplina que el validador del perfil). */
+    private static final int ECO_VALOR_MAX = 60;
+
+    private static String recorta(String valor) {
+        if (valor == null) {
+            return "null";
+        }
+        return valor.length() <= ECO_VALOR_MAX ? valor : valor.substring(0, ECO_VALOR_MAX) + "…";
     }
 
     /**
@@ -189,14 +237,29 @@ public class PerfilOcupacionService {
      * una sola forma y la dimensión que corresponda pasa a ser común.
      */
     private List<OpcionDimension> pendientes(String convenioId, Map<String, String> fijas) {
+        boolean hayTablas = false;
         List<Hecho> compatibles = new ArrayList<>();
         for (Hecho hecho : hechos.deConvenio(convenioId)) {
-            if (CONCEPTO_SALARIO_BASE.equals(hecho.concepto()) && contiene(hecho.dimensiones(), fijas)) {
+            if (!CONCEPTO_SALARIO_BASE.equals(hecho.concepto())) {
+                continue;
+            }
+            hayTablas = true;
+            if (contiene(hecho.dimensiones(), fijas)) {
                 compatibles.add(hecho);
             }
         }
         if (compatibles.isEmpty()) {
-            return List.of();
+            // Convenio sin capa derivada: no hay tablas contra las que preguntar
+            // (modo manual, como en el validador del perfil). Pero si HAY tablas
+            // y ninguna casa, el cliente ha plegado valores válidos por separado
+            // que juntos no existen: callar aquí era el "sin tabla aplicable"
+            // falso del issue #233 — se dice alto y claro.
+            if (!hayTablas) {
+                return List.of();
+            }
+            throw new DimensionDesconocidaException(
+                    "Esa combinación de respuestas no corresponde a ninguna tabla salarial publicada del convenio '"
+                            + convenioId + "'");
         }
         Set<String> comunes = new LinkedHashSet<>(compatibles.getFirst().dimensiones().keySet());
         for (Hecho hecho : compatibles) {

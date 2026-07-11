@@ -130,6 +130,19 @@ class ConvenioControllerTest {
     }
 
     @Test
+    @DisplayName("#233 respuesta con valor no reconocido → 422 RFC 7807 diciendo qué dimensión y qué valores existen")
+    void resuelvePuestoValorNoReconocido() throws Exception {
+        // Antes se ignoraba en silencio (misma respuesta que no contestar nada);
+        // los valores del convenio son datos públicos del boletín, no hay fuga.
+        mockMvc.perform(get("/api/v1/convenios/estatal-restauracion-colectiva/puestos/cocinero")
+                        .param("provincia", "ValorInventado"))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.status").value(422))
+                .andExpect(jsonPath("$.detail", org.hamcrest.Matchers.containsString("provincia")))
+                .andExpect(jsonPath("$.detail", org.hamcrest.Matchers.containsString("Zaragoza")));
+    }
+
+    @Test
     @DisplayName("los GET de datos estáticos llevan Cache-Control público")
     void cacheControlEnDatosEstaticos() throws Exception {
         mockMvc.perform(get("/api/v1/convenios/madrid-hosteleria"))
