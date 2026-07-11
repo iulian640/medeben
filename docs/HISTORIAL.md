@@ -3,6 +3,40 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-11 — La colectiva ya calcula horas extra (issue #231)
+
+El subsector entero de restauración colectiva (comedores de colegio, hospital,
+empresa) estaba mudo en la feature que da nombre a la app: 422 permanente en
+horas extra y en "Lo tuyo, este mes" para las 49 provincias, porque su capa
+derivada solo tenía hechos de salarioBase — ni jornada ni pagas.
+
+- **Datos primero (nunca inventados)**: la jornada anual (1.800 h) estaba en el
+  marco nacional del crudo; las pagas VARÍAN POR PROVINCIA (rareza documentada
+  del convenio) y se verificaron una a una contra los anexos transcritos. Campo
+  canónico `mensualidadesEquivalentes` + nota en cada anexo provincial de la
+  transcripción (patrón de la PR #113) y de ahí a la capa derivada: 49 hechos
+  `jornadaAnual` + 40 `mensualidadesEquivalentes`, todos con `rutaCruda`
+  (validador cruzado verde). Cazas del barrido provincia a provincia: la paga
+  de septiembre de Guadalajara es de cuantía FIJA (415,77 €) y la "paga del
+  sector" de Burgos también (1.199,59 €) — fuera del multiplicador, como las
+  parciales de Córdoba/Cantabria/Lugo (pendiente conocido del motor).
+- **Motor**: `CalculoConvenioService` acepta las dimensiones del llamador y,
+  si el convenio no publica jornada/pagas en sus nodos propios, resuelve los
+  hechos derivados por subconjunto de dimensiones ({provincia} casa con el
+  perfil {provincia, categoria}); ultraactividad con su aviso en las citas.
+  Los nodos propios mandan: los otros 54 convenios, intactos.
+- **De punta a punta**: el resumen mensual pasa las dimensiones del perfil, el
+  endpoint anónimo acepta `dimensiones` opcionales (acotadas, anti-DoS) y la
+  calculadora del perfil las manda. Test de cadena completa (cocinero de
+  colectiva en Zaragoza: tabla → motor → 97,88 € por 10 h, con citas del BOE)
+  y test de cobertura que fija la foto: **40 de 49 provincias resuelven**; las
+  9 sin estructura de pagas en su anexo (Granada, S.C. Tenerife, Barcelona,
+  Girona, Baleares, Alicante, Valladolid, Lleida, Tarragona) siguen en 422
+  honesto hasta que el BOE las publique.
+- Pendiente anotado: Teruel publica precio de hora extra provincial
+  ("12,03/hora", string) y Lugo 12,58 numérico; el motor solo lee precios de
+  hora extra a nivel de convenio — mejora aparte, el suelo del ET ya protege.
+
 ## 2026-07-11 — QA general de la app y los cinco hallazgos arreglados (PRs #223-#227)
 
 Primera pasada de QA funcional sobre la app entera (flujo anónimo, cuenta,
