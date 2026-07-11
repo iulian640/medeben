@@ -229,6 +229,16 @@ public class FichajeService {
                     // huérfana — por eso este caso va antes que el de abajo.
                     int i = tramos.size() - 1;
                     tramos.set(i, new EstadoDia.TramoDia(tramos.get(i).entrada(), a.getHora()));
+                } else if (!salidasHuerfanas.isEmpty()
+                        && salidasHuerfanas.get(salidasHuerfanas.size() - 1).equals(a.getHora())) {
+                    // Doble toque de la MISMA salida (typo re-tecleado idéntico): no
+                    // es una segunda salida de un turno partido —imposible salir dos
+                    // veces a la misma hora—, así que se ignora el duplicado en vez
+                    // de acumular una huérfana que rompería el auto-emparejado de la
+                    // #221 (que exige UNA sola pendiente) y dispararía NO_CUADRA en
+                    // un día que sí cuadra (issue #230, regresión cazada en review).
+                    ultimo = a;
+                    continue;
                 } else {
                     // Salida sin tramo abierto NI tramos cerrados: huérfana. Se
                     // recuerda para emparejarla cuando llegue su entrada, en vez de
@@ -285,13 +295,37 @@ public class FichajeService {
      */
     private static boolean noCuadra(List<EstadoDia.TramoDia> tramos, String entradaAbierta,
                                     List<String> salidasHuerfanas) {
-        long sinExplicar = salidasHuerfanas.stream()
-                .filter(hora -> tramos.stream().noneMatch(t -> t.salida().equals(hora)))
-                .count();
+        long sinExplicar = huerfanasSinExplicar(tramos, salidasHuerfanas);
         if (sinExplicar >= 2 || (sinExplicar >= 1 && !tramos.isEmpty())) {
             return true;
         }
         return tramosSePisan(tramos) || dentroDeUnTramo(entradaAbierta, tramos);
+    }
+
+    /**
+     * Cuenta las salidas huérfanas que NINGUNA lectura recoge. Una huérfana está
+     * explicada si algún tramo termina exactamente a su hora (era esa misma
+     * salida, apuntada antes de tiempo). Y si la ÚLTIMA huérfana está explicada,
+     * las anteriores son correcciones que quedaron superadas por ella (doctrina
+     * D38: dos apuntes del mismo tipo seguidos = corrección, gana la última) y
+     * tampoco cuentan: una salida mal tecleada y luego corregida no puede
+     * envenenar un día que por lo demás cierra limpio (issue #230, regresión
+     * cazada en review). Si la última NO está explicada, el emparejado quedó a
+     * medias de verdad y se cuentan todas las que ningún tramo recoge.
+     */
+    private static long huerfanasSinExplicar(List<EstadoDia.TramoDia> tramos,
+                                             List<String> salidasHuerfanas) {
+        if (salidasHuerfanas.isEmpty()) {
+            return 0;
+        }
+        String ultima = salidasHuerfanas.get(salidasHuerfanas.size() - 1);
+        boolean ultimaExplicada = tramos.stream().anyMatch(t -> t.salida().equals(ultima));
+        if (ultimaExplicada) {
+            return 0;
+        }
+        return salidasHuerfanas.stream()
+                .filter(hora -> tramos.stream().noneMatch(t -> t.salida().equals(hora)))
+                .count();
     }
 
     /**

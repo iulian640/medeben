@@ -804,6 +804,48 @@ class FichajeServiceTest {
     }
 
     @Test
+    @DisplayName("issue #230 (regresión): una salida mal tecleada y CORREGIDA no envenena un día que cierra limpio — COMPLETO, no NO_CUADRA")
+    void salidaHuerfanaCorregidaNoEnvenenaElDia() {
+        // S 19:00 (typo), S 20:00 (corrección de esa salida), E 10:00, S 20:00.
+        // El día cierra limpio (10:00-20:00) y esa lectura recoge la ÚLTIMA
+        // salida suelta (20:00); la 19:00 es una corrección superada (D38), no
+        // un cabo suelto. En main esto era COMPLETO 600 min; sin la corrección
+        // de la review saltaba a NO_CUADRA y las 10 h reales caían del mes.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "19:00", "2026-07-08T19:00"),
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:03"),
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("10:00", "20:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(10 * 60);
+    }
+
+    @Test
+    @DisplayName("issue #230 (regresión): el doble toque de la MISMA salida no es ambiguo — se ignora el duplicado y la entrada la empareja (COMPLETO)")
+    void salidaHuerfanaDuplicadaIdenticaNoAlarma() {
+        // S 20:00, S 20:00 (mismo botón dos veces), E 10:00. No se puede salir
+        // dos veces a la misma hora: el duplicado se ignora, queda UNA huérfana
+        // y la entrada la empareja como el flujo de #221. Antes acumulaba dos
+        // huérfanas, rompía el auto-emparejado y saltaba NO_CUADRA sin motivo.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:00"),
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:03")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("10:00", "20:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(10 * 60);
+    }
+
+    @Test
     @DisplayName("turno partido reconstruido tramo a tramo 'salida primero' (S y E del 2º, S y E del 1º): COMPLETO 8h — el desorden legítimo no alarma")
     void partidoReconstruidoSalidaPrimeroPorTramoNoAlarma() {
         // S 14:00 espera como huérfana mientras se apunta el tramo de tarde
