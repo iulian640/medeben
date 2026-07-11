@@ -475,12 +475,136 @@ class FichajeServiceTest {
     }
 
     @Test
-    @DisplayName("salida sin entrada → el día sigue PENDIENTE de completar")
+    @DisplayName("salida sin entrada (huérfana sola, nunca emparejada) → el día sigue PENDIENTE (comportamiento intacto)")
     void salidaSinEntrada() {
         when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
                 .thenReturn(List.of(apunte(TipoApunte.SALIDA, "17:00", "2026-07-08T17:02")));
 
         assertThat(servicio.estadoDia(USUARIO, HOY).estado()).isEqualTo(EstadoDia.Estado.PENDIENTE);
+    }
+
+    // --- salida huérfana: reconstruir apuntando primero la salida (issue #221) ---
+
+    @Test
+    @DisplayName("issue #221: reconstruir un día apuntando la SALIDA (20:00) antes que la ENTRADA (10:00) → COMPLETO 10h, no 'En curso'")
+    void salidaHuerfanaAntesQueEntradaFormaTramo() {
+        // El caso literal del QA: "me acuerdo de a qué hora salí" primero. Antes
+        // dejaba el día EN_CURSO y esas horas desaparecían del resumen del mes.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(10 * 60);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("10:00", "20:00"));
+        assertThat(estado.entradaAbierta()).isNull();
+    }
+
+    @Test
+    @DisplayName("dos salidas huérfanas seguidas y luego la entrada → gana la última huérfana (coherente con la corrección del resto)")
+    void dosSalidasHuerfanasGanaLaUltima() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "19:00", "2026-07-08T20:00"),
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:02"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("10:00", "20:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(10 * 60);
+    }
+
+    @Test
+    @DisplayName("la AUSENCIA es frontera: descarta también la huérfana pendiente, la entrada posterior abre tramo nuevo → EN_CURSO")
+    void ausenciaDescartaLaHuerfanaPendiente() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.AUSENCIA, null, "2026-07-08T20:03"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.EN_CURSO);
+        assertThat(estado.entradaAbierta()).isEqualTo("10:00");
+        assertThat(estado.tramos()).isEmpty();
+    }
+
+    @Test
+    @DisplayName("huérfana con cruce de medianoche: salida 02:00 apuntada antes que la entrada 20:00 → COMPLETO 6h")
+    void huerfanaConCruceDeMedianoche() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "02:00", "2026-07-09T02:03"),
+                        apunte(TipoApunte.ENTRADA, "20:00", "2026-07-09T08:00")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("20:00", "02:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(6 * 60);
+    }
+
+    @Test
+    @DisplayName("tras emparejar la huérfana, una SALIDA posterior corrige la salida de ese tramo (regla existente sigue viva)")
+    void salidaPosteriorCorrigeElTramoDeLaHuerfana() {
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "20:00", "2026-07-08T20:01"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05"),
+                        apunte(TipoApunte.SALIDA, "21:00", "2026-07-08T21:02")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(new EstadoDia.TramoDia("10:00", "21:00"));
+        assertThat(estado.minutosTrabajados()).isEqualTo(11 * 60);
+    }
+
+    @Test
+    @DisplayName("emparejar la huérfana no salta el cupo D38: con dos tramos ya llenos, la entrada corrige el último, no fabrica un tercero")
+    void huerfanaEmparejadaRespetaElCupoDeTramos() {
+        // La huérfana (19:00) la empareja la primera entrada (10:00) en el tramo 1.
+        // Luego se declara el tramo 2 y una entrada más cae por la regla de cupo
+        // lleno sobre el tramo 2 (gana la última), sin resucitar la huérfana ya
+        // consumida ni abrir un tercer tramo.
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "19:00", "2026-07-08T20:00"),
+                        apunte(TipoApunte.ENTRADA, "10:00", "2026-07-08T20:05"),
+                        apunte(TipoApunte.ENTRADA, "08:00", "2026-07-08T20:10"),
+                        apunte(TipoApunte.SALIDA, "12:00", "2026-07-08T20:12"),
+                        apunte(TipoApunte.ENTRADA, "09:00", "2026-07-08T20:20")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.tramos()).containsExactly(
+                new EstadoDia.TramoDia("10:00", "19:00"),
+                new EstadoDia.TramoDia("09:00", "12:00"));
+        assertThat(estado.tramos()).hasSize(2); // el cupo D38 se respeta: nunca un tercer tramo
+    }
+
+    @Test
+    @DisplayName("huérfana emparejada que inflaría la jornada (>16h): el techo de cordura deja el total sin calcular, el resumen no la sobrecuenta")
+    void huerfanaEmparejadaQueInflaLaJornadaSeQuedaSinTotal() {
+        // Salida 23:00 apuntada antes que la entrada 06:00 → tramo 06:00-23:00 =
+        // 17h, por encima del techo de cordura. minutosTrabajados = -1 y así
+        // ResumenMensualService.minutosReales lo excluye (no sobrecuenta dinero).
+        when(repositorio.findByUsuarioIdAndFechaOrderByRegistradoEnAscIdAsc(USUARIO, HOY))
+                .thenReturn(List.of(
+                        apunte(TipoApunte.SALIDA, "23:00", "2026-07-08T23:03"),
+                        apunte(TipoApunte.ENTRADA, "06:00", "2026-07-08T23:10")));
+
+        EstadoDia estado = servicio.estadoDia(USUARIO, HOY);
+
+        assertThat(estado.estado()).isEqualTo(EstadoDia.Estado.COMPLETO);
+        assertThat(estado.minutosTrabajados()).isEqualTo(-1);
     }
 
     @Test
