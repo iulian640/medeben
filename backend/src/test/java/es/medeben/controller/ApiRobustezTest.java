@@ -145,6 +145,44 @@ class ApiRobustezTest {
     }
 
     @Test
+    @DisplayName("fecha con la forma correcta pero imposible (2026-02-30) → 400")
+    void fechaImposible() throws Exception {
+        mockMvc.perform(post("/api/v1/fichajes").with(comoUsuario())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"fecha":"2026-02-30","tipo":"SALIDA","hora":"23:45"}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value(
+                        "fecha: se espera una fecha en formato yyyy-MM-dd, sin hora ni zona horaria"));
+    }
+
+    @Test
+    @DisplayName("número enviado como texto no numérico → 400 con el campo, sin ecoar el valor")
+    void numeroComoTexto() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","anio":2026,
+                                 "salarioBaseMensual":"mil doscientos","plusesAnuales":0,"horas":5}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value("salarioBaseMensual: no tiene el formato esperado"))
+                .andExpect(content().string(org.hamcrest.Matchers.not(
+                        org.hamcrest.Matchers.containsString("mil doscientos"))));
+    }
+
+    @Test
+    @DisplayName("un objeto donde va un texto → 400 con el campo y \"no tiene el tipo esperado\"")
+    void tipoDeDatoCambiado() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"madrid-hosteleria","fecha":"2026-07-08",
+                                 "dimensiones":"esto no es un mapa"}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail").value("dimensiones: no tiene el tipo esperado"));
+    }
+
+    @Test
     @DisplayName("fecha con hora en el path → 400 RFC 7807 en castellano, sin ecoar el valor")
     void fechaConHoraEnPath() throws Exception {
         mockMvc.perform(get("/api/v1/fichajes/dia/2026-07-08T22:00:00.000Z").with(comoUsuario()))

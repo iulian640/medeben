@@ -28,6 +28,10 @@ import java.util.regex.Pattern;
 @Configuration
 public class JacksonConfig {
 
+    /** El motivo que ve el usuario; el GlobalExceptionHandler le antepone el campo. */
+    public static final String MENSAJE_FECHA_ESTRICTA =
+            "se espera una fecha en formato yyyy-MM-dd, sin hora ni zona horaria";
+
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer fechasIsoEstrictas() {
         return builder -> builder.deserializerByType(LocalDate.class, new FechaIsoEstrictaDeserializer());
@@ -58,9 +62,7 @@ public class JacksonConfig {
          * El GlobalExceptionHandler convierte esto en el 400 RFC 7807.
          */
         private static InvalidFormatException fechaInvalida(JsonParser parser) {
-            return InvalidFormatException.from(parser,
-                    "se espera una fecha en formato yyyy-MM-dd, sin hora ni zona horaria",
-                    null, LocalDate.class);
+            return InvalidFormatException.from(parser, MENSAJE_FECHA_ESTRICTA, null, LocalDate.class);
         }
     }
 }

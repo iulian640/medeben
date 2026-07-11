@@ -133,8 +133,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         if (causa instanceof InvalidFormatException formato) {
             String campo = rutaDelCampo(formato);
             if (formato.getTargetType() == LocalDate.class) {
-                // El mensaje exacto vive en JacksonConfig; aquí solo se antepone el campo.
-                return prefijo(campo) + formato.getOriginalMessage();
+                // Texto fijo compartido con JacksonConfig, nunca el mensaje de la
+                // excepción: así ningún valor recibido puede colarse en el detalle.
+                return prefijo(campo) + es.medeben.config.JacksonConfig.MENSAJE_FECHA_ESTRICTA;
             }
             if (formato.getTargetType() != null && formato.getTargetType().isEnum()) {
                 return prefijo(campo) + "no es un valor válido";
