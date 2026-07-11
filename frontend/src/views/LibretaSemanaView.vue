@@ -55,7 +55,8 @@ interface Marcador {
  * El color por sí solo no basta (daltonismo): cada estado lleva también un
  * símbolo propio. Semántica de la casa: verde SOLO en lo cobrable/completo,
  * tinta suave en lo neutro, alerta solo en lo que de verdad exige atención
- * (un día que ni siquiera se ha podido cargar).
+ * (un día que ni siquiera se ha podido cargar, o uno cuyos apuntes no
+ * cuadran y pierde horas si nadie lo revisa — issue #230).
  */
 const MARCADORES: Record<EstadoDia, Marcador> = {
   COMPLETO: { simbolo: '✓', clase: 'estado-verde' },
@@ -63,6 +64,7 @@ const MARCADORES: Record<EstadoDia, Marcador> = {
   PENDIENTE: { simbolo: '○', clase: 'estado-suave' },
   AUSENCIA: { simbolo: '–', clase: 'estado-suave' },
   HUECO: { simbolo: '·', clase: 'estado-suave' },
+  NO_CUADRA: { simbolo: '✗', clase: 'estado-alerta' },
 }
 const MARCADOR_CAIDO: Marcador = { simbolo: '!', clase: 'estado-alerta' }
 
@@ -428,7 +430,8 @@ h1 {
   color: var(--tinta-suave);
 }
 
-/* Alerta SOLO cuando algo exige atención de verdad: un día que ni ha cargado. */
+/* Alerta SOLO cuando algo exige atención de verdad: un día que ni ha cargado
+ * o uno cuyos apuntes no cuadran (issue #230: horas fuera del total). */
 .estado-alerta {
   color: var(--alerta);
 }

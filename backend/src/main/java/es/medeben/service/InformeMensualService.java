@@ -77,7 +77,8 @@ public class InformeMensualService {
             EstadoDia.Estado.EN_CURSO, "En curso: falta la salida",
             EstadoDia.Estado.COMPLETO, "Completo",
             EstadoDia.Estado.AUSENCIA, "No fue, y quedó apuntado",
-            EstadoDia.Estado.HUECO, "Hueco: quedó sin apuntar");
+            EstadoDia.Estado.HUECO, "Hueco: quedó sin apuntar",
+            EstadoDia.Estado.NO_CUADRA, "Los apuntes no cuadran: revísalo");
 
     private static final Map<OrigenApunte, String> ETIQUETA_ORIGEN = Map.of(
             OrigenApunte.CONFIRMADO, "fichado al momento",
@@ -181,6 +182,13 @@ public class InformeMensualService {
         }
         if (resumen.diasSinCalcular() > 0) {
             fila(tabla, "Días sin calcular (no cuentan)", String.valueOf(resumen.diasSinCalcular()));
+        }
+        // issue #230: los días cuyos apuntes se contradicen quedan fuera del
+        // total, pero constan aquí y con su etiqueta en el diario de abajo —
+        // en un informe que es evidencia, un cero mudo sería un dato falso.
+        int diasNoCuadran = resumen.contadoresPorEstado().getOrDefault(EstadoDia.Estado.NO_CUADRA, 0);
+        if (diasNoCuadran > 0) {
+            fila(tabla, "Días que no cuadran (revísalos, no cuentan)", String.valueOf(diasNoCuadran));
         }
         fila(tabla, "Tope anual de horas extra",
                 numero(resumen.tope().acumuladoAnioHoras()) + " h de "
