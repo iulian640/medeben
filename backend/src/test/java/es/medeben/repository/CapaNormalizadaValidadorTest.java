@@ -84,6 +84,16 @@ class CapaNormalizadaValidadorTest {
     @Test
     @DisplayName("sin solapes: no hay dos hechos con mismas dimensiones y vigencias que se pisen")
     void sinSolapesDeVigencia() {
+        // OJO (issue #231, review): este validador solo detecta el solape entre
+        // hechos con dimensiones EXACTAMENTE iguales. CalculoConvenioService.hechoDerivado
+        // casa por SUBCONJUNTO (un hecho de {provincia} sirve a un llamador de
+        // {provincia,categoria}), así que dos hechos del mismo concepto donde una
+        // dimensión es subconjunto de otra (p.ej. {provincia} y {provincia,categoria})
+        // podrían casar ambos a la vez sin que este test lo cace — hoy no ocurre
+        // (jornadaAnual/mensualidadesEquivalentes solo usan 'provincia'), pero si se
+        // derivan hechos más granulares habrá que ampliar este validador al solape
+        // por subconjunto, no solo por igualdad. Mientras, el motor rompe ruidoso
+        // (IllegalStateException), no inventa: falla segura, no silenciosa.
         for (String id : hechos.conveniosDerivados()) {
             List<Hecho> lista = hechos.deConvenio(id);
             for (int i = 0; i < lista.size(); i++) {
@@ -98,6 +108,29 @@ class CapaNormalizadaValidadorTest {
                             .as("%s: solape entre %s y %s para %s", id, a.rutaCruda(), b.rutaCruda(), a.dimensiones())
                             .isFalse();
                 }
+            }
+        }
+    }
+
+    @Test
+    @DisplayName("issue #231: ninguna dimensión del corpus pasa de los topes anti-DoS de los DTOs (clave 40, valor 400, 10 por hecho)")
+    void dimensionesDentroDeLosTopesDeLosDto() {
+        // Los endpoints anónimos acotan las dimensiones de la petición (clave
+        // <=40, valor <=400, <=10 por mapa: SalarioBaseRequest/CalculoHorasExtraRequest).
+        // El valor más largo del corpus es de la colectiva (categorías compuestas
+        // separadas por «/»), a 325 hoy. Si una re-transcripción o derivación futura
+        // superara un tope, ese usuario recibiría un 400 en la calculadora sin que
+        // ninguna otra suite lo avisara: este test ata el corpus a los DTOs.
+        for (String id : hechos.conveniosDerivados()) {
+            for (Hecho hecho : hechos.deConvenio(id)) {
+                assertThat(hecho.dimensiones().size())
+                        .as("%s %s: nº de dimensiones", id, hecho.rutaCruda()).isLessThanOrEqualTo(10);
+                hecho.dimensiones().forEach((clave, valor) -> {
+                    assertThat(clave.length())
+                            .as("%s %s: clave '%s' pasa de 40", id, hecho.rutaCruda(), clave).isLessThanOrEqualTo(40);
+                    assertThat(valor.length())
+                            .as("%s %s: valor de '%s' pasa de 400", id, hecho.rutaCruda(), clave).isLessThanOrEqualTo(400);
+                });
             }
         }
     }

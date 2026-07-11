@@ -29,7 +29,10 @@ Un fichero por convenio, mismo nombre que su transcripción: `<id>.json`.
 }
 ```
 
-- **concepto** — qué es el dato (`salarioBase` por ahora; vendrán más: pluses, precios de hora extra...).
+- **concepto** — qué es el dato. Hoy: `salarioBase` (todos los convenios) y, donde el
+  convenio los publica por dimensión en vez de en sus nodos propios, `jornadaAnual` y
+  `mensualidadesEquivalentes` (la colectiva los trae por provincia, issue #231). Vendrán
+  más: pluses, precios de hora extra...
 - **dimensiones** — pares clave/valor propios de cada convenio (nivel, clase de empresa,
   categoría de establecimiento...). Las claves y valores usan los mismos nombres que la transcripción.
 - **desde / hasta** — vigencia del dato como rango de fechas. Esto absorbe las rarezas:
@@ -55,12 +58,22 @@ Un fichero por convenio, mismo nombre que su transcripción: `<id>.json`.
 **54 de 55 convenios derivados** (2026-07-08), ~8.760 hechos `salarioBase`, todos con
 procedencia verificada. El único sin fichero es `aleh-estatal`: es un acuerdo marco
 (clasificación, periodo de prueba, disciplinario) sin tablas salariales — correcto que no exista.
+Además (2026-07-11, issue #231), `estatal-restauracion-colectiva` tiene 49 hechos
+`jornadaAnual` (1.800 h del marco nacional, materializada por provincia) y 40
+`mensualidadesEquivalentes` (pagas verificadas provincia a provincia contra el crudo).
 
 Huecos conocidos dentro de ficheros derivados (documentados en el `$comment` de cada uno):
 
 - **estatal-restauracion-colectiva**: Lugo sin derivar (la transcripción trae esa provincia
   como strings multi-columna, sin celdas numéricas para `rutaCruda` — re-transcribir algún día)
   y 1 celda de Córdoba con errata del propio BOE (`"1.21,73"`).
+- **estatal-restauracion-colectiva, pagas**: 9 provincias sin estructura de pagas en su
+  anexo (Granada, Santa Cruz de Tenerife, Barcelona, Girona, Islas Baleares, Alicante,
+  Valladolid, Lleida, Tarragona) = sin hecho `mensualidadesEquivalentes` → horas extra
+  en 422 honesto hasta que el BOE las publique. Las pagas de cuantía fija (octubre de
+  Zaragoza, Santa Marta de Asturias, septiembre de Guadalajara, paga del sector de
+  Burgos...), las parciales (15 días de Córdoba, 16 de Cantabria, Santa Marta de Lugo)
+  y las condicionadas no entran en el multiplicador (pendiente conocido del motor).
 - **Regímenes especiales fuera de alcance v1**: Anexo III de madrid-hosteleria (% de servicio
   histórico), Anexo IV de cadiz (casinos), Anexo II BIS de valencia (sin experiencia),
   baremos de cafeterías de cataluna.

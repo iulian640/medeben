@@ -75,6 +75,61 @@ class CalculoControllerTest {
     }
 
     @Test
+    @DisplayName("colectiva (#231) con provincia: cocinero de comedor en Zaragoza → 200 con importe y citas")
+    void horasExtraColectivaConProvincia() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","anio":2026,
+                                 "salarioBaseMensual":1258.40,"plusesAnuales":0,"horas":10,
+                                 "dimensiones":{"provincia":"Zaragoza"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.importe").value(97.88))
+                .andExpect(jsonPath("$.desglose.valorHora").value(9.7876))
+                .andExpect(jsonPath("$.desglose.mensualidades").value(14))
+                .andExpect(jsonPath("$.desglose.divisorHoras").value(1800))
+                .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Marco nacional.*/)]").exists())
+                .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Anexo provincial Zaragoza.*/)]").exists());
+    }
+
+    @Test
+    @DisplayName("colectiva sin provincia: no se adivina ninguna → 422 honesto (RFC 7807)")
+    void horasExtraColectivaSinProvincia() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","anio":2026,
+                                 "salarioBaseMensual":1258.40,"plusesAnuales":0,"horas":10}"""))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.detail").exists());
+    }
+
+    @Test
+    @DisplayName("colectiva en provincia sin pagas publicadas (Granada) → 422 honesto, no se inventa")
+    void horasExtraColectivaProvinciaPendiente() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","anio":2026,
+                                 "salarioBaseMensual":1200,"plusesAnuales":0,"horas":10,
+                                 "dimensiones":{"provincia":"Granada"}}"""))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.detail").exists());
+    }
+
+    @Test
+    @DisplayName("dimensiones desbocadas (valor de más de 400 caracteres) → 400 (endpoint anónimo, anti-DoS)")
+    void horasExtraDimensionesDesbocadas() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","anio":2026,
+                                 "salarioBaseMensual":1200,"plusesAnuales":0,"horas":10,
+                                 "dimensiones":{"provincia":"%s"}}""".formatted("x".repeat(401))))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
     @DisplayName("horas-extra con convenio inexistente → 404")
     void horasExtraConvenioNoExiste() throws Exception {
         mockMvc.perform(post("/api/v1/calculo/horas-extra")
@@ -155,6 +210,27 @@ class CalculoControllerTest {
                 .andExpect(jsonPath("$.comparativaSmi.anualConvenio").value(17492.25))
                 .andExpect(jsonPath("$.comparativaSmi.smiAnual").value(17094.00))
                 .andExpect(jsonPath("$.citas[?(@.texto =~ /.*Salario Mínimo.*/)]").exists());
+    }
+
+    @Test
+    @DisplayName("colectiva (#231): el aviso SMI usa las pagas DERIVADAS por provincia, no el 14 por defecto — Sevilla (1.157,48 × 15) alcanza, sin falso «bajo SMI»")
+    void salarioBaseColectivaUsaPagasDerivadasParaElSmi() throws Exception {
+        // La colectiva publica las pagas por anexo provincial, no en la raíz.
+        // Antes, el aviso SMI caía al 14 por defecto e ignoraba las 15 que este
+        // mismo cálculo ya usa para el valor hora extra: 1.157,48 × 14 = 16.204,72
+        // < 16.576 (SMI 2025 anual) marcaba «bajo SMI» en falso. Con las 15
+        // reales, 17.362,20 ≥ 16.576: legal, y viajan los números para la UI.
+        mockMvc.perform(post("/api/v1/calculo/salario-base")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"estatal-restauracion-colectiva","fecha":"2025-07-08",
+                                 "dimensiones":{"provincia":"Sevilla","categoria":"Nivel 4 y 5 (Monitor/a)"}}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.importe").value(1157.48))
+                .andExpect(jsonPath("$.bajoSmi").value(false))
+                .andExpect(jsonPath("$.comparativaSmi.mensualidades").value(15))
+                .andExpect(jsonPath("$.comparativaSmi.anualConvenio").value(17362.20))
+                .andExpect(jsonPath("$.comparativaSmi.smiAnual").value(16576.00));
     }
 
     @Test

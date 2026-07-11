@@ -356,9 +356,12 @@ watch(
       v-if="perfil.convenio"
       class="tarjeta"
     >
+      <!-- Las dimensiones resueltas del puesto viajan a la calculadora: en la
+           colectiva la jornada y las pagas van por provincia (#231). -->
       <HorasExtraCalculadora
         :convenio-id="perfil.convenio.id"
         :salario-mensual-sugerido="perfil.salarioMensualPrefill"
+        :dimensiones="perfil.ocupacion?.dimensiones ?? null"
       />
     </section>
   </main>

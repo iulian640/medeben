@@ -1,5 +1,5 @@
 {
-  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../estatal-restauracion-colectiva.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; el validador del backend comprueba en cada build que importe == valor en la transcripción. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre las tablas salarioBase2025 de los anexos provinciales (salario base mensual, vigencia 2025). Excluidos: Córdoba 'Tabla A - Nivel 1' (errata del BOE, valor no numérico en la transcripción) y la provincia de Lugo entera (tabla multi-columna transcrita como strings 'S.Base (P.Vest.)' por categoría de establecimiento; no hay celdas numéricas a las que apuntar con rutaCruda). [Verificado 2026-07-08: la errata '1.21,73' de Córdoba Tabla A Nivel 1 es del propio BOE (imagen pág. 82166, zoom 400dpi); el valor plausible es 1.321,73 (saltos ~25 EUR consistentes) pero a fecha de hoy NO hay corrección de errores publicada en boe.es — sin corrección oficial no se deriva.]",
+  "$comment": "CAPA DERIVADA NORMALIZADA — generada a partir de ../estatal-restauracion-colectiva.json (la transcripción verificada es la fuente de verdad). Cada hecho lleva rutaCruda (JSON Pointer) a la celda de origen; el validador del backend comprueba en cada build que importe == valor en la transcripción. NO editar importes aquí: se corrige la transcripción y se re-deriva. Cubre las tablas salarioBase2025 de los anexos provinciales (salario base mensual, vigencia 2025). Excluidos: Córdoba 'Tabla A - Nivel 1' (errata del BOE, valor no numérico en la transcripción) y la provincia de Lugo entera (tabla multi-columna transcrita como strings 'S.Base (P.Vest.)' por categoría de establecimiento; no hay celdas numéricas a las que apuntar con rutaCruda). [Verificado 2026-07-08: la errata '1.21,73' de Córdoba Tabla A Nivel 1 es del propio BOE (imagen pág. 82166, zoom 400dpi); el valor plausible es 1.321,73 (saltos ~25 EUR consistentes) pero a fecha de hoy NO hay corrección de errores publicada en boe.es — sin corrección oficial no se deriva.] Issue #231: añadidos los hechos jornadaAnual (1.800 h del marco nacional, derivada por provincia para que el motor la resuelva con las mismas dimensiones que la tabla salarial) y mensualidadesEquivalentes (pagas por anexo provincial, verificadas provincia a provincia contra el crudo: las pagas de cuantía fija, parciales o condicionadas no entran — pendiente conocido del motor). Provincias sin estructura de pagas publicada en su anexo (sin hecho, honesto): Granada, Santa Cruz de Tenerife, Barcelona, Girona, Islas Baleares, Alicante, Valladolid, Lleida, Tarragona.",
   "id": "estatal-restauracion-colectiva",
   "hechos": [
     {
@@ -4174,6 +4174,1074 @@
       "unidad": "EUR/mes",
       "articulo": "Anexo salarial provincial Ourense (BOE nº148, Sec. III págs. 82204-82205)",
       "rutaCruda": "/tablasPorProvincia/Ourense/salarioBase2025/Aydte. de cocina ~1 de economato ~1 de Camarero ~1 Especialista de mantenimiento y servicios auxiliares ~1 Auxiliar de pisos y limpieza ~1 de cocina ~1 de colectividades ~1 Monitor o cuidador de colectividades"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Caceres"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Almeria"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Cadiz"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Cordoba"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Granada"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Malaga"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Sevilla"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Zaragoza"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Asturias"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Las Palmas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Santa Cruz de Tenerife"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Barcelona"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Girona"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "A Coruna"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Pontevedra"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Islas Baleares"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "La Rioja"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Madrid"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Melilla"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Murcia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Alicante"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Valencia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Guipuzcoa"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Vizcaya"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Huelva"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Jaen"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Huesca"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Teruel"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Cantabria"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Albacete"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Ciudad Real"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Cuenca"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Guadalajara"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Toledo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Avila"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Burgos"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Leon"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Palencia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Salamanca"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Segovia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Soria"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Valladolid"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Zamora"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Lleida"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Tarragona"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Ceuta"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Badajoz"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Lugo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "jornadaAnual",
+      "dimensiones": {
+        "provincia": "Ourense"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 1800,
+      "unidad": "horas/año",
+      "articulo": "Marco nacional (BOE-A-2025-12598), jornada anual",
+      "rutaCruda": "/marcoNacional/jornadaAnual/horas"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Caceres"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Caceres, pagas extraordinarias (BOE nº148, Sec. III pág. 82201)",
+      "rutaCruda": "/tablasPorProvincia/Caceres/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Almeria"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Almeria, pagas extraordinarias (BOE nº148, Sec. III pág. 82164)",
+      "rutaCruda": "/tablasPorProvincia/Almeria/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Cadiz"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Cadiz, pagas extraordinarias (BOE nº148, Sec. III pág. 82165)",
+      "rutaCruda": "/tablasPorProvincia/Cadiz/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Cordoba"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Cordoba, pagas extraordinarias (BOE nº148, Sec. III pág. 82166)",
+      "rutaCruda": "/tablasPorProvincia/Cordoba/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Malaga"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Malaga, pagas extraordinarias (BOE nº148, Sec. III pág. 82171)",
+      "rutaCruda": "/tablasPorProvincia/Malaga/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Sevilla"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Sevilla, pagas extraordinarias (BOE nº148, Sec. III pág. 82173)",
+      "rutaCruda": "/tablasPorProvincia/Sevilla/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Zaragoza"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Zaragoza, pagas extraordinarias (BOE nº148, Sec. III pág. 82176)",
+      "rutaCruda": "/tablasPorProvincia/Zaragoza/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Asturias"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Asturias, pagas extraordinarias (BOE nº148, Sec. III pág. 82177)",
+      "rutaCruda": "/tablasPorProvincia/Asturias/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Las Palmas"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Las Palmas, pagas extraordinarias (BOE nº148, Sec. III pág. 82178)",
+      "rutaCruda": "/tablasPorProvincia/Las Palmas/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "A Coruna"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial A Coruna, pagas extraordinarias (BOE nº148, Sec. III pág. 82202)",
+      "rutaCruda": "/tablasPorProvincia/A Coruna/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Pontevedra"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Pontevedra, pagas extraordinarias (BOE nº148, Sec. III pág. 82205)",
+      "rutaCruda": "/tablasPorProvincia/Pontevedra/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "La Rioja"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial La Rioja, pagas extraordinarias (BOE nº148, Sec. III pág. 82206)",
+      "rutaCruda": "/tablasPorProvincia/La Rioja/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Madrid"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Madrid, pagas extraordinarias (BOE nº148, Sec. III pág. 82207)",
+      "rutaCruda": "/tablasPorProvincia/Madrid/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Melilla"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Melilla, pagas extraordinarias (BOE nº148, Sec. III pág. 82208)",
+      "rutaCruda": "/tablasPorProvincia/Melilla/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Murcia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Murcia, pagas extraordinarias (BOE nº148, Sec. III pág. 82209)",
+      "rutaCruda": "/tablasPorProvincia/Murcia/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Valencia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Valencia, pagas extraordinarias (BOE nº148, Sec. III pág. 82215)",
+      "rutaCruda": "/tablasPorProvincia/Valencia/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Guipuzcoa"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Guipuzcoa, pagas extraordinarias (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Guipuzcoa/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Vizcaya"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Vizcaya, pagas extraordinarias (BOE nº148, Sec. III pág. 82218)",
+      "rutaCruda": "/tablasPorProvincia/Vizcaya/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Huelva"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Huelva, pagas extraordinarias (BOE nº148, Sec. III págs. 82168-82169)",
+      "rutaCruda": "/tablasPorProvincia/Huelva/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Jaen"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Jaen, pagas extraordinarias (BOE nº148, Sec. III págs. 82170-82171)",
+      "rutaCruda": "/tablasPorProvincia/Jaen/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Huesca"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Huesca, pagas extraordinarias (BOE nº148, Sec. III pág. 82174)",
+      "rutaCruda": "/tablasPorProvincia/Huesca/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Teruel"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Teruel, pagas extraordinarias (BOE nº148, Sec. III pág. 82175)",
+      "rutaCruda": "/tablasPorProvincia/Teruel/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Cantabria"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Cantabria, pagas extraordinarias (BOE nº148, Sec. III págs. 82181-82182)",
+      "rutaCruda": "/tablasPorProvincia/Cantabria/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Albacete"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Albacete, pagas extraordinarias (BOE nº148, Sec. III págs. 82182-82183)",
+      "rutaCruda": "/tablasPorProvincia/Albacete/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Ciudad Real"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Ciudad Real, pagas extraordinarias (BOE nº148, Sec. III págs. 82183-82184)",
+      "rutaCruda": "/tablasPorProvincia/Ciudad Real/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Cuenca"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Cuenca, pagas extraordinarias (BOE nº148, Sec. III págs. 82184-82185)",
+      "rutaCruda": "/tablasPorProvincia/Cuenca/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Guadalajara"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Guadalajara, pagas extraordinarias (BOE nº148, Sec. III págs. 82185-82186)",
+      "rutaCruda": "/tablasPorProvincia/Guadalajara/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Toledo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Toledo, pagas extraordinarias (BOE nº148, Sec. III pág. 82186)",
+      "rutaCruda": "/tablasPorProvincia/Toledo/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Avila"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Avila, pagas extraordinarias (BOE nº148, Sec. III págs. 82187-82188)",
+      "rutaCruda": "/tablasPorProvincia/Avila/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Burgos"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Burgos, pagas extraordinarias (BOE nº148, Sec. III págs. 82188-82189)",
+      "rutaCruda": "/tablasPorProvincia/Burgos/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Leon"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Leon, pagas extraordinarias (BOE nº148, Sec. III pág. 82189)",
+      "rutaCruda": "/tablasPorProvincia/Leon/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Palencia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Palencia, pagas extraordinarias (BOE nº148, Sec. III págs. 82190-82191)",
+      "rutaCruda": "/tablasPorProvincia/Palencia/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Salamanca"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Salamanca, pagas extraordinarias (BOE nº148, Sec. III págs. 82191-82192)",
+      "rutaCruda": "/tablasPorProvincia/Salamanca/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Segovia"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Segovia, pagas extraordinarias (BOE nº148, Sec. III pág. 82192)",
+      "rutaCruda": "/tablasPorProvincia/Segovia/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Soria"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Soria, pagas extraordinarias (BOE nº148, Sec. III pág. 82193)",
+      "rutaCruda": "/tablasPorProvincia/Soria/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Zamora"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Zamora, pagas extraordinarias (BOE nº148, Sec. III pág. 82195)",
+      "rutaCruda": "/tablasPorProvincia/Zamora/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Ceuta"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Ceuta, pagas extraordinarias (BOE nº148, Sec. III págs. 82199-82200)",
+      "rutaCruda": "/tablasPorProvincia/Ceuta/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Badajoz"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 15,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Badajoz, pagas extraordinarias (BOE nº148, Sec. III págs. 82200-82201)",
+      "rutaCruda": "/tablasPorProvincia/Badajoz/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Lugo"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Lugo, pagas extraordinarias (BOE nº148, Sec. III págs. 82203-82204)",
+      "rutaCruda": "/tablasPorProvincia/Lugo/complementos/mensualidadesEquivalentes"
+    },
+    {
+      "concepto": "mensualidadesEquivalentes",
+      "dimensiones": {
+        "provincia": "Ourense"
+      },
+      "desde": "2025-01-01",
+      "hasta": "2025-12-31",
+      "importe": 14,
+      "unidad": "mensualidades/año",
+      "articulo": "Anexo provincial Ourense, pagas extraordinarias (BOE nº148, Sec. III págs. 82204-82205)",
+      "rutaCruda": "/tablasPorProvincia/Ourense/complementos/mensualidadesEquivalentes"
     }
   ]
 }

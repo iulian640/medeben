@@ -92,6 +92,8 @@
           ],
           "base": "salario base + antigüedad"
         },
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra de mensualidad completa (julio, diciembre y enero -paga de octubre-, a salario base + antigüedad) = 15. Derivado del campo pagasExtra del anexo provincial (cantidad: 3). Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroVida2025": 19298.58,
         "nacimientoHijo2025": 102.39,
         "kilometraje": "0,19 €/km descontando 2 km por recorrido",
@@ -122,6 +124,8 @@
       "complementos": {
         "nocturnidad": "De 22:00 a 7:00: >=55 horas/mes 122,46 EUR/mes; menos de 55 horas/mes 1,20 EUR/hora",
         "pagasExtra": "3 (julio + diciembre y paga de abril; la paga de abril es de 30 dias de salario base)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra = 15. Derivado de pagasExtra: «3 (julio + diciembre y paga de abril; la paga de abril es de 30 dias de salario base)» — 30 días de salario base = mensualidad completa. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroAccidentes2025": 26030.13,
         "subsidioMatrimonio": 75.52,
         "antiguedad": "3% a los 3 anios, 8% a los 6, 16% a los 9, 25% a los 14, 38% a los 19"
@@ -142,6 +146,8 @@
       "complementos": {
         "nocturnidad": "+25% sobre salario base",
         "pagasExtra": "3 (julio, Navidad y paga de octubre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra = 15. Derivado de pagasExtra: «3 (julio, Navidad y paga de octubre)» — el anexo cuenta 3 pagas sin marcar ninguna como de cuantía fija o parcial. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroColectivo2025": "7.879,95 muerte natural / incapacidad; 15.759,89 muerte por accidente; 23.639,84 muerte por accidente de circulacion",
         "ropaTrabajo": 23.93,
         "quebrantoMoneda": 29.28,
@@ -173,6 +179,8 @@
       "complementos": {
         "nocturnidad": "No figura importe/porcentaje en el anexo de Cordoba; aplicar regla general Art. 22 / convenio provincial",
         "pagasExtra": "2 completas (15 junio y 15 diciembre) + 2 de 15 dias (1 mayo y 15 septiembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas COMPLETAS (15 junio y 15 diciembre) = 14. Las 2 pagas de 15 días (1 mayo y 15 septiembre) NO son mensualidades completas y no entran en el multiplicador (pendiente conocido del motor: pagas menores que una mensualidad, mismo tratamiento que Santa Marta de Lugo). Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroAccidentes": "24.000 EUR muerte por accidente; 27.000 EUR incapacidad permanente total/absoluta",
         "subsidioDefuncion": 346.59,
         "uniformidadCompleta": 17.33,
@@ -216,6 +224,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario base/hora (Art. 22 marco, Malaga: trabajo de 22:00 a 06:00)",
         "pagasExtra": "2 (julio y diciembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (julio y diciembre) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "plusAyudaFamiliar": 27.93,
         "seguroAccidentes": "6.010 EUR fallecimiento; 9.015 EUR incapacidad permanente total con perdida del puesto"
       }
@@ -232,6 +242,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario/hora ordinario entre 22:00 y 06:00 para jornada parcialmente nocturna",
         "pagasExtra": "3 (1 abril, 15 julio y 15 diciembre); salario base + antiguedad",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra (1 abril, 15 julio y 15 diciembre — fechas de abono, a salario base + antigüedad) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "plusNatalidad": 42.16,
         "ayudaDiscapacitados": 117.29,
         "seguroColectivo2025": 31268.65,
@@ -252,6 +264,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario base",
         "pagasExtra": "2 (julio y navidad, salario base + antiguedad) + paga extra 15 de octubre (1.259,23 EUR)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra de mensualidad completa (julio y navidad, salario base + antigüedad) = 14. La paga extra del 15 de octubre es de CUANTÍA FIJA (1.259,23 EUR) y NO entra en el multiplicador (pendiente conocido del motor: pagas fijas, mismo tratamiento que en zaragoza-hosteleria). Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "plusDomingosFestivos": "1,21 EUR/hora trabajada",
         "ayudaFormacion": "156,20 EUR (100 horas/anio)",
         "seguroFallecimientoInvalidez": 17297.5
@@ -273,6 +287,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario base entre las 22:00 y las 8:00",
         "pagasExtra": "2 (julio y diciembre) + paga extraordinaria Santa Marta (1.190,12 EUR)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (julio y diciembre) = 14. La paga de Santa Marta es de CUANTÍA FIJA (1.190,12 EUR) y NO entra en el multiplicador (pendiente conocido del motor: pagas fijas). Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "complemento24y31Diciembre": "3,52 EUR/hora",
         "seguroColectivo": "7.500 muerte natural; 15.325,81 muerte por accidente; 31.252,63 gran invalidez / incapacidad absoluta; 21.035,42 incapacidad total"
       }
@@ -290,6 +306,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario base",
         "pagasExtra": "2 (julio y navidad, una mensualidad)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra de una mensualidad (julio y navidad) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroVidaIncapacidad": 12632.54,
         "bolsaVacaciones": 1448.89,
         "plusDesgasteUtiles": "8,90 EUR"
@@ -362,6 +380,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario base",
         "pagasExtra": "3 (navidad, julio y septiembre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra (navidad, julio y septiembre) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroVida": 12000,
         "seguroAccidentes": "24.000 EUR (muerte o incapacidad permanente total/absoluta/gran invalidez)",
         "matrimonio": 179.89
@@ -384,6 +404,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario base",
         "pagasExtra": "3 (julio, diciembre y septiembre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra (julio, diciembre y septiembre) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "consolidada; desde 1995, 14,38 EUR por cada quinquenio",
         "premiosPermanencia": "1 mensualidad (5-9 anios), 2 (10-14), 3 (15-19), 4 (a partir de 20 anios)"
       }
@@ -420,6 +442,8 @@
         "nocturnidad": "25% sobre salario base",
         "noche24y31Diciembre": 50,
         "pagasExtra": "2 (junio y diciembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (junio y diciembre) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroAccidentes": "30.000 EUR",
         "antiguedad": "3% 3 anios, 8% 6, 16% 9, 26% 14, 38% 19, 45% 24"
       }
@@ -436,6 +460,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario base, de 22:00 a 8:00",
         "pagasExtra": "2 (junio y diciembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (junio y diciembre) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "gratificacionMatrimonioPareja": 940.39,
         "quebrantoMoneda": 53.44,
         "seguro": "14.000 EUR (incapacidad permanente total/absoluta, gran invalidez y fallecimiento; antiguedad minima 10 anios)",
@@ -456,6 +482,8 @@
       "complementos": {
         "nocturnidad": "27% sobre salario base; jornadas con mas de 4,5 h en 22:00-06:00 se consideran nocturnas por completo (Art. 22 marco)",
         "pagasExtra": "3 (junio, septiembre y navidad)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra (junio, septiembre y navidad) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "subsidioMatrimonio": 619.11,
         "quebrantoMoneda": 102.53,
         "plusResidencia": "25% del salario base",
@@ -481,6 +509,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario base (22:00-06:00); 10% sobre salario base para trabajos nocturnos por su naturaleza",
         "pagasExtra": "2 (junio y navidad)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (junio y navidad) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "matrimonio": 88.99,
         "seguroAccidentes": 24040.48,
         "premioVinculacion": "29 dias de salario base + ad personam, pagaderos el 15 de septiembre",
@@ -520,6 +550,8 @@
       "complementos": {
         "nocturnidad": "20% sobre salario garantizado (trabajos no nocturnos por naturaleza)",
         "pagasExtra": "3 (junio, navidad y paga de beneficios)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra = 15. Derivado de pagasExtra: «3 (junio, navidad y paga de beneficios)» — el anexo cuenta 3 pagas sin marcar ninguna como de cuantía fija o parcial. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "complementoPuestoTrabajo": "64,72 EUR (colectividades/restauración social con tareas de gestion; no aplica a Jefes/2.º Jefe/Jefe de Partida)",
         "seguroAccidentes": "24.000 EUR",
         "festivosAbonables": "por nivel: I 128,89; II 124,16; III 116,82; IV 112,26; V 105,85"
@@ -539,6 +571,8 @@
       "complementos": {
         "nocturnidad": "25% sobre salario ordinario",
         "pagasExtra": "2 (julio y septiembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (julio y septiembre) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "por trienios segun nivel: minimo 63,52 EUR, maximo 82,54 EUR",
         "seguroColectivo": "8.017 muerte/incapacidad por enfermedad; 15.584 por accidente; 23.334 accidente de circulacion"
       }
@@ -556,6 +590,8 @@
       "complementos": {
         "nocturnidad": "Se estara a lo dispuesto en el Convenio de Hosteleria de Vizcaya",
         "pagasExtra": "3 (abril, julio y diciembre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra (abril, julio y diciembre) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "plusDesgasteHerramientas": "42,99 EUR/mes",
         "seguroVida": "7.800 fallecimiento por enfermedad / incapacidad permanente; 15.600 fallecimiento por accidente; 23.400 accidente de circulacion",
         "antiguedad": "3% 3 anios, 5% 6, 8% 9, 10% 14, 12% 19, 7% 24 (acumulado 8/16/26/38/45%)"
@@ -599,6 +635,8 @@
         "polizaSeguros": "26326 (BOE sin decimales, aparente errata)",
         "trabajadorCapacidadDisminuida": "4.734,28",
         "gratificacionesExtraordinarias": "3 (30 junio, 30 noviembre y 15 abril)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones extraordinarias (30 junio, 30 noviembre y 15 abril — fechas de abono) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "5% 3 anios, 10% 6, 17% 9, 27% 14, 39% 19, 45% 24, 50% 29 (+2% por anio adicional)",
         "matrimonio": "1 mensualidad salario garantizado (+ 15 dias si rescinde relacion laboral)",
         "premioFidelidad": "60 anios y 10 de antiguedad: 2 mensualidades; 20 anios: 4; 25 anios: 5 (+1 por cada 5 anios)"
@@ -623,6 +661,8 @@
         "maternidad": 151.76,
         "antiguedad": "consolidada",
         "gratificacionesExtraordinarias": "3 (verano, navidad + productividad octubre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones extraordinarias = 15. Derivado de gratificacionesExtraordinarias: «3 (verano, navidad + productividad octubre)» — el anexo cuenta 3 pagas sin marcar ninguna como de cuantía fija o parcial. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "premioJubilacionIncapacidad": "20 anios de antiguedad (3 mensualidades) + 1 mensualidad por cada 5 anios que excedan de 10",
         "seguroAccidentes": "Incapacidad Total 10.416,67; absoluta 15.025; Gran invalidez 30.050; fallecimiento 24.040,48; derechohabientes 24.048,48"
       }
@@ -645,6 +685,8 @@
         "seguro": "15.300 fallecimiento; 21.500 incapacidad",
         "primaFormacion": "126 euros (art. 33 C. Provincial)",
         "gratificacionesExtraordinarias": "3 (julio y diciembre + 30 dias de salario base en septiembre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones extraordinarias = 15. Derivado de gratificacionesExtraordinarias: «3 (julio y diciembre + 30 dias de salario base en septiembre)» — 30 días de salario base = mensualidad completa. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "consolidada"
       }
     },
@@ -665,6 +707,8 @@
         "serviciosExtras": 47.9,
         "horaExtraordinaria": "12,03/hora",
         "gratificacionesExtraordinarias": "3 (junio, octubre y diciembre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones extraordinarias (junio, octubre y diciembre) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "3% 3 anios (15,54/mes), 8% 6 (41,43), 16% 9 (82,87), 25% 15 (129,48), 35% 20 (181,27); sobre salario base categoria Camarero 1995",
         "primaFormacion": 60,
         "indemnizacion": "21.529 EUR (fallecimiento/IPT/absoluta/gran invalidez por accidente o enfermedad profesional)"
@@ -688,6 +732,8 @@
         "serviciosExtrasPorNivel": "I 163,10; II 149,63; III 136,28; IV 74,61; V 71,34",
         "antiguedad": "+6 anios consolidada; -6 anios: 3% a los 3, 8% a los 6",
         "pagasExtraordinarias": "3 (15 julio, 15 diciembre y 15 octubre; paga octubre 16 dias salario + antiguedad; 3.ª paga solo con 9 meses de antiguedad)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra de mensualidad completa (15 julio y 15 diciembre) = 14. La paga de octubre (16 días de salario + antigüedad, y solo con 9 meses de antigüedad) es PARCIAL y CONDICIONADA: NO entra en el multiplicador (pendiente conocido del motor: pagas menores que una mensualidad). Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "premioPermanencia": "3 mensualidades de salario real (min 20 anios de antiguedad; +1 mensualidad por cada 3 anios que excedan de 20)"
       }
     },
@@ -709,6 +755,8 @@
         "bolsaVacaciones": 75.17,
         "mantenimientoLimpiezaVestuario": 52.77,
         "pagasExtraordinarias": "3 (julio, diciembre y fiesta local/feria)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra = 15. Derivado de pagasExtraordinarias: «3 (julio, diciembre y fiesta local/feria)» — el anexo cuenta 3 pagas sin marcar ninguna como de cuantía fija o parcial. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "3% 3 anios, 8% 6, 16% 9, 26% 14, 38% 19, 45% 24"
       }
     },
@@ -730,6 +778,8 @@
         "bocadillo": 28.53,
         "indemnizacionAccidenteTrabajo": 23236.71,
         "gratificacionesExtraordinarias": "3 (marzo -30 dias-, verano y navidad)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones extraordinarias = 15. Derivado de gratificacionesExtraordinarias: «3 (marzo -30 dias-, verano y navidad)» — 30 días = mensualidad completa. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "3% 3 anios, 8% 6, 16% 9, 25% 15, 40% 20, 45% 24",
         "premioVinculacion": "60-65 anios y 10 de servicio: 6 a 11 mensualidades segun edad",
         "ayudaFallecimiento": "3 mensualidades de salario real"
@@ -750,6 +800,8 @@
         "plusExtrasalarial": 30.19,
         "ropaTrabajo": "15,63/mes",
         "gratificacionesExtraordinarias": "3 (junio y diciembre + paga beneficios 100% salario base el 1 de octubre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones extraordinarias = 15. Derivado de gratificacionesExtraordinarias: «3 (junio y diciembre + paga beneficios 100% salario base el 1 de octubre)» — el 100% del salario base = mensualidad completa. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "3% 3 anios, 8% 6, 16% 9, 22% 12, 29% 15, 36% 18, 41% 21, 45% 24, 48% 27, 50% 30",
         "gratificacionPermanencia": "min 10 anios y 60-64 anios: 6 meses (60), 5 (61), 4 (62), 2 (63)",
         "seguroAccidenteLaboral": "18.000 EUR (IPT/gran invalidez/fallecimiento por accidente laboral)"
@@ -774,6 +826,8 @@
         "plusIdiomas": 24.96,
         "seguroMuerteIncapacidad": 30018.91,
         "pagasExtraordinarias": "3 (verano, navidad y septiembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra de mensualidad completa (verano y navidad) = 14. La gratificación de septiembre es de CUANTÍA FIJA (415,77 EUR, campo gratificacionExtraordinariaSeptiembre del propio anexo) y NO entra en el multiplicador (pendiente conocido del motor: pagas fijas). Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "auxilioDefuncion": "1 mensualidad (salario convenio + antiguedad)"
       }
     },
@@ -798,7 +852,9 @@
         "plusFinalizacion": 23.34,
         "seguroAccidentes": "16.100 EUR (muerte/IPT/absoluta/gran invalidez)",
         "plusPenosidad": "20% salario",
-        "pagasExtraordinarias": "2 (1 julio y 22 diciembre)"
+        "pagasExtraordinarias": "2 (1 julio y 22 diciembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (1 julio y 22 diciembre) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor)."
       }
     },
     "Avila": {
@@ -819,6 +875,8 @@
         "plusFidelizacion15Anios": 557.86,
         "plusFidelidad25Anios": 876.03,
         "gratificacionesExtraordinarias": "2 (julio y diciembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 gratificaciones extraordinarias (julio y diciembre) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroAccidente": "6.006 muerte por accidente de trabajo; 6.563,05 IPT/absoluta/gran invalidez"
       }
     },
@@ -835,6 +893,8 @@
       "complementos": {
         "nocturnidad": "+25% sobre el precio hora",
         "gratificacionesExtraordinarias": "3 (julio y diciembre + paga del sector)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 gratificaciones de mensualidad completa (julio y diciembre) = 14. La paga del sector es de CUANTÍA FIJA (1.199,59 EUR; botones, pajes y pinches 820,28 EUR, campo pagaDelSector del propio anexo) y NO entra en el multiplicador (pendiente conocido del motor: pagas fijas). Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "pagaDelSector": "1.199,59 (botones, pajes y pinches 820,28)",
         "antiguedad": "consolidada",
         "indemnizacionVinculacionSector": "cese 60 anios: 5 mensualidades; 61: 4; 62: 3; 63: 1 (min 8 anios). Alternativa: 20 anios 3 mensualidades +1 por cada 5 anios",
@@ -859,6 +919,8 @@
         "nocturnidad": "25% sobre salario base",
         "plusAsistencia": "4,96 (dia efectivo trabajado)",
         "gratificacionesExtraordinarias": "3 (julio + septiembre + navidad)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones extraordinarias (julio, septiembre y navidad) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "3% 3 anios, 8% 6, 16% 9, 25% 14, 38% 19, 46% 24",
         "premioVinculacion": "min 15 anios: 2 meses de vacaciones retribuidas +1 mes por cada 5 anios que excedan de 15"
       }
@@ -890,6 +952,8 @@
         "seguroAccidentesTrabajo": "Fallecimiento 25.722,4; Invalidez Perm. Absoluta 32.737,61",
         "jubilacionAnticipadaVoluntaria": "85 dias vacaciones (60 anios), 67 (61), 50 (62), 40 (63); min 5 anios de antiguedad",
         "pagasExtraordinarias": "2 (verano y navidad)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (verano y navidad) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "consolidada",
         "mantenimientoRopa": "Art. 33 Convenio Provincial hosteleria Palencia"
       }
@@ -911,6 +975,8 @@
         "plusConvenio": "58,01/mes",
         "ayudaMatrimonio": "171,84 (1 anio antiguedad); 304,93 (2 anios o mas)",
         "gratificacionesExtraordinarias": "2 (julio y navidad)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 gratificaciones extraordinarias (julio y navidad) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroVidaAccidentes": "1.498 fallecimiento; 21.245 fallecimiento accidente trabajo; 29.750 IPT/IPA/gran invalidez por accidente",
         "jubilacionAnticipada": "min 15 anios: 60 anios 4.835; 61 3.905; 62 2.975; 63 1.971; 64 1.599",
         "antiguedad": "125 euros/mes; contratados desde 01-08-2013: 1 mensualidad a los 10 anios y otra a los 15 (fidelidad)"
@@ -931,6 +997,8 @@
         "nocturnidad": "No figura importe en el anexo; ver Art. 22 'Jornada especialidades' Segovia (min 25% entre 22:00 y 06:00)",
         "plusIntensidadTrabajo": 69.67,
         "pagasExtraordinarias": "2 (verano y navidad)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (verano y navidad) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "consolidada; +1 mensualidad a los 10 anios",
         "ayudaLibros": "24,41 por hijo",
         "prestacionDefuncion": "3 mensualidades salario",
@@ -957,6 +1025,8 @@
         "natalidad": "53,71 (por hijo)",
         "matrimonio": 53.71,
         "pagasExtraordinarias": "2 (julio y navidad)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (julio y navidad) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "hasta 31-12-2014 (si alcanza 25% consolidada): 3/8/16/25/38/45/50%; desde 01-01-2015: 3% 3 anios, 8% 6, 16% 9, 25% 14",
         "plusFormacion": "20 euros/mes",
         "seguroAccidentes": "10.000 muerte accidente trabajo; 10.000 IPT/absoluta/gran invalidez",
@@ -1010,7 +1080,9 @@
         "plusIdiomas": "+20%",
         "viudedad": "hasta 20 anios de servicio 1 mes de salario, +1 mes por cada 3 anios adicionales",
         "antiguedad": "3/8/16/26/38/45% (3/6/9/14/19/25 anios); contratados desde 01-08-2014: 3/8/15/20/25/30% (5/10/15/20/25/30 anios)",
-        "pagasExtraordinarias": "2 (verano y navidad)"
+        "pagasExtraordinarias": "2 (verano y navidad)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 pagas extra (verano y navidad) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor)."
       }
     },
     "Lleida": {
@@ -1071,6 +1143,8 @@
         "seguroAccidentes": 8662.05,
         "antiguedad": "por trienios: 5% (1), 10% (2), 15% (3), 20% (4), 25% (5), 30% (6), 35% (7), 40% (8), 50% (9), 60% (10)",
         "pagasExtraordinarias": "3 (julio y diciembre + paga beneficios octubre)",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 pagas extra = 15. Derivado de pagasExtraordinarias: «3 (julio y diciembre + paga beneficios octubre)» — el anexo cuenta 3 pagas sin marcar ninguna como de cuantía fija o parcial. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "plusCondicionesEspCentrosAcogida": "10% sobre salario base",
         "plusVinculacionBonificacion": "8% sobre salario base"
       }
@@ -1093,6 +1167,8 @@
         "nacimientoHijo2025": 102.39,
         "seguroVida2025": 19298.58,
         "gratificacionesExtraordinarias": "3 (julio, diciembre + enero paga de octubre); salario base + antiguedad",
+        "mensualidadesEquivalentes": 15,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 3 gratificaciones extraordinarias (julio, diciembre y enero -paga de octubre-, a salario base + antigüedad) = 15. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "antiguedad": "3% 3 anios, 8% 6, 16% 9, 26% 14, 38% 19, 45% 24, 55% 27, 60% 30 (personal con antiguedad consolidada a 31-12-2012)",
         "promocionEconomica": "20 anios de servicio (3 mensualidades) + 1 por cada 5 anios",
         "premioJubilacion": "4 mensualidades",
@@ -1126,6 +1202,8 @@
         "horaExtraNoServicioExtraordinario": 12.58,
         "antiguedad": "3% 5 anios, 8% 6, 16% 9, 25% 15, 38% 19, 40% 20, 45% 22, 50% 28; incorporados desde 01-01-1995: 3% por cada 3 anios",
         "gratificacionesExtraordinarias": "3 (julio y navidad + Santa Marta, salario de 7 dias)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 gratificaciones de mensualidad completa (julio y navidad) = 14. La paga de Santa Marta (7 días de salario) NO es una mensualidad completa y NO entra en el multiplicador (pendiente conocido del motor; mismo tratamiento que en lugo-hosteleria). Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "seguroAccidentes": "24.000 EUR (muerte o IPT/absoluta/gran invalidez, incluido in itinere)",
         "bajaVoluntaria60a65": "5-9 anios 2 mensualidades; 10-14 3; 15-19 4; +20 anios 5 (+1 por cada 5 anios)"
       }
@@ -1145,6 +1223,8 @@
         "nocturnidad": "25% sobre salario base",
         "antiguedad": "14,38 por cada quinquenio (desde 1995)",
         "gratificacionesExtraordinarias": "2 (julio y diciembre)",
+        "mensualidadesEquivalentes": 14,
+        "mensualidadesEquivalentesNota": "12 mensualidades + 2 gratificaciones extraordinarias (julio y diciembre) = 14. Convención del corpus (campo canónico de PR #113): solo pagas de mensualidad completa; las de cuantía fija, parciales o condicionadas quedan fuera del multiplicador (pendiente conocido del motor).",
         "ropaTrabajo": "Facilitada por el empresario"
       }
     }

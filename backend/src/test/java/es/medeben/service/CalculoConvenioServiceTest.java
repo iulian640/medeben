@@ -3,6 +3,7 @@ package es.medeben.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import es.medeben.domain.convenio.Convenio;
 import es.medeben.repository.ConvenioCatalog;
+import es.medeben.repository.HechosCatalog;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -32,8 +33,9 @@ class CalculoConvenioServiceTest {
 
     @BeforeAll
     static void arranque() {
-        catalog = new ConvenioCatalog(new ObjectMapper());
-        servicio = new CalculoConvenioService();
+        ObjectMapper mapper = new ObjectMapper();
+        catalog = new ConvenioCatalog(mapper);
+        servicio = new CalculoConvenioService(new HechosCatalog(mapper));
     }
 
     private Convenio madrid() {
