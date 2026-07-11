@@ -82,6 +82,23 @@ export const useAuthStore = defineStore('auth', () => {
     })
   }
 
+  /**
+   * Cola local + candado compartido. La cola serializa las secciones DENTRO
+   * de esta pestaña: donde no hay Web Locks (dev por http, jsdom) el candado
+   * es un no-op y, sin la cola, un reconciliar disparado por visibilitychange
+   * podría leer el marcador enVuelo del refresh en vuelo de su PROPIA pestaña
+   * y quemarlo como huérfano (review #229). Con locks reales la cola es
+   * redundante pero inocua. Sigue sin ser reentrante: nada de llamarla anidada.
+   */
+  let colaLocal: Promise<unknown> = Promise.resolve()
+  function enSeccionSesion<T>(fn: () => Promise<T> | T): Promise<T> {
+    const turno = colaLocal.then(() => conCandadoExclusivo(fn))
+    colaLocal = turno.catch(() => {
+      // Un turno fallido no puede atascar la cola de los siguientes.
+    })
+    return turno
+  }
+
   async function iniciarSesion(emailForm: string, password: string): Promise<boolean> {
     if (cargando.value) {
       return false
@@ -91,7 +108,7 @@ export const useAuthStore = defineStore('auth', () => {
     aviso.value = null
     try {
       const emitido = await postLogin(emailForm, password)
-      await conCandadoExclusivo(() => {
+      await enSeccionSesion(() => {
         // Si el slot compartido guardaba otra sesión (de esta u otra cuenta),
         // su punta se revoca: nadie la va a rotar ya y, sin revocarla, quedaría
         // viva en el servidor hasta 7 días sin que el usuario pudiera cerrarla.
@@ -107,11 +124,17 @@ export const useAuthStore = defineStore('auth', () => {
         email.value = emailForm
         setAuthToken(emitido.token)
         // Persistimos SOLO el refresh (issue #220): sobrevive a la recarga.
-        guardarSesionPersistida({
+        const persistido = guardarSesionPersistida({
           refreshToken: emitido.refreshToken,
           refreshExpiraEn: emitido.refreshExpiraEn,
           familia: familia.value,
         })
+        if (!persistido) {
+          // Escritura fallida (cuota): si quedara el blob de la sesión previa
+          // (ya revocada), el siguiente refresh lo tomaría por un slot ajeno y
+          // se auto-expulsaría (review #229). Slot limpio y sesión solo-memoria.
+          borrarSesionPersistida()
+        }
       })
       return true
     } catch (e) {
@@ -167,12 +190,15 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   /**
-   * Logout voluntario: la sesión local muere YA (la memoria se limpia antes de
-   * tocar la red), y bajo el candado se revoca la punta VIVA de la cadena — la
-   * persistida, que puede ser más nueva que nuestra copia si otra pestaña rotó
-   * (issue #229: revocar la copia gastada dejaba la rotación viva de zombi).
-   * Las capturas van en locals ANTES de limpiar: el closure del candado no
-   * puede fiarse de una memoria que acaba de ponerse a null.
+   * Logout voluntario. Todo lo IRREVERSIBLE ocurre en la parte síncrona (la
+   * pestaña puede morir justo después del click — review #229, MEDIUM: si la
+   * purga esperase al candado, un dispositivo compartido conservaría un
+   * refresh vivo y sin revocar): memoria limpia, punta revocada y slot vacío
+   * antes del primer await. La sección con candado de después es la repesca:
+   * si otra pestaña estaba rotando durante la purga síncrona, su
+   * re-persistencia habrá resucitado el slot y se revoca y purga de nuevo.
+   * Las capturas van en locals ANTES de limpiar: el closure no puede fiarse
+   * de una memoria que acaba de ponerse a null.
    */
   async function cerrarSesion(): Promise<void> {
     const capturaRefresh = refreshToken.value
@@ -183,17 +209,20 @@ export const useAuthStore = defineStore('auth', () => {
     if (capturaRefresh === null) {
       return
     }
-    await conCandadoExclusivo(() => {
-      const persistida = leerSesionPersistida()
-      if (persistida !== null && persistida.familia === capturaFamilia) {
-        // La punta viva es la persistida (rotaciones de otras pestañas
-        // incluidas): revocarla cierra la sesión DE VERDAD en el servidor.
-        revocaSinEsperar(persistida.refreshToken)
+    const ahora = leerSesionPersistida()
+    const esNuestra = ahora !== null && ahora.familia === capturaFamilia
+    // La punta viva es la persistida (rotaciones de otras pestañas incluidas):
+    // revocarla cierra la sesión DE VERDAD en el servidor. Con el slot vacío o
+    // ajeno, se desarma nuestra copia sin tocar lo de otra cadena.
+    revocaSinEsperar(esNuestra ? ahora.refreshToken : capturaRefresh)
+    if (ahora === null || esNuestra) {
+      borrarSesionPersistida()
+    }
+    await enSeccionSesion(() => {
+      const resucitada = leerSesionPersistida()
+      if (resucitada !== null && resucitada.familia === capturaFamilia) {
+        revocaSinEsperar(resucitada.refreshToken)
         borrarSesionPersistida()
-      } else {
-        // Slot vacío o de otra sesión: solo se desarma nuestra copia, sin
-        // tocar lo que otra cadena tenga persistido.
-        revocaSinEsperar(capturaRefresh)
       }
     })
   }
@@ -201,16 +230,19 @@ export const useAuthStore = defineStore('auth', () => {
   /** 401 con token: la sesión ya no vale. Se limpia y se avisa en el login.
    *  El refresh en memoria (el que acaba de ser rechazado en segundo plano) se
    *  captura ANTES de limpiar, para que el purgado del storage sea condicional
-   *  y no borre el token que otra pestaña haya rotado (issue #220). */
-  function sesionCaducada() {
+   *  y no borre el token que otra pestaña haya rotado (issue #220). El purgado
+   *  pasa por la sección de sesión (review #229): un compare-and-delete a pelo
+   *  podía colarse entre la lectura y la escritura de otra pestaña. Sin refresh
+   *  en memoria NO se toca el slot: esta pestaña no tiene derecho sobre él
+   *  (puede ser la sesión superviviente de un 429, o una cadena ajena). */
+  function sesionCaducada(): Promise<void> {
     const refrescoRechazado = refreshToken.value
     limpiarMemoria()
-    if (refrescoRechazado !== null) {
-      borrarSesionPersistidaSi(refrescoRechazado)
-    } else {
-      borrarSesionPersistida()
-    }
     aviso.value = 'Tu sesión ha caducado. Entra de nuevo, por favor.'
+    if (refrescoRechazado === null) {
+      return Promise.resolve()
+    }
+    return enSeccionSesion(() => borrarSesionPersistidaSi(refrescoRechazado))
   }
 
   /**
@@ -229,7 +261,7 @@ export const useAuthStore = defineStore('auth', () => {
     if (refreshToken.value === null) {
       return false
     }
-    return conCandadoExclusivo(async () => {
+    return enSeccionSesion(async () => {
       const miRefresh = refreshToken.value
       if (miRefresh === null) {
         // La sesión murió mientras esperábamos el candado.
@@ -300,9 +332,13 @@ export const useAuthStore = defineStore('auth', () => {
             familia: cadena,
           })
           if (!persistido) {
-            // El blob con marcador quedó atrás: quien lo lea desarmará enUso
-            // (ya gastado, inocuo) y pedirá login. Se desarma ya, por acortar.
-            revocaSinEsperar(enUso)
+            // No se pudo publicar la rotación: se retira el blob con marcador
+            // para que ninguna pestaña queme enUso (ya gastado) ni lo reuse.
+            // Esta pestaña sigue solo-memoria; su siguiente renovación verá el
+            // slot vacío y desarmará su punta (review #229: dejar el marcador
+            // atrás auto-expulsaba a la propia pestaña sana y dejaba el token
+            // rotado vivo sin revocar).
+            borrarSesionPersistida()
           }
         }
         return true
@@ -314,6 +350,24 @@ export const useAuthStore = defineStore('auth', () => {
           if (cadena !== null) {
             borrarSesionPersistidaSi(enUso)
           }
+          return false
+        }
+        if (e instanceof ApiError && e.status === 429) {
+          // Rate limit: el filtro corta ANTES de AuthService, así que seguro
+          // que NO rotó y el token sigue vivo (review #229: revocarlo por un
+          // throttle transitorio tiraba la sesión del navegador entero). Se
+          // desarma el marcador conservando el blob, y esta pestaña suelta su
+          // copia para que la expulsión no purgue el slot: pasada la ventana,
+          // una recarga (u otra pestaña) restaura la sesión en silencio.
+          if (cadena !== null && refreshExpiraEn.value !== null) {
+            guardarSesionPersistida({
+              refreshToken: enUso,
+              refreshExpiraEn: refreshExpiraEn.value,
+              familia: cadena,
+            })
+          }
+          refreshToken.value = null
+          refreshExpiraEn.value = null
           return false
         }
         // Error de red, timeout o abort: ¿llegó el servidor a rotar? Estado
@@ -353,8 +407,9 @@ export const useAuthStore = defineStore('auth', () => {
     }
     const caducidad = Date.parse(guardado.refreshExpiraEn)
     if (Number.isNaN(caducidad) || caducidad <= Date.now()) {
-      // Compare-and-delete: si otra pestaña ya escribió algo nuevo, se respeta.
-      borrarSesionPersistidaSi(guardado.refreshToken)
+      // Compare-and-delete bajo la sección de sesión: si otra pestaña ya
+      // escribió algo nuevo, se respeta (issue #220 / review #229).
+      await enSeccionSesion(() => borrarSesionPersistidaSi(guardado.refreshToken))
       return false
     }
     refreshToken.value = guardado.refreshToken
@@ -362,10 +417,10 @@ export const useAuthStore = defineStore('auth', () => {
     familia.value = guardado.familia
     const renovado = await refrescar()
     if (!renovado) {
-      // Purgado condicional (issue #220): si mientras nuestro refrescar viajaba
-      // otra pestaña rotó el token compartido, no borramos su refresh vigente.
+      // El slot ya lo dejó como toca refrescar() en TODOS sus caminos de fallo
+      // (purga en rechazo limpio y error de red, respeto al blob ajeno, blob
+      // conservado a propósito tras un 429): aquí solo se limpia la memoria.
       limpiarMemoria()
-      borrarSesionPersistidaSi(guardado.refreshToken)
       return false
     }
     try {
@@ -404,7 +459,7 @@ export const useAuthStore = defineStore('auth', () => {
     if (!autenticado.value) {
       return false
     }
-    return conCandadoExclusivo(() => {
+    return enSeccionSesion(() => {
       if (!autenticado.value) {
         return false
       }
@@ -487,14 +542,16 @@ export const useAuthStore = defineStore('auth', () => {
     if (token.value === tokenAlEmpezar) {
       const capturaFamilia = familia.value
       limpiarMemoria()
+      aviso.value = 'Tu cuenta y todos tus datos se han borrado.'
       // El servidor ya destruyó las sesiones (cascade); aquí solo se vacía el
       // slot, y solo si sigue siendo de esta cadena (issue #229).
-      if (capturaFamilia !== null) {
-        borrarSesionPersistidaSiFamilia(capturaFamilia)
-      } else {
-        borrarSesionPersistida()
-      }
-      aviso.value = 'Tu cuenta y todos tus datos se han borrado.'
+      await enSeccionSesion(() => {
+        if (capturaFamilia !== null) {
+          borrarSesionPersistidaSiFamilia(capturaFamilia)
+        } else {
+          borrarSesionPersistida()
+        }
+      })
     }
     return true
   }

@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { ESPERA_MAX_CANDADO_MS, NOMBRE_CANDADO_SESION, conCandadoExclusivo } from './candadoSesion'
+import { TIMEOUT_REFRESH_MS } from '../services/auth'
 
 /**
  * LockManager de mentira que concede los candados EN SERIE: cada callback
@@ -41,6 +42,14 @@ afterEach(() => {
 })
 
 describe('conCandadoExclusivo', () => {
+  it('INVARIANTE: el candado espera MÁS que el POST de refresh que protege', () => {
+    // Si el candado se rindiera antes de que el refresh más lento termine, la
+    // pestaña degradada leería el marcador enVuelo de un refresh VIVO y lo
+    // quemaría como huérfano (review #229, HIGH). Quien cambie una constante
+    // sin la otra, rompe este test.
+    expect(ESPERA_MAX_CANDADO_MS).toBeGreaterThan(TIMEOUT_REFRESH_MS)
+  })
+
   it('sin navigator.locks ejecuta la función directamente y devuelve su resultado', async () => {
     // jsdom no trae Web Locks: este es el camino de fallback (best-effort).
     expect(await conCandadoExclusivo(async () => 'resultado')).toBe('resultado')

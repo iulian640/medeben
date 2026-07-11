@@ -333,8 +333,13 @@ describe('auth store', () => {
     await auth.iniciarSesion('ana@example.com', 'superclave123')
 
     const enVuelo = auth.refrescar()
-    await auth.cerrarSesion()
+    // La sección de sesión arranca en una microtarea: se espera a que el POST
+    // esté DE VERDAD en vuelo antes de cerrar sesión (si no, la cola local
+    // haría que el refresh ni llegara a salir — otro escenario, otro test).
+    await vi.waitFor(() => expect(postRefresh).toHaveBeenCalled())
+    const cerrando = auth.cerrarSesion()
     resolverRefresh()
+    await cerrando
 
     expect(await enVuelo).toBe(false)
     expect(auth.autenticado).toBe(false)
@@ -527,9 +532,20 @@ describe('auth store', () => {
     await auth.iniciarSesion('ana@example.com', 'superclave123')
     expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(true)
 
-    auth.sesionCaducada()
+    await auth.sesionCaducada()
 
     expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('sesionCaducada sin refresh en memoria NO toca el slot compartido', async () => {
+    // Una pestaña sin refresh no tiene derecho sobre el slot: puede ser la
+    // sesión superviviente de un 429 o la cadena de otra pestaña (review #229).
+    const datos = stubStorage(refreshPersistido('R-de-otra', '2099-01-01T00:00:00Z', 'familia-otra'))
+    const auth = useAuthStore()
+
+    await auth.sesionCaducada()
+
+    expect(datos.get(CLAVE_SESION_PERSISTIDA)).toContain('R-de-otra')
   })
 
   it('restauración fallida NO borra el refresh que otra pestaña ya rotó (coordinación entre pestañas)', async () => {
@@ -574,7 +590,7 @@ describe('auth store', () => {
       }),
     )
 
-    auth.sesionCaducada()
+    await auth.sesionCaducada()
 
     expect(auth.autenticado).toBe(false)
     // R2 intacto: la pestaña expulsada llevaba R1, no puede purgar el de otra.
@@ -897,7 +913,157 @@ describe('auth store', () => {
     expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
   })
 
+  it('un 429 del rate limiter NO destruye la sesión: desarma el marcador y conserva el blob', async () => {
+    // El filtro de rate limit corta ANTES de AuthService: seguro que no rotó y
+    // el token sigue vivo. Revocarlo por un throttle transitorio (varias
+    // pestañas renovando a la vez tras el WiFi de una oficina) tiraba la
+    // sesión del navegador entero (review #229). Ahora el blob sobrevive: la
+    // próxima recarga restaura la sesión en silencio pasada la ventana.
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'R1', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    vi.mocked(postRefresh).mockRejectedValue(new ApiError(429, 'API 429', null))
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    const ok = await auth.refrescar()
+
+    expect(ok).toBe(false)
+    expect(postLogout).not.toHaveBeenCalled()
+    const blob = JSON.parse(datos.get(CLAVE_SESION_PERSISTIDA)!) as Record<string, unknown>
+    expect(blob.refreshToken).toBe('R1')
+    expect(blob.enVuelo).toBeUndefined()
+    // La pestaña suelta su copia: la expulsión posterior no purga el slot.
+    expect(auth.refreshToken).toBeNull()
+    await auth.sesionCaducada()
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(true)
+  })
+
+  it('cerrarSesion purga y revoca SÍNCRONAMENTE: la pestaña puede morir tras el click', async () => {
+    // Regresión cazada en la review (#229): si la purga esperase al candado,
+    // cerrar la pestaña justo tras el click dejaría en un dispositivo
+    // compartido un refresh VIVO, persistido y sin revocar.
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'R1', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    const pendiente = auth.cerrarSesion()
+
+    // Antes de cualquier await: slot vacío y revocación ya disparada.
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+    expect(postLogout).toHaveBeenCalledWith('R1')
+    await pendiente
+  })
+
+  it('cerrarSesion repesca la rotación que resucitó el slot durante la purga síncrona', async () => {
+    // Otra pestaña estaba rotando mientras esta cerraba sesión: al terminar,
+    // su re-persistencia resucita el slot. La sección con candado lo detecta,
+    // revoca esa punta y vuelve a vaciar el slot: el logout gana siempre.
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'R1', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    const blob = JSON.parse(datos.get(CLAVE_SESION_PERSISTIDA)!) as Record<string, unknown>
+
+    const pendiente = auth.cerrarSesion()
+    // La rotación de la otra pestaña aterriza tras la purga síncrona.
+    datos.set(
+      CLAVE_SESION_PERSISTIDA,
+      JSON.stringify({ refreshToken: 'R3', refreshExpiraEn: '2099-01-08T00:00:00Z', familia: blob.familia }),
+    )
+    await pendiente
+
+    expect(postLogout).toHaveBeenCalledWith('R3')
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('iniciarSesion con la escritura del slot rota deja el slot limpio (sin blob previo que auto-expulse)', async () => {
+    // Si la escritura falla (cuota) y quedara el blob de la sesión previa (ya
+    // revocada), el siguiente refresh lo tomaría por un slot ajeno y esta
+    // pestaña se auto-expulsaría (review #229). Slot limpio y solo-memoria.
+    const datos = new Map<string, string>([
+      [CLAVE_SESION_PERSISTIDA, JSON.stringify({ refreshToken: 'R-vieja', refreshExpiraEn: '2099-01-01T00:00:00Z', familia: 'familia-vieja' })],
+    ])
+    vi.stubGlobal('localStorage', {
+      getItem: (clave: string) => datos.get(clave) ?? null,
+      setItem: () => {
+        throw new Error('QuotaExceededError')
+      },
+      removeItem: (clave: string) => void datos.delete(clave),
+    })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'R-nueva', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+
+    const ok = await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    expect(ok).toBe(true)
+    expect(auth.autenticado).toBe(true)
+    expect(postLogout).toHaveBeenCalledWith('R-vieja')
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  it('si la re-persistencia del rotado falla, el marcador NO queda atrás y la pestaña sigue', async () => {
+    // Sin este cuidado, el blob con enVuelo huérfano auto-expulsaba a la
+    // propia pestaña sana en su siguiente renovación y dejaba el token rotado
+    // vivo sin revocar (review #229).
+    const datos = new Map<string, string>()
+    let escrituras = 0
+    vi.stubGlobal('localStorage', {
+      getItem: (clave: string) => datos.get(clave) ?? null,
+      setItem: (clave: string, valor: string) => {
+        if (clave === CLAVE_SESION_PERSISTIDA) {
+          escrituras += 1
+          // 1ª: login. 2ª: marcador enVuelo. 3ª: re-persistencia del rotado → cuota.
+          if (escrituras >= 3) {
+            throw new Error('QuotaExceededError')
+          }
+        }
+        datos.set(clave, valor)
+      },
+      removeItem: (clave: string) => void datos.delete(clave),
+    })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'R1', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    vi.mocked(postRefresh).mockResolvedValue({ token: 'jwt-rotado', expiraEn: '2099-01-01T00:15:00Z', refreshToken: 'R2', refreshExpiraEn: '2099-01-08T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    const ok = await auth.refrescar()
+
+    expect(ok).toBe(true)
+    expect(auth.refreshToken).toBe('R2')
+    // Ni marcador huérfano ni blob viejo: el slot queda limpio.
+    expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
   // --- reconciliar: puesta al día al despertar la pestaña (issue #229) ---
+
+  it('reconciliar espera al refresh en vuelo de su PROPIA pestaña (no quema su marcador)', async () => {
+    // Sin Web Locks (jsdom, dev por http) el candado es un no-op: la cola
+    // local intra-pestaña es lo que impide que un visibilitychange durante un
+    // refresh lea el marcador enVuelo propio y lo trate como huérfano.
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'R1', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    let resolverRefresh: () => void = () => {}
+    vi.mocked(postRefresh).mockReturnValue(
+      new Promise((resolve) => {
+        resolverRefresh = () =>
+          resolve({ token: 'jwt-rotado', expiraEn: '2099-01-01T00:15:00Z', refreshToken: 'R2', refreshExpiraEn: '2099-01-08T00:00:00Z' })
+      }),
+    )
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    const renovando = auth.refrescar()
+    const reconciliando = auth.reconciliar()
+    resolverRefresh()
+
+    expect(await renovando).toBe(true)
+    expect(await reconciliando).toBe(false)
+    expect(postLogout).not.toHaveBeenCalled()
+    expect(auth.autenticado).toBe(true)
+    expect(auth.refreshToken).toBe('R2')
+    expect(datos.get(CLAVE_SESION_PERSISTIDA)).toContain('R2')
+  })
 
   it('reconciliar adopta la rotación que otra pestaña hizo mientras esta dormía (misma familia)', async () => {
     const datos = stubStorage()

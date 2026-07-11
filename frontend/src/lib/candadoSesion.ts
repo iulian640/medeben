@@ -21,8 +21,15 @@
  */
 export const NOMBRE_CANDADO_SESION = 'medeben.sesion'
 
-/** Tope de espera por el candado antes de degradar a best-effort. */
-export const ESPERA_MAX_CANDADO_MS = 25_000
+/**
+ * Tope de espera por el candado antes de degradar a best-effort. INVARIANTE
+ * (review #229, HIGH): debe ser MAYOR que el timeout de la operación más larga
+ * que se ejecuta bajo el candado — el POST de /auth/refresh con sus 30s
+ * (TIMEOUT_REFRESH_MS). Si fuera menor, una pestaña en espera degradaría a
+ * best-effort con un refresh legítimo aún en vuelo, vería su marcador enVuelo
+ * y lo quemaría como si fuera huérfano. Hay un test que fija esta relación.
+ */
+export const ESPERA_MAX_CANDADO_MS = 40_000
 
 let avisadoSinLocks = false
 

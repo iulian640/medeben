@@ -32,8 +32,18 @@ export function registrarReconciliacionSesion(router: Router, pinia?: Pinia): ()
       if (actual.name === 'login') {
         return
       }
+      // Solo se arrastra a login si la ruta EXIGE sesión (review #229): en una
+      // ruta pública (home, calculadora anónima) la sesión ya quedó limpia y
+      // el aviso espera en login; empujar ahí a alguien que no iba a hacer
+      // nada autenticado sería un manotazo.
+      if (actual.meta.requiereSesion !== true) {
+        return
+      }
       void router.push({ name: 'login', query: { redirect: actual.fullPath } })
-    })()
+    })().catch(() => {
+      // Reconciliación fallida (p. ej. el navegador denegó el candado): no se
+      // propaga como unhandled rejection; el siguiente despertar lo reintenta.
+    })
   }
   const alMostrarPagina = (evento: Event) => {
     if ((evento as PageTransitionEvent).persisted) {

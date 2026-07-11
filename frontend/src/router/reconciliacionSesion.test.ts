@@ -13,7 +13,7 @@ function crearRouterPrueba() {
     routes: [
       { path: '/', name: 'home', component: Stub },
       { path: '/login', name: 'login', component: Stub },
-      { path: '/cuenta', name: 'cuenta', component: Stub },
+      { path: '/cuenta', name: 'cuenta', component: Stub, meta: { requiereSesion: true } },
     ],
   })
 }
@@ -101,6 +101,24 @@ describe('registrarReconciliacionSesion', () => {
     await vi.waitFor(() => expect(router.currentRoute.value.name).toBe('login'))
 
     expect(router.currentRoute.value.query.redirect).toBe('/cuenta')
+  })
+
+  it('si la expulsión pilla a la pestaña en una ruta PÚBLICA, limpia pero no la arrastra a login', async () => {
+    // El manejador de 401 solo salta cuando falla una petición autenticada;
+    // reconciliar salta con un simple cambio de foco. En una ruta pública no
+    // hay nada autenticado que proteger: la sesión queda limpia y el aviso
+    // espera en login, sin secuestrar la navegación (review #229).
+    const router = crearRouterPrueba()
+    await router.push('/')
+    const auth = useAuthStore(pinia)
+    vi.spyOn(auth, 'reconciliar').mockResolvedValue(true)
+    const push = vi.spyOn(router, 'push')
+    desregistrar = registrarReconciliacionSesion(router, pinia)
+
+    despiertaDesdeBfcache()
+    await vi.waitFor(() => expect(auth.reconciliar).toHaveBeenCalled())
+
+    expect(push).not.toHaveBeenCalled()
   })
 
   it('si la reconciliación expulsa pero YA estamos en login, no re-navega', async () => {
