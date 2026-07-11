@@ -139,6 +139,17 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- Solo afecta al goal "run" (arranque local), no a package/test/CI.
+                     JwtConfig exige un perfil ACTIVO dev/local/test para aceptar los
+                     secretos JWT de juguete del repo (spring.profiles.default=dev de
+                     application.yml no cuenta como activo, a propósito). Sin esto,
+                     "mvn spring-boot:run" no activa ningún perfil y el arranque
+                     documentado muere en esa barrera fail-fast (issue #218). -->
+                <configuration>
+                    <profiles>
+                        <profile>dev</profile>
+                    </profiles>
+                </configuration>
             </plugin>
             <!-- Expone la ruta del jar de mockito-core como propiedad
                  (${org.mockito:mockito-core:jar}) para registrarlo como
