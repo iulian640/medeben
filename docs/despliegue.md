@@ -41,23 +41,66 @@ emite nginx SOLO surte efecto una vez servido por HTTPS.
 externa, y `deploy/restaura-db.ps1` para ensayar la restauración. La BD guarda
 la evidencia de los usuarios; sin backup verificado no hay producción.
 
-Con dominio comprado, pon delante **Caddy** (TLS automático con Let's Encrypt,
-lo más simple) o Traefik/certbot, apuntando a `127.0.0.1:80`, con redirección
-`80→443`. Hasta que eso esté, la app no debe tener usuarios reales.
+### HTTPS con Caddy (dominio medeben.net)
+
+Hay un **`deploy/Caddyfile`** listo. En el servidor, con Caddy instalado:
+
+```bash
+# DNS primero: registro A (y AAAA si hay IPv6) de medeben.net Y de
+# www.medeben.net apuntando a la IP del VPS. www necesita resolver aunque solo
+# redirija (Caddy le saca su propio certificado).
+sudo cp deploy/Caddyfile /etc/caddy/Caddyfile
+sudo systemctl reload caddy
+```
+
+Caddy saca el certificado de Let's Encrypt solo, redirige `80→443` y `www→apex`,
+y proxya al nginx en `127.0.0.1:80`. Requiere los puertos **80 y 443** abiertos
+en el firewall (el 80 hace falta para el reto ACME, no solo para redirigir).
+
+**Rate limiting detrás de Caddy (no romperlo):** el `nginx.conf` reenvía
+`X-Forwarded-For` tal cual (`$http_x_forwarded_for`), NO con
+`$proxy_add_x_forwarded_for`. Con Caddy delante, el peer inmediato de nginx es
+Caddy (127.0.0.1); anexar ese salto machacaría la IP real y metería a todos los
+clientes en una única cubeta. Caddy debe conservar su `trusted_proxies` por
+defecto (vacío) para que la última entrada de X-Forwarded-For sea siempre la IP
+real del cliente. (Ya está así en el repo; se documenta para que nadie lo
+revierta "arreglando" la config de nginx.)
+
+Hasta que HTTPS esté, la app no debe tener usuarios reales.
 
 ## 2. APK de Android
 
-```bash
-cd frontend && npm run build && npx cap sync android
-cd android && JAVA_HOME="C:/Program Files/Android/Android Studio/jbr" ./gradlew assembleRelease
+`VITE_API_URL` DEBE apuntar a `https://medeben.net` **en el build** (el APK no
+comparte origen con el API). La variable de entorno del shell gana a cualquier
+`.env.capacitor` (que tiene el valor del emulador, `http://10.0.2.2`), así que
+basta exportarla; no toques el `.env`. En PowerShell:
+
+```powershell
+cd frontend
+$env:VITE_API_URL = "https://medeben.net"
+npm run build
+npx cap sync android
+cd android
+$env:JAVA_HOME = "C:/Program Files/Android/Android Studio/jbr"
+./gradlew assembleRelease
 # → android/app/build/outputs/apk/release/app-release.apk (FIRMADO)
 ```
 
 - La firma sale de `frontend/android/keystore.properties` (gitignorado).
 - El keystore vive en `C:\Users\iulia\Documents\medeben-release\` — **haz
   copia de seguridad de esa carpeta** (instrucciones en su LEEME.txt).
-- La app apunta al API con `VITE_API_URL` en tiempo de build: para producción,
-  compilar con `VITE_API_URL=https://<tu-dominio>` antes del `cap sync`.
+- **CORS (imprescindible para que el APK funcione):** el WebView de Capacitor
+  vive en `https://localhost` y llama a `https://medeben.net/api` (cross-origin).
+  El backend lo permite (bean CORS en `SecurityConfig`). La lista por defecto
+  incluye `https://localhost` (APK), `https://medeben.net` (web de prod) y los
+  `localhost:4180/5173` de dev/E2E. **OJO:** al habilitar CORS, Spring valida
+  también las peticiones same-origin que llevan cabecera `Origin` (los POST),
+  así que el origen de la **web** debe estar en la lista o el propio registro/login
+  se rechazaría con 403 — por eso `medeben.net` va incluido. Para iOS
+  (`capacitor://localhost`) u otro dominio, añádelo con
+  `MEDEBEN_SEGURIDAD_CORS_ORIGENES` (lista separada por comas) sin tocar código.
+- El mismo `dist/` (compilado con `VITE_API_URL=https://medeben.net`) sirve para
+  la PWA web de nginx: al ser same-origin, la URL absoluta funciona igual.
 
 ## 3. Play Store (todo pendiente de Iulian)
 

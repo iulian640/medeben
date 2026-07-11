@@ -49,7 +49,14 @@ Una provincia en null se poda: ni se ofrece como opción (el usuario cae al modo
   figura prorrateada) y Pontevedra personal-limpieza → Nivel 9 ("Auxiliar … de limpieza").
 - **2 nulls confirmados**: Girona jefe-sala ("sala" en NIV.1 y "de sala" en NIV.3, dos
   salarios) y Lleida personal-limpieza (NIV.4 "Aux. Servicio y Limpieza" vs NIV.5
-  "Auxiliar limpieza").
+  "Auxiliar limpieza"). **RE-VERIFICADOS contra el PDF oficial (BOE-A-2025-12598,
+  BOE núm. 148 de 20-jun-2025, págs. 82197-82199) el 2026-07-11:** el texto oficial
+  NO desambigua (el art. 13 declara las ocupaciones "meramente enunciativas" y remite
+  al ALEH, que no mapea a la numeración NIV). Girona duplica LITERALMENTE "Jefe/a de
+  sala" en NIV.1 (1.739,97 €) y NIV.3 (1.553,64 €); Lleida son dos oficios distintos
+  (servir+limpiar NIV.4 1.282,94 € vs solo limpiar NIV.5 1.231,63 €). Son dudas REALES
+  para UGT, no fallos de mapeo → el `null` es correcto. Pregunta exacta para UGT en
+  `docs/preguntas-ugt.md` §13.
 
 ## Lo NO mapeable hoy (honesto)
 

@@ -47,7 +47,10 @@ class AuthServiceTest {
         repositorio = mock(UsuarioRepository.class);
         sesiones = mock(SesionRepository.class);
         passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        var claves = JwtTestSupport.claves();
+        // El decoder valida la caducidad con el MISMO reloj fijo que emite el
+        // token: si no, un token minteado en AHORA (pasado) caducaba al pasar la
+        // hora real por su exp y el build reventaba solo por el paso del tiempo.
+        var claves = JwtTestSupport.claves(Clock.fixed(AHORA, ZoneOffset.UTC));
         jwtDecoder = claves.decoder();
         servicio = new AuthService(repositorio, sesiones, passwordEncoder, claves.encoder(),
                 Clock.fixed(AHORA, ZoneOffset.UTC), JwtTestSupport.DURACION, DURACION_REFRESH);
