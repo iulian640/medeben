@@ -8,6 +8,11 @@ import { useAuthStore } from '../stores/auth'
 vi.mock('../services/auth', () => ({
   postLogin: vi.fn(),
   postRegistro: vi.fn(),
+  // El store de auth también puede revocar/renovar en segundo plano (issue
+  // #229): sin estos stubs, cualquier camino que los toque revienta el mock.
+  postLogout: vi.fn().mockResolvedValue(undefined),
+  postRefresh: vi.fn(),
+  getMe: vi.fn(),
 }))
 vi.mock('../services/perfilUsuario', () => ({
   getPerfilUsuario: vi.fn(),

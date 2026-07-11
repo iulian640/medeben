@@ -82,7 +82,9 @@ watch(
 )
 
 function salir() {
-  auth.cerrarSesion()
+  // Fire-and-forget: la memoria se limpia en el acto; la revocación remota y
+  // el vaciado del slot compartido siguen bajo el candado en segundo plano.
+  void auth.cerrarSesion()
   router.push('/')
 }
 

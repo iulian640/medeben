@@ -32,10 +32,15 @@ export const getMe = () => api.get<Usuario>('/me')
 /** Borrado de cuenta (RGPD art. 17): destruye TODOS los datos; re-confirma con la contraseña. */
 export const deleteCuenta = (password: string) => api.delete<void>('/cuenta', { password })
 
+/** Plazo extra para el POST de renovación (issue #229): un refresh abortado por
+ * timeout deja el token en estado desconocido → desarme y re-login. En red
+ * móvil floja, mejor esperar el doble que expulsar al usuario por impaciencia. */
+export const TIMEOUT_REFRESH_MS = 30_000
+
 /* refresh y logout van SIN Bearer (anonimo): el access puede estar caducado y
  * un 401 del resource server aquí montaría un bucle. El refresh viaja en el body. */
 export const postRefresh = (refreshToken: string) =>
-  api.post<TokenEmitido>('/auth/refresh', { refreshToken }, { anonimo: true })
+  api.post<TokenEmitido>('/auth/refresh', { refreshToken }, { anonimo: true, timeoutMs: TIMEOUT_REFRESH_MS })
 
 export const postLogout = (refreshToken: string) =>
   api.post<void>('/auth/logout', { refreshToken }, { anonimo: true })
