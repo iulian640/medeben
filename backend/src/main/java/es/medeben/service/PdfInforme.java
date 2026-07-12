@@ -138,6 +138,22 @@ final class PdfInforme {
         return texto.isEmpty() ? texto : Character.toUpperCase(texto.charAt(0)) + texto.substring(1);
     }
 
+    /**
+     * El disclaimer C5 (punto 1 de docs/legal/disclaimers.md), con el convenio
+     * y el año REALES: nunca "cifrado" ni datos inventados. Sin boletín (la
+     * fuente del convenio no lo trae tipado), se omite en vez de rellenarlo.
+     */
+    static Paragraph notaConvenio(String convenioNombre, int anio, String convenioBoletin) {
+        String referencia = convenioBoletin != null ? anio + ", " + convenioBoletin : String.valueOf(anio);
+        Paragraph p = new Paragraph(
+                "Cálculo orientativo según las tablas del convenio " + convenioNombre + " (" + referencia
+                        + "). Puede contener errores o no reflejar tu situación concreta. Verifica con un "
+                        + "profesional o tu sindicato antes de reclamar.", SUAVE);
+        p.setSpacingBefore(4);
+        p.setSpacingAfter(4);
+        return p;
+    }
+
     /** El descargo honesto, igual en todos los informes: informa, no dictamina. */
     static Paragraph descargo() {
         Paragraph p = new Paragraph(

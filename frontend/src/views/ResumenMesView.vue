@@ -7,6 +7,7 @@ import { formatearMinutos } from '../lib/libreta'
 import { etiquetaMes } from '../lib/meses'
 import { revelaEscalonado } from '../lib/animacion'
 import CitasFuente from '../components/CitasFuente.vue'
+import DisclaimerCalculo from '../components/DisclaimerCalculo.vue'
 import ImporteDinero from '../components/ImporteDinero.vue'
 
 const resumen = useResumenStore()
@@ -20,6 +21,9 @@ onMounted(() => {
 const hayExtras = computed(
   () => resumen.resumen !== null && resumen.resumen.horasExtra.minutos > 0,
 )
+
+/** El año de la cifra en pantalla para el disclaimer C5 (punto 1): el del mes consultado. */
+const anioDeLaCifra = computed(() => resumen.mes.slice(0, 4))
 
 /** El progreso hacia el tope anual de horas extra (D22), acotado a 100. */
 const porcentajeTope = computed(() => {
@@ -277,6 +281,13 @@ watch(
         >
           Si un día echas más horas que las de tu horario, aquí verás lo que te deben.
         </p>
+        <!-- Disclaimer C5, punto 1: bajo la cifra, discreto pero legible, nunca un modal. -->
+        <DisclaimerCalculo
+          v-if="hayExtras"
+          :nombre="resumen.resumen.convenioNombre"
+          :anio="anioDeLaCifra"
+          :boletin="resumen.resumen.convenioBoletin"
+        />
       </section>
 
       <!-- El mes en horas: teórico vs real, con puntos de guía de nómina. -->

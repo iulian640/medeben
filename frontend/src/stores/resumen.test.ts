@@ -37,6 +37,8 @@ function resumenServidor(mes: string): ResumenMensual {
     },
     topeAnual: { horas: 80, acumuladoAnioHoras: 3, citas: [] },
     avisos: [],
+    convenioNombre: 'Convenio de prueba',
+    convenioBoletin: 'BOP de prueba',
   }
 }
 

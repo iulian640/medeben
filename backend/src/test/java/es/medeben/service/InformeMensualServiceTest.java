@@ -59,18 +59,22 @@ class InformeMensualServiceTest {
         when(fichajes.estadosDelPeriodo(eq(USUARIO), any(), any())).thenReturn(diasEjemplo());
     }
 
+    private static final String CONVENIO_NOMBRE = "Convenio Colectivo de Hostelería de Ejemplo";
+    private static final String CONVENIO_BOLETIN = "BOP Ejemplo";
+
     private static ResumenMensual resumenEjemplo() {
         ValorHoraCalculado desglose = new ValorHoraCalculado(new BigDecimal("10.8979"),
                 new BigDecimal("1250.91"), new BigDecimal("14"), BigDecimal.ZERO,
                 new BigDecimal("1800"), false, List.of());
         ImporteEstimadoMensual importe = new ImporteEstimadoMensual(new BigDecimal("3.00"),
                 new BigDecimal("10.90"), new BigDecimal("32.70"), new BigDecimal("1250.91"), false,
-                desglose, List.of(new Cita("Salario base mínimo (Art. 20 del convenio)", "https://bocm.es")));
+                desglose, List.of(new Cita("Salario base mínimo (Art. 20 del convenio)", "https://bocm.es")), false);
         TopeAnualResumen tope = new TopeAnualResumen(80, new BigDecimal("3.00"),
                 List.of(new Cita("Tope de 80 h (art. 35.2 ET)", null)));
         return new ResumenMensual(MES, 960, 1140, 180, 0, 0,
                 Map.of(EstadoDia.Estado.COMPLETO, 2),
-                importe, tope, List.of("Estás cerca del tope anual de 80 h extraordinarias."));
+                importe, tope, List.of("Estás cerca del tope anual de 80 h extraordinarias."),
+                CONVENIO_NOMBRE, CONVENIO_BOLETIN);
     }
 
     private static Map<LocalDate, EstadoDia> diasEjemplo() {
@@ -109,6 +113,36 @@ class InformeMensualServiceTest {
         assertThat(texto).contains("1.800 h");
         assertThat(texto).contains("10,8979");
         assertThat(texto).doesNotContain("10.8979");
+        // Sin suelo SMI (fixture por defecto): la etiqueta de siempre.
+        assertThat(texto).contains("el mínimo de tu convenio");
+    }
+
+    @Test
+    @DisplayName("el pie del informe lleva el disclaimer C5 con el nombre y el boletín REALES del convenio, sin la palabra \"cifrado\"")
+    void pieDelInformeConElConvenioReal() throws Exception {
+        String texto = textoDelInforme();
+        String plano = texto.replaceAll("\\s+", " ");
+
+        assertThat(plano).contains("Cálculo orientativo según las tablas del convenio "
+                + CONVENIO_NOMBRE + " (2026, " + CONVENIO_BOLETIN + ")");
+        assertThat(plano).contains("Verifica con un profesional o tu sindicato antes de reclamar");
+        assertThat(texto).doesNotContain("cifrado");
+    }
+
+    @Test
+    @DisplayName("sin boletín del convenio (dato ausente en la fuente): el pie muestra solo nombre y año, no inventa nada")
+    void pieDelInformeSinBoletinNoInventaNada() throws Exception {
+        ResumenMensual base = resumenEjemplo();
+        when(resumenes.delMes(USUARIO, MES)).thenReturn(new ResumenMensual(MES,
+                base.minutosTeoricos(), base.minutosReales(), base.minutosExtra(),
+                base.minutosDeficit(), base.diasSinCalcular(), base.contadoresPorEstado(),
+                base.importe(), base.tope(), base.avisos(), CONVENIO_NOMBRE, null));
+
+        String plano = textoDelInforme().replaceAll("\\s+", " ");
+
+        assertThat(plano).contains("Cálculo orientativo según las tablas del convenio "
+                + CONVENIO_NOMBRE + " (2026)");
+        assertThat(plano).doesNotContain("(2026, null)");
     }
 
     @Test
@@ -152,7 +186,8 @@ class InformeMensualServiceTest {
                 Map.of(EstadoDia.Estado.COMPLETO, 2, EstadoDia.Estado.NO_CUADRA, 1),
                 base.importe(), base.tope(),
                 List.of("El 09/07 tus apuntes no cuadran entre sí: revisa ese día en la libreta "
-                        + "— sus horas no están contadas en el total del mes.")));
+                        + "— sus horas no están contadas en el total del mes."),
+                base.convenioNombre(), base.convenioBoletin()));
         LocalDate dia = LocalDate.of(2026, 7, 9);
         List<Apunte> desordenados = List.of(
                 new Apunte(USUARIO, dia, TipoApunte.SALIDA, "14:00", null,
@@ -191,7 +226,8 @@ class InformeMensualServiceTest {
         ResumenMensual resumenAnioAnterior = new ResumenMensual(mesAnioAnterior,
                 base.minutosTeoricos(), base.minutosReales(), base.minutosExtra(),
                 base.minutosDeficit(), base.diasSinCalcular(), base.contadoresPorEstado(),
-                base.importe(), base.tope(), base.avisos());
+                base.importe(), base.tope(), base.avisos(),
+                base.convenioNombre(), base.convenioBoletin());
         when(resumenes.delMes(USUARIO, mesAnioAnterior)).thenReturn(resumenAnioAnterior);
         when(fichajes.estadosDelPeriodo(eq(USUARIO), any(), any())).thenReturn(Map.of());
 
@@ -214,10 +250,11 @@ class InformeMensualServiceTest {
         ImporteEstimadoMensual conRepetida = new ImporteEstimadoMensual(
                 base.importe().horasExtra(), base.importe().precioHora(), base.importe().importe(),
                 base.importe().salarioBaseAplicado(), base.importe().salarioRealUsado(),
-                base.importe().desglose(), List.of(repetida));
+                base.importe().desglose(), List.of(repetida), base.importe().bajoSmi());
         when(resumenes.delMes(USUARIO, MES)).thenReturn(new ResumenMensual(MES, 960, 1140, 180, 0, 0,
                 Map.of(EstadoDia.Estado.COMPLETO, 2), conRepetida,
-                new TopeAnualResumen(80, new BigDecimal("3.00"), List.of(repetida)), List.of()));
+                new TopeAnualResumen(80, new BigDecimal("3.00"), List.of(repetida)), List.of(),
+                base.convenioNombre(), base.convenioBoletin()));
 
         String texto = textoDelInforme();
 

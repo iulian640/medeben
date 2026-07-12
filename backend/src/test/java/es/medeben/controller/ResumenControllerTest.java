@@ -62,12 +62,12 @@ class ResumenControllerTest {
                 new BigDecimal("1800"), false, List.of());
         ImporteEstimadoMensual importe = new ImporteEstimadoMensual(new BigDecimal("3.00"),
                 new BigDecimal("10.90"), new BigDecimal("32.70"), new BigDecimal("1250.91"), false,
-                desglose, List.of(new Cita("Salario base mínimo (Art. 20 del convenio)", "https://bocm.es")));
+                desglose, List.of(new Cita("Salario base mínimo (Art. 20 del convenio)", "https://bocm.es")), false);
         TopeAnualResumen tope = new TopeAnualResumen(80, new BigDecimal("3.00"),
                 List.of(new Cita("Tope de 80 h (art. 35.2 ET)", Cita.URL_ESTATUTO_TRABAJADORES)));
         return new ResumenMensual(YearMonth.of(2026, 7), 960, 1140, 180, 0, 0,
                 Map.of(EstadoDia.Estado.COMPLETO, 2, EstadoDia.Estado.HUECO, 29),
-                importe, tope, List.of());
+                importe, tope, List.of(), "Convenio de prueba", "BOP de prueba");
     }
 
     @Test
@@ -106,7 +106,9 @@ class ResumenControllerTest {
                 .andExpect(jsonPath("$.contadoresPorEstado.COMPLETO").value(2))
                 .andExpect(jsonPath("$.contadoresPorEstado.HUECO").value(29))
                 .andExpect(jsonPath("$.contadoresPorEstado.PENDIENTE").value(0))
-                .andExpect(jsonPath("$.avisos").isArray());
+                .andExpect(jsonPath("$.avisos").isArray())
+                .andExpect(jsonPath("$.convenioNombre").value("Convenio de prueba"))
+                .andExpect(jsonPath("$.convenioBoletin").value("BOP de prueba"));
     }
 
     @Test

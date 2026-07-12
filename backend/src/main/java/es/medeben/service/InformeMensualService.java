@@ -128,7 +128,7 @@ public class InformeMensualService {
                 avisos(doc, resumen.avisos());
                 diario(doc, mes, finListado, dias);
                 fuentes(doc, resumen);
-                comoLeerlo(doc);
+                comoLeerlo(doc, resumen);
             } finally {
                 if (doc.isOpen()) {
                     doc.close();
@@ -201,9 +201,7 @@ public class InformeMensualService {
         String divisor = d.esDivisorExplicito() ? "divisor del convenio" : "jornada anual";
         Paragraph desglose = new Paragraph(
                 "De dónde sale la hora: (" + dinero(d.salarioBaseMensual()) + " € de salario base"
-                        + (importe.salarioRealUsado()
-                        ? " —tu salario declarado, mayor que el mínimo del convenio—"
-                        : " —el mínimo de tu convenio—")
+                        + etiquetaOrigenBase(importe)
                         + " × " + numero(d.mensualidades()) + " pagas + "
                         + dinero(d.plusesAnuales()) + " € de pluses anuales) / "
                         + numero(d.divisorHoras()) + " h de " + divisor + " = "
@@ -211,6 +209,22 @@ public class InformeMensualService {
                 SUAVE);
         desglose.setSpacingAfter(12);
         doc.add(desglose);
+    }
+
+    /**
+     * Etiqueta del origen de la base del desglose (PR #251, retoque de copy):
+     * salario real declarado, suelo del SMI (art. 27 ET, la tabla queda por
+     * debajo) o el mínimo de la tabla del convenio. {@code bajoSmi} y
+     * {@code salarioRealUsado} nunca son true a la vez.
+     */
+    private static String etiquetaOrigenBase(ImporteEstimadoMensual importe) {
+        if (importe.salarioRealUsado()) {
+            return " —tu salario declarado, mayor que el mínimo del convenio—";
+        }
+        if (importe.bajoSmi()) {
+            return " —el suelo del SMI (tu tabla está por debajo)—";
+        }
+        return " —el mínimo de tu convenio—";
     }
 
     private void avisos(Document doc, List<String> avisos) {
@@ -303,7 +317,7 @@ public class InformeMensualService {
         doc.add(espacio());
     }
 
-    private void comoLeerlo(Document doc) {
+    private void comoLeerlo(Document doc, ResumenMensual resumen) {
         doc.add(seccion("Cómo leer este informe"));
         doc.add(new Paragraph(
                 "El diario es de solo-añadir: ningún apunte se borra ni se reescribe; corregir es añadir "
@@ -312,6 +326,10 @@ public class InformeMensualService {
                         + "de margen; \"rectificación tardía\", cuando el día ya estaba protegido — se registra "
                         + "aparte y lo protegido no se toca. Esa disciplina es la que hace de esta libreta un "
                         + "registro propio con valor como indicio de prueba.", TEXTO));
+        // Disclaimer C5 (pie del informe): el mismo texto de la pantalla, con el
+        // convenio y el año reales del mes de este informe.
+        doc.add(PdfInforme.notaConvenio(resumen.convenioNombre(), resumen.mes().getYear(),
+                resumen.convenioBoletin()));
         doc.add(PdfInforme.descargo());
     }
 

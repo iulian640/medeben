@@ -165,7 +165,8 @@ public class ResumenMensualService {
         avisos.addAll(avisosDescanso(DescansoEntreJornadas.incidencias(conDiaAntes(mes, semanas, diasDelMes))));
 
         return new ResumenMensual(mes, mesAgg.teoricoMin, mesAgg.realMin, mesAgg.extraMin,
-                mesAgg.deficitMin, diasSinCalcular[0], contadores, importe, tope, avisos);
+                mesAgg.deficitMin, diasSinCalcular[0], contadores, importe, tope, avisos,
+                convenio.nombre(), convenio.boletin());
     }
 
     /**
@@ -206,9 +207,9 @@ public class ResumenMensualService {
             // convenio— junto a la cita del SMI que explica por qué se eleva (D34).
             List<Cita> citas = new ArrayList<>(minimo.citas());
             suelo.cita().ifPresent(citas::add);
-            return new SalarioAplicado(suelo.baseAplicada(), false, pluses, citas);
+            return new SalarioAplicado(suelo.baseAplicada(), false, pluses, citas, true);
         }
-        return new SalarioAplicado(aplicado, usaReal, pluses, minimo.citas());
+        return new SalarioAplicado(aplicado, usaReal, pluses, minimo.citas(), false);
     }
 
     /** El mes debe tener horario (semana tipo o edición) en al menos una de sus semanas; si no, 422. */
@@ -243,7 +244,7 @@ public class ResumenMensualService {
         List<Cita> citas = new ArrayList<>(citasSalario(salario));
         citas.addAll(calculada.citas());
         return new ImporteEstimadoMensual(horasExtra, calculada.precioHora(), calculada.importe(),
-                salario.importe(), salario.usaReal(), calculada.desglose(), citas);
+                salario.importe(), salario.usaReal(), calculada.desglose(), citas, salario.bajoSmi());
     }
 
     /**
@@ -467,9 +468,14 @@ public class ResumenMensualService {
         }
     }
 
-    /** Salario base aplicado (D25) y pluses del perfil, con las citas de tabla para arrastrar las fuentes al importe. */
+    /**
+     * Salario base aplicado (D25) y pluses del perfil, con las citas de tabla
+     * para arrastrar las fuentes al importe. {@code bajoSmi} (PR #251) distingue
+     * "elevado al suelo del SMI" de "usa el mínimo del convenio": ambos casos
+     * tienen {@code usaReal == false}, pero solo uno es de verdad la tabla.
+     */
     private record SalarioAplicado(BigDecimal importe, boolean usaReal, BigDecimal pluses,
-                                   List<Cita> citasSalario) {
+                                   List<Cita> citasSalario, boolean bajoSmi) {
         BigDecimal plusesONada() {
             return pluses;
         }

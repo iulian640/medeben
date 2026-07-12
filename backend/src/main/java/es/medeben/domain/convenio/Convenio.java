@@ -30,6 +30,16 @@ public record Convenio(
         return raw.path("fuente").path("url").asText(null);
     }
 
+    /**
+     * Nombre del boletín oficial de la fuente principal (p. ej. "BOCM"); null si
+     * el convenio no lo trae en {@code fuente.boletin} (algunos, como los que
+     * separan articulado y tablas en sub-bloques propios, no lo exponen ahí).
+     * Nunca se inventa: el disclaimer C5 lo omite cuando llega null.
+     */
+    public String boletin() {
+        return raw.path("fuente").path("boletin").asText(null);
+    }
+
     /** Jornada anual aplicable hoy; vacío si el convenio la deja pendiente o no la fija. */
     public Optional<BigDecimal> jornadaAnual() {
         return jornadaAnual(Year.now());

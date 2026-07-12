@@ -67,13 +67,14 @@ class InformeAnualServiceTest {
                 new BigDecimal("1800"), false, List.of());
         ImporteEstimadoMensual importe = new ImporteEstimadoMensual(new BigDecimal("3.00"),
                 new BigDecimal("10.90"), new BigDecimal("32.70"), new BigDecimal("1250.91"), false,
-                desglose, List.of(new Cita("Salario base mínimo (Art. 20 del convenio)", "https://bocm.es")));
+                desglose, List.of(new Cita("Salario base mínimo (Art. 20 del convenio)", "https://bocm.es")), false);
         // El acumulado del tope crece mes a mes: el último mes con datos manda.
         TopeAnualResumen tope = new TopeAnualResumen(80,
                 BigDecimal.valueOf(3L * (mes.getMonthValue() - 2)),
                 List.of(new Cita("Tope de 80 h (art. 35.2 ET)", null)));
         return new ResumenMensual(mes, 9600, 9780, 180, 0, 0,
-                Map.of(EstadoDia.Estado.COMPLETO, 20), importe, tope, List.of());
+                Map.of(EstadoDia.Estado.COMPLETO, 20), importe, tope, List.of(),
+                "Convenio de prueba", "BOP de prueba");
     }
 
     private String texto(byte[] pdf) throws Exception {
@@ -125,7 +126,8 @@ class InformeAnualServiceTest {
             return new ResumenMensual(mes, base.minutosTeoricos(), base.minutosReales(),
                     base.minutosExtra(), base.minutosDeficit(), base.diasSinCalcular(),
                     Map.of(EstadoDia.Estado.COMPLETO, 20, EstadoDia.Estado.NO_CUADRA, noCuadran),
-                    base.importe(), base.tope(), base.avisos());
+                    base.importe(), base.tope(), base.avisos(),
+                    base.convenioNombre(), base.convenioBoletin());
         });
 
         String plano = texto(servicio.genera(USUARIO, Year.of(2026))).replaceAll("\\s+", " ");
