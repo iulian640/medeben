@@ -185,6 +185,18 @@ class ResumenMensualServiceTest {
     }
 
     @Test
+    @DisplayName("el resumen lleva el nombre y el boletín REALES del convenio del perfil (disclaimer C5, no inventados)")
+    void resumenLlevaNombreYBoletinDelConvenio() {
+        diario.put(LocalDate.of(2026, 7, 7), estado(LocalDate.of(2026, 7, 7), EstadoDia.Estado.COMPLETO, 540));
+
+        ResumenMensual r = servicio.delMes(USUARIO, JULIO);
+
+        assertThat(r.convenioNombre())
+                .isEqualTo("Convenio Colectivo del Sector de Hostelería y Actividades Turísticas de la Comunidad de Madrid");
+        assertThat(r.convenioBoletin()).isEqualTo("BOCM");
+    }
+
+    @Test
     @DisplayName("cuadrante con cierre + apertura temprana → avisa del descanso compensatorio (< 12 h)")
     void avisaDescansoCortoEntreJornadas() {
         HorarioEfectivo semanaAjustada = new HorarioEfectivo(List.of(

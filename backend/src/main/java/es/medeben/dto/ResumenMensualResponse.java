@@ -28,7 +28,11 @@ public record ResumenMensualResponse(
         Map<String, Integer> contadoresPorEstado,
         ImporteEstimadoResponse importeEstimado,
         TopeAnualResponse topeAnual,
-        List<String> avisos
+        List<String> avisos,
+        /** Nombre del convenio del perfil (disclaimer C5); nunca null si hay resumen. */
+        String convenioNombre,
+        /** Boletín oficial de la fuente del convenio; null si la fuente no lo trae tipado (no se inventa). */
+        String convenioBoletin
 ) {
 
     private static final DateTimeFormatter YYYY_MM = DateTimeFormatter.ofPattern("yyyy-MM");
@@ -78,6 +82,8 @@ public record ResumenMensualResponse(
                 contadores,
                 ImporteEstimadoResponse.desde(r.importe()),
                 TopeAnualResponse.desde(r.tope()),
-                r.avisos());
+                r.avisos(),
+                r.convenioNombre(),
+                r.convenioBoletin());
     }
 }

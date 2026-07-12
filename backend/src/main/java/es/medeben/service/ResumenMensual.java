@@ -26,6 +26,11 @@ import java.util.Map;
  *       fuera del total, sí, pero nunca en silencio.</li>
  *   <li>Ausencia/hueco/pendiente no computan horas reales (van a los contadores).</li>
  * </ul>
+ *
+ * <p>{@code convenioNombre} y {@code convenioBoletin} son del convenio del
+ * perfil (disclaimer C5, "Cálculo orientativo según las tablas del convenio...
+ * "): {@code convenioBoletin} puede ser null si la fuente del convenio no lo
+ * trae tipado — nunca se inventa.
  */
 public record ResumenMensual(
         YearMonth mes,
@@ -37,7 +42,9 @@ public record ResumenMensual(
         Map<EstadoDia.Estado, Integer> contadoresPorEstado,
         ImporteEstimadoMensual importe,
         TopeAnualResumen tope,
-        List<String> avisos
+        List<String> avisos,
+        String convenioNombre,
+        String convenioBoletin
 ) {
 
     public ResumenMensual {

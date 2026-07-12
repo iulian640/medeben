@@ -192,6 +192,9 @@ class ResumenMensualServiceSueloSmiTest {
         assertThat(r.importe().salarioRealUsado()).isFalse();
         assertThat(r.importe().citas())
                 .noneSatisfy(c -> assertThat(c.texto()).contains("art. 27 ET"));
+        // Regresión de la etiqueta del PDF: sin suelo SMI, sigue siendo "el
+        // mínimo de tu convenio" — la etiqueta del suelo es SOLO para bajoSmi.
+        assertThat(r.importe().bajoSmi()).isFalse();
     }
 
     // --- (4) el PDF mensual bebe de la MISMA fuente y arrastra la corrección y la cita ---
@@ -211,6 +214,11 @@ class ResumenMensualServiceSueloSmiTest {
         assertThat(texto).contains("1.221,00"); // base corregida en el desglose
         assertThat(texto).doesNotContain("1.086,31 € de salario base"); // nunca la cifra bajo SMI como base
         assertThat(texto).contains("art. 27 ET"); // la cita del SMI, en Fuentes
+        // Copy del suelo SMI (retoque tras la PR #251): la cifra elevada NO es
+        // "el mínimo de tu convenio" (esa etiqueta es para la tabla real, que
+        // aquí queda por debajo) — es el suelo legal del art. 27 ET.
+        assertThat(texto).contains("el suelo del SMI (tu tabla está por debajo)");
+        assertThat(texto).doesNotContain("el mínimo de tu convenio");
     }
 
     // --- (5) el histórico anual también bebe de la misma fuente y arrastra la cita ---
