@@ -1,13 +1,13 @@
 # Política de privacidad
 
-> **Borrador / plantilla.** Rellena los `[CORCHETES]` y revísalo con un experto
-> en protección de datos antes de publicarlo. **Obligatoria** (art. 13 RGPD) y
-> **requisito de Google Play** (URL pública). Publicar en `medeben.net/privacidad`.
+> Versión 1.0 — 12 de julio de 2026. Publicada en `medeben.net/privacidad`.
+> Pendiente de revisión por un experto en protección de datos (plan del ADR D11);
+> hasta entonces se aplica tal cual está.
 
 ## 1. Responsable del tratamiento
 
-- **Responsable:** [NOMBRE Y APELLIDOS], NIF [NIF].
-- **Contacto de privacidad:** [privacidad@medeben.net].
+- **Responsable:** Iulian Timofei.
+- **Contacto de privacidad:** iuliantim21@gmail.com.
 
 ## 2. Qué datos tratamos
 
@@ -41,23 +41,23 @@ al año (art. 59 ET).
 
 ## 6. Destinatarios y encargados
 
-Alojamos los datos en [PROVEEDOR DE HOSTING], con servidores en la **Unión
-Europea** y contrato de encargado de tratamiento (art. 28 RGPD). **No vendemos
-ni cedemos tus datos a nadie.** No hay transferencias internacionales.
+Alojamos los datos en **Hetzner Online GmbH**, con servidores en Alemania
+(**Unión Europea**) y contrato de encargado de tratamiento (art. 28 RGPD).
+**No vendemos ni cedemos tus datos a nadie.** No hay transferencias
+internacionales.
 
 ## 7. Tus derechos
 
 Puedes ejercer **acceso, rectificación, supresión, portabilidad, limitación y
 oposición**, y **reclamar ante la AEPD** (www.aepd.es). Escribe a
-[privacidad@medeben.net]; responderemos en el plazo de un mes. Para el borrado
+iuliantim21@gmail.com; responderemos en el plazo de un mes. Para el borrado
 total también puedes usar la opción dentro de la app o la página
-[medeben.net/borrar-cuenta].
+[medeben.net/borrar-cuenta](https://medeben.net/borrar-cuenta).
 
 ## 8. Seguridad
 
 Ciframos la comunicación (HTTPS), el credencial de sesión vive solo en memoria
-del dispositivo, y hacemos copias de seguridad. [Cuando esté disponible: el
-motivo de ausencia se cifra también en la base de datos.]
+del dispositivo, y hacemos copias de seguridad.
 
 ## 9. Cookies y almacenamiento local
 
