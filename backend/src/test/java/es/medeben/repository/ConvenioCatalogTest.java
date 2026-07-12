@@ -80,6 +80,16 @@ class ConvenioCatalogTest {
     }
 
     @Test
+    @DisplayName("boletin(): madrid-hosteleria trae 'BOCM' plano; asturias-hosteleria no lo trae en fuente.boletin (va anidado) y no se inventa")
+    void boletinDeLaFuente() {
+        Convenio madrid = catalog.porId("madrid-hosteleria").orElseThrow();
+        Convenio asturias = catalog.porId("asturias-hosteleria").orElseThrow();
+
+        assertThat(madrid.boletin()).isEqualTo("BOCM");
+        assertThat(asturias.boletin()).isNull();
+    }
+
+    @Test
     @DisplayName("aleh-estatal: tolera vigencia 'desde 2023 / hasta pendiente' y ausencia de jornada")
     void alehEstatalTolerado() {
         Convenio aleh = catalog.porId("aleh-estatal").orElseThrow();
