@@ -192,7 +192,7 @@ public class InformeMensualService {
         }
         fila(tabla, "Tope anual de horas extra",
                 numero(resumen.tope().acumuladoAnioHoras()) + " h de "
-                        + resumen.tope().horasTope() + " h (año en curso)");
+                        + resumen.tope().horasTope() + " h (" + resumen.mes().getYear() + ")");
         tabla.setSpacingBefore(8);
         tabla.setSpacingAfter(8);
         doc.add(tabla);

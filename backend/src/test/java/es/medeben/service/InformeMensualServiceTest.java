@@ -182,6 +182,31 @@ class InformeMensualServiceTest {
     }
 
     @Test
+    @DisplayName("el tope anual imprime el año real del mes del informe, no siempre \"año en curso\" (auditoría)")
+    void topeAnualImprimeElAnioDelMesDelInforme() throws Exception {
+        // Un informe de un mes de un año YA CERRADO (2025, con "hoy" fijo en
+        // 2026-07-10) no puede decir "año en curso": ese año ya no es el actual.
+        YearMonth mesAnioAnterior = YearMonth.of(2025, 3);
+        ResumenMensual base = resumenEjemplo();
+        ResumenMensual resumenAnioAnterior = new ResumenMensual(mesAnioAnterior,
+                base.minutosTeoricos(), base.minutosReales(), base.minutosExtra(),
+                base.minutosDeficit(), base.diasSinCalcular(), base.contadoresPorEstado(),
+                base.importe(), base.tope(), base.avisos());
+        when(resumenes.delMes(USUARIO, mesAnioAnterior)).thenReturn(resumenAnioAnterior);
+        when(fichajes.estadosDelPeriodo(eq(USUARIO), any(), any())).thenReturn(Map.of());
+
+        byte[] pdf = servicio.genera(USUARIO, mesAnioAnterior);
+        String texto;
+        try (PDDocument doc = Loader.loadPDF(pdf)) {
+            texto = new PDFTextStripper().getText(doc);
+        }
+        String plano = texto.replaceAll("\\s+", " ");
+
+        assertThat(plano).contains("h de 80 h (2025)");
+        assertThat(plano).doesNotContain("año en curso");
+    }
+
+    @Test
     @DisplayName("las citas repetidas no se duplican en las fuentes")
     void fuentesSinDuplicados() throws Exception {
         Cita repetida = new Cita("Tope de 80 h (art. 35.2 ET)", null);
