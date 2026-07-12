@@ -114,5 +114,13 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
 
     <h2>10. Menores</h2>
     <p>MeDeben está dirigida a personas trabajadoras mayores de edad.</p>
+
+    <h2>11. Donaciones</h2>
+    <p>
+      Si decides hacer una donación voluntaria, el pago lo procesa
+      <strong>Ko-fi</strong> (plataforma externa, con su propia política de
+      privacidad). MeDeben <strong>no recibe ni guarda</strong> datos de tu pago
+      (tarjeta, importe o identidad del donante).
+    </p>
   </DocumentoLegal>
 </template>

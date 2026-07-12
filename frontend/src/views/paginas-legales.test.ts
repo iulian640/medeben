@@ -49,6 +49,13 @@ describe('PrivacidadView', () => {
     expect(hrefs).toContain('/borrar-cuenta')
     expect(hrefs.some((h) => h?.includes('aepd.es'))).toBe(true)
   })
+
+  it('aclara que una donación la procesa Ko-fi (externo) y MeDeben no guarda el pago', () => {
+    const wrapper = montar(PrivacidadView)
+
+    expect(wrapper.text()).toMatch(/ko-fi/i)
+    expect(wrapper.text()).toMatch(/donaci/i)
+  })
 })
 
 describe('TerminosView', () => {
@@ -59,6 +66,13 @@ describe('TerminosView', () => {
     expect(wrapper.text()).toMatch(/gratuita/i)
     expect(wrapper.text()).toMatch(/AGPL-3\.0/i)
     expect(wrapper.text()).toMatch(/orientativos/i)
+  })
+
+  it('aclara que las donaciones son voluntarias y no dan contraprestación', () => {
+    const wrapper = montar(TerminosView)
+
+    expect(wrapper.text()).toMatch(/donaci/i)
+    expect(wrapper.text()).toMatch(/voluntari/i)
   })
 })
 

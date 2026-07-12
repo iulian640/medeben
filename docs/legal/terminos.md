@@ -11,7 +11,9 @@ Al usar MeDeben aceptas estos términos. Debes ser **mayor de edad**.
 
 MeDeben es una herramienta **gratuita** para que la persona trabajadora registre
 su jornada y estime lo que pudieran adeudarle. Es y será gratuita para el
-trabajador: no hay pago, ni publicidad, ni venta de tus datos.
+trabajador: no hay pago, ni publicidad, ni venta de tus datos. Las **donaciones**
+a través de Ko-fi son **voluntarias** y no otorgan ningún derecho ni
+contraprestación: no desbloquean funciones ni retiran nada.
 
 ## 3. Tu cuenta
 
