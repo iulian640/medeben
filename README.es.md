@@ -38,6 +38,9 @@ dice; nunca lo inventa.
 ## Nuestro compromiso
 
 - Nunca pagarás por usarla.
+- Si quieres echar una mano para mantenerla en pie, hay un bote
+  ([Ko-fi](https://ko-fi.com/medeben)). Es opcional y no desbloquea nada: la app
+  es la misma dones o no dones.
 - Tus datos son tuyos: expórtalos o bórralos cuando quieras. No los vendemos.
 - Lo que hoy es gratis no se convertirá en de pago.
 - No hace falta creernos: el código es público (AGPL-3.0) y cualquiera puede
@@ -107,9 +110,10 @@ Lo de dentro importa tanto como lo de fuera:
 con fuentes, "cuánto te deben este mes", registro de horas con diario sellado,
 editor de cuadrantes, informes PDF del mes y del año, avisos de fichaje (app
 Android) y cuentas con borrado real (RGPD) y sesiones que se pueden cerrar de
-verdad. En camino: la publicación (Play Store) y el despliegue público. El
-corpus completo de 55 convenios (~8.800 hechos salariales con procedencia) ya
-está en su sitio.
+verdad. El trabajo previo al lanzamiento está hecho: textos legales, una
+revisión de seguridad y calidad, y un build de Android firmado. En camino: el
+despliegue público y la publicación en la Play Store. El corpus completo de 55
+convenios (~8.800 hechos salariales con procedencia) ya está en su sitio.
 
 Decisiones del proyecto: [docs/ADR.md](docs/ADR.md). Diario de avance:
 [docs/HISTORIAL.md](docs/HISTORIAL.md). Para levantarlo en local:
