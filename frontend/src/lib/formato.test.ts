@@ -55,6 +55,18 @@ describe('mensajeDeError', () => {
   it('da un mensaje genérico para errores que no son Error', () => {
     expect(mensajeDeError('boom')).toBe('Algo ha fallado. Inténtalo de nuevo.')
   })
+
+  it('traduce el TypeError de red del fetch (offline, DNS, CORS...) a un mensaje sin tecnicismos', () => {
+    expect(mensajeDeError(new TypeError('Failed to fetch'))).toBe(
+      'No hay conexión. Comprueba tu red e inténtalo de nuevo.',
+    )
+  })
+
+  it('traduce también el TypeError de red con el texto de Firefox/Safari, no solo el de Chrome', () => {
+    expect(mensajeDeError(new TypeError('NetworkError when attempting to fetch resource.'))).toBe(
+      'No hay conexión. Comprueba tu red e inténtalo de nuevo.',
+    )
+  })
 })
 
 describe('etiquetas de dimensiones', () => {

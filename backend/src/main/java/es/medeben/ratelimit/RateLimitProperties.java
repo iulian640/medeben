@@ -31,7 +31,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  *                       cliente falsear su IP y saltarse el límite
  *                       (IP-spoofing) — solo debe activarse cuando de verdad
  *                       hay un proxy/balanceador que sobreescribe esa cabecera.
- * @param auth           presupuesto para login/registro/logout.
+ * @param auth           presupuesto para login/logout (y cualquier otra ruta
+ *                       de {@code /auth/**} que no tenga su propio bucket).
  * @param refresh        presupuesto para {@code /auth/refresh} (B4, hallazgo del
  *                       security review): con el access de 15 min cada usuario
  *                       activo refresca ~4 veces/hora durante TODO el turno, y
@@ -40,6 +41,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  *                       de login (auto-DoS). La fuerza bruta del refresh no es
  *                       la amenaza (256 bits): este bucket solo frena el abuso
  *                       volumétrico sin estrangular a los legítimos.
+ * @param registro       presupuesto PROPIO para {@code /auth/registro}, más
+ *                       estricto que el de auth (hallazgo de auditoría): el
+ *                       409 (email ya registrado) frente al 201 permite
+ *                       enumerar cuentas por fuerza bruta. El cierre real es
+ *                       la verificación por email (pendiente); esto acota el
+ *                       daño mientras tanto. Registrarse es un evento raro por
+ *                       IP — no necesita absorber una plantilla entera como el
+ *                       login, así que la ráfaga es mucho más corta.
  * @param api            presupuesto para el resto de la API.
  * @param informes       presupuesto para {@code /api/v1/informes/**}: generar
  *                       un PDF cuesta MUCHO más que un GET normal (recorre el
@@ -54,12 +63,14 @@ public record RateLimitProperties(
         boolean confiarEnProxy,
         Presupuesto auth,
         Presupuesto refresh,
+        Presupuesto registro,
         Presupuesto api,
         Presupuesto informes) {
 
     public RateLimitProperties {
         auth = auth != null ? auth : Presupuesto.DEFECTO_AUTH;
         refresh = refresh != null ? refresh : Presupuesto.DEFECTO_REFRESH;
+        registro = registro != null ? registro : Presupuesto.DEFECTO_REGISTRO;
         api = api != null ? api : Presupuesto.DEFECTO_API;
         informes = informes != null ? informes : Presupuesto.DEFECTO_INFORMES;
     }
@@ -76,6 +87,9 @@ public record RateLimitProperties(
         static final Presupuesto DEFECTO_AUTH = new Presupuesto(30, 20);
         // Dimensionado: ~100 usuarios tras una misma IP × 4 refresh/hora ≈ 7/min.
         static final Presupuesto DEFECTO_REFRESH = new Presupuesto(60, 40);
+        // Ráfaga corta + goteo bajo: registrarse no es tráfico de plantilla
+        // entera como el login, así que no necesita absorber una ráfaga grande.
+        static final Presupuesto DEFECTO_REGISTRO = new Presupuesto(5, 2);
         static final Presupuesto DEFECTO_API = new Presupuesto(40, 120);
         static final Presupuesto DEFECTO_INFORMES = new Presupuesto(5, 3);
     }

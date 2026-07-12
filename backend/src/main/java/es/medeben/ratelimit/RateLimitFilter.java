@@ -19,13 +19,16 @@ import java.util.Base64;
 import java.util.Optional;
 
 /**
- * Rate limiting transversal para {@code /api/**}, con dos presupuestos
+ * Rate limiting transversal para {@code /api/**}, con varios presupuestos
  * independientes (ver {@link RateLimitProperties}):
  *
  * <ul>
- *   <li>{@code /api/v1/auth/**} (login, registro): estricto, siempre por IP
+ *   <li>{@code /api/v1/auth/**} (login, logout): estricto, siempre por IP
  *       — antes de autenticar no hay usuario todavía, así que es la única
  *       clave posible (y es justo lo que protege de fuerza bruta).</li>
+ *   <li>{@code /api/v1/auth/registro}: presupuesto PROPIO, más estricto
+ *       todavía que el de auth (el 409 de email duplicado permite enumerar
+ *       cuentas), también siempre por IP.</li>
  *   <li>Resto de {@code /api/**}: por el {@code sub} del JWT si la cabecera
  *       {@code Authorization: Bearer} trae un token sintácticamente válido
  *       (no hace falta verificar la firma: aquí solo se usa como clave de
@@ -49,6 +52,7 @@ public final class RateLimitFilter extends OncePerRequestFilter {
     private static final String PREFIJO_AUTH = "/api/v1/auth/";
     private static final String PREFIJO_INFORMES = "/api/v1/informes/";
     private static final String RUTA_REFRESH = "/api/v1/auth/refresh";
+    private static final String RUTA_REGISTRO = "/api/v1/auth/registro";
     private static final String RUTA_CUENTA = "/api/v1/cuenta";
     private static final String RUTA_HEALTH = "/api/v1/health";
     private static final String PREFIJO_BEARER = "Bearer ";
@@ -112,22 +116,34 @@ public final class RateLimitFilter extends OncePerRequestFilter {
         // turno) y metería a la plantilla entera en el bucket estricto del
         // login (security review). Presupuesto propio, también por IP.
         boolean esRefresh = ruta.equals(RUTA_REFRESH);
-        boolean esAuth = !esRefresh && ruta.startsWith(PREFIJO_AUTH);
+        // El registro (auditoría): el 409 (email ya registrado) frente al 201
+        // permite enumerar cuentas por fuerza bruta. Presupuesto PROPIO, mucho
+        // más estrecho que el genérico de auth (pensado para que una plantilla
+        // entera haga login a la vez, no para un evento raro por IP como
+        // registrarse) — también por IP, antes de autenticar no hay otra clave.
+        boolean esRegistro = !esRefresh && ruta.equals(RUTA_REGISTRO);
+        boolean esAuth = !esRefresh && !esRegistro && ruta.startsWith(PREFIJO_AUTH);
         // Los informes PDF llevan su propio presupuesto, mucho más estrecho:
         // generarlos cuesta un año de recorrido + maquetado (ver Properties).
-        boolean esInforme = !esRefresh && !esAuth && ruta.startsWith(PREFIJO_INFORMES);
+        boolean esInforme = !esRefresh && !esRegistro && !esAuth && ruta.startsWith(PREFIJO_INFORMES);
         // El borrado de cuenta re-confirma la contraseña: mismo control
         // anti-fuerza-bruta que el login → presupuesto ESTRICTO de auth
         // (security review). La clave sigue siendo ip|sub: el atacante con un
         // token queda confinado sin castigar a los legítimos de un WiFi común.
-        boolean esCuenta = !esRefresh && !esAuth && !esInforme && ruta.equals(RUTA_CUENTA);
+        boolean esCuenta = !esRefresh && !esRegistro && !esAuth && !esInforme && ruta.equals(RUTA_CUENTA);
         RateLimitProperties.Presupuesto presupuesto =
                 esRefresh ? propiedades.refresh()
+                        : esRegistro ? propiedades.registro()
                         : esAuth || esCuenta ? propiedades.auth()
                         : esInforme ? propiedades.informes() : propiedades.api();
         String grupo = esRefresh ? "refresh:"
+                : esRegistro ? "registro:"
                 : esAuth ? "auth:" : esInforme ? "informes:" : esCuenta ? "cuenta:" : "api:";
-        String clave = grupo + claveDelCliente(request, esAuth || esRefresh);
+        // Igual que auth/refresh: antes de autenticar no hay sub legítimo
+        // posible, así que la clave es SIEMPRE la IP (nunca intenta leer un
+        // Bearer, que aquí solo podría ser un token forjado para esquivar el
+        // tope rotando el claim sub).
+        String clave = grupo + claveDelCliente(request, esAuth || esRefresh || esRegistro);
 
         boolean permitido = registro.intentaConsumir(clave, presupuesto.capacidad(), presupuesto.recargaPorMinuto());
         if (permitido) {

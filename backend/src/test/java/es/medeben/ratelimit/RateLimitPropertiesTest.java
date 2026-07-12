@@ -11,7 +11,7 @@ class RateLimitPropertiesTest {
     @Test
     @DisplayName("presupuestos nulos -> se sustituyen por los valores por defecto")
     void authYApiNulosSeSustituyenPorLosPresupuestosPorDefecto() {
-        RateLimitProperties propiedades = new RateLimitProperties(true, false, null, null, null, null);
+        RateLimitProperties propiedades = new RateLimitProperties(true, false, null, null, null, null, null);
 
         assertThat(propiedades.auth().capacidad()).isEqualTo(30);
         assertThat(propiedades.auth().recargaPorMinuto()).isEqualTo(20);
@@ -19,6 +19,10 @@ class RateLimitPropertiesTest {
         // legítimo de toda una plantilla tras una misma IP, ~4/hora por usuario.
         assertThat(propiedades.refresh().capacidad()).isEqualTo(60);
         assertThat(propiedades.refresh().recargaPorMinuto()).isEqualTo(40);
+        // El de registro es a propósito MÁS ESTRECHO que el de auth (auditoría):
+        // el 409 de email duplicado permite enumerar cuentas.
+        assertThat(propiedades.registro().capacidad()).isEqualTo(5);
+        assertThat(propiedades.registro().recargaPorMinuto()).isEqualTo(2);
         assertThat(propiedades.api().capacidad()).isEqualTo(40);
         assertThat(propiedades.api().recargaPorMinuto()).isEqualTo(120);
         // El de informes es a propósito MUCHO más estrecho: generar un PDF
@@ -32,13 +36,16 @@ class RateLimitPropertiesTest {
     void authYApiExplicitosSeRespetanTalCual() {
         RateLimitProperties.Presupuesto auth = new RateLimitProperties.Presupuesto(5, 5);
         RateLimitProperties.Presupuesto refresh = new RateLimitProperties.Presupuesto(9, 9);
+        RateLimitProperties.Presupuesto registro = new RateLimitProperties.Presupuesto(3, 3);
         RateLimitProperties.Presupuesto api = new RateLimitProperties.Presupuesto(50, 200);
         RateLimitProperties.Presupuesto informes = new RateLimitProperties.Presupuesto(2, 1);
 
-        RateLimitProperties propiedades = new RateLimitProperties(true, true, auth, refresh, api, informes);
+        RateLimitProperties propiedades =
+                new RateLimitProperties(true, true, auth, refresh, registro, api, informes);
 
         assertThat(propiedades.auth()).isEqualTo(auth);
         assertThat(propiedades.refresh()).isEqualTo(refresh);
+        assertThat(propiedades.registro()).isEqualTo(registro);
         assertThat(propiedades.api()).isEqualTo(api);
         assertThat(propiedades.informes()).isEqualTo(informes);
         assertThat(propiedades.habilitado()).isTrue();

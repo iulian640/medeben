@@ -48,6 +48,13 @@ export function mensajeDeError(error: unknown): string {
       return detail
     }
   }
+  // El fetch spec garantiza que un fallo de red (offline, DNS, CORS...) rechaza
+  // con un TypeError, igual en Chrome ("Failed to fetch"), Firefox ("NetworkError
+  // when attempting to fetch resource.") o Safari ("Load failed"). Sin esta rama
+  // ese texto en inglés le llegaba tal cual a un camarero en un role="alert".
+  if (error instanceof TypeError) {
+    return 'No hay conexión. Comprueba tu red e inténtalo de nuevo.'
+  }
   if (error instanceof Error) {
     return error.message
   }
