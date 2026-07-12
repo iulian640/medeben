@@ -11,3 +11,10 @@ medeben:
   seguridad:
     jwt:
       secreto: "secreto-de-desarrollo-no-usar-en-produccion-32-bytes!"
+  rate-limit:
+    # El rate limiting es una defensa de PRODUCCIÓN. En dev estorba: el E2E de
+    # Playwright registra ~10 cuentas seguidas desde la misma IP y el presupuesto
+    # estricto de /auth/registro (5 de ráfaga, 2/min) lo ahoga con 429. El propio
+    # limitador ya se prueba aparte en RateLimitFilterRegistroTest, así que
+    # apagarlo aquí no baja cobertura. En prod sigue activo (application-prod.yml).
+    habilitado: false
