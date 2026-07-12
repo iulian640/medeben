@@ -44,6 +44,16 @@ let onRefresh: (() => Promise<boolean>) | null = null
 /** Single-flight: N peticiones con 401 a la vez comparten UN solo refresh. */
 let refreshEnVuelo: Promise<boolean> | null = null
 
+/**
+ * Token de la sesión a la que pertenece el refresh en curso (el que estaba en
+ * el módulo cuando arrancó). Va SIEMPRE de la mano de refreshEnVuelo (ambos se
+ * ponen a null en el mismo finally). Sirve para que solo las peticiones de ESA
+ * misma sesión se cuelguen del refresh y se reintenten con el token rotado: en
+ * un dispositivo compartido, el 401 de una sesión ajena no puede reintentarse
+ * con el token de otra (bug B3).
+ */
+let tokenDelRefresco: string | null = null
+
 /** Opciones del cliente además de las de fetch. */
 export interface OpcionesApi extends RequestInit {
   /**
@@ -79,6 +89,7 @@ export function setOnUnauthorized(handler: (() => void) | null) {
 export function setOnRefresh(handler: (() => Promise<boolean>) | null) {
   onRefresh = handler
   refreshEnVuelo = null
+  tokenDelRefresco = null
 }
 
 async function envia(path: string, options: OpcionesApi, esReintento = false): Promise<Response> {
@@ -113,15 +124,37 @@ async function envia(path: string, options: OpcionesApi, esReintento = false): P
   // (B4). Sin token (login fallido, refresh, logout) no hay nada que renovar.
   if (response.status === 401 && tokenEnviado !== null) {
     if (!esReintento && onRefresh !== null) {
-      if (refreshEnVuelo === null) {
+      // Un refresh SOLO lo arranca la sesión que emitió ESTA petición y que
+      // SIGUE siendo la del módulo. En un dispositivo compartido (tablet de
+      // barra en hostelería) la sesión puede cambiar con la petición en vuelo:
+      // Bea inicia sesión mientras el POST de Ana —con el access ya caducado—
+      // sigue viajando. Sin esta guarda, el 401 de Ana dispararía el refresh de
+      // la sesión de BEA. Mismo patrón que auth.ts (borrarCuenta/tokenAlEmpezar):
+      // el token se captura antes del await (tokenEnviado) y se comprueba
+      // después. tokenDelRefresco recuerda a qué sesión pertenece el refresh en
+      // curso, para el reintento de abajo.
+      if (refreshEnVuelo === null && authToken === tokenEnviado) {
+        tokenDelRefresco = tokenEnviado
         refreshEnVuelo = onRefresh().finally(() => {
           refreshEnVuelo = null
+          tokenDelRefresco = null
         })
       }
-      const renovado = await refreshEnVuelo
-      if (renovado) {
-        // Reintento único con el token ya rotado (envia lo relee del módulo).
-        return envia(path, options, true)
+      // Reintento SOLO si el refresh en curso es el de la sesión que emitió
+      // ESTA petición (mismo token de arranque). Así el single-flight sigue
+      // funcionando —varias peticiones de la MISMA sesión comparten un refresh
+      // y reintentan con el token ya rotado—, pero la petición de una sesión
+      // ajena no se cuela en el refresh de otra ni se reintenta con su token:
+      // cae al throw de más abajo (bug B3). No basta con authToken ===
+      // tokenEnviado aquí: un refresh legítimo de la MISMA sesión rota el token,
+      // y entonces authToken ya no coincide con tokenEnviado (rompería el
+      // single-flight de la segunda petición).
+      if (refreshEnVuelo !== null && tokenEnviado === tokenDelRefresco) {
+        const renovado = await refreshEnVuelo
+        if (renovado) {
+          // Reintento único con el token ya rotado (envia lo relee del módulo).
+          return envia(path, options, true)
+        }
       }
     }
     // Solo se expulsa si la sesión actual sigue siendo la que emitió ESTA

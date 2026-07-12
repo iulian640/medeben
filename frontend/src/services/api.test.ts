@@ -291,6 +291,98 @@ describe('renovación de sesión (B4)', () => {
     expect(onUnauthorized).not.toHaveBeenCalled()
   })
 
+  it('B3: sesión sustituida entre el envío y el 401 NO refresca ni reintenta con el token nuevo', async () => {
+    // Tablet compartida (hostelería): el POST de Ana viaja con su access ya
+    // caducado; ANTES de que se procese el 401, Bea inicia sesión y su token
+    // pasa a ser el del módulo. El bloque de refresh+reintento releía authToken
+    // SIN comprobar que siguiera siendo la sesión que emitió la petición, así
+    // que refrescaba la sesión de Bea y reintentaba el fichaje de Ana con el
+    // token de Bea: se escribía en la cuenta de Bea, en silencio.
+    const fetchMock = vi.fn().mockImplementation(async (_url: string, init: RequestInit) => {
+      const auth = (init.headers as Record<string, string>)['Authorization']
+      if (auth === 'Bearer jwt-ana') {
+        // Bea entra mientras la petición de Ana sigue en vuelo.
+        setAuthToken('jwt-bea')
+        return respuesta(401)
+      }
+      // Con el bug, el reintento de Ana llegaba aquí con el token rotado de Bea.
+      return respuesta(200, { dato: 'de-bea' })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    setAuthToken('jwt-ana')
+    const onRefresh = vi.fn().mockImplementation(async () => {
+      setAuthToken('jwt-nuevo') // el refresh de la sesión de Bea rota su token
+      return true
+    })
+    setOnRefresh(onRefresh)
+    const onUnauthorized = vi.fn()
+    setOnUnauthorized(onUnauthorized)
+
+    // La petición de la sesión vieja muere aquí: ni refresh ajeno ni reintento.
+    await expect(api.get('/fichajes')).rejects.toBeInstanceOf(ApiError)
+    expect(onRefresh).not.toHaveBeenCalled()
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    // Y tampoco expulsa a quien está dentro ahora (Bea).
+    expect(onUnauthorized).not.toHaveBeenCalled()
+  })
+
+  it('B3 (variante): el 401 de una sesión vieja NO se cuela en el refresh EN CURSO de otra', async () => {
+    // Bea ya tiene un refresh en vuelo (su propia petición se topó con un 401);
+    // la petición rezagada de Ana, con su token viejo, recibe un 401 mientras
+    // ese refresh de Bea sigue pendiente. No debe colgarse de él ni reintentarse
+    // con el token rotado de Bea. Protege la 2.ª guarda (tokenDelRefresco): sin
+    // ella, comprobar solo authToken === tokenEnviado no basta (el refresh
+    // legítimo rota el token y rompería el single-flight de la misma sesión).
+    const resolvers = new Map<string, (r: Response) => void>()
+    const fetchMock = vi.fn().mockImplementation((url: string, init: RequestInit) => {
+      const auth = (init.headers as Record<string, string>)['Authorization']
+      // El token ya rotado de Bea siempre responde 200: ahí caería el reintento
+      // indebido de Ana si faltara la guarda.
+      if (auth === 'Bearer jwt-bea-nuevo') {
+        return Promise.resolve(respuesta(200, { dato: 'de-bea' }))
+      }
+      return new Promise<Response>((resolve) => resolvers.set(url, resolve))
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    // Ana manda su petición con su token; queda en vuelo.
+    setAuthToken('jwt-ana')
+    const peticionAna = api.get('/ana')
+    // Adjuntamos YA el manejador de rechazo: Ana rechaza durante los flushes de
+    // abajo, antes del await final; sin esto Vitest lo vería como unhandled.
+    const anaRechaza = expect(peticionAna).rejects.toBeInstanceOf(ApiError)
+
+    // Bea entra; su refresh rotará a 'jwt-bea-nuevo', pero lo controlamos.
+    setAuthToken('jwt-bea')
+    let resolverRefreshBea: (v: boolean) => void = () => {}
+    const onRefresh = vi.fn().mockReturnValue(
+      new Promise<boolean>((resolve) => {
+        resolverRefreshBea = (v) => {
+          if (v) setAuthToken('jwt-bea-nuevo')
+          resolve(v)
+        }
+      }),
+    )
+    setOnRefresh(onRefresh)
+
+    const peticionBea = api.get('/bea')
+    await new Promise((r) => setTimeout(r, 0))
+    // Bea recibe 401 → arranca SU refresh (queda pendiente).
+    resolvers.get('/api/v1/bea')!(respuesta(401))
+    await new Promise((r) => setTimeout(r, 0))
+    // Ana recibe su 401 con el refresh de Bea aún en vuelo.
+    resolvers.get('/api/v1/ana')!(respuesta(401))
+    await new Promise((r) => setTimeout(r, 0))
+    // El refresh de Bea termina y rota su token.
+    resolverRefreshBea(true)
+
+    // Ana muere: ni se cuela en el refresh de Bea ni se reintenta con su token.
+    await anaRechaza
+    // Bea, en cambio, renueva y reintenta con normalidad.
+    await expect(peticionBea).resolves.toEqual({ dato: 'de-bea' })
+    expect(onRefresh).toHaveBeenCalledTimes(1)
+  })
+
   it('getBlob también renueva y reintenta tras un 401 (la descarga del PDF no se queda muda)', async () => {
     const pdf = new Blob(['%PDF'])
     const fetchMock = vi.fn().mockImplementation(async (_url: string, init: RequestInit) => {
