@@ -41,6 +41,10 @@ export interface ResumenMensual {
   importeEstimado: ImporteEstimado
   topeAnual: TopeAnual
   avisos: string[]
+  /** Nombre del convenio del perfil (disclaimer C5, punto 1). */
+  convenioNombre: string
+  /** Boletín oficial de la fuente del convenio; null si no llega tipado (no se inventa). */
+  convenioBoletin: string | null
 }
 
 export const getResumenMes = (anyoMes: string) =>

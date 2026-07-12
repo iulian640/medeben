@@ -43,6 +43,8 @@ function resumenServidor(extra: Partial<ResumenMensual> = {}): ResumenMensual {
     },
     topeAnual: { horas: 80, acumuladoAnioHoras: 3.5, citas: [] },
     avisos: [],
+    convenioNombre: 'Convenio Colectivo del Sector de Hostelería y Actividades Turísticas de la Comunidad de Madrid',
+    convenioBoletin: 'BOCM',
     ...extra,
   }
 }
@@ -419,5 +421,38 @@ describe('ResumenMesView', () => {
 
     expect(wrapper.text()).toContain('art. 35.1 ET')
     expect(wrapper.text()).toContain('el mínimo de tu convenio')
+  })
+
+  it('el disclaimer C5 (punto 1) va bajo la cifra, con el nombre y el año reales del convenio', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(
+      resumenServidor({ mes: '2026-07', convenioNombre: 'Convenio de prueba', convenioBoletin: 'BOP de prueba' }),
+    )
+
+    const wrapper = await montar()
+
+    expect(wrapper.text()).toContain(
+      'Cálculo orientativo según las tablas del convenio Convenio de prueba (2026, BOP de prueba).',
+    )
+    expect(wrapper.text()).toContain('Verifica con un profesional o tu sindicato antes de reclamar.')
+  })
+
+  it('sin boletín del convenio no se inventa nada: solo nombre y año', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(
+      resumenServidor({ convenioNombre: 'Convenio de prueba', convenioBoletin: null }),
+    )
+
+    const wrapper = await montar()
+
+    expect(wrapper.text()).toContain('según las tablas del convenio Convenio de prueba (2026).')
+  })
+
+  it('sin horas extra (0 h) no se enseña el disclaimer del cálculo: no hay cifra que orientar', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(
+      resumenServidor({ horasExtra: { minutos: 0, horas: 0 } }),
+    )
+
+    const wrapper = await montar()
+
+    expect(wrapper.find('.disclaimer-calculo').exists()).toBe(false)
   })
 })
