@@ -75,6 +75,18 @@ class CalculoControllerTest {
     }
 
     @Test
+    @DisplayName("bug B1: precio de hora extra por nivel que el motor no resuelve (Álava) → 422 honesto, no cifra a la baja")
+    void horasExtraPrecioPorNivelNoResoluble() throws Exception {
+        mockMvc.perform(post("/api/v1/calculo/horas-extra")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"convenioId":"alava-hosteleria","anio":2026,
+                                 "salarioBaseMensual":1000,"plusesAnuales":0,"horas":5}"""))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.detail").exists());
+    }
+
+    @Test
     @DisplayName("colectiva (#231) con provincia: cocinero de comedor en Zaragoza → 200 con importe y citas")
     void horasExtraColectivaConProvincia() throws Exception {
         mockMvc.perform(post("/api/v1/calculo/horas-extra")

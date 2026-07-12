@@ -213,6 +213,14 @@ public class CalculoConvenioService {
      * existe y es mayor; nunca por debajo del valor de la hora ordinaria
      * (art. 35.1 ET, suelo legal). Las {@code dimensiones} solo intervienen si
      * la jornada o las pagas viven en la capa derivada (issue #231).
+     *
+     * <p>Red de seguridad (bug B1): si el convenio SÍ fija un precio propio de la
+     * hora extra pero bajo una forma que este motor todavía no sabe convertir en
+     * €/hora (importe por nivel de Álava, columna `horaExtra` de las tablas de
+     * Valencia/Vizcaya...), NO se devuelve la hora ordinaria como si fuera el
+     * suelo legal: esa cifra es un 30-37% MENOR que el precio real y el PDF la
+     * citaría con el art. 35.1 ET como si fuera lo que toca. Antes 422 honesto
+     * (Optional vacío) que reclamar de menos.
      */
     public Optional<HorasExtraCalculadas> importeHorasExtra(
             Convenio convenio, Year anio, BigDecimal salarioBaseMensual, BigDecimal plusesAnuales,
@@ -222,28 +230,38 @@ public class CalculoConvenioService {
         }
 
         return valorHoraOrdinaria(convenio, anio, salarioBaseMensual, plusesAnuales, dimensiones)
-                .map(valorHora -> {
+                .flatMap(valorHora -> {
+            JsonNode horasExtraNodo = convenio.raw().path("horasExtraordinarias");
+
+            // (1) Precio €/hora FIJO del convenio: `importe` (Teruel) o `precioHora`
+            // (Almería); misma semántica, un número €/h (posiblemente por año).
+            Optional<BigDecimal> precioFijo = precioFijoConvenio(horasExtraNodo, anio);
+            // (2) RECARGO PORCENTUAL sobre la hora ordinaria: la forma más común del
+            // corpus (Cádiz 75%, Granada 100%, Cuenca "al 175%"...). El factor ya
+            // viene resuelto: recargo del X% → 1+X/100; abono AL X% → X/100.
+            Optional<RecargoExtra> recargo = recargoPorcentual(horasExtraNodo);
+
+            // Red de seguridad: el convenio fija un precio de hora extra por nivel o
+            // en las tablas, que este motor aún no resuelve, y no hay €/h fijo ni
+            // recargo que aplicar. Devolver la hora ordinaria sería reclamar de
+            // menos → mejor no calcular (la API responde 422).
+            if (precioFijo.isEmpty() && recargo.isEmpty()
+                    && declaraPrecioExtraNoResoluble(convenio, horasExtraNodo)) {
+                return Optional.empty();
+            }
+
             List<Cita> citas = new ArrayList<>(valorHora.citas());
             BigDecimal precio = valorHora.valorHora();
             citas.add(Cita.delEstatuto(
                     "La hora extra no puede pagarse por debajo de la hora ordinaria (art. 35.1 ET)"));
 
-            JsonNode horasExtraNodo = convenio.raw().path("horasExtraordinarias");
-
-            // (1) Precio €/hora FIJO del convenio (Teruel, Almería...).
-            Optional<BigDecimal> precioConvenio = ValoresPorAnio.resuelve(horasExtraNodo.path("importe"), anio);
-            if (precioConvenio.isPresent() && precioConvenio.get().compareTo(precio) > 0) {
-                precio = precioConvenio.get();
+            if (precioFijo.isPresent() && precioFijo.get().compareTo(precio) > 0) {
+                precio = precioFijo.get();
                 // Notación española en la cita (issue #222): mismo formateador que los PDF.
                 citas.add(new Cita("Precio de hora extra fijado en " + PdfInforme.dinero(precio)
                         + " €/h (" + articulo(horasExtraNodo) + " del convenio)", convenio.fuenteUrl()));
             }
 
-            // (2) RECARGO PORCENTUAL sobre la hora ordinaria: la forma más común
-            // del corpus (Cádiz 75%, Granada 100%, Cuenca "al 175%"...). El factor
-            // ya viene resuelto: recargo del X% → 1+X/100; abono AL X% → X/100.
-            // Antes se ignoraba y la hora extra se pagaba igual que la ordinaria.
-            Optional<RecargoExtra> recargo = recargoPorcentual(horasExtraNodo);
             if (recargo.isPresent()) {
                 BigDecimal conRecargo = valorHora.valorHora().multiply(recargo.get().factor());
                 if (conRecargo.compareTo(precio) > 0) {
@@ -254,8 +272,74 @@ public class CalculoConvenioService {
             }
 
             BigDecimal importe = precio.multiply(horas).setScale(DECIMALES_IMPORTE, RoundingMode.HALF_UP);
-            return new HorasExtraCalculadas(precio, importe, valorHora, citas);
+            return Optional.of(new HorasExtraCalculadas(precio, importe, valorHora, citas));
         });
+    }
+
+    /** Nombres bajo los que el corpus guarda un precio €/hora FIJO de la hora extra (mismo trato). */
+    private static final String[] CLAVES_PRECIO_FIJO = {"importe", "precioHora"};
+
+    /**
+     * Precio €/hora fijo del convenio para la hora extra, mirando las claves planas
+     * que usa el corpus: `importe` (Teruel) y `precioHora` (Almería). Vacío si el
+     * convenio no fija un €/hora fijo resoluble (año a año) por ninguna de ellas.
+     */
+    private static Optional<BigDecimal> precioFijoConvenio(JsonNode horasExtraNodo, Year anio) {
+        for (String clave : CLAVES_PRECIO_FIJO) {
+            Optional<BigDecimal> valor = ValoresPorAnio.resuelve(horasExtraNodo.path(clave), anio);
+            if (valor.isPresent()) {
+                return valor;
+            }
+        }
+        return Optional.empty();
+    }
+
+    /** Clave del crudo con el precio €/hora de la extra por FILA de tabla (por nivel/categoría). */
+    private static final String CLAVE_HORA_EXTRA_TABLA = "horaExtra";
+
+    /**
+     * ¿El convenio fija un precio ESPECÍFICO de la hora extra que este motor
+     * todavía no sabe convertir en €/hora? Dos formas del corpus:
+     * <ul>
+     *   <li>(A) {@code horasExtraordinarias.importePorNivel}: €/h por nivel (Álava).
+     *       Las vigencias van por sub-año ("2025_desde_1_dic") y habría que casar
+     *       el nivel del perfil con un mecanismo propio, distinto al de las tablas
+     *       de salario — hoy no se hace de forma fiable.</li>
+     *   <li>(B) una columna numérica {@code horaExtra} en las tablas del crudo
+     *       (Valencia, Vizcaya): el precio va por categoría/nivel dentro de tablas
+     *       de estructura heterogénea entre provincias.</li>
+     * </ul>
+     * En ambos casos el número real supera a la hora ordinaria, así que devolverla
+     * sería reclamar de menos. Solo se consulta cuando NO hay €/h fijo ni recargo
+     * que aplicar, de modo que los convenios que sí resuelven su recargo (Cádiz,
+     * Castellón — que además llevan una columna `horaExtra` precalculada) no se ven
+     * afectados. Los convenios que declaran expresamente "la hora extra se paga
+     * igual que la ordinaria" (Madrid, Cataluña, Tenerife...) no traen ninguna de
+     * estas dos formas, así que siguen calculando con normalidad.
+     */
+    private static boolean declaraPrecioExtraNoResoluble(Convenio convenio, JsonNode horasExtraNodo) {
+        if (horasExtraNodo.path("importePorNivel").isObject()) {
+            return true;
+        }
+        return tieneColumnaHoraExtra(convenio.raw());
+    }
+
+    /** Recorre el crudo en busca de una celda numérica {@code horaExtra} (precio por fila de tabla). */
+    private static boolean tieneColumnaHoraExtra(JsonNode nodo) {
+        if (nodo.isObject()) {
+            JsonNode directo = nodo.get(CLAVE_HORA_EXTRA_TABLA);
+            if (directo != null && directo.isNumber()) {
+                return true;
+            }
+        }
+        if (nodo.isContainerNode()) {
+            for (JsonNode hijo : nodo) {
+                if (tieneColumnaHoraExtra(hijo)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /** Tope anual de horas extra: el del convenio si lo fija, si no las 80 h del ET. */

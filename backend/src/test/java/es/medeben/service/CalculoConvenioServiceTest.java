@@ -241,6 +241,26 @@ class CalculoConvenioServiceTest {
         }
 
         @Test
+        @DisplayName("bug B1: 'precioHora' (Almería, 13,09 €/h) se lee igual que 'importe', antes se ignoraba")
+        void precioHoraSeLeeComoImporte() {
+            // Estructura y valor REALES de almeria-hosteleria.json (Art. 34, 2025 = 13,09 €/h).
+            // Se monta sobre jornada/pagas sintéticas porque Almería aún no publica su jornada
+            // anual (queda 'pendiente' en el corpus) y sin ella no se llega a comparar el precio.
+            // valorHora = (1000 × 14) / 1800 = 7,7778 €/h < 13,09 → gana el precio del convenio.
+            Convenio c = sintetico("""
+                    "jornadaAnual":{"horas":1800},"pagasExtraordinarias":{"cantidad":2},
+                    "horasExtraordinarias":{"tipo":"precio_fijo_euros","articulo":"Art. 34",
+                        "precioHora":{"2025":13.09,"unidad":"€/hora extraordinaria"}}""");
+
+            var resultado = servicio.importeHorasExtra(
+                    c, Year.of(2026), new BigDecimal("1000"), BigDecimal.ZERO, new BigDecimal("5")).orElseThrow();
+
+            assertThat(resultado.precioHora()).isEqualByComparingTo(new BigDecimal("13.09"));
+            assertThat(resultado.importe()).isEqualByComparingTo(new BigDecimal("65.45"));
+            assertThat(resultado.citas()).anySatisfy(cita -> assertThat(cita.texto()).contains("13,09 €/h"));
+        }
+
+        @Test
         @DisplayName("tope de horas extra propio del convenio distinto de 80")
         void topePropioDelConvenio() {
             Convenio c = sintetico("""
@@ -424,6 +444,58 @@ class CalculoConvenioServiceTest {
             var extra = servicio.importeHorasExtra(madrid(), ANIO, BASE, BigDecimal.ZERO, BigDecimal.ONE)
                     .orElseThrow();
             assertThat(extra.precioHora()).isEqualByComparingTo(valorHora);
+        }
+    }
+
+    @Nested
+    @DisplayName("bug B1: precio de la hora extra bajo claves que el motor no resuelve → 422 honesto, no cifra a la baja")
+    class PrecioExtraNoResoluble {
+
+        // Base baja a propósito: la hora ordinaria queda MUY por debajo del precio real de la
+        // hora extra que fija el convenio, así que devolver la ordinaria sería reclamar de menos.
+        private static final BigDecimal BASE = new BigDecimal("1000");
+        private static final Year ANIO = Year.of(2026);
+
+        @Test
+        @DisplayName("Álava ('importePorNivel', III 2026 = 20,39 €/h): no se resuelve el nivel del perfil → empty")
+        void alavaImportePorNivel() {
+            Convenio alava = catalog.porId("alava-hosteleria").orElseThrow();
+            // La hora ordinaria SÍ se calcula (jornada y pagas están en el crudo): el fallo
+            // era devolverla como si fuera el precio de la extra, un 30% por debajo del real.
+            assertThat(servicio.valorHoraOrdinaria(alava, ANIO, BASE, BigDecimal.ZERO)).isPresent();
+            assertThat(servicio.importeHorasExtra(alava, ANIO, BASE, BigDecimal.ZERO, new BigDecimal("5")))
+                    .isEmpty();
+        }
+
+        @Test
+        @DisplayName("Valencia (columna 'horaExtra' de las tablas salariales, 15,70 €/h): precio por nivel → empty")
+        void valenciaColumnaHoraExtra() {
+            Convenio valencia = catalog.porId("valencia-hosteleria").orElseThrow();
+            assertThat(servicio.valorHoraOrdinaria(valencia, ANIO, BASE, BigDecimal.ZERO)).isPresent();
+            assertThat(servicio.importeHorasExtra(valencia, ANIO, BASE, BigDecimal.ZERO, new BigDecimal("5")))
+                    .isEmpty();
+        }
+
+        @Test
+        @DisplayName("Vizcaya (columna 'horaExtra' en tablas, sin nodo de horas extra en el convenio) → empty")
+        void vizcayaColumnaHoraExtra() {
+            Convenio vizcaya = catalog.porId("vizcaya-hosteleria").orElseThrow();
+            assertThat(servicio.valorHoraOrdinaria(vizcaya, ANIO, BASE, BigDecimal.ZERO)).isPresent();
+            assertThat(servicio.importeHorasExtra(vizcaya, ANIO, BASE, BigDecimal.ZERO, new BigDecimal("5")))
+                    .isEmpty();
+        }
+
+        @Test
+        @DisplayName("no sobre-dispara: Cádiz tiene columna 'horaExtra' pero fija recargo 75% resoluble → 200, no 422")
+        void cadizConRecargoNoSeConvierteEnEmpty() {
+            Convenio cadiz = catalog.porId("cadiz-hosteleria").orElseThrow();
+            BigDecimal valorHora = servicio.valorHoraOrdinaria(cadiz, ANIO, BASE, BigDecimal.ZERO)
+                    .orElseThrow().valorHora();
+            var extra = servicio.importeHorasExtra(cadiz, ANIO, BASE, BigDecimal.ZERO, BigDecimal.ONE);
+
+            assertThat(extra).isPresent();
+            assertThat(extra.orElseThrow().precioHora())
+                    .isEqualByComparingTo(valorHora.multiply(new BigDecimal("1.75")));
         }
     }
 }
