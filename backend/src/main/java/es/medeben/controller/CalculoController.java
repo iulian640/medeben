@@ -106,8 +106,12 @@ public class CalculoController {
         } else {
             return new SalarioBaseResponse(r.importe(), r.unidad(), false, null, null, null, r.citas());
         }
-        boolean alcanza = smi.alcanzaElSmi(r.importe(), mensualidades, BigDecimal.ZERO, anio);
-        if (alcanza) {
+        // El suelo del SMI en la unidad de la respuesta: SMI anual repartido entre
+        // las mensualidades de ESTE convenio (con EUR/año, mensualidades=1 y queda
+        // el anual tal cual). La misma cuenta que aplica el resumen mensual, viva
+        // una sola vez en SmiService para que pantalla y papel no se contradigan.
+        SmiService.SueloSmi suelo = smi.aplicaSuelo(r.importe(), mensualidades, BigDecimal.ZERO, anio);
+        if (!suelo.bajoSmi()) {
             // Legal pero con pinta de ilegal: un mensual bajo el SMI mensual que
             // cumple en cómputo anual gracias a >14 pagas (el caso Pontevedra /
             // Almería). Quien lo vea lo va a comparar con el SMI de los titulares:
@@ -125,14 +129,9 @@ public class CalculoController {
             return new SalarioBaseResponse(r.importe(), r.unidad(), false, smi.smiMensual(anio), null,
                     comparativa, citasAlcanza);
         }
-        // El suelo legal en la unidad de la respuesta: SMI anual repartido entre
-        // las mensualidades de ESTE convenio (con EUR/año, mensualidades=1 y
-        // queda el anual tal cual). Redondeo hacia ABAJO: antes un céntimo de
-        // menos que prometer uno que la ley no garantiza.
-        BigDecimal minimoLegal = smi.smiAnual(anio).divide(mensualidades, 2, RoundingMode.DOWN);
         List<Cita> citas = new ArrayList<>(r.citas());
-        citas.add(smi.citaSmi(anio));
-        return new SalarioBaseResponse(r.importe(), r.unidad(), true, smi.smiMensual(anio), minimoLegal,
-                null, citas);
+        suelo.cita().ifPresent(citas::add);
+        return new SalarioBaseResponse(r.importe(), r.unidad(), true, smi.smiMensual(anio),
+                suelo.baseAplicada(), null, citas);
     }
 }
