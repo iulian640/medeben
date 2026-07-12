@@ -280,4 +280,30 @@ describe('CuentaView', () => {
 
     wrapper.unmount()
   })
+
+  // --- Apoyar el proyecto (donación pura, sin contraprestación) ---
+
+  it('ofrece un enlace de donación a Ko-fi que abre fuera del webview', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    const enlace = wrapper.findAll('a').find((a) => a.text().toLowerCase().includes('café'))
+    expect(enlace).toBeTruthy()
+    expect(enlace?.attributes('href')).toBe('https://ko-fi.com/medeben')
+    // Fuera del webview: nueva pestaña + noopener (mismo patrón que las citas del BOE).
+    expect(enlace?.attributes('target')).toBe('_blank')
+    expect(enlace?.attributes('rel')).toContain('noopener')
+  })
+
+  it('la donación es pura: el copy es apoyo, no promete premium ni desbloqueos', async () => {
+    vi.mocked(getPerfilUsuario).mockResolvedValue(perfilServidor)
+    const { wrapper } = await montar()
+
+    const seccion = wrapper.find('.seccion-donacion')
+    expect(seccion.exists()).toBe(true)
+    const texto = seccion.text().toLowerCase()
+    expect(texto).toContain('gratis')
+    expect(texto).not.toContain('premium')
+    expect(texto).not.toContain('desbloquea')
+  })
 })

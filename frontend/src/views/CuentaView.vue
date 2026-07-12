@@ -11,6 +11,17 @@ const auth = useAuthStore()
 const cuenta = useCuentaStore()
 const router = useRouter()
 
+/*
+ * Donación PURA, sin contraprestación: no desbloquea nada ni quita anuncios, así
+ * queda exenta de Google Play Billing (la app sigue gratis). El cobro lo procesa
+ * Ko-fi (plataforma externa); se abre FUERA del webview (target=_blank + noopener),
+ * igual que las citas del BOE.
+ *
+ * Iulian debe crear la cuenta de Ko-fi con el handle `medeben`; si usa otro,
+ * cambiar el handle aquí es una sola línea.
+ */
+const KOFI_URL = 'https://ko-fi.com/medeben'
+
 /** Una pregunta cada vez, como en la calculadora. */
 const siguientePendiente = computed(() => cuenta.pendientesSinResponder[0] ?? null)
 
@@ -363,6 +374,25 @@ async function confirmarBorrado() {
         </RouterLink>
       </section>
 
+      <section class="tarjeta seccion-donacion">
+        <h2 class="titulo-seccion">
+          Apoyar el proyecto
+        </h2>
+        <p class="texto-sm texto-suave">
+          MeDeben es y será gratis. Si te ha servido y te apetece, puedes
+          invitarme a un café. No da acceso a nada extra: es solo apoyo.
+        </p>
+        <a
+          class="boton-secundario boton--ancho enlace-donacion"
+          :href="KOFI_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Invítame a un café (se abre en una pestaña nueva)"
+        >
+          Invítame a un café ☕
+        </a>
+      </section>
+
       <section class="tarjeta seccion-borrado">
         <h2 class="titulo-seccion">
           Borrar tu cuenta
@@ -522,6 +552,18 @@ form {
 
 .confirmacion {
   font-weight: var(--peso-etiqueta);
+}
+
+.seccion-donacion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-sm);
+}
+
+/* Enlace estilizado como los botones secundarios de la casa (mismo patrón que
+ * "Editar tu horario"): el texto va centrado como en un botón. */
+.enlace-donacion {
+  text-align: center;
 }
 
 .seccion-borrado {
