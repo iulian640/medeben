@@ -86,7 +86,8 @@ class ResumenMensualServiceTest {
         tablas = mock(TablaSalarialService.class);
         calculo = mock(CalculoConvenioService.class);
         ConvenioCatalog convenios = new ConvenioCatalog(new ObjectMapper());
-        servicio = new ResumenMensualService(perfiles, horarios, fichajes, tablas, calculo, convenios, RELOJ);
+        servicio = new ResumenMensualService(perfiles, horarios, fichajes, tablas, calculo, convenios,
+                new SmiService(), RELOJ);
 
         diario.clear();
         porDefecto = fecha -> estado(fecha, EstadoDia.Estado.HUECO, -1);

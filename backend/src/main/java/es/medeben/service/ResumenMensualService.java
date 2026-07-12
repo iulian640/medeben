@@ -52,6 +52,9 @@ public class ResumenMensualService {
     private static final int DIAS_SEMANA = 7;
     private static final String UNIDAD_MENSUAL = "EUR/mes";
 
+    /** Último recurso para el cómputo del SMI si el convenio no publica sus pagas (art. 27 ET). */
+    private static final int MENSUALIDADES_POR_DEFECTO = 14;
+
     /** Umbral de aviso "cerca del tope": 80% del tope anual (D22). */
     private static final int AVISO_TOPE_NUM = 4;
     private static final int AVISO_TOPE_DEN = 5;
@@ -62,18 +65,20 @@ public class ResumenMensualService {
     private final TablaSalarialService tablas;
     private final CalculoConvenioService calculo;
     private final ConvenioCatalog convenios;
+    private final SmiService smi;
     private final Clock reloj;
 
     public ResumenMensualService(PerfilService perfiles, HorarioService horarios,
                                  FichajeService fichajes, TablaSalarialService tablas,
                                  CalculoConvenioService calculo, ConvenioCatalog convenios,
-                                 Clock reloj) {
+                                 SmiService smi, Clock reloj) {
         this.perfiles = perfiles;
         this.horarios = horarios;
         this.fichajes = fichajes;
         this.tablas = tablas;
         this.calculo = calculo;
         this.convenios = convenios;
+        this.smi = smi;
         this.reloj = reloj;
     }
 
@@ -92,7 +97,7 @@ public class ResumenMensualService {
                 () -> new ResumenIncompletoException(ResumenIncompletoException.Codigo.CONVENIO_NO_DISPONIBLE,
                         "El convenio de tu perfil no está disponible ahora mismo"));
 
-        SalarioAplicado salario = resuelveSalario(perfil, convenio.id(), mes);
+        SalarioAplicado salario = resuelveSalario(perfil, convenio, mes);
 
         LocalDate hoy = LocalDate.now(reloj);
         LocalDate finMes = minimo(mes.atEndOfMonth(), hoy);
@@ -163,10 +168,18 @@ public class ResumenMensualService {
                 mesAgg.deficitMin, diasSinCalcular[0], contadores, importe, tope, avisos);
     }
 
-    /** D25: el salario real del perfil si está configurado y es MAYOR que el mínimo del convenio; si no, el mínimo. */
-    private SalarioAplicado resuelveSalario(Perfil perfil, String convenioId, YearMonth mes) {
+    /**
+     * D25: el salario real del perfil si está configurado y es MAYOR que el
+     * mínimo del convenio; si no, el mínimo. Y por encima de todo el suelo del
+     * SMI (art. 27 ET, cómputo ANUAL): si la base aplicada no lo alcanza —hay
+     * tablas vigentes y en ultraactividad por debajo del SMI—, se eleva al SMI
+     * del AÑO del mes calculado, porque pagar la tabla sería ilegal y valorar el
+     * "te deben" con ella lo infravaloraría (la misma cuenta que expone
+     * {@code /salario-base}, compartida en {@link SmiService#aplicaSuelo}).
+     */
+    private SalarioAplicado resuelveSalario(Perfil perfil, Convenio convenio, YearMonth mes) {
         SalarioBaseResuelto minimo = tablas.salarioBaseMinimo(
-                        convenioId, perfil.getDimensiones(), mes.atEndOfMonth())
+                        convenio.id(), perfil.getDimensiones(), mes.atEndOfMonth())
                 .orElseThrow(() -> new ResumenIncompletoException(ResumenIncompletoException.Codigo.DATOS_CONVENIO,
                         "Tu convenio no tiene publicada la tabla salarial para tus datos (dimensiones): "
                                 + "no puedo estimar tu hora todavía"));
@@ -179,6 +192,22 @@ public class ResumenMensualService {
         boolean usaReal = real != null && real.compareTo(minimo.importe()) > 0;
         BigDecimal aplicado = usaReal ? real : minimo.importe();
         BigDecimal pluses = perfil.getPlusesAnuales() == null ? BigDecimal.ZERO : perfil.getPlusesAnuales();
+
+        // Las mismas mensualidades que el valor hora (issue #231: por provincia en
+        // la colectiva; 14 como último recurso si el convenio no las publica).
+        int anio = mes.getYear();
+        BigDecimal mensualidades = calculo.mensualidades(convenio, perfil.getDimensiones(), Year.of(anio))
+                .orElse(BigDecimal.valueOf(MENSUALIDADES_POR_DEFECTO));
+        SmiService.SueloSmi suelo = smi.aplicaSuelo(aplicado, mensualidades, pluses, anio);
+        if (suelo.bajoSmi()) {
+            // La base aplicada pasa a ser el suelo legal (ni la tabla ni el salario
+            // declarado): salarioRealUsado=false, y la tabla real se conserva en las
+            // citas —sin etiqueta de "referencia", que es el número real del
+            // convenio— junto a la cita del SMI que explica por qué se eleva (D34).
+            List<Cita> citas = new ArrayList<>(minimo.citas());
+            suelo.cita().ifPresent(citas::add);
+            return new SalarioAplicado(suelo.baseAplicada(), false, pluses, citas);
+        }
         return new SalarioAplicado(aplicado, usaReal, pluses, minimo.citas());
     }
 
