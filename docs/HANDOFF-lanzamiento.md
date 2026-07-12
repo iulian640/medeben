@@ -21,6 +21,37 @@ Suites verdes: backend + frontend. Sin worktrees ni ramas colgando.
 
 ---
 
+## 0.1 Actualización — 12-jul (tarde)
+
+Después del cierre inicial se hizo más trabajo, todo en `main` y con **CI en verde**:
+
+- **Donaciones (Ko-fi), PR #255.** Iulian decidió lanzar CON donaciones vía `ko-fi.com/medeben`
+  (donación pura, sin recompensa → exenta de Play Billing). Esto activa la **LSSI art. 10** →
+  el aviso legal ahora publica su identificación. Para no meter su NIF/domicilio en el repo
+  público, se **inyectan al build** desde `frontend/.env.local` (gitignored); en el repo solo van
+  placeholders (`.env.example`). **Al desplegar la web o generar el `.aab` hay que tener ese
+  `.env.local`** o el aviso legal sale sin dirección (incumpliría LSSI en prod).
+- **Logo nuevo, PR #256.** Euro grueso en **ámbar** `#f5a623` (antes teal fino). Aplicado a
+  favicon, PWA, iconos Android, splash, icono 512 y feature graphic. La **UI sigue teal** (el ámbar
+  sobre blanco falla contraste AA). `.aab` regenerado.
+- **CI arreglada, PR #257.** Todas las PRs de la sesión estaban con CI roja: no el código
+  (Frontend+Backend verdes) sino el **E2E**, ahogado por el rate limit estricto de `/auth/registro`
+  (registra ~10 cuentas seguidas desde la misma IP → 429). Fix: rate limit **off en el perfil dev**
+  (prod lo mantiene). **Regla: verificar CI verde antes de mergear.**
+
+**🚩 BLOQUEANTE PRINCIPAL DE PLAY = verificación de dispositivo Android.** Google exige a las
+cuentas personales nuevas verificar acceso a un **Android FÍSICO** (Android 10+, no rooteado) con
+la app *Google Play Console*. **El emulador NO vale** (confirmado en soporte oficial). Iulian no
+tiene Android, así que **el carril de Play queda APARCADO** hasta que consiga uno (basta prestado
+5 min, o un usado ~50 €). Los 12 testers usan sus propios móviles (hostelería ≈ todo Android). La
+**web/PWA no depende de esto**. Iulian avisará cuando tenga el Android.
+
+**Decisión sobre el VPS:** no montarlo en vacío. Crearlo el día que arranque el test cerrado o que
+se comparta `medeben.net`, no antes (los ~6 €/mes con IVA cuentan desde que se crea). La clave SSH
+para el deploy ya está generada en `~/.ssh/id_ed25519`.
+
+---
+
 ## 1. Lo que se hizo esta noche (todo mergeado a `main`)
 
 **Auditoría integral** (workflow `auditoria-lanzamiento.mjs`, 12 auditores + verificación
