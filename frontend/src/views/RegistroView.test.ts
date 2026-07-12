@@ -22,6 +22,10 @@ function crearRouter(): Router {
       { path: '/login', name: 'login', component: Stub },
       { path: '/registro', name: 'registro', component: RegistroView },
       { path: '/cuenta', name: 'cuenta', component: Stub },
+      // Rutas legales que sirve otra rama en paralelo; aquí solo hacen falta
+      // para que RouterLink resuelva el path sin avisar.
+      { path: '/privacidad', name: 'privacidad', component: Stub },
+      { path: '/terminos', name: 'terminos', component: Stub },
     ],
   })
 }
@@ -84,5 +88,64 @@ describe('RegistroView', () => {
 
     expect(postRegistro).toHaveBeenCalledWith('ana@example.com', 'superclave123')
     expect(router.currentRoute.value.path).toBe('/cuenta')
+  })
+})
+
+describe('RegistroView · información al interesado (RGPD art. 13)', () => {
+  it('muestra responsable y finalidades en lenguaje llano antes de crear la cuenta', async () => {
+    const { wrapper } = await montar()
+
+    const texto = wrapper.text()
+    expect(texto).toContain('Iulian Timofei')
+    expect(texto).toMatch(/registrar tu jornada/i)
+    expect(texto).toMatch(/lo que pudieran deberte/i)
+  })
+
+  it('enlaza a la política de privacidad completa por path', async () => {
+    const { wrapper } = await montar()
+
+    const enlace = wrapper.find('a[href="/privacidad"]')
+    expect(enlace.exists()).toBe(true)
+    expect(enlace.text()).toMatch(/política de privacidad/i)
+  })
+
+  it('ofrece los Términos bajo el botón, sin checkbox de consentimiento', async () => {
+    const { wrapper } = await montar()
+
+    const terminos = wrapper.find('a[href="/terminos"]')
+    expect(terminos.exists()).toBe(true)
+    expect(terminos.text()).toMatch(/términos/i)
+    // La base jurídica es 6.1.b (ejecución del servicio), no consentimiento:
+    // un checkbox de consentimiento sería incorrecto aquí.
+    expect(wrapper.find('input[type="checkbox"]').exists()).toBe(false)
+  })
+
+  it('el detalle "Más sobre tus datos" arranca plegado y abre/cierra', async () => {
+    const { wrapper } = await montar()
+
+    const toggle = wrapper.findAll('button').find((b) => b.text().includes('Más sobre tus datos'))
+    expect(toggle).toBeDefined()
+
+    const panel = wrapper.find('#detalle-rgpd')
+    expect(panel.exists()).toBe(true)
+    expect(toggle!.attributes('aria-expanded')).toBe('false')
+    expect(panel.classes()).not.toContain('abierto')
+
+    await toggle!.trigger('click')
+    expect(toggle!.attributes('aria-expanded')).toBe('true')
+    expect(panel.classes()).toContain('abierto')
+
+    await toggle!.trigger('click')
+    expect(toggle!.attributes('aria-expanded')).toBe('false')
+  })
+
+  it('el detalle cubre base jurídica, conservación y derechos (incl. AEPD)', async () => {
+    const { wrapper } = await montar()
+
+    const detalle = wrapper.find('#detalle-rgpd').text()
+    expect(detalle).toMatch(/6\.1\.b/)
+    expect(detalle).toMatch(/9\.2\.f/)
+    expect(detalle).toMatch(/portabilidad/i)
+    expect(detalle).toMatch(/AEPD/)
   })
 })
