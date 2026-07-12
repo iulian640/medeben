@@ -36,8 +36,11 @@ defineEmits<{ registrar: [] }>()
           maxlength="200"
         >
       </div>
+      <!-- Disclaimer C5, punto 3 (docs/legal/disclaimers.md): versión SIN
+           "cifrado" mientras el motivo no esté cifrado en BD (C4 pendiente). -->
       <p class="campo-ayuda">
-        El motivo es opcional; si lo escribes, queda en tu libreta.
+        El motivo es opcional. Solo se usa para tu propia reclamación y nunca
+        se comparte. Si prefieres, déjalo en blanco.
       </p>
       <button
         type="submit"

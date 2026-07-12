@@ -391,7 +391,9 @@ describe('LibretaView — ausencia', () => {
 
     await boton(wrapper, 'No he ido').trigger('click')
 
-    expect(wrapper.text()).toContain('El motivo es opcional; si lo escribes, queda en tu libreta.')
+    expect(wrapper.text()).toContain(
+      'El motivo es opcional. Solo se usa para tu propia reclamación y nunca se comparte. Si prefieres, déjalo en blanco.',
+    )
 
     // El panel es un <form>: registrar (botón submit o Intro) dispara el submit.
     await formularioDe(wrapper, '#motivo').trigger('submit')

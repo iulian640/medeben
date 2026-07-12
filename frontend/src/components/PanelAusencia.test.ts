@@ -22,12 +22,15 @@ describe('PanelAusencia', () => {
     expect(wrapper.find('.plegable').attributes()).toHaveProperty('inert')
   })
 
-  it('abierto avisa de la privacidad del motivo', () => {
+  it('abierto avisa de la privacidad del motivo (disclaimer C5, punto 3: sin la palabra "cifrado" hasta que exista C4)', () => {
     const wrapper = mount(PanelAusencia, {
       props: { abierto: true, motivo: '', fichando: false },
     })
 
-    expect(wrapper.text()).toContain('El motivo es opcional; si lo escribes, queda en tu libreta.')
+    expect(wrapper.text()).toContain(
+      'El motivo es opcional. Solo se usa para tu propia reclamación y nunca se comparte. Si prefieres, déjalo en blanco.',
+    )
+    expect(wrapper.text()).not.toContain('cifrado')
   })
 
   it('el submit del form (Intro o botón) pide registrar la ausencia', async () => {
