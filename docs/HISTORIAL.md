@@ -3,6 +3,32 @@
 Diario de lo que se va haciendo, una entrada por sesión o hito. Lo nuevo arriba.
 Complementa al [ADR](ADR.md) (el ADR guarda *decisiones*; esto guarda *avance*).
 
+## 2026-07-11 (noche) — Prep de lanzamiento medeben.net + cierre de dudas (PRs #239, #240)
+
+Iulian compró el dominio **medeben.net**. Dos PRs:
+
+- **#239 — deploy medeben.net:** faltaba **CORS** (el APK de Capacitor, con el
+  WebView en `https://localhost`, no podía llamar al API en otro origen). Bean
+  CORS en `SecurityConfig` (lista configurable con `MEDEBEN_SEGURIDAD_CORS_ORIGENES`;
+  incluye también el origen de la web porque, al habilitar CORS, Spring valida
+  las peticiones same-origin con cabecera `Origin` — sin ello la web se rompía
+  con 403, lo cazó el E2E). `deploy/Caddyfile` para TLS automático, y un bug
+  sutil: Caddy delante rompía el rate limiting por IP (nginx machacaba la IP real
+  con `127.0.0.1`) → nginx reenvía `$http_x_forwarded_for`. Revisión legal de
+  lanzamiento (`docs/cumplimiento-lanzamiento.md` + plantillas en `docs/legal/`).
+  Arreglado un time-bomb de `AuthServiceTest` que rompía el build por reloj real.
+- **#240 — dudas:** investigadas TODAS las abiertas contra documento oficial
+  (workflow de 6 agentes). Resueltas y aplicadas (documental, sin tocar dinero):
+  nocturnidad Madrid (correcta), inicial/garantizado y cafeterías/tazas (el motor
+  usa el Anexo I, ya correcto; corregido un comentario falso). `preguntas-ugt.md`
+  reescrito solo con lo abierto. **Hallazgo: La Rioja hospedaje 2026-2028 ya está
+  publicado** (BOR 07-07-2026). Pendiente de dinero (con verificación en imagen,
+  D19): transcribir La Rioja, corregir Melilla (contradice art. 16 ALEH), Anexo III
+  Málaga, normalizar Lugo. Doc de dudas irresolubles entregado en el Escritorio.
+
+Para lanzar (Iulian): DNS→VPS UE, Caddy, secretos frescos, contrato encargado,
+4 documentos + página de borrado, Data Safety de Play, RAT/EIPD, llamar a UGT.
+
 ## 2026-07-11 — La colectiva ya calcula horas extra (issue #231)
 
 El subsector entero de restauración colectiva (comedores de colegio, hospital,
