@@ -38,15 +38,51 @@ export function etiquetaUnidad(unidad: string): string {
 }
 
 /**
+ * Mensaje en castellano derivado solo del status HTTP, para cuando el backend
+ * no manda texto propio (detail/message): un 403/500/502/503/504 de un proxy
+ * o CDN delante de la API no lleva JSON, y sin esto `mensajeDeError` acababa
+ * devolviendo el `API {status}: {statusText}` en inglés que arma ApiError por
+ * defecto (services/api.ts) — QA lo pilló en directo como "API 403: Forbidden"
+ * en un role="alert" delante de un camarero.
+ */
+function mensajePorEstado(status: number): string {
+  if (status === 403) {
+    return 'No tienes permiso para hacer esto.'
+  }
+  if (status === 429) {
+    return 'Estás yendo muy rápido. Espera un momento e inténtalo de nuevo.'
+  }
+  if (status >= 500) {
+    return 'El servidor no está disponible ahora mismo. Inténtalo de nuevo en un momento.'
+  }
+  return 'No hemos podido completar la acción. Inténtalo de nuevo.'
+}
+
+/**
  * Mensaje legible de un error: el backend habla RFC 7807 ({status, detail}),
- * así que el detail va primero. Siempre texto plano, nunca HTML.
+ * así que el detail va primero (a veces manda message en su lugar, también en
+ * castellano). Siempre texto plano, nunca HTML.
+ *
+ * Un ApiError NUNCA debe caer en la rama genérica de abajo (`error.message`):
+ * ese mensaje es el `API {status}: {statusText}` en inglés que arma ApiError
+ * por defecto cuando la respuesta no trae JSON útil (403/500/502/503/504 de
+ * proxy o CDN, o cualquier error sin cuerpo). Por eso esta rama siempre
+ * devuelve algo — detail, message, o el mapeo por status — antes de llegar ahí.
  */
 export function mensajeDeError(error: unknown): string {
-  if (error instanceof ApiError && error.body && typeof error.body === 'object') {
-    const detail = (error.body as Record<string, unknown>).detail
-    if (typeof detail === 'string' && detail.length > 0) {
-      return detail
+  if (error instanceof ApiError) {
+    if (error.body && typeof error.body === 'object') {
+      const cuerpo = error.body as Record<string, unknown>
+      const detail = cuerpo.detail
+      if (typeof detail === 'string' && detail.length > 0) {
+        return detail
+      }
+      const message = cuerpo.message
+      if (typeof message === 'string' && message.length > 0) {
+        return message
+      }
     }
+    return mensajePorEstado(error.status)
   }
   // El fetch spec garantiza que un fallo de red (offline, DNS, CORS...) rechaza
   // con un TypeError, igual en Chrome ("Failed to fetch"), Firefox ("NetworkError

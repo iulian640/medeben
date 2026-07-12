@@ -46,10 +46,43 @@ describe('mensajeDeError', () => {
     expect(mensajeDeError(error)).toBe("No hay convenio para la provincia 'Narnia'")
   })
 
-  it('cae al message del error si no hay detail', () => {
-    expect(mensajeDeError(new ApiError(500, 'API 500: Internal Server Error'))).toBe(
-      'API 500: Internal Server Error',
+  it('usa el message del backend si no hay detail (variante RFC 7807 con message)', () => {
+    const error = new ApiError(400, 'API 400: Bad Request', {
+      message: 'El NIF no es válido',
+    })
+    expect(mensajeDeError(error)).toBe('El NIF no es válido')
+  })
+
+  it('un 403 sin cuerpo JSON útil da un mensaje en castellano, nunca el texto en inglés', () => {
+    const error = new ApiError(403, 'API 403: Forbidden', null)
+    const mensaje = mensajeDeError(error)
+    expect(mensaje).not.toMatch(/Forbidden/i)
+    expect(mensaje).not.toMatch(/API 403/)
+    expect(mensaje).toBe('No tienes permiso para hacer esto.')
+  })
+
+  it('un 502 de proxy/CDN sin JSON (body null) da un mensaje en castellano', () => {
+    const error = new ApiError(502, 'API 502: Bad Gateway', null)
+    const mensaje = mensajeDeError(error)
+    expect(mensaje).not.toMatch(/Bad Gateway/i)
+    expect(mensaje).not.toMatch(/API 502/)
+    expect(mensaje).toBe(
+      'El servidor no está disponible ahora mismo. Inténtalo de nuevo en un momento.',
     )
+  })
+
+  it('un 429 sin cuerpo JSON útil pide esperar, en castellano', () => {
+    const error = new ApiError(429, 'API 429: Too Many Requests', null)
+    expect(mensajeDeError(error)).toBe(
+      'Estás yendo muy rápido. Espera un momento e inténtalo de nuevo.',
+    )
+  })
+
+  it('un 4xx sin detail/message ni mapeo específico da un genérico en castellano', () => {
+    const error = new ApiError(418, "API 418: I'm a teapot", null)
+    const mensaje = mensajeDeError(error)
+    expect(mensaje).not.toMatch(/teapot/i)
+    expect(mensaje).toBe('No hemos podido completar la acción. Inténtalo de nuevo.')
   })
 
   it('da un mensaje genérico para errores que no son Error', () => {
