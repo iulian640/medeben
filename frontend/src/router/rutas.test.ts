@@ -10,7 +10,7 @@ import { guardiaSesion } from './guardia'
  * ya no tenga la app. Se prueba a través del router real + la guardia (no un
  * mock): si algún día alguien les colara `meta.requiereSesion`, esto se pone rojo.
  */
-const RUTAS_LEGALES = ['/privacidad', '/terminos', '/aviso-legal']
+const RUTAS_LEGALES = ['/privacidad', '/terminos', '/aviso-legal', '/borrar-cuenta']
 
 function crearRouter(): Router {
   const router = createRouter({ history: createMemoryHistory(), routes: rutas })

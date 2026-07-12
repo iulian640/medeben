@@ -49,6 +49,13 @@ export const rutas: RouteRecordRaw[] = [
     component: () => import('../views/AvisoLegalView.vue'),
   },
   {
+    // La exige Google Play: una URL pública para pedir el borrado aunque ya no
+    // se tenga la app instalada. Reautentica y llama al DELETE /cuenta.
+    path: '/borrar-cuenta',
+    name: 'borrar-cuenta',
+    component: () => import('../views/BorrarCuentaView.vue'),
+  },
+  {
     path: '/cuenta',
     name: 'cuenta',
     meta: { requiereSesion: true },
