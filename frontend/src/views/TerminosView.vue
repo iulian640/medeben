@@ -23,7 +23,9 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
       MeDeben es una herramienta <strong>gratuita</strong> para que la persona
       trabajadora registre su jornada y estime lo que pudieran adeudarle. Es y
       será gratuita para el trabajador: no hay pago, ni publicidad, ni venta de
-      tus datos.
+      tus datos. Las <strong>donaciones</strong> a través de Ko-fi son
+      <strong>voluntarias</strong> y no otorgan ningún derecho ni
+      contraprestación: no desbloquean funciones ni retiran nada.
     </p>
 
     <h2>3. Tu cuenta</h2>

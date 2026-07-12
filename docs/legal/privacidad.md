@@ -68,3 +68,9 @@ rastreadores de terceros.
 ## 10. Menores
 
 MeDeben está dirigida a personas trabajadoras mayores de edad.
+
+## 11. Donaciones
+
+Si decides hacer una donación voluntaria, el pago lo procesa **Ko-fi**
+(plataforma externa, con su propia política de privacidad). MeDeben **no recibe
+ni guarda** datos de tu pago (tarjeta, importe o identidad del donante).

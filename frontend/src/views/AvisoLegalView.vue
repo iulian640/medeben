@@ -4,20 +4,43 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
 /**
  * Aviso legal (transcrito de docs/legal/aviso-legal.md). Contenido estático:
  * HTML semántico, sin v-html ni datos de usuario.
+ *
+ * Identificación LSSI (art. 10): el Titular y el correo son públicos y van
+ * estáticos. El NIF y el domicilio a efectos de notificaciones son SENSIBLES:
+ * se inyectan al build de despliegue vía frontend/.env.local (gitignored) y
+ * NUNCA se versionan. En el repo público / CI las variables no existen, así que
+ * en su lugar se muestra un texto de reserva neutro que remite a la versión
+ * publicada. Nada de datos vacíos ni de fallos si faltan.
  */
+// import.meta.env.VITE_* es un valor de build (no reactivo): un const simple
+// basta. Si la variable no está inyectada, cae al texto de reserva neutro.
+const TEXTO_RESERVA =
+  'Disponible en la versión publicada en medeben.net/aviso-legal (no se incluye en este repositorio público)'
+
+const nif = import.meta.env.VITE_RESPONSABLE_NIF || TEXTO_RESERVA
+const domicilio = import.meta.env.VITE_RESPONSABLE_DOMICILIO || TEXTO_RESERVA
 </script>
 
 <template>
   <DocumentoLegal
     titulo="Aviso legal"
-    version="Versión 1.0 — 12 de julio de 2026"
+    version="Versión 1.1 — 12 de julio de 2026"
   >
     <h2>1. Identificación del responsable</h2>
+    <p>
+      MeDeben acepta donaciones voluntarias (ver el punto 8), lo que constituye
+      actividad económica a efectos del <strong>art. 10 de la LSSI-CE</strong>.
+      Por ello se publican los siguientes datos identificativos:
+    </p>
     <ul>
       <li><strong>Titular:</strong> Iulian Timofei</li>
       <li>
         <strong>Correo de contacto:</strong>
         <a href="mailto:iuliantim21@gmail.com">iuliantim21@gmail.com</a>
+      </li>
+      <li><strong>NIF:</strong> {{ nif }}</li>
+      <li>
+        <strong>Domicilio a efectos de notificaciones:</strong> {{ domicilio }}
       </li>
     </ul>
 
@@ -69,6 +92,18 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
       Este aviso se rige por la legislación española. Para cualquier
       controversia, las partes se someten a los juzgados y tribunales que
       correspondan conforme a derecho.
+    </p>
+
+    <h2>8. Donaciones</h2>
+    <p>
+      MeDeben es y seguirá siendo <strong>gratuita</strong>. De forma
+      <strong>voluntaria</strong>, quien lo desee puede hacer una donación de
+      apoyo a través de <strong>Ko-fi</strong>, una plataforma externa. La
+      donación es un simple gesto de apoyo: <strong>no otorga ningún derecho ni
+        contraprestación</strong>, no da acceso a funciones extra ni retira
+      publicidad (no la hay). El cobro lo procesa íntegramente Ko-fi, con sus
+      propios términos y política de privacidad; MeDeben no recibe ni guarda
+      datos de tu pago.
     </p>
   </DocumentoLegal>
 </template>
