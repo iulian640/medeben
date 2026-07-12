@@ -23,6 +23,9 @@ function crearRouter(): Router {
       { path: '/login', name: 'login', component: LoginView },
       { path: '/registro', name: 'registro', component: Stub },
       { path: '/cuenta', name: 'cuenta', component: Stub },
+      { path: '/privacidad', name: 'privacidad', component: Stub },
+      { path: '/terminos', name: 'terminos', component: Stub },
+      { path: '/aviso-legal', name: 'aviso-legal', component: Stub },
     ],
   })
 }
@@ -100,5 +103,14 @@ describe('LoginView', () => {
 
     expect(wrapper.find('[role="alert"]').text()).toBe('Email o contraseña incorrectos')
     expect(router.currentRoute.value.path).toBe('/login')
+  })
+
+  it('ofrece los enlaces legales discretos (privacidad, términos, aviso legal)', async () => {
+    const { wrapper } = await montar()
+    const hrefs = wrapper.findAll('a').map((a) => a.attributes('href'))
+
+    expect(hrefs).toContain('/privacidad')
+    expect(hrefs).toContain('/terminos')
+    expect(hrefs).toContain('/aviso-legal')
   })
 })
