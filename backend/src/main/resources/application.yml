@@ -29,11 +29,18 @@ medeben:
     # Sin proxy de confianza delante NO se debe activar (anti IP-spoofing).
     confiar-en-proxy: false
     auth:
-      # /api/v1/auth/** (login, registro, logout): por IP, anti fuerza bruta.
-      # La ráfaga debe absorber una plantilla entera tras el mismo WiFi/CGNAT
-      # haciendo login casi a la vez al empezar el turno.
+      # /api/v1/auth/** (login, logout): por IP, anti fuerza bruta. La ráfaga
+      # debe absorber una plantilla entera tras el mismo WiFi/CGNAT haciendo
+      # login casi a la vez al empezar el turno.
       capacidad: 30
       recarga-por-minuto: 20
+    registro:
+      # /auth/registro (hallazgo de auditoría): el 409 de email duplicado
+      # frente al 201 permite enumerar cuentas por fuerza bruta. Presupuesto
+      # PROPIO y mucho más estrecho que el de auth — registrarse es un evento
+      # raro por IP, no necesita absorber una plantilla entera como el login.
+      capacidad: 5
+      recarga-por-minuto: 2
     refresh:
       # /auth/refresh (B4): con el access de 15 min, cada usuario activo
       # refresca ~4 veces/hora durante TODO el turno, y la clave es la IP
