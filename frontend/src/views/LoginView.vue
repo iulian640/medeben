@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { destinoTrasLogin } from '../lib/navegacion'
 import { esEmailValido } from '../lib/validacion'
+import EnlacesLegales from '../components/EnlacesLegales.vue'
 
 const auth = useAuthStore()
 const route = useRoute()
@@ -115,6 +116,8 @@ const hayErrorCampo = computed(() => errorCliente.value !== null || auth.error !
         Créala en un minuto
       </RouterLink>
     </p>
+
+    <EnlacesLegales class="enlaces-pie" />
   </main>
 </template>
 
@@ -138,5 +141,11 @@ form {
   display: flex;
   flex-direction: column;
   gap: var(--esp-sm);
+}
+
+/* Enlaces legales al pie de la entrada: la app no tiene footer global, así que
+ * es el sitio donde se alcanzan sin cuenta (privacidad, términos, aviso legal). */
+.enlaces-pie {
+  margin-top: var(--esp-md);
 }
 </style>
