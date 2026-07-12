@@ -38,6 +38,9 @@ says so; it never makes one up.
 ## Our promise
 
 - You will never pay to use it.
+- If you want to chip in to keep it running, there's a tip jar
+  ([Ko-fi](https://ko-fi.com/medeben)). It's optional and unlocks nothing: the
+  app is the same whether you donate or not.
 - Your data is yours: export it or delete it whenever you want. We don't sell
   it.
 - What's free today won't turn into a paid feature.
@@ -108,9 +111,10 @@ The inside matters as much as the outside:
 sources, "what they owe you this month", time tracking with a sealed journal,
 a shift-schedule editor, monthly and yearly PDF reports, clock-in reminders
 (Android app), and accounts with real deletion (GDPR) and sessions you can
-actually log out of. On the way: the public release (Play Store) and hosting.
-Full-coverage corpus of 55 convenios (~8,800 wage facts with provenance) is in
-place.
+actually log out of. The groundwork for launch is done: legal texts, a
+security and quality review, and a signed Android build. On the way: hosting,
+and the Play Store release. Full-coverage corpus of 55 convenios (~8,800 wage
+facts with provenance) is in place.
 
 Project decisions: [docs/ADR.md](docs/ADR.md) (in Spanish). Progress diary:
 [docs/HISTORIAL.md](docs/HISTORIAL.md) (in Spanish). To run it locally:
