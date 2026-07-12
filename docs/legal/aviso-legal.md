@@ -1,19 +1,16 @@
 # Aviso legal
 
-> **Borrador / plantilla.** Rellena los `[CORCHETES]` y revísalo con un
-> profesional antes de publicarlo. Obligatorio por la LSSI-CE (art. 10) **si la
-> web tiene actividad económica** (p. ej. botón de donaciones); recomendable en
-> todo caso para identificar al responsable. Publicar en `medeben.net/aviso-legal`.
+> Versión 1.0 — 12 de julio de 2026. Publicado en `medeben.net/aviso-legal`.
+> MeDeben es gratuita, sin publicidad ni donaciones: no hay actividad económica,
+> por lo que el art. 10 LSSI-CE no resulta de aplicación. Esta identificación se
+> publica de forma voluntaria. Si algún día se añaden donaciones u otra vía de
+> ingresos, este aviso deberá ampliarse (NIF y domicilio a efectos de
+> notificaciones) ANTES de activarlas.
 
 ## 1. Identificación del responsable
 
-En cumplimiento del art. 10 de la Ley 34/2002 (LSSI-CE):
-
-- **Titular:** [NOMBRE Y APELLIDOS]
-- **NIF:** [NIF]
-- **Domicilio a efectos de notificaciones:** [DIRECCIÓN — puedes usar un apartado
-  de correos o domicilio profesional, no hace falta el particular]
-- **Correo de contacto:** [contacto@medeben.net]
+- **Titular:** Iulian Timofei
+- **Correo de contacto:** iuliantim21@gmail.com
 
 ## 2. Objeto
 
@@ -29,10 +26,11 @@ veracidad de los datos que introduce.
 
 ## 4. Propiedad intelectual e industrial
 
-El código fuente de MeDeben se publica bajo la licencia [AGPL-3.0 / la que
-aplique] en [https://github.com/iulian640/medeben]. La denominación "MeDeben"
-y los signos distintivos pertenecen a su titular. Las tablas de convenios
-proceden de boletines oficiales (sin derechos de autor, art. 13 LPI).
+El código fuente de MeDeben se publica bajo la licencia **AGPL-3.0** en
+[github.com/iulian640/medeben](https://github.com/iulian640/medeben). La
+denominación "MeDeben" y los signos distintivos pertenecen a su titular. Las
+tablas de convenios proceden de boletines oficiales (sin derechos de autor,
+art. 13 LPI).
 
 ## 5. Exclusión de responsabilidad
 

@@ -1,7 +1,7 @@
 # Términos de uso
 
-> **Borrador / plantilla.** Rellena los `[CORCHETES]` y revísalo con un
-> profesional antes de publicarlo. Publicar en `medeben.net/terminos`.
+> Versión 1.0 — 12 de julio de 2026. Publicados en `medeben.net/terminos`.
+> Pendiente de revisión por un profesional (plan del ADR D11).
 
 ## 1. Aceptación
 
@@ -33,7 +33,8 @@ con un profesional o tu sindicato antes de reclamar.** Ver los
 
 ## 6. Propiedad intelectual
 
-El código se ofrece bajo la licencia [AGPL-3.0 / la que aplique]. La marca
+El código se ofrece bajo la licencia **AGPL-3.0**
+([github.com/iulian640/medeben](https://github.com/iulian640/medeben)). La marca
 "MeDeben" pertenece a su titular.
 
 ## 7. Limitación de responsabilidad
@@ -46,8 +47,9 @@ tomadas a partir de sus cálculos.
 ## 8. Baja y borrado
 
 Puedes eliminar tu cuenta en cualquier momento desde la app o desde
-[medeben.net/borrar-cuenta]. **El borrado destruye tu historial (es tu
-evidencia): expórtalo antes si lo necesitas.**
+[medeben.net/borrar-cuenta](https://medeben.net/borrar-cuenta). **El borrado
+destruye tu historial (es tu evidencia): descarga antes tu informe en PDF si
+lo necesitas.**
 
 ## 9. Cambios y ley aplicable
 

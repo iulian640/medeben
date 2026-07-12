@@ -1,7 +1,10 @@
 # Descargos de responsabilidad (disclaimers) — textos para pantalla
 
-> Textos concretos y **dónde** colocarlos. Son parte del cumplimiento (responsabilidad
-> por cálculo erróneo y "información ≠ asesoramiento jurídico", ADR D11.2/D11.3).
+> Versión 1.0 — 12 de julio de 2026. Textos concretos y **dónde** colocarlos.
+> Son parte del cumplimiento (responsabilidad por cálculo erróneo y
+> "información ≠ asesoramiento jurídico", ADR D11.2/D11.3). Los marcadores
+> [nombre]/[año]/[boletín] del punto 1 NO son huecos por rellenar aquí: los
+> resuelve la app en tiempo real con los datos del convenio del usuario.
 
 ## 1. En la cifra "te deben X€" y en el informe PDF
 
