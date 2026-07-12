@@ -3,8 +3,10 @@ package es.medeben.service;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collections;
 import java.util.NavigableMap;
+import java.util.Optional;
 import java.util.TreeMap;
 
 /**
@@ -65,6 +67,38 @@ public class SmiService {
         BigDecimal pluses = plusesAnuales == null ? BigDecimal.ZERO : plusesAnuales;
         BigDecimal anualConvenio = baseMensual.multiply(mensualidades).add(pluses);
         return anualConvenio.compareTo(smiAnual(anio)) >= 0;
+    }
+
+    /**
+     * Resultado de aplicar el suelo del SMI a un salario base mensual: la base
+     * que de verdad debe usarse ({@code baseAplicada}) —la original si ya llega,
+     * o el suelo legal si no— y, solo cuando ha habido que elevarla, la cita del
+     * SMI para arrastrar la fuente a las respuestas (D34).
+     */
+    public record SueloSmi(BigDecimal baseAplicada, boolean bajoSmi, Optional<Cita> cita) {
+    }
+
+    /**
+     * Aplica el suelo del SMI (art. 27 ET, cómputo ANUAL) a un salario base
+     * MENSUAL (EUR/mes; en EUR/año pásese {@code mensualidades = 1}). Si
+     * {@code base × mensualidades + pluses} no alcanza el SMI anual del año, eleva
+     * la base a {@code smiAnual / mensualidades} y adjunta la cita del SMI; si ya
+     * llega, devuelve la base intacta y sin cita. El redondeo del suelo es a la
+     * BAJA: antes un céntimo de menos que prometer uno que la ley no garantiza.
+     *
+     * <p>Es la MISMA cuenta que expone {@code /salario-base}: aquí vive una sola
+     * vez para que la pantalla de perfil, el resumen mensual y el PDF no se
+     * contradigan (una tabla de convenio por debajo del SMI es un dato engañoso).
+     * El {@code anio} es el del periodo calculado, NO el de hoy: el SMI aplicable
+     * es el vigente ese año.
+     */
+    public SueloSmi aplicaSuelo(BigDecimal baseMensual, BigDecimal mensualidades,
+                                BigDecimal plusesAnuales, int anio) {
+        if (alcanzaElSmi(baseMensual, mensualidades, plusesAnuales, anio)) {
+            return new SueloSmi(baseMensual, false, Optional.empty());
+        }
+        BigDecimal minimoLegal = smiAnual(anio).divide(mensualidades, 2, RoundingMode.DOWN);
+        return new SueloSmi(minimoLegal, true, Optional.of(citaSmi(anio)));
     }
 
     /** Cita legal del SMI vigente para arrastrarla a las respuestas (D34). */

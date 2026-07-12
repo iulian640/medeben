@@ -64,6 +64,41 @@ class SmiServiceTest {
     }
 
     @Test
+    @DisplayName("aplicaSuelo: por debajo del SMI eleva la base a smiAnual/mensualidades (a la baja) y trae la cita")
+    void aplicaSueloEleva() {
+        // Madrid nivel V-C 1.086,31 × 14 = 15.208,34 < 17.094 (SMI 2026 anual).
+        SmiService.SueloSmi suelo = smi.aplicaSuelo(new BigDecimal("1086.31"),
+                new BigDecimal("14"), BigDecimal.ZERO, 2026);
+
+        assertThat(suelo.bajoSmi()).isTrue();
+        assertThat(suelo.baseAplicada()).isEqualByComparingTo("1221.00"); // 17.094 / 14
+        assertThat(suelo.cita()).isPresent();
+        assertThat(suelo.cita().orElseThrow().texto()).contains("art. 27 ET");
+    }
+
+    @Test
+    @DisplayName("aplicaSuelo: una base holgada se devuelve intacta y sin cita del SMI")
+    void aplicaSueloNoTocaLoQueLlega() {
+        SmiService.SueloSmi suelo = smi.aplicaSuelo(new BigDecimal("1400.00"),
+                new BigDecimal("14"), BigDecimal.ZERO, 2026);
+
+        assertThat(suelo.bajoSmi()).isFalse();
+        assertThat(suelo.baseAplicada()).isEqualByComparingTo("1400.00");
+        assertThat(suelo.cita()).isEmpty();
+    }
+
+    @Test
+    @DisplayName("aplicaSuelo usa el SMI del AÑO pedido, no el de hoy: 2025 eleva a 1.184 mensual")
+    void aplicaSueloPorAnio() {
+        // SMI 2025 = 1.184 × 14 = 16.576 anual; base baja de ese año → suelo 1.184.
+        SmiService.SueloSmi suelo = smi.aplicaSuelo(new BigDecimal("1086.31"),
+                new BigDecimal("14"), BigDecimal.ZERO, 2025);
+
+        assertThat(suelo.bajoSmi()).isTrue();
+        assertThat(suelo.baseAplicada()).isEqualByComparingTo("1184.00"); // 16.576 / 14
+    }
+
+    @Test
     @DisplayName("la cita del SMI lleva el año, el importe y el artículo (D34)")
     void citaConFuente() {
         Cita c = smi.citaSmi(2026);
