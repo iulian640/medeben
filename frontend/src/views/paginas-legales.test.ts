@@ -37,7 +37,9 @@ describe('PrivacidadView', () => {
     expect(wrapper.findAll('h1')).toHaveLength(1)
     expect(wrapper.find('h1').text()).toMatch(/privacidad/i)
     expect(wrapper.text()).toContain('iuliantim21@gmail.com')
-    expect(wrapper.text()).toMatch(/Hetzner/i)
+    // Cambio de proveedor 2026-07-15: Oracle Cloud (región de Madrid), antes Hetzner.
+    expect(wrapper.text()).toMatch(/Oracle/i)
+    expect(wrapper.text()).toMatch(/España/)
     expect(wrapper.text()).toMatch(/categoría especial/i)
     expect(wrapper.text()).toMatch(/AEPD/i)
   })

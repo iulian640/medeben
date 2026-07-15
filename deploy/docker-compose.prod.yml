@@ -46,8 +46,10 @@ services:
     # viajan en claro (MITM en el WiFi del local). Por eso se publica solo en
     # 127.0.0.1 (accesible para el proxy TLS del host, no desde fuera).
     # La cabecera HSTS del nginx solo surte efecto una vez servido por HTTPS.
+    # En el 8080, no el 80: el 80 del host es de Caddy (redirección 80→443 y
+    # reto ACME HTTP-01) — compartirlo funcionaba de chiripa por SO_REUSEADDR.
     ports:
-      - '127.0.0.1:80:80'
+      - '127.0.0.1:8080:80'
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
       # Snippet de cabeceras de seguridad que el nginx.conf incluye en cada

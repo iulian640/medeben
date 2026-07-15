@@ -1,5 +1,7 @@
 * text=auto
 *.mjs text eol=lf
+# Los scripts de servidor se ejecutan en Linux: CRLF los rompe.
+*.sh text eol=lf
 *.png binary
 *.pdf binary
 *.gif binary

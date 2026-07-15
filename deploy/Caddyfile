@@ -22,5 +22,7 @@ www.medeben.net {
 }
 
 medeben.net {
-	reverse_proxy 127.0.0.1:80
+	# El nginx del compose publica en 127.0.0.1:8080 (el 80 del host es de
+	# Caddy: redirección y reto ACME).
+	reverse_proxy 127.0.0.1:8080
 }

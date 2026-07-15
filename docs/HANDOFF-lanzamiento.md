@@ -113,8 +113,11 @@ Detalle completo en `medeben-play-checklist.md`. Resumen:
    actualizaciones futuras en Play.
 2. **Email del dominio:** montar el reenvío para que `privacidad@`/`contacto@medeben.net`
    lleguen a tu Gmail (opcional para el día 1 — la privacidad ya usa iuliantim21@gmail.com).
-3. **VPS:** contratar Hetzner CX22 (UE), firmar el DPA, apuntar el DNS de medeben.net,
-   y pasarme la IP para desplegar (Caddy + Docker ya preparados).
+3. **Servidor:** ~~Hetzner CX22~~ → **Oracle Cloud Free** (decisión 15-jul: ARM
+   Always Free, 0 €/mes, región Madrid; DPA incluido en las condiciones, sin firma
+   aparte). Pasos completos en `deploy/oracle-cloud.md`: crear cuenta, VM A1
+   2 OCPU/12 GB, abrir 80/443 en la VCN, apuntar el DNS y pasarme la IP
+   (`instala-servidor.sh` + `despliega.sh` ya preparados y revisados).
 4. **Play Console:** crear cuenta Personal (25 USD), verificar identidad, rellenar
    Data Safety + IARC (borradores listos), subir el `.aab` + assets, y **arrancar el
    test cerrado (12 testers × 14 días) cuanto antes** — es el único cuello de botella.
