@@ -7,7 +7,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.Instant;
 import java.time.OffsetDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -30,6 +32,18 @@ public class Usuario {
 
     @Column(name = "creado_en", nullable = false, insertable = false, updatable = false)
     private OffsetDateTime creadoEn;
+
+    /**
+     * Estado de la verificación de email (cierre de la enumeración, R7). Los
+     * usuarios NUEVOS nacen sin verificar; los anteriores a la feature los
+     * dejó verificados el backfill de V8. Que esté a false NO bloquea el
+     * login (decisión de producto): solo activa el aviso en la app.
+     */
+    @Column(name = "email_verificado", nullable = false)
+    private boolean emailVerificado = false;
+
+    @Column(name = "verificado_en")
+    private Instant verificadoEn;
 
     protected Usuario() {
         // requerido por JPA
@@ -58,5 +72,19 @@ public class Usuario {
 
     public OffsetDateTime getCreadoEn() {
         return creadoEn;
+    }
+
+    public boolean isEmailVerificado() {
+        return emailVerificado;
+    }
+
+    public Instant getVerificadoEn() {
+        return verificadoEn;
+    }
+
+    /** Sella la verificación. Idempotente a efectos prácticos: el consumo del token ya es único. */
+    public void marcaVerificado(Instant ahora) {
+        this.emailVerificado = true;
+        this.verificadoEn = Objects.requireNonNull(ahora);
     }
 }
