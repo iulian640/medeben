@@ -47,7 +47,7 @@ public class EnviadorVerificacionEmail {
         } catch (Exception e) {
             // El email se enmascara: el log no debe regalar la lista de usuarios.
             log.error("No se pudo enviar el correo de verificación a {}: {}",
-                    enmascara(evento.email()), e.getMessage());
+                    EnmascaradorEmail.enmascara(evento.email()), e.getMessage());
         }
     }
 
@@ -64,10 +64,5 @@ public class EnviadorVerificacionEmail {
 
                 — MeDeben
                 """.formatted(propiedades.urlVerificacion(), token);
-    }
-
-    private static String enmascara(String email) {
-        int arroba = email.indexOf('@');
-        return arroba > 1 ? email.charAt(0) + "***" + email.substring(arroba) : "***";
     }
 }
