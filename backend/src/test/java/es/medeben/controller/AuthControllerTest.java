@@ -4,7 +4,6 @@ import es.medeben.config.SecurityConfig;
 import es.medeben.domain.usuario.Usuario;
 import es.medeben.service.AuthService;
 import es.medeben.service.CredencialesInvalidasException;
-import es.medeben.service.EmailYaRegistradoException;
 import es.medeben.service.SesionEmitida;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -67,16 +66,64 @@ class AuthControllerTest {
     }
 
     @Test
-    @DisplayName("registro con email duplicado → 409")
-    void registroDuplicado() throws Exception {
+    @DisplayName("ANTI-ENUMERACIÓN: el registro con email ya usado responde el MISMO 201 que uno nuevo (el 409 murió)")
+    void registroEmailDuplicadoDevuelve201Uniforme() throws Exception {
+        // El servicio ya no distingue hacia fuera: siempre devuelve el email.
         when(authService.registra(anyString(), anyString()))
-                .thenThrow(new EmailYaRegistradoException());
+                .thenReturn("trabajador@example.com");
 
         mockMvc.perform(post("/api/v1/auth/registro")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {"email":"trabajador@example.com","password":"una-contraseña-larga"}"""))
-                .andExpect(status().isConflict());
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.email").value("trabajador@example.com"));
+    }
+
+    @Test
+    @DisplayName("POST /auth/verifica-email con token válido → 200 (token en el BODY, nunca en la URL del API)")
+    void verificaEmailValido() throws Exception {
+        mockMvc.perform(post("/api/v1/auth/verifica-email")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"token":"token-del-correo"}"""))
+                .andExpect(status().isOk());
+        org.mockito.Mockito.verify(authService).verificaEmail("token-del-correo");
+    }
+
+    @Test
+    @DisplayName("verifica-email con token inválido/caducado → 400 con detalle FIJO (sin decir el motivo)")
+    void verificaEmailInvalido() throws Exception {
+        org.mockito.Mockito.doThrow(new es.medeben.service.VerificacionInvalidaException())
+                .when(authService).verificaEmail(anyString());
+
+        mockMvc.perform(post("/api/v1/auth/verifica-email")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"token":"caducado-o-falso"}"""))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.detail")
+                        .value("El enlace de verificación no es válido o ha caducado"));
+    }
+
+    @Test
+    @DisplayName("verifica-email sin token → 400 de validación")
+    void verificaEmailSinToken() throws Exception {
+        mockMvc.perform(post("/api/v1/auth/verifica-email")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{}"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("ANTI-ENUMERACIÓN: POST /auth/reenvia-verificacion responde 202 sea cual sea el email")
+    void reenviaVerificacionUniforme() throws Exception {
+        mockMvc.perform(post("/api/v1/auth/reenvia-verificacion")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"email":"cualquiera@example.com"}"""))
+                .andExpect(status().isAccepted());
+        org.mockito.Mockito.verify(authService).reenviaVerificacion("cualquiera@example.com");
     }
 
     @Test
@@ -175,14 +222,20 @@ class AuthControllerTest {
     }
 
     @Test
-    @DisplayName("GET /me sin token → 401; con JWT → email del token")
+    @DisplayName("GET /me sin token → 401; con JWT → email y emailVerificado FRESCOS de BD (no del claim: tablet compartida)")
     void me() throws Exception {
         mockMvc.perform(get("/api/v1/me"))
                 .andExpect(status().isUnauthorized());
 
+        java.util.UUID usuarioId = java.util.UUID.randomUUID();
+        when(authService.me(usuarioId))
+                .thenReturn(new es.medeben.dto.MeResponse("trabajador@example.com", false));
+
         mockMvc.perform(get("/api/v1/me")
-                        .with(jwt().jwt(j -> j.claim("email", "trabajador@example.com"))))
+                        .with(jwt().jwt(j -> j.subject(usuarioId.toString())
+                                .claim("email", "trabajador@example.com"))))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.email").value("trabajador@example.com"));
+                .andExpect(jsonPath("$.email").value("trabajador@example.com"))
+                .andExpect(jsonPath("$.emailVerificado").value(false));
     }
 }

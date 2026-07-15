@@ -6,7 +6,6 @@ import es.medeben.controller.AuthController;
 import es.medeben.controller.GlobalExceptionHandler;
 import es.medeben.service.AuthService;
 import es.medeben.service.CredencialesInvalidasException;
-import es.medeben.service.EmailYaRegistradoException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
@@ -62,11 +62,13 @@ class RateLimitFilterRegistroTest {
     @Test
     @DisplayName("el 6º intento de registro en ráfaga (capacidad 5) -> 429 con Retry-After")
     void sextoIntentoEnRafagaDevuelve429() throws Exception {
+        // Desde la respuesta uniforme (R7) el registro contesta 201 exista o
+        // no la cuenta: el presupuesto se consume igual.
         when(authService.registra(anyString(), anyString()))
-                .thenThrow(new EmailYaRegistradoException());
+                .thenReturn("trabajador@example.com");
 
         for (int i = 0; i < 5; i++) {
-            mockMvc.perform(registroRequest()).andExpect(status().isConflict());
+            mockMvc.perform(registroRequest()).andExpect(status().isCreated());
         }
 
         mockMvc.perform(registroRequest())
@@ -78,12 +80,12 @@ class RateLimitFilterRegistroTest {
     @DisplayName("el presupuesto de /auth/registro es propio: agotarlo no toca el del login")
     void cuboPropioDeRegistroNoTocaElDeLogin() throws Exception {
         when(authService.registra(anyString(), anyString()))
-                .thenThrow(new EmailYaRegistradoException());
-        when(authService.login(anyString(), anyString()))
-                .thenThrow(new CredencialesInvalidasException());
+                .thenReturn("trabajador@example.com");
+        doThrow(new CredencialesInvalidasException())
+                .when(authService).login(anyString(), anyString());
 
         for (int i = 0; i < 5; i++) {
-            mockMvc.perform(registroRequest()).andExpect(status().isConflict());
+            mockMvc.perform(registroRequest()).andExpect(status().isCreated());
         }
         mockMvc.perform(registroRequest()).andExpect(status().isTooManyRequests());
 
@@ -104,6 +106,28 @@ class RateLimitFilterRegistroTest {
             mockMvc.perform(registroRequest()).andExpect(status().isCreated());
         }
 
+        mockMvc.perform(registroRequest()).andExpect(status().isTooManyRequests());
+    }
+
+    @Test
+    @DisplayName("el reenvío de verificación comparte el presupuesto ESTRICTO de registro (ambos disparan correos)")
+    void reenvioCompartePresupuestoDeRegistro() throws Exception {
+        for (int i = 0; i < 5; i++) {
+            mockMvc.perform(post("/api/v1/auth/reenvia-verificacion")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content("""
+                                    {"email":"trabajador@example.com"}"""))
+                    .andExpect(status().isAccepted());
+        }
+
+        // La 6ª agota el bucket compartido registro+reenvío de esta IP...
+        mockMvc.perform(post("/api/v1/auth/reenvia-verificacion")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"email":"trabajador@example.com"}"""))
+                .andExpect(status().isTooManyRequests());
+        // ...y también habría agotado el de registro (mismo bucket a propósito:
+        // el atacante no puede duplicar su cupo de correos alternando rutas).
         mockMvc.perform(registroRequest()).andExpect(status().isTooManyRequests());
     }
 

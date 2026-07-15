@@ -55,6 +55,7 @@ public final class RateLimitFilter extends OncePerRequestFilter {
     private static final String PREFIJO_INFORMES = "/api/v1/informes/";
     private static final String RUTA_REFRESH = "/api/v1/auth/refresh";
     private static final String RUTA_REGISTRO = "/api/v1/auth/registro";
+    private static final String RUTA_REENVIO = "/api/v1/auth/reenvia-verificacion";
     private static final String RUTA_CUENTA = "/api/v1/cuenta";
     private static final String RUTA_HEALTH = "/api/v1/health";
     private static final String PREFIJO_BEARER = "Bearer ";
@@ -127,12 +128,15 @@ public final class RateLimitFilter extends OncePerRequestFilter {
         // turno) y metería a la plantilla entera en el bucket estricto del
         // login (security review). Presupuesto propio, también por IP.
         boolean esRefresh = ruta.equals(RUTA_REFRESH);
-        // El registro (auditoría): el 409 (email ya registrado) frente al 201
-        // permite enumerar cuentas por fuerza bruta. Presupuesto PROPIO, mucho
-        // más estrecho que el genérico de auth (pensado para que una plantilla
-        // entera haga login a la vez, no para un evento raro por IP como
-        // registrarse) — también por IP, antes de autenticar no hay otra clave.
-        boolean esRegistro = !esRefresh && ruta.equals(RUTA_REGISTRO);
+        // El registro (auditoría): presupuesto PROPIO, mucho más estrecho que
+        // el genérico de auth (pensado para que una plantilla entera haga
+        // login a la vez, no para un evento raro por IP como registrarse) —
+        // también por IP, antes de autenticar no hay otra clave. El REENVÍO
+        // de verificación comparte este bucket A PROPÓSITO: ambos endpoints
+        // disparan correos, y con buckets separados un atacante duplicaría su
+        // cupo de envíos alternando rutas.
+        boolean esRegistro = !esRefresh
+                && (ruta.equals(RUTA_REGISTRO) || ruta.equals(RUTA_REENVIO));
         boolean esAuth = !esRefresh && !esRegistro && ruta.startsWith(PREFIJO_AUTH);
         // Los informes PDF llevan su propio presupuesto, mucho más estrecho:
         // generarlos cuesta un año de recorrido + maquetado (ver Properties).
