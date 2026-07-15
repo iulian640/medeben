@@ -14,6 +14,11 @@ public interface VerificacionEmailRepository extends JpaRepository<VerificacionE
 
     Optional<VerificacionEmail> findByTokenHash(String tokenHash);
 
+    /** Tokens emitidos para un usuario desde un instante (tope anti email-bombing). */
+    @Query("select count(v) from VerificacionEmail v "
+            + "where v.usuarioId = :usuarioId and v.emitidaEn >= :desde")
+    long cuentaEmitidasDesde(@Param("usuarioId") UUID usuarioId, @Param("desde") Instant desde);
+
     /**
      * Reclama el token para verificar: ATÓMICO (el WHERE decide, no una
      * lectura previa; mismo razonamiento que {@link SesionRepository}).

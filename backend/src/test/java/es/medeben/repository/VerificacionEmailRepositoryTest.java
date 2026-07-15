@@ -110,6 +110,23 @@ class VerificacionEmailRepositoryTest {
         assertThat(verificaciones.findById(v.getId())).isEmpty();
     }
 
+    @Test
+    @DisplayName("cuentaEmitidasDesde cuenta solo las del usuario y desde el instante dado (tope anti email-bombing)")
+    void cuentaEmitidasDesde() {
+        verificaciones.saveAndFlush(verificacionNueva("f1"));
+        verificaciones.saveAndFlush(verificacionNueva("f2"));
+        // Vieja (emitida hace 2 horas): fuera de la ventana.
+        verificaciones.saveAndFlush(new VerificacionEmail(
+                usuarioId, hash("f3"), AHORA.minus(Duration.ofHours(2)), AHORA.plus(VIGENCIA)));
+        // De otro usuario: no cuenta.
+        UUID otro = usuarios.saveAndFlush(
+                new Usuario("otro-" + UUID.randomUUID() + "@example.com", "{noop}hash")).getId();
+        verificaciones.saveAndFlush(new VerificacionEmail(otro, hash("f4"), AHORA, AHORA.plus(VIGENCIA)));
+
+        assertThat(verificaciones.cuentaEmitidasDesde(usuarioId, AHORA.minus(Duration.ofHours(1))))
+                .isEqualTo(2);
+    }
+
     private VerificacionEmail verificacionNueva(String semilla) {
         return new VerificacionEmail(usuarioId, hash(semilla), AHORA, AHORA.plus(VIGENCIA));
     }

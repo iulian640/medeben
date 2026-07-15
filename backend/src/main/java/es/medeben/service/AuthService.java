@@ -179,9 +179,34 @@ public class AuthService {
                 .ifPresent(this::emiteVerificacion);
     }
 
-    /** Token opaco de 256 bits; a la BD solo va su SHA-256, al evento (correo) el claro. */
+    /**
+     * Estado del usuario autenticado, FRESCO de BD (el claim del JWT envejece
+     * 15 minutos y en una tablet compartida eso mezcla estados). Un usuario
+     * borrado con token todavía vivo recibe el mismo 401 de siempre.
+     */
+    @Transactional(readOnly = true)
+    public es.medeben.dto.MeResponse me(java.util.UUID usuarioId) {
+        Usuario usuario = usuarios.findById(usuarioId)
+                .orElseThrow(CredencialesInvalidasException::new);
+        return new es.medeben.dto.MeResponse(usuario.getEmail(), usuario.isEmailVerificado());
+    }
+
+    /** Máximo de tokens de verificación por usuario y hora (anti email-bombing). */
+    private static final int MAX_VERIFICACIONES_POR_HORA = 3;
+
+    /**
+     * Token opaco de 256 bits; a la BD solo va su SHA-256, al evento (correo)
+     * el claro. Tope SILENCIOSO por usuario: al cuarto token en una hora no se
+     * emite nada — callar mantiene la respuesta uniforme (sin oráculo) y corta
+     * el bombardeo del buzón de una víctima aunque el atacante rote IPs (el
+     * rate limit por IP no cubre ese caso).
+     */
     private void emiteVerificacion(Usuario usuario) {
         Instant ahora = Instant.now(reloj);
+        if (verificaciones.cuentaEmitidasDesde(usuario.getId(),
+                ahora.minus(Duration.ofHours(1))) >= MAX_VERIFICACIONES_POR_HORA) {
+            return;
+        }
         byte[] crudo = new byte[BYTES_REFRESH];
         aleatorio.nextBytes(crudo);
         String token = Base64.getUrlEncoder().withoutPadding().encodeToString(crudo);

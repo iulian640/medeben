@@ -216,6 +216,42 @@ class AuthServiceTest {
     }
 
     @Test
+    @DisplayName("ANTI EMAIL-BOMBING: al 4º token en una hora para el mismo usuario, el reenvío calla (uniforme, sin excepción)")
+    void reenviaVerificacionConTopePorUsuario() {
+        Usuario sinVerificar = usuarioExistente();
+        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(sinVerificar));
+        when(verificaciones.cuentaEmitidasDesde(eq(sinVerificar.getId()), any())).thenReturn(3L);
+
+        assertThatCode(() -> servicio.reenviaVerificacion(EMAIL)).doesNotThrowAnyException();
+
+        verify(verificaciones, never()).save(any(VerificacionEmail.class));
+        verifyNoInteractions(eventos);
+    }
+
+    @Test
+    @DisplayName("me: devuelve email y estado de verificación FRESCOS de BD (no de un claim que envejece)")
+    void meDevuelveEstadoFresco() {
+        Usuario usuario = usuarioExistente();
+        usuario.marcaVerificado(AHORA.minusSeconds(60));
+        when(repositorio.findById(usuario.getId())).thenReturn(Optional.of(usuario));
+
+        var respuesta = servicio.me(usuario.getId());
+
+        assertThat(respuesta.email()).isEqualTo(EMAIL);
+        assertThat(respuesta.emailVerificado()).isTrue();
+    }
+
+    @Test
+    @DisplayName("me: usuario borrado con token aún vivo → 401 (CredencialesInvalidasException)")
+    void meUsuarioBorrado() {
+        UUID id = UUID.randomUUID();
+        when(repositorio.findById(id)).thenReturn(Optional.empty());
+
+        assertThatExceptionOfType(CredencialesInvalidasException.class)
+                .isThrownBy(() -> servicio.me(id));
+    }
+
+    @Test
     @DisplayName("ANTI-ENUMERACIÓN: reenviaVerificacion con email desconocido o ya verificado no hace nada y no revienta")
     void reenviaVerificacionUniforme() {
         when(repositorio.findByEmail("nadie@example.com")).thenReturn(Optional.empty());

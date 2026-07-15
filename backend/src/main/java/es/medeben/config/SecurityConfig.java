@@ -108,8 +108,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/calculo/**").permitAll()
                         // refresh y logout van con el refresh token en el body, no con
                         // el access (que puede estar ya caducado): públicos como el login.
+                        // verifica-email y reenvia-verificacion: quien llega del enlace
+                        // del correo no tiene sesión — públicos por necesidad.
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/registro", "/api/v1/auth/login",
-                                "/api/v1/auth/refresh", "/api/v1/auth/logout").permitAll()
+                                "/api/v1/auth/refresh", "/api/v1/auth/logout",
+                                "/api/v1/auth/verifica-email", "/api/v1/auth/reenvia-verificacion").permitAll()
                         .anyRequest().authenticated())
                 // Los endpoints autenticados validan un JWT Bearer (HS256, JwtConfig)
                 .oauth2ResourceServer(oauth -> oauth

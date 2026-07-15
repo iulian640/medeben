@@ -5,7 +5,6 @@ import es.medeben.config.SecurityConfig;
 import es.medeben.controller.AuthController;
 import es.medeben.controller.GlobalExceptionHandler;
 import es.medeben.service.AuthService;
-import es.medeben.service.EmailYaRegistradoException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
@@ -65,9 +65,10 @@ class RateLimitFilterRegistroGlobalTest {
     private JwtDecoder jwtDecoder;
 
     private void registroDesde(String ip, int esperado) throws Exception {
-        // doThrow (no when().thenThrow()): re-grabar con thenThrow dispararía el
-        // stub anterior al ejecutar authService.registra() dentro de when().
-        doThrow(new EmailYaRegistradoException()).when(authService).registra(anyString(), anyString());
+        // Respuesta uniforme (R7): el registro contesta 201 exista o no la
+        // cuenta. doReturn (no when().thenReturn()): re-grabar es inocuo aquí,
+        // pero se mantiene el estilo del resto de la clase.
+        doReturn("trabajador@example.com").when(authService).registra(anyString(), anyString());
         mockMvc.perform(post("/api/v1/auth/registro")
                         .header("X-Forwarded-For", ip)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -81,17 +82,17 @@ class RateLimitFilterRegistroGlobalTest {
     void ipsDistintasCompartenElPresupuestoGlobal() throws Exception {
         // Enumeración distribuida: cada petición llega de una IP nueva, así que
         // ninguna cubeta por IP pasa de 1 consumo. Sin bucket global las tres
-        // serían 409; con él, la 3ª agota el total del sistema.
-        registroDesde("20.0.0.1", 409);
-        registroDesde("20.0.0.2", 409);
+        // serían 201; con él, la 3ª agota el total del sistema.
+        registroDesde("20.0.0.1", 201);
+        registroDesde("20.0.0.2", 201);
         registroDesde("20.0.0.3", 429);
     }
 
     @Test
     @DisplayName("el 429 del bucket global lleva Retry-After, como el resto de límites")
     void elGlobalTambienDevuelveRetryAfter() throws Exception {
-        registroDesde("30.0.0.1", 409);
-        registroDesde("30.0.0.2", 409);
+        registroDesde("30.0.0.1", 201);
+        registroDesde("30.0.0.2", 201);
         mockMvc.perform(post("/api/v1/auth/registro")
                         .header("X-Forwarded-For", "30.0.0.3")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -104,8 +105,8 @@ class RateLimitFilterRegistroGlobalTest {
     @Test
     @DisplayName("el bucket global es solo de registro: no estrangula al login")
     void elGlobalNoTocaElLogin() throws Exception {
-        registroDesde("40.0.0.1", 409);
-        registroDesde("40.0.0.2", 409);
+        registroDesde("40.0.0.1", 201);
+        registroDesde("40.0.0.2", 201);
         registroDesde("40.0.0.3", 429);
 
         // El login ni conoce ese bucket: sigue con el presupuesto de auth.

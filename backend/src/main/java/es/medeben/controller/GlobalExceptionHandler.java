@@ -65,9 +65,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return problema;
     }
 
-    @ExceptionHandler(es.medeben.service.EmailYaRegistradoException.class)
-    public ProblemDetail emailYaRegistrado(es.medeben.service.EmailYaRegistradoException e) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
+    /*
+     * OJO: aquí NO hay (ya) mapping de "email ya registrado" → 409. Ese 409
+     * era el oráculo de enumeración de cuentas (auditoría R7): el registro
+     * responde uniforme desde entonces. No lo reintroduzcas — un handler
+     * "muerto" que solo mapea es la puerta a que un throw futuro reabra la fuga.
+     */
+
+    @ExceptionHandler(es.medeben.service.VerificacionInvalidaException.class)
+    public ProblemDetail verificacionInvalida(es.medeben.service.VerificacionInvalidaException e) {
+        // Detalle FIJO: token desconocido, caducado o ya usado responden igual.
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 
     @ExceptionHandler(es.medeben.service.CredencialesInvalidasException.class)
