@@ -75,11 +75,14 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
 
     <h2>6. Destinatarios y encargados</h2>
     <p>
-      Alojamos los datos en <strong>Hetzner Online GmbH</strong>, con servidores
-      en Alemania (<strong>Unión Europea</strong>) y contrato de encargado de
-      tratamiento (art. 28 RGPD).
-      <strong>No vendemos ni cedemos tus datos a nadie.</strong> No hay
-      transferencias internacionales.
+      Alojamos los datos en <strong>Oracle Cloud (Oracle)</strong>, con
+      servidores en España (<strong>Unión Europea</strong>) y contrato de
+      encargado de tratamiento (art. 28 RGPD) incorporado a las condiciones
+      del servicio.
+      <strong>No vendemos ni cedemos tus datos a nadie.</strong> Los datos
+      residen en la UE; cualquier acceso auxiliar desde fuera de la UE por el
+      grupo Oracle queda amparado por el Marco de Privacidad de Datos
+      UE-EE.&nbsp;UU. y cláusulas contractuales tipo.
     </p>
 
     <h2>7. Tus derechos</h2>
