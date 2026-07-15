@@ -10,12 +10,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ProblemDetail;
+import org.springframework.security.web.util.matcher.IpAddressMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Clock;
 import java.util.Base64;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -73,11 +75,18 @@ public final class RateLimitFilter extends OncePerRequestFilter {
     private final RateLimitProperties propiedades;
     private final RegistroCubetas registro;
     private final ObjectMapper objectMapper;
+    private final List<IpAddressMatcher> proxiesDeConfianza;
 
     public RateLimitFilter(RateLimitProperties propiedades, Clock reloj, ObjectMapper objectMapper) {
         this.propiedades = propiedades;
         this.registro = new RegistroCubetas(reloj);
         this.objectMapper = objectMapper;
+        // Los matchers se compilan una vez aquí: IpAddressMatcher parsea el CIDR
+        // en el constructor y un CIDR inválido en la config revienta el arranque
+        // (mejor que descubrirlo en la primera petición).
+        this.proxiesDeConfianza = propiedades.proxiesDeConfianza().stream()
+                .map(IpAddressMatcher::new)
+                .toList();
     }
 
     @Override
@@ -184,8 +193,11 @@ public final class RateLimitFilter extends OncePerRequestFilter {
 
     /**
      * IP del cliente. Solo se confía en {@code X-Forwarded-For} cuando
-     * {@code medeben.rate-limit.confiar-en-proxy} está activo (por defecto no);
-     * si no, se usa siempre {@code getRemoteAddr()}.
+     * {@code medeben.rate-limit.confiar-en-proxy} está activo (por defecto no)
+     * Y la petición llega desde un peer de {@code proxies-de-confianza}
+     * (second review): si el backend queda expuesto sin el nginx delante, un
+     * cliente directo podría forjar la cabecera; al no estar su IP en la lista
+     * de proxies, aquí se ignora y se usa {@code getRemoteAddr()}.
      *
      * <p>CLAVE (fallo de seguridad corregido): se toma el ÚLTIMO valor de la
      * lista, no el primero. Nuestro proxy de confianza (nginx con
@@ -197,7 +209,7 @@ public final class RateLimitFilter extends OncePerRequestFilter {
      * es el que escribió nuestro proxy y el cliente no controla.
      */
     private String resuelveIp(HttpServletRequest request) {
-        if (propiedades.confiarEnProxy()) {
+        if (propiedades.confiarEnProxy() && esProxyDeConfianza(request.getRemoteAddr())) {
             String cabecera = request.getHeader(CABECERA_X_FORWARDED_FOR);
             if (cabecera != null && !cabecera.isBlank()) {
                 String[] saltos = cabecera.split(",");
@@ -205,6 +217,10 @@ public final class RateLimitFilter extends OncePerRequestFilter {
             }
         }
         return request.getRemoteAddr();
+    }
+
+    private boolean esProxyDeConfianza(String remoteAddr) {
+        return proxiesDeConfianza.stream().anyMatch(matcher -> matcher.matches(remoteAddr));
     }
 
     /**

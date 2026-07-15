@@ -11,8 +11,11 @@ class RateLimitPropertiesTest {
     @Test
     @DisplayName("presupuestos nulos -> se sustituyen por los valores por defecto")
     void authYApiNulosSeSustituyenPorLosPresupuestosPorDefecto() {
-        RateLimitProperties propiedades = new RateLimitProperties(true, false, null, null, null, null, null);
+        RateLimitProperties propiedades = new RateLimitProperties(true, false, null, null, null, null, null, null);
 
+        // Proxies de confianza por defecto: loopback + rangos privados (Docker).
+        assertThat(propiedades.proxiesDeConfianza())
+                .containsExactly("127.0.0.1/32", "::1", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16");
         assertThat(propiedades.auth().capacidad()).isEqualTo(30);
         assertThat(propiedades.auth().recargaPorMinuto()).isEqualTo(20);
         // El de refresh es más ancho que el de auth (B4): tráfico sostenido
@@ -40,9 +43,10 @@ class RateLimitPropertiesTest {
         RateLimitProperties.Presupuesto api = new RateLimitProperties.Presupuesto(50, 200);
         RateLimitProperties.Presupuesto informes = new RateLimitProperties.Presupuesto(2, 1);
 
-        RateLimitProperties propiedades =
-                new RateLimitProperties(true, true, auth, refresh, registro, api, informes);
+        RateLimitProperties propiedades = new RateLimitProperties(
+                true, true, java.util.List.of("203.0.113.7/32"), auth, refresh, registro, api, informes);
 
+        assertThat(propiedades.proxiesDeConfianza()).containsExactly("203.0.113.7/32");
         assertThat(propiedades.auth()).isEqualTo(auth);
         assertThat(propiedades.refresh()).isEqualTo(refresh);
         assertThat(propiedades.registro()).isEqualTo(registro);
