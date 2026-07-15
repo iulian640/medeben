@@ -60,6 +60,16 @@ import java.util.List;
  *                       daño mientras tanto. Registrarse es un evento raro por
  *                       IP — no necesita absorber una plantilla entera como el
  *                       login, así que la ráfaga es mucho más corta.
+ * @param registroGlobal presupuesto GLOBAL para {@code /auth/registro},
+ *                       compartido por TODAS las IPs (second review): el
+ *                       bucket por IP no frena la enumeración distribuida
+ *                       (mil IPs, un email cada una). Este bucket único acota
+ *                       el total de registros del sistema. Trade-off asumido:
+ *                       agotarlo bloquea temporalmente registros legítimos
+ *                       (429 + Retry-After) — con el volumen real de la app,
+ *                       preferible a la enumeración sin tope. Dimensionado
+ *                       holgado: ráfaga 30 + 60/hora es muchísimo más de lo
+ *                       que la app registra de verdad en un día.
  * @param api            presupuesto para el resto de la API.
  * @param informes       presupuesto para {@code /api/v1/informes/**}: generar
  *                       un PDF cuesta MUCHO más que un GET normal (recorre el
@@ -76,6 +86,7 @@ public record RateLimitProperties(
         Presupuesto auth,
         Presupuesto refresh,
         Presupuesto registro,
+        Presupuesto registroGlobal,
         Presupuesto api,
         Presupuesto informes) {
 
@@ -89,6 +100,7 @@ public record RateLimitProperties(
         auth = auth != null ? auth : Presupuesto.DEFECTO_AUTH;
         refresh = refresh != null ? refresh : Presupuesto.DEFECTO_REFRESH;
         registro = registro != null ? registro : Presupuesto.DEFECTO_REGISTRO;
+        registroGlobal = registroGlobal != null ? registroGlobal : Presupuesto.DEFECTO_REGISTRO_GLOBAL;
         api = api != null ? api : Presupuesto.DEFECTO_API;
         informes = informes != null ? informes : Presupuesto.DEFECTO_INFORMES;
     }
@@ -108,6 +120,9 @@ public record RateLimitProperties(
         // Ráfaga corta + goteo bajo: registrarse no es tráfico de plantilla
         // entera como el login, así que no necesita absorber una ráfaga grande.
         static final Presupuesto DEFECTO_REGISTRO = new Presupuesto(5, 2);
+        // Global (todas las IPs juntas): ráfaga 30 + 60/hora. Acota la
+        // enumeración distribuida sin rozar el volumen legítimo real.
+        static final Presupuesto DEFECTO_REGISTRO_GLOBAL = new Presupuesto(30, 1);
         static final Presupuesto DEFECTO_API = new Presupuesto(40, 120);
         static final Presupuesto DEFECTO_INFORMES = new Presupuesto(5, 3);
     }
