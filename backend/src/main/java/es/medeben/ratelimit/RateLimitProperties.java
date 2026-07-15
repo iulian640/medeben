@@ -2,6 +2,8 @@ package es.medeben.ratelimit;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.List;
+
 /**
  * Configuración del rate limiting transversal (prefijo {@code medeben.rate-limit}).
  *
@@ -24,13 +26,22 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  *
  * @param habilitado     activa o desactiva el filtro por completo.
  * @param confiarEnProxy si es {@code true}, la IP del cliente se toma de la
- *                       cabecera {@code X-Forwarded-For} (primer valor); si
- *                       es {@code false} (por defecto) se usa siempre
- *                       {@code request.getRemoteAddr()}. Activarlo sin un
- *                       proxy de confianza delante permite a cualquier
- *                       cliente falsear su IP y saltarse el límite
+ *                       cabecera {@code X-Forwarded-For} (ÚLTIMO valor, el
+ *                       que anexa nuestro proxy; los anteriores los pudo
+ *                       escribir el cliente); si es {@code false} (por
+ *                       defecto) se usa siempre {@code request.getRemoteAddr()}.
+ *                       Activarlo sin un proxy de confianza delante permite a
+ *                       cualquier cliente falsear su IP y saltarse el límite
  *                       (IP-spoofing) — solo debe activarse cuando de verdad
  *                       hay un proxy/balanceador que sobreescribe esa cabecera.
+ * @param proxiesDeConfianza CIDRs desde los que se acepta {@code X-Forwarded-For}
+ *                       (second review): aunque {@code confiarEnProxy} esté
+ *                       activo, si la petición NO llega desde una de estas
+ *                       redes la cabecera se ignora y se usa
+ *                       {@code getRemoteAddr()}. Cierra el bypass en
+ *                       despliegues que expongan el backend sin el nginx
+ *                       delante. Por defecto: loopback + rangos privados
+ *                       RFC 1918 (donde viven los contenedores del Compose).
  * @param auth           presupuesto para login/logout (y cualquier otra ruta
  *                       de {@code /auth/**} que no tenga su propio bucket).
  * @param refresh        presupuesto para {@code /auth/refresh} (B4, hallazgo del
@@ -61,13 +72,20 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public record RateLimitProperties(
         boolean habilitado,
         boolean confiarEnProxy,
+        List<String> proxiesDeConfianza,
         Presupuesto auth,
         Presupuesto refresh,
         Presupuesto registro,
         Presupuesto api,
         Presupuesto informes) {
 
+    /** Loopback + RFC 1918: las redes internas de Docker donde vive el nginx. */
+    static final List<String> DEFECTO_PROXIES_DE_CONFIANZA =
+            List.of("127.0.0.1/32", "::1", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16");
+
     public RateLimitProperties {
+        proxiesDeConfianza = proxiesDeConfianza != null && !proxiesDeConfianza.isEmpty()
+                ? List.copyOf(proxiesDeConfianza) : DEFECTO_PROXIES_DE_CONFIANZA;
         auth = auth != null ? auth : Presupuesto.DEFECTO_AUTH;
         refresh = refresh != null ? refresh : Presupuesto.DEFECTO_REFRESH;
         registro = registro != null ? registro : Presupuesto.DEFECTO_REGISTRO;

@@ -21,6 +21,12 @@ import java.util.concurrent.atomic.AtomicLong;
  * NUEVAS comparten una única cubeta de desbordamiento por grupo: la memoria
  * queda acotada y el tráfico del atacante se estrangula a sí mismo, mientras
  * que las claves ya conocidas siguen con su cubeta propia.
+ *
+ * <p>El estado vive en la memoria de ESTA JVM: correcto con el despliegue
+ * actual (un solo backend en Compose), pero si algún día hay varias réplicas
+ * tras un balanceador, cada una llevará su propia cuenta y el presupuesto
+ * efectivo se multiplica por N — habría que mover las cubetas a un almacén
+ * compartido (p. ej. Redis) antes de escalar horizontalmente.
  */
 final class RegistroCubetas {
 
