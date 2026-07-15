@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
-# Preparación ÚNICA del servidor de MeDeben (Oracle Cloud Free, Ubuntu 24.04 ARM).
-# Uso, ya conectado por SSH como el usuario `ubuntu`:
+# Preparación ÚNICA del servidor de MeDeben (Oracle Cloud Free, Ubuntu 24.04
+# ARM — imagen "Minimal aarch64"). Uso, ya conectado por SSH como `ubuntu`:
 #   bash instala-servidor.sh
 # Es idempotente: se puede re-ejecutar sin romper nada.
 set -euo pipefail
 
-echo "== 1/5 Firewall del SISTEMA (Oracle bloquea 80/443 por iptables, no solo en la VCN) =="
+echo "== 1/6 Prerrequisitos (la imagen Minimal no trae estas herramientas) =="
+# La imagen de Oracle para ARM es "Minimal aarch64" y NO incluye de fábrica
+# curl (Docker/Caddy lo usan), gnupg (la clave APT de Caddy) ni
+# iptables-persistent (aporta netfilter-persistent, con el que se guardan las
+# reglas del firewall). En la imagen normal ya están; instalarlos es idempotente.
+# DEBIAN_FRONTEND=noninteractive: iptables-persistent pregunta si guardar las
+# reglas actuales y colgaría el script sin esto.
+export DEBIAN_FRONTEND=noninteractive
+sudo apt-get update -qq
+sudo apt-get install -y -qq curl gnupg iptables-persistent
+
+echo "== 2/6 Firewall del SISTEMA (Oracle bloquea 80/443 por iptables, no solo en la VCN) =="
 # Las imágenes de Ubuntu de Oracle traen iptables restrictivo de fábrica:
 # abrir el puerto en la Security List de la VCN NO basta, hay que abrirlo
 # también aquí. La regla se inserta justo ANTES del primer REJECT/DROP de la
@@ -31,7 +42,7 @@ for puerto in 80 443; do
 done
 sudo netfilter-persistent save
 
-echo "== 2/5 Docker =="
+echo "== 3/6 Docker =="
 if ! command -v docker >/dev/null; then
     curl -fsSL https://get.docker.com | sudo sh
     sudo usermod -aG docker "$USER"
@@ -40,10 +51,10 @@ else
     echo "   Docker ya instalado: $(docker --version)"
 fi
 
-echo "== 3/5 Caddy (terminador TLS) =="
+echo "== 4/6 Caddy (terminador TLS) =="
 if ! command -v caddy >/dev/null; then
     sudo apt-get update -qq
-    sudo apt-get install -y -qq debian-keyring debian-archive-keyring apt-transport-https curl
+    sudo apt-get install -y -qq debian-keyring debian-archive-keyring apt-transport-https
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' \
         | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' \
@@ -54,14 +65,14 @@ else
     echo "   Caddy ya instalado: $(caddy version)"
 fi
 
-echo "== 4/5 Código =="
+echo "== 5/6 Código =="
 if [ ! -d "$HOME/medeben" ]; then
     git clone https://github.com/iulian640/medeben.git "$HOME/medeben"
 else
     echo "   repo ya clonado en ~/medeben"
 fi
 
-echo "== 5/5 Backup diario (obligatorio antes de usuarios reales) =="
+echo "== 6/6 Backup diario (obligatorio antes de usuarios reales) =="
 # El directorio se crea AQUÍ y no solo en backup-db.sh: la redirección del
 # cron (>> ~/backups/backup.log) la abre la shell ANTES de ejecutar el script,
 # así que sin esto la primera ejecución moriría sin dejar rastro.
