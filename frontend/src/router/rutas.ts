@@ -34,6 +34,21 @@ export const rutas: RouteRecordRaw[] = [
     component: () => import('../views/RegistroView.vue'),
   },
   {
+    // "Revisa tu correo" tras el registro (verificación de email): pública,
+    // pero solo tiene contenido útil con el email que el registro acaba de
+    // guardar en el store (memoria de esta pestaña, no persistido).
+    path: '/registro/revisa-correo',
+    name: 'registro-revisa-correo',
+    component: () => import('../views/RegistroConfirmacionView.vue'),
+  },
+  {
+    // Enlace del correo de verificación (?token=...): pública a propósito,
+    // quien lo abre puede no tener sesión en este navegador.
+    path: '/verifica-email',
+    name: 'verifica-email',
+    component: () => import('../views/VerificaEmailView.vue'),
+  },
+  {
     path: '/privacidad',
     name: 'privacidad',
     component: () => import('../views/PrivacidadView.vue'),

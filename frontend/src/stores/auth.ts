@@ -6,8 +6,10 @@ import {
   getMe,
   postLogin,
   postLogout,
+  postReenviaVerificacion,
   postRefresh,
   postRegistro,
+  postVerificaEmail,
 } from '../services/auth'
 import { mensajeDeError } from '../lib/formato'
 import {
@@ -72,6 +74,20 @@ export const useAuthStore = defineStore('auth', () => {
   const error = ref<string | null>(null)
   /** Mensaje informativo (p. ej. "tu sesión ha caducado") para la pantalla de login. */
   const aviso = ref<string | null>(null)
+  /**
+   * Email del último registro completado en ESTA pestaña (verificación de
+   * email, B4): el registro ya NO inicia sesión, así que la pantalla "revisa
+   * tu correo" necesita algo de donde leer la dirección para el prefill y el
+   * reenvío. Solo memoria, como el resto de datos personales (D38).
+   */
+  const emailRecienRegistrado = ref<string | null>(null)
+  /**
+   * Estado de verificación de la sesión actual, FRESCO de /me — null mientras
+   * no se sepa (recién logueado, sin red...). El aviso "confirma tu correo"
+   * solo se enseña cuando vale explícitamente false; nunca se cachea entre
+   * usuarios (limpiarMemoria lo resetea, dispositivos compartidos).
+   */
+  const emailVerificado = ref<boolean | null>(null)
 
   const autenticado = computed(() => token.value !== null)
 
@@ -106,6 +122,12 @@ export const useAuthStore = defineStore('auth', () => {
     cargando.value = true
     error.value = null
     aviso.value = null
+    // Dispositivo compartido: un login nuevo no puede arrastrar rastros del
+    // usuario anterior. El estado de verificación se relee de /me tras entrar
+    // (nunca se decide con un valor viejo), y el email de registro deja de
+    // hacer falta en cuanto alguien inicia sesión de verdad.
+    emailVerificado.value = null
+    emailRecienRegistrado.value = null
     try {
       const emitido = await postLogin(emailForm, password)
       await enSeccionSesion(() => {
@@ -148,6 +170,14 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  /**
+   * Registro (verificación de email, B4): el 201 de /auth/registro es
+   * UNIFORME (siempre, exista ya la cuenta o no — la señal real viaja por
+   * correo), así que ya NO tiene sentido encadenar el login con la respuesta:
+   * no sabemos si la cuenta es nueva de verdad. Se guarda el email para el
+   * prefill de "revisa tu correo" y punto; entrar es un paso aparte y
+   * explícito (las cuentas sin verificar entran con normalidad).
+   */
   async function registrarse(emailForm: string, password: string): Promise<boolean> {
     if (cargando.value) {
       return false
@@ -162,8 +192,8 @@ export const useAuthStore = defineStore('auth', () => {
     } finally {
       cargando.value = false
     }
-    // Cuenta creada: entramos directamente con las mismas credenciales.
-    return iniciarSesion(emailForm, password)
+    emailRecienRegistrado.value = emailForm
+    return true
   }
 
   /**
@@ -182,6 +212,13 @@ export const useAuthStore = defineStore('auth', () => {
     refreshToken.value = null
     refreshExpiraEn.value = null
     familia.value = null
+    // Dispositivo compartido: el estado de verificación y el email de registro
+    // son del USUARIO que se va, no de la pestaña. Sin este reset, el siguiente
+    // que entre heredaría el aviso "confirma tu correo" de otra cuenta, o vería
+    // en /registro/revisa-correo (ruta pública, botón atrás) un email ajeno con
+    // un botón "reenviar" apuntando a esa dirección.
+    emailVerificado.value = null
+    emailRecienRegistrado.value = null
     setAuthToken(null)
     useCuentaStore().limpiar()
     useFichajesStore().limpiar()
@@ -426,8 +463,10 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       const yo = await getMe()
       email.value = yo.email
+      emailVerificado.value = yo.emailVerificado
     } catch {
-      // getMe caído (sin red): la sesión ya es válida; el email se queda null.
+      // getMe caído (sin red): la sesión ya es válida; el email y el estado
+      // de verificación se quedan como estaban (probablemente null).
     }
     return true
   }
@@ -556,6 +595,59 @@ export const useAuthStore = defineStore('auth', () => {
     return true
   }
 
+  /**
+   * Refresca SOLO el estado de verificación desde /me (verdad fresca de BD).
+   * La llama el aviso "confirma tu correo" al aparecer con sesión — nunca hay
+   * que fiarse de un valor de ANTES de este login: en una tablet compartida,
+   * el aviso del usuario anterior no puede colarse en la sesión del
+   * siguiente (por eso limpiarMemoria también lo resetea a null).
+   */
+  async function actualizarEstadoVerificacion(): Promise<void> {
+    if (!autenticado.value) {
+      return
+    }
+    try {
+      const yo = await getMe()
+      emailVerificado.value = yo.emailVerificado
+    } catch {
+      // Sin red no hay nada seguro que mostrar: se deja como estaba.
+    }
+  }
+
+  /**
+   * Verificación del enlace del correo (pantalla pública /verifica-email).
+   * Se deja que el ApiError se propague: la vista traduce el 400
+   * ("enlace no válido o caducado") con mensajeDeError, igual que el resto
+   * de formularios de la casa.
+   *
+   * NO se marca emailVerificado=true de forma optimista: en una tablet
+   * compartida la sesión abierta en ESTE navegador puede ser de OTRA cuenta, y
+   * el token canjeado no dice de quién es. Se relee el estado real de /me (solo
+   * si hay sesión): si el enlace era de la cuenta logueada, /me devuelve true y
+   * el aviso desaparece; si es de otra cuenta, su estado no se toca; sin sesión,
+   * no hay banner que actualizar.
+   */
+  async function verificarEmail(token: string): Promise<void> {
+    await postVerificaEmail(token)
+    await actualizarEstadoVerificacion()
+  }
+
+  /**
+   * Reenvío del correo de verificación: en pantalla SIEMPRE se confirma el
+   * mismo mensaje genérico, acierte o falle la llamada — misma filosofía que
+   * /registro (uniforme por diseño, B4). Revelar un resultado distinto
+   * delataría si la cuenta existe o ya estaba verificada; el backend ya evita
+   * eso con un 202 pase lo que pase, así que aquí tampoco se puede romper esa
+   * garantía mostrando un error que sí distinga.
+   */
+  async function reenviarVerificacion(direccion: string): Promise<void> {
+    try {
+      await postReenviaVerificacion(direccion)
+    } catch {
+      // Ver comentario de arriba: el feedback en pantalla es SIEMPRE el mismo.
+    }
+  }
+
   return {
     // Solo lectura hacia fuera: nadie puede tocar el token sin pasar por las
     // acciones del store (que mantienen el cliente API sincronizado). El JWT
@@ -571,6 +663,8 @@ export const useAuthStore = defineStore('auth', () => {
     autenticado,
     borrando,
     errorBorrado,
+    emailRecienRegistrado,
+    emailVerificado,
     iniciarSesion,
     registrarse,
     cerrarSesion,
@@ -581,5 +675,8 @@ export const useAuthStore = defineStore('auth', () => {
     asegurarRestauracion,
     borrarCuenta,
     limpiarErrorBorrado,
+    actualizarEstadoVerificacion,
+    verificarEmail,
+    reenviarVerificacion,
   }
 })

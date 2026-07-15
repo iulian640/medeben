@@ -8,11 +8,15 @@ export function emailUnico(): string {
 export const PASSWORD_E2E = 'Clave-e2e-2026!'
 
 /**
- * Crea una cuenta nueva y espera a estar dentro (el registro encadena el
- * login y aterriza en /cuenta). El access token vive SOLO en memoria; desde
- * aquí se navega por la interfaz (barra inferior, enlaces), como haría el
- * usuario. Una recarga YA no pierde la sesión: se restaura en silencio con el
- * refresh persistido (issue #220, ver sesion-persistente.spec.ts).
+ * Crea una cuenta nueva y espera a estar dentro. El registro (verificación de
+ * email, B4) YA NO inicia sesión automáticamente: aterriza en "revisa tu
+ * correo", así que aquí se entra explícitamente con las mismas credenciales
+ * — las cuentas sin verificar usan la app con normalidad (decisión de
+ * producto), la verificación de verdad la prueba verificacion-email.spec.ts.
+ * El access token vive SOLO en memoria; desde aquí se navega por la interfaz
+ * (barra inferior, enlaces), como haría el usuario. Una recarga YA no pierde
+ * la sesión: se restaura en silencio con el refresh persistido (issue #220,
+ * ver sesion-persistente.spec.ts).
  */
 export async function registra(page: Page, email: string): Promise<void> {
   await page.goto('/registro')
@@ -20,5 +24,12 @@ export async function registra(page: Page, email: string): Promise<void> {
   await page.locator('#password').fill(PASSWORD_E2E)
   await page.locator('#repite').fill(PASSWORD_E2E)
   await page.getByRole('button', { name: 'Crear cuenta' }).click()
+  await expect(page).toHaveURL(/\/registro\/revisa-correo$/)
+
+  await page.getByRole('link', { name: 'Iniciar sesión' }).click()
+  await expect(page).toHaveURL(/\/login$/)
+  await page.locator('#email').fill(email)
+  await page.locator('#password').fill(PASSWORD_E2E)
+  await page.getByRole('button', { name: 'Entrar' }).click()
   await expect(page).toHaveURL(/\/cuenta$/)
 }
