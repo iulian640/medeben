@@ -66,9 +66,17 @@ class AuthServiceTest {
         // hora real por su exp y el build reventaba solo por el paso del tiempo.
         var claves = JwtTestSupport.claves(Clock.fixed(AHORA, ZoneOffset.UTC));
         jwtDecoder = claves.decoder();
+        // RegistroDeUsuario y EmisorVerificacion son beans REALES (no mocks):
+        // solo sus dependencias de hoja (repositorios, eventos) están mockeadas.
+        // Fuera de un contexto Spring el @Transactional no proxya nada, así que
+        // esto prueba el orden de las llamadas, no la semántica transaccional
+        // real (eso lo cubre AuthServiceSesionesIntegracionTest con Testcontainers).
+        var emisorVerificacion = new EmisorVerificacion(verificaciones, eventos,
+                Clock.fixed(AHORA, ZoneOffset.UTC), DURACION_VERIFICACION);
+        var registroDeUsuario = new RegistroDeUsuario(repositorio, emisorVerificacion);
         servicio = new AuthService(repositorio, sesiones, verificaciones, passwordEncoder,
-                claves.encoder(), eventos, Clock.fixed(AHORA, ZoneOffset.UTC),
-                JwtTestSupport.DURACION, DURACION_REFRESH, DURACION_VERIFICACION);
+                claves.encoder(), Clock.fixed(AHORA, ZoneOffset.UTC),
+                JwtTestSupport.DURACION, DURACION_REFRESH, registroDeUsuario, emisorVerificacion);
     }
 
     @Test
@@ -132,18 +140,22 @@ class AuthServiceTest {
     }
 
     @Test
-    @DisplayName("re-registro de una cuenta SIN verificar: sobrescribe la contraseña y re-emite token (la propiedad no está probada)")
-    void reRegistroSinVerificarSobrescribeYReemite() {
+    @DisplayName("SEGURIDAD (CRITICAL, review 2026-07-15): re-registro de una cuenta SIN verificar es NO-OP — no pisa la contraseña ni reemite token")
+    void reRegistroSinVerificarEsNoOp() {
         Usuario sinVerificar = usuarioExistente();
-        String hashViejo = sinVerificar.getPasswordHash();
+        String hashOriginal = sinVerificar.getPasswordHash();
         when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(sinVerificar));
 
-        servicio.registra(EMAIL, "otra-contraseña-nueva-1");
+        String resultado = servicio.registra(EMAIL, "intento-de-pisar-la-cuenta");
 
-        assertThat(sinVerificar.getPasswordHash()).isNotEqualTo(hashViejo);
-        assertThat(passwordEncoder.matches("otra-contraseña-nueva-1", sinVerificar.getPasswordHash())).isTrue();
-        verify(verificaciones).save(any(VerificacionEmail.class));
-        verify(eventos).publishEvent(any(VerificacionEmailSolicitada.class));
+        assertThat(resultado).isEqualTo(EMAIL);
+        // Antes del fix: esta línea sobrescribía la contraseña de la víctima con
+        // UNA sola petición sabiendo su email — combinado con login sin exigir
+        // verificación, era un account takeover completo.
+        assertThat(sinVerificar.getPasswordHash()).isEqualTo(hashOriginal);
+        verify(repositorio, never()).saveAndFlush(any());
+        verifyNoInteractions(verificaciones);
+        verifyNoInteractions(eventos);
     }
 
     @Test

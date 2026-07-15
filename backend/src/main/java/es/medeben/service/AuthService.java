@@ -10,7 +10,6 @@ import es.medeben.repository.VerificacionEmailRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
@@ -22,14 +21,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Base64;
-import java.util.HexFormat;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -61,11 +57,11 @@ public class AuthService {
     private final VerificacionEmailRepository verificaciones;
     private final PasswordEncoder passwordEncoder;
     private final JwtEncoder jwtEncoder;
-    private final ApplicationEventPublisher eventos;
     private final Clock reloj;
     private final Duration duracionToken;
     private final Duration duracionRefresh;
-    private final Duration duracionVerificacion;
+    private final RegistroDeUsuario registroDeUsuario;
+    private final EmisorVerificacion emisorVerificacion;
     private final SecureRandom aleatorio = new SecureRandom();
 
     /** Hash real de una contraseña aleatoria: iguala el coste del matches() cuando el email no existe (anti timing). */
@@ -76,21 +72,21 @@ public class AuthService {
                        VerificacionEmailRepository verificaciones,
                        PasswordEncoder passwordEncoder,
                        JwtEncoder jwtEncoder,
-                       ApplicationEventPublisher eventos,
                        Clock reloj,
                        @Value("${medeben.seguridad.jwt.duracion:PT15M}") Duration duracionToken,
                        @Value("${medeben.seguridad.refresh.duracion:P7D}") Duration duracionRefresh,
-                       @Value("${medeben.verificacion.duracion:PT24H}") Duration duracionVerificacion) {
+                       RegistroDeUsuario registroDeUsuario,
+                       EmisorVerificacion emisorVerificacion) {
         this.usuarios = usuarios;
         this.sesiones = sesiones;
         this.verificaciones = verificaciones;
         this.passwordEncoder = passwordEncoder;
         this.jwtEncoder = jwtEncoder;
-        this.eventos = eventos;
         this.reloj = reloj;
         this.duracionToken = duracionToken;
         this.duracionRefresh = duracionRefresh;
-        this.duracionVerificacion = duracionVerificacion;
+        this.registroDeUsuario = registroDeUsuario;
+        this.emisorVerificacion = emisorVerificacion;
         this.hashSenuelo = passwordEncoder.encode("señuelo-" + java.util.UUID.randomUUID());
     }
 
@@ -100,20 +96,25 @@ public class AuthService {
      * EXACTAMENTE lo mismo — la señal real viaja solo por correo. Reglas:
      *
      * <ul>
-     *   <li>Nuevo: se crea SIN verificar y se emite token de verificación.</li>
-     *   <li>Existente SIN verificar: la propiedad del email no está probada,
-     *       así que quien registra ahora se queda la cuenta (se sobrescribe la
-     *       contraseña) y se re-emite token. Sin esto, cualquiera podría
-     *       "okupar" un email ajeno registrándolo antes que su dueño.</li>
-     *   <li>Existente verificado: no se toca nada (ni un correo aún — la
-     *       alerta de seguridad opcional está apuntada como mejora).</li>
+     *   <li>Nuevo: se crea SIN verificar y se emite token de verificación,
+     *       ambas cosas en la transacción PROPIA de {@link RegistroDeUsuario}
+     *       (ver su javadoc: confina la carrera del UNIQUE de email a esa
+     *       transacción para que no envenene esta).</li>
+     *   <li>Existente (verificado O sin verificar): NO-OP. No se toca la
+     *       contraseña, no se emite token, no se envía nada — una cuenta que
+     *       ya existe no se puede pisar vía registro (esto es justo lo que
+     *       revirtió el hallazgo CRITICAL de la revisión de seguridad de
+     *       2026-07-15: la rama que sobrescribía la contraseña de una cuenta
+     *       sin verificar permitía un account takeover con solo conocer el
+     *       email de la víctima, agravado porque el login no exige
+     *       verificación).</li>
      * </ul>
      *
-     * <p>El envío del correo va por evento AFTER_COMMIT + async
-     * ({@link EnviadorVerificacionEmail}): ni el SMTP puede tumbar el
-     * registro, ni la latencia de la respuesta delata qué rama se ejecutó.
+     * <p>No es necesario que este método sea {@code @Transactional}: no
+     * escribe nada directamente — la rama de email nuevo delega TODA la
+     * escritura (usuario + token) en {@link RegistroDeUsuario}, y la rama de
+     * email existente es un NO-OP puro.
      */
-    @Transactional
     public String registra(String email, String password) {
         String emailNormalizado = normaliza(email);
         if (password == null || password.length() < MIN_CARACTERES_PASSWORD) {
@@ -125,26 +126,25 @@ public class AuthService {
             throw new IllegalArgumentException("La contraseña es demasiado larga (máximo 72 bytes)");
         }
         // El BCrypt se paga SIEMPRE, también cuando no se va a usar (cuenta ya
-        // verificada): si solo las ramas que escriben pagaran el hash, el
-        // tiempo de respuesta sería un oráculo de enumeración (anti timing,
-        // mismo truco que el señuelo del login).
+        // existente): si solo la rama que escribe pagara el hash, el tiempo de
+        // respuesta sería un oráculo de enumeración (anti timing, mismo truco
+        // que el señuelo del login).
         String hashNuevo = passwordEncoder.encode(password);
 
         Optional<Usuario> existente = usuarios.findByEmail(emailNormalizado);
         if (existente.isEmpty()) {
             try {
-                Usuario nuevo = usuarios.saveAndFlush(new Usuario(emailNormalizado, hashNuevo));
-                emiteVerificacion(nuevo);
+                registroDeUsuario.registra(emailNormalizado, hashNuevo);
             } catch (DataIntegrityViolationException e) {
                 // Carrera con otro registro simultáneo del mismo email: la
                 // restricción UNIQUE es la barrera real. Resultado uniforme
-                // también aquí — el que llegó antes ya recibió su correo.
+                // también aquí — el que llegó antes ya recibió su correo. Al
+                // vivir en la transacción PROPIA de RegistroDeUsuario, este
+                // catch no hereda ningún estado envenenado (ver su javadoc).
             }
-        } else if (!existente.get().isEmailVerificado()) {
-            Usuario usuario = existente.get();
-            usuario.actualizaPasswordHash(hashNuevo);
-            emiteVerificacion(usuario);
         }
+        // Email existente (verificado o no): NO-OP a propósito.
+        // MEJORA FUTURA: reclamación de email por enlace al buzón (ver review seguridad 2026-07-15)
         return emailNormalizado;
     }
 
@@ -157,7 +157,7 @@ public class AuthService {
     @Transactional
     public void verificaEmail(String token) {
         Instant ahora = Instant.now(reloj);
-        VerificacionEmail verificacion = verificaciones.findByTokenHash(hashSha256(token))
+        VerificacionEmail verificacion = verificaciones.findByTokenHash(Sha256.hex(token))
                 .orElseThrow(VerificacionInvalidaException::new);
         if (verificaciones.marcaUsadaSiIntacta(verificacion.getId(), ahora) == 0) {
             throw new VerificacionInvalidaException();
@@ -176,7 +176,7 @@ public class AuthService {
     public void reenviaVerificacion(String email) {
         usuarios.findByEmail(normaliza(email))
                 .filter(usuario -> !usuario.isEmailVerificado())
-                .ifPresent(this::emiteVerificacion);
+                .ifPresent(emisorVerificacion::emite);
     }
 
     /**
@@ -189,30 +189,6 @@ public class AuthService {
         Usuario usuario = usuarios.findById(usuarioId)
                 .orElseThrow(CredencialesInvalidasException::new);
         return new es.medeben.dto.MeResponse(usuario.getEmail(), usuario.isEmailVerificado());
-    }
-
-    /** Máximo de tokens de verificación por usuario y hora (anti email-bombing). */
-    private static final int MAX_VERIFICACIONES_POR_HORA = 3;
-
-    /**
-     * Token opaco de 256 bits; a la BD solo va su SHA-256, al evento (correo)
-     * el claro. Tope SILENCIOSO por usuario: al cuarto token en una hora no se
-     * emite nada — callar mantiene la respuesta uniforme (sin oráculo) y corta
-     * el bombardeo del buzón de una víctima aunque el atacante rote IPs (el
-     * rate limit por IP no cubre ese caso).
-     */
-    private void emiteVerificacion(Usuario usuario) {
-        Instant ahora = Instant.now(reloj);
-        if (verificaciones.cuentaEmitidasDesde(usuario.getId(),
-                ahora.minus(Duration.ofHours(1))) >= MAX_VERIFICACIONES_POR_HORA) {
-            return;
-        }
-        byte[] crudo = new byte[BYTES_REFRESH];
-        aleatorio.nextBytes(crudo);
-        String token = Base64.getUrlEncoder().withoutPadding().encodeToString(crudo);
-        verificaciones.save(new VerificacionEmail(
-                usuario.getId(), hashSha256(token), ahora, ahora.plus(duracionVerificacion)));
-        eventos.publishEvent(new VerificacionEmailSolicitada(usuario.getEmail(), token));
     }
 
     /** OJO: ya no es readOnly — abrir sesión PERSISTE la fila del refresh. */
@@ -241,7 +217,7 @@ public class AuthService {
     @Transactional(noRollbackFor = CredencialesInvalidasException.class)
     public SesionEmitida refresca(String refreshToken) {
         Instant ahora = Instant.now(reloj);
-        Sesion sesion = sesiones.findByTokenHash(hashSha256(refreshToken))
+        Sesion sesion = sesiones.findByTokenHash(Sha256.hex(refreshToken))
                 .orElseThrow(CredencialesInvalidasException::new);
         if (sesion.getRevocadaEn() != null || ahora.isAfter(sesion.getCaducaEn())) {
             throw new CredencialesInvalidasException();
@@ -262,7 +238,7 @@ public class AuthService {
     /** Logout real: revoca el refresh en el servidor. Idempotente y sin eco. */
     @Transactional
     public void cierraSesion(String refreshToken) {
-        sesiones.revocaPorHash(hashSha256(refreshToken), Instant.now(reloj));
+        sesiones.revocaPorHash(Sha256.hex(refreshToken), Instant.now(reloj));
     }
 
     private SesionEmitida emiteSesion(Usuario usuario) {
@@ -282,19 +258,9 @@ public class AuthService {
         aleatorio.nextBytes(crudo);
         String refresh = Base64.getUrlEncoder().withoutPadding().encodeToString(crudo);
         Instant refreshCaduca = ahora.plus(duracionRefresh);
-        sesiones.save(new Sesion(usuario.getId(), hashSha256(refresh), ahora, refreshCaduca));
+        sesiones.save(new Sesion(usuario.getId(), Sha256.hex(refresh), ahora, refreshCaduca));
 
         return new SesionEmitida(token, expira, refresh, refreshCaduca);
-    }
-
-    /** SHA-256 en hex: lo único que toca la BD. El token en claro solo viaja al cliente. */
-    private static String hashSha256(String token) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            return HexFormat.of().formatHex(digest.digest(token.getBytes(StandardCharsets.UTF_8)));
-        } catch (NoSuchAlgorithmException e) {
-            throw new IllegalStateException("SHA-256 no disponible", e);
-        }
     }
 
     private static String normaliza(String email) {
