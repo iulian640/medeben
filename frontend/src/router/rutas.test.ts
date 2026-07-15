@@ -41,3 +41,28 @@ describe('rutas legales públicas', () => {
     expect(router.currentRoute.value.name).not.toBe('login')
   })
 })
+
+/**
+ * Verificación de email (B4): "revisa tu correo" y el enlace del correo tienen
+ * que ser accesibles SIN sesión — quien pulsa el enlace puede no tener sesión
+ * en este navegador, y el registro ya no la inicia automáticamente.
+ */
+const RUTAS_VERIFICACION = ['/registro/revisa-correo', '/verifica-email']
+
+describe('rutas de verificación de email públicas', () => {
+  it.each(RUTAS_VERIFICACION)('%s existe y no exige sesión', (path) => {
+    const resuelta = crearRouter().resolve(path)
+    expect(resuelta.matched.length).toBeGreaterThan(0)
+    expect(resuelta.meta.requiereSesion).toBeUndefined()
+  })
+
+  it.each(RUTAS_VERIFICACION)('la guardia deja pasar a %s sin sesión (no redirige a login)', async (path) => {
+    const router = crearRouter()
+
+    await router.push(path)
+    await router.isReady()
+
+    expect(router.currentRoute.value.path).toBe(path)
+    expect(router.currentRoute.value.name).not.toBe('login')
+  })
+})

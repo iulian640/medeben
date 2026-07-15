@@ -14,13 +14,24 @@ vi.mock('../services/auth', async (importOriginal) => ({
   postRefresh: vi.fn(),
   postLogout: vi.fn(),
   getMe: vi.fn(),
+  postVerificaEmail: vi.fn(),
+  postReenviaVerificacion: vi.fn(),
 }))
 vi.mock('../services/api', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../services/api')>()),
   setAuthToken: vi.fn(),
 }))
 
-import { deleteCuenta, getMe, postLogin, postLogout, postRefresh, postRegistro } from '../services/auth'
+import {
+  deleteCuenta,
+  getMe,
+  postLogin,
+  postLogout,
+  postReenviaVerificacion,
+  postRefresh,
+  postRegistro,
+  postVerificaEmail,
+} from '../services/auth'
 import { setAuthToken } from '../services/api'
 
 /**
@@ -88,30 +99,36 @@ describe('auth store', () => {
     expect(setAuthToken).not.toHaveBeenCalledWith(expect.stringContaining('jwt'))
   })
 
-  it('registro OK encadena el login con las mismas credenciales', async () => {
+  it('registro OK YA NO inicia sesión (verificación de email): guarda el email para prefill', async () => {
+    // Decisión de producto (verificación de email, B4): el 201 de /registro es
+    // uniforme y no significa "cuenta lista para entrar" — la pantalla "revisa
+    // tu correo" necesita SOLO el email al que hemos escrito, sin credencial.
     vi.mocked(postRegistro).mockResolvedValue({ email: 'ana@example.com' })
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-456', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-456', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const auth = useAuthStore()
 
     const ok = await auth.registrarse('ana@example.com', 'superclave123')
 
     expect(ok).toBe(true)
     expect(postRegistro).toHaveBeenCalledWith('ana@example.com', 'superclave123')
-    expect(postLogin).toHaveBeenCalledWith('ana@example.com', 'superclave123')
-    expect(auth.autenticado).toBe(true)
+    expect(postLogin).not.toHaveBeenCalled()
+    expect(auth.autenticado).toBe(false)
+    expect(auth.emailRecienRegistrado).toBe('ana@example.com')
   })
 
-  it('registro KO (409 email ya registrado): error legible y sin login', async () => {
+  it('registro KO: error legible, sin login y sin guardar el email para prefill', async () => {
+    // El backend ya no distingue "email ya registrado" en la respuesta (201
+    // uniforme siempre): un error aquí solo puede ser de red o del servidor.
     vi.mocked(postRegistro).mockRejectedValue(
-      new ApiError(409, 'API 409', { status: 409, detail: 'Ese email ya está registrado' }),
+      new ApiError(500, 'API 500', { status: 500, detail: 'Error interno' }),
     )
     const auth = useAuthStore()
 
     const ok = await auth.registrarse('ana@example.com', 'superclave123')
 
     expect(ok).toBe(false)
-    expect(auth.error).toBe('Ese email ya está registrado')
+    expect(auth.error).toBeTruthy()
     expect(postLogin).not.toHaveBeenCalled()
+    expect(auth.emailRecienRegistrado).toBeNull()
   })
 
   it('cerrarSesion limpia todo y desregistra el token del cliente API', async () => {
@@ -398,7 +415,7 @@ describe('auth store', () => {
       refreshToken: 'refresh-rotado',
       refreshExpiraEn: '2099-01-08T00:00:00Z',
     })
-    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com' })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: false })
     const auth = useAuthStore()
 
     const ok = await auth.restaurarSesion()
@@ -499,7 +516,7 @@ describe('auth store', () => {
       refreshToken: 'refresh-rotado',
       refreshExpiraEn: '2099-01-08T00:00:00Z',
     })
-    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com' })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: false })
     const auth = useAuthStore()
 
     const [a, b] = await Promise.all([auth.asegurarRestauracion(), auth.asegurarRestauracion()])
@@ -1181,5 +1198,158 @@ describe('auth store', () => {
     await auth.borrarCuenta('superclave123')
 
     expect(datos.has(CLAVE_SESION_PERSISTIDA)).toBe(false)
+  })
+
+  // --- Verificación de email (B4) ---
+
+  it('restaurarSesion también recupera emailVerificado, fresco de /me', async () => {
+    stubStorage(refreshPersistido('refresh-viejo', '2099-01-01T00:00:00Z'))
+    vi.mocked(postRefresh).mockResolvedValue({
+      token: 'jwt-rotado',
+      expiraEn: '2099-01-01T00:15:00Z',
+      refreshToken: 'refresh-rotado',
+      refreshExpiraEn: '2099-01-08T00:00:00Z',
+    })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: false })
+    const auth = useAuthStore()
+
+    await auth.restaurarSesion()
+
+    expect(auth.emailVerificado).toBe(false)
+  })
+
+  it('actualizarEstadoVerificacion pide /me y refresca emailVerificado', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    expect(auth.emailVerificado).toBeNull()
+
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: true })
+    await auth.actualizarEstadoVerificacion()
+
+    expect(auth.emailVerificado).toBe(true)
+    expect(getMe).toHaveBeenCalledTimes(1)
+  })
+
+  it('actualizarEstadoVerificacion sin sesión no llama a la red (nada que refrescar)', async () => {
+    const auth = useAuthStore()
+
+    await auth.actualizarEstadoVerificacion()
+
+    expect(getMe).not.toHaveBeenCalled()
+    expect(auth.emailVerificado).toBeNull()
+  })
+
+  it('cerrarSesion resetea emailVerificado a null (dispositivo compartido: el siguiente no hereda el aviso)', async () => {
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: false })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    await auth.actualizarEstadoVerificacion()
+    expect(auth.emailVerificado).toBe(false)
+
+    await auth.cerrarSesion()
+
+    expect(auth.emailVerificado).toBeNull()
+  })
+
+  it('cerrarSesion resetea emailRecienRegistrado a null (fuga de email en tablet compartida)', async () => {
+    // Se registró alguien (dejó el email para "revisa tu correo") y luego se
+    // usó y cerró una sesión en la misma tablet. Ese email de registro NO puede
+    // sobrevivir: el siguiente que abra /registro/revisa-correo (ruta pública,
+    // botón atrás) vería una dirección ajena y el reenvío apuntaría a ella.
+    vi.mocked(postRegistro).mockResolvedValue({ email: 'ana@example.com' })
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.registrarse('ana@example.com', 'superclave123')
+    expect(auth.emailRecienRegistrado).toBe('ana@example.com')
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    await auth.cerrarSesion()
+
+    expect(auth.emailRecienRegistrado).toBeNull()
+  })
+
+  it('iniciarSesion arranca con emailVerificado en null (no arrastra el estado del usuario anterior)', async () => {
+    // Dispositivo compartido: hasta que /me confirme, el aviso no debe decidirse
+    // con el emailVerificado del usuario ANTERIOR. Un login nuevo lo pone a null.
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: true })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    await auth.actualizarEstadoVerificacion()
+    expect(auth.emailVerificado).toBe(true)
+
+    // Segundo login (otro usuario): no debe heredar el true de Ana.
+    await auth.iniciarSesion('bea@example.com', 'otraclave123')
+
+    expect(auth.emailVerificado).toBeNull()
+  })
+
+  it('verificarEmail OK con la sesión de ESA cuenta refleja el estado fresco de /me', async () => {
+    // El enlace verificado es de la cuenta que está logueada aquí: /me devolverá
+    // emailVerificado=true y el aviso desaparece. No se marca optimista.
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    vi.mocked(postVerificaEmail).mockResolvedValue(undefined)
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: true })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+
+    await auth.verificarEmail('un-token-valido')
+
+    expect(postVerificaEmail).toHaveBeenCalledWith('un-token-valido')
+    expect(auth.emailVerificado).toBe(true)
+  })
+
+  it('verificarEmail OK sin sesión en este navegador no inventa un estado (queda null, sin /me)', async () => {
+    vi.mocked(postVerificaEmail).mockResolvedValue(undefined)
+    const auth = useAuthStore()
+
+    await auth.verificarEmail('un-token-valido')
+
+    expect(postVerificaEmail).toHaveBeenCalledWith('un-token-valido')
+    expect(getMe).not.toHaveBeenCalled()
+    expect(auth.emailVerificado).toBeNull()
+  })
+
+  it('verificarEmail con OTRA cuenta logueada en la tablet NO le marca verificado (relee /me)', async () => {
+    // Bea está dentro (sin verificar) y alguien abre en la misma tablet el
+    // enlace de Ana. Marcar optimista ocultaría el aviso legítimo de Bea; en su
+    // lugar se relee /me, que devuelve el estado REAL de Bea (sigue sin verificar).
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-bea', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-bea', refreshExpiraEn: '2099-01-01T00:00:00Z' })
+    vi.mocked(postVerificaEmail).mockResolvedValue(undefined)
+    vi.mocked(getMe).mockResolvedValue({ email: 'bea@example.com', emailVerificado: false })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('bea@example.com', 'superclave123')
+
+    await auth.verificarEmail('token-de-ana')
+
+    expect(auth.emailVerificado).toBe(false)
+  })
+
+  it('verificarEmail KO (400) propaga el error y no toca emailVerificado', async () => {
+    vi.mocked(postVerificaEmail).mockRejectedValue(
+      new ApiError(400, 'API 400', { status: 400, detail: 'El enlace de verificación no es válido o ha caducado' }),
+    )
+    const auth = useAuthStore()
+
+    await expect(auth.verificarEmail('token-caducado')).rejects.toThrow(ApiError)
+    expect(auth.emailVerificado).toBeNull()
+  })
+
+  it('reenviarVerificacion llama al servicio con el email dado', async () => {
+    vi.mocked(postReenviaVerificacion).mockResolvedValue(undefined)
+    const auth = useAuthStore()
+
+    await auth.reenviarVerificacion('ana@example.com')
+
+    expect(postReenviaVerificacion).toHaveBeenCalledWith('ana@example.com')
+  })
+
+  it('reenviarVerificacion no lanza aunque la llamada falle (respuesta uniforme, sin revelar estados)', async () => {
+    vi.mocked(postReenviaVerificacion).mockRejectedValue(new ApiError(500, 'API 500', null))
+    const auth = useAuthStore()
+
+    await expect(auth.reenviarVerificacion('ana@example.com')).resolves.toBeUndefined()
   })
 })

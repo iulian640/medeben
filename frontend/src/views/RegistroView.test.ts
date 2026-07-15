@@ -21,6 +21,7 @@ function crearRouter(): Router {
       { path: '/', name: 'home', component: Stub },
       { path: '/login', name: 'login', component: Stub },
       { path: '/registro', name: 'registro', component: RegistroView },
+      { path: '/registro/revisa-correo', name: 'registro-revisa-correo', component: Stub },
       { path: '/cuenta', name: 'cuenta', component: Stub },
       // Rutas legales que sirve otra rama en paralelo; aquí solo hacen falta
       // para que RouterLink resuelva el path sin avisar.
@@ -77,9 +78,8 @@ describe('RegistroView', () => {
     expect(wrapper.text()).toMatch(/no coinciden/i)
   })
 
-  it('con datos válidos registra, entra y navega a la cuenta', async () => {
+  it('con datos válidos registra y navega a "revisa tu correo" (ya no hay auto-login)', async () => {
     vi.mocked(postRegistro).mockResolvedValue({ email: 'ana@example.com' })
-    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-1', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-1', refreshExpiraEn: '2026-07-17T00:00:00Z' })
     const { wrapper, router } = await montar()
 
     await rellenar(wrapper, 'ana@example.com', 'superclave123', 'superclave123')
@@ -87,7 +87,8 @@ describe('RegistroView', () => {
     await flushPromises()
 
     expect(postRegistro).toHaveBeenCalledWith('ana@example.com', 'superclave123')
-    expect(router.currentRoute.value.path).toBe('/cuenta')
+    expect(postLogin).not.toHaveBeenCalled()
+    expect(router.currentRoute.value.name).toBe('registro-revisa-correo')
   })
 })
 

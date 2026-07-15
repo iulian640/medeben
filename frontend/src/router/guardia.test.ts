@@ -95,7 +95,7 @@ describe('guardiaSesion', () => {
   it('con un refresh persistido válido, restaura la sesión y deja pasar a la ruta protegida', async () => {
     stubStorage(refreshPersistido('refresh-viejo', '2099-01-01T00:00:00Z'))
     vi.mocked(postRefresh).mockResolvedValue({ token: 'jwt-rotado', expiraEn: '2099-01-01T00:15:00Z', refreshToken: 'refresh-rotado', refreshExpiraEn: '2099-01-08T00:00:00Z' })
-    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com' })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: false })
 
     const resultado = await guardiaSesion(ruta({ meta: { requiereSesion: true }, fullPath: '/cuenta' }))
 
@@ -115,7 +115,7 @@ describe('guardiaSesion', () => {
   it('con sesión restaurable, ir a login redirige a la cuenta (sin flash de login)', async () => {
     stubStorage(refreshPersistido('refresh-viejo', '2099-01-01T00:00:00Z'))
     vi.mocked(postRefresh).mockResolvedValue({ token: 'jwt-rotado', expiraEn: '2099-01-01T00:15:00Z', refreshToken: 'refresh-rotado', refreshExpiraEn: '2099-01-08T00:00:00Z' })
-    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com' })
+    vi.mocked(getMe).mockResolvedValue({ email: 'ana@example.com', emailVerificado: false })
 
     const resultado = await guardiaSesion(ruta({ name: 'login', fullPath: '/login' }))
 

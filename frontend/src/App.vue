@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BarraNavegacion from './components/BarraNavegacion.vue'
+import AvisoVerificacionEmail from './components/AvisoVerificacionEmail.vue'
 import { useAuthStore } from './stores/auth'
 
 const auth = useAuthStore()
@@ -8,6 +9,9 @@ const auth = useAuthStore()
 <template>
   <!-- Con la barra inferior visible, el contenido reserva su hueco. -->
   <div :class="{ 'con-barra': auth.autenticado }">
+    <!-- Aviso "confirma tu correo" (verificación de email): sigue al usuario a
+         cualquier pantalla mientras la cuenta siga sin confirmar. -->
+    <AvisoVerificacionEmail />
     <!-- Transición entre pantallas: un respiro corto (clases en style.css),
          que prefers-reduced-motion apaga junto al resto. La duración va
          explícita a propósito: con ella Vue cierra la transición por timer

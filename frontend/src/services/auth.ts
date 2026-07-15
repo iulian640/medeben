@@ -8,6 +8,15 @@ export interface Usuario {
   email: string
 }
 
+/**
+ * Respuesta de GET /me: además del email, el estado de verificación FRESCO de
+ * BD. Nunca se cachea entre usuarios (dispositivos compartidos) — cada
+ * lectura del aviso "confirma tu correo" vuelve a pedirlo aquí.
+ */
+export interface Yo extends Usuario {
+  emailVerificado: boolean
+}
+
 export interface TokenEmitido {
   token: string
   /** Instant ISO-8601 de caducidad del access token (corto). */
@@ -27,7 +36,24 @@ export const postRegistro = (email: string, password: string) =>
 export const postLogin = (email: string, password: string) =>
   api.post<TokenEmitido>('/auth/login', { email, password })
 
-export const getMe = () => api.get<Usuario>('/me')
+export const getMe = () => api.get<Yo>('/me')
+
+/**
+ * Verificación de email (enlace del correo, 24h de validez): body {token}.
+ * 200 si verifica; 400 con ProblemDetail si el enlace no vale o ha caducado.
+ * Va SIN Bearer: quien pulsa el enlace puede no tener sesión en este navegador.
+ */
+export const postVerificaEmail = (token: string) =>
+  api.post<void>('/auth/verifica-email', { token }, { anonimo: true })
+
+/**
+ * Reenvío del correo de verificación: 202 SIEMPRE (uniforme, como /registro) —
+ * ni delata si la cuenta existe ni si ya estaba verificada. Anónimo: se pide
+ * tanto desde "revisa tu correo" y /verifica-email (sin sesión) como desde el
+ * aviso dentro de la app (con sesión, aunque el endpoint no la necesita).
+ */
+export const postReenviaVerificacion = (email: string) =>
+  api.post<void>('/auth/reenvia-verificacion', { email }, { anonimo: true })
 
 /** Borrado de cuenta (RGPD art. 17): destruye TODOS los datos; re-confirma con la contraseña. */
 export const deleteCuenta = (password: string) => api.delete<void>('/cuenta', { password })

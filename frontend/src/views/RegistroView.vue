@@ -3,7 +3,6 @@ import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { PASSWORD_MAX, PASSWORD_MIN } from '../services/auth'
-import { destinoTrasLogin } from '../lib/navegacion'
 import { esEmailValido } from '../lib/validacion'
 import PanelPlegable from '../components/PanelPlegable.vue'
 
@@ -46,7 +45,10 @@ async function crearCuenta() {
   }
   const ok = await auth.registrarse(email.value.trim(), password.value)
   if (ok) {
-    router.push(destinoTrasLogin(route.query.redirect))
+    // Ya no hay auto-login (verificación de email): a "revisa tu correo",
+    // arrastrando el ?redirect= para que el enlace a "Iniciar sesión" de allí
+    // aterrice donde el usuario quería llegar en origen.
+    router.push({ name: 'registro-revisa-correo', query: route.query })
   }
 }
 
