@@ -38,7 +38,9 @@ public class AuthController {
     @PostMapping("/auth/registro")
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioResponse registro(@Valid @RequestBody RegistroRequest peticion) {
-        return new UsuarioResponse(auth.registra(peticion.email(), peticion.password()).getEmail());
+        // Respuesta UNIFORME exista o no la cuenta (anti enumeración, R7):
+        // la señal real viaja solo en el correo de verificación.
+        return new UsuarioResponse(auth.registra(peticion.email(), peticion.password()));
     }
 
     @PostMapping("/auth/login")

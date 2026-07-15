@@ -69,9 +69,13 @@ class AuthServiceSesionesIntegracionTest {
 
         @Bean
         AuthService authService(UsuarioRepository usuarios, SesionRepository sesiones,
-                                PasswordEncoder passwordEncoder, JwtEncoder jwtEncoder, Clock reloj) {
-            return new AuthService(usuarios, sesiones, passwordEncoder, jwtEncoder, reloj,
-                    JwtTestSupport.DURACION, java.time.Duration.ofDays(7));
+                                es.medeben.repository.VerificacionEmailRepository verificaciones,
+                                PasswordEncoder passwordEncoder, JwtEncoder jwtEncoder,
+                                org.springframework.context.ApplicationEventPublisher eventos,
+                                Clock reloj) {
+            return new AuthService(usuarios, sesiones, verificaciones, passwordEncoder, jwtEncoder,
+                    eventos, reloj, JwtTestSupport.DURACION, java.time.Duration.ofDays(7),
+                    java.time.Duration.ofHours(24));
         }
     }
 
@@ -80,6 +84,9 @@ class AuthServiceSesionesIntegracionTest {
 
     @Autowired
     private SesionRepository sesiones;
+
+    @Autowired
+    private UsuarioRepository usuarios;
 
     @Test
     @DisplayName("SEGURIDAD: la revocación por reuso SOBREVIVE al 401 (no la deshace el rollback)")
@@ -104,7 +111,8 @@ class AuthServiceSesionesIntegracionTest {
     @DisplayName("logout revoca de verdad: el refresh deja de rotar")
     void logoutRevoca() {
         String email = "b4-" + UUID.randomUUID() + "@example.com";
-        Usuario usuario = servicio.registra(email, PASSWORD);
+        servicio.registra(email, PASSWORD);
+        Usuario usuario = usuarios.findByEmail(email).orElseThrow();
         SesionEmitida sesion = servicio.login(email, PASSWORD);
 
         servicio.cierraSesion(sesion.refreshToken());

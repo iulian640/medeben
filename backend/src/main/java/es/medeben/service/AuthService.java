@@ -3,11 +3,14 @@ package es.medeben.service;
 import es.medeben.config.RequiereBaseDeDatos;
 import es.medeben.domain.usuario.Sesion;
 import es.medeben.domain.usuario.Usuario;
+import es.medeben.domain.usuario.VerificacionEmail;
 import es.medeben.repository.SesionRepository;
 import es.medeben.repository.UsuarioRepository;
+import es.medeben.repository.VerificacionEmailRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
@@ -55,11 +58,14 @@ public class AuthService {
 
     private final UsuarioRepository usuarios;
     private final SesionRepository sesiones;
+    private final VerificacionEmailRepository verificaciones;
     private final PasswordEncoder passwordEncoder;
     private final JwtEncoder jwtEncoder;
+    private final ApplicationEventPublisher eventos;
     private final Clock reloj;
     private final Duration duracionToken;
     private final Duration duracionRefresh;
+    private final Duration duracionVerificacion;
     private final SecureRandom aleatorio = new SecureRandom();
 
     /** Hash real de una contraseña aleatoria: iguala el coste del matches() cuando el email no existe (anti timing). */
@@ -67,23 +73,48 @@ public class AuthService {
 
     public AuthService(UsuarioRepository usuarios,
                        SesionRepository sesiones,
+                       VerificacionEmailRepository verificaciones,
                        PasswordEncoder passwordEncoder,
                        JwtEncoder jwtEncoder,
+                       ApplicationEventPublisher eventos,
                        Clock reloj,
                        @Value("${medeben.seguridad.jwt.duracion:PT15M}") Duration duracionToken,
-                       @Value("${medeben.seguridad.refresh.duracion:P7D}") Duration duracionRefresh) {
+                       @Value("${medeben.seguridad.refresh.duracion:P7D}") Duration duracionRefresh,
+                       @Value("${medeben.verificacion.duracion:PT24H}") Duration duracionVerificacion) {
         this.usuarios = usuarios;
         this.sesiones = sesiones;
+        this.verificaciones = verificaciones;
         this.passwordEncoder = passwordEncoder;
         this.jwtEncoder = jwtEncoder;
+        this.eventos = eventos;
         this.reloj = reloj;
         this.duracionToken = duracionToken;
         this.duracionRefresh = duracionRefresh;
+        this.duracionVerificacion = duracionVerificacion;
         this.hashSenuelo = passwordEncoder.encode("señuelo-" + java.util.UUID.randomUUID());
     }
 
+    /**
+     * Registro con respuesta UNIFORME (cierre de la enumeración, R7): email
+     * nuevo, existente sin verificar y existente verificado devuelven
+     * EXACTAMENTE lo mismo — la señal real viaja solo por correo. Reglas:
+     *
+     * <ul>
+     *   <li>Nuevo: se crea SIN verificar y se emite token de verificación.</li>
+     *   <li>Existente SIN verificar: la propiedad del email no está probada,
+     *       así que quien registra ahora se queda la cuenta (se sobrescribe la
+     *       contraseña) y se re-emite token. Sin esto, cualquiera podría
+     *       "okupar" un email ajeno registrándolo antes que su dueño.</li>
+     *   <li>Existente verificado: no se toca nada (ni un correo aún — la
+     *       alerta de seguridad opcional está apuntada como mejora).</li>
+     * </ul>
+     *
+     * <p>El envío del correo va por evento AFTER_COMMIT + async
+     * ({@link EnviadorVerificacionEmail}): ni el SMTP puede tumbar el
+     * registro, ni la latencia de la respuesta delata qué rama se ejecutó.
+     */
     @Transactional
-    public Usuario registra(String email, String password) {
+    public String registra(String email, String password) {
         String emailNormalizado = normaliza(email);
         if (password == null || password.length() < MIN_CARACTERES_PASSWORD) {
             throw new IllegalArgumentException(
@@ -93,16 +124,70 @@ public class AuthService {
         if (password.getBytes(StandardCharsets.UTF_8).length > 72) {
             throw new IllegalArgumentException("La contraseña es demasiado larga (máximo 72 bytes)");
         }
-        if (usuarios.findByEmail(emailNormalizado).isPresent()) {
-            throw new EmailYaRegistradoException();
+        // El BCrypt se paga SIEMPRE, también cuando no se va a usar (cuenta ya
+        // verificada): si solo las ramas que escriben pagaran el hash, el
+        // tiempo de respuesta sería un oráculo de enumeración (anti timing,
+        // mismo truco que el señuelo del login).
+        String hashNuevo = passwordEncoder.encode(password);
+
+        Optional<Usuario> existente = usuarios.findByEmail(emailNormalizado);
+        if (existente.isEmpty()) {
+            try {
+                Usuario nuevo = usuarios.saveAndFlush(new Usuario(emailNormalizado, hashNuevo));
+                emiteVerificacion(nuevo);
+            } catch (DataIntegrityViolationException e) {
+                // Carrera con otro registro simultáneo del mismo email: la
+                // restricción UNIQUE es la barrera real. Resultado uniforme
+                // también aquí — el que llegó antes ya recibió su correo.
+            }
+        } else if (!existente.get().isEmailVerificado()) {
+            Usuario usuario = existente.get();
+            usuario.actualizaPasswordHash(hashNuevo);
+            emiteVerificacion(usuario);
         }
-        try {
-            return usuarios.saveAndFlush(new Usuario(emailNormalizado, passwordEncoder.encode(password)));
-        } catch (DataIntegrityViolationException e) {
-            // Carrera con otro registro simultáneo del mismo email: la restricción
-            // UNIQUE de la BD es la barrera real; el findByEmail solo da mejor mensaje.
-            throw new EmailYaRegistradoException();
+        return emailNormalizado;
+    }
+
+    /**
+     * Consume el token del correo (atómico, un solo uso, ver
+     * {@link VerificacionEmailRepository#marcaUsadaSiIntacta}) y sella al
+     * usuario como verificado. Desconocido, caducado o ya usado: la MISMA
+     * excepción, sin decir cuál (sin oráculo).
+     */
+    @Transactional
+    public void verificaEmail(String token) {
+        Instant ahora = Instant.now(reloj);
+        VerificacionEmail verificacion = verificaciones.findByTokenHash(hashSha256(token))
+                .orElseThrow(VerificacionInvalidaException::new);
+        if (verificaciones.marcaUsadaSiIntacta(verificacion.getId(), ahora) == 0) {
+            throw new VerificacionInvalidaException();
         }
+        Usuario usuario = usuarios.findById(verificacion.getUsuarioId())
+                .orElseThrow(VerificacionInvalidaException::new);
+        usuario.marcaVerificado(ahora);
+    }
+
+    /**
+     * Reenvía el correo de verificación. UNIFORME hacia fuera: email
+     * desconocido o ya verificado no hacen nada y responden igual — este
+     * endpoint no confirma la existencia de ninguna cuenta.
+     */
+    @Transactional
+    public void reenviaVerificacion(String email) {
+        usuarios.findByEmail(normaliza(email))
+                .filter(usuario -> !usuario.isEmailVerificado())
+                .ifPresent(this::emiteVerificacion);
+    }
+
+    /** Token opaco de 256 bits; a la BD solo va su SHA-256, al evento (correo) el claro. */
+    private void emiteVerificacion(Usuario usuario) {
+        Instant ahora = Instant.now(reloj);
+        byte[] crudo = new byte[BYTES_REFRESH];
+        aleatorio.nextBytes(crudo);
+        String token = Base64.getUrlEncoder().withoutPadding().encodeToString(crudo);
+        verificaciones.save(new VerificacionEmail(
+                usuario.getId(), hashSha256(token), ahora, ahora.plus(duracionVerificacion)));
+        eventos.publishEvent(new VerificacionEmailSolicitada(usuario.getEmail(), token));
     }
 
     /** OJO: ya no es readOnly — abrir sesión PERSISTE la fila del refresh. */

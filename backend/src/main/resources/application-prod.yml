@@ -16,3 +16,17 @@ medeben:
     # Detrás del proxy/nginx del compose de producción la IP real llega en
     # X-Forwarded-For; sin ese proxy delante, poner false (anti IP-spoofing).
     confiar-en-proxy: ${MEDEBEN_CONFIAR_EN_PROXY:true}
+
+  correo:
+    # ARRANQUE SIN SMTP AÚN CONFIGURADO: el default es log (el correo no
+    # sale, pero nada revienta y las cuentas sin verificar funcionan igual).
+    # Cuando el proveedor SMTP esté dado de alta (Brevo u otro, SPF/DKIM en
+    # el dominio), poner MEDEBEN_CORREO_MODO=smtp en deploy/.env y redeploy.
+    modo: ${MEDEBEN_CORREO_MODO:log}
+    remitente: ${MEDEBEN_CORREO_REMITENTE:no-reply@medeben.net}
+    url-verificacion: https://medeben.net/verifica-email
+    smtp:
+      host: ${MEDEBEN_SMTP_HOST:}
+      puerto: ${MEDEBEN_SMTP_PUERTO:587}
+      usuario: ${MEDEBEN_SMTP_USUARIO:}
+      password: ${MEDEBEN_SMTP_PASSWORD:}

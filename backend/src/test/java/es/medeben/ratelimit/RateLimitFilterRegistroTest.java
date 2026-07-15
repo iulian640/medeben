@@ -4,7 +4,6 @@ import es.medeben.config.RelojConfig;
 import es.medeben.config.SecurityConfig;
 import es.medeben.controller.AuthController;
 import es.medeben.controller.GlobalExceptionHandler;
-import es.medeben.domain.usuario.Usuario;
 import es.medeben.service.AuthService;
 import es.medeben.service.CredencialesInvalidasException;
 import es.medeben.service.EmailYaRegistradoException;
@@ -99,7 +98,7 @@ class RateLimitFilterRegistroTest {
     @DisplayName("un registro que SÍ prospera también consume el presupuesto propio de /auth/registro")
     void registroConExitoConsumeElPresupuestoPropio() throws Exception {
         when(authService.registra(anyString(), anyString()))
-                .thenReturn(new Usuario("trabajador@example.com", "hash"));
+                .thenReturn("trabajador@example.com");
 
         for (int i = 0; i < 5; i++) {
             mockMvc.perform(registroRequest()).andExpect(status().isCreated());
