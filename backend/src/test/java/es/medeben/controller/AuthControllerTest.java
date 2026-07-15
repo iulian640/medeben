@@ -45,7 +45,7 @@ class AuthControllerTest {
     @DisplayName("POST /auth/registro válido → 201 con el email (nunca la contraseña)")
     void registro() throws Exception {
         when(authService.registra(anyString(), anyString()))
-                .thenReturn(new Usuario("trabajador@example.com", "hash"));
+                .thenReturn("trabajador@example.com");
 
         mockMvc.perform(post("/api/v1/auth/registro")
                         .contentType(MediaType.APPLICATION_JSON)

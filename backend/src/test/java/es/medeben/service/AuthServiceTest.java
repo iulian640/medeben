@@ -2,30 +2,38 @@ package es.medeben.service;
 
 import es.medeben.domain.usuario.Sesion;
 import es.medeben.domain.usuario.Usuario;
+import es.medeben.domain.usuario.VerificacionEmail;
 import es.medeben.repository.SesionRepository;
 import es.medeben.repository.UsuarioRepository;
+import es.medeben.repository.VerificacionEmailRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneOffset;
+import java.util.HexFormat;
 import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 @DisplayName("AuthService — registro, login y ciclo de sesión (D13.4 + B4)")
@@ -36,8 +44,12 @@ class AuthServiceTest {
     private static final Instant AHORA = Instant.parse("2026-07-10T21:00:00Z");
     private static final Duration DURACION_REFRESH = Duration.ofDays(7);
 
+    private static final Duration DURACION_VERIFICACION = Duration.ofHours(24);
+
     private UsuarioRepository repositorio;
     private SesionRepository sesiones;
+    private VerificacionEmailRepository verificaciones;
+    private ApplicationEventPublisher eventos;
     private PasswordEncoder passwordEncoder;
     private AuthService servicio;
     private JwtDecoder jwtDecoder;
@@ -46,37 +58,108 @@ class AuthServiceTest {
     void arranque() {
         repositorio = mock(UsuarioRepository.class);
         sesiones = mock(SesionRepository.class);
+        verificaciones = mock(VerificacionEmailRepository.class);
+        eventos = mock(ApplicationEventPublisher.class);
         passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         // El decoder valida la caducidad con el MISMO reloj fijo que emite el
         // token: si no, un token minteado en AHORA (pasado) caducaba al pasar la
         // hora real por su exp y el build reventaba solo por el paso del tiempo.
         var claves = JwtTestSupport.claves(Clock.fixed(AHORA, ZoneOffset.UTC));
         jwtDecoder = claves.decoder();
-        servicio = new AuthService(repositorio, sesiones, passwordEncoder, claves.encoder(),
-                Clock.fixed(AHORA, ZoneOffset.UTC), JwtTestSupport.DURACION, DURACION_REFRESH);
+        servicio = new AuthService(repositorio, sesiones, verificaciones, passwordEncoder,
+                claves.encoder(), eventos, Clock.fixed(AHORA, ZoneOffset.UTC),
+                JwtTestSupport.DURACION, DURACION_REFRESH, DURACION_VERIFICACION);
     }
 
     @Test
-    @DisplayName("registro: guarda el email normalizado y el hash (nunca la contraseña en claro)")
-    void registroGuardaHash() {
+    @DisplayName("registro nuevo: email normalizado, hash BCrypt, usuario SIN verificar y token de verificación emitido")
+    void registroNuevoGuardaHashYEmiteVerificacion() {
         when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.empty());
-        when(repositorio.saveAndFlush(any(Usuario.class))).thenAnswer(inv -> inv.getArgument(0));
+        when(repositorio.saveAndFlush(any(Usuario.class))).thenAnswer(inv -> {
+            Usuario u = inv.getArgument(0);
+            u.setId(UUID.randomUUID());
+            return u;
+        });
 
-        Usuario usuario = servicio.registra("  Trabajador@Example.com ", PASSWORD);
+        String resultado = servicio.registra("  Trabajador@Example.com ", PASSWORD);
 
-        assertThat(usuario.getEmail()).isEqualTo(EMAIL);
-        assertThat(usuario.getPasswordHash()).doesNotContain(PASSWORD);
-        assertThat(passwordEncoder.matches(PASSWORD, usuario.getPasswordHash())).isTrue();
-        verify(repositorio).saveAndFlush(any(Usuario.class));
+        assertThat(resultado).isEqualTo(EMAIL);
+        ArgumentCaptor<Usuario> guardado = ArgumentCaptor.forClass(Usuario.class);
+        verify(repositorio).saveAndFlush(guardado.capture());
+        assertThat(guardado.getValue().getEmail()).isEqualTo(EMAIL);
+        assertThat(guardado.getValue().getPasswordHash()).doesNotContain(PASSWORD);
+        assertThat(passwordEncoder.matches(PASSWORD, guardado.getValue().getPasswordHash())).isTrue();
+        assertThat(guardado.getValue().isEmailVerificado()).isFalse();
+
+        // En la BD solo entra el SHA-256 del token; el token en claro viaja
+        // únicamente en el evento (que acaba en el correo del usuario).
+        ArgumentCaptor<VerificacionEmail> verificacion = ArgumentCaptor.forClass(VerificacionEmail.class);
+        verify(verificaciones).save(verificacion.capture());
+        ArgumentCaptor<VerificacionEmailSolicitada> evento =
+                ArgumentCaptor.forClass(VerificacionEmailSolicitada.class);
+        verify(eventos).publishEvent(evento.capture());
+        assertThat(evento.getValue().email()).isEqualTo(EMAIL);
+        assertThat(verificacion.getValue().getTokenHash())
+                .hasSize(64)
+                .matches("[0-9a-f]{64}")
+                .isEqualTo(sha256Hex(evento.getValue().token()));
+        assertThat(verificacion.getValue().getCaducaEn())
+                .isEqualTo(AHORA.plus(DURACION_VERIFICACION));
     }
 
     @Test
-    @DisplayName("registro con email ya usado → EmailYaRegistradoException")
-    void registroDuplicado() {
-        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(usuarioExistente()));
+    @DisplayName("ANTI-ENUMERACIÓN: el registro devuelve el MISMO resultado para email nuevo, existente sin verificar y existente verificado")
+    void registroDevuelveResultadoUniforme() {
+        // Nuevo.
+        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.empty());
+        when(repositorio.saveAndFlush(any(Usuario.class))).thenAnswer(inv -> {
+            Usuario u = inv.getArgument(0);
+            u.setId(UUID.randomUUID());
+            return u;
+        });
+        assertThat(servicio.registra(EMAIL, PASSWORD)).isEqualTo(EMAIL);
 
-        assertThatExceptionOfType(EmailYaRegistradoException.class)
-                .isThrownBy(() -> servicio.registra(EMAIL, PASSWORD));
+        // Existente sin verificar.
+        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(usuarioExistente()));
+        assertThat(servicio.registra(EMAIL, PASSWORD)).isEqualTo(EMAIL);
+
+        // Existente verificado: mismo resultado y, sobre todo, SIN excepción.
+        Usuario verificado = usuarioExistente();
+        verificado.marcaVerificado(AHORA.minusSeconds(3600));
+        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(verificado));
+        assertThatCode(() -> servicio.registra(EMAIL, PASSWORD)).doesNotThrowAnyException();
+        assertThat(servicio.registra(EMAIL, PASSWORD)).isEqualTo(EMAIL);
+    }
+
+    @Test
+    @DisplayName("re-registro de una cuenta SIN verificar: sobrescribe la contraseña y re-emite token (la propiedad no está probada)")
+    void reRegistroSinVerificarSobrescribeYReemite() {
+        Usuario sinVerificar = usuarioExistente();
+        String hashViejo = sinVerificar.getPasswordHash();
+        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(sinVerificar));
+
+        servicio.registra(EMAIL, "otra-contraseña-nueva-1");
+
+        assertThat(sinVerificar.getPasswordHash()).isNotEqualTo(hashViejo);
+        assertThat(passwordEncoder.matches("otra-contraseña-nueva-1", sinVerificar.getPasswordHash())).isTrue();
+        verify(verificaciones).save(any(VerificacionEmail.class));
+        verify(eventos).publishEvent(any(VerificacionEmailSolicitada.class));
+    }
+
+    @Test
+    @DisplayName("re-registro de una cuenta YA verificada: no toca la contraseña, no emite token, no envía nada")
+    void reRegistroVerificadoNoTocaNada() {
+        Usuario verificado = usuarioExistente();
+        verificado.marcaVerificado(AHORA.minusSeconds(3600));
+        String hashOriginal = verificado.getPasswordHash();
+        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(verificado));
+
+        servicio.registra(EMAIL, "intento-de-pisar-la-cuenta");
+
+        assertThat(verificado.getPasswordHash()).isEqualTo(hashOriginal);
+        verify(repositorio, never()).saveAndFlush(any());
+        verifyNoInteractions(verificaciones);
+        verifyNoInteractions(eventos);
     }
 
     @Test
@@ -84,6 +167,78 @@ class AuthServiceTest {
     void registroPasswordCorta() {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> servicio.registra(EMAIL, "corta"));
+    }
+
+    // --- Verificación y reenvío ---
+
+    @Test
+    @DisplayName("verificaEmail con token válido: consume el token (atómico) y sella el usuario como verificado")
+    void verificaEmailValido() {
+        Usuario usuario = usuarioExistente();
+        VerificacionEmail viva = new VerificacionEmail(usuario.getId(), "a".repeat(64),
+                AHORA.minusSeconds(60), AHORA.plus(DURACION_VERIFICACION));
+        when(verificaciones.findByTokenHash(any())).thenReturn(Optional.of(viva));
+        when(verificaciones.marcaUsadaSiIntacta(eq(viva.getId()), any())).thenReturn(1);
+        when(repositorio.findById(usuario.getId())).thenReturn(Optional.of(usuario));
+
+        servicio.verificaEmail("token-del-correo");
+
+        assertThat(usuario.isEmailVerificado()).isTrue();
+        assertThat(usuario.getVerificadoEn()).isEqualTo(AHORA);
+    }
+
+    @Test
+    @DisplayName("verificaEmail: token desconocido, caducado o ya usado → la MISMA excepción (sin oráculo)")
+    void verificaEmailInvalido() {
+        when(verificaciones.findByTokenHash(any())).thenReturn(Optional.empty());
+        assertThatExceptionOfType(VerificacionInvalidaException.class)
+                .isThrownBy(() -> servicio.verificaEmail("desconocido"));
+
+        Usuario usuario = usuarioExistente();
+        VerificacionEmail gastada = new VerificacionEmail(usuario.getId(), "b".repeat(64),
+                AHORA.minusSeconds(600), AHORA.plus(DURACION_VERIFICACION));
+        when(verificaciones.findByTokenHash(any())).thenReturn(Optional.of(gastada));
+        when(verificaciones.marcaUsadaSiIntacta(eq(gastada.getId()), any())).thenReturn(0);
+        assertThatExceptionOfType(VerificacionInvalidaException.class)
+                .isThrownBy(() -> servicio.verificaEmail("gastado-o-caducado"));
+    }
+
+    @Test
+    @DisplayName("reenviaVerificacion a una cuenta sin verificar: emite token nuevo y publica el evento")
+    void reenviaVerificacionSinVerificar() {
+        Usuario sinVerificar = usuarioExistente();
+        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(sinVerificar));
+
+        servicio.reenviaVerificacion(EMAIL);
+
+        verify(verificaciones).save(any(VerificacionEmail.class));
+        verify(eventos).publishEvent(any(VerificacionEmailSolicitada.class));
+    }
+
+    @Test
+    @DisplayName("ANTI-ENUMERACIÓN: reenviaVerificacion con email desconocido o ya verificado no hace nada y no revienta")
+    void reenviaVerificacionUniforme() {
+        when(repositorio.findByEmail("nadie@example.com")).thenReturn(Optional.empty());
+        assertThatCode(() -> servicio.reenviaVerificacion("nadie@example.com"))
+                .doesNotThrowAnyException();
+
+        Usuario verificado = usuarioExistente();
+        verificado.marcaVerificado(AHORA.minusSeconds(3600));
+        when(repositorio.findByEmail(EMAIL)).thenReturn(Optional.of(verificado));
+        assertThatCode(() -> servicio.reenviaVerificacion(EMAIL)).doesNotThrowAnyException();
+
+        verifyNoInteractions(verificaciones);
+        verifyNoInteractions(eventos);
+    }
+
+    /** El mismo SHA-256 hex que aplica el servicio: lo que debe llegar a la BD. */
+    private static String sha256Hex(String token) {
+        try {
+            return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256")
+                    .digest(token.getBytes(StandardCharsets.UTF_8)));
+        } catch (java.security.NoSuchAlgorithmException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     @Test

@@ -87,4 +87,13 @@ public class Usuario {
         this.emailVerificado = true;
         this.verificadoEn = Objects.requireNonNull(ahora);
     }
+
+    /**
+     * Sobrescribe el hash de la contraseña. Solo tiene un uso legítimo: el
+     * re-registro de una cuenta SIN verificar (la propiedad del email no está
+     * probada, así que el último en registrarlo se la queda — anti-okupación).
+     */
+    public void actualizaPasswordHash(String passwordHash) {
+        this.passwordHash = Objects.requireNonNull(passwordHash);
+    }
 }

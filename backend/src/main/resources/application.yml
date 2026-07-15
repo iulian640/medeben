@@ -67,3 +67,12 @@ medeben:
       # (nadie legítimo baja más de un puñado de informes seguidos).
       capacidad: 5
       recarga-por-minuto: 3
+
+  correo:
+    # Correo transaccional (verificación de email). modo=log: se escribe en
+    # el log y NO sale nada — el default correcto para dev/test/CI. El envío
+    # real (smtp) se activa solo en producción vía entorno (ver perfil prod).
+    modo: log
+    remitente: no-reply@medeben.net
+    # Página del frontend que consume el enlace del correo (dev: Vite local).
+    url-verificacion: http://localhost:5173/verifica-email

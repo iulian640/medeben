@@ -34,6 +34,14 @@ services:
       MEDEBEN_SEGURIDAD_JWT_SECRETO: ${MEDEBEN_SEGURIDAD_JWT_SECRETO:?falta MEDEBEN_SEGURIDAD_JWT_SECRETO en deploy/.env}
       # Detrás del nginx de este compose la IP real llega en X-Forwarded-For.
       MEDEBEN_CONFIAR_EN_PROXY: 'true'
+      # Correo de verificación: log (no envía) hasta que el SMTP esté dado de
+      # alta; entonces poner MEDEBEN_CORREO_MODO=smtp y las credenciales en
+      # deploy/.env (ver application-prod.yml).
+      MEDEBEN_CORREO_MODO: ${MEDEBEN_CORREO_MODO:-log}
+      MEDEBEN_SMTP_HOST: ${MEDEBEN_SMTP_HOST:-}
+      MEDEBEN_SMTP_PUERTO: ${MEDEBEN_SMTP_PUERTO:-587}
+      MEDEBEN_SMTP_USUARIO: ${MEDEBEN_SMTP_USUARIO:-}
+      MEDEBEN_SMTP_PASSWORD: ${MEDEBEN_SMTP_PASSWORD:-}
 
   web:
     image: nginx:alpine
