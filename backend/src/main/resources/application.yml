@@ -41,6 +41,14 @@ medeben:
       # raro por IP, no necesita absorber una plantilla entera como el login.
       capacidad: 5
       recarga-por-minuto: 2
+    registro-global:
+      # /auth/registro, bucket GLOBAL compartido por TODAS las IPs (second
+      # review): el bucket por IP no frena la enumeracion distribuida (mil
+      # IPs, un email cada una); este acota el total del sistema. Trade-off
+      # asumido: agotarlo devuelve 429 tambien a registros legitimos un rato.
+      # Rafaga 30 + 60/hora, muy por encima del volumen real de la app.
+      capacidad: 30
+      recarga-por-minuto: 1
     refresh:
       # /auth/refresh (B4): con el access de 15 min, cada usuario activo
       # refresca ~4 veces/hora durante TODO el turno, y la clave es la IP

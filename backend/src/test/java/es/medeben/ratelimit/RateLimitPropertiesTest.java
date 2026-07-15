@@ -11,7 +11,8 @@ class RateLimitPropertiesTest {
     @Test
     @DisplayName("presupuestos nulos -> se sustituyen por los valores por defecto")
     void authYApiNulosSeSustituyenPorLosPresupuestosPorDefecto() {
-        RateLimitProperties propiedades = new RateLimitProperties(true, false, null, null, null, null, null, null);
+        RateLimitProperties propiedades =
+                new RateLimitProperties(true, false, null, null, null, null, null, null, null);
 
         // Proxies de confianza por defecto: loopback + rangos privados (Docker).
         assertThat(propiedades.proxiesDeConfianza())
@@ -26,6 +27,10 @@ class RateLimitPropertiesTest {
         // el 409 de email duplicado permite enumerar cuentas.
         assertThat(propiedades.registro().capacidad()).isEqualTo(5);
         assertThat(propiedades.registro().recargaPorMinuto()).isEqualTo(2);
+        // El global de registro (second review): ráfaga 30 + 60/hora para todo
+        // el sistema, acota la enumeración distribuida entre muchas IPs.
+        assertThat(propiedades.registroGlobal().capacidad()).isEqualTo(30);
+        assertThat(propiedades.registroGlobal().recargaPorMinuto()).isEqualTo(1);
         assertThat(propiedades.api().capacidad()).isEqualTo(40);
         assertThat(propiedades.api().recargaPorMinuto()).isEqualTo(120);
         // El de informes es a propósito MUCHO más estrecho: generar un PDF
@@ -40,13 +45,15 @@ class RateLimitPropertiesTest {
         RateLimitProperties.Presupuesto auth = new RateLimitProperties.Presupuesto(5, 5);
         RateLimitProperties.Presupuesto refresh = new RateLimitProperties.Presupuesto(9, 9);
         RateLimitProperties.Presupuesto registro = new RateLimitProperties.Presupuesto(3, 3);
+        RateLimitProperties.Presupuesto registroGlobal = new RateLimitProperties.Presupuesto(7, 4);
         RateLimitProperties.Presupuesto api = new RateLimitProperties.Presupuesto(50, 200);
         RateLimitProperties.Presupuesto informes = new RateLimitProperties.Presupuesto(2, 1);
 
         RateLimitProperties propiedades = new RateLimitProperties(
-                true, true, java.util.List.of("203.0.113.7/32"), auth, refresh, registro, api, informes);
+                true, true, java.util.List.of("203.0.113.7/32"), auth, refresh, registro, registroGlobal, api, informes);
 
         assertThat(propiedades.proxiesDeConfianza()).containsExactly("203.0.113.7/32");
+        assertThat(propiedades.registroGlobal()).isEqualTo(registroGlobal);
         assertThat(propiedades.auth()).isEqualTo(auth);
         assertThat(propiedades.refresh()).isEqualTo(refresh);
         assertThat(propiedades.registro()).isEqualTo(registro);

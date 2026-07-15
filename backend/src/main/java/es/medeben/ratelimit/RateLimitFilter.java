@@ -59,6 +59,8 @@ public final class RateLimitFilter extends OncePerRequestFilter {
     private static final String RUTA_HEALTH = "/api/v1/health";
     private static final String PREFIJO_BEARER = "Bearer ";
     private static final String CABECERA_X_FORWARDED_FOR = "X-Forwarded-For";
+    /** Clave única del bucket global de /auth/registro (compartido por todas las IPs). */
+    private static final String CLAVE_REGISTRO_GLOBAL = "registro:global";
     private static final String MENSAJE_LIMITE =
             "Has superado el límite de peticiones. Inténtalo de nuevo en unos segundos.";
 
@@ -155,11 +157,26 @@ public final class RateLimitFilter extends OncePerRequestFilter {
         String clave = grupo + claveDelCliente(request, esAuth || esRefresh || esRegistro);
 
         boolean permitido = registro.intentaConsumir(clave, presupuesto.capacidad(), presupuesto.recargaPorMinuto());
-        if (permitido) {
-            filterChain.doFilter(request, response);
+        if (!permitido) {
+            escribeRespuestaDemasiadasPeticiones(response, registro.segundosHastaReintento(clave));
             return;
         }
-        escribeRespuestaDemasiadasPeticiones(response, registro.segundosHastaReintento(clave));
+        // El registro lleva ADEMÁS un bucket GLOBAL, compartido por todas las
+        // IPs (second review): el bucket por IP no frena la enumeración
+        // distribuida (mil IPs, un email cada una); este acota el total del
+        // sistema. Se consume DESPUÉS del de IP: así el tráfico de una IP
+        // abusona sigue contando también contra su propia cubeta.
+        if (esRegistro) {
+            RateLimitProperties.Presupuesto global = propiedades.registroGlobal();
+            boolean permitidoGlobal = registro.intentaConsumir(
+                    CLAVE_REGISTRO_GLOBAL, global.capacidad(), global.recargaPorMinuto());
+            if (!permitidoGlobal) {
+                escribeRespuestaDemasiadasPeticiones(
+                        response, registro.segundosHastaReintento(CLAVE_REGISTRO_GLOBAL));
+                return;
+            }
+        }
+        filterChain.doFilter(request, response);
     }
 
     /**
