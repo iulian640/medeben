@@ -6,6 +6,7 @@ import { useCuentaStore } from '../stores/cuenta'
 import { SUBSECTORES } from '../lib/subsectores'
 import { etiquetaDimension, etiquetaValor, explicacionDimension } from '../lib/formato'
 import { pulsoExito } from '../lib/animacion'
+import PanelUbicacion from '../components/PanelUbicacion.vue'
 
 const auth = useAuthStore()
 const cuenta = useCuentaStore()
@@ -373,6 +374,8 @@ async function confirmarBorrado() {
           Editar tu horario
         </RouterLink>
       </section>
+
+      <PanelUbicacion />
 
       <section class="tarjeta seccion-donacion">
         <h2 class="titulo-seccion">

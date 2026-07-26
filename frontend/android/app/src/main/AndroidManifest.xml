@@ -7,7 +7,7 @@
   sistema. Si algún día se quiere backup selectivo, usar
   android:dataExtractionRules excluyendo el directorio del WebView.
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -40,4 +40,19 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+      Anotar dónde fichas (opt-in, apagado de fábrica): solo ubicación
+      aproximada, nunca precisa (D2 del contrato de implementación). El
+      plugin @capacitor/geolocation declara ACCESS_FINE_LOCATION en su propio
+      manifest y el manifest merger de AGP hace la unión — sin este
+      tools:node="remove" el APK final pediría FINE aunque la app nunca lo use,
+      contradiciendo lo declarado en Play Data Safety y en el consentimiento.
+      Verificar tras `npx cap sync android` leyendo el manifest MERGEADO en
+      android/app/build/intermediates/merged_manifests/ antes de cada release.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        tools:node="remove" />
 </manifest>

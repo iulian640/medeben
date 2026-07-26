@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
 import { ApiError } from '../services/api'
 import { CLAVE_SESION_PERSISTIDA, leerSesionPersistida } from '../lib/sesionPersistida'
+import { avisoConsentimientoCaducado, marcaUbicacionActivada, ubicacionActivada } from '../services/ubicacion'
 import { useAuthStore } from './auth'
 import { useCuentaStore } from './cuenta'
 import { usePerfilStore } from './perfil'
@@ -191,6 +192,25 @@ describe('auth store', () => {
     expect(perfil.provincia).toBeNull()
     expect(perfil.subsector).toBeNull()
     expect(perfil.puestoId).toBeNull()
+  })
+
+  it('cerrarSesion borra el estado local de "Anotar dónde fichas" (tablet compartida, HIGH del review)', async () => {
+    // Ana activa la feature, cierra sesión; si el flag sobrevive en
+    // localStorage, el siguiente fichaje de Bea en la misma tablet capturaría
+    // y enviaría SU posición bajo un flag que nunca vio ni consintió.
+    const datos = stubStorage()
+    vi.mocked(postLogin).mockResolvedValue({ token: 'jwt-123', expiraEn: '2026-07-09T00:00:00Z', refreshToken: 'refresh-jwt-123', refreshExpiraEn: '2026-07-17T00:00:00Z' })
+    const auth = useAuthStore()
+    await auth.iniciarSesion('ana@example.com', 'superclave123')
+    marcaUbicacionActivada()
+    datos.set('medeben.ubicacion.aviso-consentimiento-caducado', '1')
+    datos.set('medeben.ubicacion.intentos-sin-permiso', '2')
+
+    await auth.cerrarSesion()
+
+    expect(ubicacionActivada()).toBe(false)
+    expect(avisoConsentimientoCaducado()).toBe(false)
+    expect(datos.get('medeben.ubicacion.intentos-sin-permiso')).toBeUndefined()
   })
 
   it('la expulsión por 401 (sesionCaducada) también vacía el store de cuenta', async () => {
