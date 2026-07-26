@@ -39,7 +39,7 @@ Qué hace:
 - Eliges tu puesto (cocinero/a, camarero/a, ayudante...) y te explica tu nivel y el salario que fija el convenio, con su artículo.
 - Calcula lo que te deben este mes comparando tu horario con lo que fichaste.
 - Calculadora de horas extra según tu convenio, con sus fuentes.
-- Registro de jornada sencillo, con aviso para fichar. A los 14 días el diario se sella con fecha del servidor, y eso es lo que convierte tu libreta en una prueba.
+- Registro de jornada sencillo, con aviso para fichar. A los 14 días el diario se sella con fecha del servidor, lo que hace que tu libreta sea difícil de discutir.
 - Guarda tus cuadrantes con fecha, para que quede constancia de los cambios de turno de última hora.
 - Exporta un informe PDF del mes o del año, con tus registros y el detalle de cada cálculo, listo para llevar a un sindicato o a un abogado.
 
@@ -52,7 +52,7 @@ Sobre tus datos:
 - Es gratis. No pagas por usarla, y lo que hoy es gratis no pasará a ser de pago.
 - No vendemos ni cedemos tus datos a nadie. No hay anuncios ni rastreadores.
 - Son tuyos: puedes borrar la cuenta y todo lo que contiene cuando quieras, desde la app o en medeben.net/borrar-cuenta.
-- Solo pedimos tu email y los datos laborales que tú indicas. Ni nombre, ni DNI, ni teléfono.
+- Solo pedimos tu email y los datos laborales que tú indicas. Ni nombre, ni DNI, ni teléfono. Si activas «Anotar dónde fichas», guardamos también tu posición aproximada al fichar — opcional, apagada de fábrica, y la desactivas y borras cuando quieras.
 - El código es público (AGPL-3.0): cualquiera puede comprobar qué hace la app con tus datos.
 
 MeDeben está pensada para personas trabajadoras mayores de edad.
