@@ -139,6 +139,10 @@ async function ejecutarBorrado() {
           </li>
           <li>tus <strong>fichajes</strong> y tu horario,</li>
           <li>tus <strong>ausencias</strong> y sus motivos,</li>
+          <li>
+            la <strong>ubicación</strong> de tus fichajes, si activaste
+            «Anotar dónde fichas»,
+          </li>
           <li>tus <strong>informes</strong>.</li>
         </ul>
         <p
