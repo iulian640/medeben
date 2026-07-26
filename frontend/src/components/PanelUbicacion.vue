@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { Capacitor } from '@capacitor/core'
 import { avisoPermisoCaducado, capturaPosicion, pideUbicacion } from '../lib/ubicacion'
+import { TEXTO_CONSENTIMIENTO_UBICACION_V1_0 } from '../lib/textoConsentimientoUbicacion'
 import {
   avisoConsentimientoCaducado,
   deleteConsentimientoUbicacion,
@@ -301,34 +302,7 @@ function cierraAvisoConsentimiento() {
       <h2 class="titulo-seccion">
         Anotar dónde fichas
       </h2>
-      <ul class="checklist">
-        <li>
-          <strong>Finalidad:</strong> acompañar tu registro horario con una
-          anotación de que estabas en tu centro de trabajo.
-        </li>
-        <li>
-          <strong>Base jurídica:</strong> tu consentimiento inequívoco y
-          expreso (art. 6.1.a RGPD). La app funciona entera sin esto.
-        </li>
-        <li>
-          <strong>Qué se envía y a dónde:</strong> tu posición aproximada
-          sale de tu dispositivo y se guarda en el servidor de MeDeben.
-        </li>
-        <li>
-          <strong>Conservación:</strong> hasta 15 meses desde cada fichaje,
-          salvo que declares una reclamación en curso.
-        </li>
-        <li>
-          Puedes <strong>revocarlo en un toque</strong>, cuando quieras.
-        </li>
-        <li>
-          Puedes <strong>borrar todo tu histórico</strong> en un toque.
-        </li>
-        <li>
-          <strong>Derechos:</strong> acceso, rectificación, supresión y
-          portabilidad; puedes reclamar ante la AEPD.
-        </li>
-      </ul>
+      <pre class="texto-consentimiento">{{ TEXTO_CONSENTIMIENTO_UBICACION_V1_0 }}</pre>
       <p class="aviso-anti-coaccion aviso-bloque">
         Tu empresa no puede exigirte activar esto ni entregarle el anexo con
         tus coordenadas. Si te lo piden, eso es control por geolocalización y
@@ -417,12 +391,12 @@ function cierraAvisoConsentimiento() {
   font-weight: var(--peso-etiqueta);
 }
 
-.checklist {
-  display: flex;
-  flex-direction: column;
-  gap: var(--esp-xs);
-  padding-left: var(--esp-md);
+.texto-consentimiento {
+  font-family: inherit;
   font-size: var(--tipo-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
 }
 
 .acciones {

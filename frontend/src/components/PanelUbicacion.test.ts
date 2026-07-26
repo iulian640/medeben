@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import { createMemoryHistory, createRouter, type Router } from 'vue-router'
 import PanelUbicacion from './PanelUbicacion.vue'
+import { TEXTO_CONSENTIMIENTO_UBICACION_V1_0 } from '../lib/textoConsentimientoUbicacion'
 
 // El plugin nativo y la detección de plataforma se mockean enteros (mismo
 // patrón que PanelRecordatorio.test.ts).
@@ -110,28 +111,16 @@ describe('PanelUbicacion — pantalla explicativa (checklist de 7 puntos)', () =
     expect(wrapper.text()).toMatch(/finalidad/i)
   })
 
-  it('contiene los 7 puntos exigidos por el contrato', async () => {
+  it('renderiza el texto canónico v1.0 LITERAL, no una paráfrasis (HIGH del review)', async () => {
+    // El servidor hashea (SHA-256) el texto canónico para acreditar QUÉ se
+    // consintió: si la pantalla muestra una paráfrasis, la fila acreditará el
+    // hash de un texto que el usuario nunca leyó. Se ancla la cadena
+    // COMPLETA, no palabras sueltas — eso es justo lo que este test no
+    // detectaba antes.
     const wrapper = await montar()
     await wrapper.find('input[type="checkbox"]').setValue(true)
 
-    const texto = wrapper.text().toLowerCase()
-
-    // 1. Finalidad
-    expect(texto).toMatch(/finalidad/)
-    // 2. Base 6.1.a, "inequívoco y expreso" (NUNCA "explícito", corrección del contrato)
-    expect(texto).toMatch(/6\.1\.a/)
-    expect(texto).toMatch(/inequívoco y expreso/)
-    // 3. Qué se envía y a dónde: sale del dispositivo (prominent disclosure de Play)
-    expect(texto).toMatch(/sale de tu dispositivo/)
-    // 4. Conservación 15 meses salvo reclamación en curso
-    expect(texto).toMatch(/15 meses/)
-    expect(texto).toMatch(/reclamación en curso/)
-    // 5. Revocación en un toque
-    expect(texto).toMatch(/revocar.*en un toque|un toque.*revocar/)
-    // 6. Borrado del histórico en un toque
-    expect(texto).toMatch(/borrar.*histórico|histórico.*borrar/)
-    // 7. Derechos y AEPD
-    expect(texto).toMatch(/aepd/)
+    expect(wrapper.text()).toContain(TEXTO_CONSENTIMIENTO_UBICACION_V1_0)
   })
 
   it('el aviso anti-coacción está presente', async () => {
