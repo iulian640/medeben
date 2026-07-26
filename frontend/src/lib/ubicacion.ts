@@ -79,8 +79,19 @@ export async function pideUbicacion(): Promise<EstadoPermisoUbicacion> {
  * lanza: cualquier fallo (sin permiso, timeout, sin señal, plugin caído)
  * devuelve `null`, que el que llama trata como "no se adjunta nada" — jamás
  * como un error que mostrar.
+ *
+ * Comprueba el permiso ANTES de llamar al plugin (review HIGH): sin este
+ * guard, `Geolocation.getCurrentPosition` del plugin nativo pide el permiso
+ * él solo si no está concedido en ese instante (permiso "solo esta vez"
+ * caducado, auto-reset de Android 11+, o revocado a mano) — y esta función se
+ * llama fire-and-forget justo después de fichar, así que ese diálogo del
+ * sistema aparecería encima de la libreta en pleno fichaje. Regla de oro:
+ * nunca un nag al fichar.
  */
 export async function capturaPosicion(): Promise<Posicion | null> {
+  if ((await permisoUbicacion()) !== 'concedido') {
+    return null
+  }
   try {
     const posicion = await Geolocation.getCurrentPosition({
       enableHighAccuracy: false,

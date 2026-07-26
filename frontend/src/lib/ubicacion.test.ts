@@ -89,6 +89,12 @@ describe('pideUbicacion', () => {
 })
 
 describe('capturaPosicion', () => {
+  beforeEach(() => {
+    // Camino feliz por defecto: permiso ya concedido. Los tests del guard de
+    // permiso lo re-stubbean.
+    pluginMock.checkPermissions.mockResolvedValue({ location: 'granted', coarseLocation: 'granted' })
+  })
+
   it('pide precisión aproximada (enableHighAccuracy false), timeout 6 s y caché de hasta 2 min', async () => {
     pluginMock.getCurrentPosition.mockResolvedValue({
       timestamp: Date.now(),
@@ -139,6 +145,25 @@ describe('capturaPosicion', () => {
     } as never)
 
     await expect(capturaPosicion()).resolves.not.toBeNull()
+  })
+
+  it('sin permiso concedido, NO llama al plugin (evita el nag de Android al fichar, HIGH del review)', async () => {
+    // getCurrentPosition del plugin nativo pide el permiso él solo si no está
+    // concedido (GeolocationPlugin.kt): eso abriría el diálogo del sistema
+    // justo después de "Salgo ahora". El guard tiene que cortar ANTES.
+    pluginMock.checkPermissions.mockResolvedValue({ location: 'prompt', coarseLocation: 'prompt' })
+
+    await expect(capturaPosicion()).resolves.toBeNull()
+
+    expect(pluginMock.getCurrentPosition).not.toHaveBeenCalled()
+  })
+
+  it('con el permiso denegado para siempre, tampoco llama al plugin', async () => {
+    pluginMock.checkPermissions.mockResolvedValue({ location: 'denied', coarseLocation: 'denied' })
+
+    await expect(capturaPosicion()).resolves.toBeNull()
+
+    expect(pluginMock.getCurrentPosition).not.toHaveBeenCalled()
   })
 })
 
