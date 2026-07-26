@@ -119,10 +119,20 @@ public class AnexoUbicacionService {
         doc.add(antiCoaccion);
     }
 
+    /**
+     * Contexto informativo (NO la referencia de cálculo de ninguna fila): el
+     * centro actualmente vigente puede no ser el que se usó para calcular la
+     * distancia de una fila del mes si el usuario lo redeclaró o lo cerró
+     * entre medias. Cada fila de {@link #tablaDeCoordenadas} imprime su
+     * propio centro congelado ({@code centro_latitud}/{@code centro_longitud}
+     * de la fila) — ese es el punto que un tercero necesita para recalcular
+     * esa fila, no este.
+     */
     private void declaracionDelCentro(Document doc, Optional<CentroTrabajo> centro) {
-        doc.add(seccion("Centro de trabajo declarado"));
+        doc.add(seccion("Centro de trabajo declarado (contexto)"));
         if (centro.isEmpty()) {
-            doc.add(new Paragraph("No hay un centro de trabajo vigente declarado.", TEXTO));
+            doc.add(new Paragraph("No hay un centro de trabajo vigente declarado ahora mismo. Cada fila de la "
+                    + "tabla lleva su propio punto de referencia, congelado en el momento del fichaje.", TEXTO));
             doc.add(espacio());
             return;
         }
@@ -132,7 +142,11 @@ public class AnexoUbicacionService {
                 + SELLO.format(c.getDeclaradoEn().atZoneSameInstant(reloj.getZone()))
                 + " — lat " + c.getLatitud() + ", lon " + c.getLongitud()
                 + " — radio " + c.getRadioMetros() + " m", TEXTO));
-        doc.add(espacio());
+        Paragraph aviso = new Paragraph(
+                "Es el centro vigente AHORA, por contexto: si lo has redeclarado, cada fila de la tabla usa su "
+                        + "propio punto de referencia congelado en el momento del fichaje, no este.", SUAVE);
+        aviso.setSpacingAfter(10);
+        doc.add(aviso);
     }
 
     private void formula(Document doc) {
@@ -149,17 +163,32 @@ public class AnexoUbicacionService {
         doc.add(espacio());
     }
 
+    /**
+     * Cada fila lleva su PROPIO centro congelado (columnas "Centro lat."/
+     * "Centro lon."), no el vigente actual — es la corrección de la
+     * afirmación de recomputabilidad del informe principal (contrato §Backend
+     * punto 10): sin esto, un tercero que aplique la fórmula de {@link
+     * #formula} con el centro equivocado obtiene un resultado distinto al
+     * impreso en cuanto el usuario redeclara su centro de trabajo.
+     */
     private void tablaDeCoordenadas(Document doc, List<UbicacionApunte> filas) {
         doc.add(seccion("Coordenadas del mes"));
-        PdfPTable t = tabla(new float[]{2f, 1.6f, 2f, 2f, 1.6f, 1.8f, 2.2f});
-        cabeceraTabla(t, "Fecha", "Hora", "Latitud", "Longitud", "Precisión", "Distancia", "Veredicto");
+        PdfPTable t = tabla(new float[]{1.5f, 1.2f, 1.5f, 1.5f, 1.1f, 1.3f, 1.5f, 1.5f, 1f, 1.7f});
+        cabeceraTabla(t, "Fecha", "Hora", "Latitud", "Longitud", "Precisión", "Distancia",
+                "Centro lat.", "Centro lon.", "Radio", "Veredicto");
         for (UbicacionApunte u : filas) {
+            // Una fila SUPRIMIDA (art. 17) no muestra ninguna coordenada, ni
+            // siquiera la del centro que se usó para calcularla en su momento.
+            boolean suprimida = u.getVeredicto() == VeredictoUbicacion.SUPRIMIDA;
             celda(t, FECHA_CORTA.format(u.getFecha()), TEXTO);
             celda(t, SELLO.format(u.getRegistradaEn().atZoneSameInstant(reloj.getZone())).substring(11), TEXTO);
             celda(t, u.getLatitud() == null ? "—" : u.getLatitud().toPlainString(), TEXTO);
             celda(t, u.getLongitud() == null ? "—" : u.getLongitud().toPlainString(), TEXTO);
             celda(t, u.getPrecisionMetros() + " m", TEXTO);
             celda(t, u.getDistanciaMetros() == null ? "—" : u.getDistanciaMetros() + " m", TEXTO);
+            celda(t, suprimida || u.getCentroLatitud() == null ? "—" : u.getCentroLatitud().toPlainString(), TEXTO);
+            celda(t, suprimida || u.getCentroLongitud() == null ? "—" : u.getCentroLongitud().toPlainString(), TEXTO);
+            celda(t, u.getCentroRadio() + " m", TEXTO);
             celda(t, ETIQUETA_VEREDICTO.get(u.getVeredicto()), TEXTO);
         }
         t.setSpacingBefore(6);

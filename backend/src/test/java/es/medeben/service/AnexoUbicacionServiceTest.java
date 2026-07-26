@@ -126,6 +126,42 @@ class AnexoUbicacionServiceTest {
     }
 
     @Test
+    @DisplayName("cada fila imprime SU propio centro congelado, no el centro vigente actual — recomputabilidad")
+    void cadaFilaImprimeSuPropioCentroCongelado() throws Exception {
+        // El usuario redeclaró el centro DESPUÉS: el vigente ahora está en otras
+        // coordenadas ("41.38706", solo debe salir en el bloque de contexto de
+        // cabecera). La fila del mes pasado se calculó contra el centro VIEJO
+        // (columnas congeladas centro_latitud/centro_longitud = "40.41675"),
+        // que es el que el anexo tiene que imprimir como referencia de ESA fila
+        // — su propia ubicación anotada usa una tercera coordenada ("41.00000")
+        // para poder distinguir las tres en el texto plano del PDF.
+        BigDecimal ubicacionLat = new BigDecimal("41.00000");
+        BigDecimal ubicacionLon = new BigDecimal("1.00000");
+        BigDecimal centroViejoLat = LAT;
+        BigDecimal centroViejoLon = LON;
+        BigDecimal centroNuevoLat = new BigDecimal("41.38706");
+        BigDecimal centroNuevoLon = new BigDecimal("2.17009");
+        CentroTrabajo vigenteDistinto = new CentroTrabajo(USUARIO, "El bar nuevo", centroNuevoLat, centroNuevoLon,
+                150, OffsetDateTime.parse("2026-07-20T09:00:00+02:00"));
+        when(centros.findFirstByUsuarioIdOrderByDeclaradoEnDesc(USUARIO)).thenReturn(Optional.of(vigenteDistinto));
+        UbicacionApunte fila = new UbicacionApunte(UUID.randomUUID(), USUARIO, LocalDate.of(2026, 7, 8),
+                ubicacionLat, ubicacionLon, 20, UUID.randomUUID(), centroViejoLat, centroViejoLon, 150, 15,
+                VeredictoUbicacion.DENTRO, OffsetDateTime.parse("2026-07-08T10:00:00+02:00"));
+        when(ubicaciones.findByUsuarioIdAndFechaBetween(eq(USUARIO), any(), any())).thenReturn(List.of(fila));
+
+        String texto = textoDelAnexo().replaceAll("\\s+", " ");
+
+        // El centro VIEJO (el que de verdad se usó para calcular la distancia
+        // de esta fila) tiene que aparecer como referencia de la tabla.
+        assertThat(texto).contains("40.41675");
+        // El centro NUEVO (vigente ahora) solo puede salir UNA vez: en el
+        // bloque de contexto de cabecera, nunca repetido como si fuera la
+        // referencia de cálculo de una fila que no lo usó.
+        int aparicionesNuevo = texto.split("41\\.38706", -1).length - 1;
+        assertThat(aparicionesNuevo).isEqualTo(1);
+    }
+
+    @Test
     @DisplayName("declara el centro vigente con su fecha de declaración")
     void declaraElCentroVigente() throws Exception {
         when(ubicaciones.findByUsuarioIdAndFechaBetween(eq(USUARIO), any(), any())).thenReturn(List.of());
