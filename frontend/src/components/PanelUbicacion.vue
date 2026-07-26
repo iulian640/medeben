@@ -63,9 +63,21 @@ onMounted(async () => {
 // --- Ya activa: borrar histórico ---
 const borrandoHistorico = ref(false)
 const historicoBorrado = ref(false)
+const errorBorradoHistorico = ref<string | null>(null)
 
 // --- Desactivar ---
 const desactivando = ref(false)
+const errorRevocacion = ref<string | null>(null)
+/**
+ * El navegador marca `checked = false` en el propio DOM en cuanto el usuario
+ * toca la casilla, ANTES de que corra `alternar()` — es el checkbox nativo,
+ * no algo que Vue controle en ese instante. Si la revocación falla y `activo`
+ * no cambia de valor, Vue no vuelve a tocar la prop `checked` (no detecta
+ * cambio), así que sin esta referencia la casilla se quedaría visualmente
+ * desmarcada aunque el consentimiento siga vigente: hay que forzar el DOM a
+ * mano, igual que hace v-model por dentro.
+ */
+const checkboxUbicacion = ref<HTMLInputElement | null>(null)
 
 // --- Aviso de que el servidor apagó la feature sola (403 en el POST de adjuntar) ---
 const avisoConsentimiento = ref(avisoConsentimientoCaducado())
@@ -147,15 +159,25 @@ async function borrarHistorico() {
   }
   borrandoHistorico.value = true
   historicoBorrado.value = false
+  errorBorradoHistorico.value = null
   try {
     await deleteUbicaciones()
     historicoBorrado.value = true
+  } catch (e) {
+    // El botón de supresión (art. 17) NO puede fallar en silencio: sin este
+    // aviso, la única señal de un fallo era la AUSENCIA del mensaje de éxito.
+    errorBorradoHistorico.value = `No se ha podido borrar el histórico: ${mensajeDeError(e)}`
   } finally {
     borrandoHistorico.value = false
   }
 }
 
-/** El toggle, ya activo: apagarlo revoca (no borra el histórico) y desactiva en local. */
+/**
+ * El toggle, ya activo: apagarlo revoca (no borra el histórico) y desactiva
+ * en local — pero SOLO si el servidor confirma. Si el DELETE falla, el
+ * consentimiento sigue vigente en servidor: dar la revocación por hecha en
+ * local dejaría al usuario creyendo que retiró algo que no retiró.
+ */
 async function alternar(event: Event) {
   const marcado = (event.target as HTMLInputElement).checked
   if (marcado) {
@@ -163,13 +185,20 @@ async function alternar(event: Event) {
     return
   }
   desactivando.value = true
+  errorRevocacion.value = null
   try {
     await deleteConsentimientoUbicacion()
-  } finally {
-    marcaUbicacionDesactivada()
-    activo.value = false
+  } catch (e) {
+    errorRevocacion.value = `No se ha podido revocar el consentimiento: ${mensajeDeError(e)}`
     desactivando.value = false
+    if (checkboxUbicacion.value) {
+      checkboxUbicacion.value.checked = true
+    }
+    return
   }
+  marcaUbicacionDesactivada()
+  activo.value = false
+  desactivando.value = false
 }
 
 function cierraAvisoConsentimiento() {
@@ -206,6 +235,7 @@ function cierraAvisoConsentimiento() {
         class="fila-activar"
       >
         <input
+          ref="checkboxUbicacion"
           type="checkbox"
           :checked="activo"
           :disabled="desactivando"
@@ -213,6 +243,13 @@ function cierraAvisoConsentimiento() {
         >
         Anotar dónde fichas (opcional)
       </label>
+      <p
+        v-if="errorRevocacion"
+        class="aviso-bloque"
+        role="alert"
+      >
+        {{ errorRevocacion }}
+      </p>
 
       <template v-if="activo">
         <p
@@ -248,6 +285,13 @@ function cierraAvisoConsentimiento() {
           role="status"
         >
           Histórico borrado. Tu diario de fichajes sigue intacto.
+        </p>
+        <p
+          v-if="errorBorradoHistorico"
+          class="aviso-bloque"
+          role="alert"
+        >
+          {{ errorBorradoHistorico }}
         </p>
       </template>
     </template>

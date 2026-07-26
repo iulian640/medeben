@@ -270,6 +270,16 @@ describe('PanelUbicacion — ya activada', () => {
     expect(deleteUbicaciones).toHaveBeenCalledOnce()
   })
 
+  it('si el borrado del histórico falla, se avisa en pantalla en vez de fallar en silencio (HIGH del review)', async () => {
+    vi.mocked(deleteUbicaciones).mockRejectedValue(new Error('sin red'))
+    const wrapper = await montar()
+
+    await boton(wrapper, 'Borrar mi histórico').trigger('click')
+    await flushPromises()
+
+    expect(wrapper.text().toLowerCase()).toContain('no se ha podido borrar')
+  })
+
   it('apagar el interruptor revoca el consentimiento y desactiva en local', async () => {
     vi.mocked(deleteConsentimientoUbicacion).mockResolvedValue(undefined)
     const wrapper = await montar()
@@ -279,6 +289,20 @@ describe('PanelUbicacion — ya activada', () => {
 
     expect(deleteConsentimientoUbicacion).toHaveBeenCalledOnce()
     expect(marcaUbicacionDesactivada).toHaveBeenCalledOnce()
+  })
+
+  it('si el DELETE de revocación falla, NO se da por revocado: sigue activo y avisa (HIGH del review)', async () => {
+    vi.mocked(deleteConsentimientoUbicacion).mockRejectedValue(new Error('sin red'))
+    const wrapper = await montar()
+
+    await wrapper.find('input[type="checkbox"]').setValue(false)
+    await flushPromises()
+
+    expect(marcaUbicacionDesactivada).not.toHaveBeenCalled()
+    expect(
+      (wrapper.find('input[type="checkbox"]').element as HTMLInputElement).checked,
+    ).toBe(true)
+    expect(wrapper.text().toLowerCase()).toContain('no se ha podido')
   })
 
   it('al montar con la feature ya activa, repuebla la fecha de declaración del centro', async () => {
