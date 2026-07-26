@@ -126,6 +126,29 @@ public class UbicacionService {
     }
 
     /**
+     * Supresión granular (art. 17): NO borra la fila, anula latitud/longitud/
+     * distancia y marca el veredicto como {@link VeredictoUbicacion#SUPRIMIDA}
+     * (contrato §Backend punto 7). Deliberadamente SIN el filtro de
+     * consentimiento vigente: es el ejercicio del derecho de supresión, tiene
+     * que seguir disponible aunque el usuario haya revocado el consentimiento
+     * del art. 6.1.a (ver javadoc de la clase).
+     */
+    @Transactional
+    public void suprime(UUID usuarioId, UUID apunteId) {
+        UbicacionApunte ubicacion = ubicaciones.findById(apunteId)
+                .filter(u -> u.getUsuarioId().equals(usuarioId))
+                .orElseThrow(() -> new RecursoNoEncontradoException("Ubicación no encontrada"));
+        ubicacion.suprime();
+        ubicaciones.save(ubicacion);
+    }
+
+    /** Borra TODO el histórico de ubicaciones del usuario (art. 17). El diario de apuntes queda intacto. */
+    @Transactional
+    public void borraTodas(UUID usuarioId) {
+        ubicaciones.deleteByUsuarioId(usuarioId);
+    }
+
+    /**
      * Diferencia en minutos, circular (mod 24h), entre la hora declarada
      * ("HH:mm") y la hora LOCAL del sello (misma zona del Clock inyectado).
      * Circular porque un turno de cierre cruza la medianoche del reloj sin
