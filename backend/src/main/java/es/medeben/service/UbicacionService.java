@@ -18,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.Clock;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -60,8 +62,6 @@ public class UbicacionService {
      */
     static final int TOLERANCIA_HORA_SELLO_MINUTOS = 3;
 
-    private static final int MINUTOS_DIA = 24 * 60;
-
     private final ApunteLecturaRepository apuntes;
     private final CentroTrabajoRepository centros;
     private final UbicacionApunteRepository ubicaciones;
@@ -100,7 +100,7 @@ public class UbicacionService {
                     "Han pasado más de " + VENTANA_ADJUNTAR.toMinutes() + " minutos desde el fichaje");
         }
 
-        if (apunte.getHora() != null && diferenciaCircularMinutos(apunte.getHora(), apunte.getRegistradoEn())
+        if (apunte.getHora() != null && diferenciaMinutos(apunte.getFecha(), apunte.getHora(), apunte.getRegistradoEn())
                 > TOLERANCIA_HORA_SELLO_MINUTOS) {
             throw new UbicacionNoElegibleException(
                     "La hora declarada no coincide con el momento del fichaje");
@@ -149,20 +149,25 @@ public class UbicacionService {
     }
 
     /**
-     * Diferencia en minutos, circular (mod 24h), entre la hora declarada
-     * ("HH:mm") y la hora LOCAL del sello (misma zona del Clock inyectado).
-     * Circular porque un turno de cierre cruza la medianoche del reloj sin
-     * que eso signifique ninguna discrepancia real (mismo criterio que
-     * {@code FichajeService.minutosEntre}).
+     * Diferencia en minutos entre la hora declarada ("HH:mm", combinada con
+     * {@code Apunte.fecha}) y el sello LOCAL del servidor (misma zona del
+     * Clock inyectado), en DATETIME COMPLETO — nunca solo hora-del-día.
+     *
+     * <p>Corrección CRÍTICA (agujero circular): la versión anterior comparaba
+     * solo {@link LocalTime} con aritmética modular (mod 24h), así que una
+     * hora tecleada de madrugada ("00:01") con fecha=HOY y un sello de última
+     * hora del mismo día ("23:58") colapsaba a 3 minutos de "diferencia
+     * circular" cuando la discrepancia real era de casi 24 horas — exactamente
+     * el agujero del manual-de-hoy que esta regla debía cerrar. Al combinar
+     * {@code apunte.getFecha()} (la fecha real del apunte, no la del reloj)
+     * con la hora declarada, la diferencia sale literal: un turno de cierre
+     * que de verdad cruza la medianoche (hora declarada "23:59", sello ya en
+     * la madrugada del día siguiente) sigue dando pocos minutos sin necesidad
+     * de ningún ajuste adicional, porque el sello ya lleva su fecha real.</p>
      */
-    private long diferenciaCircularMinutos(String horaDeclarada, OffsetDateTime sello) {
-        int minutosDeclarados = minutosDelDia(LocalTime.parse(horaDeclarada));
-        int minutosSello = minutosDelDia(sello.atZoneSameInstant(reloj.getZone()).toLocalTime());
-        int diferencia = Math.abs(minutosDeclarados - minutosSello);
-        return Math.min(diferencia, MINUTOS_DIA - diferencia);
-    }
-
-    private static int minutosDelDia(LocalTime hora) {
-        return hora.getHour() * 60 + hora.getMinute();
+    private long diferenciaMinutos(LocalDate fecha, String horaDeclarada, OffsetDateTime sello) {
+        LocalDateTime declarado = LocalDateTime.of(fecha, LocalTime.parse(horaDeclarada));
+        LocalDateTime selloLocal = sello.atZoneSameInstant(reloj.getZone()).toLocalDateTime();
+        return Math.abs(Duration.between(declarado, selloLocal).toMinutes());
     }
 }

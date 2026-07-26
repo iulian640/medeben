@@ -210,6 +210,48 @@ class UbicacionServiceTest {
         verify(ubicaciones).save(any());
     }
 
+    @Test
+    @DisplayName("hora tecleada de madrugada con sello de última hora del mismo día rechaza — el agujero circular")
+    void horaTecleadaDeMadrugadaConSelloDeUltimaHoraDelMismoDiaRechaza() {
+        // Reloj "ahora" = 26-jul 23:59 Madrid: registradoEn (23:58) sigue dentro
+        // de la ventana de 10 min. Hora tecleada "00:01" (de esa MISMA fecha,
+        // Apunte.fecha no cambia): con distancia circular mod-24h, |1 - 1438|
+        // colapsa a 3 min y pasaba como coherente — exactamente el agujero del
+        // manual-de-hoy que la corrección crítica debía cerrar (26-jul a las
+        // 23:58 el usuario teclea «entré a las 00:01» y se ancla su ubicación
+        // actual, no la del inicio real del turno).
+        Clock relojDeMadrugada = Clock.fixed(Instant.parse("2026-07-26T21:59:00Z"), MADRID); // 23:59 local
+        UbicacionService servicioDeMadrugada = new UbicacionService(apuntes, centros, ubicaciones,
+                consentimientos, relojDeMadrugada);
+        Apunte manual = apunteConSello(OffsetDateTime.parse("2026-07-26T23:58:00+02:00"), "00:01");
+        when(apuntes.findById(APUNTE_ID)).thenReturn(Optional.of(manual));
+
+        assertThatThrownBy(() -> servicioDeMadrugada.adjunta(USUARIO, APUNTE_ID, CENTRO_LAT, CENTRO_LON, 20))
+                .isInstanceOf(UbicacionNoElegibleException.class);
+        verify(ubicaciones, never()).save(any());
+    }
+
+    @Test
+    @DisplayName("un apunte fechado ayer (gracia de FichajeService) con hora de ayer y sello de hoy rechaza")
+    void unApunteFechadoAyerConHoraDeAyerYSelloDeHoyRechaza() {
+        // Segundo hueco descrito por el verificador: esAlMomento() puede marcar
+        // CONFIRMADO un apunte fechado AYER hasta el mediodía de HOY
+        // (FichajeService.FIN_DE_GRACIA). A las 11:00 se crea un apunte con
+        // fecha=ayer, hora tecleada "10:58" (de ayer) y sello real de HOY
+        // ~11:00 — casi 24h de diferencia real, que la versión anterior (sin
+        // comparar la fecha del apunte) no detectaba.
+        Clock relojDeHoy = Clock.fixed(Instant.parse("2026-07-26T09:01:00Z"), MADRID); // 11:01 local, 26-jul
+        UbicacionService servicioDeHoy = new UbicacionService(apuntes, centros, ubicaciones,
+                consentimientos, relojDeHoy);
+        Apunte deAyer = new Apunte(USUARIO, LocalDate.of(2026, 7, 25), TipoApunte.ENTRADA, "10:58", null,
+                OrigenApunte.CONFIRMADO, OffsetDateTime.parse("2026-07-26T11:00:00+02:00"));
+        when(apuntes.findById(APUNTE_ID)).thenReturn(Optional.of(deAyer));
+
+        assertThatThrownBy(() -> servicioDeHoy.adjunta(USUARIO, APUNTE_ID, CENTRO_LAT, CENTRO_LON, 20))
+                .isInstanceOf(UbicacionNoElegibleException.class);
+        verify(ubicaciones, never()).save(any());
+    }
+
     // --- 422: centro vigente ---
 
     @Test
