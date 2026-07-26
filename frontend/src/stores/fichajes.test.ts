@@ -25,6 +25,7 @@ import { getHorarioSemana } from '../services/horario'
 import { postLogin } from '../services/auth'
 
 const apunteEntrada: ApunteGuardado = {
+  id: 'apunte-1',
   fecha: '2026-07-08',
   tipo: 'ENTRADA',
   hora: '14:05',
@@ -120,7 +121,7 @@ describe('fichajes store — el día', () => {
       rectificacionTardiaConfirmada: false,
     })
 
-    expect(apuntado).toBe(true)
+    expect(apuntado).toEqual(apunteEntrada)
     expect(fichajes.ultimoSello?.registradoEn).toBe('2026-07-08T14:05:12+02:00')
     expect(getEstadoDia).toHaveBeenCalledWith('2026-07-08')
     expect(fichajes.dia?.estado).toBe('EN_CURSO')
@@ -144,7 +145,7 @@ describe('fichajes store — el día', () => {
       rectificacionTardiaConfirmada: false,
     })
 
-    expect(apuntado).toBe(false)
+    expect(apuntado).toBeNull()
     expect(fichajes.conflictoSellado).toBe(true)
     expect(fichajes.error).toMatch(/quedó protegido/)
     expect(fichajes.ultimoSello).toBeNull()
@@ -164,7 +165,7 @@ describe('fichajes store — el día', () => {
       rectificacionTardiaConfirmada: false,
     })
 
-    expect(apuntado).toBe(false)
+    expect(apuntado).toBeNull()
     expect(fichajes.conflictoSellado).toBe(false)
     expect(fichajes.error).toBe('Hora inválida')
   })
@@ -189,11 +190,11 @@ describe('fichajes store — el día', () => {
     const primero = fichajes.fichar(peticion)
     const segundo = await fichajes.fichar(peticion)
 
-    expect(segundo).toBe(false)
+    expect(segundo).toBeNull()
     expect(postApunte).toHaveBeenCalledTimes(1)
 
     resolverPost(apunteEntrada)
-    expect(await primero).toBe(true)
+    expect(await primero).toEqual(apunteEntrada)
   })
 
   it('si el POST entra pero la relectura falla, lo dice honestamente y devuelve true', async () => {
@@ -211,7 +212,7 @@ describe('fichajes store — el día', () => {
       rectificacionTardiaConfirmada: false,
     })
 
-    expect(apuntado).toBe(true)
+    expect(apuntado).toEqual(apunteEntrada)
     expect(fichajes.ultimoSello).not.toBeNull()
     expect(fichajes.error).toMatch(/se ha guardado/)
     expect(fichajes.conflictoSellado).toBe(false)

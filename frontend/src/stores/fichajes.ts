@@ -78,23 +78,24 @@ export const useFichajesStore = defineStore('fichajes', () => {
   }
 
   /**
-   * Manda un apunte y relee el día. Devuelve true si el apunte quedó
-   * guardado (aunque la relectura posterior fallara). Un 409 = día sellado:
-   * se expone en conflictoSellado para que la UI pida la confirmación de
+   * Manda un apunte y relee el día. Devuelve el apunte guardado (con su id:
+   * quien llame lo necesita para adjuntarle algo después, p. ej. una
+   * ubicación) o null si no llegó a guardarse. Un 409 = día sellado: se
+   * expone en conflictoSellado para que la UI pida la confirmación de
    * rectificación tardía con fricción.
    */
-  async function fichar(peticion: ApuntePeticion): Promise<boolean> {
+  async function fichar(peticion: ApuntePeticion): Promise<ApunteGuardado | null> {
     if (fichando.value) {
       // Doble submit: ya hay un POST en vuelo, este toque no manda nada.
-      return false
+      return null
     }
     const miId = nuevaPeticion()
     fichando.value = true
     error.value = null
-    let apuntado = false
+    let apunteGuardado: ApunteGuardado | null = null
     try {
       const apunte = await postApunte(peticion)
-      apuntado = true
+      apunteGuardado = apunte
       if (sigueVigente(miId)) {
         ultimoSello.value = apunte
         conflictoSellado.value = false
@@ -106,7 +107,7 @@ export const useFichajesStore = defineStore('fichajes', () => {
       }
     } catch (e) {
       if (sigueVigente(miId)) {
-        if (apuntado) {
+        if (apunteGuardado) {
           // El apunte entró bien; solo falló la relectura del día.
           error.value = `Tu apunte se ha guardado, pero no se ha podido recargar el día. ${mensajeDeError(e)}`
         } else {
@@ -121,7 +122,7 @@ export const useFichajesStore = defineStore('fichajes', () => {
       // true y los botones de fichar quedarían deshabilitados para siempre.
       fichando.value = false
     }
-    return apuntado
+    return apunteGuardado
   }
 
   async function cargarSemana(lunesIso: string) {

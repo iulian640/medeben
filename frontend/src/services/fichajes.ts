@@ -20,6 +20,8 @@ export type OrigenApunte = 'CONFIRMADO' | 'RECONSTRUIDO' | 'RECTIFICACION_TARDIA
 export type EstadoDia = 'PENDIENTE' | 'EN_CURSO' | 'COMPLETO' | 'AUSENCIA' | 'HUECO' | 'NO_CUADRA'
 
 export interface ApunteGuardado {
+  /** Aditivo (contrato D9): sin el id no se le puede adjuntar nada al apunte, como una ubicación. */
+  id: string
   fecha: string
   tipo: TipoApunte
   /** "HH:mm" en entradas y salidas; null en las ausencias. */
