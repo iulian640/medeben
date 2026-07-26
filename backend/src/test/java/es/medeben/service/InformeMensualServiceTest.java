@@ -5,6 +5,7 @@ import es.medeben.domain.fichaje.EstadoDia;
 import es.medeben.domain.fichaje.OrigenApunte;
 import es.medeben.domain.fichaje.TipoApunte;
 import es.medeben.domain.usuario.Usuario;
+import es.medeben.repository.UbicacionApunteRepository;
 import es.medeben.repository.UsuarioRepository;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -43,6 +44,10 @@ class InformeMensualServiceTest {
     private ResumenMensualService resumenes;
     private FichajeService fichajes;
     private UsuarioRepository usuarios;
+    // Excepción de regresión admitida por el contrato de "Anotar dónde fichas":
+    // el constructor gana la dependencia de ubicaciones (overload sin ubicación
+    // delega en false, así que este mock nunca ve una llamada en esta suite).
+    private UbicacionApunteRepository ubicaciones;
     private InformeMensualService servicio;
 
     @BeforeEach
@@ -50,7 +55,8 @@ class InformeMensualServiceTest {
         resumenes = mock(ResumenMensualService.class);
         fichajes = mock(FichajeService.class);
         usuarios = mock(UsuarioRepository.class);
-        servicio = new InformeMensualService(resumenes, fichajes, usuarios, RELOJ);
+        ubicaciones = mock(UbicacionApunteRepository.class);
+        servicio = new InformeMensualService(resumenes, fichajes, usuarios, ubicaciones, RELOJ);
 
         Usuario usuario = mock(Usuario.class);
         when(usuario.getEmail()).thenReturn("ana@example.com");

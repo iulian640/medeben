@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Year;
@@ -38,9 +39,10 @@ public class InformeController {
 
     @GetMapping(value = "/mes/{anyoMes}", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<byte[]> informeMensual(
-            @AuthenticationPrincipal Jwt jwt, @PathVariable String anyoMes) {
+            @AuthenticationPrincipal Jwt jwt, @PathVariable String anyoMes,
+            @RequestParam(defaultValue = "false") boolean ubicacion) {
         YearMonth mes = MesPath.parsea(anyoMes);
-        byte[] pdf = informes.genera(UsuarioAutenticado.id(jwt), mes);
+        byte[] pdf = informes.genera(UsuarioAutenticado.id(jwt), mes, ubicacion);
         return ResponseEntity.ok()
                 .cacheControl(CacheControl.noStore())
                 .contentType(MediaType.APPLICATION_PDF)

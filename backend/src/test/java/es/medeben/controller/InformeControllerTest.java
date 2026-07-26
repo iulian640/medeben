@@ -65,7 +65,9 @@ class InformeControllerTest {
     @Test
     @DisplayName("GET con token → PDF adjunto con nombre limpio y sin caché compartida")
     void descargaPdf() throws Exception {
-        when(informes.genera(eq(USUARIO), eq(YearMonth.of(2026, 7)))).thenReturn(PDF);
+        // El controller SIEMPRE llama al overload de 3 argumentos (contrato §Backend,
+        // punto 10: @RequestParam(defaultValue="false")); sin el query param, ubicacion=false.
+        when(informes.genera(eq(USUARIO), eq(YearMonth.of(2026, 7)), eq(false))).thenReturn(PDF);
 
         mockMvc.perform(get("/api/v1/informes/mes/2026-07").with(comoUsuario()))
                 .andExpect(status().isOk())
@@ -73,6 +75,16 @@ class InformeControllerTest {
                 .andExpect(header().string("Cache-Control", containsString("no-store")))
                 .andExpect(header().string("Content-Disposition",
                         containsString("attachment; filename=\"medeben-informe-2026-07.pdf\"")))
+                .andExpect(content().bytes(PDF));
+    }
+
+    @Test
+    @DisplayName("?ubicacion=true propaga la casilla al servicio")
+    void ubicacionActivadaPropagaAlServicio() throws Exception {
+        when(informes.genera(eq(USUARIO), eq(YearMonth.of(2026, 7)), eq(true))).thenReturn(PDF);
+
+        mockMvc.perform(get("/api/v1/informes/mes/2026-07?ubicacion=true").with(comoUsuario()))
+                .andExpect(status().isOk())
                 .andExpect(content().bytes(PDF));
     }
 

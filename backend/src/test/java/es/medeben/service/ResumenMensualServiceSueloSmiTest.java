@@ -9,6 +9,7 @@ import es.medeben.domain.usuario.Perfil;
 import es.medeben.domain.usuario.Usuario;
 import es.medeben.repository.ConvenioCatalog;
 import es.medeben.repository.HechosCatalog;
+import es.medeben.repository.UbicacionApunteRepository;
 import es.medeben.repository.UsuarioRepository;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -206,7 +207,8 @@ class ResumenMensualServiceSueloSmiTest {
                 Map.of("tabla", "general", "nivel", "V", "claseEmpresa", "C"), null);
 
         ResumenMensual r = servicio.delMes(USUARIO, JULIO);
-        InformeMensualService informe = new InformeMensualService(servicio, fichajes, usuarios, RELOJ);
+        InformeMensualService informe = new InformeMensualService(servicio, fichajes, usuarios,
+                mock(UbicacionApunteRepository.class), RELOJ);
         String texto = textoPdf(informe.genera(USUARIO, JULIO));
 
         // La cifra corregida del resumen es la que se maqueta en el PDF (D35).
