@@ -8,7 +8,12 @@
  * ordinario); `CentroTrabajoGuardado` no las lleva.
  */
 import { api, ApiError } from './api'
-import { capturaPosicion, registraIntentoUbicacion, type Posicion } from '../lib/ubicacion'
+import {
+  capturaPosicion,
+  limpiaIntentosUbicacion,
+  registraIntentoUbicacion,
+  type Posicion,
+} from '../lib/ubicacion'
 
 /** Texto canónico versionado (docs/legal/consentimiento-ubicacion-v1.0.md, fuera de este lane). */
 export const VERSION_CONSENTIMIENTO_UBICACION = '1.0'
@@ -84,6 +89,22 @@ function marcaAvisoConsentimientoCaducado(): void {
   } catch {
     // ídem
   }
+}
+
+/**
+ * Borra TODO el estado local de "Anotar dónde fichas" (dispositivo
+ * compartido, review HIGH): las tres claves ('activa', 'aviso-caducado',
+ * 'intentos-sin-permiso') son del DISPOSITIVO, no de la cuenta — sin esto, el
+ * siguiente usuario que fiche en la misma tablet heredaría el flag de
+ * activación de quien nunca vio la pantalla de consentimiento, y su primer
+ * fichaje capturaría y enviaría SU posición bajo ese flag ajeno. Se llama
+ * desde `limpiarMemoria()` del store de auth, junto al resto del estado que
+ * no puede sobrevivir a un cambio de usuario en el mismo terminal.
+ */
+export function limpiaEstadoLocalUbicacion(): void {
+  marcaUbicacionDesactivada()
+  limpiaAvisoConsentimientoCaducado()
+  limpiaIntentosUbicacion()
 }
 
 // --- HTTP ---

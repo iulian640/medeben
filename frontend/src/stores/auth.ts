@@ -12,6 +12,7 @@ import {
   postVerificaEmail,
 } from '../services/auth'
 import { mensajeDeError } from '../lib/formato'
+import { limpiaEstadoLocalUbicacion } from '../services/ubicacion'
 import {
   almacenamientoFunciona,
   borrarSesionPersistida,
@@ -204,6 +205,12 @@ export const useAuthStore = defineStore('auth', () => {
    * datos salariales ni la libreta del anterior. La dependencia va en un solo
    * sentido (auth → cuenta/fichajes; ninguno importa auth), así que no hay
    * ciclo entre stores.
+   *
+   * También purga el estado LOCAL (no de Pinia) de "Anotar dónde fichas"
+   * (review HIGH): esas tres claves de localStorage son del dispositivo, no
+   * de la cuenta — sin esto, el siguiente usuario en la misma tablet heredaría
+   * el flag de activación de quien nunca consintió, y su primer fichaje
+   * capturaría y enviaría su posición bajo ese flag ajeno.
    */
   function limpiarMemoria() {
     token.value = null
@@ -224,6 +231,7 @@ export const useAuthStore = defineStore('auth', () => {
     useFichajesStore().limpiar()
     useResumenStore().limpiar()
     usePerfilStore().limpiar()
+    limpiaEstadoLocalUbicacion()
   }
 
   /**

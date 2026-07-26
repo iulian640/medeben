@@ -131,3 +131,16 @@ export function avisoPermisoCaducado(): boolean {
     return false
   }
 }
+
+/**
+ * Borra el contador de intentos sin permiso (dispositivo compartido, review
+ * HIGH): sin esto, el siguiente usuario en la misma tablet heredaría el
+ * contador de fichajes fallidos de otra persona.
+ */
+export function limpiaIntentosUbicacion(): void {
+  try {
+    globalThis.localStorage?.removeItem(CLAVE_INTENTOS_SIN_PERMISO)
+  } catch {
+    // ídem: sin storage no hay nada que limpiar.
+  }
+}
