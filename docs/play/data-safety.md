@@ -77,7 +77,9 @@ Para **cada** tipo de dato recogido, Play pide siempre las mismas 4 sub-respuest
   provincia + tipo de establecimiento no se puede localizar el convenio, que es
   la función nuclear de la app; por eso se declara como obligatorio. **No es
   ubicación del dispositivo:** la provincia la teclea el usuario, no viene del
-  GPS, así que **NO** se marca la categoría "Ubicación".
+  GPS. Esta casilla sigue sin marcar la categoría "Ubicación" — esa categoría
+  se marca aparte, en **1.6**, por la función opcional «Anotar dónde fichas»
+  (ADR D39), que es la única fuente real de datos de ubicación del dispositivo.
 
 ### 1.3 · Información financiera → Otra información financiera (salario)
 - **Marcar:** SÍ, recogido. (Categoría: *Financial info > Other financial info*.)
@@ -124,6 +126,25 @@ Para **cada** tipo de dato recogido, Play pide siempre las mismas 4 sub-respuest
 - **Recordatorio de cifrado:** no marques nada que insinúe cifrado en reposo del
   motivo. Play no lo pregunta y aún no existe (C4).
 
+### 1.6 · Ubicación → Ubicación aproximada («Anotar dónde fichas», ADR D39)
+- **Marcar:** SÍ, recogido. (Categoría: *Location > Approximate location*.)
+- **Compartido:** No.
+- **Efímero:** No.
+- **Obligatorio / opcional:** **Opcional** (optional) — **apagada de fábrica**,
+  el usuario tiene que activarla explícitamente.
+- **Finalidad:** *Funcionamiento de la app* (App functionality).
+- Nota: si el usuario activa «Anotar dónde fichas», al registrar un fichaje al
+  momento se guarda su posición aproximada (`ACCESS_COARSE_LOCATION`, nunca
+  `FINE`, nunca en segundo plano) junto a ese fichaje. Base jurídica **art.
+  6.1.a RGPD** (consentimiento inequívoco y expreso, casilla no premarcada) —
+  distinta de la 6.1.b del resto de datos, porque aquí sí hace falta consentir
+  de forma expresa. No se comparte con otros usuarios ni con terceros; la
+  resolución de la posición la realiza el proveedor de ubicación del sistema
+  (Google Play Services) como responsable independiente. El usuario puede
+  desactivarla y borrar su histórico de ubicaciones en un toque; retención
+  propia de hasta 15 meses (frente al resto de datos, que se conservan
+  mientras exista la cuenta).
+
 ---
 
 ## Bloque 2 — Tipos de datos que NO se recogen (marcar "No")
@@ -133,7 +154,6 @@ checklist para no dejarte ninguna casilla:
 
 | Categoría Play | ¿Se recoge? | Por qué |
 |---|---|---|
-| Ubicación (aproximada o precisa del dispositivo) | **No** | Sin permiso de ubicación en el manifest (solo INTERNET). La provincia la teclea el usuario, no el GPS. |
 | Información personal → Nombre | **No** | No se pide nombre (privacidad §2). |
 | Información personal → Nº de teléfono | **No** | No se pide teléfono. |
 | Información personal → Dirección física | **No** | No se pide. |
@@ -150,8 +170,13 @@ checklist para no dejarte ninguna casilla:
 | Info y rendimiento de la app → Registros de fallos / diagnóstico | **No** | No hay SDK de crashes ni analítica de terceros (privacidad §2). |
 | Identificadores → ID de dispositivo o de publicidad | **No** | No se usa Advertising ID ni analítica; nada de tracking. |
 
-Nota general: la coartada técnica es el `AndroidManifest.xml`, que declara
-**solo el permiso INTERNET**. No hay cámara, ubicación, almacenamiento ni
+Nota general: el `AndroidManifest.xml` ya **no** declara solo INTERNET —
+también declara `ACCESS_COARSE_LOCATION` para la función opcional «Anotar
+dónde fichas» (ver **1.6**), con `ACCESS_FINE_LOCATION` explícitamente
+excluida vía `tools:node="remove"`. Verificar siempre el manifest
+**mergeado** (`android/app/build/intermediates/merged_manifests/`), no solo
+el declarado por la app, antes de rellenar este formulario o de subir
+cualquier artefacto a Play. Fuera de eso, no hay cámara, almacenamiento ni
 identificadores de publicidad que declarar.
 
 ---
@@ -193,6 +218,7 @@ identificadores de publicidad que declarar.
 | Salario | Financial info → Otra financiera | Opcional | Funcionamiento | art. 6.1.b |
 | Jornada (fichajes/horario/ausencias) | App activity → Contenido del usuario | Opcional | Funcionamiento | art. 6.1.b |
 | Motivo de ausencia | Health → Health info | Opcional | Funcionamiento | art. 9.2.f |
+| Ubicación aproximada al fichar (opcional) | Location → Approximate location | Opcional (apagada de fábrica) | Funcionamiento | art. 6.1.a |
 | Cifrado en tránsito | — | — | — | Sí (A6) |
 | Borrado | — | — | — | Sí, in-app + URL (A2) |
 | Compartir con terceros | — | — | — | No (§6) |
