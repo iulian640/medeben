@@ -98,6 +98,39 @@ ya eligió el 9.2.f y es el encaje correcto.
 
 ---
 
+## (D) Bloqueante SOLO si se activa «Anotar dónde fichas» en Play (ADR D39)
+
+Esta feature nace apagada de fábrica y no se sube a ninguna pista de Play
+mientras el lanzamiento siga bloqueado por la verificación de dispositivo
+Android físico. Cuando llegue el momento de subir un artefacto con el
+permiso de ubicación, estos dos puntos son bloqueantes:
+
+- **D1 · Verificación del manifest MERGEADO antes de cualquier subida.** El
+  manifest merger de AGP hace la unión de permisos de la app y de sus
+  librerías: `@capacitor/geolocation` declara `ACCESS_FINE_LOCATION` en su
+  propio manifest aunque la app solo pida `ACCESS_COARSE_LOCATION`. Antes de
+  subir a **cualquier** pista (incluida prueba interna), ejecutar
+  `npx cap sync android && ./gradlew :app:processReleaseManifest` y leer
+  `android/app/build/intermediates/merged_manifests/` para confirmar que
+  aparece exactamente `ACCESS_COARSE_LOCATION` y que `ACCESS_FINE_LOCATION`
+  se excluyó vía `tools:node="remove"`. Repetir esta comprobación tras
+  cualquier actualización del plugin o de Capacitor.
+- **D2 · Los textos legales van antes que el permiso.** Regla dura: los
+  documentos legales y de Play (`docs/legal/privacidad.md` +
+  `PrivacidadView.vue`, `docs/legal/disclaimers.md`,
+  `docs/play/data-safety.md`, `docs/play/iarc.md`, `docs/play/ficha.md`) se
+  publican **antes o en el mismo momento** que se sube un artefacto cuyo
+  manifest mergeado contenga el permiso de ubicación — nunca después. Un
+  revisor que abra el manifest y vea un permiso que la ficha de Data Safety
+  declara inexistente es la vía rápida a la suspensión de la cuenta de
+  desarrollador (ya advertido en la sección "Data Safety: la decisión de
+  criterio" de la síntesis del diseño). Checklist mínimo antes de subir:
+  - [ ] `docs/play/data-safety.md` fila "Ubicación" dice "Sí" (ya hecho, D39).
+  - [ ] `privacidad.md` / `PrivacidadView.vue` mencionan la base 6.1.a y la
+        retención de 15 meses (ya hecho, D39).
+  - [ ] El manifest mergeado se ha leído y confirma D1.
+  - [ ] RAT/EIPD reevaluados (checklist en `docs/ADR.md`, final de D39).
+
 ## Orden sugerido para el lanzamiento
 
 1. Elegir VPS UE + firmar DPA (B7). 2. Redactar y publicar los 4 documentos

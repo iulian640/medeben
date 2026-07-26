@@ -168,8 +168,9 @@ const hayErrorCampo = computed(() => errorCliente.value !== null || auth.error !
         Tu email, tu contraseña y lo que apuntes de tu jornada los trata
         <strong>Iulian Timofei</strong> con un solo fin: que la app te sirva
         —registrar tu jornada, calcular lo que pudieran deberte y generarte tu
-        informe—. Se guardan mientras tengas la cuenta; si la borras, se borra
-        todo de verdad.
+        informe—, y lo que actives más adelante, con su propia explicación. Se
+        guardan mientras tengas la cuenta; si la borras, se borra todo de
+        verdad.
       </p>
 
       <button
