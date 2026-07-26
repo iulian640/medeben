@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useResumenStore } from '../stores/resumen'
-import { getInformeAnio, getInformeMes } from '../services/resumen'
+import { getAnexoUbicacionMes, getInformeAnio, getInformeMes } from '../services/resumen'
+import { ubicacionActivada } from '../services/ubicacion'
 import { formatearHoras, formatearImporte, mensajeDeError } from '../lib/formato'
 import { formatearMinutos } from '../lib/libreta'
 import { etiquetaMes } from '../lib/meses'
@@ -70,6 +71,13 @@ const faltaDatoDelConvenio = computed(() => resumen.incompletoCodigo === 'DATOS_
 const descargandoInforme = ref(false)
 const errorInforme = ref<string | null>(null)
 
+/** Solo se ofrece a quien tiene "Anotar dónde fichas" activada; el resto ni ve la sección. */
+const featureUbicacionActiva = ubicacionActivada()
+/** Casilla del informe: SIEMPRE desmarcada por defecto (contrato §Frontend punto 8). */
+const incluirUbicacion = ref(false)
+const descargandoAnexo = ref(false)
+const errorAnexo = ref<string | null>(null)
+
 async function descargaPdf(nombre: string, pide: () => Promise<Blob>) {
   if (descargandoInforme.value) {
     return
@@ -99,12 +107,43 @@ async function descargaPdf(nombre: string, pide: () => Promise<Blob>) {
  * contenido (es evidencia: un julio guardado como junio sería un dato falso). */
 function descargaInforme() {
   const mes = resumen.mes
-  return descargaPdf(`medeben-informe-${mes}.pdf`, () => getInformeMes(mes))
+  const conUbicacion = incluirUbicacion.value
+  return descargaPdf(`medeben-informe-${mes}.pdf`, () => getInformeMes(mes, conUbicacion))
 }
 
 function descargaHistorico() {
   const anio = resumen.mes.slice(0, 4)
   return descargaPdf(`medeben-historico-${anio}.pdf`, () => getInformeAnio(anio))
+}
+
+/*
+ * El anexo técnico (Fase 3 del diseño) es el ÚNICO canal por el que salen
+ * coordenadas del sistema: nunca automático, siempre bajo esta acción
+ * explícita, con su propio aviso en pantalla (nunca solo en un tooltip).
+ */
+async function descargaAnexoUbicacion() {
+  if (descargandoAnexo.value) {
+    return
+  }
+  const mes = resumen.mes
+  descargandoAnexo.value = true
+  errorAnexo.value = null
+  try {
+    const pdf = await getAnexoUbicacionMes(mes)
+    const url = URL.createObjectURL(pdf)
+    try {
+      const enlace = document.createElement('a')
+      enlace.href = url
+      enlace.download = `medeben-anexo-ubicacion-${mes}.pdf`
+      enlace.click()
+    } finally {
+      URL.revokeObjectURL(url)
+    }
+  } catch (e) {
+    errorAnexo.value = mensajeDeError(e)
+  } finally {
+    descargandoAnexo.value = false
+  }
 }
 
 /* Un error del informe pertenece al mes en que ocurrió: al cambiar de mes se retira. */
@@ -376,6 +415,17 @@ watch(
       <!-- La evidencia en papel (README): el diario sellado, las cuentas y
            sus fuentes, generado por el backend con el mismo motor. -->
       <div class="informe">
+        <label
+          v-if="featureUbicacionActiva"
+          class="casilla-ubicacion"
+        >
+          <input
+            id="incluir-ubicacion-informe"
+            v-model="incluirUbicacion"
+            type="checkbox"
+          >
+          Incluir la ubicación anotada en cada fichaje
+        </label>
         <button
           type="button"
           class="boton-secundario boton--ancho"
@@ -404,6 +454,31 @@ watch(
         >
           {{ errorInforme }}
         </p>
+
+        <div
+          v-if="featureUbicacionActiva"
+          class="anexo-ubicacion"
+        >
+          <p class="texto-xs texto-suave">
+            Este anexo contiene tus coordenadas aproximadas: entrégalo solo a
+            tu abogado o tu sindicato, nunca a tu empresa.
+          </p>
+          <button
+            type="button"
+            class="boton-fantasma"
+            :disabled="descargandoAnexo"
+            @click="descargaAnexoUbicacion"
+          >
+            {{ descargandoAnexo ? 'Generando el anexo...' : 'Descargar el anexo con tus coordenadas (PDF)' }}
+          </button>
+          <p
+            v-if="errorAnexo"
+            class="aviso-bloque"
+            role="alert"
+          >
+            {{ errorAnexo }}
+          </p>
+        </div>
       </div>
 
       <!-- D18: no me creas, compruébalo. -->

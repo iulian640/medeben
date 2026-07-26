@@ -53,8 +53,22 @@ export const getResumenMes = (anyoMes: string) =>
 /**
  * El informe mensual en PDF (la evidencia que promete el README): lo genera
  * el backend con el mismo motor que este resumen — aquí solo se descarga.
+ *
+ * `ubicacion`: la casilla de "incluir ubicación" en la UI, SIEMPRE desmarcada
+ * por defecto (contrato §Frontend punto 8). Sin ella, el parámetro ni se
+ * manda: el informe de quien nunca activó la feature es EXACTAMENTE el de
+ * siempre, byte a byte.
  */
-export const getInformeMes = (anyoMes: string) => api.getBlob(`/informes/mes/${anyoMes}`)
+export const getInformeMes = (anyoMes: string, ubicacion = false) =>
+  api.getBlob(`/informes/mes/${anyoMes}${ubicacion ? '?ubicacion=true' : ''}`)
+
+/**
+ * El anexo técnico con las coordenadas aproximadas (Fase 3 del diseño): el
+ * ÚNICO canal por el que salen coordenadas del sistema. Nunca automático,
+ * siempre bajo una acción explícita del usuario con su propio aviso en la UI.
+ */
+export const getAnexoUbicacionMes = (anyoMes: string) =>
+  api.getBlob(`/informes/mes/${anyoMes}/anexo-ubicacion`)
 
 /**
  * El histórico anual en PDF: el año mes a mes con totales. El backend lo

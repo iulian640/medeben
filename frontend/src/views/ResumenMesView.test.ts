@@ -10,9 +10,14 @@ vi.mock('../services/resumen', () => ({
   getResumenMes: vi.fn(),
   getInformeMes: vi.fn(),
   getInformeAnio: vi.fn(),
+  getAnexoUbicacionMes: vi.fn(),
+}))
+vi.mock('../services/ubicacion', () => ({
+  ubicacionActivada: vi.fn().mockReturnValue(false),
 }))
 
-import { getInformeAnio, getInformeMes, getResumenMes } from '../services/resumen'
+import { getAnexoUbicacionMes, getInformeAnio, getInformeMes, getResumenMes } from '../services/resumen'
+import { ubicacionActivada } from '../services/ubicacion'
 
 const Stub = { template: '<div />' }
 
@@ -294,7 +299,8 @@ describe('ResumenMesView', () => {
     await botonInforme!.trigger('click')
     await flushPromises()
 
-    expect(getInformeMes).toHaveBeenCalledWith(expect.stringMatching(/^\d{4}-\d{2}$/))
+    // Sin marcar la casilla de ubicación: el informe pedido es el de siempre.
+    expect(getInformeMes).toHaveBeenCalledWith(expect.stringMatching(/^\d{4}-\d{2}$/), false)
     expect(crearUrl).toHaveBeenCalled()
     expect(click).toHaveBeenCalled()
     expect(revocarUrl).toHaveBeenCalledWith('blob:falsa')
@@ -412,6 +418,70 @@ describe('ResumenMesView', () => {
     expect(wrapper.find('.informe [role="alert"]').text()).toContain('No se pudo generar el informe')
     // La cifra del mes sigue en pantalla: el fallo del PDF no rompe el resumen.
     expect(wrapper.find('.importe').exists()).toBe(true)
+  })
+
+  it('sin la feature de ubicación activada, no hay casilla ni anexo: es el informe de siempre', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    vi.mocked(ubicacionActivada).mockReturnValue(false)
+
+    const wrapper = await montar()
+
+    expect(wrapper.find('#incluir-ubicacion-informe').exists()).toBe(false)
+    expect(wrapper.findAll('button').find((b) => b.text().includes('anexo'))).toBeUndefined()
+  })
+
+  it('con la feature activada, la casilla de ubicación aparece DESMARCADA por defecto', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    vi.mocked(ubicacionActivada).mockReturnValue(true)
+
+    const wrapper = await montar()
+
+    const casilla = wrapper.find<HTMLInputElement>('#incluir-ubicacion-informe')
+    expect(casilla.exists()).toBe(true)
+    expect(casilla.element.checked).toBe(false)
+  })
+
+  it('marcando la casilla, el informe se pide CON ubicación', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    vi.mocked(ubicacionActivada).mockReturnValue(true)
+    vi.mocked(getInformeMes).mockResolvedValue(new Blob(['%PDF']))
+    URL.createObjectURL = vi.fn(() => 'blob:falsa')
+    URL.revokeObjectURL = vi.fn()
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+
+    const wrapper = await montar()
+    await wrapper.find('#incluir-ubicacion-informe').setValue(true)
+    await wrapper
+      .findAll('button')
+      .find((b) => b.text().includes('Descargar el informe'))!
+      .trigger('click')
+    await flushPromises()
+
+    expect(getInformeMes).toHaveBeenCalledWith(expect.stringMatching(/^\d{4}-\d{2}$/), true)
+    click.mockRestore()
+  })
+
+  it('el acceso al anexo técnico avisa de que lleva coordenadas y se entrega solo al abogado', async () => {
+    vi.mocked(getResumenMes).mockResolvedValue(resumenServidor())
+    vi.mocked(ubicacionActivada).mockReturnValue(true)
+    vi.mocked(getAnexoUbicacionMes).mockResolvedValue(new Blob(['%PDF']))
+    URL.createObjectURL = vi.fn(() => 'blob:falsa')
+    URL.revokeObjectURL = vi.fn()
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+
+    const wrapper = await montar()
+
+    expect(wrapper.text()).toContain('coordenadas')
+    expect(wrapper.text().toLowerCase()).toContain('abogado')
+
+    await wrapper
+      .findAll('button')
+      .find((b) => b.text().includes('anexo'))!
+      .trigger('click')
+    await flushPromises()
+
+    expect(getAnexoUbicacionMes).toHaveBeenCalledWith(expect.stringMatching(/^\d{4}-\d{2}$/))
+    click.mockRestore()
   })
 
   it('las citas de la cifra están ahí (D18: no me creas, compruébalo)', async () => {
