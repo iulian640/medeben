@@ -41,10 +41,21 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
         trata como <strong>categoría especial (art. 9 RGPD)</strong>; es
         opcional y puedes dejarlo en blanco.
       </li>
+      <li>
+        <strong>Ubicación aproximada al fichar (opcional, solo si la
+          activas):</strong> si activas «Anotar dónde fichas», cuando
+        registres un fichaje al momento guardamos tu posición aproximada
+        (precisión de barrio, no de portal) junto a ese fichaje, para
+        acompañar tu registro horario. Puedes activarla, desactivarla y
+        borrar tu histórico de ubicaciones cuando quieras (ver base jurídica
+        y conservación propias más abajo).
+      </li>
     </ul>
     <p>
-      No pedimos ni almacenamos tu nombre, DNI ni teléfono. No usamos analítica
-      de terceros.
+      No pedimos tu nombre, tu DNI ni tu teléfono. Tampoco usamos analítica de
+      terceros. Las únicas coordenadas que tratamos son las que tú decides
+      compartir al activar «Anotar dónde fichas» — nunca sin tu consentimiento
+      inequívoco y expreso.
     </p>
 
     <h2>3. Para qué (finalidades)</h2>
@@ -64,6 +75,13 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
         <strong>Art. 9.2.f RGPD</strong> (formulación y defensa de
         reclamaciones) para el posible dato de salud del motivo de ausencia.
       </li>
+      <li>
+        <strong>Art. 6.1.a RGPD</strong> (tu consentimiento inequívoco y
+        expreso, recabado mediante acción afirmativa y casilla no
+        premarcada) para la ubicación aproximada al fichar, si activas esta
+        opción. Puedes retirarlo en cualquier momento, con un toque, sin que
+        afecte a la licitud del tratamiento previo.
+      </li>
     </ul>
 
     <h2>5. Conservación</h2>
@@ -71,6 +89,12 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
       Mientras mantengas tu cuenta. Si la eliminas, tus datos se
       <strong>borran de verdad</strong> (no hay copia oculta). Como referencia,
       las reclamaciones laborales prescriben al año (art. 59 ET).
+    </p>
+    <p>
+      La ubicación aproximada de tus fichajes tiene un plazo
+      <strong>propio y más corto</strong>: hasta 15 meses desde cada fichaje,
+      salvo que declares una reclamación en curso. Pasado el plazo se borra
+      automáticamente; tu fichaje permanece.
     </p>
 
     <h2>6. Destinatarios y encargados</h2>
@@ -83,6 +107,13 @@ import DocumentoLegal from '../components/DocumentoLegal.vue'
       residen en la UE; cualquier acceso auxiliar desde fuera de la UE por el
       grupo Oracle queda amparado por el Marco de Privacidad de Datos
       UE-EE.&nbsp;UU. y cláusulas contractuales tipo.
+    </p>
+    <p>
+      Si activas «Anotar dónde fichas», la resolución de tu posición
+      aproximada la realiza el proveedor de servicios de ubicación de tu
+      sistema operativo (<strong>Google Play Services</strong>), como
+      <strong>responsable independiente</strong> de ese tratamiento concreto
+      y según su propia política — fuera de nuestro control.
     </p>
 
     <h2>7. Tus derechos</h2>
