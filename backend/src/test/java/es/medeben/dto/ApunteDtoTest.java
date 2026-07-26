@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -35,16 +36,19 @@ class ApunteDtoTest {
     }
 
     @Test
-    @DisplayName("ApunteResponse.toString redacta el motivo pero conserva el resto de campos")
+    @DisplayName("ApunteResponse.toString redacta el motivo pero conserva el resto de campos, id incluido")
     void responseRedactaMotivo() {
-        var respuesta = new ApunteResponse(FECHA, TipoApunte.AUSENCIA, null, MOTIVO,
+        UUID id = UUID.randomUUID();
+        var respuesta = new ApunteResponse(id, FECHA, TipoApunte.AUSENCIA, null, MOTIVO,
                 OrigenApunte.CONFIRMADO, OffsetDateTime.parse("2026-07-08T09:00:00+02:00"));
 
         assertThat(respuesta.toString())
                 .doesNotContain(MOTIVO)
                 .doesNotContain("migraña")
                 .contains("<redactado>")
-                .contains("CONFIRMADO");
+                .contains("CONFIRMADO")
+                .contains(id.toString());
+        assertThat(respuesta.id()).isEqualTo(id);
     }
 
     @Test
