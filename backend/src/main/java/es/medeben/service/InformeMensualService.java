@@ -11,6 +11,9 @@ import es.medeben.domain.fichaje.Apunte;
 import es.medeben.domain.fichaje.EstadoDia;
 import es.medeben.domain.fichaje.OrigenApunte;
 import es.medeben.domain.fichaje.TipoApunte;
+import es.medeben.domain.fichaje.UbicacionApunte;
+import es.medeben.domain.fichaje.VeredictoUbicacion;
+import es.medeben.repository.UbicacionApunteRepository;
 import es.medeben.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,11 +26,14 @@ import java.time.YearMonth;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static es.medeben.service.PdfInforme.IMPORTE;
 import static es.medeben.service.PdfInforme.SUAVE;
@@ -90,17 +96,41 @@ public class InformeMensualService {
             TipoApunte.SALIDA, "Salida",
             TipoApunte.AUSENCIA, "Ausencia");
 
+    /**
+     * Etiquetas de "Anotar dónde fichas" (contrato §Backend, punto 10). FUERA
+     * se rotula "en otra ubicación" (nunca "incidencia") y SIN distancia
+     * numérica: la distancia a un punto que la empresa conoce podría revelar
+     * el domicilio del trabajador si fichó por error desde casa. Por eso
+     * ninguno de los tres veredictos geométricos imprime distancia en el PDF
+     * principal — la fina, con su margen de error, solo en el anexo técnico
+     * (endpoint aparte), que es del titular.
+     */
+    private static final Map<VeredictoUbicacion, String> ETIQUETA_VEREDICTO = Map.of(
+            VeredictoUbicacion.DENTRO, "en el centro",
+            VeredictoUbicacion.FUERA, "en otra ubicación",
+            VeredictoUbicacion.NO_CONCLUYENTE, "no concluyente",
+            VeredictoUbicacion.SUPRIMIDA, "ubicación retirada por el titular");
+
     private final ResumenMensualService resumenes;
     private final FichajeService fichajes;
     private final UsuarioRepository usuarios;
+    private final UbicacionApunteRepository ubicaciones;
     private final Clock reloj;
 
     public InformeMensualService(ResumenMensualService resumenes, FichajeService fichajes,
-                                 UsuarioRepository usuarios, Clock reloj) {
+                                 UsuarioRepository usuarios, UbicacionApunteRepository ubicaciones,
+                                 Clock reloj) {
         this.resumenes = resumenes;
         this.fichajes = fichajes;
         this.usuarios = usuarios;
+        this.ubicaciones = ubicaciones;
         this.reloj = reloj;
+    }
+
+    /** Overload sin ubicación: el informe de siempre, sin tocar ni una línea (no-regresión). */
+    @Transactional(readOnly = true)
+    public byte[] genera(UUID usuarioId, YearMonth mes) {
+        return genera(usuarioId, mes, false);
     }
 
     /**
@@ -108,14 +138,27 @@ public class InformeMensualService {
      * {@link ResumenMensualService#delMes}, así que hereda sus mismas
      * salvaguardas: 400 si el mes es futuro y 422 (con la guía de qué falta)
      * si no hay perfil, horario o tabla — nunca un PDF con cifras inventadas.
+     *
+     * @param incluyeUbicacion casilla desmarcada por defecto en la UI
+     *                         (contrato §Backend/§8 síntesis): con ella activa,
+     *                         cada apunte con ubicación anotada gana una línea
+     *                         (nunca coordenadas, nunca distancia en FUERA).
      */
     @Transactional(readOnly = true)
-    public byte[] genera(UUID usuarioId, YearMonth mes) {
+    public byte[] genera(UUID usuarioId, YearMonth mes, boolean incluyeUbicacion) {
         ResumenMensual resumen = resumenes.delMes(usuarioId, mes);
         LocalDate hoy = LocalDate.now(reloj);
         LocalDate finListado = min(mes.atEndOfMonth(), hoy);
         Map<LocalDate, EstadoDia> dias = fichajes.estadosDelPeriodo(usuarioId, mes.atDay(1), finListado);
         String email = usuarios.findById(usuarioId).map(u -> u.getEmail()).orElse("(cuenta no disponible)");
+        // UNA sola query para todo el mes (anti N+1, misma disciplina que estadosDelPeriodo).
+        // Sin el parámetro activado, ni se consulta: el informe de quien no usa la
+        // feature no cambia aunque haya filas en base.
+        Map<UUID, UbicacionApunte> ubicacionesPorApunte = incluyeUbicacion
+                ? ubicaciones.findByUsuarioIdAndFechaBetween(usuarioId, mes.atDay(1), finListado).stream()
+                        .collect(Collectors.toMap(UbicacionApunte::getApunteId, Function.identity(),
+                                (a, b) -> a, LinkedHashMap::new))
+                : Map.of();
 
         try (ByteArrayOutputStream salida = new ByteArrayOutputStream()) {
             Document doc = new Document(PageSize.A4, 48, 48, 48, 56);
@@ -126,9 +169,9 @@ public class InformeMensualService {
                 cabecera(doc, mes, email);
                 resumenDelMes(doc, resumen);
                 avisos(doc, resumen.avisos());
-                diario(doc, mes, finListado, dias);
+                diario(doc, mes, finListado, dias, ubicacionesPorApunte);
                 fuentes(doc, resumen);
-                comoLeerlo(doc, resumen);
+                comoLeerlo(doc, resumen, incluyeUbicacion);
             } finally {
                 if (doc.isOpen()) {
                     doc.close();
@@ -238,7 +281,8 @@ public class InformeMensualService {
         doc.add(espacio());
     }
 
-    private void diario(Document doc, YearMonth mes, LocalDate fin, Map<LocalDate, EstadoDia> dias) {
+    private void diario(Document doc, YearMonth mes, LocalDate fin, Map<LocalDate, EstadoDia> dias,
+                        Map<UUID, UbicacionApunte> ubicacionesPorApunte) {
         doc.add(seccion("Tu diario, día a día"));
         doc.add(new Paragraph(
                 "Cada apunte lleva el sello del servidor (cuándo se apuntó de verdad) y su origen. "
@@ -254,7 +298,7 @@ public class InformeMensualService {
             celda(tabla, capitaliza(DIA_CORTO.format(dia)), TEXTO_NEGRITA);
             celda(tabla, ETIQUETA_ESTADO.get(estado.estado()), TEXTO);
             celda(tabla, jornadaDe(estado), TEXTO);
-            celda(tabla, apuntesDe(estado.apuntes()), TEXTO);
+            celda(tabla, apuntesDe(estado.apuntes(), ubicacionesPorApunte), TEXTO);
         }
         tabla.setSpacingBefore(6);
         tabla.setSpacingAfter(12);
@@ -277,7 +321,7 @@ public class InformeMensualService {
         return String.join("  ·  ", partes) + total;
     }
 
-    private String apuntesDe(List<Apunte> apuntes) {
+    private String apuntesDe(List<Apunte> apuntes, Map<UUID, UbicacionApunte> ubicacionesPorApunte) {
         if (apuntes.isEmpty()) {
             return "—";
         }
@@ -291,6 +335,19 @@ public class InformeMensualService {
                     .append(" — ").append(sello(a.getRegistradoEn()));
             if (a.getMotivo() != null) {
                 linea.append(" — motivo: ").append(a.getMotivo());
+            }
+            // Mismo patrón null-safe que motivo (sin tocar anchos de columna, D9/§8):
+            // solo aparece la línea si HAY ubicación anotada para ese apunte, y solo
+            // con el parámetro activado (el mapa llega vacío si no, ver genera()).
+            UbicacionApunte ubicacion = ubicacionesPorApunte.get(a.getId());
+            if (ubicacion != null) {
+                linea.append(" — ubicación: ").append(ETIQUETA_VEREDICTO.get(ubicacion.getVeredicto()));
+                if (ubicacion.getVeredicto() != VeredictoUbicacion.SUPRIMIDA) {
+                    // Nunca distancia numérica aquí (ni siquiera en DENTRO/NO_CONCLUYENTE,
+                    // que sí la permitirían por diseño): la fina vive solo en el anexo
+                    // técnico. Solo la precisión reportada, que no localiza nada.
+                    linea.append(" (±").append(ubicacion.getPrecisionMetros()).append(" m)");
+                }
             }
             lineas.add(linea.toString());
         }
@@ -317,7 +374,7 @@ public class InformeMensualService {
         doc.add(espacio());
     }
 
-    private void comoLeerlo(Document doc, ResumenMensual resumen) {
+    private void comoLeerlo(Document doc, ResumenMensual resumen, boolean incluyeUbicacion) {
         doc.add(seccion("Cómo leer este informe"));
         doc.add(new Paragraph(
                 "El diario es de solo-añadir: ningún apunte se borra ni se reescribe; corregir es añadir "
@@ -326,11 +383,41 @@ public class InformeMensualService {
                         + "de margen; \"rectificación tardía\", cuando el día ya estaba protegido — se registra "
                         + "aparte y lo protegido no se toca. Esa disciplina es la que hace de esta libreta un "
                         + "registro propio con valor como indicio de prueba.", TEXTO));
+        if (incluyeUbicacion) {
+            doc.add(parrafoSobreUbicacion());
+        }
         // Disclaimer C5 (pie del informe): el mismo texto de la pantalla, con el
         // convenio y el año reales del mes de este informe.
         doc.add(PdfInforme.notaConvenio(resumen.convenioNombre(), resumen.mes().getYear(),
                 resumen.convenioBoletin()));
         doc.add(PdfInforme.descargo());
+    }
+
+    /**
+     * Párrafo "Sobre la ubicación" (contrato §Backend, síntesis §8), con las
+     * correcciones vinculantes: los sellos se describen como generados por un
+     * sistema independiente del trabajador y del empresario (nunca "que nadie
+     * puede reescribir" — no hay anclaje externo todavía), y la afirmación de
+     * reproducibilidad se imprime SOLO aquí, condicionada a que esta misma
+     * opción esté activada (si no, el informe no puede afirmar por escrito una
+     * propiedad — el anexo técnico — que el lector no puede verificar).
+     */
+    private static Paragraph parrafoSobreUbicacion() {
+        Paragraph p = new Paragraph(
+                "Sobre la ubicación. Cada punto lo capturó el propio dispositivo del titular en el "
+                        + "momento de fichar, únicamente en los fichajes registrados al momento, y con "
+                        + "precisión aproximada (de barrio, no de portal). El punto de referencia (centro de "
+                        + "trabajo) lo declaró el titular en la fecha que consta en el anexo técnico. Los "
+                        + "sellos de fecha y hora los genera un sistema independiente del trabajador y del "
+                        + "empresario. Es un dato autocapturado en un dispositivo bajo control del titular: "
+                        + "corrobora, no acredita por sí solo. Con el anexo técnico (que incluye coordenadas, "
+                        + "el punto de referencia y la fórmula), un tercero puede recalcular cada resultado de "
+                        + "este informe. \"En otra ubicación\" puede deberse a que ese día se trabajó en otro "
+                        + "sitio, a mala cobertura o a que el margen de error era ajustado.",
+                TEXTO);
+        p.setSpacingBefore(4);
+        p.setSpacingAfter(4);
+        return p;
     }
 
     private String sello(OffsetDateTime registradoEn) {

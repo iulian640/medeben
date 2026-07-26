@@ -45,6 +45,14 @@ public class Usuario {
     @Column(name = "verificado_en")
     private Instant verificadoEn;
 
+    /**
+     * Suspende la purga automática de ubicaciones a los 15 meses (contrato
+     * §Retención): el usuario la declara cuando tiene una reclamación viva
+     * cuya prueba no quiere perder. Revisión anual, no automática.
+     */
+    @Column(name = "reclamacion_en_curso", nullable = false)
+    private boolean reclamacionEnCurso = false;
+
     protected Usuario() {
         // requerido por JPA
     }
@@ -86,5 +94,14 @@ public class Usuario {
     public void marcaVerificado(Instant ahora) {
         this.emailVerificado = true;
         this.verificadoEn = Objects.requireNonNull(ahora);
+    }
+
+    public boolean isReclamacionEnCurso() {
+        return reclamacionEnCurso;
+    }
+
+    /** Declara o retira la reclamación en curso (contrato §Retención). */
+    public void marcaReclamacionEnCurso(boolean enCurso) {
+        this.reclamacionEnCurso = enCurso;
     }
 }

@@ -104,6 +104,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
     }
 
+    /** 403 explícito, sin 204 mudo (contrato §Backend): el cliente apaga la feature y avisa. */
+    @ExceptionHandler(es.medeben.service.ConsentimientoUbicacionRequeridoException.class)
+    public ProblemDetail consentimientoUbicacionRequerido(es.medeben.service.ConsentimientoUbicacionRequeridoException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.FORBIDDEN, e.getMessage());
+    }
+
+    @ExceptionHandler(es.medeben.service.UbicacionNoElegibleException.class)
+    public ProblemDetail ubicacionNoElegible(es.medeben.service.UbicacionNoElegibleException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
+    }
+
+    @ExceptionHandler(es.medeben.service.UbicacionYaRegistradaException.class)
+    public ProblemDetail ubicacionYaRegistrada(es.medeben.service.UbicacionYaRegistradaException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ProblemDetail peticionInvalida(IllegalArgumentException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());

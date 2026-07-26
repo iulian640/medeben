@@ -1,6 +1,7 @@
 package es.medeben.controller;
 
 import es.medeben.config.RequiereBaseDeDatos;
+import es.medeben.service.AnexoUbicacionService;
 import es.medeben.service.InformeAnualService;
 import es.medeben.service.InformeMensualService;
 import org.springframework.http.CacheControl;
@@ -12,6 +13,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Year;
@@ -30,23 +32,46 @@ public class InformeController {
 
     private final InformeMensualService informes;
     private final InformeAnualService anuales;
+    private final AnexoUbicacionService anexoUbicacion;
 
-    public InformeController(InformeMensualService informes, InformeAnualService anuales) {
+    public InformeController(InformeMensualService informes, InformeAnualService anuales,
+                             AnexoUbicacionService anexoUbicacion) {
         this.informes = informes;
         this.anuales = anuales;
+        this.anexoUbicacion = anexoUbicacion;
     }
 
     @GetMapping(value = "/mes/{anyoMes}", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<byte[]> informeMensual(
-            @AuthenticationPrincipal Jwt jwt, @PathVariable String anyoMes) {
+            @AuthenticationPrincipal Jwt jwt, @PathVariable String anyoMes,
+            @RequestParam(defaultValue = "false") boolean ubicacion) {
         YearMonth mes = MesPath.parsea(anyoMes);
-        byte[] pdf = informes.genera(UsuarioAutenticado.id(jwt), mes);
+        byte[] pdf = informes.genera(UsuarioAutenticado.id(jwt), mes, ubicacion);
         return ResponseEntity.ok()
                 .cacheControl(CacheControl.noStore())
                 .contentType(MediaType.APPLICATION_PDF)
                 .headers(h -> h.setContentDisposition(ContentDisposition.attachment()
                         // El nombre sale del YearMonth ya parseado, nunca del input crudo.
                         .filename("medeben-informe-" + mes + ".pdf")
+                        .build()))
+                .body(pdf);
+    }
+
+    /**
+     * Anexo técnico de "Anotar dónde fichas" (síntesis §8, endpoint aparte):
+     * el ÚNICO canal por el que salen coordenadas, bajo acción explícita del
+     * titular. Nunca se enlaza desde el informe principal.
+     */
+    @GetMapping(value = "/mes/{anyoMes}/anexo-ubicacion", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<byte[]> anexoUbicacion(
+            @AuthenticationPrincipal Jwt jwt, @PathVariable String anyoMes) {
+        YearMonth mes = MesPath.parsea(anyoMes);
+        byte[] pdf = anexoUbicacion.genera(UsuarioAutenticado.id(jwt), mes);
+        return ResponseEntity.ok()
+                .cacheControl(CacheControl.noStore())
+                .contentType(MediaType.APPLICATION_PDF)
+                .headers(h -> h.setContentDisposition(ContentDisposition.attachment()
+                        .filename("medeben-anexo-ubicacion-" + mes + ".pdf")
                         .build()))
                 .body(pdf);
     }

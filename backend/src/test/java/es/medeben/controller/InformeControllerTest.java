@@ -1,6 +1,7 @@
 package es.medeben.controller;
 
 import es.medeben.config.SecurityConfig;
+import es.medeben.service.AnexoUbicacionService;
 import es.medeben.service.InformeAnualService;
 import es.medeben.service.InformeMensualService;
 import org.junit.jupiter.api.DisplayName;
@@ -47,6 +48,9 @@ class InformeControllerTest {
     private InformeAnualService anuales;
 
     @MockitoBean
+    private AnexoUbicacionService anexoUbicacion;
+
+    @MockitoBean
     private JwtDecoder jwtDecoder;
 
     private static org.springframework.test.web.servlet.request.RequestPostProcessor comoUsuario() {
@@ -65,7 +69,9 @@ class InformeControllerTest {
     @Test
     @DisplayName("GET con token → PDF adjunto con nombre limpio y sin caché compartida")
     void descargaPdf() throws Exception {
-        when(informes.genera(eq(USUARIO), eq(YearMonth.of(2026, 7)))).thenReturn(PDF);
+        // El controller SIEMPRE llama al overload de 3 argumentos (contrato §Backend,
+        // punto 10: @RequestParam(defaultValue="false")); sin el query param, ubicacion=false.
+        when(informes.genera(eq(USUARIO), eq(YearMonth.of(2026, 7)), eq(false))).thenReturn(PDF);
 
         mockMvc.perform(get("/api/v1/informes/mes/2026-07").with(comoUsuario()))
                 .andExpect(status().isOk())
@@ -74,6 +80,37 @@ class InformeControllerTest {
                 .andExpect(header().string("Content-Disposition",
                         containsString("attachment; filename=\"medeben-informe-2026-07.pdf\"")))
                 .andExpect(content().bytes(PDF));
+    }
+
+    @Test
+    @DisplayName("?ubicacion=true propaga la casilla al servicio")
+    void ubicacionActivadaPropagaAlServicio() throws Exception {
+        when(informes.genera(eq(USUARIO), eq(YearMonth.of(2026, 7)), eq(true))).thenReturn(PDF);
+
+        mockMvc.perform(get("/api/v1/informes/mes/2026-07?ubicacion=true").with(comoUsuario()))
+                .andExpect(status().isOk())
+                .andExpect(content().bytes(PDF));
+    }
+
+    @Test
+    @DisplayName("anexo técnico: PDF adjunto con nombre limpio propio, sin caché compartida")
+    void descargaAnexoUbicacion() throws Exception {
+        when(anexoUbicacion.genera(eq(USUARIO), eq(YearMonth.of(2026, 7)))).thenReturn(PDF);
+
+        mockMvc.perform(get("/api/v1/informes/mes/2026-07/anexo-ubicacion").with(comoUsuario()))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_PDF))
+                .andExpect(header().string("Cache-Control", containsString("no-store")))
+                .andExpect(header().string("Content-Disposition",
+                        containsString("attachment; filename=\"medeben-anexo-ubicacion-2026-07.pdf\"")))
+                .andExpect(content().bytes(PDF));
+    }
+
+    @Test
+    @DisplayName("anexo técnico sin token → 401")
+    void anexoUbicacionSinToken() throws Exception {
+        mockMvc.perform(get("/api/v1/informes/mes/2026-07/anexo-ubicacion"))
+                .andExpect(status().isUnauthorized());
     }
 
     @Test
