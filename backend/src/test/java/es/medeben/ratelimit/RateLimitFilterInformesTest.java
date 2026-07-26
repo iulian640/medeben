@@ -4,6 +4,7 @@ import es.medeben.config.RelojConfig;
 import es.medeben.config.SecurityConfig;
 import es.medeben.controller.GlobalExceptionHandler;
 import es.medeben.controller.InformeController;
+import es.medeben.service.AnexoUbicacionService;
 import es.medeben.service.InformeAnualService;
 import es.medeben.service.InformeMensualService;
 import org.junit.jupiter.api.DisplayName;
@@ -50,6 +51,9 @@ class RateLimitFilterInformesTest {
 
     @MockitoBean
     private InformeAnualService informesAnuales;
+
+    @MockitoBean
+    private AnexoUbicacionService anexoUbicacion;
 
     @MockitoBean
     private JwtDecoder jwtDecoder;
