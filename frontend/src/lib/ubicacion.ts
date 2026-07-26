@@ -10,7 +10,8 @@
  * `capturaPosicion()` nunca lanza: "sin fix" es el caso normal (interiores),
  * no un error que mostrar.
  */
-import { Geolocation, type PermissionState } from '@capacitor/geolocation'
+import type { PermissionState } from '@capacitor/core'
+import { Geolocation } from '@capacitor/geolocation'
 
 /** Posición aproximada ya en el vocabulario del backend (D3: crudo, sin redondeos falsos). */
 export interface Posicion {
