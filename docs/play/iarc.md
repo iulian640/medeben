@@ -57,8 +57,15 @@ públicos, contenido generado por usuarios que otros vean)?
 
 **8 · Compartir la ubicación del usuario** — ¿La app comparte la ubicación
 física actual del usuario con otros usuarios?
-- **No.** Nota: la app ni siquiera pide permiso de ubicación (manifest = solo
-  INTERNET). La provincia la teclea el usuario y no se comparte con nadie.
+- **No.** Nota: desde que existe «Anotar dónde fichas» (ADR D39, opcional y
+  apagada de fábrica), la app **sí** puede pedir permiso de ubicación
+  aproximada al usuario que la activa. Pero esta pregunta es sobre
+  **compartir** la ubicación **con otros usuarios**, no sobre recogerla: esa
+  ubicación no la ve nadie más que el propio titular (y, si genera el anexo
+  técnico, quien él decida entregárselo); no hay perfiles públicos ni
+  contenido visible entre usuarios (ver pregunta 7). La provincia del perfil,
+  aparte y sin relación con esta función, la teclea el usuario y tampoco se
+  comparte con nadie.
 
 **9 · Compras digitales** — ¿Permite comprar bienes o servicios digitales?
 - **No.** Nota: la app es gratuita y no tiene compras in-app. (Si en el futuro se
