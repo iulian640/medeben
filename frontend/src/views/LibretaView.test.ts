@@ -15,10 +15,15 @@ vi.mock('../services/fichajes', () => ({
 vi.mock('../services/horario', () => ({
   getHorarioSemana: vi.fn(),
 }))
+vi.mock('../services/ubicacion', () => ({
+  anotaUbicacion: vi.fn().mockResolvedValue(undefined),
+}))
 
 import { getEstadoDia, postApunte } from '../services/fichajes'
+import { anotaUbicacion } from '../services/ubicacion'
 
 const apunteEntrada: ApunteGuardado = {
+  id: 'apunte-1',
   fecha: '2026-07-08',
   tipo: 'ENTRADA',
   hora: '14:05',
@@ -377,6 +382,66 @@ describe('LibretaView — fichar', () => {
     resolverPost(apunteEntrada)
     await flushPromises()
     expect(boton(wrapper, 'Entro ahora').attributes('disabled')).toBeUndefined()
+  })
+})
+
+describe('LibretaView — anotar ubicación (solo en fichajes al momento)', () => {
+  it('"Entro ahora" (fichaje al momento) adjunta la ubicación al id del apunte recién guardado', async () => {
+    vi.mocked(postApunte).mockResolvedValue(apunteEntrada)
+    const wrapper = await montar()
+
+    await boton(wrapper, 'Entro ahora').trigger('click')
+    await flushPromises()
+
+    expect(anotaUbicacion).toHaveBeenCalledExactlyOnceWith('apunte-1')
+  })
+
+  it('"Salgo ahora" (fichaje al momento) también adjunta la ubicación', async () => {
+    vi.mocked(postApunte).mockResolvedValue({ ...apunteEntrada, tipo: 'SALIDA' })
+    const wrapper = await montar()
+
+    await boton(wrapper, 'Salgo ahora').trigger('click')
+    await flushPromises()
+
+    expect(anotaUbicacion).toHaveBeenCalledExactlyOnceWith('apunte-1')
+  })
+
+  it('un fichaje manual (hora tecleada) NUNCA adjunta ubicación (D7: solo al momento)', async () => {
+    vi.mocked(postApunte).mockResolvedValue({ ...apunteEntrada, hora: '09:00' })
+    const wrapper = await montar()
+
+    await boton(wrapper, 'Registrar el turno manualmente').trigger('click')
+    await wrapper.find('#hora-manual').setValue('09:00')
+    await boton(wrapper, 'Entrada a esa hora').trigger('click')
+    await flushPromises()
+
+    expect(anotaUbicacion).not.toHaveBeenCalled()
+  })
+
+  it('una ausencia NUNCA adjunta ubicación (D7: solo al momento)', async () => {
+    vi.mocked(postApunte).mockResolvedValue({
+      ...apunteEntrada,
+      tipo: 'AUSENCIA',
+      hora: null,
+    })
+    const wrapper = await montar()
+
+    await boton(wrapper, 'No he ido').trigger('click')
+    await boton(wrapper, 'Registrar ausencia').trigger('click')
+    await flushPromises()
+
+    expect(anotaUbicacion).not.toHaveBeenCalled()
+  })
+
+  it('un rechazo de anotaUbicacion no impide el pulso de éxito del fichaje: ya está guardado', async () => {
+    vi.mocked(postApunte).mockResolvedValue(apunteEntrada)
+    vi.mocked(anotaUbicacion).mockRejectedValueOnce(new Error('sin fix'))
+    const wrapper = await montar()
+
+    await boton(wrapper, 'Entro ahora').trigger('click')
+    await flushPromises()
+
+    expect(wrapper.text()).toContain('✓ apuntado a las 14:06')
   })
 })
 

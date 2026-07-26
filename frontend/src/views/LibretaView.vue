@@ -2,7 +2,8 @@
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useFichajesStore } from '../stores/fichajes'
-import type { ApuntePeticion, TipoApunte } from '../services/fichajes'
+import type { ApuntePeticion, ApunteGuardado, TipoApunte } from '../services/fichajes'
+import { anotaUbicacion } from '../services/ubicacion'
 import LibretaOnboarding from '../components/LibretaOnboarding.vue'
 import PanelPlegable from '../components/PanelPlegable.vue'
 import PanelHoraManual from '../components/PanelHoraManual.vue'
@@ -92,10 +93,10 @@ function cerrarOnboarding() {
   mostrarOnboarding.value = false
 }
 
-async function envia(peticion: ApuntePeticion) {
+async function envia(peticion: ApuntePeticion): Promise<ApunteGuardado | null> {
   ultimaPeticion = peticion
-  const apuntado = await fichajes.fichar(peticion)
-  if (apuntado) {
+  const apunte = await fichajes.fichar(peticion)
+  if (apunte) {
     mostrarHoraManual.value = false
     mostrarAusencia.value = false
     horaManual.value = ''
@@ -108,8 +109,17 @@ async function envia(peticion: ApuntePeticion) {
       pulsoExito(bloqueDia.value)
     }
   }
+  return apunte
 }
 
+/*
+ * Único punto del cliente que anota ubicación (D7 del contrato: SOLO
+ * fichajes al momento, nunca manual/ausencia/rectificación). El fichaje ya
+ * está guardado y confirmado en pantalla cuando esto arranca — nunca hay un
+ * await entre el toque del usuario y el POST de /fichajes (línea roja del
+ * diseño): esta llamada es fire-and-forget, no se espera ni se deja que un
+ * fallo suyo afecte al fichaje, que ya está a salvo.
+ */
 function fichaAhora(tipo: TipoApunte) {
   if (!fichajes.dia) {
     return
@@ -120,6 +130,10 @@ function fichaAhora(tipo: TipoApunte) {
     hora: horaActual(),
     motivo: null,
     rectificacionTardiaConfirmada: false,
+  }).then((apunte) => {
+    if (apunte) {
+      anotaUbicacion(apunte.id).catch(() => {})
+    }
   })
 }
 
