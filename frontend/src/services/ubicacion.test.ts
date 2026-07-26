@@ -23,6 +23,7 @@ import {
   VERSION_CONSENTIMIENTO_UBICACION,
   anotaUbicacion,
   avisoConsentimientoCaducado,
+  deleteCentroTrabajo,
   deleteConsentimientoUbicacion,
   deleteUbicaciones,
   getCentroTrabajo,
@@ -91,6 +92,12 @@ describe('centro de trabajo', () => {
       longitud: -5.84,
       alias: null,
     })
+  })
+
+  it('deleteCentroTrabajo da de baja el centro vigente (append-only: inserta una fila BAJA, no borra nada)', async () => {
+    await deleteCentroTrabajo()
+
+    expect(api.delete).toHaveBeenCalledExactlyOnceWith('/centro-trabajo')
   })
 })
 

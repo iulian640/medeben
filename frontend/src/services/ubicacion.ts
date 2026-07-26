@@ -104,6 +104,13 @@ export const putCentroTrabajo = (posicion: Posicion, alias?: string | null) =>
     alias: alias ?? null,
   })
 
+/**
+ * Da de baja el centro vigente (append-only, D4: inserta una fila BAJA, no
+ * borra nada — el historial de declaraciones se conserva). No borra las
+ * ubicaciones ya registradas: para eso está `deleteUbicaciones`.
+ */
+export const deleteCentroTrabajo = () => api.delete<void>('/centro-trabajo')
+
 /** Borra TODO el histórico de ubicaciones del usuario. El diario de fichajes queda intacto. */
 export const deleteUbicaciones = () => api.delete<void>('/ubicaciones')
 
