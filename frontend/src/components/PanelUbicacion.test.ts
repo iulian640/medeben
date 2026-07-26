@@ -17,6 +17,7 @@ vi.mock('../services/ubicacion', () => ({
   VERSION_CONSENTIMIENTO_UBICACION: '1.0',
   postConsentimientoUbicacion: vi.fn(),
   deleteConsentimientoUbicacion: vi.fn(),
+  getCentroTrabajo: vi.fn().mockRejectedValue(new Error('sin centro')),
   putCentroTrabajo: vi.fn(),
   deleteUbicaciones: vi.fn(),
   ubicacionActivada: vi.fn().mockReturnValue(false),
@@ -32,6 +33,7 @@ import {
   avisoConsentimientoCaducado,
   deleteConsentimientoUbicacion,
   deleteUbicaciones,
+  getCentroTrabajo,
   limpiaAvisoConsentimientoCaducado,
   marcaUbicacionActivada,
   marcaUbicacionDesactivada,
@@ -66,6 +68,7 @@ beforeEach(() => {
   vi.mocked(ubicacionActivada).mockReturnValue(false)
   vi.mocked(avisoConsentimientoCaducado).mockReturnValue(false)
   vi.mocked(avisoPermisoCaducado).mockReturnValue(false)
+  vi.mocked(getCentroTrabajo).mockRejectedValue(new Error('sin centro'))
 })
 
 function boton(wrapper: Awaited<ReturnType<typeof montar>>, texto: string) {
@@ -276,6 +279,19 @@ describe('PanelUbicacion — ya activada', () => {
 
     expect(deleteConsentimientoUbicacion).toHaveBeenCalledOnce()
     expect(marcaUbicacionDesactivada).toHaveBeenCalledOnce()
+  })
+
+  it('al montar con la feature ya activa, repuebla la fecha de declaración del centro', async () => {
+    vi.mocked(getCentroTrabajo).mockResolvedValue({
+      alias: null,
+      radioMetros: 150,
+      declaradoEn: '2026-06-01T09:00:00+02:00',
+    })
+
+    const wrapper = await montar()
+
+    expect(getCentroTrabajo).toHaveBeenCalledOnce()
+    expect(wrapper.text()).toContain('Declarado el 01/06/2026')
   })
 
   it('tras 3 fichajes seguidos sin permiso efectivo, aviso discreto (nunca al fichar)', async () => {

@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { Capacitor } from '@capacitor/core'
 import { avisoPermisoCaducado, capturaPosicion, pideUbicacion } from '../lib/ubicacion'
 import {
   avisoConsentimientoCaducado,
   deleteConsentimientoUbicacion,
   deleteUbicaciones,
+  getCentroTrabajo,
   limpiaAvisoConsentimientoCaducado,
   marcaUbicacionActivada,
   marcaUbicacionDesactivada,
@@ -38,7 +39,26 @@ const permisoDenegadoPermanente = ref(false)
 // --- Paso 3: marcar el centro estando allí ---
 const marcandoCentro = ref(false)
 const errorCentro = ref<string | null>(null)
-const centroDeclarado = ref<{ declaradoEn: string; precisionMetros: number } | null>(null)
+/** precisionMetros solo se conoce justo al marcar el centro (GET no la devuelve: D3, minimización). */
+const centroDeclarado = ref<{ declaradoEn: string; precisionMetros: number | null } | null>(null)
+
+/*
+ * Con la feature ya activa desde una sesión anterior, se repuebla la fecha
+ * de declaración del centro (sin ella, "Declarado el X" solo se vería justo
+ * después de marcarlo, y desaparecería al reabrir Ajustes más tarde).
+ */
+onMounted(async () => {
+  if (!activo.value) {
+    return
+  }
+  try {
+    const centro = await getCentroTrabajo()
+    centroDeclarado.value = { declaradoEn: centro.declaradoEn, precisionMetros: null }
+  } catch {
+    // Sin centro vigente (404) o caída puntual: no es un error que mostrar
+    // aquí, simplemente no se rellena la fecha.
+  }
+})
 
 // --- Ya activa: borrar histórico ---
 const borrandoHistorico = ref(false)
@@ -200,7 +220,10 @@ function cierraAvisoConsentimiento() {
           class="texto-sm texto-suave"
         >
           Declarado el {{ formatearFecha(centroDeclarado.declaradoEn.slice(0, 10)) }}. Esta
-          fecha aparece en tus informes. Precisión aproximada: ±{{ centroDeclarado.precisionMetros }} m.
+          fecha aparece en tus informes.
+          <template v-if="centroDeclarado.precisionMetros !== null">
+            Precisión aproximada: ±{{ centroDeclarado.precisionMetros }} m.
+          </template>
         </p>
         <p
           v-if="mostrarAvisoPermiso"
