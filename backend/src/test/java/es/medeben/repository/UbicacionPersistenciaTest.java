@@ -2,6 +2,7 @@ package es.medeben.repository;
 
 import es.medeben.domain.fichaje.Apunte;
 import es.medeben.domain.fichaje.CentroTrabajo;
+import es.medeben.domain.fichaje.EstadoCentroTrabajo;
 import es.medeben.domain.fichaje.OrigenApunte;
 import es.medeben.domain.fichaje.TipoApunte;
 import es.medeben.domain.fichaje.UbicacionApunte;
@@ -233,6 +234,38 @@ class UbicacionPersistenciaTest {
                     centro.getId(), LAT, LON, 150, 12, VeredictoUbicacion.DENTRO, SELLO));
             em.flush();
         }).rootCause().hasMessageContaining("ubicaciones_apunte_pkey");
+    }
+
+    // --- Tombstone del centro (art. 17): el bulk update NO puede tirar el UPDATE pendiente ---
+
+    @Test
+    @DisplayName("la secuencia exacta de CentroTrabajoService.purga() (>=24h) SÍ deja el centro sin coordenadas en BD")
+    void laSecuenciaDePurgaDejaElCentroSinCoordenadasEnBd() {
+        Apunte apunte = apuntes.save(new Apunte(usuarioId, LocalDate.of(2026, 7, 26), TipoApunte.ENTRADA,
+                "10:00", null, OrigenApunte.CONFIRMADO, SELLO));
+        CentroTrabajo centro = centros.save(new CentroTrabajo(usuarioId, "El bar", LAT, LON, 150, SELLO));
+        em.flush();
+        ubicaciones.save(new UbicacionApunte(apunte.getId(), usuarioId, apunte.getFecha(), LAT, LON, 20,
+                centro.getId(), LAT, LON, 150, 10, VeredictoUbicacion.DENTRO, SELLO));
+        em.flush();
+        em.clear();
+
+        // Misma secuencia que CentroTrabajoService.purga() en la rama >=24h:
+        // tombstone() muta la entidad gestionada, save() hace merge (sin SQL
+        // todavía), y el bulk update de ubicaciones NO comparte query space con
+        // centros_trabajo, así que sin flushAutomatically el UPDATE del centro
+        // se pierde en el em.clear() de @Modifying.
+        CentroTrabajo gestionado = centros.findById(centro.getId()).orElseThrow();
+        gestionado.tombstone();
+        centros.save(gestionado);
+        ubicaciones.anulaCoordenadasDelCentro(centro.getId());
+        em.clear();
+
+        CentroTrabajo trasPurga = centros.findById(centro.getId()).orElseThrow();
+        assertThat(trasPurga.getLatitud()).isNull();
+        assertThat(trasPurga.getLongitud()).isNull();
+        assertThat(trasPurga.getAlias()).isNull();
+        assertThat(trasPurga.getEstado()).isEqualTo(EstadoCentroTrabajo.BAJA);
     }
 
     private long cuenta(String tabla, UUID usuarioId) {

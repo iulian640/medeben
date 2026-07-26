@@ -36,8 +36,17 @@ public interface UbicacionApunteRepository extends Repository<UbicacionApunte, U
      * Propagación del tombstone de un centro (art. 17 sobre {@code CentroTrabajo}):
      * anula la copia congelada de coordenadas en todas las filas que lo
      * referencian. Se conservan distancia, centro_radio y veredicto.
+     *
+     * <p>{@code flushAutomatically = true} es OBLIGATORIO (bug CRÍTICO
+     * reproducido contra PostgreSQL real): en {@code CentroTrabajoService.purga()}
+     * el UPDATE pendiente de {@code centro.tombstone()} (sobre
+     * {@code centros_trabajo}) y este bulk UPDATE (sobre
+     * {@code ubicaciones_apunte}) no comparten query space, así que Hibernate
+     * NO auto-flushea antes de ejecutar el bulk — sin este flag el tombstone
+     * del centro se pierde en {@code em.clear()} y la transacción commitea sin
+     * tocar la fila del centro.</p>
      */
-    @Modifying(clearAutomatically = true)
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update UbicacionApunte u set u.centroLatitud = null, u.centroLongitud = null "
             + "where u.centroId = :centroId")
     int anulaCoordenadasDelCentro(@Param("centroId") UUID centroId);
