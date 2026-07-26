@@ -8,6 +8,7 @@ import es.medeben.domain.usuario.ConsentimientoUbicacion;
 import es.medeben.service.CentroTrabajoService;
 import es.medeben.service.ConsentimientoUbicacionRequeridoException;
 import es.medeben.service.ConsentimientoUbicacionService;
+import es.medeben.service.ReclamacionEnCursoService;
 import es.medeben.service.UbicacionService;
 import es.medeben.service.UbicacionYaRegistradaException;
 import org.junit.jupiter.api.DisplayName;
@@ -65,6 +66,9 @@ class UbicacionControllerTest {
 
     @MockitoBean
     private ConsentimientoUbicacionService consentimientos;
+
+    @MockitoBean
+    private ReclamacionEnCursoService reclamaciones;
 
     @MockitoBean
     private JwtDecoder jwtDecoder;
@@ -295,5 +299,34 @@ class UbicacionControllerTest {
                 .andExpect(status().isNoContent());
 
         verify(ubicaciones).borraTodas(USUARIO);
+    }
+
+    // --- Reclamación en curso (contrato §Retención) ---
+
+    @Test
+    @DisplayName("PUT usuario/reclamacion-en-curso declara — 204")
+    void declaraReclamacionEnCurso() throws Exception {
+        mockMvc.perform(put("/api/v1/usuario/reclamacion-en-curso").with(comoUsuario()))
+                .andExpect(status().isNoContent());
+
+        verify(reclamaciones).declara(USUARIO);
+    }
+
+    @Test
+    @DisplayName("DELETE usuario/reclamacion-en-curso retira — 204")
+    void retiraReclamacionEnCurso() throws Exception {
+        mockMvc.perform(delete("/api/v1/usuario/reclamacion-en-curso").with(comoUsuario()))
+                .andExpect(status().isNoContent());
+
+        verify(reclamaciones).retira(USUARIO);
+    }
+
+    @Test
+    @DisplayName("sin token → 401 en reclamación en curso")
+    void sinTokenReclamacionEnCurso() throws Exception {
+        mockMvc.perform(put("/api/v1/usuario/reclamacion-en-curso"))
+                .andExpect(status().isUnauthorized());
+
+        verify(reclamaciones, never()).declara(any());
     }
 }

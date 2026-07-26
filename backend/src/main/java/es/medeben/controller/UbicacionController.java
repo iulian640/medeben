@@ -9,6 +9,7 @@ import es.medeben.dto.UbicacionRequest;
 import es.medeben.dto.UbicacionResponse;
 import es.medeben.service.CentroTrabajoService;
 import es.medeben.service.ConsentimientoUbicacionService;
+import es.medeben.service.ReclamacionEnCursoService;
 import es.medeben.service.UbicacionService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -40,12 +41,15 @@ public class UbicacionController {
     private final UbicacionService ubicaciones;
     private final CentroTrabajoService centros;
     private final ConsentimientoUbicacionService consentimientos;
+    private final ReclamacionEnCursoService reclamaciones;
 
     public UbicacionController(UbicacionService ubicaciones, CentroTrabajoService centros,
-                               ConsentimientoUbicacionService consentimientos) {
+                               ConsentimientoUbicacionService consentimientos,
+                               ReclamacionEnCursoService reclamaciones) {
         this.ubicaciones = ubicaciones;
         this.centros = centros;
         this.consentimientos = consentimientos;
+        this.reclamaciones = reclamaciones;
     }
 
     @PostMapping("/api/v1/ubicacion/consentimiento")
@@ -116,5 +120,23 @@ public class UbicacionController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void borraTodas(@AuthenticationPrincipal Jwt jwt) {
         ubicaciones.borraTodas(UsuarioAutenticado.id(jwt));
+    }
+
+    /**
+     * Declara "reclamación en curso" (contrato §Retención): suspende la purga
+     * automática de ubicaciones a los 15 meses. Es la vía de escape que el
+     * texto de consentimiento v1.0 promete literalmente.
+     */
+    @PutMapping("/api/v1/usuario/reclamacion-en-curso")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void declaraReclamacionEnCurso(@AuthenticationPrincipal Jwt jwt) {
+        reclamaciones.declara(UsuarioAutenticado.id(jwt));
+    }
+
+    /** Retira "reclamación en curso": la purga vuelve a aplicar con normalidad. */
+    @DeleteMapping("/api/v1/usuario/reclamacion-en-curso")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void retiraReclamacionEnCurso(@AuthenticationPrincipal Jwt jwt) {
+        reclamaciones.retira(UsuarioAutenticado.id(jwt));
     }
 }
