@@ -116,10 +116,19 @@ public class UbicacionController {
         ubicaciones.suprime(UsuarioAutenticado.id(jwt), apunteId);
     }
 
+    /**
+     * Borra TODO el histórico de ubicaciones y purga TODAS las declaraciones
+     * de centro de trabajo del usuario (art. 17): sin lo segundo, la promesa
+     * del consentimiento v1.0 ("borrar todo tu histórico... en un toque")
+     * dejaba coordenadas en {@code centros_trabajo}, solo alcanzables
+     * purgando cada declaración por su id a mano.
+     */
     @DeleteMapping("/api/v1/ubicaciones")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void borraTodas(@AuthenticationPrincipal Jwt jwt) {
-        ubicaciones.borraTodas(UsuarioAutenticado.id(jwt));
+        UUID usuarioId = UsuarioAutenticado.id(jwt);
+        ubicaciones.borraTodas(usuarioId);
+        centros.purgaTodas(usuarioId);
     }
 
     /**

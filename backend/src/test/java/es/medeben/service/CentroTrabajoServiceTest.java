@@ -155,4 +155,37 @@ class CentroTrabajoServiceTest {
         assertThat(tombstoned.getEstado()).isEqualTo(EstadoCentroTrabajo.BAJA);
         verify(ubicaciones).anulaCoordenadasDelCentro(antiguo.getId());
     }
+
+    // --- Purga total (art. 17): "borrar todo tu histórico" no puede dejar las coordenadas del centro fuera ---
+
+    @Test
+    @DisplayName("purgaTodas aplica la misma regla de 24h a cada declaración del usuario, una por una")
+    void purgaTodasAplicaLaMismaReglaACadaDeclaracion() {
+        CentroTrabajo reciente = new CentroTrabajo(USUARIO, "El bar", LAT, LON, 150,
+                OffsetDateTime.now(RELOJ).minusHours(2));
+        CentroTrabajo antigua = new CentroTrabajo(USUARIO, "El otro bar", LAT, LON, 150,
+                OffsetDateTime.now(RELOJ).minusHours(48));
+        when(centros.findAllByUsuarioId(USUARIO)).thenReturn(java.util.List.of(reciente, antigua));
+
+        servicio.purgaTodas(USUARIO);
+
+        verify(centros).deleteById(reciente.getId());
+        org.mockito.ArgumentCaptor<CentroTrabajo> captor = org.mockito.ArgumentCaptor.forClass(CentroTrabajo.class);
+        verify(centros).save(captor.capture());
+        assertThat(captor.getValue().getId()).isEqualTo(antigua.getId());
+        assertThat(captor.getValue().getLatitud()).isNull();
+        verify(ubicaciones).anulaCoordenadasDelCentro(antigua.getId());
+    }
+
+    @Test
+    @DisplayName("purgaTodas sin declaraciones no hace nada")
+    void purgaTodasSinDeclaracionesNoHaceNada() {
+        when(centros.findAllByUsuarioId(USUARIO)).thenReturn(java.util.List.of());
+
+        servicio.purgaTodas(USUARIO);
+
+        verify(centros, never()).deleteById(any());
+        verify(centros, never()).save(any());
+        verify(ubicaciones, never()).anulaCoordenadasDelCentro(any());
+    }
 }

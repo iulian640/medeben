@@ -3,6 +3,7 @@ package es.medeben.repository;
 import es.medeben.domain.fichaje.CentroTrabajo;
 import org.springframework.data.repository.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -26,6 +27,14 @@ public interface CentroTrabajoRepository extends Repository<CentroTrabajo, UUID>
      * comprobando {@link CentroTrabajo#isVigente()} sobre esta fila.
      */
     Optional<CentroTrabajo> findFirstByUsuarioIdOrderByDeclaradoEnDesc(UUID usuarioId);
+
+    /**
+     * TODAS las declaraciones (ALTA y BAJA) del usuario — art. 17: "borrar
+     * todo tu histórico" tiene que poder alcanzar cada fila, no solo la
+     * vigente (un usuario que declaró/cerró varias veces acumula varias filas
+     * con coordenadas, cada una purgable solo con su propio id hasta ahora).
+     */
+    List<CentroTrabajo> findAllByUsuarioId(UUID usuarioId);
 
     /** Borrado físico (purgar &lt;24h): la cascada de V9 arrastra sus ubicaciones. */
     void deleteById(UUID id);

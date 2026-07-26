@@ -139,10 +139,23 @@ class UbicacionControllerTest {
                         .contentType(MediaType.APPLICATION_JSON).content("""
                                 {"latitud":40.41675,"longitud":-3.70379,"alias":"El bar"}"""))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(centro.getId().toString()))
                 .andExpect(jsonPath("$.alias").value("El bar"))
                 .andExpect(jsonPath("$.radioMetros").value(150))
                 .andExpect(jsonPath("$.latitud").doesNotExist())
                 .andExpect(jsonPath("$.longitud").doesNotExist());
+    }
+
+    @Test
+    @DisplayName("GET centro-trabajo incluye el id — sin él, DELETE .../{id}?purgar=true es inalcanzable")
+    void centroVigenteIncluyeElId() throws Exception {
+        CentroTrabajo centro = new CentroTrabajo(USUARIO, "El bar", LAT, LON, 150,
+                OffsetDateTime.parse("2026-07-26T09:00:00+02:00"));
+        when(centros.vigente(USUARIO)).thenReturn(Optional.of(centro));
+
+        mockMvc.perform(get("/api/v1/centro-trabajo").with(comoUsuario()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(centro.getId().toString()));
     }
 
     @Test
@@ -293,12 +306,16 @@ class UbicacionControllerTest {
     }
 
     @Test
-    @DisplayName("DELETE ubicaciones borra todo el histórico — 204")
+    @DisplayName("DELETE ubicaciones borra todo el histórico Y purga las declaraciones de centro — 204")
     void borraTodasLasUbicaciones() throws Exception {
         mockMvc.perform(delete("/api/v1/ubicaciones").with(comoUsuario()))
                 .andExpect(status().isNoContent());
 
         verify(ubicaciones).borraTodas(USUARIO);
+        // Sin esto, "borrar todo tu histórico de ubicaciones" (promesa del
+        // consentimiento v1.0) dejaba las coordenadas de centros_trabajo
+        // intactas, alcanzables solo purgando cada id a mano.
+        verify(centros).purgaTodas(USUARIO);
     }
 
     // --- Reclamación en curso (contrato §Retención) ---

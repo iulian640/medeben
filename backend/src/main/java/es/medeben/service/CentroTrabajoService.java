@@ -89,14 +89,30 @@ public class CentroTrabajoService {
         CentroTrabajo centro = centros.findById(centroId)
                 .filter(c -> c.getUsuarioId().equals(usuarioId))
                 .orElseThrow(() -> new RecursoNoEncontradoException("Centro de trabajo no encontrado"));
+        purgaFila(centro);
+    }
 
+    /**
+     * Purga TODAS las declaraciones (ALTA y BAJA) del usuario, una por una,
+     * con la misma regla de 24h que {@link #purga} — corrección del
+     * verificador rgpd-play: sin esto, {@code DELETE /api/v1/ubicaciones}
+     * ("borrar todo tu histórico de ubicaciones", que el consentimiento v1.0
+     * promete "en un toque") dejaba intactas las coordenadas de
+     * {@code centros_trabajo}, alcanzables solo purgando cada id a mano.
+     */
+    @Transactional
+    public void purgaTodas(UUID usuarioId) {
+        centros.findAllByUsuarioId(usuarioId).forEach(this::purgaFila);
+    }
+
+    private void purgaFila(CentroTrabajo centro) {
         Duration antiguedad = Duration.between(centro.getDeclaradoEn(), OffsetDateTime.now(reloj));
         if (antiguedad.compareTo(VENTANA_BORRADO_FISICO) < 0) {
-            centros.deleteById(centroId);
+            centros.deleteById(centro.getId());
         } else {
             centro.tombstone();
             centros.save(centro);
-            ubicaciones.anulaCoordenadasDelCentro(centroId);
+            ubicaciones.anulaCoordenadasDelCentro(centro.getId());
         }
     }
 }
