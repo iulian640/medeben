@@ -1,5 +1,7 @@
 # MeDeben
 
+[![CI](https://github.com/iulian640/medeben/actions/workflows/ci.yml/badge.svg)](https://github.com/iulian640/medeben/actions/workflows/ci.yml)
+
 > Read this in English → [README.md](README.md)
 
 **Tu convenio y tus horas, en claro.**
